@@ -11,15 +11,6 @@ int main(void){
 
 	conexion_i_mongo_store = iniciar_conexion(SERVER_I_MONGO_STORE, config);
 
-
-
-
-
-
-
-
-
-
 	//PRUEBA MANDAR MSJS A MI-RAM
 	char *saludo = "Hola MIRAM!";
 	send(conexion_mi_ram_hq, saludo, sizeof(saludo),0);
@@ -29,12 +20,6 @@ int main(void){
 	printf("Escribi algo.. ");
 	gets(s);
 	printf("Escribi en mi propia consola: %s\n", s);
-
-
-
-
-
-
 
 	//---------------------AL FINAL-------------//
 	config_destroy(config);

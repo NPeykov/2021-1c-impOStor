@@ -16,12 +16,12 @@ void* consolaDiscordiador(){
 
 	while(1) {
 		printf("------ MODULO DISCORDIADOR ------\n");
-		printf("1. Iniciar Patota\n");
-		printf("2. Listar Tripulantes\n");
-		printf("3. Expulsar Tripulante\n");
-		printf("4. Iniciar Planificacion\n");
-		printf("5. Pausar Planificacion\n\n");
-		printf("6. Obtener Bitacora\n\n");
+		printf("INICIAR_PATOTA\n");
+		printf("LISTAR_TRIPULANTES\n");
+		printf("EXPULSAR_TRIPULANTES\n");
+		printf("INICIAR_PLANIFICACION\n");
+		printf("PAUSAR_PLANIFICACION\n\n");
+		printf("OBTENER_BITACORA\n\n");
 		printf("Salir <intro>\n\n\n");
 
 		opcion_r = readline(">");
@@ -31,16 +31,17 @@ void* consolaDiscordiador(){
 		}
 
 		switch(atoi(opcion_r)) {
-		case 1:
+		case "INICIAR_PATOTA":
 			printf("Creo una patota");
+
 			break;
-		case 2:
+		case "LISTAR_TRIPULANTES":
 			printf("Estado de la Nave: 09/07/21 10:15:01\n");
 			printf("Tripulante:1 Patota:1 Estado:EJECUTANDO\n");
 			printf("Tripulante:2 Patota:2 Estado:EJECUTANDO\n");
 			printf("Tripulante:3 Patota:2 Estado:BLOQUEADO I/O\n");
 			break;
-		case 3:
+		case "EXPULSAR_TRIPULANTES":
 			printf("Expulsar Tripulante");
 
           /*
@@ -54,16 +55,16 @@ void* consolaDiscordiador(){
 		  */
 
 			break;
-		case 4:
+		case "INICIAR_PLANIFICACION":
 			printf("Iniciando Planificacion");
 
 			break;
-		case 5:
+		case "PAUSAR_PLANIFICACION":
 			printf("Pauso Planificacion");
 
 
 			break;
-		case 6:
+		case "OBTENER_BITACORA":
 			printf("Bitacora....");
 
 

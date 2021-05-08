@@ -43,15 +43,15 @@ void* consolaDiscordinador(){
 		case 3:
 			printf("Expulsar Tripulante");
 
-			/*
+/*
 			mi_ram_hq_socket = iniciar_conexion(SERVER_MI_RAM_HQ, config);
 			paquete = crear_paquete(ELIMINAR_TRIPULANTE);
 			opcion_r = readline("Ingrese id del tripulante a eyectar: ");
 			id_tripulante = atoi(opcion_r);
 			agregar_a_paquete(paquete, &id_tripulante, sizeof(int));
 			enviar_paquete(paquete, mi_ram_hq_socket);
-			eliminar_paquete(paquete);
-			 */
+			eliminar_paquete(paquete);*/
+
 			break;
 		case 4:
 			printf("Iniciando Planificacion");

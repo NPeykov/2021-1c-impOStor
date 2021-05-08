@@ -52,6 +52,7 @@ int iniciar_conexion(int server_target, t_config *config) {
 	}
 }
 
+/*
 t_paquete* crear_paquete(op_code operacion)
 {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -83,4 +84,4 @@ void eliminar_paquete(t_paquete* paquete)
 	free(paquete->buffer->stream);
 	free(paquete->buffer);
 	free(paquete);
-}
+}*/

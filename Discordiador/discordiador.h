@@ -1,15 +1,14 @@
-#ifndef CLIENTE_H_
-#define CLIENTE_H_
+#ifndef DISCORDIADOR_H_
+#define DISCORDIADOR_H_
 
-#include "utils.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <readline/readline.h>
+#include "../utils/utils.h"
 #include <commons/log.h>
-//#include "../server_utils/utils.h"
 #include <commons/config.h>
 #include <commons/collections/list.h>
 
@@ -90,7 +89,7 @@ typedef struct ProcesoIntercambio{
 
 */
 
-void* consolaDiscordinador();
+void* consolaDiscordiador();
 
 #endif
 

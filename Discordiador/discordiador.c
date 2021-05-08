@@ -1,7 +1,7 @@
-#include "cliente.h"
-#include "utils.h"
+#include "discordiador.h"
 
-void* consolaDiscordinador(){
+
+void* consolaDiscordiador(){
 	char* opcion_r = malloc(8);
 	strcpy(opcion_r, "0");
 
@@ -10,12 +10,12 @@ void* consolaDiscordinador(){
 	int id_tripulante;
 	t_config *config;
 
-	config = config_create(PATH_CONFIG);
+	config = config_create(PATH_DISCORDIADOR_CONFIG);
 
 	int operacion;
 
 	while(1) {
-		printf("------ MODULO DISCORDINADOR ------\n");
+		printf("------ MODULO DISCORDIADOR ------\n");
 		printf("1. Iniciar Patota\n");
 		printf("2. Listar Tripulantes\n");
 		printf("3. Expulsar Tripulante\n");
@@ -43,14 +43,15 @@ void* consolaDiscordinador(){
 		case 3:
 			printf("Expulsar Tripulante");
 
-/*
+          /*
 			mi_ram_hq_socket = iniciar_conexion(SERVER_MI_RAM_HQ, config);
 			paquete = crear_paquete(ELIMINAR_TRIPULANTE);
 			opcion_r = readline("Ingrese id del tripulante a eyectar: ");
 			id_tripulante = atoi(opcion_r);
 			agregar_a_paquete(paquete, &id_tripulante, sizeof(int));
 			enviar_paquete(paquete, mi_ram_hq_socket);
-			eliminar_paquete(paquete);*/
+			eliminar_paquete(paquete);
+		  */
 
 			break;
 		case 4:
@@ -83,7 +84,7 @@ int main(void){
 	t_config *config;
 	int conexion_mi_ram_hq, conexion_i_mongo_store;
 
-	config = config_create(PATH_CONFIG);
+	config = config_create(PATH_DISCORDIADOR_CONFIG);
 
 	conexion_mi_ram_hq = iniciar_conexion(SERVER_MI_RAM_HQ, config);
 

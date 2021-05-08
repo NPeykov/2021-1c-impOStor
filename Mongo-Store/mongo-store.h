@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <commons/log.h>
-#include "../server_utils/utils.h"
 #include <commons/config.h>
+#include "../utils/utils.h"
 
 
 #endif

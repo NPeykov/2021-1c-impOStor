@@ -1,6 +1,6 @@
-TARGET = ServerMIRAM
-UTILS_DIR = ../server_utils
-$(TARGET) : mi-ram.o ../server_utils/utils.o
+TARGET = MIRAM
+UTILS_DIR = ../utils
+$(TARGET) : mi-ram.o ../utils/utils.o
 	gcc -Wall -I $(UTILS_DIR) mi-ram.o $(UTILS_DIR)/utils.o -o $(TARGET) -lcommons
 
 

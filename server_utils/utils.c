@@ -15,20 +15,16 @@ int crear_servidor(char *ip, char *puerto) {
 		exit(1);
 	}
 
-
-
 	for (p = server_info; p != NULL; p = p->ai_next) {
 		if ((socket_server = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1)
 			continue;
 
 		////
-
 		if (setsockopt(socket_server, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof yes)
 					== -1) {
 				perror("setsockopt");
 				exit(1);
 			}
-
 		////
 		if (bind(socket_server, p->ai_addr, p->ai_addrlen) == -1) {
 			close(socket_server);
@@ -36,9 +32,6 @@ int crear_servidor(char *ip, char *puerto) {
 		}
 		break;
 	}
-
-
-
 
 	listen(socket_server, SOMAXCONN);
 

@@ -77,9 +77,9 @@ void* consolaDiscordinador(){
 }
 
 int main(void){
-	consolaDiscordinador();
+	/*consolaDiscordinador();*/
 
-	/*
+
 	t_config *config;
 	int conexion_mi_ram_hq, conexion_i_mongo_store;
 
@@ -89,9 +89,11 @@ int main(void){
 
 	conexion_i_mongo_store = iniciar_conexion(SERVER_I_MONGO_STORE, config);
 
+	/*
 	//PRUEBA MANDAR MSJS A MI-RAM
 	char *saludo = "Hola MIRAM!";
 	send(conexion_mi_ram_hq, saludo, sizeof(saludo),0);
+
 
 
 	//PRUEBA ESCRIBIR EN MI PROPIA CONSOLA DESPUES MANDAR MSJ

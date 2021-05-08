@@ -25,7 +25,7 @@ int main(){
 
 
 
-
+/*
   //RECIBO MENSAJE DE CLIENTE
   char buffer[50]; //<-- guardo el msj que me manda aca
 
@@ -33,7 +33,7 @@ int main(){
 
   buffer[bytes] = '\0';
 
-  printf("El tipo me mando %d bytes con el msj: %s\n", bytes, buffer);
+  printf("El tipo me mando %d bytes con el msj: %s\n", bytes, buffer);*/
 
   return EXIT_SUCCESS;
 }

@@ -12,4 +12,9 @@ int servidor;
 
 void *gestionarCliente(int cliente);
 
+int socket_mi_ram;
+t_config *config;
+char* puerto;
+int socket_cliente;
+
 #endif

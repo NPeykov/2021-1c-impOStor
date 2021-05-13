@@ -39,8 +39,7 @@ void *gestionarCliente(int cliente) {
 
 				case -1:
 					printf("El cliente %d se desconecto.\n", cliente);
-					liberar_cliente(cliente);
-					return EXIT_FAILURE;
+					//liberar_cliente(cliente);
 
 				default:
 					printf("Operacion desconocida.\n");
@@ -55,10 +54,7 @@ void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");
 	//logger = log_create(archivoDeLog, "CoMAnda", 1, LOG_LEVEL_DEBUG);
 
-	int socket_mi_ram;
-	t_config *config;
-	char* puerto;
-	int socket_cliente;
+
 
 	socket_mi_ram = levantar_servidor(MI_RAM_HQ);
 
@@ -68,7 +64,7 @@ void inicializar_ram(){
 
 	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
 
-	servidor = esperar_cliente(socket_mi_ram);
+	servidor = esperar_cliente(socket_cliente);
 
 	//memoriaPrincipal = malloc(tamanioMemoria);
 	//memoriaSwap = malloc(tamanioSwap);
@@ -78,6 +74,8 @@ void inicializar_ram(){
 
 int main(){
   inicializar_ram();
+
+
   /*
   int socket_mi_ram;
   t_config *config;

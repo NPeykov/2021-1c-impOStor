@@ -64,7 +64,7 @@ void inicializar_ram(){
 
 	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
 
-	servidor = esperar_cliente(socket_cliente);
+	servidor = esperar_cliente(socket_mi_ram);
 
 	//memoriaPrincipal = malloc(tamanioMemoria);
 	//memoriaSwap = malloc(tamanioSwap);
@@ -93,7 +93,7 @@ int main(){
   printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
 
   socket_cliente = esperar_cliente(socket_mi_ram);
-  */
+
 
   while(1) {
 	int cliente=-1;
@@ -106,7 +106,7 @@ int main(){
   }
 
   //pthread_join(thread0, NULL);
-
+*/
 
 
   return EXIT_SUCCESS;

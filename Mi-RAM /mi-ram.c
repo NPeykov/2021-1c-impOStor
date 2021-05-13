@@ -48,7 +48,7 @@ void *gestionarCliente(int cliente) {
 			}
 		}
 	}
-}
+
 
 void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");

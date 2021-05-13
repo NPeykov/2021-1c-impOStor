@@ -96,7 +96,7 @@ int levantar_servidor(int server_a_abrir) {
 	int socket_servidor;
 	t_config *config;
 	char *puerto, *ip;
-	config = config_create(PATH_CLIENTE_CONFIG);
+	config = config_create(PATH_DISCORDIADOR_CONFIG);
 
 	switch (server_a_abrir) {
 	case MI_RAM_HQ:

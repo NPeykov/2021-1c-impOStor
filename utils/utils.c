@@ -132,6 +132,10 @@ int esperar_cliente(int socket_servidor)
 	return socket_cliente;
 }
 
+void liberar_cliente(int socket_cliente){
+	close(socket_cliente);
+}
+
 void* serializar_paquete(t_paquete* paquete, int bytes)
 {
 	void * magic = malloc(bytes);
@@ -163,6 +167,7 @@ t_paquete* crear_paquete(op_code operacion)
 	crear_buffer(paquete);
 	return paquete;
 }
+
 
 void agregar_a_paquete(t_paquete* paquete, void* valor, int tamanio)
 {
@@ -198,7 +203,7 @@ t_list* recibir_paquete(int socket_cliente)
 	t_list* valores = list_create();
 	int tamanio;
 
-	//buffer = recibir_buffer(&size, socket_cliente);
+	buffer = recibir_buffer(&size, socket_cliente);
 	while(desplazamiento < size)
 	{
 		memcpy(&tamanio, buffer + desplazamiento, sizeof(int));
@@ -223,4 +228,15 @@ int recibir_operacion(int socket_cliente)
 		close(socket_cliente);
 		return -1;
 	}
+}
+
+void* recibir_buffer(int* size, int socket_cliente)
+{
+	void * buffer;
+
+	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
+	buffer = malloc(*size);
+	recv(socket_cliente, buffer, *size, MSG_WAITALL);
+
+	return buffer;
 }

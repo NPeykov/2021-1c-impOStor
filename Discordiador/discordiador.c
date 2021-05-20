@@ -42,30 +42,25 @@ void* consolaDiscordiador(){
 			printf("Tripulante:3 Patota:2 Estado:BLOQUEADO I/O\n");
 			break;
 		case 3: //"EXPULSAR_TRIPULANTES":
-			printf("Expulsar Tripulante");
-
-
-//			mi_ram_hq_socket = levantar_servidor(MI_RAM_HQ);
+			printf("Expulsar Tripulante\n");
 			mi_ram_hq_socket = iniciar_conexion(MI_RAM_HQ,config);
 			paquete = crear_paquete(ELIMINAR_TRIPULANTE);
-			opcion_r = readline("Ingrese id del tripulante a eyectar: ");
-			id_tripulante = atoi(opcion_r);
-			agregar_a_paquete(paquete, &id_tripulante, sizeof(int));
+			id_tripulante = readline("Ingrese id del tripulante a eyectar: ");
+			//id_tripulante = atoi(opcion_r);
+			agregar_a_paquete(paquete, id_tripulante, sizeof(int));
 			enviar_paquete(paquete, mi_ram_hq_socket);
 			eliminar_paquete(paquete);
-
-
 			break;
 		case 4 : // "INICIAR_PLANIFICACION":
 			printf("Iniciando Planificacion");
 
 			break;
-		case  5 : //"PAUSAR_PLANIFICACION":
+		case 5 : //"PAUSAR_PLANIFICACION":
 			printf("Pauso Planificacion");
 
 
 			break;
-		case  6 : //"OBTENER_BITACORA":
+		case 6 : //"OBTENER_BITACORA":
 			printf("Bitacora....");
 
 				mongo_socket = levantar_servidor(I_MONGO_STORE);

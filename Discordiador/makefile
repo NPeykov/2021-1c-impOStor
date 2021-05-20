@@ -1,2 +1,2 @@
-Cliente : cliente.c utils.c
-	gcc cliente.c utils.c -o Cliente -lcommons -lreadline
+Cliente : discordiador.c ../utils/utils.c
+	gcc discordiador.c ../utils/utils.c -o Cliente -lcommons -lreadline

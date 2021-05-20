@@ -31,42 +31,50 @@ void* consolaDiscordiador(){
 		}
 
 		switch(atoi(opcion_r)) {
-		case "INICIAR_PATOTA":
+		case 1: //"INICIAR_PATOTA":
 			printf("Creo una patota");
 
 			break;
-		case "LISTAR_TRIPULANTES":
+		case 2: //"LISTAR_TRIPULANTES":
 			printf("Estado de la Nave: 09/07/21 10:15:01\n");
 			printf("Tripulante:1 Patota:1 Estado:EJECUTANDO\n");
 			printf("Tripulante:2 Patota:2 Estado:EJECUTANDO\n");
 			printf("Tripulante:3 Patota:2 Estado:BLOQUEADO I/O\n");
 			break;
-		case "EXPULSAR_TRIPULANTES":
+		case 3: //"EXPULSAR_TRIPULANTES":
 			printf("Expulsar Tripulante");
 
-          /*
-			mi_ram_hq_socket = iniciar_conexion(SERVER_MI_RAM_HQ, config);
+
+//			mi_ram_hq_socket = levantar_servidor(MI_RAM_HQ);
+			mi_ram_hq_socket = iniciar_conexion(MI_RAM_HQ,config);
 			paquete = crear_paquete(ELIMINAR_TRIPULANTE);
 			opcion_r = readline("Ingrese id del tripulante a eyectar: ");
 			id_tripulante = atoi(opcion_r);
 			agregar_a_paquete(paquete, &id_tripulante, sizeof(int));
 			enviar_paquete(paquete, mi_ram_hq_socket);
 			eliminar_paquete(paquete);
-		  */
+
 
 			break;
-		case "INICIAR_PLANIFICACION":
+		case 4 : // "INICIAR_PLANIFICACION":
 			printf("Iniciando Planificacion");
 
 			break;
-		case "PAUSAR_PLANIFICACION":
+		case  5 : //"PAUSAR_PLANIFICACION":
 			printf("Pauso Planificacion");
 
 
 			break;
-		case "OBTENER_BITACORA":
+		case  6 : //"OBTENER_BITACORA":
 			printf("Bitacora....");
 
+				mongo_socket = levantar_servidor(I_MONGO_STORE);
+				paquete = crear_paquete(OBTENER_BITACORA);
+				opcion_r = readline("Ingrese id tripulante: ");
+				id_tripulante = atoi(opcion_r);
+				agregar_a_paquete(paquete, &id_tripulante, sizeof(int));
+				enviar_paquete(paquete, mongo_socket);
+				eliminar_paquete(paquete);
 
 			break;
 		default:
@@ -79,17 +87,17 @@ void* consolaDiscordiador(){
 }
 
 int main(void){
-	/*consolaDiscordinador();*/
+	consolaDiscordiador();
 
 
-	t_config *config;
-	int conexion_mi_ram_hq, conexion_i_mongo_store;
-
-	config = config_create(PATH_DISCORDIADOR_CONFIG);
-
-	conexion_mi_ram_hq = iniciar_conexion(SERVER_MI_RAM_HQ, config);
-
-	conexion_i_mongo_store = iniciar_conexion(SERVER_I_MONGO_STORE, config);
+//	t_config *config;
+//	int conexion_mi_ram_hq, conexion_i_mongo_store;
+//
+//	config = config_create(PATH_DISCORDIADOR_CONFIG);
+//
+//	conexion_mi_ram_hq = iniciar_conexion(SERVER_MI_RAM_HQ, config);
+//
+//	conexion_i_mongo_store = iniciar_conexion(SERVER_I_MONGO_STORE, config);
 
 	/*
 	//PRUEBA MANDAR MSJS A MI-RAM

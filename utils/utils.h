@@ -27,7 +27,7 @@ int esperar_cliente(int);
 typedef enum
 {
 	I_MONGO_STORE, MI_RAM_HQ,
-	ELIMINAR_TRIPULANTE,
+	ELIMINAR_TRIPULANTE, OBTENER_BITACORA
 }op_code;
 
 typedef struct{
@@ -56,6 +56,8 @@ void* recibir_buffer(int*, int);
 int esperar_cliente(int);
 uint32_t recibir_numero(int socket_cliente);
 */
-
+//Sockets de todos los servidores
+int mongo_socket;
+int mi_ram_hq_socket;
 
 #endif

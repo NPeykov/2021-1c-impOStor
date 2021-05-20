@@ -21,7 +21,7 @@ void *gestionarCliente(int cliente) {
 
 				case ELIMINAR_TRIPULANTE:
 
-					/*
+					/*I_MONGO_STORE
 					lista = recibir_paquete(cliente);
 					printf("Conexion con Cliente...\n");
 					printf("Los datos del cliente son:\n");
@@ -36,6 +36,10 @@ void *gestionarCliente(int cliente) {
 					liberar_cliente(cliente);
 					break;
 					*/
+					lista = recibir_paquete(cliente);
+					printf("Tripulante eliminado de la nave %s\n", (char*) list_get(lista,0));
+					liberar_cliente(cliente);
+					break;
 
 				case -1:
 					printf("El cliente %d se desconecto.\n", cliente);
@@ -66,6 +70,7 @@ void inicializar_ram(){
 
 	servidor = esperar_cliente(socket_mi_ram);
 
+	gestionarCliente(servidor);
 	//memoriaPrincipal = malloc(tamanioMemoria);
 	//memoriaSwap = malloc(tamanioSwap);
 	//restaurantes = list_create();

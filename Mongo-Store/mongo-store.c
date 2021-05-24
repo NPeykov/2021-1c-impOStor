@@ -3,23 +3,23 @@
 int main() {
 
 	int socket_mongo_store, socket_cliente;
-	t_config *config;
+//	t_config *config;
 	char* puerto;
 	t_log* logger;
 
-	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
+//	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
 	//-------------------------------------------------------//
 
-	config = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
+	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 
-	puerto = config_get_string_value(config, "PUERTO");
+	puerto = config_get_string_value(mongoConfig, "PUERTO");
 
 	logger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
 
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
-	socket_cliente = esperar_cliente(socket_mongo_store);
+//	socket_cliente = esperar_cliente(socket_mongo_store);
 	crearEstructuraFileSystem();
 	return EXIT_SUCCESS;
 }
@@ -27,28 +27,28 @@ int main() {
 void crearEstructuraFileSystem()
 {
 	FILE *f;
-//esto va comentado hasta que se configuren
-//	puntoMontaje = config_get_string_value(sindicatoConfig,"PUNTO_MONTAJE");
-//	dirMetadata = malloc(strlen(puntoMontaje) + strlen("/Metadata") + 1);
-//	strcpy(dirMetadata, puntoMontaje);
-//	strcat(dirMetadata, "/Metadata");
-//
-//	dirFiles = malloc(strlen(puntoMontaje) + strlen("/Files") + 1);
-//	strcpy(dirFiles, puntoMontaje);
-//	strcat(dirFiles, "/Files");
-//
-//	dirBlocks = malloc(strlen(puntoMontaje) + strlen("/Blocks") + 1);
-//	strcpy(dirBlocks, puntoMontaje);
-//	strcat(dirBlocks, "/Blocks");
-//
-//	char *metadataRuta = malloc(strlen(dirMetadata) + strlen("/Metadata.AFIP") + 1); // /Metadata.bin  /Bitmap.bin
-//	strcpy(metadataRuta, dirMetadata);
-//	strcat(metadataRuta, "/Metadata.AFIP"); ///Metadata.bin  /Bitmap.bin
-//
-//
-//	if(mkdir(puntoMontaje, 0777) != 0)
-//	{
-//		printf("El directorio de montaje ya existe!! =( \n");
+
+	puntoMontaje = config_get_string_value(mongoConfig,"PUNTO_MONTAJE");
+	dirMetadata = malloc(strlen(puntoMontaje) + strlen("/Metadata") + 1);
+	strcpy(dirMetadata, puntoMontaje);
+	strcat(dirMetadata, "/Metadata");
+
+	dirFiles = malloc(strlen(puntoMontaje) + strlen("/Files") + 1);
+	strcpy(dirFiles, puntoMontaje);
+	strcat(dirFiles, "/Files");
+
+	dirBlocks = malloc(strlen(puntoMontaje) + strlen("/Blocks") + 1);
+	strcpy(dirBlocks, puntoMontaje);
+	strcat(dirBlocks, "/Blocks");
+
+	char *metadataRuta = malloc(strlen(dirMetadata) + strlen("/Metadata.AFIP") + 1); // /Metadata.bin  /Bitmap.bin
+	strcpy(metadataRuta, dirMetadata);
+	strcat(metadataRuta, "/Metadata.AFIP"); ///Metadata.bin  /Bitmap.bin
+
+
+	if(mkdir(puntoMontaje, 0777) != 0)
+	{
+		printf("El directorio de montaje ya existe!! =( \n");
 		/*
 		//Si el fileSystem esta creado se toman los datos de la metadata existente.
 		log_info(logger, "El directorio %s ya existe. ", puntoMontaje);

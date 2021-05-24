@@ -7,6 +7,11 @@
 #include <commons/log.h>
 #include <commons/config.h>
 #include "../utils/utils.h"
-
+char *puntoMontaje;
+char *dirMetadata;
+char *dirFiles;
+char *dirBlocks;
+t_config* mongoConfig;
+void crearEstructuraFileSystem();
 
 #endif

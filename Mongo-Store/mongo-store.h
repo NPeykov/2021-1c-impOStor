@@ -10,8 +10,10 @@
 char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
+char *dirBitacora;
 char *dirBlocks;
 t_config* mongoConfig;
+t_log* mongoLogger;
 void crearEstructuraFileSystem();
 
 #endif

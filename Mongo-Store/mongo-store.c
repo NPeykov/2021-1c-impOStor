@@ -5,7 +5,7 @@ int main() {
 	int socket_mongo_store, socket_cliente;
 //	t_config *config;
 	char* puerto;
-	t_log* logger;
+//	t_log* logger;
 
 //	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
@@ -15,7 +15,7 @@ int main() {
 
 	puerto = config_get_string_value(mongoConfig, "PUERTO");
 
-	logger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
+	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
 
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
@@ -36,6 +36,10 @@ void crearEstructuraFileSystem()
 	dirFiles = malloc(strlen(puntoMontaje) + strlen("/Files") + 1);
 	strcpy(dirFiles, puntoMontaje);
 	strcat(dirFiles, "/Files");
+
+	dirBitacora = malloc(strlen(dirFiles) + strlen("/Bitacora") + 1);
+		strcpy(dirBitacora, dirFiles);
+		strcat(dirBitacora, "/Bitacora");
 
 	dirBlocks = malloc(strlen(puntoMontaje) + strlen("/Blocks") + 1);
 	strcpy(dirBlocks, puntoMontaje);
@@ -70,6 +74,49 @@ void crearEstructuraFileSystem()
 	else
 	{
 		printf("Se creo el directorio de montaje =) \n");
+		//Crea superBloque
+		char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+			strcpy(superBloqueRuta, puntoMontaje);
+			strcat(superBloqueRuta, "/SuperBloque.ims");
+			// Creo el archivo superBloque
+			f = fopen(superBloqueRuta, "w");
+			fputs("1", f);
+			fclose(f);
+			free(superBloqueRuta);
+		//Crea Blocks
+		char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+		strcpy(blocksRuta, puntoMontaje);
+		strcat(blocksRuta, "/Blocks.ims");
+		// Creo el archivo Blocks
+		f = fopen(blocksRuta, "w");
+		fputs("1", f);
+		fclose(f);
+		free(blocksRuta);
+		//Creo carpeta Files
+		if(mkdir(dirFiles, 0777) == 0)
+				{
+					printf("Se creo carpeta Files  =) \n");
+					// Creo archivo Metadata.bin
+					char* metadataRuta = malloc(strlen(dirFiles) + strlen("/Metadata.ims") + 1); // /Metadata.bin o Bitmap.bin
+					strcpy(metadataRuta, dirFiles);
+					strcat(metadataRuta, "/Metadata.ims"); // /Metadata.bin o Bitmap.bin
+					// Creo el archivo Metadata.bin (para indicar que es un directorio)
+					f = fopen(metadataRuta, "w");
+					fputs("SIZE=132", f);
+					fclose(f);
+					free(metadataRuta);
+					//Creo carpeta Bitacora
+					if(mkdir(dirBitacora, 0777) == 0)
+					{
+						printf("Se creo carpeta Bitacora  =) \n");
+					}
+				}
+				else
+				{
+					log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Files.");
+					free(metadataRuta);
+					return;
+				}
 		/*
 		//Si el fileSystem NO esta creado se toman los datos del archivo de configuracion.
 

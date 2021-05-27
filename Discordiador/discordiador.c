@@ -44,7 +44,7 @@ void* consolaDiscordiador(){
 		case 3: //"EXPULSAR_TRIPULANTES":
 			printf("Expulsar Tripulante\n");
 			mi_ram_hq_socket = iniciar_conexion(MI_RAM_HQ,config);
-			paquete = crear_paquete(ELIMINAR_TRIPULANTE);
+			paquete = crear_paquete(EXPULSAR_TRIPULANTE);
 			id_tripulante = readline("Ingrese id del tripulante a eyectar: ");
 			//id_tripulante = atoi(opcion_r);
 			agregar_a_paquete(paquete, id_tripulante, sizeof(int));

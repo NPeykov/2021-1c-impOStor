@@ -16,7 +16,7 @@ void *gestionarCliente(int socket) {
 			printf("\nLA OPERACION ES: %d\n", operacion);
 
 			switch(operacion) {
-				case ELIMINAR_TRIPULANTE:
+				case EXPULSAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
 					printf("Tripulante eliminado de la nave %s\n", (char *) list_get(lista,0));
 					//liberar_cliente(cliente);
@@ -34,6 +34,26 @@ void *gestionarCliente(int socket) {
 		}
 	}
 
+void crearRAM(t_config *config, struct nodoMemoria *memoria){
+
+	char* tipoMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	printf("Paso 2");
+	/*
+	//Segun que esquema de memoria se arma la memoria a eso
+	switch(atoi(tipoMemoria)){
+	case 0:
+		printf("Se intentó paginación");
+		//TODO: PAGINACION
+		break;
+	case 1:
+		printf("Se intento segmentación");
+		//TODO: SEGMENTACION
+		break;
+	default:
+		printf("Error, esquema de memoria desconocido.\n");
+		break;
+	}*/
+}
 
 void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");
@@ -46,13 +66,18 @@ void inicializar_ram(){
 	puerto = config_get_string_value(config, "PUERTO");
 
 	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
-
+	printf("Pasa 1");
+	crearRAM(config, memoria);
+	printf("Pasa 3");
 	gestionarCliente(socket_mi_ram);
 	//memoriaPrincipal = malloc(tamanioMemoria);
 	//memoriaSwap = malloc(tamanioSwap);
 	//restaurantes = list_create();
 
 }
+
+
+
 
 int main(){
   inicializar_ram();

@@ -10,7 +10,7 @@
 
 int servidor;
 
-void *gestionarCliente(int cliente);
+
 
 int socket_mi_ram;
 t_config *config;
@@ -32,6 +32,27 @@ typedef struct{
 	uint32_t proxIns; //Proxima Instruccion
 	uint32_t pcb; //Direccion de la PCB asociada al tripulante
 } tcb; //Tripulante Control Block
+
+// La memoria se estructurara a modo de listas enlazadas
+// Cada nodo de la lista es una posicion de memoria que almacena un dato
+// Este dato es un dato de 32bits
+// Y esta posicion de memoria conoce a la siguiente posicion
+
+typedef struct{
+	uint32_t dato;
+	struct nodoMemoria *siguiente;
+}nodoMemoria;
+
+typedef enum{
+	PAGINACION, SEGMENTACION
+}esquemaMemoria;
+
+struct nodoMemoria *memoria = NULL;
+
+void crearRAM(t_config* config, struct nodoMemoria *memoria);
+
+void *gestionarCliente(int cliente);
+
 
 
 #endif

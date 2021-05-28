@@ -1,16 +1,56 @@
 #include "discordiador.h"
 
+//************************************************ Manejo de Estados **********************************************
+
+bool tripulanteBloqueadoIO(void* elemento){
+	Tripulante* tripulante = (Tripulante*)elemento;
+	return tripulante->estado == BLOQUEADO_IO;
+}
+bool tripulanteBloqueadoEmergencia(void* elemento){
+	Tripulante* tripulante = (Tripulante*)elemento;
+	return tripulante->estado == BLOQUEADO_EMERGENCIA;
+}
+bool tripulanteFinalizado(void* elemento){
+	Tripulante* tripulante = (Tripulante*)elemento;
+	return tripulante->estado == FINALIZADO;
+}
+
+//************************************************ Inciar Discordiador **********************************************
+
+void iniciarPlanificacion(){
+	discordiador = (Discordiador*)malloc(sizeof(Discordiador));
+
+	char *limiteTripulantesEjecutando = config_get_string_value(config, "GRADO_MULTITAREA");
+
+
+}
+
+//************************************************ PLANIFICADOR **********************************************
+
+void fifo(){
+	while(!teamTermino){
+		sem_wait(&sem_proceso);
+		//puts("sem_proceso");
+		sem_wait(&sem_mx_proceso);
+		//puts("sem_mx_proceso");
+		//printf("-------cantidad de procesos: %d----\n",team->procesos->elements_count);
+		if(team->procesos->elements_count > 0){
+
+			irAAtrapar((Proceso*)team->procesos->head->data);
+		}
+		else
+			return;
+	}
+}
 
 void* consolaDiscordiador(){
 	char* opcion_r = malloc(8);
 	strcpy(opcion_r, "0");
 
 	int mi_ram_hq_socket;
+	int mongo_store_socket;
 	t_paquete* paquete;
 	int id_tripulante;
-	t_config *config;
-
-	config = config_create(PATH_DISCORDIADOR_CONFIG);
 
 	int operacion;
 
@@ -43,7 +83,7 @@ void* consolaDiscordiador(){
 			break;
 		case 3: //"EXPULSAR_TRIPULANTES":
 			printf("Expulsar Tripulante\n");
-			mi_ram_hq_socket = iniciar_conexion(MI_RAM_HQ,config);
+			mi_ram_hq_socket = iniciar_conexion(MI_RAM_HQ, config);
 			paquete = crear_paquete(EXPULSAR_TRIPULANTE);
 			id_tripulante = readline("Ingrese id del tripulante a eyectar: ");
 			//id_tripulante = atoi(opcion_r);
@@ -82,37 +122,9 @@ void* consolaDiscordiador(){
 }
 
 int main(void){
+	config = config_create(PATH_DISCORDIADOR_CONFIG);
+
 	consolaDiscordiador();
-
-
-//	t_config *config;
-//	int conexion_mi_ram_hq, conexion_i_mongo_store;
-//
-//	config = config_create(PATH_DISCORDIADOR_CONFIG);
-//
-//	conexion_mi_ram_hq = iniciar_conexion(SERVER_MI_RAM_HQ, config);
-//
-//	conexion_i_mongo_store = iniciar_conexion(SERVER_I_MONGO_STORE, config);
-
-	/*
-	//PRUEBA MANDAR MSJS A MI-RAM
-	char *saludo = "Hola MIRAM!";
-	send(conexion_mi_ram_hq, saludo, sizeof(saludo),0);
-
-
-
-	//PRUEBA ESCRIBIR EN MI PROPIA CONSOLA DESPUES MANDAR MSJ
-	char s[100];
-	printf("Escribi algo.. ");
-	gets(s);
-	printf("Escribi en mi propia consola: %s\n", s);
-
-
-	//---------------------AL FINAL-------------//
-	config_destroy(config);
-	close(conexion_mi_ram_hq);
-	close(conexion_i_mongo_store);
-	*/
 
 	return EXIT_SUCCESS;
 }

@@ -40,6 +40,9 @@
 
  */
 
+
+//DECLARACION DE ESTRUCTURAS
+
 typedef struct Posicion{
    int x;
    int y;
@@ -64,31 +67,36 @@ typedef struct Tripulante{
 typedef struct Patota{
     t_list* tripulantes;
     int idPatota;
-    //t_list* procesos;
-    //t_list* procesosDeIntercambio;
 } Patota;
 
-/*
- * Ṕuede servir para los procesos
+typedef struct Discordiador{
+    t_list* tripulantes;
+    t_list* procesos;
+    t_list* procesosDeIntercambio;
+} Discordiador;
 
 typedef struct Proceso{
 	Tripulante* tripulante;
-	int rafagaAnterior;
-	float estimadoAnterior;
-	float estimadoActual;
+//	int rafagaAnterior;
 }Proceso;
 
 typedef struct ProcesoIntercambio{
 	Tripulante* tripulante1;
 	Tripulante* tripulante2;
-	int rafagaAnterior;
-	float estimadoAnterior;
-	float estimadoActual;
-	bool favorableParaUnLado;
+//	int rafagaAnterior;
+//	float estimadoAnterior;
+//	float estimadoActual;
+//	bool favorableParaUnLado;
 }ProcesoIntercambio;
 
-*/
+//DECLARACION DE VARIABLES
+t_config* config;
+Discordiador* discordiador;
+char *algoritmo;
+t_list* tripulantesBloqueados;
 
+//PROTOTIPO DE FUNCIONES
+void  inicializarTripulantes();
 void* consolaDiscordiador();
 
 #endif

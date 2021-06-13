@@ -149,6 +149,7 @@ typedef struct argumentos_creacion_tripulantes {
 	int numero_tripulante;
 	int posicionX;
 	int posicionY;
+	int patota_actual;
 }argumentos_creacion_tripulantes;
 
 struct tripulantes_iniciados{
@@ -159,6 +160,7 @@ struct tripulantes_iniciados{
 typedef struct tripulantes_iniciados tripulantes_iniciados;
 
 tripulantes_iniciados *crear_lista_tripulantes(char **);
+void crear_tripulantes(char**, int);
 
 #endif
 

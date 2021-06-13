@@ -62,84 +62,24 @@ void atender_comandos_consola(void) {
 			if (strcmp(comando_separado[0], comandos_validos[j]) == 0)
 				valor = j;
 
-		if(valor == INICIAR_PATOTA){
-			pthread_t tripulante[comando_separado[1]];
-		}
-
-
 		switch (valor) {
-		case INICIAR_PATOTA: //INICIAR_PATOTA
+		case 0: //INICIAR_PATOTA
 			log_info(logs_discordiador, "Iniciando %s tripulantes de patota numero %d..\n",comando_separado[1] ,numero_patota);
-			int patota = numero_patota;
-			int resultado_crear_patota;
-			int cantidadTripulantes = atoi(comando_separado[1]);
+			int numero_patota_actual = numero_patota;
+			int cantidad_tripulantes = atoi(comando_separado[1]);
 			char *lista_tareas = strdup(comando_separado[2]); //LIBERAR ESPACIO
-			argumentos_creacion_tripulantes *args = (argumentos_creacion_tripulantes*)malloc(sizeof(argumentos_creacion_tripulantes));
-			printf("TAREA EN: %s\n", lista_tareas);
-			printf("CANTIDAD: %d\n", cantidadTripulantes);
+
+			printf("TAREA EN: %s\n", lista_tareas); //SACAR
+			printf("CANTIDAD: %d\n", cantidad_tripulantes); //SACAR
 
 			//AVISAR A MI RAM QUE SE CREO LA PATOTA
 
-
-			for (int i = 3, num_tripulante = 1; num_tripulante <= cantidadTripulantes; i++, num_tripulante++) {
-				if (comando_separado[i] != NULL) {
-
-					args->numero_tripulante = num_tripulante;
-					char **posicion = string_split(comando_separado[i], "|");
-					args->posicionX = atoi(posicion[0]);
-					args->posicionY = atoi(posicion[1]);
-					printf("posicion %d: %s\n", num_tripulante, comando_separado[i]);
-					resultado_crear_patota = pthread_create(&tripulante[num_tripulante], NULL, (void *)crear_tripulante, args);
-					pthread_detach(tripulante[num_tripulante]);
-					if (resultado_crear_patota != 0) {
-						log_info(logs_discordiador, "ERROR al iniciar tripulante %d de patota %d\n", num_tripulante, numero_patota);
-					}
-				}
-				else{
-					while (num_tripulante <= cantidadTripulantes){
-						args->numero_tripulante = num_tripulante;
-						args->posicionX = 0;
-						args->posicionY = 0;
-						printf("posicion %d: 0|0\n", num_tripulante++);
-						resultado_crear_patota = pthread_create(&tripulante[num_tripulante], NULL, (void *)crear_tripulante, args);
-						pthread_detach(tripulante[num_tripulante]);
-						if(resultado_crear_patota != 0){
-							log_info(logs_discordiador, "ERROR al iniciar tripulante %d de patota %d\n", num_tripulante, numero_patota);
-						}
-					}
-				}
-			}
-			/*for (int num_tripulante = 1, j = 3;
-					num_tripulante <= cantidadTripulantes;
-					num_tripulante++, j++) {
-				pthread_t tripulante;
-				args->numero_tripulante = num_tripulante;
-				if (comando_separado[j] == NULL){
-					while(j <= cantidadTripulantes){
-					args->posicionX = 0;
-					args->posicionY = 0;
-					}
-				}
-				else {
-					char **posicion = string_split(comando_separado[j], "|");
-					args->posicionX = atoi(posicion[0]);
-					args->posicionY = atoi(posicion[1]);
-				}
-
-
-				resultado_crear_patota = pthread_create(&tripulante, NULL, (void *)crear_tripulante, args);
-				if(resultado_crear_patota != 0){
-					log_info(logs_discordiador, "ERROR al iniciar tripulante %d de patota %d\n", num_tripulante, numero_patota);
-				}
-			}*/
-
-
-
+			crear_tripulantes(comando_separado, numero_patota_actual);
 
 			numero_patota += 1; //PARA LA PROX VEZ QUE SEA INICIALIZADO
 			break;
 
-		case LISTAR_TRIPULANTES: //LISTAR_TRIPULANTE
+		case 1: //LISTAR_TRIPULANTE
 			printf("--------LISTAR TRIPULANTES---------\n");
 			t_link_element *elementos;
 			if(llegada -> head == NULL){
@@ -166,16 +106,20 @@ void atender_comandos_consola(void) {
 			printf("TAMAÑO LISTA: %d", list_size(llegada));
 			break;
 
-		case EXPULSAR_TRIPULANTE: //EXPULSAR_TRIPULANTE
+		case 2: //EXPULSAR_TRIPULANTE
 			printf("ES EXPULSAR\n");
 			break;
-		case INICIAR_PLANIFICACION: //INICIAR_PLANIFICACION
+
+		case 3: //INICIAR_PLANIFICACION
 			break;
-		case PAUSAR_PLANIFICACION: //PAUSAR_PLANIFICACION
+
+		case 4: //PAUSAR_PLANIFICACION
 			break;
-		case OBTENER_BITACORA: //OBTENER_BITACORA
+
+		case 5: //OBTENER_BITACORA
 			break;
-		case EXIT: //SALIR
+
+		case 6: //SALIR
 			printf("Si realmente deseas salir apreta 'S'..\n");
 			char c;
 			c = getchar();
@@ -191,18 +135,67 @@ void atender_comandos_consola(void) {
 
 //************************************************ OTROS **********************************************
 
-void crear_tripulante(void *argumentos){
-	argumentos_creacion_tripulantes *args = argumentos;
+pthread_mutex_t lock;
+void crear_tripulantes(char **datos_tripulantes, int patota) {
+	printf("PATOTA ES: %d\n", patota); //SACAR
+	int cantidad_tripulantes = atoi(datos_tripulantes[1]);
+	pthread_t tripulantes[cantidad_tripulantes - 1];
+	int retorno_thread;
 
+	//TODO: ARREGLAR ESTE CODIGO, TIENE PROBLEMAS DE SINCRO
+	for (int i = 3, num_tripulante = 1; num_tripulante <= cantidad_tripulantes;
+			i++, num_tripulante++) {
+		if (datos_tripulantes[i] != NULL) {
+			argumentos_creacion_tripulantes *args = (argumentos_creacion_tripulantes*) malloc(sizeof(argumentos_creacion_tripulantes));
+			char **posicion = string_split(datos_tripulantes[i], "|");
+			args->numero_tripulante = num_tripulante;
+			args->posicionX = atoi(posicion[0]);
+			args->posicionY = atoi(posicion[1]);
+			args->patota_actual = patota;
+			printf("posicion %d: %s\n", num_tripulante, datos_tripulantes[i]); //SACAR
+			retorno_thread = pthread_create(&tripulantes[num_tripulante],
+			NULL, (void *) crear_tripulante, args);
+			if (retorno_thread != 0) {
+				log_info(logs_discordiador,
+						"ERROR al iniciar tripulante %d de patota %d\n",
+						num_tripulante, patota);
+			}
+			pthread_detach(tripulantes[num_tripulante]);
+
+		} else {
+			while (num_tripulante <= cantidad_tripulantes) {
+				argumentos_creacion_tripulantes *args = (argumentos_creacion_tripulantes*) malloc(sizeof(argumentos_creacion_tripulantes));
+				args->numero_tripulante = num_tripulante;
+				args->posicionX = 0;
+				args->posicionY = 0;
+				args->patota_actual = patota;
+				printf("posicion %d: 0|0\n", num_tripulante++); //SACAR
+				retorno_thread = pthread_create(&tripulantes[num_tripulante],
+						NULL, (void *) crear_tripulante, args);
+				if (retorno_thread != 0) {
+					log_info(logs_discordiador,
+							"ERROR al iniciar tripulante %d de patota %d\n",
+							num_tripulante, patota);
+				}
+				pthread_detach(tripulantes[num_tripulante]);
+
+			}
+		}
+	}
+}
+
+void crear_tripulante(void *argumentos){
+	pthread_mutex_lock(&lock);
+	argumentos_creacion_tripulantes *args = argumentos;
 	Tripulante *tripulante = (Tripulante*)malloc(sizeof(Tripulante));
 	tripulante -> id = args->numero_tripulante;
-	tripulante -> patota = numero_patota;
+	tripulante -> patota = args->patota_actual;
 	tripulante -> posicionX = args->posicionX;
 	tripulante -> posicionY = args->posicionY;
 	tripulante -> estado = LLEGADA;
-	printf("CREADA: id %d, patota %d, posx: %d", tripulante->id, tripulante->patota, tripulante->posicionX);
-
+	printf("CREADA: id %d, patota %d, posx: %d\n", tripulante->id, tripulante->patota, tripulante->posicionX); //SACAR
 	list_add(llegada, tripulante);
+	pthread_mutex_unlock(&lock);
 
 	while(1)
 		;

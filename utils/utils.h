@@ -17,11 +17,9 @@
 #define PATH_DISCORDIADOR_CONFIG "../config_files/discordiador.config"
 #define PATH_MONGO_STORE_LOG "../logs_files/mongo.log"
 
-typedef enum
-{
-	INICIAR_PATOTA,LISTAR_TRIPULANTES,
-	EXPULSAR_TRIPULANTE, INICIAR_PLANIFICACION,
-	PAUSAR_PLANIFICACION, OBTENER_BITACORA
+typedef enum{
+	MENSAJE,
+	PAQUETE
 }op_code;
 
 typedef enum{

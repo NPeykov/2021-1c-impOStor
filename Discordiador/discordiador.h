@@ -11,6 +11,10 @@
 #include <commons/log.h>
 #include <commons/config.h>
 #include <commons/collections/list.h>
+#include <commons/string.h>
+#include <pthread.h>
+#include <commons/log.h>
+#include <commons/collections/node.h>
 
 /*
  Debera recibir conexion de i Mongo Store para administrar los sabotajes.
@@ -42,25 +46,28 @@
 
 
 //DECLARACION DE ESTRUCTURAS
-
-typedef struct Posicion{
+/*
+typedef struct Posicion{ //cuesta un poco mas manejarlo asi
    int x;
    int y;
 } Posicion;
-
+*/
 
 typedef enum EstadoTripulante{
     LLEGADA, LISTO, TRABAJANDO, FINALIZADO, BLOQUEADO_IO, BLOQUEADO_EMERGENCIA
 }EstadoTripulante;
 
+t_list *llegada;
 
 typedef struct Tripulante{
-	int idTripulante;
-    char* nombre;
-    t_list* tareasPendientes;
-    Posicion* posicion;
-    EstadoTripulante estado;
-    int cantCiclosCPUTotales;
+	int id;
+	int patota;
+	int posicionX;
+	int posicionY;
+	EstadoTripulante estado;
+//    char* nombre;
+//    t_list* tareasPendientes;
+//    int cantCiclosCPUTotales;
 } Tripulante;
 
 
@@ -89,15 +96,69 @@ typedef struct ProcesoIntercambio{
 //	bool favorableParaUnLado;
 }ProcesoIntercambio;
 
-//DECLARACION DE VARIABLES
+//DECLARACION DE ATRIBUTOS
+t_log *logs_discordiador;
+char *ip_mi_ram;
+char *ip_mongo_store;
 t_config* config;
-Discordiador* discordiador;
-char *algoritmo;
-t_list* tripulantesBloqueados;
+char *algoritmo_planificacion;
+char *puerto_mi_ram;
+char *puerto_mongo_store;
+int grado_multitarea;
+int quantum;
+int duracion_sabotaje;
+int retardo_ciclo_cpu;
+
+
+Discordiador* discordiador; //por ahora no lo uso
+t_list* tripulantesBloqueados; //por ahora no lo uso
+
 
 //PROTOTIPO DE FUNCIONES
 void  inicializarTripulantes();
-void* consolaDiscordiador();
+void crear_tripulante(void*);
+void atender_comandos_consola(void);
+void inicializar_recursos_necesarios(void);
+
+//DATOS PARA MANEJO DE CONSOLA
+#define CANT_COMANDOS 7
+
+int numero_patota = 1;
+
+const char* comandos_validos[CANT_COMANDOS] = {
+  "INICIAR_PATOTA",
+  "LISTAR_TRIPULANTES",
+  "EXPULSAR_TRIPULANTE",
+  "INICIAR_PLANIFICACION",
+  "PAUSAR_PLANIFICACION",
+  "OBTENER_BITACORA",
+  "EXIT"
+};
+
+typedef enum {
+	INICIAR_PATOTA,
+	LISTAR_TRIPULANTES,
+	EXPULSAR_TRIPULANTE,
+	INICIAR_PLANIFICACION,
+	PAUSAR_PLANIFICACION,
+	OBTENER_BITACORA,
+	EXIT
+} tipo_comando;
+
+typedef struct argumentos_creacion_tripulantes {
+	int numero_tripulante;
+	int posicionX;
+	int posicionY;
+}argumentos_creacion_tripulantes;
+
+struct tripulantes_iniciados{
+	Tripulante *tripulante;
+	struct tripulantes_iniciados *proximo_tripulante;
+};
+
+typedef struct tripulantes_iniciados tripulantes_iniciados;
+
+tripulantes_iniciados *crear_lista_tripulantes(char **);
 
 #endif
 

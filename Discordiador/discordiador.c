@@ -1,7 +1,8 @@
 #include "discordiador.h"
 
 //************************************************ Manejo de Estados **********************************************
-
+/* por ahora no lo uso
+ *
 bool tripulanteBloqueadoIO(void* elemento){
 	Tripulante* tripulante = (Tripulante*)elemento;
 	return tripulante->estado == BLOQUEADO_IO;
@@ -13,7 +14,7 @@ bool tripulanteBloqueadoEmergencia(void* elemento){
 bool tripulanteFinalizado(void* elemento){
 	Tripulante* tripulante = (Tripulante*)elemento;
 	return tripulante->estado == FINALIZADO;
-}
+}*/
 
 //************************************************ Inciar Discordiador **********************************************
 
@@ -26,6 +27,10 @@ void iniciarPlanificacion(){
 }
 
 //************************************************ PLANIFICADOR **********************************************
+void planificar(){
+	//TODO
+}
+
 /*
 void fifo(){
 	while(!teamTermino){
@@ -78,10 +83,15 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 1: //LISTAR_TRIPULANTE
-			printf("--------LISTAR TRIPULANTES---------\n");
-			t_link_element *elementos;
+			printf("--------LISTANDO TRIPULANTES---------\n");
+			listar_cola_planificacion(LLEGADA);
+			listar_cola_planificacion(LISTO);
+			listar_cola_planificacion(TRABAJANDO);
+			listar_cola_planificacion(BLOQUEADO);
+			listar_cola_planificacion(FINALIZADO);
+			/*t_link_element *elementos;
 			t_list *copia_llegada = (t_list* )malloc(sizeof(t_list));
-			copia_llegada -> head = llegada -> head;
+			copia_llegada -> head = lista_llegada -> head;
 			if(copia_llegada -> head == NULL){
 				printf("No hay tripulantes en la cola de llegada!\n");
 				break;
@@ -96,7 +106,7 @@ void atender_comandos_consola(void) {
 					copia_llegada->head = copia_llegada->head->next;
 				}
 			}
-			free(copia_llegada);
+			free(copia_llegada);*/
 
 			break;
 
@@ -115,10 +125,10 @@ void atender_comandos_consola(void) {
 
 		case 6: //SALIR
 			printf("Si realmente deseas salir apreta 'S'..\n");
-			char c;
-			c = getchar();
+			char c = getchar();
 			if(c == 's' || c == 'S')
 				return;
+			printf("NO VOY S SALIRRR");
 			break;
 		default:
 			printf("COMANDO INVALIDO\n");
@@ -172,7 +182,7 @@ void tripulante(void *argumentos){
 	tripulante -> posicionY = args->posicionY;
 	tripulante -> estado = LLEGADA;
 
-	list_add(llegada, tripulante);
+	list_add(lista_llegada, tripulante);
 	pthread_mutex_unlock(&lockear_creacion_tripulante);
 
 	while(1)
@@ -182,6 +192,49 @@ void tripulante(void *argumentos){
 
 }
 
+
+void listar_cola_planificacion(Estado estado) {
+	t_link_element *elementos;
+	t_list *copia_lista = (t_list*) malloc(sizeof(t_list));
+	char *nombre_estado;
+
+	//LLEGADA, LISTO, TRABAJANDO, BLOQUEADO, FINALIZADO
+	switch(estado){
+	case LLEGADA:
+		copia_lista->head = lista_llegada->head;
+		nombre_estado = "Llegada";
+		break;
+	case LISTO:
+		copia_lista->head = lista_listo->head;
+		nombre_estado = "Listo";
+		break;
+	case TRABAJANDO:
+		copia_lista->head = lista_trabajando->head;
+		nombre_estado = "Trabajando";
+		break;
+	case BLOQUEADO:
+		copia_lista->head = lista_bloqueado->head;
+		nombre_estado = "Bloqueado";
+		break;
+	case FINALIZADO:
+		copia_lista->head = lista_finalizado->head;
+		nombre_estado = "Finalizado";
+		break;
+	}
+	if (copia_lista->head == NULL) {
+		printf("No hay tripulantes en la cola de %s!\n",nombre_estado);
+	} else {
+		Tripulante *tripulante = (Tripulante *) malloc(sizeof(Tripulante));
+		while (copia_lista->head != NULL) {
+			elementos = copia_lista->head;
+			tripulante = (Tripulante *) elementos->data;
+			printf("Patota N°: %d\n", tripulante->patota);
+			printf("Tripulante ID°: %d\n\n", tripulante->id);
+			copia_lista->head = copia_lista->head->next;
+		}
+	}
+	free(copia_lista);
+}
 
 void inicializar_recursos_necesarios(void){
 	logs_discordiador = log_create("../logs_files/discordiador.log",
@@ -225,10 +278,18 @@ void inicializar_recursos_necesarios(void){
 	retardo_ciclo_cpu = atoi(retardo_cpu);
 
 	//falta avisar?
-	llegada = list_create();
+	lista_llegada = list_create();
+	lista_listo = list_create();
+	lista_trabajando = list_create();
+	lista_bloqueado = list_create();
+	lista_finalizado = list_create();
 
 
 	log_info(logs_discordiador, "TERMINO INICIALIZACION DEL DISCORDIADOR..\n\n");
+}
+
+void liberar_memoria_discordiador(void){
+	//TODO
 }
 
 int main(void){
@@ -236,13 +297,18 @@ int main(void){
 	inicializar_recursos_necesarios();
 
 	pthread_t hilo_consola;
+	pthread_t hilo_planificador;
+	pthread_t hilo_para_sabotaje; //falta
+
+	pthread_create(&hilo_planificador, NULL, (void *)planificar, NULL);
+	pthread_detach(hilo_planificador);
 
 	pthread_create(&hilo_consola, NULL, (void *)atender_comandos_consola, NULL);
+	pthread_join(hilo_consola, NULL);
 
-	pthread_detach(hilo_consola);
+	printf("\n-------TERMINAR-------\n");
 
-	while(1)
-		;
+	liberar_memoria_discordiador();
 
 	return EXIT_SUCCESS;
 }

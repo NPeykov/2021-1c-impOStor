@@ -53,18 +53,23 @@ typedef struct Posicion{ //cuesta un poco mas manejarlo asi
 } Posicion;
 */
 
-typedef enum EstadoTripulante{
-    LLEGADA, LISTO, TRABAJANDO, FINALIZADO, BLOQUEADO_IO, BLOQUEADO_EMERGENCIA
-}EstadoTripulante;
+typedef enum Estado{
+    LLEGADA, LISTO, TRABAJANDO, BLOQUEADO, FINALIZADO
+}Estado;
 
-t_list *llegada;
+t_list *lista_llegada;
+t_list *lista_listo;
+t_list *lista_trabajando;
+t_list *lista_bloqueado;
+t_list *lista_finalizado;
+
 
 typedef struct Tripulante{
 	int id;
 	int patota;
 	int posicionX;
 	int posicionY;
-	EstadoTripulante estado;
+	Estado estado;
 //    char* nombre;
 //    t_list* tareasPendientes;
 //    int cantCiclosCPUTotales;
@@ -162,6 +167,8 @@ typedef struct tripulantes_iniciados tripulantes_iniciados;
 tripulantes_iniciados *crear_lista_tripulantes(char **);
 void iniciar_patota(char**);
 void tripulante(void*);
+void liberar_memoria_discordiador(void);
+void listar_cola_planificacion(Estado);
 
 pthread_mutex_t lockear_creacion_tripulante;
 

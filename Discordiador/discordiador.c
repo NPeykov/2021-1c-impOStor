@@ -28,6 +28,24 @@ void iniciarPlanificacion(){
 
 //************************************************ PLANIFICADOR **********************************************
 void planificar(){
+
+	sem_wait(&iniciar_planificacion);
+
+	int procesos_activos = 1;
+
+	while(1){
+
+
+	sem_post(&planificacion_activa); //para avisarle a los tripulantes que se metan a ready
+	sem_wait(&tripulante_listo);
+
+
+	for(; procesos_activos <= grado_multitarea; procesos_activos++){
+		sem_post(&metete_a_exec);
+	}
+
+	}
+
 	//TODO
 }
 
@@ -96,7 +114,7 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 3: //INICIAR_PLANIFICACION
-
+			sem_post(&iniciar_planificacion);
 			//mandaria un semaforo
 
 			break;
@@ -167,6 +185,35 @@ void tripulante(void *argumentos){
 	list_add(lista_llegada, tripulante);
 	pthread_mutex_unlock(&lockear_creacion_tripulante);
 
+	//TODO: ACA DEBERIA AVISAR A MI-RAM PARA TCB
+
+	sem_post(&tripulante_listo);
+
+	bool soy_yo(void *data) { //funcion para buscar un tripulante
+		Tripulante *un_tripulante = (Tripulante *) data;
+		return tripulante->id == un_tripulante->id
+				&& tripulante->patota == un_tripulante->patota;
+	}
+
+
+
+	sem_wait(&planificacion_activa); //me avisa el planificador que puedo meterme a ready
+	pthread_mutex_lock(&lockear_cambio_new_rdy);
+	list_add(lista_listo, tripulante);
+	list_remove_by_condition(lista_llegada, soy_yo);
+	pthread_mutex_unlock(&lockear_cambio_new_rdy);
+
+
+
+
+
+	sem_wait(&metete_a_exec);
+	pthread_mutex_lock(&lockear_cambio_rdy_exec);
+	list_add(lista_trabajando, tripulante);
+	list_remove_by_condition(lista_listo, soy_yo);
+	pthread_mutex_unlock(&lockear_cambio_rdy_exec);
+
+
 	while(1)
 		;
 	//TODO: AVISAR A MI-RAM
@@ -210,8 +257,10 @@ void listar_cola_planificacion(Estado estado) {
 		while (copia_lista->head != NULL) {
 			elementos = copia_lista->head;
 			tripulante = (Tripulante *) elementos->data;
-			printf("Patota N°: %d\n", tripulante->patota);
-			printf("Tripulante ID°: %d\n\n", tripulante->id);
+			printf("Patota N°: %d\t", tripulante->patota);
+			printf("Tripulante ID°: %d\t", tripulante->id);
+			printf("PosX: %d, PosY: %d\t", tripulante->posicionX, tripulante->posicionY);
+			printf("Estado: %s\n", nombre_estado);
 			copia_lista->head = copia_lista->head->next;
 		}
 	}
@@ -266,6 +315,14 @@ void inicializar_recursos_necesarios(void){
 	lista_bloqueado  = list_create();
 	lista_finalizado = list_create();
 	log_info(logs_discordiador, " COLAS DE PLANIFICACION INICIALIZADAS..");
+
+
+	//inicios semaforos
+
+	sem_init(&metete_a_exec, 0, 0);
+	sem_init(&iniciar_planificacion, 0, 0);
+	sem_init(&tripulante_listo, 0, 0);
+
 
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");
 }

@@ -15,6 +15,7 @@
 #include <pthread.h>
 #include <commons/log.h>
 #include <commons/collections/node.h>
+#include <semaphore.h>
 
 /*
  Debera recibir conexion de i Mongo Store para administrar los sabotajes.
@@ -171,6 +172,13 @@ void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 
 pthread_mutex_t lockear_creacion_tripulante;
+pthread_mutex_t lockear_cambio_new_rdy;
+pthread_mutex_t lockear_cambio_rdy_exec;
+
+sem_t iniciar_planificacion;
+sem_t planificacion_activa;
+sem_t tripulante_listo;
+sem_t metete_a_exec;
 
 #endif
 

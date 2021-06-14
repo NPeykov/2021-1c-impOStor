@@ -123,7 +123,7 @@ void inicializar_recursos_necesarios(void);
 //DATOS PARA MANEJO DE CONSOLA
 #define CANT_COMANDOS 7
 
-int numero_patota = 1;
+int g_numero_patota = 1;
 
 const char* comandos_validos[CANT_COMANDOS] = {
   "INICIAR_PATOTA",
@@ -160,7 +160,10 @@ struct tripulantes_iniciados{
 typedef struct tripulantes_iniciados tripulantes_iniciados;
 
 tripulantes_iniciados *crear_lista_tripulantes(char **);
-void crear_tripulantes(char**, int);
+void iniciar_patota(char**);
+void tripulante(void*);
+
+pthread_mutex_t lockear_creacion_tripulante;
 
 #endif
 

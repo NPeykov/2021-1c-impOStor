@@ -77,7 +77,7 @@ void atender_comandos_consola(void) {
 
 			//AVISAR A MI RAM QUE SE CREO LA PATOTA
 
-			iniciar_patota(comando_separado); //CAPAZ SE PODRIA SACAR NUMERO PATOTA SI SINCRONIZO BIEN LO OTRO
+			iniciar_patota(comando_separado);
 
 			g_numero_patota += 1; //PARA LA PROX VEZ QUE SEA INICIALIZADO
 			break;
@@ -89,25 +89,6 @@ void atender_comandos_consola(void) {
 			listar_cola_planificacion(TRABAJANDO);
 			listar_cola_planificacion(BLOQUEADO);
 			listar_cola_planificacion(FINALIZADO);
-			/*t_link_element *elementos;
-			t_list *copia_llegada = (t_list* )malloc(sizeof(t_list));
-			copia_llegada -> head = lista_llegada -> head;
-			if(copia_llegada -> head == NULL){
-				printf("No hay tripulantes en la cola de llegada!\n");
-				break;
-			}
-			else{
-				Tripulante *tripulante = (Tripulante *) malloc(sizeof(Tripulante));
-				while(copia_llegada -> head != NULL){
-					elementos = copia_llegada -> head;
-					tripulante = (Tripulante *) elementos -> data;
-					printf("Patota N°: %d\n", tripulante->patota);
-					printf("Tripulante ID°: %d\n\n", tripulante->id);
-					copia_llegada->head = copia_llegada->head->next;
-				}
-			}
-			free(copia_llegada);*/
-
 			break;
 
 		case 2: //EXPULSAR_TRIPULANTE
@@ -115,6 +96,9 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 3: //INICIAR_PLANIFICACION
+
+			//mandaria un semaforo
+
 			break;
 
 		case 4: //PAUSAR_PLANIFICACION
@@ -152,10 +136,8 @@ void iniciar_patota(char **datos_tripulantes) {
 		if (datos_tripulantes[j] != NULL)
 			posiciones[i] = datos_tripulantes[j];
 		else {
-			while (i < cantidad_tripulantes) {
-				posiciones[i] = "0|0";
-				i++;
-			}
+			while (i < cantidad_tripulantes)
+				posiciones[i++] = "0|0";
 			posiciones[i] = NULL;
 		}
 	}
@@ -239,53 +221,53 @@ void listar_cola_planificacion(Estado estado) {
 void inicializar_recursos_necesarios(void){
 	logs_discordiador = log_create("../logs_files/discordiador.log",
 			"DISCORDIADOR", 1, LOG_LEVEL_INFO);
-	log_info(logs_discordiador, "INICIANDO DISCORDIADOR..\n");
+	log_info(logs_discordiador, "INICIANDO DISCORDIADOR..");
 
-	log_info(logs_discordiador, "Generando configuraciones..\n");
+	log_info(logs_discordiador, "Generando configuraciones..");
 	config = config_create(PATH_DISCORDIADOR_CONFIG);
 
 	ip_mi_ram = config_get_string_value(config, "IP_MI_RAM_HQ");
-	log_info(logs_discordiador, "IP RAM: %s\n", ip_mi_ram);
+	log_info(logs_discordiador, "IP RAM: %s", ip_mi_ram);
 
 	puerto_mi_ram = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
-	log_info(logs_discordiador, "PUERTO RAM: %s\n", puerto_mi_ram);
+	log_info(logs_discordiador, "PUERTO RAM: %s", puerto_mi_ram);
 
 	ip_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
-	log_info(logs_discordiador, "IP STORE: %s\n", ip_mongo_store);
+	log_info(logs_discordiador, "IP STORE: %s", ip_mongo_store);
 
 	puerto_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
-	log_info(logs_discordiador, "PUERTO STORE: %s\n", puerto_mongo_store);
+	log_info(logs_discordiador, "PUERTO STORE: %s", puerto_mongo_store);
 
 	algoritmo_planificacion = config_get_string_value(config, "ALGORITMO");
-	log_info(logs_discordiador, "ALGORITMO DE PLANIFICACION: %s\n", algoritmo_planificacion);
+	log_info(logs_discordiador, "ALGORITMO DE PLANIFICACION: %s", algoritmo_planificacion);
 
 	if (strcmp(algoritmo_planificacion, "RR") == 0) {
 			char *q = config_get_string_value(config, "QUANTUM");
-			log_info(logs_discordiador, "QUANTUM UTILIZADO: %s\n", q);
+			log_info(logs_discordiador, "QUANTUM UTILIZADO: %s", q);
 			quantum = atoi(q);
 		}
 
 	char *grado_mt = config_get_string_value(config, "GRADO_MULTITAREA");
-	log_info(logs_discordiador, "GRADO MULTITAREA PERMITIDO: %s\n", grado_mt);
+	log_info(logs_discordiador, "GRADO MULTITAREA PERMITIDO: %s", grado_mt);
 	grado_multitarea = atoi(grado_mt);
 
 	char *duracion = config_get_string_value(config, "DURACION_SABOTAJE");
-	log_info(logs_discordiador, "DURACION DE LOS SABOTAJES: %s\n", duracion);
+	log_info(logs_discordiador, "DURACION DE LOS SABOTAJES: %s", duracion);
 	duracion_sabotaje = atoi(duracion);
 
 	char *retardo_cpu = config_get_string_value(config, "RETARDO_CICLO_CPU");
-	log_info(logs_discordiador, "RETARDO DEL CICLO DE CPU: %s\n", retardo_cpu);
+	log_info(logs_discordiador, "RETARDO DEL CICLO DE CPU: %s", retardo_cpu);
 	retardo_ciclo_cpu = atoi(retardo_cpu);
 
 	//falta avisar?
-	lista_llegada = list_create();
-	lista_listo = list_create();
+	lista_llegada    = list_create();
+	lista_listo      = list_create();
 	lista_trabajando = list_create();
-	lista_bloqueado = list_create();
+	lista_bloqueado  = list_create();
 	lista_finalizado = list_create();
+	log_info(logs_discordiador, " COLAS DE PLANIFICACION INICIALIZADAS..");
 
-
-	log_info(logs_discordiador, "TERMINO INICIALIZACION DEL DISCORDIADOR..\n\n");
+	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");
 }
 
 void liberar_memoria_discordiador(void){

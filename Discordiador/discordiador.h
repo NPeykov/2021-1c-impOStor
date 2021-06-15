@@ -177,6 +177,12 @@ typedef struct Tarea{
 	Tipo_Tarea tipo;
 }Tarea;
 
+typedef struct Tripulante_Planificando{
+	Tripulante *tripulante;
+	int quantum_disponible;
+	Tarea *tarea;
+}Tripulante_Planificando;
+
 
 
 typedef struct tripulantes_iniciados tripulantes_iniciados;
@@ -191,9 +197,17 @@ pthread_mutex_t lockear_creacion_tripulante;
 pthread_mutex_t lockear_cambio_new_rdy;
 pthread_mutex_t lockear_cambio_rdy_exec;
 
+sem_t cambio_new_rdy;
+sem_t proceso_nuevo;
+sem_t quiero_rdy;
+sem_t quiero_exec;
+sem_t quiero_bloq;
+sem_t anda_rdy;
+sem_t anda_exec;
+sem_t anda_bloq;
 
 
-bool puede_planificar = false; //posible
+bool g_pausa = false; //posible
 bool programa_activo = true;   //posible
 
 #endif

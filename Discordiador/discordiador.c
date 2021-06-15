@@ -66,6 +66,22 @@ Tarea *proxima_tarea(){
 	return nueva_tarea;
 }
 
+bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
+	Tripulante *tripulante = tripulante_trabajando->tripulante;
+	Tarea *tarea = tripulante_trabajando->tarea;
+	if (tarea->tipo == TAREA_COMUN)
+		return tripulante->posicionX == tarea->posX
+				&& tripulante->posicionY == tarea->posY && tarea->duracion == 0;
+	else
+		return tripulante->posicionX == tarea->posX
+				&& tripulante->posicionY == tarea->posY;
+
+}
+
+void hacer_tarea(Tripulante_Planificando *tripulante_trabajando) {
+
+}
+
 //************************************************ PLANIFICADOR **********************************************
 
 void planificar(){
@@ -216,19 +232,43 @@ void tripulante(void *argumentos){
 	//TODO: ACA DEBERIA AVISAR A MI-RAM PARA TCB
 
 
+	//---------------------------
+	//creo un tripulante con tarea y quantum
 
+	Tripulante_Planificando *tripulante_trabajando = (Tripulante_Planificando*) malloc(sizeof(Tripulante_Planificando));
+	tripulante_trabajando -> tripulante = tripulante;
+	tripulante_trabajando -> quantum_disponible = quantum;
+	tripulante_trabajando -> tarea = proxima_tarea();
 	//---------------------------
 
+	sem_post(&proceso_nuevo);
+
+	/*Falta resolver lo de abjao para que sea consistente
+	 * con el while(1)*/
+	sem_wait(&cambio_new_rdy);
+	pthread_mutex_lock(&lockear_cambio_new_rdy);
+	queue_push(lista_listo, queue_pop(lista_llegada));
+	pthread_mutex_unlock(&lockear_cambio_new_rdy);
+
+	while(1){
+
+		sem_wait(&anda_exec);
+		pthread_mutex_lock(&lockear_cambio_rdy_exec);
+		queue_push(lista_trabajando, queue_pop(lista_listo));
+		pthread_mutex_unlock(&lockear_cambio_rdy_exec);
+
+		while(tripulante_trabajando->quantum_disponible >= 0 && !completo_tarea(tripulante_trabajando) && !g_pausa){
+			hacer_tarea(tripulante_trabajando);
+			tripulante_trabajando -> quantum_disponible -= 1;
+			sleep(retardo_ciclo_cpu);
+		}
+	}
 
 
 
 
 
-
-
-
-
-	//PARA DPS: queue_push(lista_listo, queue_pop(lista_llegada));
+	//PARA DPS:
 
 
 	while(1)

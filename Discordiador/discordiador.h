@@ -163,6 +163,22 @@ struct tripulantes_iniciados{
 	struct tripulantes_iniciados *proximo_tripulante;
 };
 
+typedef enum{
+	TAREA_COMUN,
+	TAREA_IO
+} Tipo_Tarea;
+
+typedef struct Tarea{
+	char* nombre;
+	int parametro;
+	int posX;
+	int posY;
+	int duracion;
+	Tipo_Tarea tipo;
+}Tarea;
+
+
+
 typedef struct tripulantes_iniciados tripulantes_iniciados;
 
 tripulantes_iniciados *crear_lista_tripulantes(char **);
@@ -175,14 +191,10 @@ pthread_mutex_t lockear_creacion_tripulante;
 pthread_mutex_t lockear_cambio_new_rdy;
 pthread_mutex_t lockear_cambio_rdy_exec;
 
-sem_t iniciar_planificacion;
-sem_t planificacion_activa;
-sem_t tripulante_listo;
-sem_t metete_a_exec;
-sem_t metete_a_listo;
 
-bool puede_planificar = false;
-bool programa_activo = true;
+
+bool puede_planificar = false; //posible
+bool programa_activo = true;   //posible
 
 #endif
 

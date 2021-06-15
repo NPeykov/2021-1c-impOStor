@@ -26,7 +26,48 @@ void iniciarPlanificacion(){
 
 }
 
+
+
+//************************************************ Tareas **********************************************
+
+char *tareas[] = { "REGAR;3;2;7", "PLANTAR;0;1;3", "GENERAR_OXIGENO 3;1;2;1", NULL }; //ejemplo
+
+char *dar_proxima_tarea(){
+	static int i=0;
+	return tareas[i] == NULL ? NULL : tareas[i++];
+}
+
+Tarea *proxima_tarea(){
+	char *tarea_string = dar_proxima_tarea();
+	char **tarea_dividida;
+	char **tarea_IO_dividida;
+
+	Tarea *nueva_tarea = (Tarea*) malloc(sizeof(Tarea));
+
+	if(tarea_string == NULL)
+		return NULL;
+
+	tarea_dividida = string_split(tarea_string, ";");
+	tarea_IO_dividida = string_split(tarea_dividida[0], " "); //por si es tarea I/O
+
+	nueva_tarea -> nombre 	 = tarea_IO_dividida[0];
+	if(tarea_IO_dividida[1] == NULL) {
+		nueva_tarea -> parametro = -1;
+		nueva_tarea -> tipo = TAREA_COMUN;
+	}
+	else {
+		nueva_tarea -> parametro = atoi(tarea_IO_dividida[1]);
+		nueva_tarea -> tipo = TAREA_IO;
+	}
+	nueva_tarea -> posX 	 = atoi(tarea_dividida[1]);
+	nueva_tarea -> posY      = atoi(tarea_dividida[2]);
+	nueva_tarea -> duracion  = atoi(tarea_dividida[3]);
+
+	return nueva_tarea;
+}
+
 //************************************************ PLANIFICADOR **********************************************
+
 void planificar(){
 
 
@@ -98,19 +139,17 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 3: //INICIAR_PLANIFICACION
-			puede_planificar = true;
-			sem_post(&iniciar_planificacion);
-			sem_post(&iniciar_planificacion);
-			sem_post(&iniciar_planificacion);
+
 			//mandaria un semaforo
 
 			break;
 
 		case 4: //PAUSAR_PLANIFICACION
-			puede_planificar = false;
+
 			break;
 
 		case 5: //OBTENER_BITACORA
+
 			break;
 
 		case 6: //SALIR
@@ -120,7 +159,6 @@ void atender_comandos_consola(void) {
 				programa_activo = false;
 				return;
 			}
-			printf("NO VOY S SALIRRR");
 			break;
 		default:
 			printf("COMANDO INVALIDO\n");
@@ -179,42 +217,22 @@ void tripulante(void *argumentos){
 
 
 
-	sem_wait(&iniciar_planificacion);
-	pthread_mutex_lock(&lockear_cambio_new_rdy);
-	queue_push(lista_listo, queue_pop(lista_llegada));
-	pthread_mutex_unlock(&lockear_cambio_new_rdy);
+	//---------------------------
 
 
 
-	/*sem_post(&tripulante_listo); //avisa al planificador que quiere entrar
-
-	bool soy_yo(void *data) { //funcion para buscar un tripulante
-		Tripulante *un_tripulante = (Tripulante *) data;
-		return tripulante->id == un_tripulante->id
-				&& tripulante->patota == un_tripulante->patota;
-	}*/
 
 
-/*
-	//sem_wait(&planificacion_activa); //me avisa el planificador que puedo meterme a ready
-	while (programa_activo) {
-		while (puede_planificar) {
 
-			sem_wait(&metete_a_listo);
-			pthread_mutex_lock(&lockear_cambio_new_rdy);
-			list_add(lista_listo, tripulante);
-			list_remove_by_condition(lista_llegada, soy_yo);
-			pthread_mutex_unlock(&lockear_cambio_new_rdy);
 
-			sem_wait(&metete_a_exec);
-			pthread_mutex_lock(&lockear_cambio_rdy_exec);
-			list_add(lista_trabajando, tripulante);
-			list_remove_by_condition(lista_listo, soy_yo);
-			pthread_mutex_unlock(&lockear_cambio_rdy_exec);
-		}
-	}*/
-	//TODO: AVISAR A MI-RAM
-	//TODO: AGREGR A COLA
+
+
+
+	//PARA DPS: queue_push(lista_listo, queue_pop(lista_llegada));
+
+
+	while(1)
+		;
 
 }
 
@@ -316,18 +334,33 @@ void inicializar_recursos_necesarios(void){
 
 	//inicios semaforos
 
-	sem_init(&metete_a_exec, 0, 0);
-	sem_init(&iniciar_planificacion, 0, 0);
-	sem_init(&tripulante_listo, 0, 0);
-	sem_init(&metete_a_listo, 0, 0);
 
 
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");
 }
 
-void liberar_memoria_discordiador(void){
-	//TODO
+void liberar_memoria_discordiador(void) {
+	//LISTAS
+	queue_clean(lista_llegada);
+	queue_destroy(lista_llegada);
+	queue_clean(lista_listo);
+	queue_destroy(lista_listo);
+	queue_clean(lista_trabajando);
+	queue_destroy(lista_trabajando);
+	queue_clean(lista_bloqueado);
+	queue_destroy(lista_bloqueado);
+	queue_clean(lista_finalizado);
+	queue_destroy(lista_finalizado);
+
+	//LOGS
+	log_destroy(logs_discordiador);
+
+	//TODO: SEMAFOROS
+
+	//TODO: CONEXIONES
+
 }
+
 
 int main(void){
 
@@ -344,9 +377,9 @@ int main(void){
 	pthread_create(&hilo_consola, NULL, (void *)atender_comandos_consola, NULL);
 	pthread_join(hilo_consola, NULL);
 
-	printf("\n-------TERMINAR-------\n");
-
+	log_info(logs_discordiador, "TERMINANDO PROGRAMA - LIBERANDO ESPACIO");
 	liberar_memoria_discordiador();
+	printf("\n-------TERMINO-------\n");
 
 	return EXIT_SUCCESS;
 }

@@ -10,7 +10,7 @@
 #include "../utils/utils.h"
 #include <commons/log.h>
 #include <commons/config.h>
-#include <commons/collections/list.h>
+#include <commons/collections/queue.h>
 #include <commons/string.h>
 #include <pthread.h>
 #include <commons/log.h>
@@ -58,11 +58,11 @@ typedef enum Estado{
     LLEGADA, LISTO, TRABAJANDO, BLOQUEADO, FINALIZADO
 }Estado;
 
-t_list *lista_llegada;
-t_list *lista_listo;
-t_list *lista_trabajando;
-t_list *lista_bloqueado;
-t_list *lista_finalizado;
+t_queue *lista_llegada;
+t_queue *lista_listo;
+t_queue *lista_trabajando;
+t_queue *lista_bloqueado;
+t_queue *lista_finalizado;
 
 
 typedef struct Tripulante{
@@ -179,6 +179,10 @@ sem_t iniciar_planificacion;
 sem_t planificacion_activa;
 sem_t tripulante_listo;
 sem_t metete_a_exec;
+sem_t metete_a_listo;
+
+bool puede_planificar = false;
+bool programa_activo = true;
 
 #endif
 

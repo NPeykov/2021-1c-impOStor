@@ -29,22 +29,6 @@ void iniciarPlanificacion(){
 //************************************************ PLANIFICADOR **********************************************
 void planificar(){
 
-	sem_wait(&iniciar_planificacion);
-
-	int procesos_activos = 1;
-
-	while(1){
-
-
-	sem_post(&planificacion_activa); //para avisarle a los tripulantes que se metan a ready
-	sem_wait(&tripulante_listo);
-
-
-	for(; procesos_activos <= grado_multitarea; procesos_activos++){
-		sem_post(&metete_a_exec);
-	}
-
-	}
 
 	//TODO
 }
@@ -114,12 +98,16 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 3: //INICIAR_PLANIFICACION
+			puede_planificar = true;
+			sem_post(&iniciar_planificacion);
+			sem_post(&iniciar_planificacion);
 			sem_post(&iniciar_planificacion);
 			//mandaria un semaforo
 
 			break;
 
 		case 4: //PAUSAR_PLANIFICACION
+			puede_planificar = false;
 			break;
 
 		case 5: //OBTENER_BITACORA
@@ -128,8 +116,10 @@ void atender_comandos_consola(void) {
 		case 6: //SALIR
 			printf("Si realmente deseas salir apreta 'S'..\n");
 			char c = getchar();
-			if(c == 's' || c == 'S')
+			if(c == 's' || c == 'S'){
+				programa_activo = false;
 				return;
+			}
 			printf("NO VOY S SALIRRR");
 			break;
 		default:
@@ -182,40 +172,47 @@ void tripulante(void *argumentos){
 	tripulante -> posicionY = args->posicionY;
 	tripulante -> estado = LLEGADA;
 
-	list_add(lista_llegada, tripulante);
+	queue_push(lista_llegada, tripulante);
 	pthread_mutex_unlock(&lockear_creacion_tripulante);
 
 	//TODO: ACA DEBERIA AVISAR A MI-RAM PARA TCB
 
-	sem_post(&tripulante_listo);
+
+
+	sem_wait(&iniciar_planificacion);
+	pthread_mutex_lock(&lockear_cambio_new_rdy);
+	queue_push(lista_listo, queue_pop(lista_llegada));
+	pthread_mutex_unlock(&lockear_cambio_new_rdy);
+
+
+
+	/*sem_post(&tripulante_listo); //avisa al planificador que quiere entrar
 
 	bool soy_yo(void *data) { //funcion para buscar un tripulante
 		Tripulante *un_tripulante = (Tripulante *) data;
 		return tripulante->id == un_tripulante->id
 				&& tripulante->patota == un_tripulante->patota;
-	}
+	}*/
 
 
+/*
+	//sem_wait(&planificacion_activa); //me avisa el planificador que puedo meterme a ready
+	while (programa_activo) {
+		while (puede_planificar) {
 
-	sem_wait(&planificacion_activa); //me avisa el planificador que puedo meterme a ready
-	pthread_mutex_lock(&lockear_cambio_new_rdy);
-	list_add(lista_listo, tripulante);
-	list_remove_by_condition(lista_llegada, soy_yo);
-	pthread_mutex_unlock(&lockear_cambio_new_rdy);
+			sem_wait(&metete_a_listo);
+			pthread_mutex_lock(&lockear_cambio_new_rdy);
+			list_add(lista_listo, tripulante);
+			list_remove_by_condition(lista_llegada, soy_yo);
+			pthread_mutex_unlock(&lockear_cambio_new_rdy);
 
-
-
-
-
-	sem_wait(&metete_a_exec);
-	pthread_mutex_lock(&lockear_cambio_rdy_exec);
-	list_add(lista_trabajando, tripulante);
-	list_remove_by_condition(lista_listo, soy_yo);
-	pthread_mutex_unlock(&lockear_cambio_rdy_exec);
-
-
-	while(1)
-		;
+			sem_wait(&metete_a_exec);
+			pthread_mutex_lock(&lockear_cambio_rdy_exec);
+			list_add(lista_trabajando, tripulante);
+			list_remove_by_condition(lista_listo, soy_yo);
+			pthread_mutex_unlock(&lockear_cambio_rdy_exec);
+		}
+	}*/
 	//TODO: AVISAR A MI-RAM
 	//TODO: AGREGR A COLA
 
@@ -230,23 +227,23 @@ void listar_cola_planificacion(Estado estado) {
 	//LLEGADA, LISTO, TRABAJANDO, BLOQUEADO, FINALIZADO
 	switch(estado){
 	case LLEGADA:
-		copia_lista->head = lista_llegada->head;
+		copia_lista->head = lista_llegada-> elements -> head;
 		nombre_estado = "Llegada";
 		break;
 	case LISTO:
-		copia_lista->head = lista_listo->head;
+		copia_lista->head = lista_listo-> elements -> head;
 		nombre_estado = "Listo";
 		break;
 	case TRABAJANDO:
-		copia_lista->head = lista_trabajando->head;
+		copia_lista->head = lista_trabajando-> elements -> head;
 		nombre_estado = "Trabajando";
 		break;
 	case BLOQUEADO:
-		copia_lista->head = lista_bloqueado->head;
+		copia_lista->head = lista_bloqueado-> elements -> head;
 		nombre_estado = "Bloqueado";
 		break;
 	case FINALIZADO:
-		copia_lista->head = lista_finalizado->head;
+		copia_lista->head = lista_finalizado-> elements -> head;
 		nombre_estado = "Finalizado";
 		break;
 	}
@@ -309,11 +306,11 @@ void inicializar_recursos_necesarios(void){
 	retardo_ciclo_cpu = atoi(retardo_cpu);
 
 	//falta avisar?
-	lista_llegada    = list_create();
-	lista_listo      = list_create();
-	lista_trabajando = list_create();
-	lista_bloqueado  = list_create();
-	lista_finalizado = list_create();
+	lista_llegada    = queue_create();
+	lista_listo      = queue_create();
+	lista_trabajando = queue_create();
+	lista_bloqueado  = queue_create();
+	lista_finalizado = queue_create();
 	log_info(logs_discordiador, " COLAS DE PLANIFICACION INICIALIZADAS..");
 
 
@@ -322,6 +319,7 @@ void inicializar_recursos_necesarios(void){
 	sem_init(&metete_a_exec, 0, 0);
 	sem_init(&iniciar_planificacion, 0, 0);
 	sem_init(&tripulante_listo, 0, 0);
+	sem_init(&metete_a_listo, 0, 0);
 
 
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");
@@ -341,6 +339,7 @@ int main(void){
 
 	pthread_create(&hilo_planificador, NULL, (void *)planificar, NULL);
 	pthread_detach(hilo_planificador);
+
 
 	pthread_create(&hilo_consola, NULL, (void *)atender_comandos_consola, NULL);
 	pthread_join(hilo_consola, NULL);

@@ -66,19 +66,109 @@ Tarea *proxima_tarea(){
 	return nueva_tarea;
 }
 
+bool estoy_en_mismo_punto(int sourceX, int sourceY, int targetX, int targetY){
+	return sourceX == targetX && sourceY == targetY;
+}
+
 bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 	Tripulante *tripulante = tripulante_trabajando->tripulante;
 	Tarea *tarea = tripulante_trabajando->tarea;
-	if (tarea->tipo == TAREA_COMUN)
-		return tripulante->posicionX == tarea->posX
-				&& tripulante->posicionY == tarea->posY && tarea->duracion == 0;
-	else
-		return tripulante->posicionX == tarea->posX
-				&& tripulante->posicionY == tarea->posY;
+	int sourceX = tripulante->posicionX;
+	int targetX = tarea->posX;
+	int sourceY = tripulante->posicionY;
+	int targetY = tarea->posY;
 
+	switch (tarea->tipo) {
+	case TAREA_COMUN:
+		return estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY)
+				&& tarea->duracion == 0;
+		break;
+	case TAREA_IO:
+		return estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY);
+		break;
+	default:
+		log_info(logs_discordiador,
+				"ERROR en funcion 'completo_tarea', no coincide tipos..\n");
+		return false;
+		break;
+
+	}
 }
 
-void hacer_tarea(Tripulante_Planificando *tripulante_trabajando) {
+void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
+	static bool last_move_x = false;
+	int targetX, targetY, sourceX, sourceY;
+	targetX = tripulante_trabajando->tarea->posX;
+	targetY = tripulante_trabajando->tarea->posY;
+	sourceX = tripulante_trabajando->tripulante->posicionX;
+	sourceY = tripulante_trabajando->tripulante->posicionY;
+
+	if (sourceX == targetX && last_move_x == false)
+		last_move_x = true;
+
+	if (sourceY == targetY && last_move_x == true)
+		last_move_x = false;
+
+	if (sourceX < targetX && last_move_x == false) {
+		tripulante_trabajando->tripulante->posicionX += 1;
+		last_move_x = true;
+		return;
+	}
+
+	if (sourceX > targetX && last_move_x == false) {
+		tripulante_trabajando->tripulante->posicionX -= 1;
+		last_move_x = true;
+		return;
+	}
+
+	if (sourceY < targetY && last_move_x == true) {
+		tripulante_trabajando->tripulante->posicionY += 1;
+		last_move_x = false;
+		return;
+	}
+
+	if (sourceY > targetY && last_move_x == true) {
+		tripulante_trabajando->tripulante->posicionY -= 1;
+		last_move_x = false;
+		return;
+	}
+}
+
+void realizar_tarea_IO(Tripulante_Planificando *tripulante_trabajando) {
+	//TODO: avisar a mi-ram??
+	//TODO: avisarle a mongo-store para que modifique su archivo con letra de llenado
+	tripulante_trabajando->tarea->duracion -= 1;
+}
+
+void realizar_tarea_comun(Tripulante_Planificando *tripulante_trabajando){
+	tripulante_trabajando -> tarea -> duracion -= 1;
+}
+
+void hacer_una_unidad_de_tarea(Tripulante_Planificando *tripulante_trabajando) {
+	Tipo_Tarea tipo_tarea = tripulante_trabajando->tarea->tipo;
+	int targetX, targetY, sourceX, sourceY;
+	targetX = tripulante_trabajando->tarea->posX;
+	targetY = tripulante_trabajando->tarea->posY;
+	sourceX = tripulante_trabajando->tripulante->posicionX;
+	sourceY = tripulante_trabajando->tripulante->posicionY;
+
+	switch (tipo_tarea) {
+
+	case TAREA_COMUN:
+		if (!estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY))
+			moverse_una_unidad(tripulante_trabajando);
+		else
+			realizar_tarea_comun(tripulante_trabajando);
+
+		break;
+	case TAREA_IO:
+		moverse_una_unidad(tripulante_trabajando);
+		break;
+	}
+
+	log_info(logs_discordiador, "Tripulante N:%d de Patota:%d se movio a X:%d, Y:%d",
+			tripulante_trabajando -> tripulante -> id, tripulante_trabajando -> tripulante -> patota,
+			tripulante_trabajando -> tripulante -> posicionX, tripulante_trabajando -> tripulante -> posicionY);
 
 }
 
@@ -258,22 +348,34 @@ void tripulante(void *argumentos){
 		pthread_mutex_unlock(&lockear_cambio_rdy_exec);
 
 		while(tripulante_trabajando->quantum_disponible >= 0 && !completo_tarea(tripulante_trabajando) && !g_pausa){
-			hacer_tarea(tripulante_trabajando);
+			hacer_una_unidad_de_tarea(tripulante_trabajando);
 			tripulante_trabajando -> quantum_disponible -= 1;
 			sleep(retardo_ciclo_cpu);
 		}
+
+		if (tripulante_trabajando->tarea->tipo == TAREA_IO && completo_tarea(tripulante_trabajando)) {
+			sem_wait(&bloq_disponible);
+			pthread_mutex_lock(&lockear_cambio_exec_bloq);
+			queue_push(lista_bloqueado, queue_pop(lista_trabajando));
+			pthread_mutex_unlock(&lockear_cambio_exec_bloq);
+			sleep(retardo_ciclo_cpu);
+			while(tripulante_trabajando->tarea->duracion > 0){
+				hacer_una_unidad_de_tarea(tripulante_trabajando);
+			}
+			sem_post(&libere_bloq);
+		}
+
+		if(completo_tarea(tripulante_trabajando) /*&& no_hay_mas_tareas()*/){
+			pthread_mutex_lock(&lockear_exit);
+			//TODO: Falta sacar el tripulante de la cola, independientemente si esta en i/o o exec
+			pthread_mutex_unlock(&lockear_exit);
+		}
+
+		if(completo_tarea(tripulante_trabajando) /*&& !no_hay_mas_tareas()*/){
+			tripulante_trabajando -> tarea = proxima_tarea();
+		}
+
 	}
-
-
-
-
-
-	//PARA DPS:
-
-
-	while(1)
-		;
-
 }
 
 

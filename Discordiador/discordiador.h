@@ -196,6 +196,8 @@ void listar_cola_planificacion(Estado);
 pthread_mutex_t lockear_creacion_tripulante;
 pthread_mutex_t lockear_cambio_new_rdy;
 pthread_mutex_t lockear_cambio_rdy_exec;
+pthread_mutex_t lockear_cambio_exec_bloq;
+pthread_mutex_t lockear_exit;
 
 sem_t cambio_new_rdy;
 sem_t proceso_nuevo;
@@ -205,6 +207,8 @@ sem_t quiero_bloq;
 sem_t anda_rdy;
 sem_t anda_exec;
 sem_t anda_bloq;
+sem_t bloq_disponible;
+sem_t libere_bloq;
 
 
 bool g_pausa = false; //posible

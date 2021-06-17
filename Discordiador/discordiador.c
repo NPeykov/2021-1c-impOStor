@@ -174,9 +174,20 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *tripulante_trabajando) {
 
 //************************************************ PLANIFICADOR **********************************************
 
-void planificar(){
+void planificar() {
 
 
+	sem_wait(&activo_planificador);
+
+	sem_wait(&proceso_nuevo);
+
+	while (1) {
+
+		sem_post(&anda_rdy);
+		sem_post(&anda_exec);
+		sem_post(&anda_bloq);
+
+	}
 	//TODO
 }
 
@@ -245,7 +256,7 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 3: //INICIAR_PLANIFICACION
-
+			sem_post(&activo_planificador);
 			//mandaria un semaforo
 
 			break;
@@ -335,7 +346,7 @@ void tripulante(void *argumentos){
 
 	/*Falta resolver lo de abjao para que sea consistente
 	 * con el while(1)*/
-	sem_wait(&cambio_new_rdy);
+	sem_wait(&anda_rdy);
 	pthread_mutex_lock(&lockear_cambio_new_rdy);
 	queue_push(lista_listo, queue_pop(lista_llegada));
 	pthread_mutex_unlock(&lockear_cambio_new_rdy);
@@ -475,7 +486,14 @@ void inicializar_recursos_necesarios(void){
 
 
 	//inicios semaforos
-
+	sem_init(&activo_planificador , 0, 0);
+	sem_init(&cambio_new_rdy , 0, 0);
+	sem_init(&proceso_nuevo , 0, 0);
+	sem_init(&quiero_rdy , 0, 0);
+	sem_init(&quiero_exec , 0, 0);
+	sem_init(&quiero_bloq , 0, 0);
+	sem_init(&bloq_disponible , 0, 3);
+	sem_init(&libere_bloq , 0, 0);
 
 
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");

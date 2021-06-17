@@ -199,6 +199,7 @@ pthread_mutex_t lockear_cambio_rdy_exec;
 pthread_mutex_t lockear_cambio_exec_bloq;
 pthread_mutex_t lockear_exit;
 
+sem_t activo_planificador;
 sem_t cambio_new_rdy;
 sem_t proceso_nuevo;
 sem_t quiero_rdy;

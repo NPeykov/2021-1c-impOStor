@@ -10,18 +10,24 @@
 
 int servidor;
 
-
-
 int socket_mi_ram;
 t_config *config;
 char* puerto;
 int socket_cliente;
+char *tareas[];
+t_list* patotas; //Lista de tablas de segmentos
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
 
 typedef struct{
+	int idSegmento;
+	uint32_t inicio;
+	int tamanio;
+} TablaSegmentos; //Patota
+
+typedef struct{
 	uint32_t pid; //Identificador de la Patota
-	uint32_t tareas; //Lista de tareas de la patota
+	uint32_t tareas; //Direccion Lista de tareas de la patota
 } pcb; //Patota Control Block
 
 typedef struct{
@@ -32,6 +38,7 @@ typedef struct{
 	uint32_t proxIns; //Proxima Instruccion
 	uint32_t pcb; //Direccion de la PCB asociada al tripulante
 } tcb; //Tripulante Control Block
+
 
 // La memoria se estructurara a modo de listas enlazadas
 // Cada nodo de la lista es una posicion de memoria que almacena un dato
@@ -48,11 +55,11 @@ typedef enum{
 }esquemaMemoria;
 
 struct nodoMemoria *memoria = NULL;
+TablaSegmentos* nuevaPatota;
 
 void crearRAM(t_config* config, struct nodoMemoria *memoria);
 
 void *gestionarCliente(int cliente);
-
 
 
 #endif

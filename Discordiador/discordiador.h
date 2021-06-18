@@ -189,13 +189,10 @@ pthread_mutex_t pausa_lock_plani; //sacar
 
 pthread_cond_t sacar_pausa;
 pthread_cond_t sabotaje_resuelto;
-
 pthread_mutex_t sabotaje_lock; //por ahora no lo uso
 pthread_mutex_t pausa_lock; //por ahora no lo uso
 
 //semaforos
-sem_t proceso_rdy; //iniciar en 0
-sem_t trabajar;		//iniciar en 0
 sem_t bloq_disponible; //iniciar en 1
 
 

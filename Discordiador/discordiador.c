@@ -2,11 +2,20 @@
 
 ///************************************************ Tareas **********************************************
 
-char *tareas[] = { "REGAR 4;3;2;7", "PLANTAR;4;5;3", "GENERAR_OXIGENO 3;1;2;1", NULL }; //ejemplo
+char *tareas[] = {
+		"REGAR;3;2;7",
+		"PLANTAR;4;5;3",
+		"GENERAR_OXIGENO 3;1;2;1",
+		"ESPERAR;7;8;10",
+		"GENERAR_COMIDA 5;3;5;2",
+		"COMER;10;14;4",
+		"MATAR;0;0;1",
+		"JUGAR;9;7;19",
+		NULL }; //ejemplo
 
 char *dar_proxima_tarea(){
 	static int i=0;
-	return tareas[i] == NULL ? NULL : tareas[i++];
+	return i<=7 ? tareas[i++] : NULL;
 }
 
 Tarea *proxima_tarea(){
@@ -35,8 +44,7 @@ Tarea *proxima_tarea(){
 	nueva_tarea -> posY      = atoi(tarea_dividida[2]);
 	nueva_tarea -> duracion  = atoi(tarea_dividida[3]);
 
-	log_info(logs_discordiador, "ME ASIGNARON UNA TAREA %s CON DURACION %d",
-					nueva_tarea->tipo == TAREA_IO? "IO" : "COMUN", nueva_tarea->duracion);
+
 
 	return nueva_tarea;
 }
@@ -66,7 +74,6 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 				"ERROR en funcion 'completo_tarea', no coincide tipos..\n");
 		return false;
 		break;
-
 	}
 }
 
@@ -114,7 +121,7 @@ void realizar_tarea_IO(Tripulante_Planificando *tripulante_trabajando) {
 	//TODO: avisarle a mongo-store para que modifique su archivo con letra de llenado
 	sleep(retardo_ciclo_cpu);
 	tripulante_trabajando->tarea->duracion -= 1;
-	log_info(logs_discordiador, "Tripulante N:%d - REALIZO una unidad de tarea IO, me quedan %d.",
+	log_info(logs_discordiador, "Tripulante N:%d - REALIZO una unidad de tarea IO, le quedan %d.",
 				tripulante_trabajando->tripulante->id, tripulante_trabajando->tarea->duracion);
 }
 
@@ -145,10 +152,10 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *tripulante_trabajando) {
 	}
 
 	sleep(retardo_ciclo_cpu);
-	log_info(logs_discordiador, "Tripulante N:%d de Patota:%d se movio a X:%d, Y:%d",
+	log_info(logs_discordiador, "Tripulante:%d de Patota:%d esta en (%d, %d) con %d unidades de tarea %s",
 			tripulante_trabajando -> tripulante -> id, tripulante_trabajando -> tripulante -> patota,
-			tripulante_trabajando -> tripulante -> posicionX, tripulante_trabajando -> tripulante -> posicionY);
-
+			tripulante_trabajando -> tripulante -> posicionX, tripulante_trabajando -> tripulante -> posicionY,
+			tripulante_trabajando -> tarea -> duracion, tripulante_trabajando -> tarea -> nombre);
 }
 
 
@@ -194,38 +201,27 @@ void moverse_a_ready(Tripulante_Planificando *tripulante_trabajando){
 					&& tripulante_trabajando->tripulante->patota == un_tripulante->tripulante->patota;
 	}
 
-	log_info(logs_discordiador,
-			"Entro a moverme a READY con tripulante N: %d\n", tripulante_trabajando->tripulante->id);
-
-	if(estado_actual == TRABAJANDO){
-		log_info(logs_discordiador, "El tripulante estaba TRABAJANDO");
-	}
-
-	else if(estado_actual == BLOQUEADO_IO)
-		log_info(logs_discordiador, "El tripulante estaba EN IO");
-
-	else
-		log_info(logs_discordiador, "El tripulante NO ESTABA HACIENDO NINGUNA");
-
 	switch (estado_actual) {
 	case TRABAJANDO:
 		queue_push(lista_listo, tripulante_trabajando);
 		tripulante_trabajando->tripulante->estado = LISTO;
 		list_remove_by_condition(lista_trabajando, soy_yo);
-		log_info(logs_discordiador, "En cola TRABAJANDO hay %d tripulantes", list_size(lista_trabajando));
+		log_info(logs_discordiador,
+				"Tripulante:%d de Patota:%d pasa de EXEC a READY",
+				tripulante_trabajando->tripulante->id,
+				tripulante_trabajando->tripulante->patota);
 		break;
 
 	case BLOQUEADO_IO:
 		queue_push(lista_listo, tripulante_trabajando);
 		tripulante_trabajando->tripulante->estado = LISTO;
 		list_remove_by_condition(lista_bloqueado_IO, soy_yo);
-
+		log_info(logs_discordiador,
+				"Tripulante:%d de Patota:%d pasa de BLOQUEADO_IO a READY",
+				tripulante_trabajando->tripulante->id,
+				tripulante_trabajando->tripulante->patota);
 		break;
 	}
-
-	log_info(logs_discordiador, "En lista de listo hay %d", queue_size(lista_listo));
-
-	log_info(logs_discordiador, "El tripulante SE FUE EN ESTADO %d", tripulante_trabajando -> tripulante->estado);
 
 }
 
@@ -238,8 +234,12 @@ void moverse_a_bloq(Tripulante_Planificando *tripulante_trabajando) {
 
 	pthread_mutex_lock(&mutex_exec_a_bloq);
 	list_add(lista_bloqueado_IO, tripulante_trabajando);
-	tripulante_trabajando -> tripulante -> estado = BLOQUEADO_IO;
+	tripulante_trabajando->tripulante->estado = BLOQUEADO_IO;
 	list_remove_by_condition(lista_trabajando, soy_yo);
+	log_info(logs_discordiador,
+			"Tripulante:%d de Patota:%d pasa de EXEC a BLOQUEADO_IO",
+			tripulante_trabajando->tripulante->id,
+			tripulante_trabajando->tripulante->patota);
 	pthread_mutex_unlock(&mutex_exec_a_bloq);
 }
 //************************************************ ALGORITMO PLANIFICACION **********************************************
@@ -255,13 +255,13 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 	switch (algoritmo) {
 	case FIFO:
 		while (!completo_tarea(tripulante)) {
-			fijarse_si_hay_pausa(); //TODO
+			fijarse_si_hay_pausa();
 			fijarse_si_hay_sabotaje(); //TODO
 			hacer_una_unidad_de_tarea(tripulante);
 		}
 
 		if (completo_tarea && tripulante->tarea->tipo == TAREA_IO) {
-			break;
+			return;
 		}
 
 		else { //tengo que pedir la proxima tarea
@@ -271,7 +271,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 			if (tripulante->tarea == NULL) {
 				log_info(logs_discordiador, "EL TRIPULANTE N %d FINALIZO", tripulante->tripulante->id);
 				pthread_exit(NULL);
-				//EXIT
+				//EXIT TODO: MANDARLO A LISTA DE SALIDA
 			}
 		}
 		break;
@@ -282,10 +282,6 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 			hacer_una_unidad_de_tarea(tripulante);
 			tripulante->quantum_disponible -= 1;
-			log_info(logs_discordiador,
-					"Tripulante N:%d de patota N:%d le quedan %d quantums en tarea %s",
-					tripulante->tripulante->id, tripulante->tripulante->patota,
-					tripulante->quantum_disponible, tripulante->tarea->nombre);
 		}
 
 		if (completo_tarea(tripulante) && tripulante->tarea->tipo == TAREA_IO)
@@ -300,15 +296,12 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 			if (tripulante->tarea == NULL) {
 				log_info(logs_discordiador, "EL TRIPULANTE N %d FINALIZO", tripulante->tripulante->id);
 				pthread_exit(NULL);
-				//EXIT
+				//EXIT TODO: MANDARLO A LISTA DE SALIDA
 			}
 		}
 
 		tripulante->quantum_disponible = quantum; //se resetea el quantum
-		log_info(logs_discordiador,
-							"Se reseteo el quantum del tripulante N:%d Patota N: %d, a %d",
-							tripulante->tripulante->id, tripulante->tripulante->patota,
-							tripulante->quantum_disponible);
+
 		break;
 	}
 }
@@ -493,7 +486,6 @@ void tripulante(void *argumentos){
 	while(1){
 		//arrancar_de_nuevo:
 
-		sem_post(&proceso_rdy);
 		sem_wait(&tripulante_trabajando -> ir_exec);
 		realizar_trabajo(tripulante_trabajando);
 		pthread_mutex_unlock(&mutex_dejar_exec);
@@ -501,9 +493,9 @@ void tripulante(void *argumentos){
 		pthread_mutex_unlock(&mutex_dejar_exec);
 
 		if(completo_tarea(tripulante_trabajando) && tripulante_trabajando -> tarea -> tipo == TAREA_IO){
-			log_info(logs_discordiador,
-							"REALIZANDO TAREA IO");
-			moverse_a_bloq(tripulante_trabajando); //TODO
+			log_info(logs_discordiador, "REALIZANDO TAREA IO");
+			sleep(retardo_ciclo_cpu); //piden que espere antes de entrar I/O
+			moverse_a_bloq(tripulante_trabajando);
 			sem_wait(&bloq_disponible);
 			while(tripulante_trabajando->tarea->duracion > 0){
 				realizar_tarea_IO(tripulante_trabajando);
@@ -513,19 +505,18 @@ void tripulante(void *argumentos){
 			tripulante_trabajando -> tarea = proxima_tarea();
 			pthread_mutex_unlock(&mutex_pedido_tarea);
 			if(tripulante_trabajando->tarea == NULL){
-				log_info(logs_discordiador, "TERMINO IO Tripulante: %d ", tripulante_trabajando ->tripulante->id);
+				log_info(logs_discordiador, "Tripulante:%d de Patota:%d se movio de BLOQ_IO a EXIT",
+						tripulante_trabajando ->tripulante->id,
+						tripulante_trabajando ->tripulante->patota);
+
 				pthread_exit(NULL);
-				//EXIT
+				//EXIT TODO: mover de bloq I/O a EXIT
 			}
 		}
-		log_info(logs_discordiador, "MANDO AL TRIPULANTE:%d A READY OTRA VEZ", tripulante_trabajando ->tripulante->id);
 		pthread_mutex_lock(&mutex_cambio_a_ready);
 		moverse_a_ready(tripulante_trabajando); //TODO
 		pthread_mutex_unlock(&mutex_cambio_a_ready);
 	}
-
-
-
 }
 
 
@@ -580,7 +571,7 @@ void listar_cola_planificacion(Estado estado) {
 
 void inicializar_recursos_necesarios(void){
 	logs_discordiador = log_create("../logs_files/discordiador.log",
-			"DISCORDIADOR", 1, LOG_LEVEL_INFO);
+			"DISCORDIADOR", 0, LOG_LEVEL_INFO);
 	log_info(logs_discordiador, "INICIANDO DISCORDIADOR..");
 
 	log_info(logs_discordiador, "Generando configuraciones..");
@@ -632,9 +623,6 @@ void inicializar_recursos_necesarios(void){
 
 
 	//inicios semaforos
-
-	sem_init(&proceso_rdy, 0, 0);
-	sem_init(&trabajar, 0, 0);
 	sem_init(&bloq_disponible, 0, 1);
 
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");

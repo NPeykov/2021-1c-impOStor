@@ -19,42 +19,7 @@
 
 #define CANT_COMANDOS 7
 
-/*
- Debera recibir conexion de i Mongo Store para administrar los sabotajes.
- Debera conectarse a Mi Ram HQ
-
- iniciar_patota(int cantTripulantes, string path_to_file_tasks, Posicion posiciones[])
-
-  si no se especifica la posicion del tripulante se lo inicializa en (0,0)
-
-
- listar_tripulantes()
-
-
- expulsar_tripulante(int idTripulante)
-
-  Conecta con Mi Ram HQ y le manda el tripulante para eyectarlo (eliminar segmento de tareas)
-
-
- iniciar_planificacion()
-
- pausar_planificacion()
-
- obtener_bitacora(int idTripulante)
-
- Conecta con i Mongo Store y le pide la bitacora del tripulante.
-
-
- */
-
-
 //DECLARACION DE ESTRUCTURAS
-/*
-typedef struct Posicion{ //cuesta un poco mas manejarlo asi
-   int x;
-   int y;
-} Posicion;
-*/
 
 typedef enum Estado{
     LLEGADA, LISTO, TRABAJANDO, BLOQUEADO_IO, BLOQUEADO_EMERGENCIA, FINALIZADO
@@ -78,6 +43,7 @@ typedef struct Tripulante{
 
 
 //DECLARACION DE ATRIBUTOS
+int g_numero_patota = 1;
 t_log *logs_discordiador;
 char *ip_mi_ram;
 char *ip_mongo_store;
@@ -94,14 +60,7 @@ bool g_hay_pausa    = true;
 bool g_hay_sabotaje = false;
 int lugares_en_exec;
 
-
-
-
-
 //DATOS PARA MANEJO DE CONSOLA
-
-
-int g_numero_patota = 1;
 
 const char* comandos_validos[CANT_COMANDOS] = {
   "INICIAR_PATOTA",
@@ -177,18 +136,7 @@ void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 
 //mutexs
-/*
-pthread_mutex_t lockear_creacion_tripulante; //ok
-
-
-pthread_mutex_t mutex_cambio_a_ready;
-pthread_mutex_t mutex_exec_a_bloq;
-pthread_mutex_t mutex_rdy_exec;
-
-pthread_mutex_t lock_lista_exit;*/
-
 pthread_mutex_t lockear_creacion_tripulante; //me creaban tripulantes con mismo id
-
 pthread_mutex_t lock_lista_listo;
 pthread_mutex_t lock_lista_llegada;
 pthread_mutex_t lock_lista_exec;
@@ -198,11 +146,9 @@ pthread_mutex_t lock_lista_exit;
 pthread_mutex_t lock_grado_multitarea;
 pthread_mutex_t mutex_tarea;
 
-pthread_cond_t sacar_pausa;
 pthread_cond_t sabotaje_resuelto;
 pthread_mutex_t sabotaje_lock; //por ahora no lo uso
-pthread_mutex_t pausa_lock; //por ahora no lo uso
-pthread_mutex_t pausa_lock_plani; //REVISAR ESTE
+pthread_mutex_t pausa_lock;
 
 //semaforos
 sem_t bloq_disponible; //iniciar en 1

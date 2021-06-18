@@ -177,23 +177,36 @@ void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 
 //mutexs
-pthread_mutex_t lockear_creacion_tripulante;
-pthread_mutex_t mutex_tarea;
-pthread_mutex_t mutex_pedido_tarea;
-pthread_mutex_t mutex_dejar_exec;
+/*
+pthread_mutex_t lockear_creacion_tripulante; //ok
+
+
 pthread_mutex_t mutex_cambio_a_ready;
 pthread_mutex_t mutex_exec_a_bloq;
 pthread_mutex_t mutex_rdy_exec;
-pthread_mutex_t pausa_lock_plani; //sacar
 
+pthread_mutex_t lock_lista_exit;*/
+
+pthread_mutex_t lockear_creacion_tripulante; //me creaban tripulantes con mismo id
+
+pthread_mutex_t lock_lista_listo;
+pthread_mutex_t lock_lista_llegada;
+pthread_mutex_t lock_lista_exec;
+pthread_mutex_t lock_lista_bloq_io;
+pthread_mutex_t lock_lista_bloq_em;
+pthread_mutex_t lock_lista_exit;
+pthread_mutex_t lock_grado_multitarea;
+pthread_mutex_t mutex_tarea;
 
 pthread_cond_t sacar_pausa;
 pthread_cond_t sabotaje_resuelto;
 pthread_mutex_t sabotaje_lock; //por ahora no lo uso
 pthread_mutex_t pausa_lock; //por ahora no lo uso
+pthread_mutex_t pausa_lock_plani; //REVISAR ESTE
 
 //semaforos
 sem_t bloq_disponible; //iniciar en 1
+sem_t tripulantes_hermanos; //todavia no implementado, lo uso para q un proceso se quede esperando en exit
 
 
 

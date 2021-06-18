@@ -1,5 +1,34 @@
 #include "mi-ram.h"
 
+Segmento* crear_segmento(char *tareasNuevas[], tipo_segmento tipo, int tamanio, t_list* tabla_segmentos){
+	Segmento *segmento;
+
+	switch(tipo){
+	case(tipo == PCB):
+		segmento=crear_segmento_pcb(numero_patota, tamanio, tabla_segmentos);
+		numero_patota += 1;
+		break;
+	case(tipo == TCB):
+		segmento=crear_segmento_tcb(tamanio, tabla_segmentos);
+		break;
+	case(tipo == TAREAS):
+		segmento=crear_segmento_tareas(tamanio, tabla_segmentos);
+		break;
+	default:
+		printf("Este es un tipo de segmento no válido");
+	}
+
+	return segmento;
+}
+
+Segmento* crear_segmento_pcb(int numero_patota,int tamanio, tabla_segmentos){
+	PatotaCB pcb = (PatotaCB*) malloc(sizeof(PatotaCB));
+	pcb->pid = numero_patota;
+	sem_wait(&tareas_creadas);
+	pcb->tareas = get_segmento_tareas_patota(numero_patota);
+	sem_post(&tareas_creadas);
+}
+
 void *gestionarCliente(int socket) {
 		int conexionCliente;
 		t_list* lista;
@@ -16,6 +45,10 @@ void *gestionarCliente(int socket) {
 			printf("\nLA OPERACION ES: %d\n", operacion);
 
 			switch(operacion) {
+				case INICIAR_PATOTA:
+					lista = recibir_paquete(cliente);
+					t_list* tabla_segmentos = list_create(); //Tabla de Patota
+					break;
 				case EXPULSAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
 					printf("Tripulante eliminado de la nave %s\n", (char *) list_get(lista,0));
@@ -34,27 +67,6 @@ void *gestionarCliente(int socket) {
 		}
 	}
 
-void crearRAM(t_config *config, struct nodoMemoria *memoria){
-
-	char* tipoMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
-	printf("Paso 2");
-	/*
-	//Segun que esquema de memoria se arma la memoria a eso
-	switch(atoi(tipoMemoria)){
-	case 0:
-		printf("Se intentó paginación");
-		//TODO: PAGINACION
-		break;
-	case 1:
-		printf("Se intento segmentación");
-		//TODO: SEGMENTACION
-		break;
-	default:
-		printf("Error, esquema de memoria desconocido.\n");
-		break;
-	}*/
-}
-
 void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");
 	//logger = log_create(archivoDeLog, "CoMAnda", 1, LOG_LEVEL_DEBUG);
@@ -66,55 +78,32 @@ void inicializar_ram(){
 	puerto = config_get_string_value(config, "PUERTO");
 
 	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
-	printf("Pasa 1");
-	crearRAM(config, memoria);
-	printf("Pasa 3");
+	char* tipoMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	switch(atoi(tipoMemoria)){
+		case 0:
+			printf("Se intentó paginación");
+			//TODO: PAGINACION
+			break;
+		case 1:
+			printf("Se intento segmentación");
+
+			break;
+		default:
+			printf("Error, esquema de memoria desconocido.\n");
+			break;
+	}
 	gestionarCliente(socket_mi_ram);
 	//memoriaPrincipal = malloc(tamanioMemoria);
 	//memoriaSwap = malloc(tamanioSwap);
-	//restaurantes = list_create();
 
 }
-
 
 
 
 int main(){
   inicializar_ram();
 
-
-  /*
-  int socket_mi_ram;
-  t_config *config;
-  char* puerto;
-  int socket_cliente;
-
-  socket_mi_ram = levantar_servidor(MI_RAM_HQ);
-
-  //-------------------------------------------------------//
-
-  config = config_create(PATH_MI_RAM_CONFIG); //aca estarian todas las configs de este server
-
-  puerto = config_get_string_value(config, "PUERTO");
-
-  printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
-
-  socket_cliente = esperar_cliente(socket_mi_ram);
-
-
-  while(1) {
-	int cliente=-1;
-	cliente = esperar_cliente(servidor);
-	if(cliente!=-1) {
-	   gestionarCliente(cliente);
-	   //pthread_create(&thread0, NULL, gestionarCliente, cliente);
-	   //pthread_detach(thread0);
-	}
-  }
-
-  //pthread_join(thread0, NULL);
-*/
-
+  sem_init(&tareas_creadas, 0, 0);
 
   return EXIT_SUCCESS;
 }

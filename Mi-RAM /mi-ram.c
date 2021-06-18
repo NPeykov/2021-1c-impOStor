@@ -1,32 +1,68 @@
 #include "mi-ram.h"
 
-Segmento* crear_segmento(char *tareasNuevas[], tipo_segmento tipo, int tamanio, t_list* tabla_segmentos){
-	Segmento *segmento;
+void crear_segmentos(t_list* paquete, int tamanio, t_list* tabla_segmentos){
+	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, tabla_segmentos);
 
-	switch(tipo){
-	case(tipo == PCB):
-		segmento=crear_segmento_pcb(numero_patota, tamanio, tabla_segmentos);
-		numero_patota += 1;
-		break;
-	case(tipo == TCB):
-		segmento=crear_segmento_tcb(tamanio, tabla_segmentos);
-		break;
-	case(tipo == TAREAS):
-		segmento=crear_segmento_tareas(tamanio, tabla_segmentos);
-		break;
-	default:
-		printf("Este es un tipo de segmento no válido");
+	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, tabla_segmentos);
+	numero_patota += 1;
+
+	int cantidad_tripulantes = list_get(paquete, 0);
+	t_list* posiciones = list_get(paquete, 1);
+	char **posicion_del_tripulante;
+
+	for(int i=0; i <= cantidad_tripulantes ; i++){
+		posicion_del_tripulante = string_split(posiciones[i], "|");
+		Segmento *segmento_tcb=crear_segmento_tcb(i, posicion_del_tripulante[0], posicion_del_tripulante[1], tamanio, tabla_segmentos);
 	}
+}
+
+uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
+	int pos_seg = segmento->idSegmento;
+	Segmento* segmento_anterior = (Segmento*) list_get(tabla_segmentos, pos_seg - 1);
+	if(!segmento_anterior) {
+		return 0;
+	}
+
+	return (*segmento_anterior)->base + (*segmento_anterior)->tamanio;
+}
+
+Segmento* crear_segmento_pcb(int tamanio, t_list* tabla_segmentos){
+	Segmento* segmento = (Segmento*) malloc(sizeof(segmento));
+
+	PatotaCB pcb = (PatotaCB*) malloc(sizeof(pcb));
+	pcb->pid = numero_patota;
+	pcb->tareas = get_segmento_patota(TAREAS, numero_patota);
+
+	segmento->idSegmento = tabla_segmentos->elements_count;
+	list_add(tabla_segmentos, segmento);
+
+	segmento->tamanio = tamanio;
+	segmento->tipo = PCB;
+	segmento->dato = pcb;
+	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
 
 	return segmento;
 }
 
-Segmento* crear_segmento_pcb(int numero_patota,int tamanio, tabla_segmentos){
-	PatotaCB pcb = (PatotaCB*) malloc(sizeof(PatotaCB));
-	pcb->pid = numero_patota;
-	sem_wait(&tareas_creadas);
-	pcb->tareas = get_segmento_tareas_patota(numero_patota);
-	sem_post(&tareas_creadas);
+Segmento* crear_segmento_tcb(int numero_tripulante, uint32_t posX, uint32_t posY ,int tamanio, t_list* tabla_segmentos) {
+	Segmento* segmento = (Segmento*) malloc(sizeof(segmento));
+
+	TripuCB tcb = (TripuCB*) malloc(sizeof(tcb));
+	tcb->pcb = get_segmento_patota(PCB, numero_patota);
+
+	tcb->tid = numero_tripulante;
+	tcb->posX = posX;
+	tcb->posY = posY;
+
+	segmento->idSegmento = tabla_segmentos->elements_count;
+	list_add(tabla_segmentos, segmento);
+
+	segmento->tamanio = tamanio;
+	segmento->tipo = TCB;
+	segmento->dato = tcb;
+	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
+
+	return segmento;
 }
 
 void *gestionarCliente(int socket) {
@@ -35,6 +71,8 @@ void *gestionarCliente(int socket) {
 		int operacion;
 		t_paquete *paquete;
 		int respuesta;
+
+		//Crear hilos
 
 		while(1) {
 			int cliente = esperar_cliente(socket);
@@ -48,6 +86,7 @@ void *gestionarCliente(int socket) {
 				case INICIAR_PATOTA:
 					lista = recibir_paquete(cliente);
 					t_list* tabla_segmentos = list_create(); //Tabla de Patota
+					crear_segmentos(lista, tabla_segmentos);
 					break;
 				case EXPULSAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
@@ -86,7 +125,6 @@ void inicializar_ram(){
 			break;
 		case 1:
 			printf("Se intento segmentación");
-
 			break;
 		default:
 			printf("Error, esquema de memoria desconocido.\n");
@@ -102,8 +140,6 @@ void inicializar_ram(){
 
 int main(){
   inicializar_ram();
-
-  sem_init(&tareas_creadas, 0, 0);
 
   return EXIT_SUCCESS;
 }

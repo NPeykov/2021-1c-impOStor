@@ -17,6 +17,8 @@
 #include <commons/collections/node.h>
 #include <semaphore.h>
 
+#define CANT_COMANDOS 7
+
 /*
  Debera recibir conexion de i Mongo Store para administrar los sabotajes.
  Debera conectarse a Mi Ram HQ
@@ -55,14 +57,15 @@ typedef struct Posicion{ //cuesta un poco mas manejarlo asi
 */
 
 typedef enum Estado{
-    LLEGADA, LISTO, TRABAJANDO, BLOQUEADO, FINALIZADO
+    LLEGADA, LISTO, TRABAJANDO, BLOQUEADO_IO, BLOQUEADO_EMERGENCIA, FINALIZADO
 }Estado;
 
 t_queue *lista_llegada;
 t_queue *lista_listo;
-t_queue *lista_trabajando;
-t_queue *lista_bloqueado;
-t_queue *lista_finalizado;
+t_list *lista_trabajando;
+t_list *lista_bloqueado_IO;
+t_list *lista_finalizado;
+t_list *lista_bloqueado_EM;
 
 
 typedef struct Tripulante{
@@ -71,36 +74,8 @@ typedef struct Tripulante{
 	int posicionX;
 	int posicionY;
 	Estado estado;
-//    char* nombre;
-//    t_list* tareasPendientes;
-//    int cantCiclosCPUTotales;
 } Tripulante;
 
-
-typedef struct Patota{
-    t_list* tripulantes;
-    int idPatota;
-} Patota;
-
-typedef struct Discordiador{
-    t_list* tripulantes;
-    t_list* procesos;
-    t_list* procesosDeIntercambio;
-} Discordiador;
-
-typedef struct Proceso{
-	Tripulante* tripulante;
-//	int rafagaAnterior;
-}Proceso;
-
-typedef struct ProcesoIntercambio{
-	Tripulante* tripulante1;
-	Tripulante* tripulante2;
-//	int rafagaAnterior;
-//	float estimadoAnterior;
-//	float estimadoActual;
-//	bool favorableParaUnLado;
-}ProcesoIntercambio;
 
 //DECLARACION DE ATRIBUTOS
 t_log *logs_discordiador;
@@ -115,19 +90,16 @@ int quantum;
 int duracion_sabotaje;
 int retardo_ciclo_cpu;
 
+bool g_hay_pausa    = true;
+bool g_hay_sabotaje = false;
+int lugares_en_exec;
 
-Discordiador* discordiador; //por ahora no lo uso
-t_list* tripulantesBloqueados; //por ahora no lo uso
 
 
-//PROTOTIPO DE FUNCIONES
-void  inicializarTripulantes();
-void crear_tripulante(void*);
-void atender_comandos_consola(void);
-void inicializar_recursos_necesarios(void);
+
 
 //DATOS PARA MANEJO DE CONSOLA
-#define CANT_COMANDOS 7
+
 
 int g_numero_patota = 1;
 
@@ -168,6 +140,11 @@ typedef enum{
 	TAREA_IO
 } Tipo_Tarea;
 
+typedef enum{
+	RR,
+	FIFO
+} Algoritmo;
+
 typedef struct Tarea{
 	char* nombre;
 	int parametro;
@@ -181,39 +158,48 @@ typedef struct Tripulante_Planificando{
 	Tripulante *tripulante;
 	int quantum_disponible;
 	Tarea *tarea;
+	sem_t ir_exec;
 }Tripulante_Planificando;
-
 
 
 typedef struct tripulantes_iniciados tripulantes_iniciados;
 
+
+//PROTOTIPO DE FUNCIONES
+void  inicializarTripulantes();
+void crear_tripulante(void*);
+void atender_comandos_consola(void);
+void inicializar_recursos_necesarios(void);
 tripulantes_iniciados *crear_lista_tripulantes(char **);
 void iniciar_patota(char**);
 void tripulante(void*);
 void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 
+//mutexs
 pthread_mutex_t lockear_creacion_tripulante;
-pthread_mutex_t lockear_cambio_new_rdy;
-pthread_mutex_t lockear_cambio_rdy_exec;
-pthread_mutex_t lockear_cambio_exec_bloq;
-pthread_mutex_t lockear_exit;
-
-sem_t activo_planificador;
-sem_t cambio_new_rdy;
-sem_t proceso_nuevo;
-sem_t quiero_rdy;
-sem_t quiero_exec;
-sem_t quiero_bloq;
-sem_t anda_rdy;
-sem_t anda_exec;
-sem_t anda_bloq;
-sem_t bloq_disponible;
-sem_t libere_bloq;
+pthread_mutex_t mutex_tarea;
+pthread_mutex_t mutex_pedido_tarea;
+pthread_mutex_t mutex_dejar_exec;
+pthread_mutex_t mutex_cambio_a_ready;
+pthread_mutex_t mutex_exec_a_bloq;
+pthread_mutex_t mutex_rdy_exec;
+pthread_mutex_t pausa_lock_plani; //sacar
 
 
-bool g_pausa = false; //posible
-bool programa_activo = true;   //posible
+pthread_cond_t sacar_pausa;
+pthread_cond_t sabotaje_resuelto;
+
+pthread_mutex_t sabotaje_lock; //por ahora no lo uso
+pthread_mutex_t pausa_lock; //por ahora no lo uso
+
+//semaforos
+sem_t proceso_rdy; //iniciar en 0
+sem_t trabajar;		//iniciar en 0
+sem_t bloq_disponible; //iniciar en 1
+
+
+
 
 #endif
 

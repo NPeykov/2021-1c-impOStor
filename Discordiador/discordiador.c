@@ -465,6 +465,7 @@ void atender_comandos_consola(void) {
 
 		case 2: //EXPULSAR_TRIPULANTE
 			printf("ES EXPULSAR\n");
+			//agregar conexion a mongo y envio mensaje
 			break;
 		case 3: //INICIAR_PLANIFICACION
 			pthread_mutex_lock(&pausa_lock);
@@ -480,7 +481,7 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-
+			//agregar conexion a mongo y envio mensaje
 			break;
 
 		case 6: //SALIR

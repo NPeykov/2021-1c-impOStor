@@ -1,6 +1,13 @@
 #include "mi-ram.h"
 
-void crear_segmentos(t_list* paquete, int tamanio, t_list* tabla_segmentos){
+
+void crearProceso(t_list *paquete){
+	t_proceso *proceso = (t_proceso*) malloc(sizeof(proceso));
+	//Falta semaforo
+	proceso->id = numero_patota;
+
+	proceso->tabla_de_segmentos = list_create(); //Tabla de Patota
+
 	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, tabla_segmentos);
 
 	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, tabla_segmentos);
@@ -25,6 +32,25 @@ uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
 
 	return (*segmento_anterior)->base + (*segmento_anterior)->tamanio;
 }
+
+
+void crear_segmentos(t_list* paquete, int tamanio, t_list* tabla_segmentos){
+	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, tabla_segmentos);
+
+	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, tabla_segmentos);
+	numero_patota += 1;
+
+	int cantidad_tripulantes = list_get(paquete, 0);
+	t_list* posiciones = list_get(paquete, 1);
+	char **posicion_del_tripulante;
+
+	for(int i=0; i <= cantidad_tripulantes ; i++){
+		posicion_del_tripulante = string_split(posiciones[i], "|");
+		Segmento *segmento_tcb=crear_segmento_tcb(i, posicion_del_tripulante[0], posicion_del_tripulante[1], tamanio, tabla_segmentos);
+	}
+}
+
+
 
 Segmento* crear_segmento_pcb(int tamanio, t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(segmento));
@@ -65,14 +91,12 @@ Segmento* crear_segmento_tcb(int numero_tripulante, uint32_t posX, uint32_t posY
 	return segmento;
 }
 
-void *gestionarCliente(int socket) {
+void *gestionarClienteSeg(int socket) {
 		int conexionCliente;
 		t_list* lista;
 		int operacion;
 		t_paquete *paquete;
 		int respuesta;
-
-		//Crear hilos
 
 		while(1) {
 			int cliente = esperar_cliente(socket);
@@ -85,8 +109,7 @@ void *gestionarCliente(int socket) {
 			switch(operacion) {
 				case INICIAR_PATOTA:
 					lista = recibir_paquete(cliente);
-					t_list* tabla_segmentos = list_create(); //Tabla de Patota
-					crear_segmentos(lista, tabla_segmentos);
+					crear_proceso(lista);
 					break;
 				case EXPULSAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
@@ -116,24 +139,19 @@ void inicializar_ram(){
 
 	puerto = config_get_string_value(config, "PUERTO");
 
-	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
-	char* tipoMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
-	switch(atoi(tipoMemoria)){
-		case 0:
-			printf("Se intentó paginación");
-			//TODO: PAGINACION
-			break;
-		case 1:
-			printf("Se intento segmentación");
-			break;
-		default:
-			printf("Error, esquema de memoria desconocido.\n");
-			break;
-	}
-	gestionarCliente(socket_mi_ram);
-	//memoriaPrincipal = malloc(tamanioMemoria);
-	//memoriaSwap = malloc(tamanioSwap);
+	tipoMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
 
+	tamaniomemoria = atoi(config_get_string_value(config, "TAMANIO_MEMORIA"));
+
+	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
+	memoria =malloc(tamaniomemoria);
+	if(tipoMemoria == "SEGMENTACION"){
+		//Agregar Hilos
+		gestionarClienteSeg(socket_mi_ram);
+	}else{
+		//Agregar Hilos
+		gestionarClientePag(socket_mi_ram);
+	}
 }
 
 

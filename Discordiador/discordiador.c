@@ -254,13 +254,12 @@ void atender_comandos_consola(void) {
 		case 2: //EXPULSAR_TRIPULANTE
 			printf("ES EXPULSAR\n");
 			break;
-
 		case 3: //INICIAR_PLANIFICACION
 			sem_post(&activo_planificador);
+
 			//mandaria un semaforo
 
 			break;
-
 		case 4: //PAUSAR_PLANIFICACION
 
 			break;

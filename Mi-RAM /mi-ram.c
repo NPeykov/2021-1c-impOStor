@@ -8,9 +8,9 @@ void crearProceso(t_list *paquete){
 
 	proceso->tabla_de_segmentos = list_create(); //Tabla de Patota
 
-	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, tabla_segmentos);
+	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, proceso->tabla_de_segmentos);
 
-	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, tabla_segmentos);
+	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, proceso->tabla_de_segmentos);
 	numero_patota += 1;
 
 	int cantidad_tripulantes = list_get(paquete, 0);

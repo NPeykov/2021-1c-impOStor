@@ -27,12 +27,15 @@ void crearProceso(t_list *paquete){
 		t_proceso *proceso = (t_proceso*) malloc(sizeof(tamanio));
 		proceso->id = numero_patota;
 		proceso->tabla_de_segmentos = tabla_de_segmentos;
-		proceso->memoriaPedida = tamanio;
+		proceso->memoriaPedida = tamanio; //creo que no hace falta tal vez sirve para liberar memoria
+		tamaniomemoria -= tamanio;
 		list_add(patotas, proceso);
 		numero_patota += 1;
 	}else{
 		printf("Espacio en memoria insuficiente");
 	}
+
+	//Hacer post al mutex
 }
 
 uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
@@ -67,7 +70,6 @@ Segmento* crear_segmento_pcb(uint32_t segmento_tareas,t_list* tabla_segmentos){
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
-
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
 	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
@@ -117,6 +119,7 @@ void *gestionarClienteSeg(int socket) {
 			switch(operacion) {
 				case INICIAR_PATOTA:
 					lista = recibir_paquete(cliente);
+					//Agregar mutex
 					crear_proceso(lista);
 					break;
 				case EXPULSAR_TRIPULANTE:

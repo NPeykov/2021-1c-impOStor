@@ -82,6 +82,8 @@ typedef enum {
 	EXIT
 } tipo_comando;
 
+
+
 typedef struct argumentos_creacion_tripulantes {
 	int numero_tripulante;
 	int posicionX;
@@ -124,16 +126,7 @@ typedef struct Tripulante_Planificando{
 typedef struct tripulantes_iniciados tripulantes_iniciados;
 
 
-//PROTOTIPO DE FUNCIONES
-void  inicializarTripulantes();
-void crear_tripulante(void*);
-void atender_comandos_consola(void);
-void inicializar_recursos_necesarios(void);
-tripulantes_iniciados *crear_lista_tripulantes(char **);
-void iniciar_patota(char**);
-void tripulante(void*);
-void liberar_memoria_discordiador(void);
-void listar_cola_planificacion(Estado);
+
 
 //mutexs
 pthread_mutex_t lockear_creacion_tripulante; //me creaban tripulantes con mismo id
@@ -154,7 +147,30 @@ pthread_mutex_t pausa_lock;
 sem_t bloq_disponible; //iniciar en 1
 sem_t tripulantes_hermanos; //todavia no implementado, lo uso para q un proceso se quede esperando en exit
 
+sem_t moverse_a_em;
+sem_t se_movio_a_em;
 
+
+//PROTOTIPO DE FUNCIONES
+void  inicializarTripulantes();
+void crear_tripulante(void*);
+void atender_comandos_consola(void);
+void inicializar_recursos_necesarios(void);
+tripulantes_iniciados *crear_lista_tripulantes(char **);
+void iniciar_patota(char**);
+void tripulante(void*);
+void liberar_memoria_discordiador(void);
+void listar_cola_planificacion(Estado);
+
+//FUNCIONES RELACIONADAS A TAREAS
+Tarea *proxima_tarea();
+char *dar_proxima_tarea();
+bool estoy_en_mismo_punto(int, int, int, int);
+bool completo_tarea(Tripulante_Planificando *);
+void moverse_una_unidad(Tripulante_Planificando *);
+void realizar_tarea_IO(Tripulante_Planificando *);
+void realizar_tarea_comun(Tripulante_Planificando *);
+void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
 
 
 #endif

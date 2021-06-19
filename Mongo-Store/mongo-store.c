@@ -7,7 +7,7 @@ int main() {
 	char* puerto;
 //	t_log* logger;
 
-//	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
+
 
 	//-------------------------------------------------------//
 
@@ -19,8 +19,11 @@ int main() {
 
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
-//	socket_cliente = esperar_cliente(socket_mongo_store);
+
 	crearEstructuraFileSystem();
+	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
+	socket_cliente = esperar_cliente(socket_mongo_store);
+	gestionar_comandos_bitacora();
 	return EXIT_SUCCESS;
 }
 
@@ -188,4 +191,14 @@ void crearEstructuraFileSystem()
 		log_trace(logger, "Estructura creada.");
 		*/
 	}
+}
+void gestionarcomandosbitacora()
+{
+//	 Se mueve de X|Y a X’|Y’
+//	 Comienza ejecución de tarea X
+//	 Se finaliza la tarea X
+//	 Se corre en pánico hacia la ubicación del sabotaje
+//	 Se resuelve el sabotaje
+
+}
 }

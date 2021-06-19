@@ -96,11 +96,35 @@ Segmento* crear_segmento_tcb(uint32_t segmento_pcb, int numero_tripulante, uint3
 	return segmento;
 }
 
+// Eliminacion de Tripulante
+
+
+
 void eliminarTripulante(int idTripulante){
-	t_list *tabla_segmentos = proceso->tabla_de_segmentos;
-	list_remove_by_condition(tabla_segmentos, (tipo_segmento == TCB && dato->id == idTripulante));
+
+	bool laGarra(void *segmento){
+		Segmento *unSegmento = (Segmento*) segmento;
+		if(unSegmento->tipo == TCB){
+			TripuCB tripulante = unSegmento->dato;
+			return tripulante->tid == idTripulante;
+		}else{
+			return 0;
+		}
+	}
+	void buscarTripulantes(t_proceso *proceso){
+		t_list* segmentosProceso = proceso->tabla_de_segmentos;
+		list_remove_by_condition(segmentosProceso, laGarra );
+	}
+
+	list_iterate(patotas, buscarTripulantes);
+
+
+
+
 }
 
+
+// Gestion de Discordiador
 void *gestionarClienteSeg(int socket) {
 		int conexionCliente;
 		t_list* lista;

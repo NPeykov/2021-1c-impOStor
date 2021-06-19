@@ -1,17 +1,16 @@
 #include "mi-ram.h"
 
-
 void crearProceso(t_list *paquete){
-	t_proceso *proceso = (t_proceso*) malloc(sizeof(proceso));
-	//Falta semaforo
-	proceso->id = numero_patota;
+	t_list* tabla_de_segmentos = list_create();
+	int tamanio = 0;
 
-	proceso->tabla_de_segmentos = list_create(); //Tabla de Patota
+	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
 
-	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, proceso->tabla_de_segmentos);
+	tamanio += sizeof(segmento_tareas);
 
-	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, proceso->tabla_de_segmentos);
-	numero_patota += 1;
+	Segmento *segmento_pcb=crear_segmento_pcb((uint32_t*) segmento_tareas, tabla_de_segmentos);
+
+	tamanio += sizeof(segmento_pcb);
 
 	int cantidad_tripulantes = list_get(paquete, 0);
 	t_list* posiciones = list_get(paquete, 1);
@@ -19,7 +18,20 @@ void crearProceso(t_list *paquete){
 
 	for(int i=0; i <= cantidad_tripulantes ; i++){
 		posicion_del_tripulante = string_split(posiciones[i], "|");
-		Segmento *segmento_tcb=crear_segmento_tcb(i, posicion_del_tripulante[0], posicion_del_tripulante[1], tamanio, tabla_segmentos);
+		Segmento *segmento_tcb = crear_segmento_tcb((uint32_t*) segmento_pcb, i, posicion_del_tripulante[0], posicion_del_tripulante[1], tabla_de_segmentos);
+		tamanio += sizeof(segmento_tcb);
+	}
+
+
+	if(tamaniomemoria >= tamanio){
+		t_proceso *proceso = (t_proceso*) malloc(sizeof(tamanio));
+		proceso->id = numero_patota;
+		proceso->tabla_de_segmentos = tabla_de_segmentos;
+		proceso->memoriaPedida = tamanio;
+		list_add(patotas, proceso);
+		numero_patota += 1;
+	}else{
+		printf("Espacio en memoria insuficiente");
 	}
 }
 
@@ -33,36 +45,29 @@ uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
 	return (*segmento_anterior)->base + (*segmento_anterior)->tamanio;
 }
 
+Segmento* crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
+	Segmento* segmento = (Segmento*) malloc(sizeof(segmento));
 
-void crear_segmentos(t_list* paquete, int tamanio, t_list* tabla_segmentos){
-	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2),tamanio, tabla_segmentos);
+	segmento->idSegmento = tabla_segmentos->elements_count;
+	list_add(tabla_segmentos, segmento);
+	segmento->tipo = TAREAS;
+	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
+	segmento->dato = tareas;
+	segmento->tamanio = sizeof(segmento);
 
-	Segmento *segmento_pcb=crear_segmento_pcb(tamanio, tabla_segmentos);
-	numero_patota += 1;
-
-	int cantidad_tripulantes = list_get(paquete, 0);
-	t_list* posiciones = list_get(paquete, 1);
-	char **posicion_del_tripulante;
-
-	for(int i=0; i <= cantidad_tripulantes ; i++){
-		posicion_del_tripulante = string_split(posiciones[i], "|");
-		Segmento *segmento_tcb=crear_segmento_tcb(i, posicion_del_tripulante[0], posicion_del_tripulante[1], tamanio, tabla_segmentos);
-	}
+	return segmento;
 }
 
-
-
-Segmento* crear_segmento_pcb(int tamanio, t_list* tabla_segmentos){
+Segmento* crear_segmento_pcb(uint32_t segmento_tareas,t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(segmento));
 
 	PatotaCB pcb = (PatotaCB*) malloc(sizeof(pcb));
 	pcb->pid = numero_patota;
-	pcb->tareas = get_segmento_patota(TAREAS, numero_patota);
+	pcb->tareas = segmento_tareas;
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
 
-	segmento->tamanio = tamanio;
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
 	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
@@ -70,23 +75,21 @@ Segmento* crear_segmento_pcb(int tamanio, t_list* tabla_segmentos){
 	return segmento;
 }
 
-Segmento* crear_segmento_tcb(int numero_tripulante, uint32_t posX, uint32_t posY ,int tamanio, t_list* tabla_segmentos) {
+Segmento* crear_segmento_tcb(uint32_t segmento_pcb, int numero_tripulante, uint32_t posX, uint32_t posY ,int tamanio, t_list* tabla_segmentos) {
 	Segmento* segmento = (Segmento*) malloc(sizeof(segmento));
 
 	TripuCB tcb = (TripuCB*) malloc(sizeof(tcb));
-	tcb->pcb = get_segmento_patota(PCB, numero_patota);
-
 	tcb->tid = numero_tripulante;
+	tcb->pcb = segmento_pcb;
 	tcb->posX = posX;
 	tcb->posY = posY;
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
-
-	segmento->tamanio = tamanio;
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
 	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
+	segmento->tamanio = sizeof(segmento);
 
 	return segmento;
 }
@@ -152,6 +155,8 @@ void inicializar_ram(){
 
 	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
 	memoria =malloc(tamaniomemoria);
+	patotas = list_create();
+
 	if(tipoMemoria == "SEGMENTACION"){
 		//Agregar Hilos
 		gestionarClienteSeg(socket_mi_ram);

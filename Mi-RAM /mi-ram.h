@@ -13,7 +13,7 @@ int socket_mi_ram;
 t_config *config;
 char* puerto;
 int socket_cliente;
-t_list* patotas; //Lista de tablas de segmentos
+t_list* patotas; //Lista de tablas de segmentos (TABLA DE PROCESOS)
 int numero_patota = 1;
 char* tipoMemoria;
 void *memoria;
@@ -55,7 +55,7 @@ typedef struct{
 	int id;
 	t_list *tabla_de_segmentos;
 	int memoriaPedida;
-}t_proceso;
+} t_proceso;
 
 void eliminarTripulante(int idTripulante);
 

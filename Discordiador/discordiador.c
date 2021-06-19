@@ -1,5 +1,47 @@
 #include "discordiador.h"
 
+///************************************************ Sabotajes **********************************************
+void *mas_cercano_al_sabotaje(int x, int y){
+  t_list *tripulantes_mergeados = list_create();
+  void *tripulante;
+
+  if(list_size(lista_trabajando) > 0){
+	  list_add_all(tripulantes_mergeados, lista_trabajando);
+  }
+  if(queue_size(lista_listo) > 0){
+	  list_add_all(tripulantes_mergeados, lista_listo->elements);
+  }
+  if(queue_size(lista_listo) <= 0 && list_size(lista_trabajando) <= 0) {
+	  return NULL;
+  }
+
+
+  void *maximo(void *data1, void *data2){
+    float distancia1;
+    float distancia2;
+
+    Tripulante_Planificando *t1 = (Tripulante_Planificando *)data1;
+    Tripulante_Planificando *t2 = (Tripulante_Planificando *)data2;
+
+    distancia1 = (t1->tripulante->posicionX - x) * (t1->tripulante->posicionX - x)
+      + (t1->tripulante->posicionY - y) * (t1->tripulante->posicionY - y);
+    distancia2 = (t2->tripulante->posicionX - x) * (t2->tripulante->posicionX - x)
+      + (t2->tripulante->posicionY - y) * (t2->tripulante->posicionY - y);
+
+    if(distancia1 < distancia2) {
+      return t1;
+    }
+    
+    else return t2;
+  }
+
+  tripulante = list_get_maximum(tripulantes_mergeados, maximo);
+
+  free(tripulantes_mergeados);
+
+  return tripulante;
+}
+
 ///************************************************ Tareas **********************************************
 
 char *tareas[] = {
@@ -159,17 +201,43 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *tripulante_trabajando) {
 
 //************************************************ PAUSA/SABOTAJE **********************************************
 
+//TODO: rehacer este metodo con un atender_sabotaje(x, y)
 void fijarse_si_hay_sabotaje(){
-	if(g_hay_sabotaje){
-		pthread_mutex_lock(&sabotaje_lock);
-		while(g_hay_sabotaje) {
-			pthread_cond_wait(&sabotaje_resuelto, &sabotaje_lock);
-		}
-		pthread_mutex_unlock(&sabotaje_lock);
+  if (g_hay_sabotaje) {
+    Tripulante_Planificando *tripulante_cercano = (Tripulante_Planificando*)malloc(sizeof(Tripulante_Planificando));
+    
+    pthread_mutex_lock(&pausa_lock);
+    g_hay_pausa = true; //se podria usar un wait
+    pthread_mutex_unlock(&pausa_lock);
 
-		//resetear_quantum();
-		//goto arrancar_de_nuevo; //antes del wait(trabajar)
-	}
+//    tripulante_cercano = (Tripulante_Planificando*)mas_cercano_al_sabotaje(x, y); // listo
+
+
+    pthread_mutex_lock(&lock_lista_exec);
+    pthread_mutex_lock(&lock_lista_bloq_em);
+    list_add_all(lista_bloqueado_EM, lista_trabajando);
+    pthread_mutex_unlock(&lock_lista_bloq_em);
+    pthread_mutex_unlock(&lock_lista_exec);
+    
+    pthread_mutex_lock(&lock_lista_listo);
+    pthread_mutex_lock(&lock_lista_bloq_em);
+    list_add_all(lista_bloqueado_EM, lista_listo->elements);
+    pthread_mutex_unlock(&lock_lista_bloq_em);
+    pthread_mutex_unlock(&lock_lista_listo);
+
+    //los bloqueados de IO se mueven solos a EMERGENCIA
+
+    /*
+      mover_tripulantes_de_exec_a_bloq_EM() <<..
+      mover_tripulantes_de_rdy_a_bloq_EM() <<..
+      mover_tripulantes_de_bloqIO_a_bloq_EM()
+      wait (finalizo_sabotaje)
+      //EL SIGNAL LO ENVIARIA EL TRIPULANTE CUANDO TERMINE
+      mover_tripulante_elegido_al_final_de_bloqEM()
+      mover_a_todos_de_bloqEM_a_rdy()
+      //para que puedan ser llamados
+      avisar_a_tripulantes_que_termino_sabotaje();*/
+  }
 }
 
 void fijarse_si_hay_pausa(){
@@ -233,6 +301,8 @@ void moverse_a_bloq(Tripulante_Planificando *tripulante_trabajando) {
 				&& tripulante_trabajando->tripulante->patota == un_tripulante->tripulante->patota;
 	}
 
+	//capaz borre algo
+	
 	pthread_mutex_lock(&lock_lista_bloq_io);
 	list_add(lista_bloqueado_IO, tripulante_trabajando);
 	pthread_mutex_unlock(&lock_lista_bloq_io);
@@ -314,7 +384,16 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 	case FIFO:
 		while (!completo_tarea(tripulante)) {
 			fijarse_si_hay_pausa();
-			fijarse_si_hay_sabotaje(); //TODO
+
+			if(g_hay_sabotaje){
+			  //lo mueve el planificador
+			  //cuando se resuelva el sabotaje, el tripulante vuelve solo a ready
+			  //con el quantum reseteado
+			  while(g_hay_pausa)
+			    ; //esperar que se reanude
+			  return; //para volver a listo
+			}
+			
 			hacer_una_unidad_de_tarea(tripulante);
 		}
 
@@ -574,11 +653,19 @@ void tripulante(void *argumentos){
 			sleep(retardo_ciclo_cpu); //piden que espere antes de entrar I/O
 			moverse_a_bloq(tripulante_trabajando);
 			sem_wait(&bloq_disponible);
-			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ESTA ARRANCA A HACER TAREAS DE EMERGENCIA",
+			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ARRANCA A HACER TAREAS DE EMERGENCIA",
 												tripulante_trabajando ->tripulante->id,
 												tripulante_trabajando ->tripulante->patota);
 			while(tripulante_trabajando->tarea->duracion > 0){
 				fijarse_si_hay_pausa(); //no funca
+				if(g_hay_sabotaje){
+				  sem_wait(&moverse_a_em);
+				  list_add(lista_bloqueado_EM, tripulante_trabajando);
+				  sem_post(&se_movio_a_em);
+				  while(g_hay_pausa)
+				    ;
+				  break;
+				}
 				realizar_tarea_IO(tripulante_trabajando);
 			}
 			sem_post(&bloq_disponible);
@@ -703,7 +790,9 @@ void inicializar_recursos_necesarios(void){
 	//inicios semaforos
 	sem_init(&bloq_disponible, 0, 1);
 	sem_init(&tripulantes_hermanos, 0, 0); //revisar si se borra
-
+	sem_init(&moverse_a_em, 0, 0); //binario
+	sem_init(&se_movio_a_em, 0, 0);//binario
+	
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");
 }
 

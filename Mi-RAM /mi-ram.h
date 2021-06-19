@@ -27,7 +27,7 @@ typedef enum tipo_segmento {
 
 typedef struct{
 	int idSegmento;
-	tipo_segmento tipo;
+	tipo_segmento tipo;//PCB TCB o Tareas
 	uint32_t base;
 	int tamanio;
 	void *dato;
@@ -56,6 +56,8 @@ typedef struct{
 	t_list *tabla_de_segmentos;
 	int memoriaPedida;
 }t_proceso;
+
+void eliminarTripulante(int idTripulante);
 
 void *gestionarCliente(int cliente);
 

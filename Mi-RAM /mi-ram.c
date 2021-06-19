@@ -91,6 +91,11 @@ Segmento* crear_segmento_tcb(int numero_tripulante, uint32_t posX, uint32_t posY
 	return segmento;
 }
 
+void eliminarTripulante(int idTripulante){
+	t_list *tabla_segmentos = proceso->tabla_de_segmentos;
+	list_remove_by_condition(tabla_segmentos, (tipo_segmento == TCB && dato->id == idTripulante));
+}
+
 void *gestionarClienteSeg(int socket) {
 		int conexionCliente;
 		t_list* lista;
@@ -113,7 +118,9 @@ void *gestionarClienteSeg(int socket) {
 					break;
 				case EXPULSAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
-					printf("Tripulante eliminado de la nave %s\n", (char *) list_get(lista,0));
+					int idTripulante = atoi((char *) list_get(lista,0));
+					eliminarTripulante(idTripulante);
+					printf("Tripulante eliminado de la nave %d\n", idTripulante);
 					//liberar_cliente(cliente);
 					break;
 				case -1:

@@ -57,7 +57,7 @@ typedef struct{
 	int memoriaPedida;
 } t_proceso;
 
-void laGarra(int tripulanteBuscado, Segmento unSegmento);
+
 
 void eliminarTripulante(int idTripulante);
 

@@ -123,6 +123,44 @@ void eliminarTripulante(int idTripulante){
 
 }
 
+TripuCB *buscarTripulante(int idTripulante){
+	TripuCB *elTripulante;
+
+	TripuCB chequearSegmentosTCB(){
+		Segmento *unSegmento = (Segmento*) segmento;
+		if(unSegmento->tipo == TCB){
+			elTripulante = unSegmento->dato;
+			return tripulante->tid == idTripulante;
+		}else{
+			return 0;
+		}
+	}
+
+	TripuCB *recorrerProcesos(t_proceso *proceso){
+		t_list* segmentosProceso = proceso->tabla_de_segmentos;
+
+	}
+	//Hacer que itere entre cada uno de los procesos, y luego cada uno
+	//de sus segmentos
+	list_iterate(patotas, recorrerProcesos);
+	return elTripulante;
+}
+
+void *actualizarTripulante(int idTripulante, char *ubicacion){
+	//Se espera que ubicacion vengaa en un string del estilo "1|2"
+	uint32_t posicionX;
+	uint32_t posicionY;
+	posicionX = (uint32_t) (ubicacion[0]);
+	posicionY = (uint32_t) (ubicacion[2]);
+
+	TripuCB *elTripulante = buscarTripulante(idTripulante);
+	elTripulante->posX = posicionX;
+	elTripulante->posY = posicionY;
+
+
+	return 0;
+}
+
 
 // Gestion de Discordiador
 void *gestionarClienteSeg(int socket) {
@@ -152,6 +190,10 @@ void *gestionarClienteSeg(int socket) {
 					eliminarTripulante(idTripulante);
 					printf("Tripulante eliminado de la nave %d\n", idTripulante);
 					//liberar_cliente(cliente);
+					break;
+				case ACTUALIZAR_TRIPULANTE:
+					lista = recibir_paquete(cliente);
+					int idTripulante = atoi((char *) list_get(lista,0));
 					break;
 				case -1:
 					printf("El cliente %d se desconecto.\n", cliente);

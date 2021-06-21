@@ -161,6 +161,10 @@ void iniciar_patota(char**);
 void tripulante(void*);
 void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
+void liberar_cliente(int);
+void imprimir_respuesta(t_list*);
+
+
 
 //FUNCIONES RELACIONADAS A TAREAS
 Tarea *proxima_tarea();

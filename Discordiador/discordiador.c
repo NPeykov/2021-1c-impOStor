@@ -500,6 +500,10 @@ void planificar() {
 
 
 void atender_comandos_consola(void) {
+	int conexion;
+	t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
+	t_list *respuesta;
+
 
 	while (1) {
 
@@ -543,7 +547,13 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 2: //EXPULSAR_TRIPULANTE
-			printf("ES EXPULSAR\n");
+			conexion=iniciar_conexion(MI_RAM_HQ,config);
+			t_paquete* paquete=crear_paquete(EXPULSAR_TRIPULANTE);
+			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
+			enviar_paquete(paquete,conexion);
+			eliminar_paquete(paquete);
+			liberar_cliente(conexion);
+
 			//agregar conexion a mongo y envio mensaje
 			break;
 		case 3: //INICIAR_PLANIFICACION
@@ -560,7 +570,14 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-			//agregar conexion a mongo y envio mensaje
+			conexion=iniciar_conexion(I_MONGO_STORE,config);
+			t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
+			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
+			enviar_paquete(paquete,conexion);
+			eliminar_paquete(paquete);
+			respuesta=recibir_paquete(conexion);
+			imprimir_respuesta(respuesta);
+			liberar_cliente(conexion);
 			break;
 
 		case 6: //SALIR
@@ -579,6 +596,15 @@ void atender_comandos_consola(void) {
 }
 
 //************************************************ OTROS **********************************************
+
+void imprimir_respuesta(t_list* respuesta){
+	void iterator(char* value)
+		{
+			printf("%s\n", value);
+		}
+	list_iterate(respuesta, (void*) iterator);
+
+}
 
 
 void iniciar_patota(char **datos_tripulantes) {
@@ -748,7 +774,7 @@ void inicializar_recursos_necesarios(void){
 	puerto_mi_ram = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
 	log_info(logs_discordiador, "PUERTO RAM: %s", puerto_mi_ram);
 
-	ip_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
+	ip_mongo_store = config_get_string_value(config, "IP_I_MONGO_STORE");
 	log_info(logs_discordiador, "IP STORE: %s", ip_mongo_store);
 
 	puerto_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");

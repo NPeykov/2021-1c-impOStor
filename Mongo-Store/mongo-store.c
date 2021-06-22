@@ -208,19 +208,19 @@ void *gestionarCliente(int socket) {;
 				printf("\nLA OPERACION ES: %d\n", operacion);
 
 				switch(operacion) {
-					case OBTENER_BITACOR:
+					case OBTENER_BITACORA:
 					lista = recibir_paquete(cliente);
                     int idTripulante = atoi((char *) list_get(lista,0));
                     printf("Tripulante recibido %d\n", idTripulante);
 						break;
-					case EXPULSAR_TRIPULANT:
+					case EXPULSAR_TRIPULANTE:
 //						lista = recibir_paquete(cliente);
 //						int idTripulante = atoi((char *) list_get(lista,0));
 //						eliminarTripulante(idTripulante);
 //						printf("Tripulante eliminado de la nave %d\n", idTripulante);
 						//liberar_cliente(cliente);
 						break;
-					case ACTUALIZAR_TRIPULANT:
+					case ACTUALIZAR_TRIPULANTE:
 //						lista = recibir_paquete(cliente);
 //						int idTripulante = atoi((char *) list_get(lista,0));
 						break;

@@ -7,8 +7,6 @@ int main() {
 	char* puerto;
 //	t_log* logger;
 
-
-
 	//-------------------------------------------------------//
 
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
@@ -17,13 +15,13 @@ int main() {
 
 	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
 
+	crearEstructuraFileSystem();
+
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
-
-	crearEstructuraFileSystem();
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
-	socket_cliente = esperar_cliente(socket_mongo_store);
-	gestionar_comandos_bitacora();
+	gestionarCliente(socket_mongo_store );
+
 	return EXIT_SUCCESS;
 }
 
@@ -192,8 +190,51 @@ void crearEstructuraFileSystem()
 		*/
 	}
 }
-void gestionarcomandosbitacora()
+void *gestionarCliente(int socket) {;
 {
+	socket_cliente = esperar_cliente(socket);
+	int conexionCliente;
+			t_list* lista;
+			int operacion;
+			t_paquete *paquete;
+			int respuesta;
+
+			while(1) {
+				int cliente = esperar_cliente(socket);
+				printf("Cliente: %d\n", cliente);
+				operacion = recibir_operacion(cliente);
+				lista = NULL;
+
+				printf("\nLA OPERACION ES: %d\n", operacion);
+
+				switch(operacion) {
+					case OBTENER_BITACORA:
+					lista = recibir_paquete(cliente);
+                    int idTripulante = atoi((char *) list_get(lista,0));
+                    printf("Tripulante recibido %d\n", idTripulante);
+						break;
+					case EXPULSAR_TRIPULANTE:
+//						lista = recibir_paquete(cliente);
+//						int idTripulante = atoi((char *) list_get(lista,0));
+//						eliminarTripulante(idTripulante);
+//						printf("Tripulante eliminado de la nave %d\n", idTripulante);
+						//liberar_cliente(cliente);
+						break;
+					case ACTUALIZAR_TRIPULANTE:
+//						lista = recibir_paquete(cliente);
+//						int idTripulante = atoi((char *) list_get(lista,0));
+//						break;
+					case -1:
+						printf("El cliente %d se desconecto.\n", cliente);
+						//liberar_cliente(cliente);
+						break;
+					default:
+						printf("Operacion desconocida.\n");
+						break;
+
+				}
+
+			}
 //	 Se mueve de X|Y a X’|Y’
 //	 Comienza ejecución de tarea X
 //	 Se finaliza la tarea X

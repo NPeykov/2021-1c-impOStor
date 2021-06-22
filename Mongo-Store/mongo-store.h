@@ -15,5 +15,5 @@ char *dirBlocks;
 t_config* mongoConfig;
 t_log* mongoLogger;
 void crearEstructuraFileSystem();
-
+void *gestionarCliente(int cliente);
 #endif

@@ -55,13 +55,26 @@ char *tareas[] = {
 		"JUGAR;9;7;2",
 		NULL }; //ejemplo
 
-char *dar_proxima_tarea(){
+char *dar_proxima_tarea(int patota){
+	int conexion;
+	t_list respuesta;
+	t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
+	conexion=iniciar_conexion(MI_RAM_HQ,config);
+	t_paquete* paquete=crear_paquete(SIGUIENTE_TAREA);
+	agregar_a_paquete(paquete,patota,sizeof(int));
+	enviar_paquete(paquete,conexion);
+	eliminar_paquete(paquete);
+	respuesta=recibir_paquete(conexion);
+	liberar_cliente(conexion);
+	return list_get(respuesta, 0);
+	/*
 	static int i=0;
 	return i<=7 ? tareas[i++] : NULL;
+	*/
 }
 
-Tarea *proxima_tarea(){
-	char *tarea_string = dar_proxima_tarea();
+Tarea *proxima_tarea(int patota){
+	char *tarea_string = dar_proxima_tarea(patota);
 	char **tarea_dividida;
 	char **tarea_IO_dividida;
 
@@ -407,7 +420,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		else { //tengo que pedir la proxima tarea
 			pthread_mutex_lock(&mutex_tarea);
-			tripulante->tarea = proxima_tarea();
+			tripulante->tarea = proxima_tarea(tripulante->tripulante->patota);
 			pthread_mutex_unlock(&mutex_tarea);
 			if (tripulante->tarea == NULL) {
 				log_info(logs_discordiador, "EL TRIPULANTE N %d FINALIZO", tripulante->tripulante->id);
@@ -435,7 +448,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		if (completo_tarea(tripulante)) {
 			pthread_mutex_lock(&mutex_tarea);
-			tripulante->tarea = proxima_tarea();
+			tripulante->tarea = proxima_tarea(tripulante->tripulante->patota);
 			pthread_mutex_unlock(&mutex_tarea);
 			if (tripulante->tarea == NULL) {
 				log_info(logs_discordiador, "EL TRIPULANTE N %d FINALIZO", tripulante->tripulante->id);
@@ -655,7 +668,7 @@ void tripulante(void *argumentos){
 	tripulante_trabajando->tripulante = tripulante;
 	tripulante_trabajando->quantum_disponible = quantum;
 	pthread_mutex_lock(&mutex_tarea);
-	tripulante_trabajando->tarea = proxima_tarea();
+	tripulante_trabajando->tarea = proxima_tarea(tripulante_trabajando->tripulante->patota);
 	pthread_mutex_unlock(&mutex_tarea);
 	sem_init(&tripulante_trabajando->ir_exec, 0, 0);
 
@@ -696,7 +709,7 @@ void tripulante(void *argumentos){
 			}
 			sem_post(&bloq_disponible);
 			pthread_mutex_lock(&mutex_tarea);
-			tripulante_trabajando -> tarea = proxima_tarea();
+			tripulante_trabajando -> tarea = proxima_tarea(tripulante_trabajando->tripulante->patota);
 			pthread_mutex_unlock(&mutex_tarea);
 			if(tripulante_trabajando->tarea == NULL){
 				log_info(logs_discordiador, "Tripulante:%d de Patota:%d se movio de BLOQ_IO a EXIT",

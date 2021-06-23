@@ -1,46 +1,10 @@
 #include "mi-ram.h"
-/*
-void crearProceso(t_list *paquete){
-	t_list* tabla_de_segmentos = list_create();
-	int tamanio = 0;
 
-	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
-
-	tamanio += sizeof(segmento_tareas);
-
-	Segmento *segmento_pcb=crear_segmento_pcb((uint32_t*) segmento_tareas, tabla_de_segmentos);
-
-	tamanio += sizeof(segmento_pcb);
-
-	int cantidad_tripulantes = list_get(paquete, 0);
-	t_list* posiciones = list_get(paquete, 1);
-	char **posicion_del_tripulante;
-
-	for(int i=0; i <= cantidad_tripulantes ; i++){
-		posicion_del_tripulante = string_split(posiciones[i], "|");
-		Segmento *segmento_tcb = crear_segmento_tcb((uint32_t*) segmento_pcb, i, posicion_del_tripulante[0], posicion_del_tripulante[1], tabla_de_segmentos);
-		tamanio += sizeof(segmento_tcb);
-	}
-
-
-	if(tamaniomemoria >= tamanio){
-		t_proceso *proceso = (t_proceso*) malloc(sizeof(tamanio));
-		proceso->id = numero_patota;
-		proceso->tabla_de_segmentos = tabla_de_segmentos;
-		proceso->memoriaPedida = tamanio; //creo que no hace falta tal vez sirve para liberar memoria
-		tamaniomemoria -= tamanio;
-		list_add(patotas, proceso);
-		numero_patota += 1;
-	}else{
-		printf("Espacio en memoria insuficiente");
-	}
-
-	//Hacer post al mutex
-}
 
 uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
 	int pos_seg = segmento->idSegmento;
 	Segmento* segmento_anterior = (Segmento*) list_get(tabla_segmentos, pos_seg - 1);
+
 	if(!segmento_anterior) {
 		return 0;
 	}
@@ -96,11 +60,51 @@ Segmento* crear_segmento_tcb(uint32_t segmento_pcb, int numero_tripulante, uint3
 	return segmento;
 }
 
+void crearProceso(t_list *paquete){
+	t_list* tabla_de_segmentos = list_create();
+	int tamanio = 0;
+
+	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
+
+	tamanio += sizeof(segmento_tareas);
+
+	Segmento *segmento_pcb=crear_segmento_pcb((uint32_t*) segmento_tareas, tabla_de_segmentos);
+
+	tamanio += sizeof(segmento_pcb);
+
+	int cantidad_tripulantes = list_get(paquete, 0);
+	t_list* posiciones = list_get(paquete, 1);
+	char **posicion_del_tripulante;
+
+	for(int i=0; i <= cantidad_tripulantes ; i++){
+		posicion_del_tripulante = string_split(posiciones[i], "|");
+		Segmento *segmento_tcb = crear_segmento_tcb((uint32_t*) segmento_pcb, i, posicion_del_tripulante[0], posicion_del_tripulante[1], tabla_de_segmentos);
+		tamanio += sizeof(segmento_tcb);
+	}
+
+
+	if(tamaniomemoria >= tamanio){
+		t_proceso *proceso = (t_proceso*) malloc(sizeof(tamanio));
+		proceso->id = numero_patota;
+		proceso->tabla_de_segmentos = tabla_de_segmentos;
+		proceso->memoriaPedida = tamanio; //creo que no hace falta tal vez sirve para liberar memoria
+		tamaniomemoria -= tamanio;
+		list_add(patotas, proceso);
+		numero_patota += 1;
+	}else{
+		printf("Espacio en memoria insuficiente");
+	}
+
+	//Hacer post al mutex
+}
+
+
+
 // Eliminacion de Tripulante
 
 
-
-void eliminarTripulante(int idTripulante){
+/*
+void eliminarTripulante(uint32_t idTripulante){
 
 	bool laGarra(void *segmento){
 		Segmento *unSegmento = (Segmento*) segmento;
@@ -126,20 +130,21 @@ void eliminarTripulante(int idTripulante){
 TripuCB *buscarTripulante(int idTripulante){
 	TripuCB *elTripulante;
 
-	TripuCB chequearSegmentosTCB(){
+	TripuCB chequearSegmentosTCB(void *segmento){
 		Segmento *unSegmento = (Segmento*) segmento;
 		if(unSegmento->tipo == TCB){
-			elTripulante = unSegmento->dato;
-			return tripulante->tid == idTripulante;
+			TripuCB unTripulante = unSegmento->dato;
+			return unTripulante->tid == idTripulante;
 		}else{
 			return 0;
 		}
 	}
 
-	TripuCB *recorrerProcesos(t_proceso *proceso){
+	void recorrerProcesos(t_proceso *proceso){
 		t_list* segmentosProceso = proceso->tabla_de_segmentos;
-
+		elTripulante =(TripuCB*) list_find(segmentosProceso, chequearSegmentosTCB);
 	}
+
 	//Hacer que itere entre cada uno de los procesos, y luego cada uno
 	//de sus segmentos
 	list_iterate(patotas, recorrerProcesos);
@@ -160,7 +165,7 @@ void *actualizarTripulante(int idTripulante, char *ubicacion){
 
 	return 0;
 }
-
+*/
 
 // Gestion de Discordiador
 void *gestionarClienteSeg(int socket) {
@@ -186,14 +191,15 @@ void *gestionarClienteSeg(int socket) {
 					break;
 				case EXPULSAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
-					int idTripulante = atoi((char *) list_get(lista,0));
+					uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
 					eliminarTripulante(idTripulante);
 					printf("Tripulante eliminado de la nave %d\n", idTripulante);
 					//liberar_cliente(cliente);
 					break;
 				case ACTUALIZAR_TRIPULANTE:
 					lista = recibir_paquete(cliente);
-					int idTripulante = atoi((char *) list_get(lista,0));
+					int idTripulante;
+					idTripulante = atoi((char *) list_get(lista,0));
 					break;
 				case -1:
 					printf("El cliente %d se desconecto.\n", cliente);
@@ -233,82 +239,12 @@ void inicializar_ram(){
 		//Agregar Hilos
 		gestionarClientePag(socket_mi_ram);
 	}
-}*/
-
-void atender_discordiador(){
-
-	void iterator(char* value) {printf("%s\n", value);}
-
-	int socket_ram = levantar_servidor(MI_RAM_HQ);
-	printf("Escuchando..");
-	int socket_cliente = esperar_cliente(socket_ram);
-	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 1, LOG_LEVEL_DEBUG);
-	t_list *lista;
-
-	while (1) {
-		op_code cod_op;
-		cod_op = recibir_operacion(socket_cliente);
-		switch (cod_op) {
-		case MENSAJE: //MENSAJE (ENUM NO FUNCA)
-			recibir_mensaje(socket_cliente);
-			break;
-		case PAQUETE: //PAQUETE (ENUM NO FUNCA)
-			lista = recibir_paquete(socket_cliente);
-			printf("Me llegaron los siguientes valores:\n");
-			list_iterate(lista, (void*) iterator);
-			break;
-		case INICIO_PATOTA:
-			;
-			t_list* lista = recibir_paquete(socket_cliente);
-
-			char *cantidad 		   = list_get(lista, 0);
-			char *posiciones 	   = list_get(lista, 1);
-			char *contenido_tareas = list_get(lista, 2);
-
-			printf("\n-------ME LLEGARON DATOS DE PATOTA---------\n");
-			printf("Cantidad: %s\n", cantidad);
-			if(strcmp(posiciones, "vacio") == 0)
-				printf("No inicializo posiciones\n");
-			else printf("Posiciones: %s\n", posiciones);
-
-			printf("Tareas: %s\n", contenido_tareas);
-
-			break;
-		case ACTUALIZAR_POSICION:
-			;
-			char *mensaje = recibir_mensaje(socket_cliente);
-			printf("Me mando msj: %s\n", mensaje);
-
-
-			break;
-
-		case ELIMINAR_TRIPULANTE:
-			;
-			char *mensaje2 = recibir_mensaje(socket_cliente);
-			printf("Me mando msj: %s\n", mensaje2);
-			break;
-		case -1:
-			log_error(logs_ram, "el cliente se desconecto. Terminando servidor");
-			return; //error
-		default:
-			for (int i = 0; i < 50; i++) //agregue esto, la ultima vez me genero 2gb de log
-				log_warning(logs_ram,
-						"Operacion desconocida. No quieras meter la pata");
-			return; //error
-		}
-	}
-
 }
 
 
+
 int main(){
-  //inicializar_ram();
-
-	pthread_t hilo_discordiador;
-
-
-	pthread_create(&hilo_discordiador, NULL, (void *) atender_discordiador, NULL);
-	pthread_join(hilo_discordiador, NULL);
+  inicializar_ram();
 
   return EXIT_SUCCESS;
 }

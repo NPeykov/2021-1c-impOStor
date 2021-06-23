@@ -11,7 +11,6 @@
 int servidor;
 int socket_mi_ram;
 t_config *config;
-t_log *logs_ram;
 char* puerto;
 int socket_cliente;
 t_list* patotas; //Lista de tablas de segmentos (TABLA DE PROCESOS)
@@ -26,11 +25,13 @@ typedef enum tipo_segmento {
 } tipo_segmento;
 
 
+
+
 typedef struct{
 	int idSegmento;
 	tipo_segmento tipo;//PCB TCB o Tareas
 	uint32_t base;
-	int tamanio;
+	uint32_t tamanio;
 	void *dato;
 } Segmento; //Patota
 
@@ -63,6 +64,8 @@ typedef struct{
 void eliminarTripulante(int idTripulante);
 
 void *gestionarCliente(int cliente);
+
+void crear_proceso(t_list *paquete);
 
 //Crea cada uno de los segmentos que necesita una patota
 void crear_segmentos(t_list* paquete, int tamanio, t_list* tabla_segmentos);

@@ -56,6 +56,10 @@ int quantum;
 int duracion_sabotaje;
 int retardo_ciclo_cpu;
 
+//sockets
+int socket_ram;
+int socket_store;
+
 bool g_hay_pausa    = true;
 bool g_hay_sabotaje = false;
 int lugares_en_exec;
@@ -79,9 +83,7 @@ typedef enum {
 	INICIAR_PLANIFICACION,
 	PAUSAR_PLANIFICACION,
 	OBTENER_BITACORA,
-	ACTUALIZAR_TRIPULANTE,
-	EXIT,
-	SIGUIENTE_TAREA
+	EXIT
 } tipo_comando;
 
 
@@ -122,6 +124,7 @@ typedef struct Tripulante_Planificando{
 	int quantum_disponible;
 	Tarea *tarea;
 	sem_t ir_exec;
+	sem_t salir_pausa;
 }Tripulante_Planificando;
 
 
@@ -148,9 +151,10 @@ pthread_mutex_t pausa_lock;
 //semaforos
 sem_t bloq_disponible; //iniciar en 1
 sem_t tripulantes_hermanos; //todavia no implementado, lo uso para q un proceso se quede esperando en exit
-
 sem_t moverse_a_em;
 sem_t se_movio_a_em;
+sem_t primer_inicio;
+sem_t otros_inicios;
 
 
 //PROTOTIPO DE FUNCIONES
@@ -165,6 +169,8 @@ void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 void liberar_cliente(int);
 void imprimir_respuesta(t_list*);
+void reanudar_hilos_lista(Estado);
+void enviar_mensaje(int, char*, int);
 
 
 
@@ -177,6 +183,11 @@ void moverse_una_unidad(Tripulante_Planificando *);
 void realizar_tarea_IO(Tripulante_Planificando *);
 void realizar_tarea_comun(Tripulante_Planificando *);
 void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
+
+
+//FUNCIONES DE COMUNICACION ENTRE MODULOS
+void crear_y_enviar_inicio_patota(char*, char*, char*);
+char *concatenar_posiciones(char**);
 
 
 #endif

@@ -19,7 +19,13 @@
 
 typedef enum{
 	MENSAJE,
-	PAQUETE
+	PAQUETE,
+	INICIO_PATOTA,
+	ENVIO_TRIPULANTE,
+	ACTUALIZAR_POSICION,
+	ACTUALIZAR_ESTADO,
+	ELIMINAR_TRIPULANTE, //id, patota
+	OBTENGO_BITACORA
 }op_code;
 
 typedef enum{
@@ -35,6 +41,8 @@ typedef struct{
 	op_code codigo_operacion;
 	t_buffer* buffer;
 } t_paquete;
+
+
 
 int errno;
 
@@ -53,6 +61,8 @@ void eliminar_paquete(t_paquete* paquete);
 t_list* recibir_paquete(int);
 int recibir_operacion(int);
 void* recibir_buffer(int*, int);
+
+
 //Sockets de todos los servidores
 int mongo_socket;
 int mi_ram_hq_socket;

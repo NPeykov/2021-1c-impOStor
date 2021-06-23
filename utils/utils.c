@@ -136,6 +136,10 @@ void liberar_cliente(int socket_cliente){
 	close(socket_cliente);
 }
 
+/*------------------------------------------------------*/
+
+
+
 void* serializar_paquete(t_paquete* paquete, int bytes)
 {
 	void * magic = malloc(bytes);
@@ -218,6 +222,26 @@ t_list* recibir_paquete(int socket_cliente)
 
 }
 
+void* recibir_buffer(int* size, int socket_cliente)
+{
+	void * buffer;
+
+	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
+	buffer = malloc(*size);
+	recv(socket_cliente, buffer, *size, MSG_WAITALL);
+
+	return buffer;
+}
+
+char *recibir_mensaje(int socket_cliente)
+{
+	int size;
+	char* buffer = recibir_buffer(&size, socket_cliente);
+	return buffer;
+	/*free(buffer);*/
+}
+
+
 int recibir_operacion(int socket_cliente)
 {
 	int cod_op;
@@ -230,13 +254,26 @@ int recibir_operacion(int socket_cliente)
 	}
 }
 
-void* recibir_buffer(int* size, int socket_cliente)
+
+
+void enviar_mensaje(op_code cod_op, char* mensaje, int socket_cliente)
 {
-	void * buffer;
+	t_paquete* paquete = malloc(sizeof(t_paquete));
 
-	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
-	buffer = malloc(*size);
-	recv(socket_cliente, buffer, *size, MSG_WAITALL);
+	paquete->codigo_operacion = cod_op;
+	paquete->buffer = malloc(sizeof(t_buffer));
+	paquete->buffer->size = strlen(mensaje) + 1;
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+	memcpy(paquete->buffer->stream, mensaje, paquete->buffer->size);
 
-	return buffer;
+	int bytes = paquete->buffer->size + 2*sizeof(int);
+
+	void* a_enviar = serializar_paquete(paquete, bytes);
+
+	send(socket_cliente, a_enviar, bytes, 0);
+
+	free(a_enviar);
+	eliminar_paquete(paquete);
 }
+
+

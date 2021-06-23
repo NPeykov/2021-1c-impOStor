@@ -136,6 +136,10 @@ void liberar_cliente(int socket_cliente){
 	close(socket_cliente);
 }
 
+/*------------------------------------------------------*/
+
+
+
 void* serializar_paquete(t_paquete* paquete, int bytes)
 {
 	void * magic = malloc(bytes);
@@ -218,6 +222,13 @@ t_list* recibir_paquete(int socket_cliente)
 
 }
 
+void recibir_mensaje(int socket_cliente)
+{
+	int size;
+	char* buffer = recibir_buffer(&size, socket_cliente);
+	free(buffer);
+}
+
 int recibir_operacion(int socket_cliente)
 {
 	int cod_op;
@@ -239,4 +250,31 @@ void* recibir_buffer(int* size, int socket_cliente)
 	recv(socket_cliente, buffer, *size, MSG_WAITALL);
 
 	return buffer;
+}
+
+t_inicio_patota *recibir_datos_patota(int socket_cliente){
+	t_inicio_patota *patota = malloc(sizeof(t_inicio_patota));
+	t_buffer *buffer = malloc(sizeof(t_buffer));
+	int offset = 0;
+
+	recv(socket_cliente, &(buffer->size), sizeof(uint32_t), 0);
+	buffer->stream = malloc(buffer->size);
+	recv(socket_cliente, buffer->stream, buffer->size, MSG_WAITALL);
+
+	memcpy(&(patota->cantidad), buffer->stream + offset, sizeof(uint8_t));
+	offset+=sizeof(uint8_t);
+	memcpy(&(patota->size_posiciones), buffer->stream + offset, sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	patota->posiciones = malloc(patota->size_posiciones);
+	memcpy(patota->posiciones, buffer->stream + offset, patota->size_posiciones);
+	offset+=patota->size_posiciones;
+	memcpy(&(patota->size_contenido_tareas), buffer->stream + offset, sizeof(uint32_t));
+	patota->contenido_tareas = malloc(patota->size_contenido_tareas);
+	offset+=sizeof(uint32_t);
+	memcpy(patota->contenido_tareas, buffer->stream + offset, patota->size_contenido_tareas);
+
+	patota->posiciones[patota->size_posiciones] = '\0';
+	patota->contenido_tareas[patota->size_contenido_tareas] = '\0';
+
+	return patota;
 }

@@ -11,6 +11,7 @@
 int servidor;
 int socket_mi_ram;
 t_config *config;
+t_log *logs_ram;
 char* puerto;
 int socket_cliente;
 t_list* patotas; //Lista de tablas de segmentos (TABLA DE PROCESOS)

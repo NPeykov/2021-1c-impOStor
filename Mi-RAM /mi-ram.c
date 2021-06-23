@@ -1,5 +1,5 @@
 #include "mi-ram.h"
-
+/*
 void crearProceso(t_list *paquete){
 	t_list* tabla_de_segmentos = list_create();
 	int tamanio = 0;
@@ -233,12 +233,72 @@ void inicializar_ram(){
 		//Agregar Hilos
 		gestionarClientePag(socket_mi_ram);
 	}
+}*/
+
+void atender_discordiador(){
+
+	void iterator(char* value) {printf("%s\n", value);}
+
+	int socket_ram = levantar_servidor(MI_RAM_HQ);
+	printf("Escuchando..");
+	int socket_cliente = esperar_cliente(socket_ram);
+	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 1, LOG_LEVEL_DEBUG);
+	t_list *lista;
+
+	while (1) {
+		op_code cod_op;
+		cod_op = recibir_operacion(socket_cliente);
+		switch (cod_op) {
+		case MENSAJE: //MENSAJE (ENUM NO FUNCA)
+			recibir_mensaje(socket_cliente);
+			break;
+		case PAQUETE: //PAQUETE (ENUM NO FUNCA)
+			lista = recibir_paquete(socket_cliente);
+			printf("Me llegaron los siguientes valores:\n");
+			list_iterate(lista, (void*) iterator);
+			break;
+		case INICIO_PATOTA:
+			;
+			t_list* lista = recibir_paquete(socket_cliente);
+
+			char *cantidad 		   = list_get(lista, 0);
+			char *posiciones 	   = list_get(lista, 1);
+			char *contenido_tareas = list_get(lista, 2);
+
+			printf("\n-------ME LLEGARON DATOS DE PATOTA---------\n");
+			printf("Cantidad: %s\n", cantidad);
+			printf("Posiciones: %s\n", posiciones);
+			printf("Tareas: %s\n", contenido_tareas);
+
+			/*t_inicio_patota *datos_inicio_patota = recibir_datos_patota(socket_cliente);
+
+			printf("\n-------ME LLEGARON DATOS DE PATOTA---------\n");
+			printf("Cantidad: %d\n", datos_inicio_patota->cantidad);
+			printf("Posiciones: %s\n", datos_inicio_patota->posiciones);
+			printf("Tareas: %s\n", datos_inicio_patota->contenido_tareas);*/
+			break;
+		case -1:
+			log_error(logs_ram, "el cliente se desconecto. Terminando servidor");
+			return; //error
+		default:
+			for (int i = 0; i < 50; i++) //agregue esto, la ultima vez me genero 2gb de log
+				log_warning(logs_ram,
+						"Operacion desconocida. No quieras meter la pata");
+			return; //error
+		}
+	}
+
 }
 
 
-
 int main(){
-  inicializar_ram();
+  //inicializar_ram();
+
+	pthread_t hilo_discordiador;
+
+
+	pthread_create(&hilo_discordiador, NULL, (void *) atender_discordiador, NULL);
+	pthread_join(hilo_discordiador, NULL);
 
   return EXIT_SUCCESS;
 }

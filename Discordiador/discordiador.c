@@ -513,7 +513,9 @@ void atender_comandos_consola(void) {
 
 		comando_ingresado = readline(">");
 
-		comando_separado = string_split(comando_ingresado, " ");
+		comando_separado = string_n_split(comando_ingresado, 4," ");
+
+		/*comando_separado = string_split(comando_ingresado, " ");*/
 
 		for (int j = 0; j < CANT_COMANDOS; j++)
 			if (strcmp(comando_separado[0], comandos_validos[j]) == 0)
@@ -522,16 +524,23 @@ void atender_comandos_consola(void) {
 		switch (valor) {
 		case 0: //INICIAR_PATOTA
 			;
-			int cantidad_tripulantes = atoi(comando_separado[1]);
-			char *lista_tareas = strdup(comando_separado[2]); //LIBERAR ESPACIO
+			/*printf("%s\n", comando_separado[0]);
+			printf("%s\n", comando_separado[1]);
+			printf("%s\n", comando_separado[2]);
+			printf("%s\n", comando_separado[3]);*/
+
+			//uint8_t cantidad_tripulantes = atoi(comando_separado[1]);
+			char *cantidad_tripulantes = comando_separado[1];
+			char *lista_tareas = comando_separado[2]; //LIBERAR ESPACIO
+			char *posiciones = comando_separado[3];
 
 			log_info(logs_discordiador, "Iniciando %d tripulantes de patota numero %d..\n",cantidad_tripulantes, g_numero_patota);
 
-			//AVISAR A MI RAM QUE SE CREO LA PATOTA
-			//mandar patota
-			//tareas
 
-			iniciar_patota(comando_separado);
+			crear_y_enviar(cantidad_tripulantes, lista_tareas, posiciones);
+			//crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
+
+			//iniciar_patota(comando_separado);
 
 			g_numero_patota += 1; //PARA LA PROX VEZ QUE SEA INICIALIZADO
 			break;
@@ -547,12 +556,12 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 2: //EXPULSAR_TRIPULANTE
-			conexion=iniciar_conexion(MI_RAM_HQ,config);
+			/*conexion=iniciar_conexion(MI_RAM_HQ,config);
 			t_paquete* paquete=crear_paquete(EXPULSAR_TRIPULANTE);
 			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
 			enviar_paquete(paquete,conexion);
 			eliminar_paquete(paquete);
-			liberar_cliente(conexion);
+			liberar_cliente(conexion);*/
 
 			//agregar conexion a mongo y envio mensaje
 			break;
@@ -570,14 +579,14 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-			conexion=iniciar_conexion(I_MONGO_STORE,config);
+			/*conexion=iniciar_conexion(I_MONGO_STORE,config);
 			t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
 			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
 			enviar_paquete(paquete,conexion);
 			eliminar_paquete(paquete);
 			respuesta=recibir_paquete(conexion);
 			imprimir_respuesta(respuesta);
-			liberar_cliente(conexion);
+			liberar_cliente(conexion);*/
 			break;
 
 		case 6: //SALIR
@@ -593,6 +602,114 @@ void atender_comandos_consola(void) {
 			break;
 		}
 	}
+}
+
+//************************************************ COMUNICACIONES **********************************************
+
+void crear_y_enviar(char *cantidad, char *path_tareas, char *posiciones){
+	t_paquete *paquete = crear_paquete(INICIO_PATOTA);
+	FILE *tareas_file;
+	char *contenido_tareas = NULL;
+	uint32_t size_contenido_tareas;
+
+	if ((tareas_file = fopen(path_tareas, "r")) == NULL) {
+		printf("Error al abrir el archivo de tareas.");
+		exit(1);
+	}
+
+	ssize_t bytes = getdelim(&contenido_tareas, &size_contenido_tareas, '\0',
+			tareas_file);
+
+	if (bytes == -1) {
+		printf("Error leyendo archivo!\n");
+	}
+
+	contenido_tareas[size_contenido_tareas] = '\0'; //posible error
+
+	agregar_a_paquete(paquete, cantidad, string_length(cantidad) + 1);
+	agregar_a_paquete(paquete, posiciones, string_length(posiciones) + 1);
+	agregar_a_paquete(paquete, contenido_tareas, string_length(contenido_tareas) + 1);
+
+	enviar_paquete(paquete, socket_ram);
+
+}
+
+void crear_y_enviar_inicio_patota(uint8_t cantidad, char *path_tareas, char *posiciones){
+	t_inicio_patota *inicio_patota = malloc(sizeof(t_inicio_patota));
+	t_paquete *paquete = malloc(sizeof(t_paquete));
+	t_buffer *buffer = malloc(sizeof(t_buffer));
+	FILE *tareas_file;
+	char *contenido_tareas = NULL;
+	uint32_t size_contenido_tareas;
+
+	if((tareas_file = fopen(path_tareas, "r")) == NULL){
+		printf("Error al abrir el archivo de tareas.");
+		exit(1);
+	}
+
+	ssize_t bytes = getdelim(&contenido_tareas, &size_contenido_tareas, '\0', tareas_file);
+
+	if(bytes == -1){
+		printf("Error leyendo archivo!\n");
+	}
+
+	contenido_tareas[size_contenido_tareas] = '\0';
+
+	inicio_patota->cantidad = cantidad;
+	inicio_patota->size_posiciones = string_length(posiciones) + 1;
+	inicio_patota->posiciones = posiciones;
+	inicio_patota->size_contenido_tareas = string_length(contenido_tareas) + 1;
+	inicio_patota->contenido_tareas = contenido_tareas;
+
+
+	/*printf("---DATOS---\n");
+	printf("Cantidad: %d\n",cantidad);
+	printf("POSICIONES: %s\n", inicio_patota->posiciones);
+	printf("Size_posiciones: %d\n", inicio_patota->size_posiciones);
+	printf("TAREAS: %s\n", inicio_patota->contenido_tareas);
+	printf("Size Tareas: %d\n", inicio_patota->size_contenido_tareas);*/
+
+	buffer->size = sizeof(uint8_t) + sizeof(uint32_t) * 2 + inicio_patota->size_contenido_tareas + inicio_patota->size_posiciones;
+
+	void *stream = malloc(buffer->size);
+	int offset = 0;
+
+	memcpy(stream + offset, &(inicio_patota->cantidad), sizeof(uint8_t));
+	offset+=sizeof(uint8_t);
+	memcpy(stream + offset, &(inicio_patota->size_posiciones), sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(stream + offset, inicio_patota->posiciones, inicio_patota->size_posiciones);
+	offset+=inicio_patota->size_posiciones;
+	memcpy(stream + offset, &(inicio_patota->size_contenido_tareas), sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(stream + offset, inicio_patota->contenido_tareas, inicio_patota->size_contenido_tareas);
+
+
+	buffer->stream = stream;
+	paquete->codigo_operacion = INICIO_PATOTA;
+	paquete->buffer = buffer;
+
+
+
+	//serializo
+	void *envio = malloc(sizeof(int) + buffer->size + sizeof(uint32_t));
+	offset = 0;
+	memcpy(envio + offset, &(paquete->codigo_operacion), sizeof(int));
+	offset+=sizeof(int);
+	memcpy(envio + offset, &(paquete->buffer->size), sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(envio + offset, paquete->buffer->stream, paquete->buffer->size);
+
+	send(socket_ram, envio, sizeof(op_code) + buffer->size + sizeof(uint32_t), 0);
+
+	free(path_tareas);
+	free(posiciones);
+	free(inicio_patota);
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
+	free(envio);
+	fclose(tareas_file);
 }
 
 //************************************************ OTROS **********************************************
@@ -673,13 +790,13 @@ void tripulante(void *argumentos){
 
 
 		if(completo_tarea(tripulante_trabajando) && tripulante_trabajando -> tarea -> tipo == TAREA_IO){
-			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ESPERA LUGAR EN BLOQUEADO EMERGENCIA",
+			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ESPERA LUGAR EN BLOQUEADO IO",
 									tripulante_trabajando ->tripulante->id,
 									tripulante_trabajando ->tripulante->patota);
 			sleep(retardo_ciclo_cpu); //piden que espere antes de entrar I/O
 			moverse_a_bloq(tripulante_trabajando);
 			sem_wait(&bloq_disponible);
-			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ARRANCA A HACER TAREAS DE EMERGENCIA",
+			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ARRANCA A HACER TAREAS DE IO",
 												tripulante_trabajando ->tripulante->id,
 												tripulante_trabajando ->tripulante->patota);
 			while(tripulante_trabajando->tarea->duracion > 0){
@@ -774,11 +891,17 @@ void inicializar_recursos_necesarios(void){
 	puerto_mi_ram = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
 	log_info(logs_discordiador, "PUERTO RAM: %s", puerto_mi_ram);
 
+	socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+	log_info(logs_discordiador, "CONECTANDOSE A RAM EN SOCKET %d..", socket_ram);
+
 	ip_mongo_store = config_get_string_value(config, "IP_I_MONGO_STORE");
 	log_info(logs_discordiador, "IP STORE: %s", ip_mongo_store);
 
 	puerto_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
 	log_info(logs_discordiador, "PUERTO STORE: %s", puerto_mongo_store);
+
+	//socket_store = iniciar_conexion(I_MONGO_STORE, config);
+	//log_info(logs_discordiador, "CONECTANDOSE A MONGO STORE EN SOCKET %d..", socket_store);
 
 	algoritmo_planificacion = config_get_string_value(config, "ALGORITMO");
 	log_info(logs_discordiador, "ALGORITMO DE PLANIFICACION: %s", algoritmo_planificacion);

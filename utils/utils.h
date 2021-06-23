@@ -21,7 +21,11 @@ typedef enum{
 	MENSAJE,
 	PAQUETE,
 	INICIO_PATOTA,
-	ENVIO_TRIPULANTE
+	ENVIO_TRIPULANTE,
+	ACTUALIZAR_POSICION,
+	ACTUALIZAR_ESTADO,
+	ELIMINAR_TRIPULANTE, //id, patota
+	OBTENGO_BITACORA
 }op_code;
 
 typedef enum{
@@ -38,13 +42,7 @@ typedef struct{
 	t_buffer* buffer;
 } t_paquete;
 
-typedef struct {
-	uint8_t cantidad;
-	uint32_t size_posiciones;
-	char *posiciones;
-	uint32_t size_contenido_tareas;
-	char *contenido_tareas;
-}t_inicio_patota;
+
 
 int errno;
 
@@ -63,7 +61,6 @@ void eliminar_paquete(t_paquete* paquete);
 t_list* recibir_paquete(int);
 int recibir_operacion(int);
 void* recibir_buffer(int*, int);
-t_inicio_patota *recibir_datos_patota(int);
 
 
 //Sockets de todos los servidores

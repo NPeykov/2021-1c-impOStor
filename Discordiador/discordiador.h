@@ -83,7 +83,7 @@ typedef enum {
 	INICIAR_PLANIFICACION,
 	PAUSAR_PLANIFICACION,
 	OBTENER_BITACORA,
-	ACTUALIZAR_TRIPULANTE,
+//	ACTUALIZAR_TRIPULANTE,
 	EXIT
 } tipo_comando;
 
@@ -125,6 +125,7 @@ typedef struct Tripulante_Planificando{
 	int quantum_disponible;
 	Tarea *tarea;
 	sem_t ir_exec;
+	sem_t salir_pausa;
 }Tripulante_Planificando;
 
 
@@ -151,9 +152,10 @@ pthread_mutex_t pausa_lock;
 //semaforos
 sem_t bloq_disponible; //iniciar en 1
 sem_t tripulantes_hermanos; //todavia no implementado, lo uso para q un proceso se quede esperando en exit
-
 sem_t moverse_a_em;
 sem_t se_movio_a_em;
+sem_t primer_inicio;
+sem_t otros_inicios;
 
 
 //PROTOTIPO DE FUNCIONES
@@ -168,6 +170,8 @@ void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 void liberar_cliente(int);
 void imprimir_respuesta(t_list*);
+void reanudar_hilos_lista(Estado);
+void enviar_mensaje(int, char*, int);
 
 
 
@@ -183,8 +187,7 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
 
 
 //FUNCIONES DE COMUNICACION ENTRE MODULOS
-void crear_y_enviar_inicio_patota(uint8_t, char*, char*); //alternativa
-void crear_y_enviar(char*, char*, char*);
+void crear_y_enviar_inicio_patota(char*, char*, char*);
 char *concatenar_posiciones(char**);
 
 

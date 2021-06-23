@@ -222,12 +222,25 @@ t_list* recibir_paquete(int socket_cliente)
 
 }
 
-void recibir_mensaje(int socket_cliente)
+void* recibir_buffer(int* size, int socket_cliente)
+{
+	void * buffer;
+
+	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
+	buffer = malloc(*size);
+	recv(socket_cliente, buffer, *size, MSG_WAITALL);
+
+	return buffer;
+}
+
+char *recibir_mensaje(int socket_cliente)
 {
 	int size;
 	char* buffer = recibir_buffer(&size, socket_cliente);
-	free(buffer);
+	return buffer;
+	/*free(buffer);*/
 }
+
 
 int recibir_operacion(int socket_cliente)
 {
@@ -241,40 +254,26 @@ int recibir_operacion(int socket_cliente)
 	}
 }
 
-void* recibir_buffer(int* size, int socket_cliente)
+
+
+void enviar_mensaje(op_code cod_op, char* mensaje, int socket_cliente)
 {
-	void * buffer;
+	t_paquete* paquete = malloc(sizeof(t_paquete));
 
-	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
-	buffer = malloc(*size);
-	recv(socket_cliente, buffer, *size, MSG_WAITALL);
+	paquete->codigo_operacion = cod_op;
+	paquete->buffer = malloc(sizeof(t_buffer));
+	paquete->buffer->size = strlen(mensaje) + 1;
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+	memcpy(paquete->buffer->stream, mensaje, paquete->buffer->size);
 
-	return buffer;
+	int bytes = paquete->buffer->size + 2*sizeof(int);
+
+	void* a_enviar = serializar_paquete(paquete, bytes);
+
+	send(socket_cliente, a_enviar, bytes, 0);
+
+	free(a_enviar);
+	eliminar_paquete(paquete);
 }
 
-t_inicio_patota *recibir_datos_patota(int socket_cliente){
-	t_inicio_patota *patota = malloc(sizeof(t_inicio_patota));
-	t_buffer *buffer = malloc(sizeof(t_buffer));
-	int offset = 0;
 
-	recv(socket_cliente, &(buffer->size), sizeof(uint32_t), 0);
-	buffer->stream = malloc(buffer->size);
-	recv(socket_cliente, buffer->stream, buffer->size, MSG_WAITALL);
-
-	memcpy(&(patota->cantidad), buffer->stream + offset, sizeof(uint8_t));
-	offset+=sizeof(uint8_t);
-	memcpy(&(patota->size_posiciones), buffer->stream + offset, sizeof(uint32_t));
-	offset+=sizeof(uint32_t);
-	patota->posiciones = malloc(patota->size_posiciones);
-	memcpy(patota->posiciones, buffer->stream + offset, patota->size_posiciones);
-	offset+=patota->size_posiciones;
-	memcpy(&(patota->size_contenido_tareas), buffer->stream + offset, sizeof(uint32_t));
-	patota->contenido_tareas = malloc(patota->size_contenido_tareas);
-	offset+=sizeof(uint32_t);
-	memcpy(patota->contenido_tareas, buffer->stream + offset, patota->size_contenido_tareas);
-
-	patota->posiciones[patota->size_posiciones] = '\0';
-	patota->contenido_tareas[patota->size_contenido_tareas] = '\0';
-
-	return patota;
-}

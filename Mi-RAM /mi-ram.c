@@ -267,15 +267,25 @@ void atender_discordiador(){
 
 			printf("\n-------ME LLEGARON DATOS DE PATOTA---------\n");
 			printf("Cantidad: %s\n", cantidad);
-			printf("Posiciones: %s\n", posiciones);
+			if(strcmp(posiciones, "vacio") == 0)
+				printf("No inicializo posiciones\n");
+			else printf("Posiciones: %s\n", posiciones);
+
 			printf("Tareas: %s\n", contenido_tareas);
 
-			/*t_inicio_patota *datos_inicio_patota = recibir_datos_patota(socket_cliente);
+			break;
+		case ACTUALIZAR_POSICION:
+			;
+			char *mensaje = recibir_mensaje(socket_cliente);
+			printf("Me mando msj: %s\n", mensaje);
 
-			printf("\n-------ME LLEGARON DATOS DE PATOTA---------\n");
-			printf("Cantidad: %d\n", datos_inicio_patota->cantidad);
-			printf("Posiciones: %s\n", datos_inicio_patota->posiciones);
-			printf("Tareas: %s\n", datos_inicio_patota->contenido_tareas);*/
+
+			break;
+
+		case ELIMINAR_TRIPULANTE:
+			;
+			char *mensaje2 = recibir_mensaje(socket_cliente);
+			printf("Me mando msj: %s\n", mensaje2);
 			break;
 		case -1:
 			log_error(logs_ram, "el cliente se desconecto. Terminando servidor");

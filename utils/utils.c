@@ -238,7 +238,6 @@ char *recibir_mensaje(int socket_cliente)
 	int size;
 	char* buffer = recibir_buffer(&size, socket_cliente);
 	return buffer;
-	/*free(buffer);*/
 }
 
 
@@ -285,17 +284,6 @@ t_tripulante_iniciado *recibir_tripulante_iniciado(int socket_cliente){
 	recv(socket_cliente, &(buffer->size), sizeof(int), 0);
 	buffer->stream = malloc(buffer->size);
 	recv(socket_cliente, buffer->stream, buffer->size, MSG_WAITALL);
-
-	/*
-	 * typedef struct{
-	    uint32_t numPatota;
-		uint32_t tid;
-		uint32_t posX;
-		uint32_t posY;
-		uint32_t size_status;
-		char *status;
-
-	} t_tripulante_enviado;*/
 
 	memcpy(&(tripulante->numPatota), buffer->stream + offset, sizeof(uint32_t));
 	offset+=sizeof(uint32_t);

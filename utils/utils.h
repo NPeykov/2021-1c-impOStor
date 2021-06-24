@@ -21,7 +21,7 @@ typedef enum{
 	MENSAJE,
 	PAQUETE,
 	INICIO_PATOTA,
-	ENVIO_TRIPULANTE,
+	NUEVO_TRIPULANTE,
 	ACTUALIZAR_POSICION,
 	ACTUALIZAR_ESTADO,
 	ELIMINAR_TRIPULANTE, //id, patota
@@ -67,6 +67,8 @@ t_paquete* crear_paquete(op_code operacion);
 void agregar_a_paquete(t_paquete* paquete, void* valor, int tamanio);
 void enviar_paquete(t_paquete* paquete, int socket_cliente);
 void eliminar_paquete(t_paquete* paquete);
+void enviar_mensaje(op_code, char*, int);
+char *recibir_mensaje(int);
 
 t_list* recibir_paquete(int);
 int recibir_operacion(int);

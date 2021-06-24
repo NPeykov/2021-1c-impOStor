@@ -35,7 +35,7 @@ void *mas_cercano_al_sabotaje(int x, int y){
     else return t2;
   }
 
-  tripulante = list_get_maximum(tripulantes_mergeados, maximo);
+  //tripulante = list_get_maximum(tripulantes_mergeados, maximo);
 
   free(tripulantes_mergeados);
 
@@ -55,26 +55,26 @@ char *tareas[] = {
 		"JUGAR;9;7;2",
 		NULL }; //ejemplo
 
-char *dar_proxima_tarea(/*int patota*/){
-	/*int conexion;
-	t_list respuesta;
-	t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
-	conexion=iniciar_conexion(MI_RAM_HQ,config);
-	t_paquete* paquete=crear_paquete(SIGUIENTE_TAREA);
-	agregar_a_paquete(paquete,patota,sizeof(int));
-	enviar_paquete(paquete,conexion);
-	eliminar_paquete(paquete);
-	respuesta=recibir_paquete(conexion);
-	liberar_cliente(conexion);
-	return list_get(respuesta, 0);*/
+char *dar_proxima_tarea(Tripulante *tripulante){
+	char *tarea;
+	int operacion_retorno;
 
-	static int i=0;
-	return i<=7 ? tareas[i++] : NULL;
+	serializar_y_enviar_tripulante(tripulante, PEDIDO_TAREA);
+	//enviar_mensaje(PEDIDO_TAREA, "pedidoTarea", socket_ram);
+	operacion_retorno = recibir_operacion(socket_ram);
 
+	if(operacion_retorno == PEDIDO_TAREA){
+		tarea = recibir_mensaje(socket_ram);
+		printf("Me llego tarea %s\n", tarea);
+	}
+
+	//static int i=0;
+	//return i<=7 ? tareas[i++] : NULL;
+	return tarea;
 }
 
-Tarea *proxima_tarea(/*int patota*/){
-	char *tarea_string = dar_proxima_tarea(/*patota*/);
+Tarea *proxima_tarea(Tripulante *tripulante){
+	char *tarea_string = dar_proxima_tarea(tripulante);
 	char **tarea_dividida;
 	char **tarea_IO_dividida;
 
@@ -223,7 +223,7 @@ void fijarse_si_hay_sabotaje(){
     g_hay_pausa = true; //se podria usar un wait
     pthread_mutex_unlock(&pausa_lock);
 
-//    tripulante_cercano = (Tripulante_Planificando*)mas_cercano_al_sabotaje(x, y); // listo
+   //tripulante_cercano = (Tripulante_Planificando*)mas_cercano_al_sabotaje(x, y); // listo
 
 
     pthread_mutex_lock(&lock_lista_exec);
@@ -427,7 +427,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		else { //tengo que pedir la proxima tarea
 			pthread_mutex_lock(&mutex_tarea);
-			tripulante->tarea = proxima_tarea(/*tripulante->tripulante->patota*/);
+			tripulante->tarea = proxima_tarea(tripulante->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);
 			if (tripulante->tarea == NULL) {
 				log_info(logs_discordiador, "EL TRIPULANTE N %d FINALIZO", tripulante->tripulante->id);
@@ -455,7 +455,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		if (completo_tarea(tripulante)) {
 			pthread_mutex_lock(&mutex_tarea);
-			tripulante->tarea = proxima_tarea(/*tripulante->tripulante->patota*/);
+			tripulante->tarea = proxima_tarea(tripulante->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);
 			if (tripulante->tarea == NULL) {
 				log_info(logs_discordiador, "EL TRIPULANTE N %d FINALIZO", tripulante->tripulante->id);
@@ -534,7 +534,7 @@ void atender_comandos_consola(void) {
 
 		comando_ingresado = readline(">");
 
-		comando_separado = string_n_split(comando_ingresado, 4," ");
+		//comando_separado = string_n_split(comando_ingresado, 4," ");
 
 		comando_separado = string_split(comando_ingresado, " "); // para pruebas
 
@@ -555,7 +555,6 @@ void atender_comandos_consola(void) {
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
 
-
 			//iniciar_patota(comando_separado);
 
 			//g_numero_patota += 1; //la mandaria ram
@@ -572,8 +571,15 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 2: //EXPULSAR_TRIPULANTE
+			;
+			Tripulante *tripulante2 = (Tripulante*) malloc(sizeof(Tripulante));
+			tripulante2->id = 3;
+			tripulante2->patota = 1;
+			tripulante2->estado = TRABAJANDO;
+			tripulante2->posicionX = 7;
+			tripulante2->posicionY = 9;
 
-			enviar_mensaje(ELIMINAR_TRIPULANTE, "eliminar", socket_ram);
+			dar_proxima_tarea(tripulante2);
 			/*t_paquete* paquete=crear_paquete(EXPULSAR_TRIPULANTE);
 			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
 			enviar_paquete(paquete,conexion);
@@ -612,7 +618,7 @@ void atender_comandos_consola(void) {
 			tripulante->posicionX = 7;
 			tripulante->posicionY = 9;
 
-			serializar_y_enviar_tripulante(tripulante);
+			serializar_y_enviar_tripulante(tripulante, NUEVO_TRIPULANTE);
 
 			/*conexion=iniciar_conexion(I_MONGO_STORE,config);
 			t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
@@ -671,14 +677,10 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 
 }
 
-void serializar_y_enviar_tripulante(Tripulante *tripulante){
-	t_paquete *paquete = crear_paquete(ENVIO_TRIPULANTE);
+void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operacion){
+	t_paquete *paquete = crear_paquete(tipo_operacion);
 	t_tripulante_iniciado *tripulante_enviado = malloc(sizeof(t_tripulante_iniciado));
 	char *estado;
-
-	/*typedef enum Estado{
-    LLEGADA, LISTO, TRABAJANDO, BLOQUEADO_IO, BLOQUEADO_EMERGENCIA, FINALIZADO
-}Estado;*/
 
 	switch (tripulante->estado) {
 	case LLEGADA:
@@ -817,7 +819,7 @@ void tripulante(void *argumentos){
 	tripulante_trabajando->tripulante = tripulante;
 	tripulante_trabajando->quantum_disponible = quantum;
 	pthread_mutex_lock(&mutex_tarea);
-	tripulante_trabajando->tarea = proxima_tarea(/*tripulante_trabajando->tripulante->patota*/);
+	tripulante_trabajando->tarea = proxima_tarea(tripulante_trabajando->tripulante);
 	pthread_mutex_unlock(&mutex_tarea);
 	sem_init(&tripulante_trabajando->ir_exec, 0, 0);
 	sem_init(&tripulante_trabajando->salir_pausa, 0, 0);
@@ -859,7 +861,7 @@ void tripulante(void *argumentos){
 			}
 			sem_post(&bloq_disponible);
 			pthread_mutex_lock(&mutex_tarea);
-			tripulante_trabajando -> tarea = proxima_tarea(tripulante_trabajando->tripulante->patota);
+			tripulante_trabajando -> tarea = proxima_tarea(tripulante_trabajando->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);
 			if(tripulante_trabajando->tarea == NULL){
 				log_info(logs_discordiador, "Tripulante:%d de Patota:%d se movio de BLOQ_IO a EXIT",

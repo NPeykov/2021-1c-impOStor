@@ -554,6 +554,7 @@ void atender_comandos_consola(void) {
 		tipo_comando valor = -1;
 		char *comando_ingresado;
 
+
 		comando_ingresado = readline(">");
 
 		comando_separado_para_ram = string_n_split(comando_ingresado, 4," ");
@@ -638,8 +639,11 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-			/*t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
-			;
+			printf("Tripulante recibido %d\n");
+//			conexion = iniciar_conexion(I_MONGO_STORE,config);
+
+//			t_paquete *paquete=crear_paquete(OBTENGO_BITACORA);
+			/*;
 			Tripulante *tripulante = (Tripulante*)malloc(sizeof(Tripulante));
 			tripulante->id = 3;
 			tripulante->patota = 1;
@@ -649,12 +653,15 @@ void atender_comandos_consola(void) {
 
 			serializar_y_enviar_tripulante(tripulante, ACTUALIZAR_POSICION);
 
-			/*
-			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
-			enviar_paquete(paquete,socket_store);
-			eliminar_paquete(paquete);
-			respuesta=recibir_paquete(socket_store);
-			imprimir_respuesta(respuesta);*/
+			*/
+			enviar_mensaje(OBTENGO_BITACORA, comando_separado[1] , socket_store);
+
+
+//			agregar_a_paquete(paquete,atoi(comando_separado[1],sizeof(int));
+//			enviar_paquete(paquete,socket_store);
+//			eliminar_paquete(paquete);
+//			respuesta=recibir_paquete(socket_store);
+//			imprimir_respuesta(respuesta);
 			break;
 
 		case 6: //SALIR
@@ -996,8 +1003,8 @@ void inicializar_recursos_necesarios(void){
 	puerto_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
 	log_info(logs_discordiador, "PUERTO STORE: %s", puerto_mongo_store);
 
-	//socket_store = iniciar_conexion(I_MONGO_STORE, config);
-	//log_info(logs_discordiador, "CONECTANDOSE A MONGO STORE EN SOCKET %d..", socket_store);
+	socket_store = iniciar_conexion(I_MONGO_STORE, config);
+	log_info(logs_discordiador, "CONECTANDOSE A MONGO STORE EN SOCKET %d..", socket_store);
 
 	algoritmo_planificacion = config_get_string_value(config, "ALGORITMO");
 	log_info(logs_discordiador, "ALGORITMO DE PLANIFICACION: %s", algoritmo_planificacion);

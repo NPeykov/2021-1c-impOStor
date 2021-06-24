@@ -192,7 +192,7 @@ void crearEstructuraFileSystem()
 }
 void *gestionarCliente(int socket) {;
 {
-	socket_cliente = esperar_cliente(socket);
+//	socket_cliente = esperar_cliente(socket);
 	int conexionCliente;
 			t_list* lista;
 			int operacion;
@@ -208,19 +208,21 @@ void *gestionarCliente(int socket) {;
 				printf("\nLA OPERACION ES: %d\n", operacion);
 
 				switch(operacion) {
-					case OBTENER_BITACORA:
+					case OBTENGO_BITACORA:
 					lista = recibir_paquete(cliente);
-                    int idTripulante = atoi((char *) list_get(lista,0));
-                    printf("Tripulante recibido %d\n", idTripulante);
-						break;
-					case EXPULSAR_TRIPULANTE:
+					uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
+					printf("Tripulante recibido %d\n", idTripulante);
+//                    int idTripulante = atoi((char *) list_get(lista,0));
+//                    printf("Tripulante recibido %d\n", idTripulante);
+				    break;
+					case ELIMINAR_TRIPULANTE:
 //						lista = recibir_paquete(cliente);
 //						int idTripulante = atoi((char *) list_get(lista,0));
 //						eliminarTripulante(idTripulante);
 //						printf("Tripulante eliminado de la nave %d\n", idTripulante);
 						//liberar_cliente(cliente);
 						break;
-					case ACTUALIZAR_TRIPULANTE:
+					case ACTUALIZAR_POSICION:
 //						lista = recibir_paquete(cliente);
 //						int idTripulante = atoi((char *) list_get(lista,0));
 						break;

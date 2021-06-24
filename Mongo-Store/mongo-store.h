@@ -19,14 +19,5 @@ int socket_cliente;
 void crearEstructuraFileSystem();
 void *gestionarCliente(int cliente);
 
-typedef enum {
-////	INICIAR_PATOTA,
-////	LISTAR_TRIPULANTES,
-//	EXPULSAR_TRIPULANTE,
-////////	INICIAR_PLANIFICACION,
-////////	PAUSAR_PLANIFICACION,
-//	OBTENER_BITACORA,
-//	ACTUALIZAR_TRIPULANTE,
-////	EXIT
-} op;
+
 #endif

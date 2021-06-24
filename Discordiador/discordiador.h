@@ -84,6 +84,7 @@ typedef enum {
 	PAUSAR_PLANIFICACION,
 	OBTENER_BITACORA,
 	EXIT
+
 } tipo_comando;
 
 

@@ -56,16 +56,12 @@ char *tareas[] = {
 		NULL }; //ejemplo
 
 char *dar_proxima_tarea(/*int patota*/){
-	/*int conexion;
-	t_list respuesta;
-	t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
-	conexion=iniciar_conexion(MI_RAM_HQ,config);
+	/*t_list respuesta;
 	t_paquete* paquete=crear_paquete(SIGUIENTE_TAREA);
 	agregar_a_paquete(paquete,patota,sizeof(int));
-	enviar_paquete(paquete,conexion);
+	enviar_paquete(paquete,socket_ram);
 	eliminar_paquete(paquete);
-	respuesta=recibir_paquete(conexion);
-	liberar_cliente(conexion);
+	respuesta=recibir_paquete(socket_ram);
 	return list_get(respuesta, 0);*/
 
 	static int i=0;
@@ -167,6 +163,14 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		last_move_x = false;
 		return;
 	}
+
+	t_paquete* paquete=crear_paquete(ACTUALIZAR_POSICION);
+	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->patota,sizeof(int));
+	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->id,sizeof(int));
+	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->posicionX,sizeof(int));
+	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->posicionY,sizeof(int));
+	enviar_paquete(paquete,socket_ram);
+	eliminar_paquete(paquete);
 }
 
 void realizar_tarea_IO(Tripulante_Planificando *tripulante_trabajando) {
@@ -559,7 +563,7 @@ void atender_comandos_consola(void) {
 
 			enviar_mensaje(ACTUALIZAR_POSICION, "hola", socket_ram);
 
-			//iniciar_patota(comando_separado);
+			iniciar_patota(comando_separado);
 
 
 			break;
@@ -576,12 +580,11 @@ void atender_comandos_consola(void) {
 
 		case 2: //EXPULSAR_TRIPULANTE
 
-			enviar_mensaje(ELIMINAR_TRIPULANTE, "eliminar", socket_ram);
+			enviar_mensaje(EXPULSAR_TRIPULANTE, comando_separado[1] , socket_ram);
 			/*t_paquete* paquete=crear_paquete(EXPULSAR_TRIPULANTE);
 			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
 			enviar_paquete(paquete,conexion);
-			eliminar_paquete(paquete);
-			liberar_cliente(conexion);*/
+			eliminar_paquete(paquete);*/
 
 			//agregar conexion a mongo y envio mensaje
 			break;
@@ -607,14 +610,12 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-			/*conexion=iniciar_conexion(I_MONGO_STORE,config);
-			t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
+			/*t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
 			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
-			enviar_paquete(paquete,conexion);
+			enviar_paquete(paquete,socket_store);
 			eliminar_paquete(paquete);
-			respuesta=recibir_paquete(conexion);
-			imprimir_respuesta(respuesta);
-			liberar_cliente(conexion);*/
+			respuesta=recibir_paquete(socket_store);
+			imprimir_respuesta(respuesta);*/
 			break;
 
 		case 6: //SALIR
@@ -707,6 +708,9 @@ void iniciar_patota(char **datos_tripulantes) {
 }
 
 void tripulante(void *argumentos){
+	t_paquete* paquete=crear_paquete(ENVIO_TRIPULANTE);
+	t_list *respuesta;
+
 
 	argumentos_creacion_tripulantes *args = argumentos;
 	Tripulante *tripulante = (Tripulante*)malloc(sizeof(Tripulante));
@@ -717,7 +721,14 @@ void tripulante(void *argumentos){
 	tripulante -> estado = LLEGADA;
 
 	//TODO: ACA DEBERIA AVISAR A MI-RAM PARA TCB
-
+	agregar_a_paquete(paquete,tripulante -> id,sizeof(int));
+	agregar_a_paquete(paquete,tripulante -> patota,sizeof(int));
+	agregar_a_paquete(paquete,tripulante -> posicionX,sizeof(int));
+	agregar_a_paquete(paquete,tripulante -> posicionY,sizeof(int));
+	enviar_paquete(paquete,socket_ram);
+	eliminar_paquete(paquete);
+	respuesta=recibir_paquete(socket_ram);
+	list_get(respuesta, 0);
 	//---------------------------
 	Tripulante_Planificando *tripulante_trabajando =
 			(Tripulante_Planificando*) malloc(sizeof(Tripulante_Planificando));

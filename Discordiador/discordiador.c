@@ -35,7 +35,7 @@ void *mas_cercano_al_sabotaje(int x, int y){
     else return t2;
   }
 
-  tripulante = list_get_maximum(tripulantes_mergeados, maximo);
+  //tripulante = list_get_maximum(tripulantes_mergeados, maximo);
 
   free(tripulantes_mergeados);
 
@@ -557,7 +557,7 @@ void atender_comandos_consola(void) {
 
 			//g_numero_patota += 1; //la mandaria ram
 
-			enviar_mensaje(ACTUALIZAR_POSICION, "hola", socket_ram);
+			//enviar_mensaje(INICIO_PATOTA, "hola", socket_ram);
 
 			//iniciar_patota(comando_separado);
 

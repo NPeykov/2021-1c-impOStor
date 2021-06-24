@@ -277,3 +277,40 @@ void enviar_mensaje(op_code cod_op, char* mensaje, int socket_cliente)
 }
 
 
+t_tripulante_iniciado *recibir_tripulante_iniciado(int socket_cliente){
+	t_tripulante_iniciado *tripulante = malloc(sizeof(t_tripulante_iniciado));
+	t_buffer *buffer = malloc(sizeof(t_buffer));
+	int offset = 0;
+
+	recv(socket_cliente, &(buffer->size), sizeof(int), 0);
+	buffer->stream = malloc(buffer->size);
+	recv(socket_cliente, buffer->stream, buffer->size, MSG_WAITALL);
+
+	/*
+	 * typedef struct{
+	    uint32_t numPatota;
+		uint32_t tid;
+		uint32_t posX;
+		uint32_t posY;
+		uint32_t size_status;
+		char *status;
+
+	} t_tripulante_enviado;*/
+
+	memcpy(&(tripulante->numPatota), buffer->stream + offset, sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(&(tripulante->tid), buffer->stream + offset, sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(&(tripulante->posX), buffer->stream + offset, sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(&(tripulante->posY), buffer->stream + offset, sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	memcpy(&(tripulante->size_status), buffer->stream + offset, sizeof(uint32_t));
+	offset+=sizeof(uint32_t);
+	tripulante->status = malloc(tripulante->size_status);
+	memcpy(tripulante->status, buffer->stream + offset, tripulante->size_status);
+
+	tripulante->status[tripulante->size_status] = '\0';
+
+	return tripulante;
+}

@@ -287,6 +287,17 @@ void atender_discordiador(){
 			char *mensaje2 = recibir_mensaje(socket_cliente);
 			printf("Me mando msj: %s\n", mensaje2);
 			break;
+
+		case ENVIO_TRIPULANTE:
+			;
+			t_tripulante_iniciado *tripulante = recibir_tripulante_iniciado(socket_cliente);
+			printf("---RECIBI UN TRIPULANTE----");
+			printf("patota: %d\n", tripulante->numPatota);
+			printf("id: %d\n", tripulante->tid);
+			printf("posX: %d\n", tripulante->posX);
+			printf("posY: %d\n", tripulante->posY);
+			printf("estado: %s\n", tripulante->status);
+			break;
 		case -1:
 			log_error(logs_ram, "el cliente se desconecto. Terminando servidor");
 			return; //error

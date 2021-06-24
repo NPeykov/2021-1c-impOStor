@@ -536,7 +536,7 @@ void atender_comandos_consola(void) {
 
 		comando_separado = string_n_split(comando_ingresado, 4," ");
 
-		//comando_separado = string_split(comando_ingresado, " ");
+		comando_separado = string_split(comando_ingresado, " "); // para pruebas
 
 		for (int j = 0; j < CANT_COMANDOS; j++)
 			if (strcmp(comando_separado[0], comandos_validos[j]) == 0)
@@ -550,18 +550,15 @@ void atender_comandos_consola(void) {
 			char *posiciones;
 			posiciones = comando_separado[3] == NULL ? "vacio" : comando_separado[3];
 
-			//log_info(logs_discordiador, "Iniciando %d tripulantes de patota numero %d..\n",cantidad_tripulantes, g_numero_patota);
+			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
 
-			//g_numero_patota += 1; //la mandaria ram
-
-			enviar_mensaje(ACTUALIZAR_POSICION, "hola", socket_ram);
 
 			//iniciar_patota(comando_separado);
 
-
+			//g_numero_patota += 1; //la mandaria ram
 			break;
 
 		case 1: //LISTAR_TRIPULANTE
@@ -607,6 +604,16 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
+			;
+			Tripulante *tripulante = (Tripulante*)malloc(sizeof(Tripulante));
+			tripulante->id = 3;
+			tripulante->patota = 1;
+			tripulante->estado = TRABAJANDO;
+			tripulante->posicionX = 7;
+			tripulante->posicionY = 9;
+
+			serializar_y_enviar_tripulante(tripulante);
+
 			/*conexion=iniciar_conexion(I_MONGO_STORE,config);
 			t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
 			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
@@ -663,6 +670,92 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 	fclose(tareas_file);
 
 }
+
+void serializar_y_enviar_tripulante(Tripulante *tripulante){
+	t_paquete *paquete = crear_paquete(ENVIO_TRIPULANTE);
+	t_tripulante_iniciado *tripulante_enviado = malloc(sizeof(t_tripulante_iniciado));
+	char *estado;
+
+	/*typedef enum Estado{
+    LLEGADA, LISTO, TRABAJANDO, BLOQUEADO_IO, BLOQUEADO_EMERGENCIA, FINALIZADO
+}Estado;*/
+
+	switch (tripulante->estado) {
+	case LLEGADA:
+		estado = "Llegada";
+		break;
+	case LISTO:
+		estado = "Listo";
+		break;
+	case TRABAJANDO:
+		estado = "Trabajando";
+		break;
+	case BLOQUEADO_IO:
+		estado = "BloqueadoIO";
+		break;
+	case BLOQUEADO_EMERGENCIA:
+		estado = "BloqueadoEM";
+		break;
+	case FINALIZADO:
+		estado = "Finalizado";
+		break;
+	}
+
+	tripulante_enviado->numPatota   = tripulante->patota;
+	tripulante_enviado->tid         = tripulante->id;
+	tripulante_enviado->posX	    = tripulante->posicionX;
+	tripulante_enviado->posY	    = tripulante->posicionY;
+	tripulante_enviado->size_status = string_length(estado) + 1;
+	tripulante_enviado->status	    = estado;
+
+
+	printf("%s\n", tripulante_enviado->status);
+	printf("%d\n", tripulante_enviado->size_status);
+/*
+ * typedef struct{
+    uint32_t numPatota;
+	uint32_t tid;
+	uint32_t posX;
+	uint32_t posY;
+	uint32_t size_status;
+	char *status;
+
+} t_tripulante_enviado;*/
+
+	paquete->buffer->size = sizeof(uint32_t) * 5 + tripulante_enviado->size_status;
+	void *stream = malloc(paquete->buffer->size);
+	int offset = 0;
+
+	memcpy(stream + offset, &(tripulante_enviado->numPatota), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy(stream + offset, &(tripulante_enviado->tid), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy(stream + offset, &(tripulante_enviado->posX), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy(stream + offset, &(tripulante_enviado->posY), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy(stream + offset, &(tripulante_enviado->size_status), sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy(stream + offset, tripulante_enviado->status, tripulante_enviado->size_status);
+
+	paquete->buffer->stream = stream;
+
+	void *envio = malloc(sizeof(int) + paquete->buffer->size + sizeof(int));
+	offset = 0;
+	memcpy(envio + offset, &(paquete->codigo_operacion), sizeof(int));
+	offset+=sizeof(int);
+	memcpy(envio + offset, &(paquete->buffer->size), sizeof(int));
+	offset+=sizeof(int);
+	memcpy(envio + offset, paquete->buffer->stream, paquete->buffer->size);
+
+	send(socket_ram, envio, sizeof(int) + paquete->buffer->size + sizeof(int), 0);
+
+	free(envio);
+	free(paquete->buffer->stream);
+	free(paquete->buffer);
+	free(paquete);
+}
+
 
 //************************************************ OTROS **********************************************
 

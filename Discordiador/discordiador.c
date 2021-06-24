@@ -60,14 +60,12 @@ char *dar_proxima_tarea(Tripulante *tripulante){
 	int operacion_retorno;
 
 	serializar_y_enviar_tripulante(tripulante, PEDIDO_TAREA);
-	//enviar_mensaje(PEDIDO_TAREA, "pedidoTarea", socket_ram);
 	operacion_retorno = recibir_operacion(socket_ram);
 
-	if(operacion_retorno == PEDIDO_TAREA){
+	if(operacion_retorno == PEDIDO_TAREA)
 		tarea = recibir_mensaje(socket_ram);
-		printf("Me llego tarea %s\n", tarea);
-	}
 
+	log_info(logs_discordiador, "Proxima tarea del tripulante %d: %s", tripulante->id, tarea);
 	//static int i=0;
 	//return i<=7 ? tareas[i++] : NULL;
 	return tarea;
@@ -193,14 +191,17 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *tripulante_trabajando) {
 	switch (tipo_tarea) {
 
 	case TAREA_COMUN:
-		if (!estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY))
+		if (!estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY)){
 			moverse_una_unidad(tripulante_trabajando);
+			serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION);
+		}
 		else
 			realizar_tarea_comun(tripulante_trabajando);
 
 		break;
 	case TAREA_IO:
 		moverse_una_unidad(tripulante_trabajando);
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION);
 		break;
 	}
 
@@ -529,12 +530,13 @@ void atender_comandos_consola(void) {
 	while (1) {
 
 		char **comando_separado;
+		char **comando_separado_para_ram;
 		tipo_comando valor = -1;
 		char *comando_ingresado;
 
 		comando_ingresado = readline(">");
 
-		//comando_separado = string_n_split(comando_ingresado, 4," ");
+		comando_separado_para_ram = string_n_split(comando_ingresado, 4," ");
 
 		comando_separado = string_split(comando_ingresado, " "); // para pruebas
 
@@ -545,19 +547,18 @@ void atender_comandos_consola(void) {
 		switch (valor) {
 		case 0: //INICIAR_PATOTA 2 dd
 			;
-			char *cantidad_tripulantes = comando_separado[1];
-			char *lista_tareas = comando_separado[2];
+			char *cantidad_tripulantes = comando_separado_para_ram[1];
+			char *lista_tareas = comando_separado_para_ram[2];
 			char *posiciones;
-			posiciones = comando_separado[3] == NULL ? "vacio" : comando_separado[3];
+			posiciones = comando_separado_para_ram[3] == NULL ? "vacio" : comando_separado_para_ram[3];
 
 			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
-
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
 
-			//iniciar_patota(comando_separado);
+			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
 
-			//g_numero_patota += 1; //la mandaria ram
+			g_numero_patota += 1; //la mandaria ram
 			break;
 
 		case 1: //LISTAR_TRIPULANTE
@@ -618,7 +619,7 @@ void atender_comandos_consola(void) {
 			tripulante->posicionX = 7;
 			tripulante->posicionY = 9;
 
-			serializar_y_enviar_tripulante(tripulante, NUEVO_TRIPULANTE);
+			serializar_y_enviar_tripulante(tripulante, ACTUALIZAR_POSICION);
 
 			/*conexion=iniciar_conexion(I_MONGO_STORE,config);
 			t_paquete* paquete=crear_paquete(OBTENER_BITACORA);
@@ -709,20 +710,6 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 	tripulante_enviado->posY	    = tripulante->posicionY;
 	tripulante_enviado->size_status = string_length(estado) + 1;
 	tripulante_enviado->status	    = estado;
-
-
-	printf("%s\n", tripulante_enviado->status);
-	printf("%d\n", tripulante_enviado->size_status);
-/*
- * typedef struct{
-    uint32_t numPatota;
-	uint32_t tid;
-	uint32_t posX;
-	uint32_t posY;
-	uint32_t size_status;
-	char *status;
-
-} t_tripulante_enviado;*/
 
 	paquete->buffer->size = sizeof(uint32_t) * 5 + tripulante_enviado->size_status;
 	void *stream = malloc(paquete->buffer->size);

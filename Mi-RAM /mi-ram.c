@@ -172,7 +172,7 @@ void *gestionarClienteSeg(int socket) {
 	t_list *lista;
 	int cliente = esperar_cliente(socket);
 	printf("Cliente: %d\n", cliente);
-	//logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 1, LOG_LEVEL_DEBUG);
+
 
 	int idTripulante;
 
@@ -185,8 +185,10 @@ void *gestionarClienteSeg(int socket) {
 		switch(operacion) {
 			case INICIO_PATOTA:
 				lista = recibir_paquete(cliente);
+				log_info(logs_ram, "Se iniciaron %s tripulantes", list_get(lista, 0));
+
 				//Agregar mutex
-				crear_proceso(lista);
+				//crear_proceso(lista);
 				break;
 
 			case ELIMINAR_TRIPULANTE:
@@ -197,15 +199,29 @@ void *gestionarClienteSeg(int socket) {
 				//liberar_cliente(cliente);
 				break;
 
-			case ACTUALIZAR_POSICION:
-				lista = recibir_paquete(cliente);
-				idTripulante = atoi((char *) list_get(lista,0));
+			case ACTUALIZAR_POSICION:;
+
+				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
+
+				printf("Tripulante %d se movio a (%d, %d)",
+						tripulante_desplazado->tid,
+						tripulante_desplazado->posX,
+						tripulante_desplazado->posY);
+
+				/*log_info(logs_ram, "Tripulante %d se movio a (%d, %d)",
+						tripulante_desplazado->tid,
+						tripulante_desplazado->posX,
+						tripulante_desplazado->posY);*/
+
+				//lista = recibir_paquete(cliente);
+				//idTripulante = atoi((char *) list_get(lista,0));
 				break;
 
 			case NUEVO_TRIPULANTE:;
 				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
-
 				printf("%s\n", nuevo_tripulante->status);
+				printf("%d\n", nuevo_tripulante->tid);
+
 				break;
 
 			case PEDIDO_TAREA:;
@@ -213,6 +229,11 @@ void *gestionarClienteSeg(int socket) {
 
 				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
+
+
+				printf("Tripulante %d pidio tarea.\n", tripulante_tarea->tid);
+				/*log_info(logs_ram, "Tripulante %d pidio tarea.",
+						tripulante_desplazado->tid);*/
 
 				enviar_mensaje(PEDIDO_TAREA, ejemplo_tarea, cliente);
 				break;
@@ -231,7 +252,8 @@ void *gestionarClienteSeg(int socket) {
 
 void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");
-	//logger = log_create(archivoDeLog, "CoMAnda", 1, LOG_LEVEL_DEBUG);
+
+	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 1, LOG_LEVEL_DEBUG);
 
 	socket_mi_ram = levantar_servidor(MI_RAM_HQ);
 

@@ -171,13 +171,13 @@ void listar_cola_planificacion(Estado);
 void liberar_cliente(int);
 void imprimir_respuesta(t_list*);
 void reanudar_hilos_lista(Estado);
-void enviar_mensaje(int, char*, int);
+
 
 
 
 //FUNCIONES RELACIONADAS A TAREAS
-Tarea *proxima_tarea();
-char *dar_proxima_tarea();
+Tarea *proxima_tarea(Tripulante*);
+char *dar_proxima_tarea(Tripulante *);
 bool estoy_en_mismo_punto(int, int, int, int);
 bool completo_tarea(Tripulante_Planificando *);
 void moverse_una_unidad(Tripulante_Planificando *);
@@ -189,6 +189,7 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
 //FUNCIONES DE COMUNICACION ENTRE MODULOS
 void crear_y_enviar_inicio_patota(char*, char*, char*);
 char *concatenar_posiciones(char**);
+void serializar_y_enviar_tripulante(Tripulante*, op_code);
 
 
 #endif

@@ -11,7 +11,6 @@
 int servidor;
 int socket_mi_ram;
 t_config *config;
-t_log *logs_ram;
 char* puerto;
 int socket_cliente;
 t_list* patotas; //Lista de tablas de segmentos (TABLA DE PROCESOS)
@@ -19,6 +18,7 @@ int numero_patota = 1;
 char* tipoMemoria;
 void *memoria;
 int tamaniomemoria;
+t_log *logs_ram;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
 typedef enum tipo_segmento {
@@ -28,7 +28,7 @@ typedef enum tipo_segmento {
 
 typedef struct{
 	int idSegmento;
-	tipo_segmento tipo;//PCB TCB o Tareas
+	tipo_segmento tipo;//PCB TCB Tareas
 	uint32_t base;
 	int tamanio;
 	void *dato;
@@ -58,21 +58,18 @@ typedef struct{
 	int memoriaPedida;
 } t_proceso;
 
+//Prototipos de Funciones
 
-
-void eliminarTripulante(int idTripulante);
-
-void *gestionarCliente(int cliente);
-
-//Crea cada uno de los segmentos que necesita una patota
-void crear_segmentos(t_list* paquete, int tamanio, t_list* tabla_segmentos);
-
+void *gestionarClienteSeg(int );
+void *gestionarClientePag(int );
+void eliminarTripulante(int );
+void crear_proceso(t_list *);
 //Crea un segmento con la estructura de PCB
-Segmento* crear_segmento_pcb(int tamanio, t_list* tabla_segmentos);
+Segmento* crear_segmento_pcb(uint32_t , t_list*);
 
 //Crea un segmento con la estructura de TCB
-Segmento* crear_segmento_tcb(int numero_tripulante, uint32_t posX, uint32_t posY ,int tamanio, t_list* tabla_segmentos);
+Segmento* crear_segmento_tcb(uint32_t , uint32_t , uint32_t , uint32_t, t_list*);
 
 //Obtiene la base logica del ultimo segmento que entrará a RAM
-uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos);
+uint32_t calcular_base_logica(Segmento *, t_list* );
 #endif

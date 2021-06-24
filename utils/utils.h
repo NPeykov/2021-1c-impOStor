@@ -21,12 +21,12 @@ typedef enum{
 	MENSAJE,
 	PAQUETE,
 	INICIO_PATOTA,
-	ENVIO_TRIPULANTE,
+	NUEVO_TRIPULANTE,
 	ACTUALIZAR_POSICION,
 	ACTUALIZAR_ESTADO,
 	ELIMINAR_TRIPULANTE, //id, patota
 	OBTENGO_BITACORA,
-	SIGUIENTE_TAREA
+	PEDIDO_TAREA
 }op_code;
 
 typedef enum{
@@ -43,6 +43,15 @@ typedef struct{
 	t_buffer* buffer;
 } t_paquete;
 
+typedef struct{
+	uint32_t numPatota;
+	uint32_t tid;
+	uint32_t size_status;
+	char *status;
+	uint32_t posX;
+	uint32_t posY;
+} t_tripulante_iniciado;
+
 
 
 int errno;
@@ -58,10 +67,13 @@ t_paquete* crear_paquete(op_code operacion);
 void agregar_a_paquete(t_paquete* paquete, void* valor, int tamanio);
 void enviar_paquete(t_paquete* paquete, int socket_cliente);
 void eliminar_paquete(t_paquete* paquete);
+void enviar_mensaje(op_code, char*, int);
+char *recibir_mensaje(int);
 
 t_list* recibir_paquete(int);
 int recibir_operacion(int);
 void* recibir_buffer(int*, int);
+t_tripulante_iniciado *recibir_tripulante_iniciado(int);
 
 
 //Sockets de todos los servidores

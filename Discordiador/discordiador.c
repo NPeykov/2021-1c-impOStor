@@ -562,7 +562,8 @@ void atender_comandos_consola(void) {
 	//t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
 	t_list *respuesta;
 	static int num_pausas = 0; //para manejar el tipo de signal
-
+	int socket_ram;
+	int socket_store;
 
 	while (1) {
 
@@ -584,7 +585,7 @@ void atender_comandos_consola(void) {
 
 		switch (valor) {
 		case 0: //INICIAR_PATOTA 2 dd
-			;
+			socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 			char *cantidad_tripulantes = comando_separado_para_ram[1];
 			char *lista_tareas = comando_separado_para_ram[2];
 			char *posiciones;
@@ -592,11 +593,12 @@ void atender_comandos_consola(void) {
 
 			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
-			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
+			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
 
 			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
 
 			g_numero_patota += 1; //la mandaria ram
+			liberar_cliente(socket_ram);
 			break;
 
 		case 1: //LISTAR_TRIPULANTE
@@ -609,7 +611,8 @@ void atender_comandos_consola(void) {
 			listar_cola_planificacion(FINALIZADO);
 			break;
 
-		case 2:; //EXPULSAR_TRIPULANTE
+		case 2: //EXPULSAR_TRIPULANTE
+			socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 			/*el ayudante nos dijo que podia recibir dos parametros*/
 
 			t_paquete* paquete_expulsar = crear_paquete(ELIMINAR_TRIPULANTE);
@@ -618,6 +621,7 @@ void atender_comandos_consola(void) {
 			enviar_paquete(paquete_expulsar, socket_ram);
 			eliminar_paquete(paquete_expulsar);
 
+			liberar_cliente(socket_ram);
 			break;
 		case 3: //INICIAR_PLANIFICACION
 			;
@@ -641,7 +645,7 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-			;
+			socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
 			//hay que averiguar si con solo un numero ya se puede identificar
 			// o si tenemos que hacer como "expulsasr tripulante" que tengo q enviar dos parametros
@@ -651,6 +655,7 @@ void atender_comandos_consola(void) {
 					string_length(comando_separado[1]) + 1);
 			enviar_paquete(paquete_bitacora, socket_store);
 			eliminar_paquete(paquete_bitacora);
+			liberar_cliente(socket_store);
 			break;
 
 		case 6: //SALIR
@@ -670,7 +675,7 @@ void atender_comandos_consola(void) {
 
 //************************************************ COMUNICACIONES **********************************************
 
-void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posiciones){
+void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posiciones, int socket){
 	t_paquete *paquete = crear_paquete(INICIO_PATOTA);
 	FILE *tareas_file;
 	char *contenido_tareas = NULL;
@@ -694,7 +699,7 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 	agregar_a_paquete(paquete, posiciones, string_length(posiciones) + 1);
 	agregar_a_paquete(paquete, contenido_tareas, string_length(contenido_tareas) + 1);
 
-	enviar_paquete(paquete, socket_ram);
+	enviar_paquete(paquete, socket);
 
 	fclose(tareas_file);
 }
@@ -1010,8 +1015,8 @@ void inicializar_recursos_necesarios(void){
 	puerto_mi_ram = config_get_string_value(config, "PUERTO_MI_RAM_HQ");
 	log_info(logs_discordiador, "PUERTO RAM: %s", puerto_mi_ram);
 
-	socket_ram = iniciar_conexion(MI_RAM_HQ, config);
-	log_info(logs_discordiador, "CONECTANDOSE A RAM EN SOCKET %d..", socket_ram);
+	//socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+	//log_info(logs_discordiador, "CONECTANDOSE A RAM EN SOCKET %d..", socket_ram);
 
 	ip_mongo_store = config_get_string_value(config, "IP_I_MONGO_STORE");
 	log_info(logs_discordiador, "IP STORE: %s", ip_mongo_store);
@@ -1019,8 +1024,8 @@ void inicializar_recursos_necesarios(void){
 	puerto_mongo_store = config_get_string_value(config, "PUERTO_I_MONGO_STORE");
 	log_info(logs_discordiador, "PUERTO STORE: %s", puerto_mongo_store);
 
-	socket_store = iniciar_conexion(I_MONGO_STORE, config);
-	log_info(logs_discordiador, "CONECTANDOSE A MONGO STORE EN SOCKET %d..", socket_store);
+	//socket_store = iniciar_conexion(I_MONGO_STORE, config);
+	//log_info(logs_discordiador, "CONECTANDOSE A MONGO STORE EN SOCKET %d..", socket_store);
 
 	algoritmo_planificacion = config_get_string_value(config, "ALGORITMO");
 	log_info(logs_discordiador, "ALGORITMO DE PLANIFICACION: %s", algoritmo_planificacion);

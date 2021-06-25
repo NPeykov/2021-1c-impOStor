@@ -57,8 +57,8 @@ int duracion_sabotaje;
 int retardo_ciclo_cpu;
 
 //sockets
-int socket_ram;
-int socket_store;
+//int socket_ram;
+//int socket_store;
 
 bool g_hay_pausa    = true;
 bool g_hay_sabotaje = false;
@@ -187,7 +187,7 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
 
 
 //FUNCIONES DE COMUNICACION ENTRE MODULOS
-void crear_y_enviar_inicio_patota(char*, char*, char*);
+void crear_y_enviar_inicio_patota(char*, char*, char*, int);
 char *concatenar_posiciones(char**);
 void serializar_y_enviar_tripulante(Tripulante*, op_code, int);
 void avisar_a_mongo_pedido_tarea(Tarea *, Tripulante*);

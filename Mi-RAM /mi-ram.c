@@ -170,13 +170,15 @@ void *gestionarClienteSeg(int socket) {
 
 	int operacion;
 	t_list *lista;
-	int cliente = esperar_cliente(socket);
-	printf("Cliente: %d\n", cliente);
+	int cliente;
 
 
 	int idTripulante;
 
 	while(1) {
+		cliente = esperar_cliente(socket);
+		printf("Cliente: %d\n", cliente);
+
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 

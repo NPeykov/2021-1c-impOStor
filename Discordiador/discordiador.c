@@ -69,14 +69,19 @@ char *tareas[] = {
 
 char *dar_proxima_tarea(Tripulante *tripulante){
 	char *tarea;
+	int _socket_ram;
 	int operacion_retorno;
 
-	serializar_y_enviar_tripulante(tripulante, PEDIDO_TAREA);
-	operacion_retorno = recibir_operacion(socket_ram);
+	_socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 
-	if(operacion_retorno == PEDIDO_TAREA)
-		tarea = recibir_mensaje(socket_ram);
+	serializar_y_enviar_tripulante(tripulante, PEDIDO_TAREA, _socket_ram);
+	operacion_retorno = recibir_operacion(_socket_ram);
 
+	if(operacion_retorno == PEDIDO_TAREA){
+		tarea = recibir_mensaje(_socket_ram);
+		//TODO: avisar a mongo store que 'tripulante' recibio nueva tarea
+	}
+	liberar_cliente(_socket_ram);
 	log_info(logs_discordiador, "Proxima tarea del tripulante %d: %s", tripulante->id, tarea);
 	//static int i=0;
 	//return i<=7 ? tareas[i++] : NULL;
@@ -126,10 +131,12 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 
 	switch (tarea->tipo) {
 	case TAREA_COMUN:
+		//TODO: avisar a store que termino la tarea(fijarse si lo abajo es true)
 		return estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY)
 				&& tarea->duracion == 0;
 		break;
 	case TAREA_IO:
+		//TODO: avisar a store que termino la tarea(fijarse si lo abajo es true)
 		return estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY);
 		break;
 	default:
@@ -141,12 +148,17 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 }
 
 void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
+	int _socket_ram;
+	int _socket_store;
 	static bool last_move_x = false;
 	int targetX, targetY, sourceX, sourceY;
 	targetX = tripulante_trabajando->tarea->posX;
 	targetY = tripulante_trabajando->tarea->posY;
 	sourceX = tripulante_trabajando->tripulante->posicionX;
 	sourceY = tripulante_trabajando->tripulante->posicionY;
+
+	_socket_ram   = iniciar_conexion(MI_RAM_HQ, config);
+	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
 	if (sourceX == targetX && last_move_x == false)
 		last_move_x = true;
@@ -178,13 +190,19 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		return;
 	}
 
-	t_paquete* paquete=crear_paquete(ACTUALIZAR_POSICION);
+	serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+	//TODO: falta avisar al store, pero de otra forma, ya que tiene que saber pos inicio y pos final
+
+	liberar_cliente(_socket_store);
+	liberar_cliente(_socket_ram);
+	//ya se estaria avisando en la posicion de abajo
+	/*t_paquete* paquete=crear_paquete(ACTUALIZAR_POSICION);
 	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->patota,sizeof(int));
 	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->id,sizeof(int));
 	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->posicionX,sizeof(int));
 	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->posicionY,sizeof(int));
 	enviar_paquete(paquete,socket_ram);
-	eliminar_paquete(paquete);
+	eliminar_paquete(paquete);*/
 }
 
 void realizar_tarea_IO(Tripulante_Planificando *tripulante_trabajando) {
@@ -211,17 +229,14 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *tripulante_trabajando) {
 	switch (tipo_tarea) {
 
 	case TAREA_COMUN:
-		if (!estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY)){
+		if (!estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY))
 			moverse_una_unidad(tripulante_trabajando);
-			serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION);
-		}
 		else
 			realizar_tarea_comun(tripulante_trabajando);
 
 		break;
 	case TAREA_IO:
 		moverse_una_unidad(tripulante_trabajando);
-		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION);
 		break;
 	}
 
@@ -541,8 +556,8 @@ void planificar() {
 
 
 void atender_comandos_consola(void) {
-	int conexion;
-	t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
+	//int conexion_ram;
+	//t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
 	t_list *respuesta;
 	static int num_pausas = 0; //para manejar el tipo de signal
 
@@ -577,10 +592,7 @@ void atender_comandos_consola(void) {
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
 
-			//g_numero_patota += 1; //la mandaria ram
-
-			enviar_mensaje(ACTUALIZAR_POSICION, "hola", socket_ram);
-
+			//enviar_mensaje(ACTUALIZAR_POSICION, "hola", socket_ram);
 
 			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
 
@@ -597,7 +609,8 @@ void atender_comandos_consola(void) {
 			listar_cola_planificacion(FINALIZADO);
 			break;
 
-		case 2: //EXPULSAR_TRIPULANTE
+		case 2:; //EXPULSAR_TRIPULANTE
+			/*el ayudante nos dijo que podia recibir dos parametros*/
 
 			enviar_mensaje(EXPULSAR_TRIPULANTE, comando_separado[1] , socket_ram);
 
@@ -696,7 +709,7 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 
 }
 
-void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operacion){
+void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operacion, int socket){
 	t_paquete *paquete = crear_paquete(tipo_operacion);
 	t_tripulante_iniciado *tripulante_enviado = malloc(sizeof(t_tripulante_iniciado));
 	char *estado;
@@ -755,7 +768,7 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 	offset+=sizeof(int);
 	memcpy(envio + offset, paquete->buffer->stream, paquete->buffer->size);
 
-	send(socket_ram, envio, sizeof(int) + paquete->buffer->size + sizeof(int), 0);
+	send(socket, envio, sizeof(int) + paquete->buffer->size + sizeof(int), 0);
 
 	free(envio);
 	free(paquete->buffer->stream);
@@ -820,14 +833,14 @@ void tripulante(void *argumentos){
 	tripulante -> estado = LLEGADA;
 
 	//TODO: ACA DEBERIA AVISAR A MI-RAM PARA TCB
-	agregar_a_paquete(paquete,tripulante -> id,sizeof(int));
+	/*agregar_a_paquete(paquete,tripulante -> id,sizeof(int));
 	agregar_a_paquete(paquete,tripulante -> patota,sizeof(int));
 	agregar_a_paquete(paquete,tripulante -> posicionX,sizeof(int));
 	agregar_a_paquete(paquete,tripulante -> posicionY,sizeof(int));
 	enviar_paquete(paquete,socket_ram);
 	eliminar_paquete(paquete);
 	respuesta=recibir_paquete(socket_ram);
-	list_get(respuesta, 0);
+	list_get(respuesta, 0);*/
 	//---------------------------
 	Tripulante_Planificando *tripulante_trabajando =
 			(Tripulante_Planificando*) malloc(sizeof(Tripulante_Planificando));

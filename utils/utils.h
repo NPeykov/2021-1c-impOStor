@@ -26,7 +26,9 @@ typedef enum{
 	ACTUALIZAR_ESTADO,
 	ELIMINAR_TRIPULANTE, //id, patota
 	OBTENGO_BITACORA,
-	PEDIDO_TAREA
+	PEDIDO_TAREA, //para ram
+	INICIO_TAREA, //para store
+	FIN_TAREA //para store
 }op_code;
 
 typedef enum{
@@ -57,7 +59,16 @@ typedef struct{
 	int numPatota;
 	char *nombreTarea;
 	int duracionTarea;
-} m_nueva_tarea_tripulante;
+} m_estado_tarea_tripulante;
+
+typedef struct {
+	int origenX;
+	int origenY;
+	int destinoX;
+	int destinoY;
+	int idTripulante;
+	int idPatota;
+}m_movimiento_tripulante;
 
 int errno;
 
@@ -79,7 +90,8 @@ t_list* recibir_paquete(int);
 int recibir_operacion(int);
 void* recibir_buffer(int*, int);
 t_tripulante_iniciado *recibir_tripulante_iniciado(int);
-m_nueva_tarea_tripulante *recibirTareaPedidaPorTripulante(int);
+m_estado_tarea_tripulante *recibirNuevoEstadoTareaTripulante(int);
+m_movimiento_tripulante *recibirMovimientoTripulante(int);
 
 
 //Sockets de todos los servidores

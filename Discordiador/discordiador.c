@@ -113,8 +113,7 @@ Tarea *proxima_tarea(Tripulante *tripulante){
 	nueva_tarea -> posY      = atoi(tarea_dividida[2]);
 	nueva_tarea -> duracion  = atoi(tarea_dividida[3]);
 
-	//TODO: avisar a mongo store que 'tripulante' recibio nueva tarea
-	avisar_a_mongo_pedido_tarea(nueva_tarea, tripulante);
+	avisar_a_mongo_estado_tarea(nueva_tarea, tripulante, INICIO_TAREA);
 
 	return nueva_tarea;
 }
@@ -130,16 +129,15 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 	int targetX = tarea->posX;
 	int sourceY = tripulante->posicionY;
 	int targetY = tarea->posY;
+	bool resultado;
 
 	switch (tarea->tipo) {
 	case TAREA_COMUN:
-		//TODO: avisar a store que termino la tarea(fijarse si lo abajo es true)
-		return estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY)
+		resultado = estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY)
 				&& tarea->duracion == 0;
 		break;
 	case TAREA_IO:
-		//TODO: avisar a store que termino la tarea(fijarse si lo abajo es true)
-		return estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY);
+		resultado = estoy_en_mismo_punto(sourceX, sourceY, targetX, targetY);
 		break;
 	default:
 		log_info(logs_discordiador,
@@ -147,6 +145,11 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 		return false;
 		break;
 	}
+
+	if(resultado == true)
+		avisar_a_mongo_estado_tarea(tarea, tripulante, FIN_TAREA);
+
+	return resultado;
 }
 
 void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
@@ -193,6 +196,8 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	}
 
 	serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+
+	//avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
 	//TODO: falta avisar al store, pero de otra forma, ya que tiene que saber pos inicio y pos final
 
 	liberar_cliente(_socket_store);
@@ -594,11 +599,12 @@ void atender_comandos_consola(void) {
 			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
+			liberar_cliente(socket_ram);
 
 			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
 
 			g_numero_patota += 1; //la mandaria ram
-			liberar_cliente(socket_ram);
+
 			break;
 
 		case 1: //LISTAR_TRIPULANTE
@@ -704,8 +710,8 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 	fclose(tareas_file);
 }
 
-void avisar_a_mongo_pedido_tarea(Tarea *nueva_tarea, Tripulante *tripulante){
-	t_paquete *paquete = crear_paquete(PEDIDO_TAREA);
+void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_code operacion){
+	t_paquete *paquete = crear_paquete(operacion);
 	char *nombreTarea = strdup(nueva_tarea->nombre);
 	char duracion[5];
 	char idTripulante[5];
@@ -725,6 +731,33 @@ void avisar_a_mongo_pedido_tarea(Tarea *nueva_tarea, Tripulante *tripulante){
 	agregar_a_paquete(paquete, idPatota,     string_length(idPatota) + 1);
 	agregar_a_paquete(paquete, nombreTarea,  string_length(nombreTarea) + 1);
 	agregar_a_paquete(paquete, duracion,     string_length(duracion) + 1);
+
+	enviar_paquete(paquete, _socket_store);
+
+	liberar_cliente(_socket_store);
+	eliminar_paquete(paquete);
+}
+
+void avisar_movimiento_a_mongo(int sourceX, int sourceY, int targetX, int targetY, Tripulante* tripulante){
+	t_paquete *paquete = crear_paquete(ACTUALIZAR_POSICION);
+	int _socket_store;
+	char origenX[5], origenY[5], destinoX[5], destinoY[5], idPatota[5], idTripulante[5];
+
+	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
+
+	sprintf(origenX,  "%d", sourceX);
+	sprintf(origenY,  "%d", sourceY);
+	sprintf(destinoX, "%d", targetX);
+	sprintf(destinoY, "%d", targetY);
+	sprintf(idTripulante, "%d", tripulante->id);
+	sprintf(idPatota,     "%d", tripulante->patota);
+
+	agregar_a_paquete(paquete, origenX,  string_length(origenX) + 1);
+	agregar_a_paquete(paquete, origenY,  string_length(origenY) + 1);
+	agregar_a_paquete(paquete, destinoX, string_length(destinoX) + 1);
+	agregar_a_paquete(paquete, destinoY, string_length(destinoY) + 1);
+	agregar_a_paquete(paquete, idTripulante, string_length(idTripulante) + 1);
+	agregar_a_paquete(paquete, idPatota, string_length(idPatota) + 1);
 
 	enviar_paquete(paquete, _socket_store);
 

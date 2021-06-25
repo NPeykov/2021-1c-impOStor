@@ -223,17 +223,36 @@ void *gestionarCliente(int socket) {
 			//liberar_cliente(cliente);
 			break;
 		case ACTUALIZAR_POSICION:
-//				lista = recibir_paquete(cliente);
-//				int idTripulante = atoi((char *) list_get(lista,0));
-			break;
-		case PEDIDO_TAREA:
 			;
-			m_nueva_tarea_tripulante *tripulanteConTarea =
-					(m_nueva_tarea_tripulante *) malloc(sizeof(m_nueva_tarea_tripulante));
-			tripulanteConTarea = recibirTareaPedidaPorTripulante(cliente);
+			m_movimiento_tripulante *tripulanteEnMovimiento =
+					(m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+
+			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
+
+			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
+					tripulanteEnMovimiento->idPatota,
+					tripulanteEnMovimiento->origenX,
+					tripulanteEnMovimiento->origenY,
+					tripulanteEnMovimiento->destinoX,
+					tripulanteEnMovimiento->destinoY);
+
+			break;
+		case INICIO_TAREA:;
+			m_estado_tarea_tripulante *tripulanteConTarea =
+					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
 			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
 			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
 
+			break;
+		case FIN_TAREA:;
+			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
+								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+
+			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
+
+			printf("ID tripulante: %d", tripulanteConTareaFinalizada->idTripulante);
+			printf("Nombre tarea: %s\n", tripulanteConTareaFinalizada->nombreTarea);
 			break;
 		case -1:
 			printf("El cliente %d se desconecto.\n", cliente);

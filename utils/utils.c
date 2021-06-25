@@ -303,8 +303,8 @@ t_tripulante_iniciado *recibir_tripulante_iniciado(int socket_cliente){
 	return tripulante;
 }
 
-m_nueva_tarea_tripulante *recibirTareaPedidaPorTripulante(int socket_cliente){
-	m_nueva_tarea_tripulante *tripulante_con_tarea = malloc(sizeof(m_nueva_tarea_tripulante));
+m_estado_tarea_tripulante *recibirNuevoEstadoTareaTripulante(int socket_cliente){
+	m_estado_tarea_tripulante *tripulante_con_tarea = malloc(sizeof(m_estado_tarea_tripulante));
 	t_list *lista = recibir_paquete(socket_cliente);
 
 	tripulante_con_tarea->idTripulante = atoi(list_get(lista, 0));
@@ -313,4 +313,18 @@ m_nueva_tarea_tripulante *recibirTareaPedidaPorTripulante(int socket_cliente){
 	tripulante_con_tarea->duracionTarea= atoi(list_get(lista, 3));
 
 	return tripulante_con_tarea;
+}
+
+m_movimiento_tripulante *recibirMovimientoTripulante(int socket_cliente){
+	m_movimiento_tripulante *movimiento_tripulante = (m_movimiento_tripulante*)malloc(sizeof(m_movimiento_tripulante));
+	t_list *lista = recibir_paquete(socket_cliente);
+
+	movimiento_tripulante->origenX 		= atoi(list_get(lista, 0));
+	movimiento_tripulante->origenY 		= atoi(list_get(lista, 1));
+	movimiento_tripulante->destinoX 	= atoi(list_get(lista, 2));
+	movimiento_tripulante->destinoY 	= atoi(list_get(lista, 3));
+	movimiento_tripulante->idPatota     = atoi(list_get(lista, 4));
+	movimiento_tripulante->idTripulante = atoi(list_get(lista, 5));
+
+	return movimiento_tripulante;
 }

@@ -52,7 +52,12 @@ typedef struct{
 	uint32_t posY;
 } t_tripulante_iniciado;
 
-
+typedef struct{
+	int idTripulante;
+	int numPatota;
+	char *nombreTarea;
+	int duracionTarea;
+} m_nueva_tarea_tripulante;
 
 int errno;
 
@@ -74,6 +79,7 @@ t_list* recibir_paquete(int);
 int recibir_operacion(int);
 void* recibir_buffer(int*, int);
 t_tripulante_iniciado *recibir_tripulante_iniciado(int);
+m_nueva_tarea_tripulante *recibirTareaPedidaPorTripulante(int);
 
 
 //Sockets de todos los servidores

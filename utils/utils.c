@@ -302,3 +302,15 @@ t_tripulante_iniciado *recibir_tripulante_iniciado(int socket_cliente){
 
 	return tripulante;
 }
+
+m_nueva_tarea_tripulante *recibirTareaPedidaPorTripulante(int socket_cliente){
+	m_nueva_tarea_tripulante *tripulante_con_tarea = malloc(sizeof(m_nueva_tarea_tripulante));
+	t_list *lista = recibir_paquete(socket_cliente);
+
+	tripulante_con_tarea->idTripulante = atoi(list_get(lista, 0));
+	tripulante_con_tarea->numPatota    = atoi(list_get(lista, 1));
+	tripulante_con_tarea->nombreTarea  = list_get(lista, 2);
+	tripulante_con_tarea->duracionTarea= atoi(list_get(lista, 3));
+
+	return tripulante_con_tarea;
+}

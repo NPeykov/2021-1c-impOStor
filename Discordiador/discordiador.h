@@ -190,6 +190,7 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
 void crear_y_enviar_inicio_patota(char*, char*, char*);
 char *concatenar_posiciones(char**);
 void serializar_y_enviar_tripulante(Tripulante*, op_code, int);
+void avisar_a_mongo_pedido_tarea(Tarea *, Tripulante*);
 
 
 #endif

@@ -190,49 +190,58 @@ void crearEstructuraFileSystem()
 		*/
 	}
 }
-void *gestionarCliente(int socket) {;
-{
+void *gestionarCliente(int socket) {
 //	socket_cliente = esperar_cliente(socket);
 	int conexionCliente;
 	t_list* lista;
 	int operacion;
 	t_paquete *paquete;
 	int respuesta;
+	int cliente;
 
-	while(1) {
-		int cliente = esperar_cliente(socket);
+	while (1) {
+		cliente = esperar_cliente(socket);
 		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
 		printf("\nLA OPERACION ES: %d\n", operacion);
 
-		switch(operacion) {
-			case OBTENGO_BITACORA:
-				lista = recibir_paquete(cliente);
-				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
-				printf("Tripulante recibido %d\n", idTripulante);
+		switch (operacion) {
+		case OBTENGO_BITACORA:
+			lista = recibir_paquete(cliente);
+			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
+			printf("Tripulante recibido %d\n", idTripulante);
 //             	int idTripulante = atoi((char *) list_get(lista,0));
 //            	printf("Tripulante recibido %d\n", idTripulante);
-				break;
-			case ELIMINAR_TRIPULANTE:
+			break;
+		case ELIMINAR_TRIPULANTE:
 //				lista = recibir_paquete(cliente);
 //				int idTripulante = atoi((char *) list_get(lista,0));
 //				eliminarTripulante(idTripulante);
 //				printf("Tripulante eliminado de la nave %d\n", idTripulante);
-				//liberar_cliente(cliente);
-				break;
-			case ACTUALIZAR_POSICION:
+			//liberar_cliente(cliente);
+			break;
+		case ACTUALIZAR_POSICION:
 //				lista = recibir_paquete(cliente);
 //				int idTripulante = atoi((char *) list_get(lista,0));
-				break;
-			case -1:
-				printf("El cliente %d se desconecto.\n", cliente);
-				//liberar_cliente(cliente);
-				break;
-			default:
-				printf("Operacion desconocida.\n");
-				break;
+			break;
+		case PEDIDO_TAREA:
+			;
+			m_nueva_tarea_tripulante *tripulanteConTarea =
+					(m_nueva_tarea_tripulante *) malloc(sizeof(m_nueva_tarea_tripulante));
+			tripulanteConTarea = recibirTareaPedidaPorTripulante(cliente);
+			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
+			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
+
+			break;
+		case -1:
+			printf("El cliente %d se desconecto.\n", cliente);
+			//liberar_cliente(cliente);
+			break;
+		default:
+			printf("Operacion desconocida.\n");
+			break;
 
 		}
 
@@ -242,5 +251,4 @@ void *gestionarCliente(int socket) {;
 //	 Se finaliza la tarea X
 //	 Se corre en pánico hacia la ubicación del sabotaje
 //	 Se resuelve el sabotaje
-}
 }

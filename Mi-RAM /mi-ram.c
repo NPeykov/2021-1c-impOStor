@@ -210,11 +210,6 @@ void *gestionarClienteSeg(int socket) {
 						tripulante_desplazado->posX,
 						tripulante_desplazado->posY);
 
-				/*log_info(logs_ram, "Tripulante %d se movio a (%d, %d)",
-						tripulante_desplazado->tid,
-						tripulante_desplazado->posX,
-						tripulante_desplazado->posY);*/
-
 				//lista = recibir_paquete(cliente);
 				//idTripulante = atoi((char *) list_get(lista,0));
 				break;
@@ -227,7 +222,7 @@ void *gestionarClienteSeg(int socket) {
 				break;
 
 			case PEDIDO_TAREA:;
-				char *ejemplo_tarea = "COMER;10;14;4"; //hardcodeo un string para probar desde discordiador
+				char *ejemplo_tarea = "COMER;10;14;15"; //hardcodeo un string para probar desde discordiado
 
 				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);

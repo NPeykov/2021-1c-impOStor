@@ -79,12 +79,11 @@ char *dar_proxima_tarea(Tripulante *tripulante){
 
 	if(operacion_retorno == PEDIDO_TAREA){
 		tarea = recibir_mensaje(_socket_ram);
-		//TODO: avisar a mongo store que 'tripulante' recibio nueva tarea
+
 	}
 	liberar_cliente(_socket_ram);
 	log_info(logs_discordiador, "Proxima tarea del tripulante %d: %s", tripulante->id, tarea);
-	//static int i=0;
-	//return i<=7 ? tareas[i++] : NULL;
+
 	return tarea;
 }
 
@@ -113,6 +112,9 @@ Tarea *proxima_tarea(Tripulante *tripulante){
 	nueva_tarea -> posX 	 = atoi(tarea_dividida[1]);
 	nueva_tarea -> posY      = atoi(tarea_dividida[2]);
 	nueva_tarea -> duracion  = atoi(tarea_dividida[3]);
+
+	//TODO: avisar a mongo store que 'tripulante' recibio nueva tarea
+	avisar_a_mongo_pedido_tarea(nueva_tarea, tripulante);
 
 	return nueva_tarea;
 }
@@ -592,8 +594,6 @@ void atender_comandos_consola(void) {
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones);
 
-			//enviar_mensaje(ACTUALIZAR_POSICION, "hola", socket_ram);
-
 			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
 
 			g_numero_patota += 1; //la mandaria ram
@@ -612,23 +612,12 @@ void atender_comandos_consola(void) {
 		case 2:; //EXPULSAR_TRIPULANTE
 			/*el ayudante nos dijo que podia recibir dos parametros*/
 
-			enviar_mensaje(EXPULSAR_TRIPULANTE, comando_separado[1] , socket_ram);
+			t_paquete* paquete_expulsar = crear_paquete(ELIMINAR_TRIPULANTE);
+			agregar_a_paquete(paquete_expulsar, comando_separado[1], string_length(comando_separado[1]) + 1);
+			agregar_a_paquete(paquete_expulsar, comando_separado[2], string_length(comando_separado[2]) + 1);
+			enviar_paquete(paquete_expulsar, socket_ram);
+			eliminar_paquete(paquete_expulsar);
 
-			;
-			Tripulante *tripulante2 = (Tripulante*) malloc(sizeof(Tripulante));
-			tripulante2->id = 3;
-			tripulante2->patota = 1;
-			tripulante2->estado = TRABAJANDO;
-			tripulante2->posicionX = 7;
-			tripulante2->posicionY = 9;
-
-			dar_proxima_tarea(tripulante2);
-			/*t_paquete* paquete=crear_paquete(EXPULSAR_TRIPULANTE);
-			agregar_a_paquete(paquete,atoi(comando_separado[1]),sizeof(int));
-			enviar_paquete(paquete,conexion);
-			eliminar_paquete(paquete);*/
-
-			//agregar conexion a mongo y envio mensaje
 			break;
 		case 3: //INICIAR_PLANIFICACION
 			;
@@ -654,12 +643,14 @@ void atender_comandos_consola(void) {
 		case 5: //OBTENER_BITACORA
 			;
 
-			t_paquete *paquete=crear_paquete(OBTENGO_BITACORA);
-			agregar_a_paquete(paquete, comando_separado[1], sizeof(comando_separado[1]) + 1);
-			enviar_paquete(paquete, socket_store);
-			eliminar_paquete(paquete);
-//			respuesta=recibir_paquete(socket_store);
-//			imprimir_respuesta(respuesta);
+			//hay que averiguar si con solo un numero ya se puede identificar
+			// o si tenemos que hacer como "expulsasr tripulante" que tengo q enviar dos parametros
+
+			t_paquete *paquete_bitacora = crear_paquete(OBTENGO_BITACORA);
+			agregar_a_paquete(paquete_bitacora, comando_separado[1],
+					string_length(comando_separado[1]) + 1);
+			enviar_paquete(paquete_bitacora, socket_store);
+			eliminar_paquete(paquete_bitacora);
 			break;
 
 		case 6: //SALIR
@@ -706,7 +697,34 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 	enviar_paquete(paquete, socket_ram);
 
 	fclose(tareas_file);
+}
 
+void avisar_a_mongo_pedido_tarea(Tarea *nueva_tarea, Tripulante *tripulante){
+	t_paquete *paquete = crear_paquete(PEDIDO_TAREA);
+	char *nombreTarea = strdup(nueva_tarea->nombre);
+	char duracion[5];
+	char idTripulante[5];
+	char idPatota[5];
+	int _socket_store;
+
+	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
+
+	sprintf(duracion,     "%d", nueva_tarea->duracion);
+	sprintf(idTripulante, "%d", tripulante->id);
+	sprintf(idPatota,     "%d", tripulante->patota);
+
+	/*printf("\n-------: %s\n", nombreTarea);
+	printf("\n-------: %s y tamaño: %d\n", duracion, string_length(duracion));*/
+
+	agregar_a_paquete(paquete, idTripulante, string_length(idTripulante) + 1);
+	agregar_a_paquete(paquete, idPatota,     string_length(idPatota) + 1);
+	agregar_a_paquete(paquete, nombreTarea,  string_length(nombreTarea) + 1);
+	agregar_a_paquete(paquete, duracion,     string_length(duracion) + 1);
+
+	enviar_paquete(paquete, _socket_store);
+
+	liberar_cliente(_socket_store);
+	eliminar_paquete(paquete);
 }
 
 void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operacion, int socket){

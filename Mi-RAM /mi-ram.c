@@ -1,41 +1,76 @@
 #include "mi-ram.h"
 
-uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
-	int pos_seg = segmento->idSegmento;
-	Segmento* segmento_anterior = (Segmento*) list_get(tabla_segmentos, pos_seg - 1);
+uint32_t calcular_base_logica(Segmento *segmento){
+	uint32_t tamanioNecesario =(uint32_t) segmento->tamanio;
+	uint32_t finalSegmentoAnterior = 0;
+	uint32_t inicioSegmentoActual = 0;
 
-	if(!segmento_anterior) {
-		return 0;
+	//ESTO SERIA FIRST FIT
+	//Determina si hay un espacio libre entre dos segmentos
+	bool espacioLibre(void* segmentoActual){
+	Segmento* unSegmento =(Segmento*) segmentoActual;
+	inicioSegmentoActual = unSegmento->base;
+		if(finalSegmentoAnterior==0){//El primer elemento de la lista
+			finalSegmentoAnterior = unSegmento->tamanio + unSegmento->base;
+			return 0;
+		}else if(finalSegmentoAnterior == inicioSegmentoActual){
+			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
+			return 0;//El anterior termina donde empieza este
+		}else if(inicioSegmentoActual > finalSegmentoAnterior &&
+				(inicioSegmentoActual-finalSegmentoAnterior)>= tamanioNecesario){
+			return 1; //Si hay una diferencia entre el segmento actual y el anterior.
+//TODO: ACA DEBERIA IR COMPACTACION POR SI NO SE ENCUENTRA ESPACIO.
+		}else{
+			return 0; //No hay espacio
+		}
 	}
 
-	return (*segmento_anterior).base + (*segmento_anterior).tamanio;
+	//Si no hay nada en memoria principal la dir es 0 por ser primero
+	if(list_is_empty(memoriaPrincipal)){
+		return (uint32_t) 0;
+	}
+
+	list_find(memoriaPrincipal, espacioLibre);
+	if(tamaniomemoria > finalSegmentoAnterior + tamanioNecesario){
+		return finalSegmentoAnterior;
+	}
+
 }
 
 Segmento* crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
-	segmento->idSegmento = tabla_segmentos->elements_count;
-	list_add(tabla_segmentos, segmento);
+	//Se llena el segmento
 	segmento->tipo = TAREAS;
-	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
 	segmento->dato = tareas;
-	segmento->tamanio = sizeof(segmento);
+	segmento->tamanio = sizeof(tareas);
+	segmento->base = calcular_base_logica(segmento);
+	segmento->idSegmento = tabla_segmentos->elements_count;
+
+	//Se lo agrega a la tabla de Segmentos del proceso actual
+	list_add(tabla_segmentos, segmento);
+
 
 	return segmento;
 }
 
-Segmento* crear_segmento_pcb(uint32_t segmento_tareas, t_list* tabla_segmentos){
+Segmento* crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
+	//Se llena la estructura de PatotaCB
 	PatotaCB *pcb = (PatotaCB*) malloc(sizeof(PatotaCB));
 	pcb->pid = numero_patota;
-	pcb->tareas = segmento_tareas;
+	pcb->tareas = inicioTareas;
 
+	//Se llena la informacion del Segmento
 	segmento->idSegmento = tabla_segmentos->elements_count;
-	list_add(tabla_segmentos, segmento);
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
-	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
+	segmento->tamanio = sizeof(PatotaCB);
+	segmento->base = calcular_base_logica(segmento);
+
+	//Se lo agrega a la tabla de Segmentos del proceso actual
+	list_add(tabla_segmentos, segmento);
 
 	return segmento;
 }
@@ -54,7 +89,7 @@ Segmento* crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t
 	list_add(tabla_segmentos, segmento);
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
-	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
+	segmento->base = calcular_base_logica(segmento);
 	segmento->tamanio = sizeof(segmento);
 
 	return segmento;
@@ -62,19 +97,14 @@ Segmento* crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t
 
 void crear_proceso(t_list *paquete){
 	t_list* tabla_de_segmentos = list_create();
-	int tamanio = 0;
 
 	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
+	uint32_t inicioTareas = segmento_tareas->base;
 
-	//TAMANIO SUMAR TODOS LOS ELEMENTOS DEL SEGMENTO
+	Segmento *segmento_pcb=crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
+//Hasta aca bien
 
-	tamanio += sizeof(segmento_tareas);
-
-	Segmento *segmento_pcb=crear_segmento_pcb((uint32_t*) segmento_tareas, tabla_de_segmentos);
-
-	tamanio += sizeof(segmento_pcb);
-
-	int cantidad_tripulantes = list_get(paquete, 0);
+	int cantidad_tripulantes = (int) list_get(paquete, 0);
 	char* posiciones = list_get(paquete, 1);
 	char **list_pos = string_split(posiciones, " ");
 	printf("%s\n", list_pos[0]);

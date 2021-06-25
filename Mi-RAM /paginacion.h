@@ -6,14 +6,20 @@
 #include <commons/collections/list.h>
 
 int TAM_PAG;
+int TAM_MEM;
+
+typedef enum {
+	OCUPADO, LIBRE
+} estado_frame;
 
 typedef struct {
 	int pid;
 	t_list* tablaDePaginas;
-} tabla_paginas;
+} tabla_procesos;
 
 typedef struct {
-	void *memoria;
+	estado_frame estado;
+	uint32_t memoria;
 	int nro_frame;
 } t_frame;
 
@@ -23,6 +29,6 @@ typedef struct {
 	bool bit_presencia;
 	bool bit_modificado;
 	bool bit_uso;
-	t_frame *frame;
 	t_list* elementos;
+	int tam_disponible;
 } t_pagina;

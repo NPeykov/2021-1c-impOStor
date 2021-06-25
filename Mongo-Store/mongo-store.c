@@ -194,54 +194,53 @@ void *gestionarCliente(int socket) {;
 {
 //	socket_cliente = esperar_cliente(socket);
 	int conexionCliente;
-			t_list* lista;
-			int operacion;
-			t_paquete *paquete;
-			int respuesta;
+	t_list* lista;
+	int operacion;
+	t_paquete *paquete;
+	int respuesta;
 
-			while(1) {
-				int cliente = esperar_cliente(socket);
-				printf("Cliente: %d\n", cliente);
-				operacion = recibir_operacion(cliente);
-				lista = NULL;
+	while(1) {
+		int cliente = esperar_cliente(socket);
+		printf("Cliente: %d\n", cliente);
+		operacion = recibir_operacion(cliente);
+		lista = NULL;
 
-				printf("\nLA OPERACION ES: %d\n", operacion);
+		printf("\nLA OPERACION ES: %d\n", operacion);
 
-				switch(operacion) {
-					case OBTENGO_BITACORA:
-					lista = recibir_paquete(cliente);
-					uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
-					printf("Tripulante recibido %d\n", idTripulante);
-//                    int idTripulante = atoi((char *) list_get(lista,0));
-//                    printf("Tripulante recibido %d\n", idTripulante);
-				    break;
-					case ELIMINAR_TRIPULANTE:
-//						lista = recibir_paquete(cliente);
-//						int idTripulante = atoi((char *) list_get(lista,0));
-//						eliminarTripulante(idTripulante);
-//						printf("Tripulante eliminado de la nave %d\n", idTripulante);
-						//liberar_cliente(cliente);
-						break;
-					case ACTUALIZAR_POSICION:
-//						lista = recibir_paquete(cliente);
-//						int idTripulante = atoi((char *) list_get(lista,0));
-						break;
-					case -1:
-						printf("El cliente %d se desconecto.\n", cliente);
-						//liberar_cliente(cliente);
-						break;
-					default:
-						printf("Operacion desconocida.\n");
-						break;
+		switch(operacion) {
+			case OBTENGO_BITACORA:
+				lista = recibir_paquete(cliente);
+				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
+				printf("Tripulante recibido %d\n", idTripulante);
+//             	int idTripulante = atoi((char *) list_get(lista,0));
+//            	printf("Tripulante recibido %d\n", idTripulante);
+				break;
+			case ELIMINAR_TRIPULANTE:
+//				lista = recibir_paquete(cliente);
+//				int idTripulante = atoi((char *) list_get(lista,0));
+//				eliminarTripulante(idTripulante);
+//				printf("Tripulante eliminado de la nave %d\n", idTripulante);
+				//liberar_cliente(cliente);
+				break;
+			case ACTUALIZAR_POSICION:
+//				lista = recibir_paquete(cliente);
+//				int idTripulante = atoi((char *) list_get(lista,0));
+				break;
+			case -1:
+				printf("El cliente %d se desconecto.\n", cliente);
+				//liberar_cliente(cliente);
+				break;
+			default:
+				printf("Operacion desconocida.\n");
+				break;
 
-				}
+		}
 
-			}
+	}
 //	 Se mueve de X|Y a X’|Y’
 //	 Comienza ejecución de tarea X
 //	 Se finaliza la tarea X
 //	 Se corre en pánico hacia la ubicación del sabotaje
 //	 Se resuelve el sabotaje
-
 }
 }

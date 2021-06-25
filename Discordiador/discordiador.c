@@ -639,27 +639,12 @@ void atender_comandos_consola(void) {
 			break;
 
 		case 5: //OBTENER_BITACORA
-			printf("Tripulante recibido %d\n");
-//			conexion = iniciar_conexion(I_MONGO_STORE,config);
+			;
 
-//			t_paquete *paquete=crear_paquete(OBTENGO_BITACORA);
-			/*;
-			Tripulante *tripulante = (Tripulante*)malloc(sizeof(Tripulante));
-			tripulante->id = 3;
-			tripulante->patota = 1;
-			tripulante->estado = TRABAJANDO;
-			tripulante->posicionX = 7;
-			tripulante->posicionY = 9;
-
-			serializar_y_enviar_tripulante(tripulante, ACTUALIZAR_POSICION);
-
-			*/
-			enviar_mensaje(OBTENGO_BITACORA, comando_separado[1] , socket_store);
-
-
-//			agregar_a_paquete(paquete,atoi(comando_separado[1],sizeof(int));
-//			enviar_paquete(paquete,socket_store);
-//			eliminar_paquete(paquete);
+			t_paquete *paquete=crear_paquete(OBTENGO_BITACORA);
+			agregar_a_paquete(paquete, comando_separado[1], sizeof(comando_separado[1]) + 1);
+			enviar_paquete(paquete, socket_store);
+			eliminar_paquete(paquete);
 //			respuesta=recibir_paquete(socket_store);
 //			imprimir_respuesta(respuesta);
 			break;

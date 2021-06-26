@@ -211,9 +211,9 @@ void *gestionarCliente(int socket) {;
 			case OBTENGO_BITACORA:
 				lista = recibir_paquete(cliente);
 				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
+				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
 				printf("Tripulante recibido %d\n", idTripulante);
-//             	int idTripulante = atoi((char *) list_get(lista,0));
-//            	printf("Tripulante recibido %d\n", idTripulante);
+				printf("Patota recibida %d\n", idPatota);
 				break;
 			case ELIMINAR_TRIPULANTE:
 //				lista = recibir_paquete(cliente);

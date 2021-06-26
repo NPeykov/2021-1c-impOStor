@@ -643,6 +643,7 @@ void atender_comandos_consola(void) {
 
 			t_paquete *paquete=crear_paquete(OBTENGO_BITACORA);
 			agregar_a_paquete(paquete, comando_separado[1], sizeof(comando_separado[1]) + 1);
+			agregar_a_paquete(paquete, comando_separado[2], sizeof(comando_separado[2]) + 1);
 			enviar_paquete(paquete, socket_store);
 			eliminar_paquete(paquete);
 //			respuesta=recibir_paquete(socket_store);

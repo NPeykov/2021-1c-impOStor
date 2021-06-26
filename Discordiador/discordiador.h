@@ -101,10 +101,6 @@ struct tripulantes_iniciados{
 	struct tripulantes_iniciados *proximo_tripulante;
 };
 
-typedef enum{
-	TAREA_COMUN,
-	TAREA_IO
-} Tipo_Tarea;
 
 typedef enum{
 	RR,
@@ -118,7 +114,7 @@ typedef struct Tarea{
 	int posY;
 	int duracion;
 	Tipo_Tarea tipo;
-	tarea_code tarea_code;
+	/*tarea_code tarea_code;*/
 }Tarea;
 
 typedef struct Tripulante_Planificando{

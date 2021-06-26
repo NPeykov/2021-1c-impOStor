@@ -63,11 +63,19 @@ typedef struct{
 	uint32_t posY;
 } t_tripulante_iniciado;
 
+typedef enum{
+	TAREA_COMUN,
+	TAREA_IO
+} Tipo_Tarea;
+
 typedef struct{
 	int idTripulante;
 	int numPatota;
 	char *nombreTarea;
 	int duracionTarea;
+	int tipo_tarea;
+	int parametro;
+	tarea_code codigo_tarea;
 } m_estado_tarea_tripulante;
 
 typedef struct {

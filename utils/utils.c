@@ -222,7 +222,7 @@ t_list* recibir_paquete(int socket_cliente)
 
 }
 
-void* recibir_buffer(int* size, int socket_cliente)
+void* recibir_buffer(int *size, int socket_cliente)
 {
 	void * buffer;
 
@@ -237,6 +237,7 @@ char *recibir_mensaje(int socket_cliente)
 {
 	int size;
 	char* buffer = recibir_buffer(&size, socket_cliente);
+
 	return buffer;
 }
 
@@ -251,6 +252,27 @@ int recibir_operacion(int socket_cliente)
 		close(socket_cliente);
 		return -1;
 	}
+}
+
+
+void enviar_mensaje_simple(char* mensaje, int socket_cliente)
+{
+	t_paquete* paquete = malloc(sizeof(t_paquete));
+
+	paquete->codigo_operacion = MENSAJE;
+	paquete->buffer = malloc(sizeof(t_buffer));
+	paquete->buffer->size = strlen(mensaje) + 1;
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+	memcpy(paquete->buffer->stream, mensaje, paquete->buffer->size);
+
+	int bytes = paquete->buffer->size + 2*sizeof(int);
+
+	void* a_enviar = serializar_paquete(paquete, bytes);
+
+	send(socket_cliente, a_enviar, bytes, 0);
+
+	free(a_enviar);
+	eliminar_paquete(paquete);
 }
 
 
@@ -306,11 +328,40 @@ t_tripulante_iniciado *recibir_tripulante_iniciado(int socket_cliente){
 m_estado_tarea_tripulante *recibirNuevoEstadoTareaTripulante(int socket_cliente){
 	m_estado_tarea_tripulante *tripulante_con_tarea = malloc(sizeof(m_estado_tarea_tripulante));
 	t_list *lista = recibir_paquete(socket_cliente);
+	char *nombre_tarea;
 
 	tripulante_con_tarea->idTripulante = atoi(list_get(lista, 0));
 	tripulante_con_tarea->numPatota    = atoi(list_get(lista, 1));
 	tripulante_con_tarea->nombreTarea  = list_get(lista, 2);
 	tripulante_con_tarea->duracionTarea= atoi(list_get(lista, 3));
+	tripulante_con_tarea->tipo_tarea   = atoi(list_get(lista, 4));
+	tripulante_con_tarea->parametro    = atoi(list_get(lista, 5));
+
+	nombre_tarea = tripulante_con_tarea->nombreTarea;
+
+	if (strcmp(nombre_tarea, "GENERAR_OXIGENO") == 0) {
+		tripulante_con_tarea->codigo_tarea = GENERAR_OXIGENO;
+	}
+
+	if (strcmp(nombre_tarea, "CONSUMIR_OXIGENO") == 0) {
+		tripulante_con_tarea->codigo_tarea = CONSUMIR_OXIGENO;
+	}
+
+	if (strcmp(nombre_tarea, "GENERAR_COMIDA") == 0) {
+		tripulante_con_tarea->codigo_tarea = GENERAR_COMIDA;
+	}
+
+	if (strcmp(nombre_tarea, "CONSUMIR_COMIDA") == 0) {
+		tripulante_con_tarea->codigo_tarea = CONSUMIR_COMIDA;
+	}
+
+	if (strcmp(nombre_tarea, "GENERAR_BASURA") == 0) {
+		tripulante_con_tarea->codigo_tarea = GENERAR_BASURA;
+	}
+
+	if (strcmp(nombre_tarea, "DESCARTAR_BASURA") == 0) {
+		tripulante_con_tarea->codigo_tarea = DESCARTAR_BASURA;
+	}
 
 	return tripulante_con_tarea;
 }

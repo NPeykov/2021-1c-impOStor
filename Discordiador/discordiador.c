@@ -115,6 +115,7 @@ Tarea *proxima_tarea(Tripulante *tripulante){
 
 	avisar_a_mongo_estado_tarea(nueva_tarea, tripulante, INICIO_TAREA);
 
+
 	return nueva_tarea;
 }
 
@@ -146,7 +147,7 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 		break;
 	}
 
-	if(resultado == true)
+	if(resultado == true && tripulante_trabajando->tarea->tipo == TAREA_COMUN)
 		avisar_a_mongo_estado_tarea(tarea, tripulante, FIN_TAREA);
 
 	return resultado;
@@ -170,6 +171,8 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	if (sourceY == targetY && last_move_x == true)
 		last_move_x = false;
 
+
+	//mucho codigo repetido
 	if (sourceX < targetX && last_move_x == false) {
 		tripulante_trabajando->tripulante->posicionX += 1;
 		last_move_x = true;
@@ -201,37 +204,31 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
-
-	//TODO: falta avisar al store, pero de otra forma, ya que tiene que saber pos inicio y pos final
-
-	//liberar_cliente(_socket_store);
-	//liberar_cliente(_socket_ram);
-	//ya se estaria avisando en la posicion de abajo
-	/*t_paquete* paquete=crear_paquete(ACTUALIZAR_POSICION);
-	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->patota,sizeof(int));
-	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->id,sizeof(int));
-	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->posicionX,sizeof(int));
-	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->posicionY,sizeof(int));
-	enviar_paquete(paquete,socket_ram);
-	eliminar_paquete(paquete);*/
 }
 
 void realizar_tarea_IO(Tripulante_Planificando *tripulante_trabajando) {
 	t_paquete *paquete;
-	//TODO: avisar a mi-ram??
-	//TODO: avisarle a mongo-store para que modifique su archivo con letra de llenado
 	sleep(retardo_ciclo_cpu);
 	tripulante_trabajando->tarea->duracion -= 1;
 
-	if(tripulante_trabajando->tarea->duracion==0){
-		int socket_store = iniciar_conexion(I_MONGO_STORE, config);
-		paquete=crear_paquete(tripulante_trabajando->tarea->tarea_code);
-		char *parametro=(char*)tripulante_trabajando->tarea->parametro;
-		agregar_a_paquete(paquete,parametro,strlen(parametro));
-		enviar_paquete(paquete,socket_store);
+
+	if (tripulante_trabajando->tarea->duracion == 0) {
+		avisar_a_mongo_estado_tarea(tripulante_trabajando->tarea, tripulante_trabajando->tripulante, FIN_TAREA);
+		//llenar con los caracteres
+
+
+
+		/*int socket_store = iniciar_conexion(I_MONGO_STORE, config);
+		paquete = crear_paquete(tripulante_trabajando->tarea->tarea_code);
+		char parametro = (char) tripulante_trabajando->tarea->parametro;
+		agregar_a_paquete(paquete, parametro, strlen(parametro));
+		enviar_paquete(paquete, socket_store);
 		eliminar_paquete(paquete);
-		liberar_cliente(socket_store);
+		liberar_cliente(socket_store);*/
+
+		//avisar aca
 	}
+
 	log_info(logs_discordiador, "Tripulante N:%d - REALIZO una unidad de tarea IO, le quedan %d.",
 				tripulante_trabajando->tripulante->id, tripulante_trabajando->tarea->duracion);
 }
@@ -284,6 +281,12 @@ void fijarse_si_hay_sabotaje(){
    //tripulante_cercano = (Tripulante_Planificando*)mas_cercano_al_sabotaje(x, y); // listo
 
 
+    //resolver_sabotaje(tripulante_cercano)
+
+    //pausar los tripulantes
+    //moverlos a em
+    //
+
     pthread_mutex_lock(&lock_lista_exec);
     pthread_mutex_lock(&lock_lista_bloq_em);
     list_add_all(lista_bloqueado_EM, lista_trabajando);
@@ -296,14 +299,16 @@ void fijarse_si_hay_sabotaje(){
     pthread_mutex_unlock(&lock_lista_bloq_em);
     pthread_mutex_unlock(&lock_lista_listo);
 
-    //los bloqueados de IO se mueven solos a EMERGENCIA
-
     /*
       mover_tripulantes_de_exec_a_bloq_EM() <<..
       mover_tripulantes_de_rdy_a_bloq_EM() <<..
-      mover_tripulantes_de_bloqIO_a_bloq_EM()
-      wait (finalizo_sabotaje)
-      //EL SIGNAL LO ENVIARIA EL TRIPULANTE CUANDO TERMINE
+
+      SI ESTA EN IO ESPERA AHI CON PAUSA
+
+      wait (finalizo_sabotaje);
+
+      //EL SIGNAL LO ENVIARIA LA FUNCION CUANDO TERMINE
+
       mover_tripulante_elegido_al_final_de_bloqEM()
       mover_a_todos_de_bloqEM_a_rdy()
       //para que puedan ser llamados
@@ -456,8 +461,6 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 	else
 		algoritmo = FIFO;
 
-	//TODO: ver si se puede abstraer logica
-
 	switch (algoritmo) {
 	case FIFO:
 		while (!completo_tarea(tripulante)) {
@@ -600,25 +603,39 @@ void atender_comandos_consola(void) {
 				valor = j;
 
 		switch (valor) {
-		case 0: //INICIAR_PATOTA 2 dd
+		case INICIAR_PATOTA: //INICIAR_PATOTA 2 dd
 			socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 			char *cantidad_tripulantes = comando_separado_para_ram[1];
 			char *lista_tareas = comando_separado_para_ram[2];
 			char *posiciones;
+			char *respuesta2;
+
 			posiciones = comando_separado_para_ram[3] == NULL ? "vacio" : comando_separado_para_ram[3];
 
 			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
-			//liberar_cliente(socket_ram);
 
-			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
+			recibir_operacion(socket_ram);
+			respuesta2 = recibir_mensaje(socket_ram);
+
+			printf("RESPUESTA: %s", respuesta2);
+
+			if(strcmp(respuesta2, "ok") == 0){
+				printf("ME LLEGO OK");
+				iniciar_patota(comando_separado);
+			}
+
+
+			else log_info(logs_discordiador, "NO SE PUDO CREAR PATOTA");
+
+			 //capaz inicio de patota no necesita las posiciones
 
 			g_numero_patota += 1; //la mandaria ram
 
 			break;
 
-		case 1: //LISTAR_TRIPULANTE
+		case LISTAR_TRIPULANTES: //LISTAR_TRIPULANTE
 			printf("--------LISTANDO TRIPULANTES---------\n");
 			listar_cola_planificacion(LLEGADA);
 			listar_cola_planificacion(LISTO);
@@ -628,7 +645,12 @@ void atender_comandos_consola(void) {
 			listar_cola_planificacion(FINALIZADO);
 			break;
 
-		case 2: //EXPULSAR_TRIPULANTE
+		case EXPULSAR_TRIPULANTE: //EXPULSAR_TRIPULANTE
+
+			//TODO: EXPULSAR UN TRIPULANTE DESDE DISCORDIADOR
+
+
+
 			socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 			/*el ayudante nos dijo que podia recibir dos parametros*/
 
@@ -640,7 +662,7 @@ void atender_comandos_consola(void) {
 
 			//liberar_cliente(socket_ram);
 			break;
-		case 3: //INICIAR_PLANIFICACION
+		case INICIAR_PLANIFICACION: //INICIAR_PLANIFICACION
 			;
 			pthread_mutex_lock(&pausa_lock);
 			g_hay_pausa = false;
@@ -655,13 +677,13 @@ void atender_comandos_consola(void) {
 
 
 			break;
-		case 4: //PAUSAR_PLANIFICACION
+		case PAUSAR_PLANIFICACION: //PAUSAR_PLANIFICACION
 			pthread_mutex_lock(&pausa_lock);
 			g_hay_pausa = true;
 			pthread_mutex_unlock(&pausa_lock);
 			break;
 
-		case 5: //OBTENER_BITACORA
+		case OBTENER_BITACORA: //OBTENER_BITACORA
 			socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
 
@@ -683,7 +705,7 @@ void atender_comandos_consola(void) {
 			//liberar_cliente(socket_store);
 			break;
 
-		case 6: //EXIT
+		case EXIT: //EXIT
 			printf("Si realmente deseas salir apreta 'S'..\n");
 			char c = getchar();
 			if(c == 's' || c == 'S'){
@@ -732,13 +754,17 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_code operacion){
 	t_paquete *paquete = crear_paquete(operacion);
 	char *nombreTarea = strdup(nueva_tarea->nombre);
+	char tipo_tarea[5];
 	char duracion[5];
 	char idTripulante[5];
 	char idPatota[5];
+	char parametro[5];
 	int _socket_store;
 
 	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
+	sprintf(parametro,    "%d", nueva_tarea->parametro);
+	sprintf(tipo_tarea,   "%d", nueva_tarea->tipo);
 	sprintf(duracion,     "%d", nueva_tarea->duracion);
 	sprintf(idTripulante, "%d", tripulante->id);
 	sprintf(idPatota,     "%d", tripulante->patota);
@@ -750,6 +776,8 @@ void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_
 	agregar_a_paquete(paquete, idPatota,     string_length(idPatota) + 1);
 	agregar_a_paquete(paquete, nombreTarea,  string_length(nombreTarea) + 1);
 	agregar_a_paquete(paquete, duracion,     string_length(duracion) + 1);
+	agregar_a_paquete(paquete, tipo_tarea,   string_length(tipo_tarea) +1 );
+	agregar_a_paquete(paquete, parametro,    string_length(parametro) + 1);
 
 	enviar_paquete(paquete, _socket_store);
 
@@ -936,6 +964,7 @@ void tripulante(void *argumentos){
 		realizar_trabajo(tripulante_trabajando);
 
 
+
 		if(completo_tarea(tripulante_trabajando) && tripulante_trabajando -> tarea -> tipo == TAREA_IO){
 			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ESPERA LUGAR EN BLOQUEADO IO",
 									tripulante_trabajando ->tripulante->id,
@@ -946,18 +975,22 @@ void tripulante(void *argumentos){
 			log_info(logs_discordiador, "Tripulante:%d de Patota:%d ARRANCA A HACER TAREAS DE IO",
 												tripulante_trabajando ->tripulante->id,
 												tripulante_trabajando ->tripulante->patota);
+
+
 			while(tripulante_trabajando->tarea->duracion > 0){
 				fijarse_si_hay_pausa_hilo(tripulante_trabajando);
 				if(g_hay_sabotaje){
-				  sem_wait(&moverse_a_em);
+				  //deja de ejecutar tareas
+					/*sem_wait(&moverse_a_em);
 				  list_add(lista_bloqueado_EM, tripulante_trabajando);
 				  sem_post(&se_movio_a_em);
 				  while(g_hay_pausa)
 				    ;
-				  break;
+				  break;*/
 				}
 				realizar_tarea_IO(tripulante_trabajando);
 			}
+
 			sem_post(&bloq_disponible);
 			pthread_mutex_lock(&mutex_tarea);
 			tripulante_trabajando -> tarea = proxima_tarea(tripulante_trabajando->tripulante);
@@ -970,7 +1003,7 @@ void tripulante(void *argumentos){
 				sem_wait(&tripulantes_hermanos); //falta implementar que un proceso espere en exit a los otros de su patota
 			}
 		}
-		moverse_a_ready(tripulante_trabajando); //TODO
+		moverse_a_ready(tripulante_trabajando);
 	}
 }
 
@@ -1140,9 +1173,6 @@ void liberar_memoria_discordiador(void) {
 	//TODO: SEMAFOROS
 	sem_destroy(&bloq_disponible);
 	sem_destroy(&tripulantes_hermanos);
-
-
-	//TODO: CONEXIONES
 
 }
 

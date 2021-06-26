@@ -232,8 +232,27 @@ void *gestionarClienteSeg(int socket) {
 		switch(operacion) {
 			case INICIO_PATOTA:
 				lista = recibir_paquete(cliente);
-				log_info(logs_ram, "Se iniciaron %s tripulantes", list_get(lista, 0));
+				char *contenido;
+				char *posiciones;
+				char *cantidad;
 
+				cantidad = list_get(lista, 0);
+				posiciones = list_get(lista, 1);
+				contenido = list_get(lista, 2);
+
+				log_info(logs_ram, "Se iniciaron %s tripulantes", cantidad);
+
+
+				/*hardcodeo esto por la respues de si se puede crear o no una patota*/
+				if(true){
+					enviar_mensaje_simple("ok", cliente);
+					//send(cliente, "ok", string_length("ok") + 1, 0);
+				}
+
+				else enviar_mensaje_simple("no", cliente);
+
+
+				printf("Contenido: %s\n", contenido);
 				//Agregar mutex
 				//crear_proceso(lista);
 				break;

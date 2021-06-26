@@ -190,6 +190,43 @@ void crearEstructuraFileSystem()
 		*/
 	}
 }
+
+
+
+//TODO: cambiar nombre funcion y completar
+//NOTA: voy a buscar las funciones de el manejo de archivo q habia hecho
+
+void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTareaFinalizada){
+
+	switch (tripulanteConTareaFinalizada->codigo_tarea) {
+
+	case GENERAR_OXIGENO:
+		printf("ES GENERAR OXIGENO\n");
+		printf("Cantidad a llenar: %d\n",
+						tripulanteConTareaFinalizada->parametro);
+		break;
+
+	case CONSUMIR_OXIGENO:
+		break;
+
+	case GENERAR_COMIDA:
+		break;
+
+	case CONSUMIR_COMIDA:
+		break;
+
+	case GENERAR_BASURA:
+		break;
+
+	case DESCARTAR_BASURA:
+		break;
+
+	}
+
+}
+
+
+
 void *gestionarCliente(int socket) {
 //	socket_cliente = esperar_cliente(socket);
 	int conexionCliente;
@@ -240,6 +277,7 @@ void *gestionarCliente(int socket) {
 					tripulanteEnMovimiento->destinoY);
 
 			break;
+
 		case INICIO_TAREA:;
 			m_estado_tarea_tripulante *tripulanteConTarea =
 					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
@@ -248,15 +286,23 @@ void *gestionarCliente(int socket) {
 			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
 
 			break;
+
 		case FIN_TAREA:;
 			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
 								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 
 			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
 
-			printf("ID tripulante: %d", tripulanteConTareaFinalizada->idTripulante);
-			printf("Nombre tarea: %s\n", tripulanteConTareaFinalizada->nombreTarea);
+			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
+
+			if(tripulanteConTareaFinalizada -> tipo_tarea == TAREA_IO){
+
+				//aca llenaria el archivo tantas veces como el 'parametro'
+				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);
+			}
+
 			break;
+
 		case -1:
 			printf("El cliente %d se desconecto.\n", cliente);
 			//liberar_cliente(cliente);

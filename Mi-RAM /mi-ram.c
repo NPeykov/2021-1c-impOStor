@@ -4,18 +4,37 @@ uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
 	int pos_seg = segmento->idSegmento;
 	Segmento* segmento_anterior = (Segmento*) list_get(tabla_segmentos, pos_seg - 1);
 
+<<<<<<< HEAD
+	list_find(memoriaPrincipal, espacioLibre);
+	if(tamaniomemoria > finalSegmentoAnterior + tamanioNecesario){
+		return finalSegmentoAnterior;
+	}else{
+		return -1; //Hubo un error
+=======
 	if(!segmento_anterior) {
 		return 0;
+>>>>>>> 67bedebe089980b57b4bea3e42b95c28b6921d5f
 	}
 
 	return (*segmento_anterior).base + (*segmento_anterior).tamanio;
 }
 
-Segmento* crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
+int crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
+<<<<<<< HEAD
+
+	if(segmento->base == -1){
+		return -1;//Por si hay error retorna -1
+	}else{
+		return 0;
+	}
+}
+
+int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
+=======
 	segmento->tipo = TAREAS;
 	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
 	segmento->dato = tareas;
@@ -25,6 +44,7 @@ Segmento* crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
 }
 
 Segmento* crear_segmento_pcb(uint32_t segmento_tareas, t_list* tabla_segmentos){
+>>>>>>> 67bedebe089980b57b4bea3e42b95c28b6921d5f
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	PatotaCB *pcb = (PatotaCB*) malloc(sizeof(PatotaCB));
@@ -37,10 +57,14 @@ Segmento* crear_segmento_pcb(uint32_t segmento_tareas, t_list* tabla_segmentos){
 	segmento->dato = pcb;
 	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
 
-	return segmento;
+	if(segmento->base == -1){
+		return -1;//Por si hay error retorna -1
+	}else{
+		return 0;
+	}
 }
 
-Segmento* crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY, uint32_t segmento_pcb, t_list* tabla_segmentos) {
+int crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY, uint32_t segmento_pcb, t_list* tabla_segmentos) {
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	TripuCB *tcb = (TripuCB*) malloc(sizeof(tcb));
@@ -48,22 +72,47 @@ Segmento* crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t
 	tcb->pcb = segmento_pcb;
 	tcb->posX = posX;
 	tcb->posY = posY;
-	tcb->status = 'N';
+	tcb->status = 'N';//Estado New
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
+<<<<<<< HEAD
+	segmento->tamanio = sizeof(TripuCB);
+	segmento->base = calcular_base_logica(segmento);
+=======
 	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
 	segmento->tamanio = sizeof(segmento);
+>>>>>>> 67bedebe089980b57b4bea3e42b95c28b6921d5f
 
-	return segmento;
+	if(segmento->base == -1){
+		return -1;//Por si hay error retorna -1
+	}else{
+		return 0;
+	}
+}
+
+void verificarSegmento(int resultado_creacion_segmento){
+	return;
+	//TODO: cuando el resultado sea -1 avisar a discordiador
 }
 
 void crear_proceso(t_list *paquete){
 	t_list* tabla_de_segmentos = list_create();
 	int tamanio = 0;
 
+<<<<<<< HEAD
+	int result_tareas =crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
+	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
+	uint32_t inicioTareas = segmento_tareas->base;//Sabemos que siempre se empieza por las tareas
+	verificarSegmento(result_tareas);
+
+	int *result_pcb =crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
+	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
+	verificarSegmento(result_pcb);
+//Hasta aca bien
+=======
 	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
 
 	//TAMANIO SUMAR TODOS LOS ELEMENTOS DEL SEGMENTO
@@ -73,6 +122,7 @@ void crear_proceso(t_list *paquete){
 	Segmento *segmento_pcb=crear_segmento_pcb((uint32_t*) segmento_tareas, tabla_de_segmentos);
 
 	tamanio += sizeof(segmento_pcb);
+>>>>>>> 67bedebe089980b57b4bea3e42b95c28b6921d5f
 
 	int cantidad_tripulantes = list_get(paquete, 0);
 	char* posiciones = list_get(paquete, 1);
@@ -81,23 +131,16 @@ void crear_proceso(t_list *paquete){
 	char **posicion_del_tripulante;
 
 	for(int i=0; i <= cantidad_tripulantes ; i++){
-		//posicion_del_tripulante = string_split(posiciones[i], "|");
-		//Segmento *segmento_tcb = crear_segmento_tcb((uint32_t*) i,(uint32_t*) posicion_del_tripulante[0],(uint32_t*) posicion_del_tripulante[1], segmento_pcb->base, tabla_de_segmentos);
-		//tamanio += sizeof(segmento_tcb);
+		posicion_del_tripulante = string_split(posiciones[i], "|");
+		int *result_tcb = crear_segmento_tcb((uint32_t*) i,(uint32_t*) posicion_del_tripulante[0],(uint32_t*) posicion_del_tripulante[1], segmento_pcb->base, tabla_de_segmentos);
+		verificarSegmento(result_tcb);
 	}
 
-	if(tamaniomemoria >= tamanio){
-		t_proceso *proceso = (t_proceso*) malloc(sizeof(tamanio));
+		t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
 		proceso->id = numero_patota;
 		proceso->tabla_de_segmentos = tabla_de_segmentos;
-		proceso->memoriaPedida = tamanio; //creo que no hace falta tal vez sirve para liberar memoria
-		tamaniomemoria -= tamanio;
 		list_add(patotas, proceso);
 		numero_patota += 1;
-	}else{
-		printf("Espacio en memoria insuficiente");
-	}
-
 	//Hacer post al mutex
 }
 

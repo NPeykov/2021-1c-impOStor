@@ -13,7 +13,8 @@ int socket_mi_ram;
 t_config *config;
 char* puerto;
 int socket_cliente;
-t_list* patotas; //Lista de tablas de segmentos (TABLA DE PROCESOS)
+t_list* memoriaPrincipal;//Lista de tablas de segmentos (TABLA DE PROCESOS)
+t_list* patotas;
 int numero_patota = 1;
 char* tipoMemoria;
 void *memoria;
@@ -65,11 +66,17 @@ void *gestionarClientePag(int );
 void eliminarTripulante(int );
 void crear_proceso(t_list *);
 //Crea un segmento con la estructura de PCB
-Segmento* crear_segmento_pcb(uint32_t , t_list*);
+int crear_segmento_pcb(uint32_t , t_list*);
+
+int crear_segmento_tareas(char **, t_list*);
 
 //Crea un segmento con la estructura de TCB
-Segmento* crear_segmento_tcb(uint32_t , uint32_t , uint32_t , uint32_t, t_list*);
+int crear_segmento_tcb(uint32_t , uint32_t , uint32_t , uint32_t, t_list*);
 
 //Obtiene la base logica del ultimo segmento que entrará a RAM
-uint32_t calcular_base_logica(Segmento *, t_list* );
+uint32_t calcular_base_logica(Segmento *);
+
+//Verifica si un segmento se creo y entro a memoria correctamente. Si no lo hizo y retorno -1
+//debe ir y avisar a Discordiador que no hay suficiente memoria
+void verificarSegmento(int);
 #endif

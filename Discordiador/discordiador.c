@@ -173,7 +173,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	if (sourceX < targetX && last_move_x == false) {
 		tripulante_trabajando->tripulante->posicionX += 1;
 		last_move_x = true;
-		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
@@ -181,7 +181,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	if (sourceX > targetX && last_move_x == false) {
 		tripulante_trabajando->tripulante->posicionX -= 1;
 		last_move_x = true;
-		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
@@ -189,7 +189,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	if (sourceY < targetY && last_move_x == true) {
 		tripulante_trabajando->tripulante->posicionY += 1;
 		last_move_x = false;
-		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
@@ -197,7 +197,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	if (sourceY > targetY && last_move_x == true) {
 		tripulante_trabajando->tripulante->posicionY -= 1;
 		last_move_x = false;
-		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
@@ -757,17 +757,17 @@ void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_
 	eliminar_paquete(paquete);
 }
 
-void avisar_movimiento_a_mongo(int sourceX, int sourceY, int targetX, int targetY, Tripulante* tripulante){
+void avisar_movimiento_a_mongo(int sourceX, int sourceY, Tripulante* tripulante){
 	t_paquete *paquete = crear_paquete(ACTUALIZAR_POSICION);
 	int _socket_store;
 	char origenX[5], origenY[5], destinoX[5], destinoY[5], idPatota[5], idTripulante[5];
 
 	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
-	sprintf(origenX,  "%d", sourceX);
-	sprintf(origenY,  "%d", sourceY);
-	sprintf(destinoX, "%d", targetX);
-	sprintf(destinoY, "%d", targetY);
+	sprintf(origenX, 	  "%d", sourceX);
+	sprintf(origenY,      "%d", sourceY);
+	sprintf(destinoX,	  "%d", tripulante->posicionX);
+	sprintf(destinoY,	  "%d", tripulante->posicionY);
 	sprintf(idTripulante, "%d", tripulante->id);
 	sprintf(idPatota,     "%d", tripulante->patota);
 

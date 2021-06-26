@@ -213,10 +213,21 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 }
 
 void realizar_tarea_IO(Tripulante_Planificando *tripulante_trabajando) {
+	t_paquete *paquete;
 	//TODO: avisar a mi-ram??
 	//TODO: avisarle a mongo-store para que modifique su archivo con letra de llenado
 	sleep(retardo_ciclo_cpu);
 	tripulante_trabajando->tarea->duracion -= 1;
+
+	if(tripulante_trabajando->tarea->duracion==0){
+		int socket_store = iniciar_conexion(I_MONGO_STORE, config);
+		paquete=crear_paquete(tripulante_trabajando->tarea->tarea_code);
+		char *parametro=(char*)tripulante_trabajando->tarea->parametro;
+		agregar_a_paquete(paquete,parametro,strlen(parametro));
+		enviar_paquete(paquete,socket_store);
+		eliminar_paquete(paquete);
+		liberar_cliente(socket_store);
+	}
 	log_info(logs_discordiador, "Tripulante N:%d - REALIZO una unidad de tarea IO, le quedan %d.",
 				tripulante_trabajando->tripulante->id, tripulante_trabajando->tarea->duracion);
 }

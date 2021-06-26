@@ -118,6 +118,7 @@ typedef struct Tarea{
 	int posY;
 	int duracion;
 	Tipo_Tarea tipo;
+	tarea_code tarea_code;
 }Tarea;
 
 typedef struct Tripulante_Planificando{

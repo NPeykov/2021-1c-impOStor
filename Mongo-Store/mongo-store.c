@@ -212,6 +212,9 @@ void *gestionarCliente(int socket) {
 			lista = recibir_paquete(cliente);
 			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
 			printf("Tripulante recibido %d\n", idTripulante);
+			paquete=crear_paquete(OBTENGO_BITACORA);
+			//agregar los elementos encontrados para ese ID al paquete "paquete"
+			enviar_paquete(paquete,cliente);
 //             	int idTripulante = atoi((char *) list_get(lista,0));
 //            	printf("Tripulante recibido %d\n", idTripulante);
 			break;
@@ -263,6 +266,7 @@ void *gestionarCliente(int socket) {
 			break;
 
 		}
+		liberar_cliente(cliente);
 
 	}
 //	 Se mueve de X|Y a X’|Y’

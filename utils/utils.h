@@ -32,6 +32,15 @@ typedef enum{
 }op_code;
 
 typedef enum{
+	GENERAR_OXIGENO,
+	CONSUMIR_OXIGENO,
+	GENERAR_COMIDA,
+	CONSUMIR_COMIDA,
+	GENERAR_BASURA,
+	DESCARTAR_BASURA
+}tarea_code;
+
+typedef enum{
 	I_MONGO_STORE, MI_RAM_HQ
 }cod_servidor;
 

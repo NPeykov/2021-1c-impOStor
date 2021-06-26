@@ -241,7 +241,7 @@ void *gestionarClienteSeg(int socket) {
 			case ELIMINAR_TRIPULANTE:
 				lista = recibir_paquete(cliente);
 				uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
-				eliminarTripulante(idTripulante);
+				//eliminarTripulante(idTripulante);
 				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 				//liberar_cliente(cliente);
 				break;
@@ -289,6 +289,8 @@ void *gestionarClienteSeg(int socket) {
 				printf("Operacion desconocida.\n");
 				break;
 		}
+
+		liberar_cliente(cliente);
 	}
 }
 

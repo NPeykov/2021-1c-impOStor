@@ -1,5 +1,5 @@
 #include "mi-ram.h"
-
+/*
 uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
 	int pos_seg = segmento->idSegmento;
 	Segmento* segmento_anterior = (Segmento*) list_get(tabla_segmentos, pos_seg - 1);
@@ -205,7 +205,7 @@ void *actualizarTripulante(int idTripulante, char *ubicacion){
 
 
 	return 0;
-}
+}*/
 
 void *gestionarClienteSeg(int socket) {
 
@@ -239,7 +239,7 @@ void *gestionarClienteSeg(int socket) {
 			case ELIMINAR_TRIPULANTE:
 				lista = recibir_paquete(cliente);
 				uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
-				eliminarTripulante(idTripulante);
+				//eliminarTripulante(idTripulante);
 				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 				//liberar_cliente(cliente);
 				break;
@@ -287,6 +287,8 @@ void *gestionarClienteSeg(int socket) {
 				printf("Operacion desconocida.\n");
 				break;
 		}
+
+		liberar_cliente(cliente);
 	}
 }
 

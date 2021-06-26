@@ -266,6 +266,7 @@ void *gestionarCliente(int socket) {
 			break;
 
 		}
+		liberar_cliente(cliente);
 
 	}
 //	 Se mueve de X|Y a X’|Y’

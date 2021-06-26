@@ -81,7 +81,7 @@ char *dar_proxima_tarea(Tripulante *tripulante){
 		tarea = recibir_mensaje(_socket_ram);
 
 	}
-	liberar_cliente(_socket_ram);
+	//liberar_cliente(_socket_ram);
 	log_info(logs_discordiador, "Proxima tarea del tripulante %d: %s", tripulante->id, tarea);
 
 	return tarea;
@@ -154,7 +154,6 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 
 void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	int _socket_ram;
-	int _socket_store;
 	static bool last_move_x = false;
 	int targetX, targetY, sourceX, sourceY;
 	targetX = tripulante_trabajando->tarea->posX;
@@ -162,8 +161,8 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	sourceX = tripulante_trabajando->tripulante->posicionX;
 	sourceY = tripulante_trabajando->tripulante->posicionY;
 
+
 	_socket_ram   = iniciar_conexion(MI_RAM_HQ, config);
-	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
 	if (sourceX == targetX && last_move_x == false)
 		last_move_x = true;
@@ -174,34 +173,39 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 	if (sourceX < targetX && last_move_x == false) {
 		tripulante_trabajando->tripulante->posicionX += 1;
 		last_move_x = true;
+		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
 
 	if (sourceX > targetX && last_move_x == false) {
 		tripulante_trabajando->tripulante->posicionX -= 1;
 		last_move_x = true;
+		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
 
 	if (sourceY < targetY && last_move_x == true) {
 		tripulante_trabajando->tripulante->posicionY += 1;
 		last_move_x = false;
+		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
 
 	if (sourceY > targetY && last_move_x == true) {
 		tripulante_trabajando->tripulante->posicionY -= 1;
 		last_move_x = false;
+		avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
 		return;
 	}
 
-	serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
-
-	//avisar_movimiento_a_mongo(sourceX, sourceY, targetX, targetY, tripulante_trabajando->tripulante);
 	//TODO: falta avisar al store, pero de otra forma, ya que tiene que saber pos inicio y pos final
 
-	liberar_cliente(_socket_store);
-	liberar_cliente(_socket_ram);
+	//liberar_cliente(_socket_store);
+	//liberar_cliente(_socket_ram);
 	//ya se estaria avisando en la posicion de abajo
 	/*t_paquete* paquete=crear_paquete(ACTUALIZAR_POSICION);
 	agregar_a_paquete(paquete,tripulante_trabajando->tripulante->patota,sizeof(int));
@@ -504,8 +508,6 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		if (completo_tarea(tripulante) && tripulante->tarea->tipo == TAREA_IO)
 			return;
-			//NOTA: NO CREO QUE SEA NECESARIO, NO ENTRA A NINGUN IF Y LO ESPERA UN IF QUE COINCIDE
-			//EDIT: PODRIAMOS PONER EN EL IF DE ABAJO QUE NO SEA TAREA_IO
 
 		if (completo_tarea(tripulante)) {
 			pthread_mutex_lock(&mutex_tarea);
@@ -574,8 +576,6 @@ void planificar() {
 
 
 void atender_comandos_consola(void) {
-	//int conexion_ram;
-	//t_config* config = config_create(PATH_DISCORDIADOR_CONFIG);
 	t_list *respuesta;
 	static int num_pausas = 0; //para manejar el tipo de signal
 	int socket_ram;
@@ -610,7 +610,7 @@ void atender_comandos_consola(void) {
 			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
-			liberar_cliente(socket_ram);
+			//liberar_cliente(socket_ram);
 
 			iniciar_patota(comando_separado); //capaz inicio de patota no necesita las posiciones
 
@@ -638,7 +638,7 @@ void atender_comandos_consola(void) {
 			enviar_paquete(paquete_expulsar, socket_ram);
 			eliminar_paquete(paquete_expulsar);
 
-			liberar_cliente(socket_ram);
+			//liberar_cliente(socket_ram);
 			break;
 		case 3: //INICIAR_PLANIFICACION
 			;
@@ -664,6 +664,7 @@ void atender_comandos_consola(void) {
 		case 5: //OBTENER_BITACORA
 			socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
+
 			t_paquete *paquete_bitacora = crear_paquete(OBTENGO_BITACORA);
 			agregar_a_paquete(paquete_bitacora, comando_separado[1],
 						string_length(comando_separado[1]) + 1);
@@ -678,7 +679,8 @@ void atender_comandos_consola(void) {
 			imprimir_respuesta_log(respuesta);
 			log_info(logs_discordiador,"FIN DE BITACORA DEL TRIPULANTE %s",comando_separado[1]);
 			list_destroy_and_destroy_elements(respuesta,free);
-			liberar_cliente(socket_store);
+			//liberar_cliente(socket_store);
+			//liberar_cliente(socket_store);
 			break;
 
 		case 6: //EXIT
@@ -751,7 +753,7 @@ void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_
 
 	enviar_paquete(paquete, _socket_store);
 
-	liberar_cliente(_socket_store);
+	//liberar_cliente(_socket_store);
 	eliminar_paquete(paquete);
 }
 
@@ -778,7 +780,7 @@ void avisar_movimiento_a_mongo(int sourceX, int sourceY, int targetX, int target
 
 	enviar_paquete(paquete, _socket_store);
 
-	liberar_cliente(_socket_store);
+	//liberar_cliente(_socket_store);
 	eliminar_paquete(paquete);
 }
 
@@ -893,8 +895,11 @@ void iniciar_patota(char **datos_tripulantes) {
 }
 
 void tripulante(void *argumentos){
-	t_paquete* paquete=crear_paquete(NUEVO_TRIPULANTE);
-	t_list *respuesta;
+	//t_paquete* paquete=crear_paquete(NUEVO_TRIPULANTE);
+	//t_list *respuesta;
+	int _socket_ram;
+
+	_socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 
 
 	argumentos_creacion_tripulantes *args = argumentos;
@@ -905,15 +910,8 @@ void tripulante(void *argumentos){
 	tripulante -> posicionY = args->posicionY;
 	tripulante -> estado = LLEGADA;
 
-	//TODO: ACA DEBERIA AVISAR A MI-RAM PARA TCB
-	/*agregar_a_paquete(paquete,tripulante -> id,sizeof(int));
-	agregar_a_paquete(paquete,tripulante -> patota,sizeof(int));
-	agregar_a_paquete(paquete,tripulante -> posicionX,sizeof(int));
-	agregar_a_paquete(paquete,tripulante -> posicionY,sizeof(int));
-	enviar_paquete(paquete,socket_ram);
-	eliminar_paquete(paquete);
-	respuesta=recibir_paquete(socket_ram);
-	list_get(respuesta, 0);*/
+	serializar_y_enviar_tripulante(tripulante, NUEVO_TRIPULANTE, _socket_ram); //aviso a ram
+
 	//---------------------------
 	Tripulante_Planificando *tripulante_trabajando =
 			(Tripulante_Planificando*) malloc(sizeof(Tripulante_Planificando));

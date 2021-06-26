@@ -653,18 +653,24 @@ void atender_comandos_consola(void) {
 		case 5: //OBTENER_BITACORA
 			socket_store = iniciar_conexion(I_MONGO_STORE, config);
 
-			//hay que averiguar si con solo un numero ya se puede identificar
-			// o si tenemos que hacer como "expulsasr tripulante" que tengo q enviar dos parametros
-
 			t_paquete *paquete_bitacora = crear_paquete(OBTENGO_BITACORA);
 			agregar_a_paquete(paquete_bitacora, comando_separado[1],
-					string_length(comando_separado[1]) + 1);
+						string_length(comando_separado[1]) + 1);
+			agregar_a_paquete(paquete_bitacora, comando_separado[2],
+						string_length(comando_separado[2]) + 1);
 			enviar_paquete(paquete_bitacora, socket_store);
 			eliminar_paquete(paquete_bitacora);
+
+			int cod_op = recibir_operacion(socket_store);
+			respuesta=recibir_paquete(socket_store);
+			log_info(logs_discordiador,"INICIO DE BITACORA DEL TRIPULANTE %s",comando_separado[1]);
+			imprimir_respuesta_log(respuesta);
+			log_info(logs_discordiador,"FIN DE BITACORA DEL TRIPULANTE %s",comando_separado[1]);
+			list_destroy_and_destroy_elements(respuesta,free);
 			liberar_cliente(socket_store);
 			break;
 
-		case 6: //SALIR
+		case 6: //EXIT
 			printf("Si realmente deseas salir apreta 'S'..\n");
 			char c = getchar();
 			if(c == 's' || c == 'S'){
@@ -835,10 +841,10 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 
 //************************************************ OTROS **********************************************
 
-void imprimir_respuesta(t_list* respuesta){
+void imprimir_respuesta_log(t_list* respuesta){
 	void iterator(char* value)
 		{
-			printf("%s\n", value);
+		log_info(logs_discordiador,"valor: %s",value);
 		}
 	list_iterate(respuesta, (void*) iterator);
 

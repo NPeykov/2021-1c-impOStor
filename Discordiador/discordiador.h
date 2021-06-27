@@ -57,8 +57,8 @@ int duracion_sabotaje;
 int retardo_ciclo_cpu;
 
 //sockets
-int socket_ram;
-int socket_store;
+//int socket_ram;
+//int socket_store;
 
 bool g_hay_pausa    = true;
 bool g_hay_sabotaje = false;
@@ -101,10 +101,6 @@ struct tripulantes_iniciados{
 	struct tripulantes_iniciados *proximo_tripulante;
 };
 
-typedef enum{
-	TAREA_COMUN,
-	TAREA_IO
-} Tipo_Tarea;
 
 typedef enum{
 	RR,
@@ -118,6 +114,7 @@ typedef struct Tarea{
 	int posY;
 	int duracion;
 	Tipo_Tarea tipo;
+	/*tarea_code tarea_code;*/
 }Tarea;
 
 typedef struct Tripulante_Planificando{
@@ -169,7 +166,7 @@ void tripulante(void*);
 void liberar_memoria_discordiador(void);
 void listar_cola_planificacion(Estado);
 void liberar_cliente(int);
-void imprimir_respuesta(t_list*);
+void imprimir_respuesta_log(t_list*);
 void reanudar_hilos_lista(Estado);
 
 
@@ -187,9 +184,11 @@ void hacer_una_unidad_de_tarea(Tripulante_Planificando *);
 
 
 //FUNCIONES DE COMUNICACION ENTRE MODULOS
-void crear_y_enviar_inicio_patota(char*, char*, char*);
+void crear_y_enviar_inicio_patota(char*, char*, char*, int);
 char *concatenar_posiciones(char**);
-void serializar_y_enviar_tripulante(Tripulante*, op_code);
+void serializar_y_enviar_tripulante(Tripulante*, op_code, int);
+void avisar_a_mongo_estado_tarea(Tarea *, Tripulante*, op_code);
+void avisar_movimiento_a_mongo(int, int, Tripulante*);
 
 
 #endif

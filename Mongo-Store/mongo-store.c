@@ -190,51 +190,141 @@ void crearEstructuraFileSystem()
 		*/
 	}
 }
-void *gestionarCliente(int socket) {;
-{
+
+
+
+//TODO: cambiar nombre funcion y completar
+//NOTA: voy a buscar las funciones de el manejo de archivo q habia hecho
+
+void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTareaFinalizada){
+
+	switch (tripulanteConTareaFinalizada->codigo_tarea) {
+
+	case GENERAR_OXIGENO:
+		printf("ES GENERAR OXIGENO\n");
+		printf("Cantidad a llenar: %d\n",
+						tripulanteConTareaFinalizada->parametro);
+		break;
+
+	case CONSUMIR_OXIGENO:
+		break;
+
+	case GENERAR_COMIDA:
+		break;
+
+	case CONSUMIR_COMIDA:
+		break;
+
+	case GENERAR_BASURA:
+		break;
+
+	case DESCARTAR_BASURA:
+		break;
+
+	}
+
+}
+
+
+
+void *gestionarCliente(int socket) {
 //	socket_cliente = esperar_cliente(socket);
 	int conexionCliente;
 	t_list* lista;
 	int operacion;
 	t_paquete *paquete;
 	int respuesta;
+	int cliente;
 
-	while(1) {
-		int cliente = esperar_cliente(socket);
+	while (1) {
+		cliente = esperar_cliente(socket);
 		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
 		printf("\nLA OPERACION ES: %d\n", operacion);
 
-		switch(operacion) {
-			case OBTENGO_BITACORA:
-				lista = recibir_paquete(cliente);
-				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
-				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
-				printf("Tripulante recibido %d\n", idTripulante);
-				printf("Patota recibida %d\n", idPatota);
-				break;
+
+//		switch(operacion) {
+//			case OBTENGO_BITACORA:
+//				lista = recibir_paquete(cliente);
+//				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
+//				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
+//				printf("Tripulante recibido %d\n", idTripulante);
+//				printf("Patota recibida %d\n", idPatota);
+//				break;
 			case ELIMINAR_TRIPULANTE:
+
+		switch (operacion) {
+		case OBTENGO_BITACORA:
+			lista = recibir_paquete(cliente);
+			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
+			printf("Tripulante recibido %d\n", idTripulante);
+			paquete=crear_paquete(OBTENGO_BITACORA);
+			//agregar los elementos encontrados para ese ID al paquete "paquete"
+			enviar_paquete(paquete,cliente);
+//             	int idTripulante = atoi((char *) list_get(lista,0));
+//            	printf("Tripulante recibido %d\n", idTripulante);
+			break;
+		case ELIMINAR_TRIPULANTE:
+
 //				lista = recibir_paquete(cliente);
 //				int idTripulante = atoi((char *) list_get(lista,0));
 //				eliminarTripulante(idTripulante);
 //				printf("Tripulante eliminado de la nave %d\n", idTripulante);
-				//liberar_cliente(cliente);
-				break;
-			case ACTUALIZAR_POSICION:
-//				lista = recibir_paquete(cliente);
-//				int idTripulante = atoi((char *) list_get(lista,0));
-				break;
-			case -1:
-				printf("El cliente %d se desconecto.\n", cliente);
-				//liberar_cliente(cliente);
-				break;
-			default:
-				printf("Operacion desconocida.\n");
-				break;
+			//liberar_cliente(cliente);
+			break;
+		case ACTUALIZAR_POSICION:
+			;
+			m_movimiento_tripulante *tripulanteEnMovimiento =
+					(m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+
+			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
+
+			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
+					tripulanteEnMovimiento->idPatota,
+					tripulanteEnMovimiento->origenX,
+					tripulanteEnMovimiento->origenY,
+					tripulanteEnMovimiento->destinoX,
+					tripulanteEnMovimiento->destinoY);
+
+			break;
+
+		case INICIO_TAREA:;
+			m_estado_tarea_tripulante *tripulanteConTarea =
+					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
+			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
+			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
+
+			break;
+
+		case FIN_TAREA:;
+			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
+								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+
+			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
+
+			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
+
+			if(tripulanteConTareaFinalizada -> tipo_tarea == TAREA_IO){
+
+				//aca llenaria el archivo tantas veces como el 'parametro'
+				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);
+			}
+
+			break;
+
+		case -1:
+			printf("El cliente %d se desconecto.\n", cliente);
+			//liberar_cliente(cliente);
+			break;
+		default:
+			printf("Operacion desconocida.\n");
+			break;
 
 		}
+		liberar_cliente(cliente);
 
 	}
 //	 Se mueve de X|Y a X’|Y’
@@ -242,5 +332,4 @@ void *gestionarCliente(int socket) {;
 //	 Se finaliza la tarea X
 //	 Se corre en pánico hacia la ubicación del sabotaje
 //	 Se resuelve el sabotaje
-}
 }

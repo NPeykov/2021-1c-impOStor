@@ -1,46 +1,90 @@
 #include "mi-ram.h"
 
-uint32_t calcular_base_logica(Segmento *segmento, t_list* tabla_segmentos){
-	int pos_seg = segmento->idSegmento;
-	Segmento* segmento_anterior = (Segmento*) list_get(tabla_segmentos, pos_seg - 1);
+uint32_t calcular_base_logica(Segmento *segmento){
+	uint32_t tamanioNecesario =(uint32_t) segmento->tamanio;
+	uint32_t finalSegmentoAnterior = 0;
+	uint32_t inicioSegmentoActual = 0;
 
-	if(!segmento_anterior) {
-		return 0;
+	//ESTO SERIA FIRST FIT
+	//Determina si hay un espacio libre entre dos segmentos
+	bool espacioLibre(void* segmentoActual){
+	Segmento* unSegmento =(Segmento*) segmentoActual;
+	inicioSegmentoActual = unSegmento->base;
+		if(finalSegmentoAnterior==0){//El primer elemento de la lista
+			finalSegmentoAnterior = unSegmento->tamanio + unSegmento->base;
+			return 0;
+		}else if(finalSegmentoAnterior == inicioSegmentoActual){
+			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
+			return 0;//El anterior termina donde empieza este
+		}else if(inicioSegmentoActual > finalSegmentoAnterior &&
+				(inicioSegmentoActual-finalSegmentoAnterior)>= tamanioNecesario){
+			return 1; //Si hay una diferencia entre el segmento actual y el anterior.
+//TODO: ACA DEBERIA IR COMPACTACION POR SI NO SE ENCUENTRA ESPACIO.
+		}else{
+			return 0; //No hay espacio
+		}
 	}
 
-	return (*segmento_anterior).base + (*segmento_anterior).tamanio;
+	//Si no hay nada en memoria principal la dir es 0 por ser primero
+	if(list_is_empty(memoriaPrincipal)){
+		return (uint32_t) 0;
+	}
+
+	list_find(memoriaPrincipal, espacioLibre);
+	if(tamaniomemoria > finalSegmentoAnterior + tamanioNecesario){
+		return finalSegmentoAnterior;
+	}else{
+		return -1; //Hubo un error
+	}
+
 }
 
-Segmento* crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
+int crear_segmento_tareas(char *tareas[], t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
-	segmento->idSegmento = tabla_segmentos->elements_count;
-	list_add(tabla_segmentos, segmento);
+	//Se llena el segmento
 	segmento->tipo = TAREAS;
-	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
 	segmento->dato = tareas;
-	segmento->tamanio = sizeof(segmento);
+	segmento->tamanio = sizeof(tareas);
+	segmento->base = calcular_base_logica(segmento);
+	segmento->idSegmento = tabla_segmentos->elements_count;
 
-	return segmento;
+	//Se lo agrega a la tabla de Segmentos del proceso actual
+	list_add(tabla_segmentos, segmento);
+
+	if(segmento->base == -1){
+		return -1;//Por si hay error retorna -1
+	}else{
+		return 0;
+	}
 }
 
-Segmento* crear_segmento_pcb(uint32_t segmento_tareas, t_list* tabla_segmentos){
+int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
+	//Se llena la estructura de PatotaCB
 	PatotaCB *pcb = (PatotaCB*) malloc(sizeof(PatotaCB));
 	pcb->pid = numero_patota;
-	pcb->tareas = segmento_tareas;
+	pcb->tareas = inicioTareas;
 
+	//Se llena la informacion del Segmento
 	segmento->idSegmento = tabla_segmentos->elements_count;
-	list_add(tabla_segmentos, segmento);
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
-	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
+	segmento->tamanio = sizeof(PatotaCB);
+	segmento->base = calcular_base_logica(segmento);
 
-	return segmento;
+	//Se lo agrega a la tabla de Segmentos del proceso actual
+	list_add(tabla_segmentos, segmento);
+
+	if(segmento->base == -1){
+		return -1;//Por si hay error retorna -1
+	}else{
+		return 0;
+	}
 }
 
-Segmento* crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY, uint32_t segmento_pcb, t_list* tabla_segmentos) {
+int crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY, uint32_t segmento_pcb, t_list* tabla_segmentos) {
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	TripuCB *tcb = (TripuCB*) malloc(sizeof(tcb));
@@ -48,56 +92,57 @@ Segmento* crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t
 	tcb->pcb = segmento_pcb;
 	tcb->posX = posX;
 	tcb->posY = posY;
-	tcb->status = 'N';
+	tcb->status = 'N';//Estado New
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
-	segmento->base = calcular_base_logica(segmento, tabla_segmentos);
-	segmento->tamanio = sizeof(segmento);
+	segmento->tamanio = sizeof(TripuCB);
+	segmento->base = calcular_base_logica(segmento);
 
-	return segmento;
+	if(segmento->base == -1){
+		return -1;//Por si hay error retorna -1
+	}else{
+		return 0;
+	}
+}
+
+void verificarSegmento(int resultado_creacion_segmento){
+	return;
+	//TODO: cuando el resultado sea -1 avisar a discordiador
 }
 
 void crear_proceso(t_list *paquete){
 	t_list* tabla_de_segmentos = list_create();
-	int tamanio = 0;
 
-	Segmento *segmento_tareas=crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
+	int result_tareas =crear_segmento_tareas(list_get(paquete, 2), tabla_de_segmentos);
+	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
+	uint32_t inicioTareas = segmento_tareas->base;//Sabemos que siempre se empieza por las tareas
+	verificarSegmento(result_tareas);
 
-	//TAMANIO SUMAR TODOS LOS ELEMENTOS DEL SEGMENTO
+	int *result_pcb =crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
+	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
+	verificarSegmento(result_pcb);
+//Hasta aca bien
 
-	tamanio += sizeof(segmento_tareas);
-
-	Segmento *segmento_pcb=crear_segmento_pcb((uint32_t*) segmento_tareas, tabla_de_segmentos);
-
-	tamanio += sizeof(segmento_pcb);
-
-	int cantidad_tripulantes = list_get(paquete, 0);
+	int cantidad_tripulantes = (int) list_get(paquete, 0);
 	char* posiciones = list_get(paquete, 1);
 	char **list_pos = string_split(posiciones, " ");
 	printf("%s\n", list_pos[0]);
 	char **posicion_del_tripulante;
 
 	for(int i=0; i <= cantidad_tripulantes ; i++){
-		//posicion_del_tripulante = string_split(posiciones[i], "|");
-		//Segmento *segmento_tcb = crear_segmento_tcb((uint32_t*) i,(uint32_t*) posicion_del_tripulante[0],(uint32_t*) posicion_del_tripulante[1], segmento_pcb->base, tabla_de_segmentos);
-		//tamanio += sizeof(segmento_tcb);
+		posicion_del_tripulante = string_split(posiciones[i], "|");
+		int *result_tcb = crear_segmento_tcb((uint32_t*) i,(uint32_t*) posicion_del_tripulante[0],(uint32_t*) posicion_del_tripulante[1], segmento_pcb->base, tabla_de_segmentos);
+		verificarSegmento(result_tcb);
 	}
 
-	if(tamaniomemoria >= tamanio){
-		t_proceso *proceso = (t_proceso*) malloc(sizeof(tamanio));
+		t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
 		proceso->id = numero_patota;
 		proceso->tabla_de_segmentos = tabla_de_segmentos;
-		proceso->memoriaPedida = tamanio; //creo que no hace falta tal vez sirve para liberar memoria
-		tamaniomemoria -= tamanio;
 		list_add(patotas, proceso);
 		numero_patota += 1;
-	}else{
-		printf("Espacio en memoria insuficiente");
-	}
-
 	//Hacer post al mutex
 }
 
@@ -170,13 +215,15 @@ void *gestionarClienteSeg(int socket) {
 
 	int operacion;
 	t_list *lista;
-	int cliente = esperar_cliente(socket);
-	printf("Cliente: %d\n", cliente);
+	int cliente;
 
 
 	int idTripulante;
 
 	while(1) {
+		cliente = esperar_cliente(socket);
+		printf("Cliente: %d\n", cliente);
+
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
@@ -185,8 +232,27 @@ void *gestionarClienteSeg(int socket) {
 		switch(operacion) {
 			case INICIO_PATOTA:
 				lista = recibir_paquete(cliente);
-				log_info(logs_ram, "Se iniciaron %s tripulantes", list_get(lista, 0));
+				char *contenido;
+				char *posiciones;
+				char *cantidad;
 
+				cantidad = list_get(lista, 0);
+				posiciones = list_get(lista, 1);
+				contenido = list_get(lista, 2);
+
+				log_info(logs_ram, "Se iniciaron %s tripulantes", cantidad);
+
+
+				/*hardcodeo esto por la respues de si se puede crear o no una patota*/
+				if(true){
+					enviar_mensaje_simple("ok", cliente);
+					//send(cliente, "ok", string_length("ok") + 1, 0);
+				}
+
+				else enviar_mensaje_simple("no", cliente);
+
+
+				printf("Contenido: %s\n", contenido);
 				//Agregar mutex
 				//crear_proceso(lista);
 				break;
@@ -194,7 +260,7 @@ void *gestionarClienteSeg(int socket) {
 			case ELIMINAR_TRIPULANTE:
 				lista = recibir_paquete(cliente);
 				uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
-				eliminarTripulante(idTripulante);
+				//eliminarTripulante(idTripulante);
 				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 				//liberar_cliente(cliente);
 				break;
@@ -208,11 +274,6 @@ void *gestionarClienteSeg(int socket) {
 						tripulante_desplazado->posX,
 						tripulante_desplazado->posY);
 
-				/*log_info(logs_ram, "Tripulante %d se movio a (%d, %d)",
-						tripulante_desplazado->tid,
-						tripulante_desplazado->posX,
-						tripulante_desplazado->posY);*/
-
 				//lista = recibir_paquete(cliente);
 				//idTripulante = atoi((char *) list_get(lista,0));
 				break;
@@ -225,7 +286,7 @@ void *gestionarClienteSeg(int socket) {
 				break;
 
 			case PEDIDO_TAREA:;
-				char *ejemplo_tarea = "COMER;10;14;4"; //hardcodeo un string para probar desde discordiador
+				char *ejemplo_tarea = "COMER;10;14;15"; //hardcodeo un string para probar desde discordiado
 
 				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
@@ -247,6 +308,8 @@ void *gestionarClienteSeg(int socket) {
 				printf("Operacion desconocida.\n");
 				break;
 		}
+
+		liberar_cliente(cliente);
 	}
 }
 

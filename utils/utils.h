@@ -26,8 +26,19 @@ typedef enum{
 	ACTUALIZAR_ESTADO,
 	ELIMINAR_TRIPULANTE, //id, patota
 	OBTENGO_BITACORA,
-	PEDIDO_TAREA
+	PEDIDO_TAREA, //para ram
+	INICIO_TAREA, //para store
+	FIN_TAREA //para store
 }op_code;
+
+typedef enum{
+	GENERAR_OXIGENO,
+	CONSUMIR_OXIGENO,
+	GENERAR_COMIDA,
+	CONSUMIR_COMIDA,
+	GENERAR_BASURA,
+	DESCARTAR_BASURA
+}tarea_code;
 
 typedef enum{
 	I_MONGO_STORE, MI_RAM_HQ
@@ -52,7 +63,29 @@ typedef struct{
 	uint32_t posY;
 } t_tripulante_iniciado;
 
+typedef enum{
+	TAREA_COMUN,
+	TAREA_IO
+} Tipo_Tarea;
 
+typedef struct{
+	int idTripulante;
+	int numPatota;
+	char *nombreTarea;
+	int duracionTarea;
+	int tipo_tarea;
+	int parametro;
+	tarea_code codigo_tarea;
+} m_estado_tarea_tripulante;
+
+typedef struct {
+	int origenX;
+	int origenY;
+	int destinoX;
+	int destinoY;
+	int idTripulante;
+	int idPatota;
+}m_movimiento_tripulante;
 
 int errno;
 
@@ -74,6 +107,8 @@ t_list* recibir_paquete(int);
 int recibir_operacion(int);
 void* recibir_buffer(int*, int);
 t_tripulante_iniciado *recibir_tripulante_iniciado(int);
+m_estado_tarea_tripulante *recibirNuevoEstadoTareaTripulante(int);
+m_movimiento_tripulante *recibirMovimientoTripulante(int);
 
 
 //Sockets de todos los servidores

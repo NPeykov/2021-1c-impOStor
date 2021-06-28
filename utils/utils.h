@@ -28,7 +28,8 @@ typedef enum{
 	OBTENGO_BITACORA,
 	PEDIDO_TAREA, //para ram
 	INICIO_TAREA, //para store
-	FIN_TAREA //para store
+	FIN_TAREA, //para store
+	INICIO_SABOTAJE
 }op_code;
 
 typedef enum{

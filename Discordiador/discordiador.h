@@ -123,6 +123,8 @@ typedef struct Tripulante_Planificando{
 	Tarea *tarea;
 	sem_t ir_exec;
 	sem_t salir_pausa;
+	sem_t termino_sabotaje;
+	bool sigo_planificando;
 }Tripulante_Planificando;
 
 
@@ -143,7 +145,7 @@ pthread_mutex_t lock_grado_multitarea;
 pthread_mutex_t mutex_tarea;
 
 pthread_cond_t sabotaje_resuelto;
-pthread_mutex_t sabotaje_lock; //por ahora no lo uso
+pthread_mutex_t sabotaje_lock;
 pthread_mutex_t pausa_lock;
 
 //semaforos
@@ -153,6 +155,8 @@ sem_t moverse_a_em;
 sem_t se_movio_a_em;
 sem_t primer_inicio;
 sem_t otros_inicios;
+sem_t termino_sabotaje_planificador;
+sem_t resolvi_sabotaje; //capaz no sea necesario
 
 
 //PROTOTIPO DE FUNCIONES
@@ -171,6 +175,12 @@ void reanudar_hilos_lista(Estado);
 
 
 
+//FUNCIONES RELACIONADAS A SABOTAJE
+void esperar_sabotaje(void);
+void atender_sabotaje(int, int);
+void resolver_sabotaje(Tripulante_Planificando *, int, int);
+bool llegue_al_sabotaje(Tripulante_Planificando *, int , int );
+void *mas_cercano_al_sabotaje(int , int );
 
 //FUNCIONES RELACIONADAS A TAREAS
 Tarea *proxima_tarea(Tripulante*);

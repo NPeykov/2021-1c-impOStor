@@ -129,18 +129,17 @@ void atender_sabotaje(int x, int y){
 	list_add(lista_bloqueado_EM, tripulante_cercano); //seria para agregarlo a lo ultimo
 	pthread_mutex_unlock(&lock_lista_bloq_em);
 
-
-	//SIGUEN HABIENDO TRIPULANTES EN LAS OTRAS COLAS
-	printf("CANTIDAD TRIPULANTES EN TRABAJANDO: %d", list_size(lista_trabajando));
-	printf("CANTIDAD TRIPULANTES EN READY: %d", list_size(lista_listo->elements));
-	printf("CANTIDAD TRIPULANTES EN BLOQUEADOS EM: %d", list_size(lista_bloqueado_EM));
-
 	void cambiar_estado_a_bloqueado_emergencia(void *data) {
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = BLOQUEADO_EMERGENCIA;
 	}
 
 	list_iterate(lista_bloqueado_EM, cambiar_estado_a_bloqueado_emergencia);
+
+	log_info(logs_discordiador,
+			"INICIO: TENDRIAN QUE ESTAR TODOS BLOCK EM------------");
+	listar_tripulantes();
+	sleep(5);
 
 	resolver_sabotaje(tripulante_cercano, x, y);
 
@@ -168,24 +167,6 @@ void atender_sabotaje(int x, int y){
 
 	list_iterate(lista_bloqueado_EM, cambiar_estado_a_ready);
 
-
-
-
-	pthread_mutex_lock(&sabotaje_lock);
-	g_hay_sabotaje = false;
-	pthread_mutex_unlock(&sabotaje_lock);
-
-    //no creo q estos mutexs son necesarios
-    pthread_mutex_lock(&sabotaje_lock);
-	list_iterate(lista_bloqueado_EM, reanudar_tripulantes);
-	pthread_mutex_unlock(&sabotaje_lock);
-
-	pthread_mutex_lock(&sabotaje_lock);
-	sem_post(&termino_sabotaje_planificador);
-	pthread_mutex_unlock(&sabotaje_lock);
-
-
-
 	pthread_mutex_lock(&lock_lista_bloq_em);
 	pthread_mutex_lock(&lock_lista_listo);
 	list_add_all(lista_listo->elements, lista_bloqueado_EM);
@@ -194,7 +175,34 @@ void atender_sabotaje(int x, int y){
 	pthread_mutex_unlock(&lock_lista_bloq_em);
 
 
-	list_iterate(lista_listo->elements, printear_estado);
+	pthread_mutex_lock(&sabotaje_lock);
+	g_hay_sabotaje = false;
+	pthread_mutex_unlock(&sabotaje_lock);
+
+	log_info(logs_discordiador,"ETAPA 1: TENDRIAN QUE ESTAR TODOS READY------------");
+	listar_tripulantes();
+	sleep(5);
+
+    //no creo q estos mutexs son necesarios
+    pthread_mutex_lock(&sabotaje_lock);
+	list_iterate(lista_bloqueado_EM, reanudar_tripulantes);
+	pthread_mutex_unlock(&sabotaje_lock);
+
+	log_info(logs_discordiador,"ETAPA 2: TENDRIAN QUE ESTAR TODOS READY------------");
+	listar_tripulantes();
+	sleep(5);
+
+	pthread_mutex_lock(&sabotaje_lock);
+	sem_post(&termino_sabotaje_planificador);
+	pthread_mutex_unlock(&sabotaje_lock);
+
+
+
+	log_info(logs_discordiador,
+			"ETAPA 3: ALGUNOS TENDRIAN QUE ESTAR EXEC------------");
+	listar_tripulantes();
+	sleep(5);
+
 }
 
 void *mas_cercano_al_sabotaje(int x, int y){
@@ -853,12 +861,7 @@ void atender_comandos_consola(void) {
 
 		case LISTAR_TRIPULANTES: //LISTAR_TRIPULANTE
 			printf("--------LISTANDO TRIPULANTES---------\n");
-			listar_cola_planificacion(LLEGADA);
-			listar_cola_planificacion(LISTO);
-			listar_cola_planificacion(TRABAJANDO);
-			listar_cola_planificacion(BLOQUEADO_IO);
-			listar_cola_planificacion(BLOQUEADO_EMERGENCIA);
-			listar_cola_planificacion(FINALIZADO);
+			listar_tripulantes();
 			break;
 
 		case EXPULSAR_TRIPULANTE: //EXPULSAR_TRIPULANTE
@@ -1246,6 +1249,15 @@ void tripulante(void *argumentos){
 
 		moverse_a_ready(tripulante_trabajando);
 	}
+}
+
+void listar_tripulantes() {
+	listar_cola_planificacion(LLEGADA);
+	listar_cola_planificacion(LISTO);
+	listar_cola_planificacion(TRABAJANDO);
+	listar_cola_planificacion(BLOQUEADO_IO);
+	listar_cola_planificacion(BLOQUEADO_EMERGENCIA);
+	listar_cola_planificacion(FINALIZADO);
 }
 
 

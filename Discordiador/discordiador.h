@@ -168,10 +168,12 @@ tripulantes_iniciados *crear_lista_tripulantes(char **);
 void iniciar_patota(char**);
 void tripulante(void*);
 void liberar_memoria_discordiador(void);
+void listar_tripulantes(void);
 void listar_cola_planificacion(Estado);
 void liberar_cliente(int);
 void imprimir_respuesta_log(t_list*);
 void reanudar_hilos_lista(Estado);
+
 
 
 

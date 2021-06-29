@@ -7,7 +7,7 @@
 #include <commons/log.h>
 #include <commons/config.h>
 #include "../utils/utils.h"
-
+#include <signal.h>
 char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
@@ -19,6 +19,13 @@ int socket_cliente;
 void crearEstructuraFileSystem();
 void *gestionarCliente(int cliente);
 void gestionarSabotaje();
+void generar_oxigeno(int);
+void consumir_oxigeno(int);
+void generar_comida(int);
+void consumir_comida(int);
+void generar_basura(int);
+void descartar_basura(int);
+void (*signal(int sig, void (*func)(int)))(int) ;
 
 typedef enum{
 	SUPERBLOQUE,

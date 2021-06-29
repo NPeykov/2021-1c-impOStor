@@ -18,6 +18,10 @@ t_log* mongoLogger;
 int socket_cliente;
 void crearEstructuraFileSystem();
 void *gestionarCliente(int cliente);
+void gestionarSabotaje();
 
-
+typedef enum{
+	SUPERBLOQUE,
+	FILES
+}sabotaje_code;
 #endif

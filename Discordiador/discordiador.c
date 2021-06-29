@@ -899,18 +899,6 @@ void atender_comandos_consola(void) {
 			pthread_mutex_unlock(&pausa_lock);
 			break;
 
-
-//		case 5: //OBTENER_BITACORA
-//			;
-//
-//			t_paquete *paquete=crear_paquete(OBTENGO_BITACORA);
-//			agregar_a_paquete(paquete, comando_separado[1], sizeof(comando_separado[1]) + 1);
-//			agregar_a_paquete(paquete, comando_separado[2], sizeof(comando_separado[2]) + 1);
-//			enviar_paquete(paquete, socket_store);
-//			eliminar_paquete(paquete);
-//			respuesta=recibir_paquete(socket_store);
-//			imprimir_respuesta(respuesta);
-
 		case OBTENER_BITACORA: //OBTENER_BITACORA
 			socket_store = iniciar_conexion(I_MONGO_STORE, config);
 

@@ -245,22 +245,14 @@ void *gestionarCliente(int socket) {
 		printf("\nLA OPERACION ES: %d\n", operacion);
 
 
-//		switch(operacion) {
-//			case OBTENGO_BITACORA:
-//				lista = recibir_paquete(cliente);
-//				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
-//				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
-//				printf("Tripulante recibido %d\n", idTripulante);
-//				printf("Patota recibida %d\n", idPatota);
-//				break;
-			case ELIMINAR_TRIPULANTE:
-
 		switch (operacion) {
 		case OBTENGO_BITACORA:
 			lista = recibir_paquete(cliente);
 			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
+			uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
 			printf("Tripulante recibido %d\n", idTripulante);
 			paquete=crear_paquete(OBTENGO_BITACORA);
+			printf("Patota recibida %d\n", idPatota);
 			//agregar los elementos encontrados para ese ID al paquete "paquete"
 			enviar_paquete(paquete,cliente);
 //             	int idTripulante = atoi((char *) list_get(lista,0));
@@ -275,7 +267,7 @@ void *gestionarCliente(int socket) {
 			//liberar_cliente(cliente);
 			break;
 		case ACTUALIZAR_POSICION:
-			;
+
 			m_movimiento_tripulante *tripulanteEnMovimiento =
 					(m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 
@@ -290,7 +282,7 @@ void *gestionarCliente(int socket) {
 
 			break;
 
-		case INICIO_TAREA:;
+		case INICIO_TAREA:
 			m_estado_tarea_tripulante *tripulanteConTarea =
 					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
@@ -299,7 +291,7 @@ void *gestionarCliente(int socket) {
 
 			break;
 
-		case FIN_TAREA:;
+		case FIN_TAREA:
 			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
 								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 
@@ -333,3 +325,26 @@ void *gestionarCliente(int socket) {
 //	 Se corre en pánico hacia la ubicación del sabotaje
 //	 Se resuelve el sabotaje
 }
+
+void gestionarSabotaje(){
+int operacion;
+	switch(operacion) {
+		case SUPERBLOQUE:
+			//si cambia valor Blocks constatar con tamaño archivo blocks.ims
+			//si cambia valor Bitmap recorrer FILES y obtener bloques usados
+				break;
+		case FILES:
+			//si cambia el SIZE recorrer todos los bloques y asumir correcto el tamaño de los mismos
+			//si son inconsistentes block_count y blocks actualizo block_count en base a la lista de blocks
+			//si se altera la lista BLOCKS y no estan en orden(nos damos cuenta porque cambia el valor de md5)
+			//se debe reescribir la lista hasta que se obtenga el mismo tamaño
+		default:
+			printf("Operacion desconocida.\n");
+			break;
+
+}
+
+
+
+}
+

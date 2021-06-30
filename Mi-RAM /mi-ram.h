@@ -7,6 +7,7 @@
 #include <commons/log.h>
 #include <commons/config.h>
 #include "../utils/utils.h"
+#include <commons/string.h>
 
 int servidor;
 int socket_mi_ram;
@@ -64,11 +65,11 @@ typedef struct{
 void *gestionarClienteSeg(int );
 void *gestionarClientePag(int );
 void eliminarTripulante(int );
-void crear_proceso(t_list *);
+void crear_proceso(char *,char *,char *, int cliente);
 //Crea un segmento con la estructura de PCB
 int crear_segmento_pcb(uint32_t , t_list*);
 
-int crear_segmento_tareas(char **, t_list*);
+int crear_segmento_tareas(char *, t_list*);
 
 //Crea un segmento con la estructura de TCB
 int crear_segmento_tcb(uint32_t , uint32_t , uint32_t , uint32_t, t_list*);

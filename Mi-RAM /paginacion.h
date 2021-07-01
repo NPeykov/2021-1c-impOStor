@@ -15,7 +15,7 @@ typedef enum {
 typedef struct {
 	int pid;
 	t_list* tablaDePaginas;
-} tabla_procesos;
+} t_proceso;
 
 typedef struct {
 	estado_frame estado;
@@ -25,10 +25,17 @@ typedef struct {
 
 typedef struct {
 	int nro_pagina;
-	int nro_frame;
-	bool bit_presencia;
-	bool bit_modificado;
+	int nro_frame_mpal;
+	//int nro_frame_swap;
+	//bool bit_presencia;
 	bool bit_uso;
-	t_list* elementos;
+	t_list* elementos; //aca van los t_alojado
 	int tam_disponible;
 } t_pagina;
+
+typedef struct {
+	int base;
+	int tamanio;
+	tipo_segmento tipo;
+	void* datos;
+} t_alojado;

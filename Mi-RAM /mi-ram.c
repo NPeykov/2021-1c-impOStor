@@ -108,14 +108,18 @@ int crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY,
 	}
 }
 
-/*void verificarSegmento(int resultado_creacion_segmento, int cliente){
-	if(resultado_creacion_segmento == -1){
-		enviar_mensaje_simple("no", cliente);
-		return;
-	}
+void agregarAMemoria(t_list* tabla_de_segmentos){
 
-	//TODO: cuando el resultado sea -1 avisar a discordiador
-}*/
+	void _agregar_a_memoria(void* segmento){
+		Segmento* unSegmento = (Segmento*) segmento;
+		//Se copia la estructura en el malloc de memoria
+		memcpy(memoria + unSegmento->base, unSegmento->dato, unSegmento->tamanio);
+		//Se libera el anterior y se coloca el puntero en la nueva direccion de memoria
+		free(unSegmento->dato);
+		unSegmento->dato = (memoria + unSegmento->base);
+	}
+	list_iterate(tabla_de_segmentos, _agregar_a_memoria);
+}
 
 void crear_proceso(char* cantidad, char* posiciones, char* contenido, int cliente){
 	t_list* tabla_de_segmentos = list_create();
@@ -157,6 +161,9 @@ void crear_proceso(char* cantidad, char* posiciones, char* contenido, int client
 	proceso->tabla_de_segmentos = tabla_de_segmentos;
 	list_add(patotas, proceso);
 	numero_patota += 1;
+
+	agregarAMemoria(tabla_de_segmentos);
+
 	//Hacer post al mutex
 	enviar_mensaje_simple("ok", cliente);
 }
@@ -164,31 +171,40 @@ void crear_proceso(char* cantidad, char* posiciones, char* contenido, int client
 
 
 // Eliminacion de Tripulante
-/*
-void eliminarTripulante(int idTripulante){
 
-	bool chequearSegmentosTCB(void *segmento) {
+void eliminarTripulante(int idTripulante,int idPatota){
+
+
+	bool _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
 		if (unSegmento->tipo == TCB) {
-			TripuCB *unTripulante = unSegmento->dato;
-			return unTripulante->tid == idTripulante;
+			TripuCB *unTripulante = (TripuCB*) (unSegmento->dato);
+			if(unTripulante->tid == idTripulante){
+				free(unSegmento); //Para que se borre el nodo del segmento
+				return 1;
+			}else{
+				return 0;
+			}
 		} else {
 			return 0;
 		}
 	}
 
-	void buscarTripulantes(t_proceso *proceso){
-		t_list* segmentosProceso = proceso->tabla_de_segmentos;
-		list_remove_by_condition(segmentosProceso, chequearSegmentosTCB);
+	void _buscarTripulantes(void *proceso){
+		t_proceso* unaPatota = (t_proceso*) proceso;
+		if(unaPatota->id == idPatota){
+			t_list* segmentosProceso = unaPatota->tabla_de_segmentos;
+			list_remove_by_condition(segmentosProceso, _chequearSegmentosTCB);
+		}
 	}
 
-	list_iterate(patotas, buscarTripulantes);
+	list_iterate(patotas, _buscarTripulantes);
 }
 
-TripuCB *buscarTripulante(int idTripulante){
+TripuCB *buscarTripulante(int idTripulante,int idPatota){
 	TripuCB *elTripulante;
 
-	bool chequearSegmentosTCB(void *segmento) {
+	bool _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
 		if (unSegmento->tipo == TCB) {
 			TripuCB *unTripulante = unSegmento->dato;
@@ -198,31 +214,31 @@ TripuCB *buscarTripulante(int idTripulante){
 		}
 	}
 
-	void recorrerProcesos(t_proceso *proceso){
-		t_list* segmentosProceso = proceso->tabla_de_segmentos;
-		elTripulante = (TripuCB*) list_find(segmentosProceso, chequearSegmentosTCB);
+	void _recorrerProcesos(void *proceso){
+		t_proceso* unaPatota = (t_proceso*) proceso;
+		if(unaPatota->id == idPatota){
+			t_list* segmentosProceso = unaPatota->tabla_de_segmentos;
+			elTripulante = (TripuCB*) list_find(segmentosProceso, _chequearSegmentosTCB);
+		}
 	}
 
 	//Hacer que itere entre cada uno de los procesos, y luego cada uno
 	//de sus segmentos
-	list_iterate(patotas, recorrerProcesos);
+	list_iterate(patotas, _recorrerProcesos);
 	return elTripulante;
 }
 
-void *actualizarTripulante(int idTripulante, char *ubicacion){
+void actualizarTripulante(int idTripulante,int idPatota, char *ubicacion){
 	//Se espera que ubicacion vengaa en un string del estilo "1|2"
 	uint32_t posicionX;
 	uint32_t posicionY;
 	posicionX = (uint32_t) (ubicacion[0]);
 	posicionY = (uint32_t) (ubicacion[2]);
 
-	TripuCB *elTripulante = buscarTripulante(idTripulante);
+	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
 	elTripulante->posX = posicionX;
 	elTripulante->posY = posicionY;
-
-
-	return 0;
-}*/
+}
 
 void *gestionarClienteSeg(int socket) {
 
@@ -250,8 +266,6 @@ void *gestionarClienteSeg(int socket) {
 				char *contenido;
 				char *posiciones;
 				char *cantidad;
-			//posiciones tira segmentation por si no se inicializa con string
-			//Recordar: Se le debe hacer un fstring_delete
 				cantidad = list_get(lista, 0);
 				posiciones = list_get(lista, 1);
 				contenido = list_get(lista, 2);
@@ -259,22 +273,21 @@ void *gestionarClienteSeg(int socket) {
 				crear_proceso(cantidad, posiciones, contenido, cliente);
 
 				log_info(logs_ram, "Se iniciaron %s tripulantes", cantidad);
-
+				liberar_cliente(cliente);
 
 				//hardcodeo esto por la respues de si se puede crear o no una patota
 				//enviar_mensaje_simple("ok", cliente);
-				// enviar_mensaje_simple("no", cliente);
-				printf("Contenido: %s\n", contenido);
+				//enviar_mensaje_simple("no", cliente);
 				//Agregar mutex
-				//crear_proceso(lista, cliente);
 				break;
 
 			case ELIMINAR_TRIPULANTE:
 				lista = recibir_paquete(cliente);
-				uint32_t idTripulante = (uint32_t)((char *) list_get(lista,0));
-				//eliminarTripulante(idTripulante);
-				printf("Tripulante eliminado de la nave %d\n", idTripulante);
-				//liberar_cliente(cliente);
+				int idTripulante = atoi(list_get(lista,0));
+				int idPatota = (int)((char *) list_get(lista,1));
+				eliminarTripulante(idTripulante, idPatota);
+				printf("Tripulante %d de la patota %d eliminado de la nave\n", idTripulante, idPatota);
+				liberar_cliente(cliente);
 				break;
 
 			case ACTUALIZAR_POSICION:;

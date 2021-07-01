@@ -64,20 +64,65 @@ typedef struct{
 
 void *gestionarClienteSeg(int );
 void *gestionarClientePag(int );
-void eliminarTripulante(int );
-void crear_proceso(char *,char *,char *, int cliente);
-//Crea un segmento con la estructura de PCB
+
+//
+//Busca un tripulante dado un idTripulante e id de Patota.
+// #eliminarTripulante(idTripulante, idPatota)
+//
+void eliminarTripulante(int, int);
+
+//
+//Busca entre todos los procesos y retorna el tripulante buscado
+// #buscarTripulante(idTripulante, idPatota)
+//
+TripuCB *buscarTripulante(int ,int);
+
+//
+//Crea un proceso
+// #crear_proceso(cantidadTripulantes, posicionesTripulantes, stringTareas, socket_cliente)
+//
+void crear_proceso(char *,char *,char *, int);
+
+//
+//Actualiza la posicion del tripulante en memoria
+// #actualizarTripulante(idTripulante, idPatota, ubicacionNueva)
+//
+void actualizarTripulante(int ,int , char*);
+
+//
+//Crea un segmento con la estructura de PCB.
+// &Retorna -1 si no hay espacio en memoria
+// #crear_segmento_pcb(direccionTareas, tabla_segmentos_de_proceso)
+//
 int crear_segmento_pcb(uint32_t , t_list*);
 
+//
+//Crea un segmento de tareas.
+// &Las tareas se guardan en un string de formato "primero;tarea1;\nsegundo;tarea2\n"
+// &Retorna -1 si no hay espacio en memoria
+// #crear_segmento_tareas(stringTareas, tabla_segmentos_de_proceso)
+//
 int crear_segmento_tareas(char *, t_list*);
 
+//
 //Crea un segmento con la estructura de TCB
+// &Retorna -1 si no hay espacio en memoria
+// #crear_segmento_tcb(numero_tripulante, posX, posY, dir_pcb, tabla_segmentos_proceso)
+//
 int crear_segmento_tcb(uint32_t , uint32_t , uint32_t , uint32_t, t_list*);
 
+//
 //Obtiene la base logica del ultimo segmento que entrará a RAM
+// &El -1 de las creaciones de segmento llega desde acá.
+// #calcular_base_logica(segmentoAUbicar)
+//
 uint32_t calcular_base_logica(Segmento *);
 
-//Verifica si un segmento se creo y entro a memoria correctamente. Si no lo hizo y retorno -1
-//debe ir y avisar a Discordiador que no hay suficiente memoria
-void verificarSegmento(int);
+//
+//Agrega las estructuras de un proceso al malloc de memoria inicial
+// #agregarAMemoria(tabla_de_segmentos)
+//
+void agregarAMemoria(t_list*);
+
+
 #endif

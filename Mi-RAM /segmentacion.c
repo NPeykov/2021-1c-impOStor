@@ -1,6 +1,41 @@
 #include "segmentacion.h"
 
+void compactacion(){
+	uint32_t finalSegmentoAnterior = 0;
+	uint32_t inicioSegmentoActual = 0;
+
+	void _recorrerSegmentos(void *algo){
+		Segmento *unSegmento = (Segmento*) algo;
+		inicioSegmentoActual = unSegmento->base;
+		if(finalSegmentoAnterior == 0){//El primer segmento
+			finalSegmentoAnterior = unSegmento->tamanio + unSegmento->base;
+		}else if(finalSegmentoAnterior == inicioSegmentoActual){//Empieza donde termina el otro
+			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
+		}else if(inicioSegmentoActual > finalSegmentoAnterior){//Hay un espacio
+			memcpy(memoria + finalSegmentoAnterior, unSegmento->dato, unSegmento->tamanio);
+			printf("Se compacto un espacio");
+		}
+	}
+
+	list_iterate(memoriaPrincipal, _recorrerSegmentos);
+	noCompactado = false;
+}
+
+uint32_t algoritmoBestFit(Segmento *segmento){
+	return (uint32_t) 0;
+}
+
 uint32_t calcular_base_logica(Segmento *segmento){
+	if(esFF){
+		return algoritmoFirstFit(segmento);
+	}else{
+		return (uint32_t) 0; //TODO hacer bestFit
+		//return algoritmoBestFit(segmento);
+	}
+}
+
+
+uint32_t algoritmoFirstFit(Segmento *segmento){
 	uint32_t tamanioNecesario =(uint32_t) segmento->tamanio;
 	uint32_t finalSegmentoAnterior = 0;
 	uint32_t inicioSegmentoActual = 0;
@@ -19,8 +54,8 @@ uint32_t calcular_base_logica(Segmento *segmento){
 		}else if(inicioSegmentoActual > finalSegmentoAnterior &&
 				(inicioSegmentoActual-finalSegmentoAnterior)>= tamanioNecesario){
 			return 1; //Si hay una diferencia entre el segmento actual y el anterior.
-//TODO: ACA DEBERIA IR COMPACTACION POR SI NO SE ENCUENTRA ESPACIO.
 		}else{
+			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
 			return 0; //No hay espacio
 		}
 	}
@@ -31,10 +66,15 @@ uint32_t calcular_base_logica(Segmento *segmento){
 	}
 
 	list_find(memoriaPrincipal, espacioLibre);
-	if(tamaniomemoria > finalSegmentoAnterior + tamanioNecesario){
+	if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
 		return finalSegmentoAnterior;
 	}else{
-		return -1; //Hubo un error
+		if(noCompactado){
+			compactacion();//Se compacta y se hace de nuevo
+			return algoritmoFirstFit(segmento);
+		}else{
+			return -1;//Hubo un error
+		}
 	}
 
 }
@@ -110,6 +150,14 @@ int crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY,
 
 void agregarAMemoria(t_list* tabla_de_segmentos){
 
+
+	bool _laBaseEsMenor(void* segmento1, void* segmento2){
+		Segmento* unSegmento = (Segmento*) segmento1;
+		Segmento* otroSegmento = (Segmento*) segmento2;
+
+		return (unSegmento->base < otroSegmento->base);
+	}
+
 	void _agregar_a_memoria(void* segmento){
 		Segmento* unSegmento = (Segmento*) segmento;
 		//Se copia la estructura en el malloc de memoria
@@ -117,6 +165,8 @@ void agregarAMemoria(t_list* tabla_de_segmentos){
 		//Se libera el anterior y se coloca el puntero en la nueva direccion de memoria
 		free(unSegmento->dato);
 		unSegmento->dato = (memoria + unSegmento->base);
+		list_add_sorted(memoriaPrincipal, unSegmento, _laBaseEsMenor );
+		//El t_list memoriaPrincipal se usa para hacer la compactacion
 	}
 	list_iterate(tabla_de_segmentos, _agregar_a_memoria);
 }
@@ -162,6 +212,7 @@ void crear_proceso(char* cantidad, char* posiciones, char* contenido, int client
 	list_add(patotas, proceso);
 	numero_patota += 1;
 
+	noCompactado = true;
 	agregarAMemoria(tabla_de_segmentos);
 
 	//Hacer post al mutex

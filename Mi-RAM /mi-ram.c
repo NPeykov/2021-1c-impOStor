@@ -23,6 +23,14 @@ void inicializar_ram(){
 	patotas = list_create();
 
 	if(strcmp(tipoMemoria, "SEGMENTACION") == 0){
+		//Se establece el algoritmo de ubicacion
+		char* algoritmoUbicacion =config_get_string_value(config, "ALGORITMO_UBICACION");
+		if(strcmp(algoritmoUbicacion, "FF") == 0){
+			esFF = true;
+		}else{
+			esFF = false;
+		}
+
 		//Agregar Hilos
 		gestionarClienteSeg(socket_mi_ram);
 	}else{

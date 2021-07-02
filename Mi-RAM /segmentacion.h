@@ -12,6 +12,8 @@
 
 t_list* memoriaPrincipal;
 t_list* patotas;
+bool noCompactado = true;
+bool esFF;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
 typedef enum tipo_segmento {
@@ -109,5 +111,16 @@ uint32_t calcular_base_logica(Segmento *);
 //
 void agregarAMemoria(t_list*);
 
+//
+//Calcula la primera direccion donde puede ingresar el segmento
+// #algoritmoFirstFit(segmentoAIngresar)
+//
+uint32_t algoritmoFirstFit(Segmento *);
+
+//
+//Calcula la primera direccion donde el segmento deje el menor espacio libre
+// #algoritmoBestFit(segmentoAIngresar)
+//
+uint32_t algoritmoBestFit(Segmento *);
 
 #endif

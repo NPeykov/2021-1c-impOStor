@@ -13,11 +13,6 @@ typedef enum {
 } estado_frame;
 
 typedef struct {
-	int pid;
-	t_list* tablaDePaginas;
-} t_proceso;
-
-typedef struct {
 	estado_frame estado;
 	uint32_t memoria;
 	int nro_frame;
@@ -39,3 +34,5 @@ typedef struct {
 	tipo_segmento tipo;
 	void* datos;
 } t_alojado;
+
+#endif

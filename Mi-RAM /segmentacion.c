@@ -71,7 +71,9 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 	}else{
 		if(noCompactado){
 			compactacion();//Se compacta y se hace de nuevo
-			return algoritmoFirstFit(segmento);
+			finalSegmentoAnterior =  algoritmoFirstFit(segmento);
+			noCompactado = true;
+			return finalSegmentoAnterior;
 		}else{
 			return -1;//Hubo un error
 		}
@@ -124,15 +126,30 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	}
 }
 
-int crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY, uint32_t segmento_pcb, t_list* tabla_segmentos) {
+int crear_segmento_tcb(t_tripulante_iniciado *unTripulante) {
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
 
+	//Para buscar su patota
+	int patota = (int) unTripulante->numPatota;
+	bool _esLaPatota(void *proceso){
+		t_proceso *unProceso = (t_proceso*) proceso;
+		return unProceso->pid == patota;
+	}
+
+	//Para obtener los valores de la patota
+	t_proceso *miPatota = (t_proceso*) list_find(patotas, _esLaPatota);
+	t_list *tabla_segmentos = miPatota->tabla;
+	Segmento *laPatota = (Segmento*) list_get(tabla_segmentos, 1);//Porque sabemos que se crea tarea->patota
+
+	//Se asignan los valores a la TCB
 	TripuCB *tcb = (TripuCB*) malloc(sizeof(TripuCB));
-	tcb->tid = numero_tripulante;
-	tcb->pcb = segmento_pcb;
-	tcb->posX = posX;
-	tcb->posY = posY;
-	tcb->status = 'N';//Estado New
+	tcb->tid = unTripulante->tid;
+	tcb->pcb = laPatota->base;
+	tcb->posX = unTripulante->posX;
+	tcb->posY = unTripulante->posY;
+	tcb->status = unTripulante->status;
+
+	//Se asigna el acceso rapido de t_proceso
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
 	list_add(tabla_segmentos, segmento);
@@ -148,9 +165,10 @@ int crear_segmento_tcb(uint32_t numero_tripulante, uint32_t posX, uint32_t posY,
 	}
 }
 
-void agregarAMemoria(t_list* tabla_de_segmentos){
 
 
+
+void agregar_a_memoria(Segmento* unSegmento){
 	bool _laBaseEsMenor(void* segmento1, void* segmento2){
 		Segmento* unSegmento = (Segmento*) segmento1;
 		Segmento* otroSegmento = (Segmento*) segmento2;
@@ -158,31 +176,28 @@ void agregarAMemoria(t_list* tabla_de_segmentos){
 		return (unSegmento->base < otroSegmento->base);
 	}
 
-	void _agregar_a_memoria(void* segmento){
-		Segmento* unSegmento = (Segmento*) segmento;
-		//Se copia la estructura en el malloc de memoria
-		memcpy(memoria + unSegmento->base, unSegmento->dato, unSegmento->tamanio);
-		//Se libera el anterior y se coloca el puntero en la nueva direccion de memoria
-		free(unSegmento->dato);
-		unSegmento->dato = (memoria + unSegmento->base);
-		list_add_sorted(memoriaPrincipal, unSegmento, _laBaseEsMenor );
-		//El t_list memoriaPrincipal se usa para hacer la compactacion
-	}
-	list_iterate(tabla_de_segmentos, _agregar_a_memoria);
+	//Se copia la estructura en el malloc de memoria
+	memcpy(memoria + unSegmento->base, unSegmento->dato, unSegmento->tamanio);
+	//Se libera el anterior y se coloca el puntero en la nueva direccion de memoria
+	free(unSegmento->dato);
+	unSegmento->dato = (memoria + unSegmento->base);
+	list_add_sorted(memoriaPrincipal, unSegmento, _laBaseEsMenor );
+	//El t_list memoriaPrincipal se usa para hacer la compactacion
 }
 
-void crear_proceso(char* cantidad, char* posiciones, char* contenido, int cliente){
+void crear_proceso(char* cantidad, char* contenido, int cliente){
 	t_list* tabla_de_segmentos = list_create();
 
+	//Se crea el segmento de tareas
 	int result_tareas =crear_segmento_tareas(contenido, tabla_de_segmentos);
 	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
 	uint32_t inicioTareas = segmento_tareas->base;//Sabemos que siempre se empieza por las tareas
-	//verificarSegmento(result_tareas, cliente);
 	if(result_tareas == -1){
 		enviar_mensaje_simple("no", cliente);
 		return;
 	}
 
+	//Se crea el segmento PCB
 	int result_pcb =crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
 	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
 	//verificarSegmento(result_pcb, cliente);
@@ -191,6 +206,20 @@ void crear_proceso(char* cantidad, char* posiciones, char* contenido, int client
 		return;
 	}
 
+	//Se crea t_proceso como accedo rapido a los segmentos de la patota
+	t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
+	proceso->pid = numero_patota;
+	proceso->tabla = tabla_de_segmentos;
+	list_add(patotas, proceso);
+	numero_patota += 1;
+
+	agregar_a_memoria(segmento_tareas);
+	agregar_a_memoria(segmento_pcb);
+}
+
+
+/*void crear_tripulante(t_tripulante_iniciado unTripulante)
+	//Creacion de tripulante
 	int cantidad_tripulantes = atoi(cantidad);
 	char **list_pos = string_split(posiciones, " ");
 	char **posicion_del_tripulante;
@@ -206,18 +235,9 @@ void crear_proceso(char* cantidad, char* posiciones, char* contenido, int client
 		}
 	}
 
-	t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
-	proceso->pid = numero_patota;
-	proceso->tabla = tabla_de_segmentos;
-	list_add(patotas, proceso);
-	numero_patota += 1;
-
-	noCompactado = true;
-	agregarAMemoria(tabla_de_segmentos);
-
 	//Hacer post al mutex
 	enviar_mensaje_simple("ok", cliente);
-}
+}*/
 
 
 
@@ -315,13 +335,11 @@ void *gestionarClienteSeg(int socket) {
 			case INICIO_PATOTA:
 				lista = recibir_paquete(cliente);
 				char *contenido;
-				char *posiciones;
 				char *cantidad;
 				cantidad = list_get(lista, 0);
-				posiciones = list_get(lista, 1);
 				contenido = list_get(lista, 2);
 
-				crear_proceso(cantidad, posiciones, contenido, cliente);
+				crear_proceso(cantidad, contenido, cliente);
 
 				log_info(logs_ram, "Se iniciaron %s tripulantes", cantidad);
 				liberar_cliente(cliente);
@@ -356,6 +374,7 @@ void *gestionarClienteSeg(int socket) {
 
 			case NUEVO_TRIPULANTE:;
 				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
+				crear_segmento_tcb(nuevo_tripulante);
 				printf("%s\n", nuevo_tripulante->status);
 				printf("%d\n", nuevo_tripulante->tid);
 

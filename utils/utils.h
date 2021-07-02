@@ -59,7 +59,7 @@ typedef struct{
 	uint32_t numPatota;
 	uint32_t tid;
 	uint32_t size_status;
-	char *status;
+	char *status; //cambiar por un solo char
 	uint32_t posX;
 	uint32_t posY;
 } t_tripulante_iniciado;

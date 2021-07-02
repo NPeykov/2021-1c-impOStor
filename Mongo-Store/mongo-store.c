@@ -1,5 +1,7 @@
 #include "mongo-store.h"
 
+void enviar_mensaje_a_discordiador();
+
 int main() {
 
 	int socket_mongo_store, socket_cliente;
@@ -7,7 +9,12 @@ int main() {
 	char* puerto;
 //	t_log* logger;
 
+	pthread_t hilo_sabotaje;
+
+
 	//-------------------------------------------------------//
+
+
 
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 
@@ -20,9 +27,29 @@ int main() {
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
+
+
+	pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)socket_mongo_store);
+	pthread_detach(hilo_sabotaje);
+
 	gestionarCliente(socket_mongo_store );
-	signal(SIGUSR1,rutina);
+
+	//signal(SIGUSR1,rutina);
+
+
 	return EXIT_SUCCESS;
+}
+
+//para probar el aviso de inicio de sabotaje
+void enviar_mensaje_a_discordiador(void *data){
+	int socket_mongo_store = (int) data;
+	int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
+
+	sleep(50);
+
+	printf("ESTOY POR ENVIAR SABOTAJE\n");
+
+	enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_para_sabotaje);
 }
 
 void crearEstructuraFileSystem()
@@ -244,6 +271,17 @@ void *gestionarCliente(int socket) {
 
 		printf("\nLA OPERACION ES: %d\n", operacion);
 
+
+
+//		switch(operacion) {
+//			case OBTENGO_BITACORA:
+//				lista = recibir_paquete(cliente);
+//				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
+//				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
+//				printf("Tripulante recibido %d\n", idTripulante);
+//				printf("Patota recibida %d\n", idPatota);
+//				break;
+//			case ELIMINAR_TRIPULANTE:
 
 		switch (operacion) {
 		case OBTENGO_BITACORA:

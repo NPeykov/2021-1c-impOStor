@@ -266,6 +266,7 @@ void *gestionarClienteSeg(int socket) {
 				char *contenido;
 				char *posiciones;
 				char *cantidad;
+
 				cantidad = list_get(lista, 0);
 				posiciones = list_get(lista, 1);
 				contenido = list_get(lista, 2);
@@ -299,6 +300,7 @@ void *gestionarClienteSeg(int socket) {
 						tripulante_desplazado->posX,
 						tripulante_desplazado->posY);
 
+
 				//lista = recibir_paquete(cliente);
 				//idTripulante = atoi((char *) list_get(lista,0));
 				break;
@@ -308,10 +310,11 @@ void *gestionarClienteSeg(int socket) {
 				printf("%s\n", nuevo_tripulante->status);
 				printf("%d\n", nuevo_tripulante->tid);
 
+
 				break;
 
 			case PEDIDO_TAREA:;
-				char *ejemplo_tarea = "COMER;10;14;15"; //hardcodeo un string para probar desde discordiado
+				char *ejemplo_tarea = "COMER 2;10;14;15"; //hardcodeo un string para probar desde discordiado
 
 				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);

@@ -414,6 +414,7 @@ void *gestionarClienteSeg(int socket) {
 				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
 
 				actualizarTripulante(tripulante_desplazado);
+				liberar_cliente(cliente);
 				break;
 
 			case NUEVO_TRIPULANTE:;
@@ -421,7 +422,7 @@ void *gestionarClienteSeg(int socket) {
 				crear_segmento_tcb(nuevo_tripulante);
 				printf("%s\n", nuevo_tripulante->status);
 				printf("%d\n", nuevo_tripulante->tid);
-
+				liberar_cliente(cliente);
 				break;
 
 			case PEDIDO_TAREA:;
@@ -437,6 +438,7 @@ void *gestionarClienteSeg(int socket) {
 						tripulante_desplazado->tid);*/
 
 				enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
+				liberar_cliente(cliente);
 				break;
 
 			case -1:
@@ -452,3 +454,43 @@ void *gestionarClienteSeg(int socket) {
 		liberar_cliente(cliente);
 	}
 }
+/*
+void dumpMemoriaSeg(){
+	int idPatota;
+	char *horaActual = *temporal_get_string_time("%d-%m-%y_%H:%M:%S");
+	char *nombreArchivo = "dump_"+horaActual+".dmp";
+
+	char* ruta = string_from_format("./Dump/%s",nombreArchivo);
+
+	FILE* archivo = txt_open_for_append(ruta);
+	char* textoAEscribir = "Dump :" + horaActual;
+
+	void _recorrerSegmentos(void* segmento){
+		Segmento *unSegmento = (Segmento*) segmento;
+		int idSegmento = unSegmento->idSegmento;
+		uint32_t base = unSegmento->base;
+		int tamanio = unSegmento->tamanio;
+
+
+		char* dumpMarco = string_from_format("Proceso:%d    Segmento:%d      Inicio:0x%x    Tamanio:%db \n",idPatota, idSegmento, base, tamanio);
+		txt_write_in_file(archivo, dumpMarco);
+	}
+
+	void _recorrerPatotas(void* proceso){
+		t_proceso *unProceso = (t_proceso*) proceso;
+		idPatota = unProceso->pid;
+		list_iterate(unProceso->tabla, _recorrerSegmentos);
+
+	}
+
+
+
+	txt_write_in_file(archivo, "---------------------------------\n");
+	txt_write_in_file(textoAEscribir, textoAEscribir);
+
+	list_iterate(patotas, _recorrerPatotas);
+
+	txt_write_in_file(archivo, "---------------------------------\n");
+}
+*/
+

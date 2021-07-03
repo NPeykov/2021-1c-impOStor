@@ -10,6 +10,8 @@
 #include <commons/string.h>
 #include "segmentacion.h"
 #include "paginacion.h"
+#include <commons/temporal.h>
+#include <commons/txt.h>
 
 int servidor;
 int socket_mi_ram;

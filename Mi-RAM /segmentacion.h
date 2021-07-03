@@ -142,4 +142,11 @@ char *buscarTarea(uint32_t, int);
 //
 char *obtenerTareaSiguiente(t_tripulante_iniciado*);
 
+//
+//Muestra la situacion de la memoria
+// #obtenertareaSiguiente(tripulanteDeDiscordiador)
+//
+void dumpMemoriaSeg();
+
+
 #endif

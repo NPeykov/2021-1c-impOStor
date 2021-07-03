@@ -103,6 +103,7 @@ void enviar_paquete(t_paquete* paquete, int socket_cliente);
 void eliminar_paquete(t_paquete* paquete);
 void enviar_mensaje(op_code, char*, int);
 char *recibir_mensaje(int);
+void enviar_mensaje_simple(char *, int);
 
 t_list* recibir_paquete(int);
 int recibir_operacion(int);

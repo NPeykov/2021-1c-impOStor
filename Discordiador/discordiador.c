@@ -822,7 +822,7 @@ void planificar() {
 
 
 void atender_comandos_consola(void) {
-	t_list *respuesta;
+	t_list *respuesta= list_create();
 	static int num_pausas = 0; //para manejar el tipo de signal
 	int socket_ram;
 	int socket_store;
@@ -859,9 +859,9 @@ void atender_comandos_consola(void) {
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
 
-			recibir_operacion(socket_ram);
+			int a = recibir_operacion(socket_ram);
 			respuesta2 = recibir_mensaje(socket_ram);
-
+			printf("codigo: %d", a);
 			printf("RESPUESTA: %s", respuesta2);
 
 			if(strcmp(respuesta2, "ok") == 0){

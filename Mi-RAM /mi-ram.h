@@ -18,9 +18,14 @@ char* puerto;
 int socket_cliente;
 int numero_patota = 1;
 char* tipoMemoria;
-void *memoria;
+void* memoria;
 int tamaniomemoria;
 t_log *logs_ram;
+
+// Todos los int de 32bits hacen referencia a una direccion en la memoria
+typedef enum tipo_estructura {
+	PCB, TCB, TAREAS
+} tipo_estructura;
 
 typedef struct{
 	int pid;

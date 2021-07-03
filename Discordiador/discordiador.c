@@ -1067,26 +1067,26 @@ void avisar_movimiento_a_mongo(int sourceX, int sourceY, Tripulante* tripulante)
 void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operacion, int socket){
 	t_paquete *paquete = crear_paquete(tipo_operacion);
 	t_tripulante_iniciado *tripulante_enviado = malloc(sizeof(t_tripulante_iniciado));
-	char *estado;
+	char estado;
 
 	switch (tripulante->estado) {
 	case LLEGADA:
-		estado = "Llegada";
+		estado = 'N';
 		break;
 	case LISTO:
-		estado = "Listo";
+		estado = 'R';
 		break;
 	case TRABAJANDO:
-		estado = "Trabajando";
+		estado = 'E';
 		break;
 	case BLOQUEADO_IO:
-		estado = "BloqueadoIO";
+		estado = 'B';
 		break;
 	case BLOQUEADO_EMERGENCIA:
-		estado = "BloqueadoEM";
+		estado = 'B';
 		break;
 	case FINALIZADO:
-		estado = "Finalizado";
+		estado = 'F';
 		break;
 	}
 
@@ -1094,7 +1094,7 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 	tripulante_enviado->tid         = tripulante->id;
 	tripulante_enviado->posX	    = tripulante->posicionX;
 	tripulante_enviado->posY	    = tripulante->posicionY;
-	tripulante_enviado->size_status = string_length(estado) + 1;
+	tripulante_enviado->size_status = sizeof(estado);
 	tripulante_enviado->status	    = estado;
 
 	paquete->buffer->size = sizeof(uint32_t) * 5 + tripulante_enviado->size_status;
@@ -1111,7 +1111,7 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 	offset += sizeof(uint32_t);
 	memcpy(stream + offset, &(tripulante_enviado->size_status), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
-	memcpy(stream + offset, tripulante_enviado->status, tripulante_enviado->size_status);
+	memcpy(stream + offset, &tripulante_enviado->status, tripulante_enviado->size_status);
 
 	paquete->buffer->stream = stream;
 

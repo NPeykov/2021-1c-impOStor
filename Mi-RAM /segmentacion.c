@@ -420,7 +420,7 @@ void *gestionarClienteSeg(int socket) {
 			case NUEVO_TRIPULANTE:;
 				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
 				crear_segmento_tcb(nuevo_tripulante);
-				printf("%s\n", nuevo_tripulante->status);
+				printf("%c\n", nuevo_tripulante->status);
 				printf("%d\n", nuevo_tripulante->tid);
 				liberar_cliente(cliente);
 				break;

@@ -31,7 +31,10 @@ void inicializar_ram(){
 			esFF = false;
 		}
 
-		//Agregar Hilos
+		//pthread_t hilo_cliente;
+
+		//pthread_create(&hilo_cliente, NULL, (void *)gestionarClienteSeg(socket_mi_ram), NULL);
+
 		gestionarClienteSeg(socket_mi_ram);
 	}else{
 		//Agregar Hilos

@@ -16,14 +16,10 @@ bool noCompactado = true;
 bool esFF;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
-typedef enum tipo_segmento {
-	PCB, TCB, TAREAS
-} tipo_segmento;
-
 
 typedef struct{
 	int idSegmento;
-	tipo_segmento tipo;//PCB TCB Tareas
+	tipo_estructura tipo;//PCB TCB Tareas
 	uint32_t base;
 	int tamanio;
 	void *dato;

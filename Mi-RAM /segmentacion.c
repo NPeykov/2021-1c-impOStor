@@ -22,18 +22,62 @@ void compactacion(){
 }
 
 uint32_t algoritmoBestFit(Segmento *segmento){
-	return (uint32_t) 0;
+	uint32_t tamanioNecesario =(uint32_t) segmento->tamanio;
+	uint32_t finalSegmentoAnterior = 0;
+	uint32_t inicioSegmentoActual = 0;
+	uint32_t espacioLibreUbicacion = (uint32_t) tamaniomemoria; //Cuanto espacio queda libre si se coloca en ubicacionMasJusta
+	uint32_t ubicacionMasJusta = 0; //Aca se va guardando la mejor posicion encontrada
+	printf("Calcule una base logica\n");
+	//ESTO SERIA FIRST FIT
+	//Determina si hay un espacio libre entre dos segmentos
+	void espacioLibre(void* segmentoActual){
+	Segmento* unSegmento =(Segmento*) segmentoActual;
+	inicioSegmentoActual = unSegmento->base;
+		if(finalSegmentoAnterior==0){//El primer elemento de la lista
+			finalSegmentoAnterior = unSegmento->tamanio + unSegmento->base;
+		}else if(finalSegmentoAnterior == inicioSegmentoActual){//Empieza donde termina el anterior
+			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
+		}else if(inicioSegmentoActual > finalSegmentoAnterior && //Hay un espacio entre ambos y es mayor o igual al necesario
+				(inicioSegmentoActual-finalSegmentoAnterior)>= tamanioNecesario){
+			if(( inicioSegmentoActual - finalSegmentoAnterior + tamanioNecesario) < espacioLibreUbicacion){
+				ubicacionMasJusta = inicioSegmentoActual + unSegmento->tamanio;
+				espacioLibreUbicacion = inicioSegmentoActual - finalSegmentoAnterior + tamanioNecesario;
+			}
+		}else{
+			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
+		}
+	}
+
+	//Si no hay nada en memoria principal la dir es 0 por ser primero
+	if(list_is_empty(memoriaPrincipal)){
+		return (uint32_t) 0;
+	}
+
+	list_iterate(memoriaPrincipal, espacioLibre);//Este es el mayor cambio entre FF y BF
+	if(tamaniomemoria >= ubicacionMasJusta + tamanioNecesario){
+		return ubicacionMasJusta;
+	}else if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
+		return finalSegmentoAnterior;//Para el ultimo segmento
+	}else{
+		if(noCompactado){
+			compactacion();//Se compacta y se hace de nuevo
+			ubicacionMasJusta =  algoritmoBestFit(segmento);
+			noCompactado = true;
+			return ubicacionMasJusta;
+		}else{
+			return -1;//Hubo un error
+		}
+	}
 }
 
 uint32_t calcular_base_logica(Segmento *segmento){
 	if(esFF){
 		return algoritmoFirstFit(segmento);
 	}else{
-		return (uint32_t) 0; //TODO hacer bestFit
+		return algoritmoBestFit(segmento);
 		//return algoritmoBestFit(segmento);
 	}
 }
-
 
 uint32_t algoritmoFirstFit(Segmento *segmento){
 	uint32_t tamanioNecesario =(uint32_t) segmento->tamanio;
@@ -148,6 +192,7 @@ int crear_segmento_tcb(t_tripulante_iniciado *unTripulante) {
 	tcb->posX = unTripulante->posX;
 	tcb->posY = unTripulante->posY;
 	tcb->status = unTripulante->status;
+	tcb->proxIns = (uint32_t) 0;
 
 	//Se asigna el acceso rapido de t_proceso
 
@@ -164,9 +209,6 @@ int crear_segmento_tcb(t_tripulante_iniciado *unTripulante) {
 		return 0;
 	}
 }
-
-
-
 
 void agregar_a_memoria(Segmento* unSegmento){
 	bool _laBaseEsMenor(void* segmento1, void* segmento2){
@@ -213,38 +255,12 @@ void crear_proceso(char* cantidad, char* contenido, int cliente){
 	list_add(patotas, proceso);
 	numero_patota += 1;
 
+	//Se agregan ambos segmentos al malloc
 	agregar_a_memoria(segmento_tareas);
 	agregar_a_memoria(segmento_pcb);
 }
 
-
-/*void crear_tripulante(t_tripulante_iniciado unTripulante)
-	//Creacion de tripulante
-	int cantidad_tripulantes = atoi(cantidad);
-	char **list_pos = string_split(posiciones, " ");
-	char **posicion_del_tripulante;
-
-	for(int i=0; i < cantidad_tripulantes ; i++){
-		printf("%s\n", list_pos[i]);
-		posicion_del_tripulante = string_split(list_pos[i], "|");
-		int result_tcb = crear_segmento_tcb((uint32_t) i,(uint32_t) posicion_del_tripulante[0],(uint32_t) posicion_del_tripulante[1], segmento_pcb->base, tabla_de_segmentos);
-		//verificarSegmento(result_tcb, cliente);
-		if(result_tcb == -1){
-			enviar_mensaje_simple("no", cliente);
-			return;
-		}
-	}
-
-	//Hacer post al mutex
-	enviar_mensaje_simple("ok", cliente);
-}*/
-
-
-
-// Eliminacion de Tripulante
-
 void eliminarTripulante(int idTripulante,int idPatota){
-
 
 	bool _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
@@ -299,16 +315,50 @@ TripuCB *buscarTripulante(int idTripulante,int idPatota){
 	return elTripulante;
 }
 
-void actualizarTripulante(int idTripulante,int idPatota, char *ubicacion){
+void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 	//Se espera que ubicacion vengaa en un string del estilo "1|2"
 	uint32_t posicionX;
 	uint32_t posicionY;
-	posicionX = (uint32_t) (ubicacion[0]);
-	posicionY = (uint32_t) (ubicacion[2]);
+	posicionX = tripulanteActualizado->posX;
+	posicionY = tripulanteActualizado->posY;
+	int idTripulante = tripulanteActualizado->tid;
+	int idPatota = tripulanteActualizado->numPatota;
 
 	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
 	elTripulante->posX = posicionX;
 	elTripulante->posY = posicionY;
+	elTripulante->status = tripulanteActualizado->status;
+}
+
+Segmento *buscarSegmento(uint32_t baseSegmento){
+
+	bool _esElSegmento(void *algo){
+		Segmento *unSegmento = (Segmento*) algo;
+		return (unSegmento->base == baseSegmento);
+	}
+
+	Segmento *elSegmento = (Segmento*) list_find(memoriaPrincipal, _esElSegmento);
+	return elSegmento;
+}
+
+char *buscarTarea(uint32_t baseSegmentoTareas, int indiceTarea){
+	Segmento *segmentoTareas = buscarSegmento(baseSegmentoTareas);
+	char *todasLasTareas = (char*) segmentoTareas->dato;
+	char **tareasSeparadas = string_split(todasLasTareas, "\n");
+	return tareasSeparadas[indiceTarea];
+}
+
+char *obtenerTareaSiguiente(t_tripulante_iniciado *tripulante){
+	int idTripulante = tripulante->tid;
+	int idPatota = tripulante->numPatota;
+
+	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
+	int proximaTarea = (int) elTripulante->proxIns;
+	Segmento *segmentoPatotaDelTripulante = buscarSegmento(elTripulante->pcb);
+	PatotaCB *PatotaDelTripu = (PatotaCB*) segmentoPatotaDelTripulante->dato;
+	return buscarTarea(PatotaDelTripu->tareas, proximaTarea);
+
+
 }
 
 void *gestionarClienteSeg(int socket) {
@@ -363,13 +413,7 @@ void *gestionarClienteSeg(int socket) {
 
 				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
 
-				printf("Tripulante %d se movio a (%d, %d)",
-						tripulante_desplazado->tid,
-						tripulante_desplazado->posX,
-						tripulante_desplazado->posY);
-
-				//lista = recibir_paquete(cliente);
-				//idTripulante = atoi((char *) list_get(lista,0));
+				actualizarTripulante(tripulante_desplazado);
 				break;
 
 			case NUEVO_TRIPULANTE:;
@@ -381,17 +425,18 @@ void *gestionarClienteSeg(int socket) {
 				break;
 
 			case PEDIDO_TAREA:;
-				char *ejemplo_tarea = "COMER;10;14;15"; //hardcodeo un string para probar desde discordiado
+				 //char *ejemplo_tarea = "COMER;10;14;15";hardcodeo un string para probar desde discordiado
 
 				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
 
+				char* tarea = obtenerTareaSiguiente(tripulante_tarea);
 
 				printf("Tripulante %d pidio tarea.\n", tripulante_tarea->tid);
 				/*log_info(logs_ram, "Tripulante %d pidio tarea.",
 						tripulante_desplazado->tid);*/
 
-				enviar_mensaje(PEDIDO_TAREA, ejemplo_tarea, cliente);
+				enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
 				break;
 
 			case -1:

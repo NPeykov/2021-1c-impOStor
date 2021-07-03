@@ -74,7 +74,7 @@ void crear_proceso(char *,char *, int);
 //Actualiza la posicion del tripulante en memoria
 // #actualizarTripulante(idTripulante, idPatota, ubicacionNueva)
 //
-void actualizarTripulante(int ,int , char*);
+void actualizarTripulante(t_tripulante_iniciado*);
 
 //
 //Crea un segmento con la estructura de PCB.
@@ -96,7 +96,7 @@ int crear_segmento_tareas(char *, t_list*);
 // &Retorna -1 si no hay espacio en memoria
 // #crear_segmento_tcb(numero_tripulante, posX, posY, dir_pcb, tabla_segmentos_proceso)
 //
-int crear_segmento_tcb(t_tripulante_iniciado);
+int crear_segmento_tcb(t_tripulante_iniciado*);
 
 //
 //Obtiene la base logica del ultimo segmento que entrará a RAM
@@ -122,5 +122,24 @@ uint32_t algoritmoFirstFit(Segmento *);
 // #algoritmoBestFit(segmentoAIngresar)
 //
 uint32_t algoritmoBestFit(Segmento *);
+
+//
+//Dado una direccion logica, retorna el segmento alojado ahi
+// #buscarSegmento(dirSegmento)
+//
+Segmento *buscarSegmento(uint32_t);
+
+//
+//Dada la dir del segmento de memoria, y el indice de la tarea
+// retorna la tarea de ese indice
+// #buscarTarea(dirTareas, indice)
+//
+char *buscarTarea(uint32_t, int);
+
+//
+//Obtiene la siguiente tarea segun el tripulante recibido de discordiador
+// #obtenertareaSiguiente(tripulanteDeDiscordiador)
+//
+char *obtenerTareaSiguiente(t_tripulante_iniciado*);
 
 #endif

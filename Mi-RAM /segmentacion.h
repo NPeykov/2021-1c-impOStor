@@ -9,6 +9,7 @@
 #include "../utils/utils.h"
 #include <commons/string.h>
 #include "mi-ram.h"
+#include <pthread.h>
 
 t_list* memoriaPrincipal;
 t_list* patotas;
@@ -19,7 +20,7 @@ bool esFF;
 
 typedef struct{
 	int idSegmento;
-	tipo_estructura tipo;//PCB TCB Tareas
+	int tipo;//PCB TCB Tareas
 	uint32_t base;
 	int tamanio;
 	void *dato;
@@ -64,7 +65,7 @@ TripuCB *buscarTripulante(int ,int);
 //Crea un proceso
 // #crear_proceso(cantidadTripulantes, posicionesTripulantes, stringTareas, socket_cliente)
 //
-void crear_proceso(char *,char *, int);
+void crear_proceso(char *, int);
 
 //
 //Actualiza la posicion del tripulante en memoria
@@ -92,7 +93,7 @@ int crear_segmento_tareas(char *, t_list*);
 // &Retorna -1 si no hay espacio en memoria
 // #crear_segmento_tcb(numero_tripulante, posX, posY, dir_pcb, tabla_segmentos_proceso)
 //
-int crear_segmento_tcb(t_tripulante_iniciado*);
+int crear_segmento_tcb(t_tripulante_iniciado*, int);
 
 //
 //Obtiene la base logica del ultimo segmento que entrará a RAM

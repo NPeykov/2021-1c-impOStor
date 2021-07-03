@@ -9,7 +9,7 @@
 #include "../utils/utils.h"
 #include <commons/string.h>
 #include "segmentacion.h"
-#include "paginacion.h"
+//#include "paginacion.h"
 #include <commons/temporal.h>
 #include <commons/txt.h>
 
@@ -25,7 +25,7 @@ int tamaniomemoria;
 t_log *logs_ram;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
-typedef enum tipo_estructura {
+typedef enum {
 	PCB, TCB, TAREAS
 } tipo_estructura;
 

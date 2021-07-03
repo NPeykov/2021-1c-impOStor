@@ -170,7 +170,7 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	}
 }
 
-int crear_segmento_tcb(t_tripulante_iniciado *unTripulante) {
+int crear_segmento_tcb(t_tripulante_iniciado *unTripulante, int cliente) {
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	//Para buscar su patota
@@ -204,8 +204,10 @@ int crear_segmento_tcb(t_tripulante_iniciado *unTripulante) {
 	segmento->base = calcular_base_logica(segmento);
 
 	if(segmento->base == -1){
+		enviar_mensaje_simple("no", cliente);
 		return -1;//Por si hay error retorna -1
 	}else{
+		enviar_mensaje_simple("ok", cliente);
 		return 0;
 	}
 }
@@ -227,7 +229,7 @@ void agregar_a_memoria(Segmento* unSegmento){
 	//El t_list memoriaPrincipal se usa para hacer la compactacion
 }
 
-void crear_proceso(char* cantidad, char* contenido, int cliente){
+void crear_proceso(char* contenido, int cliente){
 	t_list* tabla_de_segmentos = list_create();
 
 	//Se crea el segmento de tareas
@@ -258,6 +260,7 @@ void crear_proceso(char* cantidad, char* contenido, int cliente){
 	//Se agregan ambos segmentos al malloc
 	agregar_a_memoria(segmento_tareas);
 	agregar_a_memoria(segmento_pcb);
+	enviar_mensaje_simple("ok", cliente);
 }
 
 void eliminarTripulante(int idTripulante,int idPatota){
@@ -374,7 +377,6 @@ void *gestionarClienteSeg(int socket) {
 
 	while(1) {
 		cliente = esperar_cliente(socket);
-		printf("Cliente: %d\n", cliente);
 
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
@@ -389,14 +391,12 @@ void *gestionarClienteSeg(int socket) {
 				cantidad = list_get(lista, 0);
 				contenido = list_get(lista, 2);
 
-				crear_proceso(cantidad, contenido, cliente);
+				crear_proceso(contenido, cliente);
 
-				log_info(logs_ram, "Se iniciaron %s tripulantes", cantidad);
+				log_info(logs_ram, "Se inicio una patota.\n", cantidad);
 				liberar_cliente(cliente);
 
 				//hardcodeo esto por la respues de si se puede crear o no una patota
-				//enviar_mensaje_simple("ok", cliente);
-				//enviar_mensaje_simple("no", cliente);
 				//Agregar mutex
 				break;
 
@@ -419,9 +419,8 @@ void *gestionarClienteSeg(int socket) {
 
 			case NUEVO_TRIPULANTE:;
 				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
-				crear_segmento_tcb(nuevo_tripulante);
-				printf("%c\n", nuevo_tripulante->status);
-				printf("%d\n", nuevo_tripulante->tid);
+				crear_segmento_tcb(nuevo_tripulante, cliente);
+				printf("Se creo un nuevo tripulante.\n");
 				liberar_cliente(cliente);
 				break;
 

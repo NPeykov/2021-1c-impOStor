@@ -106,7 +106,9 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 
 	//Si no hay nada en memoria principal la dir es 0 por ser primero
 	if(list_is_empty(memoriaPrincipal)){
+		printf("Calcule una base logica 0\n");
 		return (uint32_t) 0;
+
 	}
 
 	list_find(memoriaPrincipal, espacioLibre);
@@ -117,6 +119,7 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 		if(noCompactado){
 			compactacion();//Se compacta y se hace de nuevo
 			finalSegmentoAnterior =  algoritmoFirstFit(segmento);
+			printf("Calcule una base logica %d\n", finalSegmentoAnterior);
 			noCompactado = true;
 			return finalSegmentoAnterior;
 		}else{
@@ -132,6 +135,7 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	//Se llena el segmento
 	segmento->tipo = TAREAS;
 	segmento->dato = tareas;
+	printf("Tareas guardadas: %s\n", tareas);
 	segmento->tamanio = string_length(tareas);
 	segmento->base = calcular_base_logica(segmento);
 	segmento->idSegmento = tabla_segmentos->elements_count;
@@ -241,6 +245,7 @@ void crear_proceso(char* contenido, int cliente){
 		enviar_mensaje_simple("no", cliente);
 		return;
 	}
+	agregar_a_memoria(segmento_tareas);
 
 	//Se crea el segmento PCB
 	int result_pcb =crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
@@ -250,6 +255,7 @@ void crear_proceso(char* contenido, int cliente){
 		enviar_mensaje_simple("no", cliente);
 		return;
 	}
+	agregar_a_memoria(segmento_pcb);
 
 	//Se crea t_proceso como accedo rapido a los segmentos de la patota
 	t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
@@ -258,9 +264,6 @@ void crear_proceso(char* contenido, int cliente){
 	list_add(patotas, proceso);
 	numero_patota += 1;
 
-	//Se agregan ambos segmentos al malloc
-	agregar_a_memoria(segmento_tareas);
-	agregar_a_memoria(segmento_pcb);
 	enviar_mensaje_simple("ok", cliente);
 }
 
@@ -295,13 +298,11 @@ void eliminarTripulante(int idTripulante,int idPatota){
 TripuCB *buscarTripulante(int idTripulante,int idPatota){
 	TripuCB *elTripulante;
 
-	bool _chequearSegmentosTCB(void *segmento) {
+	void _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
 		if (unSegmento->tipo == TCB) {
-			TripuCB *unTripulante = unSegmento->dato;
-			return unTripulante->tid == idTripulante;
-		} else {
-			return 0;
+			TripuCB *unTripulante = (TripuCB*) unSegmento->dato;
+			if(unTripulante->tid == idTripulante){elTripulante = unTripulante;};
 		}
 	}
 
@@ -309,7 +310,7 @@ TripuCB *buscarTripulante(int idTripulante,int idPatota){
 		t_proceso* unaPatota = (t_proceso*) proceso;
 		if(unaPatota->pid == idPatota){
 			t_list* segmentosProceso = unaPatota->tabla;
-			elTripulante = (TripuCB*) list_find(segmentosProceso, _chequearSegmentosTCB);
+			list_iterate(segmentosProceso, _chequearSegmentosTCB);
 		}
 	}
 
@@ -434,7 +435,7 @@ void *gestionarClienteSeg(int socket) {
 
 				char* tarea = obtenerTareaSiguiente(tripulante_tarea);
 
-				printf("Tripulante %d pidio tarea.\n", tripulante_tarea->tid);
+				printf("Tripulante %d pidio la tarea %s.\n", tripulante_tarea->tid, tarea);
 				/*log_info(logs_ram, "Tripulante %d pidio tarea.",
 						tripulante_desplazado->tid);*/
 

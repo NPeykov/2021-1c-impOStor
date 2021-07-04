@@ -83,7 +83,7 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 	uint32_t tamanioNecesario =(uint32_t) segmento->tamanio;
 	uint32_t finalSegmentoAnterior = 0;
 	uint32_t inicioSegmentoActual = 0;
-	printf("Calcule una base logica\n");
+
 	//ESTO SERIA FIRST FIT
 	//Determina si hay un espacio libre entre dos segmentos
 	bool espacioLibre(void* segmentoActual){
@@ -111,6 +111,7 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 
 	list_find(memoriaPrincipal, espacioLibre);
 	if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
+		printf("Calcule una base logica %d\n", finalSegmentoAnterior);
 		return finalSegmentoAnterior;
 	}else{
 		if(noCompactado){
@@ -348,6 +349,7 @@ char *buscarTarea(uint32_t baseSegmentoTareas, int indiceTarea){
 	Segmento *segmentoTareas = buscarSegmento(baseSegmentoTareas);
 	char *todasLasTareas = (char*) segmentoTareas->dato;
 	char **tareasSeparadas = string_split(todasLasTareas, "\n");
+	//Separe el string
 	return tareasSeparadas[indiceTarea];
 }
 

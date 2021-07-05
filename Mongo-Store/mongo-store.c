@@ -392,6 +392,59 @@ default:
 }
 
 }
+t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
+	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);
+
+
+	size_t size = (size_t) cant_bloques / 8;
+	//printf("\nSize = %d\n", size);
+	char *rutaBitmap = malloc(strlen(ubicacion) + 20);
+	strcpy(rutaBitmap, ubicacion);
+	strcat(rutaBitmap, "/Bitmap.bin");
+
+	int fd = open(rutaBitmap, O_CREAT | O_RDWR, 0777);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "Error al abrir el archivo Bitmap.bin");
+		exit(1);
+	}
+	ftruncate(fd, size);
+
+	void* bmap = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+	if (bmap == MAP_FAILED) {
+		close(fd);
+		exit(1);
+	}
+
+	t_bitarray* bitmap = bitarray_create_with_mode((char*) bmap, size, MSB_FIRST);
+
+
+	msync(bitmap, size, MS_SYNC);
+	free(rutaBitmap);
+	return bitmap;
+}
+
+int obtener_bloque_libre(t_bitarray* bitmap){
+	size_t tamanio = bitarray_get_max_bit(bitmap);
+	int i;
+	for(i=0; i<tamanio; i++){
+		if(bitarray_test_bit(bitmap, i)== 0){
+			return i;
+		}
+	}
+	return -1;
+}
+void ocupar_bloque(t_bitarray* bitmap, int bloque){
+	bitarray_set_bit(bitmap,bloque);
+	return;
+}
+void liberar_bloque(t_bitarray* bitmap, int bloque){
+	bitarray_clean_bit(bitmap,bloque);
+	return;
+}
+
+
+
 #define PATH_OXIGENO "pruebas_tarea/Oxigeno.ims"
 #define PATH_COMIDA "pruebas_tarea/Comida.ims"
 #define PATH_BASURA "pruebas_tarea/Basura.ims"
@@ -618,7 +671,7 @@ void generar_basura(int cantidad){
 //    	    pos_actual = ftell(archivo);
 //    	    ftruncate(fileno(archivo), pos_actual);
 //    	    fclose(archivo);
-//    	    return;
+//    	    return/home/utnso/tp-2021-1c-impOStor;
 //    	  }
 //
 //    	  else{

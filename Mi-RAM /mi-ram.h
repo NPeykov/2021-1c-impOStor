@@ -22,6 +22,7 @@ int numero_patota = 1;
 char* tipoMemoria;
 void* memoria;
 int tamaniomemoria;
+t_list* patotas;
 t_log *logs_ram;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria

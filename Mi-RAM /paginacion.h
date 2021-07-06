@@ -33,23 +33,32 @@ typedef struct {
 	//int nro_frame_swap;
 	//bool bit_presencia;
 	bool bit_uso;
-	t_list* estructurasAlojadas;
+	t_list* estructuras_alojadas;
 	int tam_disponible;
 } t_pagina;
 
 typedef struct {
+	int nro_estructura;
 	int base;
 	int tamanio;
 	tipo_estructura tipo;
-	void* datos;
+	int flagid;
 } t_alojado;
 
 t_bitarray* frames_ocupados_ppal;
+int cant_marcos_memoria;
 
 pthread_mutex_t mutexEscribiendoMemoria;
+pthread_mutex_t mutexBitArray;
 
-bool get_frame(int, int);
+bool traer_marco_valido(int, int);
 void asignar_marco_en_uso(int, int);
+void liberar_marco(int, int);
 void* leer_memoria_pag(int, int);
+void agregarEstructAdminTipoPAG(t_pagina*, int ,int , tipo_estructura , int);
 int insertar_en_memoria_pag(t_pagina*, void*, int, int*, tipo_estructura, int*);
+uint32_t buscar_marco_disponible(int );
+int marco_vacio(int );
+void* buscar_pagina(t_pagina* );
+
 #endif

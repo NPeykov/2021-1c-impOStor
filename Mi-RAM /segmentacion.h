@@ -12,7 +12,6 @@
 #include <pthread.h>
 
 t_list* memoriaPrincipal;
-t_list* patotas;
 bool noCompactado = true;
 bool esFF;
 

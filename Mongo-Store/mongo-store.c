@@ -26,13 +26,13 @@ int main() {
 
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
-	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
-
-
-	pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)socket_mongo_store);
-	pthread_detach(hilo_sabotaje);
-
-	gestionarCliente(socket_mongo_store );
+//	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
+//
+//
+//	pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)socket_mongo_store);
+//	pthread_detach(hilo_sabotaje);
+//
+//	gestionarCliente(socket_mongo_store );
 
 	//signal(SIGUSR1,rutina);
 
@@ -103,14 +103,26 @@ void crearEstructuraFileSystem()
 	{
 		printf("Se creo el directorio de montaje =) \n");
 		//Crea superBloque
-		char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+		    char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
 			strcpy(superBloqueRuta, puntoMontaje);
 			strcat(superBloqueRuta, "/SuperBloque.ims");
+			block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+			blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+
 			// Creo el archivo superBloque
 			f = fopen(superBloqueRuta, "w");
-			fputs("1", f);
-			fclose(f);
-			free(superBloqueRuta);
+			 char* tamanioBloque = malloc(10); sprintf(tamanioBloque, "%d",block_size);
+			 fputs("BLOCK_SIZE=", f); fputs(tamanioBloque,f); fputs("\n",f);
+			 char* bloques = malloc(10);
+			 sprintf(bloques, "%d",block_size);
+			 fputs("BLOCKS=", f);fputs(bloques,f); fputs("\n",f);
+			 fclose(f);
+			 free(superBloqueRuta);
+			 free(tamanioBloque);
+			 free(bloques);
+			 bitmap = crear_bitmap(superBloqueRuta,blocks);
+
+
 		//Crea Blocks
 		char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
 		strcpy(blocksRuta, puntoMontaje);
@@ -218,6 +230,37 @@ void crearEstructuraFileSystem()
 	}
 }
 
+t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
+	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);
+
+
+	size_t size = (size_t) cant_bloques / 8;
+	//printf("\nSize = %d\n", size);
+	char *rutaBitmap = malloc(strlen(ubicacion) + 20);
+	strcpy(rutaBitmap, ubicacion);
+	strcat(rutaBitmap, "/Bitmap.bin");
+
+	int fd = open(rutaBitmap, O_CREAT | O_RDWR, 0777);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "Error al abrir el archivo Bitmap.bin");
+		exit(1);
+	}
+	ftruncate(fd, size);
+
+	void* bmap = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+	if (bmap == MAP_FAILED) {
+		close(fd);
+		exit(1);
+	}
+
+	t_bitarray* bitmap = bitarray_create_with_mode((char*) bmap, size, MSB_FIRST);
+
+
+	msync(bitmap, size, MS_SYNC);
+	free(rutaBitmap);
+	return bitmap;
+}
 
 
 //TODO: cambiar nombre funcion y completar
@@ -254,115 +297,115 @@ void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTa
 
 
 
-void *gestionarCliente(int socket) {
-//	socket_cliente = esperar_cliente(socket);
-	int conexionCliente;
-	t_list* lista;
-	int operacion;
-	t_paquete *paquete;
-	int respuesta;
-	int cliente;
-
-	while (1) {
-		cliente = esperar_cliente(socket);
-		printf("Cliente: %d\n", cliente);
-		operacion = recibir_operacion(cliente);
-		lista = NULL;
-
-		printf("\nLA OPERACION ES: %d\n", operacion);
-
-
-
-//		switch(operacion) {
-//			case OBTENGO_BITACORA:
-//				lista = recibir_paquete(cliente);
-//				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
-//				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
-//				printf("Tripulante recibido %d\n", idTripulante);
-//				printf("Patota recibida %d\n", idPatota);
-//				break;
-//			case ELIMINAR_TRIPULANTE:
-
-		switch (operacion) {
-		case OBTENGO_BITACORA:
-			lista = recibir_paquete(cliente);
-			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
-			uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
-			printf("Tripulante recibido %d\n", idTripulante);
-			paquete=crear_paquete(OBTENGO_BITACORA);
-			printf("Patota recibida %d\n", idPatota);
-			//agregar los elementos encontrados para ese ID al paquete "paquete"
-			enviar_paquete(paquete,cliente);
-//             	int idTripulante = atoi((char *) list_get(lista,0));
-//            	printf("Tripulante recibido %d\n", idTripulante);
-			break;
-		case ELIMINAR_TRIPULANTE:
-
-//				lista = recibir_paquete(cliente);
-//				int idTripulante = atoi((char *) list_get(lista,0));
-//				eliminarTripulante(idTripulante);
-//				printf("Tripulante eliminado de la nave %d\n", idTripulante);
-			//liberar_cliente(cliente);
-			break;
-		case ACTUALIZAR_POSICION:
-
-			m_movimiento_tripulante *tripulanteEnMovimiento =
-					(m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
-
-			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
-
-			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
-					tripulanteEnMovimiento->idPatota,
-					tripulanteEnMovimiento->origenX,
-					tripulanteEnMovimiento->origenY,
-					tripulanteEnMovimiento->destinoX,
-					tripulanteEnMovimiento->destinoY);
-
-			break;
-
-		case INICIO_TAREA:
-			m_estado_tarea_tripulante *tripulanteConTarea =
-					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
-			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
-			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
-			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
-
-			break;
-
-		case FIN_TAREA:
-			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
-								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
-
-			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
-
-			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
-
-			if(tripulanteConTareaFinalizada -> tipo_tarea == TAREA_IO){
-
-				//aca llenaria el archivo tantas veces como el 'parametro'
-				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);
-			}
-
-			break;
-
-		case -1:
-			printf("El cliente %d se desconecto.\n", cliente);
-			//liberar_cliente(cliente);
-			break;
-		default:
-			printf("Operacion desconocida.\n");
-			break;
-
-		}
-		liberar_cliente(cliente);
-
-	}
-//	 Se mueve de X|Y a X’|Y’
-//	 Comienza ejecución de tarea X
-//	 Se finaliza la tarea X
-//	 Se corre en pánico hacia la ubicación del sabotaje
-//	 Se resuelve el sabotaje
-}
+//void *gestionarCliente(int socket) {
+////	socket_cliente = esperar_cliente(socket);
+//	int conexionCliente;
+//	t_list* lista;
+//	int operacion;
+//	t_paquete *paquete;
+//	int respuesta;
+//	int cliente;
+//
+//	while (1) {
+//		cliente = esperar_cliente(socket);
+//		printf("Cliente: %d\n", cliente);
+//		operacion = recibir_operacion(cliente);
+//		lista = NULL;
+//
+//		printf("\nLA OPERACION ES: %d\n", operacion);
+//
+//
+//
+////		switch(operacion) {
+////			case OBTENGO_BITACORA:
+////				lista = recibir_paquete(cliente);
+////				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
+////				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
+////				printf("Tripulante recibido %d\n", idTripulante);
+////				printf("Patota recibida %d\n", idPatota);
+////				break;
+////			case ELIMINAR_TRIPULANTE:
+//
+//		switch (operacion) {
+//		case OBTENGO_BITACORA:
+//			lista = recibir_paquete(cliente);
+//			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
+//			uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
+//			printf("Tripulante recibido %d\n", idTripulante);
+//			paquete=crear_paquete(OBTENGO_BITACORA);
+//			printf("Patota recibida %d\n", idPatota);
+//			//agregar los elementos encontrados para ese ID al paquete "paquete"
+//			enviar_paquete(paquete,cliente);
+////             	int idTripulante = atoi((char *) list_get(lista,0));
+////            	printf("Tripulante recibido %d\n", idTripulante);
+//			break;
+//		case ELIMINAR_TRIPULANTE:
+//
+////				lista = recibir_paquete(cliente);
+////				int idTripulante = atoi((char *) list_get(lista,0));
+////				eliminarTripulante(idTripulante);
+////				printf("Tripulante eliminado de la nave %d\n", idTripulante);
+//			//liberar_cliente(cliente);
+//			break;
+//		case ACTUALIZAR_POSICION:
+//
+//			m_movimiento_tripulante *tripulanteEnMovimiento =
+//					(m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+//
+//			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
+//
+//			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
+//					tripulanteEnMovimiento->idPatota,
+//					tripulanteEnMovimiento->origenX,
+//					tripulanteEnMovimiento->origenY,
+//					tripulanteEnMovimiento->destinoX,
+//					tripulanteEnMovimiento->destinoY);
+//
+//			break;
+//
+//		case INICIO_TAREA:
+//			m_estado_tarea_tripulante *tripulanteConTarea =
+//					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+//			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
+//			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
+//			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
+//
+//			break;
+//
+//		case FIN_TAREA:
+//			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
+//								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+//
+//			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
+//
+//			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
+//
+//			if(tripulanteConTareaFinalizada -> tipo_tarea == TAREA_IO){
+//
+//				//aca llenaria el archivo tantas veces como el 'parametro'
+//				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);
+//			}
+//
+//			break;
+//
+//		case -1:
+//			printf("El cliente %d se desconecto.\n", cliente);
+//			//liberar_cliente(cliente);
+//			break;
+//		default:
+//			printf("Operacion desconocida.\n");
+//			break;
+//
+//		}
+//		liberar_cliente(cliente);
+//
+//	}
+////	 Se mueve de X|Y a X’|Y’
+////	 Comienza ejecución de tarea X
+////	 Se finaliza la tarea X
+////	 Se corre en pánico hacia la ubicación del sabotaje
+////	 Se resuelve el sabotaje
+//}
 
 void gestionarSabotaje(){
 int operacion;
@@ -382,47 +425,16 @@ int operacion;
 
 }
 }
-void rutina(int n){
-switch(n){
-case SIGUSR1:
-		printf("LLEGO SIGUSR1.\n”);
-	break;
-default:
-	break;
-}
-
-}
-t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
-	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);
-
-
-	size_t size = (size_t) cant_bloques / 8;
-	//printf("\nSize = %d\n", size);
-	char *rutaBitmap = malloc(strlen(ubicacion) + 20);
-	strcpy(rutaBitmap, ubicacion);
-	strcat(rutaBitmap, "/Bitmap.bin");
-
-	int fd = open(rutaBitmap, O_CREAT | O_RDWR, 0777);
-
-	if (fd == -1) {
-		log_error(mongoLogger, "Error al abrir el archivo Bitmap.bin");
-		exit(1);
-	}
-	ftruncate(fd, size);
-
-	void* bmap = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-	if (bmap == MAP_FAILED) {
-		close(fd);
-		exit(1);
-	}
-
-	t_bitarray* bitmap = bitarray_create_with_mode((char*) bmap, size, MSB_FIRST);
-
-
-	msync(bitmap, size, MS_SYNC);
-	free(rutaBitmap);
-	return bitmap;
-}
+//void rutina(int n){
+//switch(n) {
+//case SIGUSR1:
+//printf("LLEGO SIGUSR1.\n”);
+//break;
+//default:
+//	printf("Operacion desconocida.\n");
+//	break;
+//}
+//}
 
 int obtener_bloque_libre(t_bitarray* bitmap){
 	size_t tamanio = bitarray_get_max_bit(bitmap);
@@ -596,39 +608,7 @@ void generar_basura(int cantidad){
 //    	}
 //  }
 
-    	void consumir_oxigeno(int cant_borrar){
 
-    	  if(access(PATH_OXIGENO, F_OK) == 0){
-    	    FILE *archivo = fopen(PATH_OXIGENO, "a+");
-    	    long int pos_actual;
-    	    long int cant_ox_disponible;
-
-    	    fseek(archivo, 0, SEEK_END);
-    	    cant_ox_disponible = ftell(archivo) / sizeof(char);
-
-    	    printf("cantidadOxigenos = %ld\n", cant_ox_disponible);
-
-    	    if(cant_borrar > cant_ox_disponible){
-    	      fseek(archivo, 0, SEEK_SET);
-    	      //hay que avisar que intento borrar mas de los disponible
-    	    }
-    	    else{
-    	      fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
-    	    }
-    	    pos_actual = ftell(archivo);
-    	    ftruncate(fileno(archivo), pos_actual);
-    	    fclose(archivo);
-    	    return;
-    	  }
-
-    	  else{
-    	    printf("SACAR-OX: no existe archivo!\n");
-    	    //no existe el archivo
-    	    //hay que avisar
-    	    //se podria avisar mediante un valor de retorno
-    	    return;
-    	  }
-    	}
 
 
 //    	void generar_comida(int cantidad){

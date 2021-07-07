@@ -22,9 +22,12 @@ char *dirBlocks;
 t_config* mongoConfig;
 t_log* mongoLogger;
 int socket_cliente;
+int blocks;
+int block_size;
+t_bitarray *bitmap;
 
 void crearEstructuraFileSystem();
-t_bitarray* crear_bitmap(char *ubicacion);
+t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
 void liberar_bloque(t_bitarray* bitmap, int bloque);
 void ocupar_bloque(t_bitarray* bitmap, int bloque);
 int obtener_bloque_libre(t_bitarray* bitmap) ;

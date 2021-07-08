@@ -160,6 +160,7 @@ sem_t otros_inicios;
 sem_t termino_sabotaje_planificador;
 sem_t resolvi_sabotaje; //capaz no sea necesario
 sem_t ya_sali_de_exec; //por si fue expulsado
+sem_t voy_a_ready;
 
 //PROTOTIPO DE FUNCIONES
 void  inicializarTripulantes();
@@ -175,6 +176,7 @@ void liberar_cliente(int);
 void imprimir_respuesta_log(t_list*);
 void reanudar_hilos_lista(Estado);
 void expulsar_tripulante(int, int);
+void listar_discordiador(void);
 
 
 

@@ -819,7 +819,7 @@ void planificar() {
 
 
 void atender_comandos_consola(void) {
-	t_list *respuesta;
+	t_list *respuesta= list_create();
 	static int num_pausas = 0; //para manejar el tipo de signal
 	int socket_ram;
 	int socket_store;
@@ -856,9 +856,9 @@ void atender_comandos_consola(void) {
 
 			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
 
-			recibir_operacion(socket_ram);
+			int a = recibir_operacion(socket_ram);
 			respuesta2 = recibir_mensaje(socket_ram);
-
+			printf("codigo: %d", a);
 			printf("RESPUESTA: %s", respuesta2);
 
 			//if(strcmp(respuesta2, "ok") == 0){
@@ -1067,26 +1067,26 @@ void avisar_movimiento_a_mongo(int sourceX, int sourceY, Tripulante* tripulante)
 void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operacion, int socket){
 	t_paquete *paquete = crear_paquete(tipo_operacion);
 	t_tripulante_iniciado *tripulante_enviado = malloc(sizeof(t_tripulante_iniciado));
-	char *estado;
+	char estado;
 
 	switch (tripulante->estado) {
 	case LLEGADA:
-		estado = "Llegada";
+		estado = 'N';
 		break;
 	case LISTO:
-		estado = "Listo";
+		estado = 'R';
 		break;
 	case TRABAJANDO:
-		estado = "Trabajando";
+		estado = 'E';
 		break;
 	case BLOQUEADO_IO:
-		estado = "BloqueadoIO";
+		estado = 'B';
 		break;
 	case BLOQUEADO_EMERGENCIA:
-		estado = "BloqueadoEM";
+		estado = 'B';
 		break;
 	case FINALIZADO:
-		estado = "Finalizado";
+		estado = 'F';
 		break;
 	}
 
@@ -1094,7 +1094,7 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 	tripulante_enviado->tid         = tripulante->id;
 	tripulante_enviado->posX	    = tripulante->posicionX;
 	tripulante_enviado->posY	    = tripulante->posicionY;
-	tripulante_enviado->size_status = string_length(estado) + 1;
+	tripulante_enviado->size_status = sizeof(estado);
 	tripulante_enviado->status	    = estado;
 
 	paquete->buffer->size = sizeof(uint32_t) * 5 + tripulante_enviado->size_status;
@@ -1111,7 +1111,7 @@ void serializar_y_enviar_tripulante(Tripulante *tripulante, op_code tipo_operaci
 	offset += sizeof(uint32_t);
 	memcpy(stream + offset, &(tripulante_enviado->size_status), sizeof(uint32_t));
 	offset += sizeof(uint32_t);
-	memcpy(stream + offset, tripulante_enviado->status, tripulante_enviado->size_status);
+	memcpy(stream + offset, &tripulante_enviado->status, tripulante_enviado->size_status);
 
 	paquete->buffer->stream = stream;
 

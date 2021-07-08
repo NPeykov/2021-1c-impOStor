@@ -1,1 +1,5 @@
-ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log
+ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(10026:10026): Error al abrir el archivo Bitmap.bin
+[ERROR] 19:28:36:315 Mongo/(10201:10201): Error al abrir el archivo Bitmap.bin
+[ERROR] 19:33:10:254 Mongo/(10632:10632): Error al abrir el archivo Bitmap.bin
+[ERROR] 19:34:00:259 Mongo/(10744:10744): Error al abrir el archivo Bitmap.bin
+[TRACE] 09:09:52:329 Mongo/(15911:15911): Estructura creada.

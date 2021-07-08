@@ -317,10 +317,10 @@ t_tripulante_iniciado *recibir_tripulante_iniciado(int socket_cliente){
 	offset+=sizeof(uint32_t);
 	memcpy(&(tripulante->size_status), buffer->stream + offset, sizeof(uint32_t));
 	offset+=sizeof(uint32_t);
-	tripulante->status = malloc(tripulante->size_status);
-	memcpy(tripulante->status, buffer->stream + offset, tripulante->size_status);
+	//tripulante->status =(char) malloc(sizeof(char));
+	memcpy(&tripulante->status, buffer->stream + offset, sizeof(char));
 
-	tripulante->status[tripulante->size_status] = '\0';
+	//tripulante->status[tripulante->size_status] = '\0';
 
 	return tripulante;
 }

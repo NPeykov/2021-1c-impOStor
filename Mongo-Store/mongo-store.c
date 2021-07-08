@@ -101,25 +101,43 @@ void crearEstructuraFileSystem()
 	}
 	else
 	{
-		printf("Se creo el directorio de montaje =) \n");
-		//Crea superBloque
-		char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+			printf("Se creo el directorio de montaje =) \n");
+			//Crea superBloque
+		    char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
 			strcpy(superBloqueRuta, puntoMontaje);
 			strcat(superBloqueRuta, "/SuperBloque.ims");
+			block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+			blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+
 			// Creo el archivo superBloque
 			f = fopen(superBloqueRuta, "w");
-			fputs("1", f);
-			fclose(f);
-			free(superBloqueRuta);
-		//Crea Blocks
-		char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-		strcpy(blocksRuta, puntoMontaje);
-		strcat(blocksRuta, "/Blocks.ims");
-		// Creo el archivo Blocks
-		f = fopen(blocksRuta, "w");
-		fputs("1", f);
-		fclose(f);
-		free(blocksRuta);
+			 char* tamanioBloque = malloc(10); sprintf(tamanioBloque, "%d",block_size);
+			 fputs("BLOCK_SIZE=", f); fputs(tamanioBloque,f); fputs("\n",f);
+			 char* bloques = malloc(10);
+			 sprintf(bloques, "%d",block_size);
+			 fputs("BLOCKS=", f);fputs(bloques,f); fputs("\n",f);
+			 fclose(f);
+			 free(superBloqueRuta);
+			 free(tamanioBloque);
+			 free(bloques);
+			//Crep el archivo bitmap.bin
+			 bitmap = crear_bitmap(puntoMontaje,blocks);
+
+
+			 //Crea Blocks
+			 char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+			 strcpy(blocksRuta, puntoMontaje);
+			 strcat(blocksRuta, "/Blocks.ims");
+			 //			log_trace(mongoLogger, "Estructura creada.");
+			 int X = block_size * blocks;
+			 f = fopen(blocksRuta, "w");
+			 fputs("1", f);
+			 fseek(f, X , SEEK_SET);
+			 putc('\0', f);
+			 fclose(f);
+			 free(blocksRuta);
+
+
 		//Creo carpeta Files
 		if(mkdir(dirFiles, 0777) == 0)
 				{
@@ -219,6 +237,38 @@ void crearEstructuraFileSystem()
 }
 
 
+t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
+	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);
+
+
+	size_t size = (size_t) cant_bloques / 8;
+	//printf("\nSize = %d\n", size);
+	char *rutaBitmap = malloc(strlen(ubicacion) + 20);
+	strcpy(rutaBitmap, ubicacion);
+	strcat(rutaBitmap, "/Bitmap.bin");
+
+	int fd = open(rutaBitmap, O_CREAT | O_RDWR, 0777);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "Error al abrir el archivo Bitmap.bin");
+		exit(1);
+	}
+	ftruncate(fd, size);
+
+	void* bmap = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+	if (bmap == MAP_FAILED) {
+		close(fd);
+		exit(1);
+	}
+
+	t_bitarray* bitmap = bitarray_create_with_mode((char*) bmap, size, MSB_FIRST);
+
+
+	msync(bitmap, size, MS_SYNC);
+	free(rutaBitmap);
+	return bitmap;
+}
+
 
 //TODO: cambiar nombre funcion y completar
 //NOTA: voy a buscar las funciones de el manejo de archivo q habia hecho
@@ -304,10 +354,9 @@ void *gestionarCliente(int socket) {
 //				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 			//liberar_cliente(cliente);
 			break;
-		case ACTUALIZAR_POSICION:
+		case ACTUALIZAR_POSICION:;
 
-			m_movimiento_tripulante *tripulanteEnMovimiento =
-					(m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			m_movimiento_tripulante *tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
 
@@ -320,18 +369,16 @@ void *gestionarCliente(int socket) {
 
 			break;
 
-		case INICIO_TAREA:
-			m_estado_tarea_tripulante *tripulanteConTarea =
-					(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+		case INICIO_TAREA:;
+			m_estado_tarea_tripulante *tripulanteConTarea = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
 			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
 			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
 
 			break;
 
-		case FIN_TAREA:
-			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
-								(m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+		case FIN_TAREA:;
+			m_estado_tarea_tripulante *tripulanteConTareaFinalizada = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 
 			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
 
@@ -382,16 +429,38 @@ int operacion;
 
 }
 }
-void rutina(int n){
-switch(n){
-case SIGUSR1:
-		printf("LLEGO SIGUSR1.\n”);
-	break;
-default:
-	break;
+//void rutina(int n){
+//switch(n) {
+//case SIGUSR1:
+//printf("LLEGO SIGUSR1.\n”);
+//break;
+//default:
+//	printf("Operacion desconocida.\n");
+//	break;
+//}
+//}
+
+int obtener_bloque_libre(t_bitarray* bitmap){
+	size_t tamanio = bitarray_get_max_bit(bitmap);
+	int i;
+	for(i=0; i<tamanio; i++){
+		if(bitarray_test_bit(bitmap, i)== 0){
+			return i;
+		}
+	}
+	return -1;
+}
+void ocupar_bloque(t_bitarray* bitmap, int bloque){
+	bitarray_set_bit(bitmap,bloque);
+	return;
+}
+void liberar_bloque(t_bitarray* bitmap, int bloque){
+	bitarray_clean_bit(bitmap,bloque);
+	return;
 }
 
-}
+
+
 #define PATH_OXIGENO "pruebas_tarea/Oxigeno.ims"
 #define PATH_COMIDA "pruebas_tarea/Comida.ims"
 #define PATH_BASURA "pruebas_tarea/Basura.ims"
@@ -543,39 +612,7 @@ void generar_basura(int cantidad){
 //    	}
 //  }
 
-    	void consumir_oxigeno(int cant_borrar){
 
-    	  if(access(PATH_OXIGENO, F_OK) == 0){
-    	    FILE *archivo = fopen(PATH_OXIGENO, "a+");
-    	    long int pos_actual;
-    	    long int cant_ox_disponible;
-
-    	    fseek(archivo, 0, SEEK_END);
-    	    cant_ox_disponible = ftell(archivo) / sizeof(char);
-
-    	    printf("cantidadOxigenos = %ld\n", cant_ox_disponible);
-
-    	    if(cant_borrar > cant_ox_disponible){
-    	      fseek(archivo, 0, SEEK_SET);
-    	      //hay que avisar que intento borrar mas de los disponible
-    	    }
-    	    else{
-    	      fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
-    	    }
-    	    pos_actual = ftell(archivo);
-    	    ftruncate(fileno(archivo), pos_actual);
-    	    fclose(archivo);
-    	    return;
-    	  }
-
-    	  else{
-    	    printf("SACAR-OX: no existe archivo!\n");
-    	    //no existe el archivo
-    	    //hay que avisar
-    	    //se podria avisar mediante un valor de retorno
-    	    return;
-    	  }
-    	}
 
 
 //    	void generar_comida(int cantidad){
@@ -618,7 +655,7 @@ void generar_basura(int cantidad){
 //    	    pos_actual = ftell(archivo);
 //    	    ftruncate(fileno(archivo), pos_actual);
 //    	    fclose(archivo);
-//    	    return;
+//    	    return/home/utnso/tp-2021-1c-impOStor;
 //    	  }
 //
 //    	  else{

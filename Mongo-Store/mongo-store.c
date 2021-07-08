@@ -101,8 +101,8 @@ void crearEstructuraFileSystem()
 	}
 	else
 	{
-		printf("Se creo el directorio de montaje =) \n");
-		//Crea superBloque
+			printf("Se creo el directorio de montaje =) \n");
+			//Crea superBloque
 		    char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
 			strcpy(superBloqueRuta, puntoMontaje);
 			strcat(superBloqueRuta, "/SuperBloque.ims");
@@ -120,14 +120,22 @@ void crearEstructuraFileSystem()
 			 free(superBloqueRuta);
 			 free(tamanioBloque);
 			 free(bloques);
-			 bitmap = crear_bitmap(superBloqueRuta,blocks);
+			//Crep el archivo bitmap.bin
+			 bitmap = crear_bitmap(puntoMontaje,blocks);
 
 
-		//Crea Blocks
-		char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-		strcpy(blocksRuta, puntoMontaje);
-		strcat(blocksRuta, "/Blocks.ims");
-		// Creo el archivo Blocks
+			 //Crea Blocks
+			 char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+			 strcpy(blocksRuta, puntoMontaje);
+			 strcat(blocksRuta, "/Blocks.ims");
+			 // Creo el archivo Blocks no sirve es un solo archivo con todos los bloques esto crea un archivo x bloque
+//			 if(mkdir(blocksRuta, 0777) == 0) {crearBloques(blocksRuta);}
+//				else {
+//					log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Blocks.");
+//					return;
+//				}
+//
+//			log_trace(mongoLogger, "Estructura creada.");
 		f = fopen(blocksRuta, "w");
 		fputs("1", f);
 		fclose(f);
@@ -228,6 +236,24 @@ void crearEstructuraFileSystem()
 		log_trace(logger, "Estructura creada.");
 		*/
 	}
+}
+void crearBloques(char *dirBlocks)
+{
+	FILE *f;
+	char *rutaArchivo = malloc(strlen(dirBlocks) + 20);
+	for(int i = 0; i < blocks; i++) {
+		char* n = malloc(5);
+		sprintf(n, "%d", i);
+		strcpy(rutaArchivo, dirBlocks);
+		strcat(rutaArchivo, "/");
+		strcat(rutaArchivo, n);
+		strcat(rutaArchivo, ".bin");
+		f = fopen(rutaArchivo, "w");
+		fclose(f);
+		free(n);
+	}
+
+	free(rutaArchivo);
 }
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){

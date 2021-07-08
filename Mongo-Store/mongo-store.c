@@ -128,18 +128,16 @@ void crearEstructuraFileSystem()
 			 char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
 			 strcpy(blocksRuta, puntoMontaje);
 			 strcat(blocksRuta, "/Blocks.ims");
-			 // Creo el archivo Blocks no sirve es un solo archivo con todos los bloques esto crea un archivo x bloque
-//			 if(mkdir(blocksRuta, 0777) == 0) {crearBloques(blocksRuta);}
-//				else {
-//					log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Blocks.");
-//					return;
-//				}
-//
-//			log_trace(mongoLogger, "Estructura creada.");
-		f = fopen(blocksRuta, "w");
-		fputs("1", f);
-		fclose(f);
-		free(blocksRuta);
+			 //			log_trace(mongoLogger, "Estructura creada.");
+			 int X = block_size * blocks;
+			 f = fopen(blocksRuta, "w");
+			 fputs("1", f);
+			 fseek(f, X , SEEK_SET);
+			 putc('\0', f);
+			 fclose(f);
+			 free(blocksRuta);
+
+
 		//Creo carpeta Files
 		if(mkdir(dirFiles, 0777) == 0)
 				{
@@ -237,24 +235,7 @@ void crearEstructuraFileSystem()
 		*/
 	}
 }
-void crearBloques(char *dirBlocks)
-{
-	FILE *f;
-	char *rutaArchivo = malloc(strlen(dirBlocks) + 20);
-	for(int i = 0; i < blocks; i++) {
-		char* n = malloc(5);
-		sprintf(n, "%d", i);
-		strcpy(rutaArchivo, dirBlocks);
-		strcat(rutaArchivo, "/");
-		strcat(rutaArchivo, n);
-		strcat(rutaArchivo, ".bin");
-		f = fopen(rutaArchivo, "w");
-		fclose(f);
-		free(n);
-	}
 
-	free(rutaArchivo);
-}
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);

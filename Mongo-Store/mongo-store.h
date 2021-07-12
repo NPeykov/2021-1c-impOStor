@@ -25,6 +25,7 @@ int socket_cliente;
 int blocks;
 int block_size;
 t_bitarray *bitmap;
+t_list* archAbiertos;
 
 void crearEstructuraFileSystem();
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);

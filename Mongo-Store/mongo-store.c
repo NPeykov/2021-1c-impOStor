@@ -381,16 +381,18 @@ int operacion;
 
 }
 }
-//void rutina(int n){
-//switch(n) {
-//case SIGUSR1:
-//printf("LLEGO SIGUSR1.\n”);
-//break;
-//default:
-//	printf("Operacion desconocida.\n");
-//	break;
-//}
-//}
+void rutina(int n){
+switch(n) {
+		case SIGUSR1:;
+			printf("llego sigusr1");
+			break;
+		case 2:
+			break;
+    default:
+	printf("Operacion desconocida.\n");
+	break;
+}
+}
 
 int obtener_bloque_libre(t_bitarray* bitmap){
 	size_t tamanio = bitarray_get_max_bit(bitmap);

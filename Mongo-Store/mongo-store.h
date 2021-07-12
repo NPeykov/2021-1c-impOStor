@@ -13,6 +13,7 @@
 #include <semaphore.h>
 #include <sys/mman.h>
 #include <fcntl.h>
+#include <signal.h>
 
 char *puntoMontaje;
 char *dirMetadata;

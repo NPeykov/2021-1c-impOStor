@@ -212,24 +212,39 @@ void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTa
 		printf("Cantidad a llenar: %d\n",
 						tripulanteConTareaFinalizada->parametro);
 		int cantidadO = tripulanteConTareaFinalizada->parametro;
-		generarOxigeno(cantidadO);
+		generar_oxigeno(cantidadO);
 		break;
 
 	case CONSUMIR_OXIGENO:
-		printf("ES CONSUMIRR OXIGENO\n");
+		printf("ES CONSUMIR OXIGENO\n");
 		printf("Cantidad a consumir: %d\n",
 							tripulanteConTareaFinalizada->parametro);
-		int cantidadO = tripulanteConTareaFinalizada->parametro;
-		consumirOxigeno(cantidadO);
+		int cantidadOx = tripulanteConTareaFinalizada->parametro;
+		consumir_oxigeno(cantidadOx);
 		break;
 
 	case GENERAR_COMIDA:
+		printf("ES GENERAR COMIDA\n");
+		printf("Cantidad a llenar: %d\n",
+							tripulanteConTareaFinalizada->parametro);
+		int cantidadC = tripulanteConTareaFinalizada->parametro;
+		generar_comida(cantidadC);
 		break;
 
 	case CONSUMIR_COMIDA:
+		    printf("ES CONSUMIR COMIDA\n");
+			printf("Cantidad a consumir: %d\n",
+								tripulanteConTareaFinalizada->parametro);
+			int cantidadCo = tripulanteConTareaFinalizada->parametro;
+			consumir_comida(cantidadCo);
 		break;
 
 	case GENERAR_BASURA:
+	    printf("ES GENERAR BASURA \n");
+				printf("Cantidad a llenar: %d\n",
+									tripulanteConTareaFinalizada->parametro);
+				int cantidadB = tripulanteConTareaFinalizada->parametro;
+				generar_basura(cantidadB);
 		break;
 
 	case DESCARTAR_BASURA:
@@ -398,8 +413,6 @@ void liberar_bloque(t_bitarray* bitmap, int bloque){
 
 
 
-
-#define PATH_COMIDA "pruebas_tarea/Comida.ims"
 #define PATH_BASURA "pruebas_tarea/Basura.ims"
 void generar_oxigeno(int cantidad){
 	char* oxigenoRuta = malloc(strlen(dirFiles) + strlen("/Oxigeno.ims") + 1);
@@ -460,8 +473,11 @@ void consumir_oxigeno(int cant_borrar){
 
 
 void generar_comida(int cantidad){
-  int existeArchivo = access(PATH_COMIDA, F_OK);
-  FILE *archivo = fopen(PATH_COMIDA, "a+");
+	char* comidaRuta = malloc(strlen(dirFiles) + strlen("/Comida.ims") + 1);
+	strcpy(comidaRuta, dirFiles);
+	strcat(comidaRuta, "/Comida.ims");
+	int existeArchivo = access(comidaRuta, F_OK);
+	FILE *archivo = fopen(comidaRuta, "a+");
 
   if(existeArchivo == 0){
     printf("El archivo EXISTE!\n");
@@ -478,9 +494,9 @@ void generar_comida(int cantidad){
 
 
 void consumir_comida(int cant_borrar){
-
-  if(access(PATH_COMIDA, F_OK) == 0){
-    FILE *archivo = fopen(PATH_COMIDA, "a+");
+	char* comidaRuta = malloc(strlen(dirFiles) + strlen("/Comida.ims") + 1);
+  if(access(comidaRuta, F_OK) == 0){
+    FILE *archivo = fopen(comidaRuta, "a+");
     long int pos_actual;
     long int cant_com_disponible;
 
@@ -492,6 +508,7 @@ void consumir_comida(int cant_borrar){
     if(cant_borrar > cant_com_disponible){
       fseek(archivo, 0, SEEK_SET);
       //hay que avisar que intento borrar mas de los disponible
+      log_error(mongoLogger, "Se intento borrar más comida de la disponible");
     }
     else{
       fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
@@ -505,16 +522,19 @@ void consumir_comida(int cant_borrar){
   else{
     printf("SACAR-COM: no existe archivo!\n");
     //no existe el archivo
-    //hay que avisar
-    //se podria avisar mediante un valor de retorno
+    log_error(mongoLogger, "No existe el archivo Comida.ims");
     return;
   }
 }
 
 
 void generar_basura(int cantidad){
-  int existeArchivo = access(PATH_BASURA, F_OK);
-  FILE *archivo = fopen(PATH_BASURA, "a+");
+	char* basuraRuta = malloc(strlen(dirFiles) + strlen("/Basura.ims") + 1);
+	strcpy(basuraRuta, dirFiles);
+	strcat(basuraRuta, "/Basura.ims");
+	int existeArchivo = access(basuraRuta, F_OK);
+
+  FILE *archivo = fopen(basuraRuta, "a+");
 
   if(existeArchivo == 0){
     printf("El archivo EXISTE!\n");
@@ -528,105 +548,6 @@ void generar_basura(int cantidad){
   }
   fclose(archivo);
 }
-
-//void descartar_basura(int cant_borrar){
-//
-//  if(access(PATH_BASURA, F_OK) == 0){
-//    FILE *archivo = fopen(PATH_BASURA, "a+");
-//    long int pos_actual;
-//    long int cant_bas_disponible;
-//
-//    fseek(archivo, 0, SEEK_END);
-//    cant_bas_disponible = ftell(archivo) / sizeof(cvoid generar_oxigeno(int cantidad){
-//    	  int existeArchivo = access(PATH_OXIGENO, F_OK);
-//    	  FILE *archivo = fopen(PATH_OXIGENO, "a+");
-//
-//    	  if(existeArchivo == 0){
-//    	    printf("El archivo EXISTE!\n");
-//    	    fseek(archivo, -1, SEEK_END);
-//    	    for(int i=0; i < cantidad; i++)
-//    	      fputc('O', archivo);
-//    	  }
-//    	  else {
-//    	    for(int i=0; i < cantidad; i++)
-//    	      fputc('O', archivo);
-//    	  }
-//    	  fclose(archivo);
-//    	}
-//  }
-
-
-
-
-//    	void generar_comida(int cantidad){
-//    	  int existeArchivo = access(PATH_COMIDA, F_OK);
-//    	  FILE *archivo = fopen(PATH_COMIDA, "a+");
-//
-//    	  if(existeArchivo == 0){
-//    	    printf("El archivo EXISTE!\n");
-//    	    fseek(archivo, -1, SEEK_END);
-//    	    for(int i=0; i < cantidad; i++)
-//    	      fputc('C', archivo);
-//    	  }
-//    	  else {
-//    	    for(int i=0; i < cantidad; i++)
-//    	      fputc('C', archivo);
-//    	  }
-//    	  fclose(archivo);
-//    	}
-//
-//
-//    	void consumir_comida(int cant_borrar){
-//
-//    	  if(access(PATH_COMIDA, F_OK) == 0){
-//    	    FILE *archivo = fopen(PATH_COMIDA, "a+");
-//    	    long int pos_actual;
-//    	    long int cant_com_disponible;
-//
-//    	    fseek(archivo, 0, SEEK_END);
-//    	    cant_com_disponible = ftell(archivo) / sizeof(char);
-//
-//    	    printf("cantidadComida = %ld\n", cant_com_disponible);
-//
-//    	    if(cant_borrar > cant_com_disponible){
-//    	      fseek(archivo, 0, SEEK_SET);
-//    	      //hay que avisar que intento borrar mas de los disponible
-//    	    }
-//    	    else{
-//    	      fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
-//    	    }
-//    	    pos_actual = ftell(archivo);
-//    	    ftruncate(fileno(archivo), pos_actual);
-//    	    fclose(archivo);
-//    	    return/home/utnso/tp-2021-1c-impOStor;
-//    	  }
-//
-//    	  else{
-//    	    printf("SACAR-COM: no existe archivo!\n");
-//    	    //no existe el archivo
-//    	    //hay que avisar
-//    	    //se podria avisar mediante un valor de retorno
-//    	    return;
-//    	  }
-//    	}
-//
-//
-//    	void generar_basura(int cantidad){
-//    	  int existeArchivo = access(PATH_BASURA, F_OK);
-//    	  FILE *archivo = fopen(PATH_BASURA, "a+");
-//
-//    	  if(existeArchivo == 0){
-//    	    printf("El archivo EXISTE!\n");
-//    	    fseek(archivo, -1, SEEK_END);
-//    	    for(int i=0; i < cantidad; i++)
-//    	      fputc('B', archivo);
-//    	  }
-//    	  else {
-//    	    for(int i=0; i < cantidad; i++)
-//    	      fputc('B', archivo);
-//    	  }
-//    	  fclose(archivo);
-//    	}
 
 //    	void descartar_basura(int cant_borrar){
 //
@@ -661,29 +582,3 @@ void generar_basura(int cantidad){
 //    	    return;
 //    	  }
 //    	}
-//har);
-//
-//    printf("cantidadBasura = %ld\n", cant_bas_disponible);
-//
-//    if(cant_borrar > cant_bas_disponible){
-//      fseek(archivo, 0, SEEK_SET);
-//      //hay que avisar que intento borrar mas de los disponible
-//    }
-//    else{
-//      fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
-//    }void rutina(){}
-//    pos_actual = ftell(archivo);
-//    ftruncate(fileno(archivo), pos_actual);
-//    fclose(archivo);
-//    return;
-//  }
-//
-//  else{
-//    printf("SACAR-BASURA: no existe archivo!\n");
-//    //no existe el archivo
-//    //hay que avisar
-//    //se podria avisar mediante un valor de retorno
-//    return;
-//  }
-//}
-

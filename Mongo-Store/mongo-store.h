@@ -13,6 +13,7 @@
 #include <semaphore.h>
 #include <sys/mman.h>
 #include <fcntl.h>
+#include <signal.h>
 
 char *puntoMontaje;
 char *dirMetadata;
@@ -25,6 +26,7 @@ int socket_cliente;
 int blocks;
 int block_size;
 t_bitarray *bitmap;
+t_list* archAbiertos;
 
 void crearEstructuraFileSystem();
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);

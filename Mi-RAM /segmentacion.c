@@ -175,7 +175,10 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	}
 }
 
-int crear_segmento_tcb(t_tripulante_iniciado *unTripulante, int cliente) {
+int crear_segmento_tcb(void* elTripulante) {
+	t_tripulante_iniciado *unTripulante = (t_tripulante_iniciado*) elTripulante;
+	printf("Llegue aca");
+	sem_wait(&creacion_tripulante);
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	//Para buscar su patota
@@ -210,9 +213,14 @@ int crear_segmento_tcb(t_tripulante_iniciado *unTripulante, int cliente) {
 
 	if(segmento->base == -1){
 		enviar_mensaje_simple("no", cliente);
+		sem_post(&creacion_tripulante);
 		return -1;//Por si hay error retorna -1
 	}else{
+		agregar_a_memoria(segmento);
 		enviar_mensaje_simple("ok", cliente);
+		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
+		sem_post(&tripulantesRestantes);
+		sem_post(&creacion_tripulante);
 		return 0;
 	}
 }
@@ -360,6 +368,7 @@ char *obtenerTareaSiguiente(t_tripulante_iniciado *tripulante){
 
 	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
 	int proximaTarea = (int) elTripulante->proxIns;
+	elTripulante->proxIns +=1; //Se asigna la siguiente tarea en RAM
 	Segmento *segmentoPatotaDelTripulante = buscarSegmento(elTripulante->pcb);
 	PatotaCB *PatotaDelTripu = (PatotaCB*) segmentoPatotaDelTripulante->dato;
 	return buscarTarea(PatotaDelTripu->tareas, proximaTarea);
@@ -373,7 +382,6 @@ void *gestionarClienteSeg(int socket) {
 
 	int operacion;
 	t_list *lista;
-	int cliente;
 
 
 	int idTripulante;
@@ -390,17 +398,13 @@ void *gestionarClienteSeg(int socket) {
 			case INICIO_PATOTA:
 				lista = recibir_paquete(cliente);
 				char *contenido;
-				char *cantidad;
-				cantidad = list_get(lista, 0);
+				int cantidad;
+				cantidad = atoi(list_get(lista, 0));
 				contenido = list_get(lista, 2);
 
 				crear_proceso(contenido, cliente);
 
 				log_info(logs_ram, "Se inicio una patota.\n", cantidad);
-				liberar_cliente(cliente);
-
-				//hardcodeo esto por la respues de si se puede crear o no una patota
-				//Agregar mutex
 				break;
 
 			case ELIMINAR_TRIPULANTE:
@@ -409,7 +413,6 @@ void *gestionarClienteSeg(int socket) {
 				int idPatota = (int)((char *) list_get(lista,1));
 				eliminarTripulante(idTripulante, idPatota);
 				printf("Tripulante %d de la patota %d eliminado de la nave\n", idTripulante, idPatota);
-				liberar_cliente(cliente);
 				break;
 
 			case ACTUALIZAR_POSICION:;
@@ -417,22 +420,23 @@ void *gestionarClienteSeg(int socket) {
 				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
 
 				actualizarTripulante(tripulante_desplazado);
-				liberar_cliente(cliente);
 				break;
 
 			case NUEVO_TRIPULANTE:;
 				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
-				crear_segmento_tcb(nuevo_tripulante, cliente);
-				printf("Se creo un nuevo tripulante.\n");
-				liberar_cliente(cliente);
+
+				pthread_t hiloTripulante;
+				pthread_create(&hiloTripulante, NULL, (void*)crear_segmento_tcb,(void*)nuevo_tripulante);
+				pthread_detach(hiloTripulante);
 				break;
 
 			case PEDIDO_TAREA:;
 				 //char *ejemplo_tarea = "COMER;10;14;15";hardcodeo un string para probar desde discordiado
 
 				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
-				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
 
+				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
+				sem_wait(&tripulantesRestantes);
 				char* tarea = obtenerTareaSiguiente(tripulante_tarea);
 
 				printf("Tripulante %d pidio la tarea %s.\n", tripulante_tarea->tid, tarea);
@@ -440,32 +444,32 @@ void *gestionarClienteSeg(int socket) {
 						tripulante_desplazado->tid);*/
 
 				enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
-				liberar_cliente(cliente);
 				break;
 
 			case -1:
 				printf("El cliente %d se desconecto.\n", cliente);
-				//liberar_cliente(cliente);
 				break;
 
 			default:
 				printf("Operacion desconocida.\n");
 				break;
 		}
-
 		liberar_cliente(cliente);
 	}
 }
-/*
+
 void dumpMemoriaSeg(){
+	printf("Perdon\n");
+	//exit(1);
+	/*
 	int idPatota;
 	char *horaActual = *temporal_get_string_time("%d-%m-%y_%H:%M:%S");
-	char *nombreArchivo = "dump_"+horaActual+".dmp";
+	char *nombreArchivo = "dump_";//+horaActual+".dmp";
 
 	char* ruta = string_from_format("./Dump/%s",nombreArchivo);
 
 	FILE* archivo = txt_open_for_append(ruta);
-	char* textoAEscribir = "Dump :" + horaActual;
+	char* textoAEscribir = "Dump :";// + horaActual;
 
 	void _recorrerSegmentos(void* segmento){
 		Segmento *unSegmento = (Segmento*) segmento;
@@ -492,7 +496,7 @@ void dumpMemoriaSeg(){
 
 	list_iterate(patotas, _recorrerPatotas);
 
-	txt_write_in_file(archivo, "---------------------------------\n");
+	txt_write_in_file(archivo, "---------------------------------\n");*/
 }
-*/
+
 

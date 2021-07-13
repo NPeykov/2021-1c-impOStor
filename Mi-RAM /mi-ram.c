@@ -30,12 +30,13 @@ void inicializar_ram(){
 		}else{
 			esFF = false;
 		}
+		sem_init(&creacion_tripulante,0,1);
+		sem_init(&tripulantesRestantes,0,0);
+		pthread_t hilo_cliente;
 
-		//pthread_t hilo_cliente;
+		pthread_create(&hilo_cliente, NULL, (void *)gestionarClienteSeg(socket_mi_ram), NULL);
 
-		//pthread_create(&hilo_cliente, NULL, (void *)gestionarClienteSeg(socket_mi_ram), NULL);
-
-		gestionarClienteSeg(socket_mi_ram);
+		//gestionarClienteSeg(socket_mi_ram);
 	}else{
 		//Agregar Hilos
 
@@ -45,7 +46,8 @@ void inicializar_ram(){
 
 
 int main(){
-  inicializar_ram();
+	signal(SIGTSTP, dumpMemoriaSeg);
+	inicializar_ram();
 
-  return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }

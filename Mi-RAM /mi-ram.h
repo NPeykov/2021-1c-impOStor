@@ -12,6 +12,7 @@
 //#include "paginacion.h"
 #include <commons/temporal.h>
 #include <commons/txt.h>
+#include <signal.h>
 
 int servidor;
 int socket_mi_ram;

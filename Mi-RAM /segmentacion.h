@@ -10,10 +10,12 @@
 #include <commons/string.h>
 #include "mi-ram.h"
 #include <pthread.h>
+#include <semaphore.h>
 
 t_list* memoriaPrincipal;
 bool noCompactado = true;
 bool esFF;
+int cliente;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
 
@@ -42,6 +44,12 @@ typedef struct{
 typedef enum{
 	PAGINACION, SEGMENTACION
 }esquemaMemoria;
+
+//Semaforos
+
+sem_t tripulantesRestantes;
+sem_t creacion_tripulante;
+
 
 //Prototipos de Funciones
 
@@ -92,7 +100,7 @@ int crear_segmento_tareas(char *, t_list*);
 // &Retorna -1 si no hay espacio en memoria
 // #crear_segmento_tcb(numero_tripulante, posX, posY, dir_pcb, tabla_segmentos_proceso)
 //
-int crear_segmento_tcb(t_tripulante_iniciado*, int);
+int crear_segmento_tcb(void*);
 
 //
 //Obtiene la base logica del ultimo segmento que entrará a RAM
@@ -103,9 +111,9 @@ uint32_t calcular_base_logica(Segmento *);
 
 //
 //Agrega las estructuras de un proceso al malloc de memoria inicial
-// #agregarAMemoria(tabla_de_segmentos)
+// #agregarAMemoria(unSegmento)
 //
-void agregarAMemoria(t_list*);
+void agregar_a_memoria(Segmento *);
 
 //
 //Calcula la primera direccion donde puede ingresar el segmento

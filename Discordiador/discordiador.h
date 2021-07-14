@@ -125,6 +125,7 @@ typedef struct Tripulante_Planificando{
 	sem_t salir_pausa;
 	sem_t termino_sabotaje;
 	bool sigo_planificando;
+	bool fui_expulsado;
 }Tripulante_Planificando;
 
 
@@ -147,6 +148,7 @@ pthread_mutex_t mutex_tarea;
 pthread_cond_t sabotaje_resuelto;
 pthread_mutex_t sabotaje_lock;
 pthread_mutex_t pausa_lock;
+pthread_mutex_t mutex;
 
 //semaforos
 sem_t bloq_disponible; //iniciar en 1
@@ -157,7 +159,8 @@ sem_t primer_inicio;
 sem_t otros_inicios;
 sem_t termino_sabotaje_planificador;
 sem_t resolvi_sabotaje; //capaz no sea necesario
-
+sem_t ya_sali_de_exec; //por si fue expulsado
+sem_t voy_a_ready;
 
 //PROTOTIPO DE FUNCIONES
 void  inicializarTripulantes();
@@ -173,6 +176,8 @@ void listar_cola_planificacion(Estado);
 void liberar_cliente(int);
 void imprimir_respuesta_log(t_list*);
 void reanudar_hilos_lista(Estado);
+void expulsar_tripulante(int, int);
+void listar_discordiador(void);
 
 
 

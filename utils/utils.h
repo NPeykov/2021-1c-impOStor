@@ -59,10 +59,15 @@ typedef struct{
 	uint32_t numPatota;
 	uint32_t tid;
 	uint32_t size_status;
-	char *status;
+	char status;
 	uint32_t posX;
 	uint32_t posY;
 } t_tripulante_iniciado;
+
+typedef struct{
+	t_tripulante_iniciado *tripulante;
+	int socket;
+} TripulanteConSocket;
 
 typedef enum{
 	TAREA_COMUN,
@@ -103,6 +108,7 @@ void enviar_paquete(t_paquete* paquete, int socket_cliente);
 void eliminar_paquete(t_paquete* paquete);
 void enviar_mensaje(op_code, char*, int);
 char *recibir_mensaje(int);
+void enviar_mensaje_simple(char *, int);
 
 t_list* recibir_paquete(int);
 int recibir_operacion(int);

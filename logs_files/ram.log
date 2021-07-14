@@ -116,5 +116,90 @@
 [INFO] 12:10:22:737 Mi-RAM/(4929:4929): Se iniciaron 3 tripulantes
 [INFO] 12:23:16:844 Mi-RAM/(4929:4929): Se iniciaron 3 tripulantes
 [INFO] 12:29:14:300 Mi-RAM/(4929:4929): Se iniciaron 3 tripulantes
+<<<<<<< HEAD
 [INFO] 02:31:58:633 Mi-RAM/(7466:7466): Se iniciaron 4 tripulantes
 [INFO] 02:37:36:774 Mi-RAM/(7466:7466): Se iniciaron 4 tripulantes
+=======
+[INFO] 23:20:28:086 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 23:24:21:797 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 23:36:06:703 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 23:39:59:173 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 23:44:50:453 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 23:53:47:565 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 23:58:50:578 Mi-RAM/(5867:5867): Se iniciaron 4 tripulantes
+[INFO] 00:12:29:244 Mi-RAM/(5867:5867): Se iniciaron 2 tripulantes
+[INFO] 19:43:54:171 Mi-RAM/(11142:11142): Se iniciaron 3 tripulantes
+[INFO] 19:47:32:157 Mi-RAM/(11142:11142): Se iniciaron 3 tripulantes
+[INFO] 20:07:02:934 Mi-RAM/(11142:11142): Se iniciaron 2 tripulantes
+[INFO] 20:10:08:613 Mi-RAM/(11142:11142): Se iniciaron 2 tripulantes
+[INFO] 20:11:29:792 Mi-RAM/(11142:11142): Se iniciaron 2 tripulantes
+[INFO] 20:11:45:725 Mi-RAM/(11142:11142): Se iniciaron 2 tripulantes
+[INFO] 20:39:30:872 Mi-RAM/(11142:11142): Se iniciaron 5 tripulantes
+[INFO] 20:41:19:011 Mi-RAM/(11142:11142): Se iniciaron 5 tripulantes
+[INFO] 20:41:58:446 Mi-RAM/(11142:11142): Se iniciaron 5 tripulantes
+[INFO] 20:42:32:888 Mi-RAM/(11142:11142): Se iniciaron 4 tripulantes
+[INFO] 20:44:15:627 Mi-RAM/(11142:11142): Se iniciaron 3 tripulantes
+[INFO] 20:44:39:068 Mi-RAM/(11142:11142): Se iniciaron 3 tripulantes
+[INFO] 20:46:18:648 Mi-RAM/(11142:11142): Se iniciaron 5 tripulantes
+[INFO] 20:50:08:429 Mi-RAM/(15952:15952): Se iniciaron 5 tripulantes
+[INFO] 20:51:20:496 Mi-RAM/(15952:15952): Se iniciaron 3 tripulantes
+[INFO] 21:00:44:124 Mi-RAM/(15952:15952): Se iniciaron 3 tripulantes
+[INFO] 21:30:33:247 Mi-RAM/(19211:19211): Se iniciaron 3 tripulantes
+[INFO] 21:37:05:572 Mi-RAM/(19601:19601): Se iniciaron 3 tripulantes
+[INFO] 22:42:37:647 Mi-RAM/(4144:4144): Se iniciaron 4 tripulantes
+[INFO] 00:47:13:232 Mi-RAM/(7042:7042): Se iniciaron 3 tripulantes
+[INFO] 00:48:47:245 Mi-RAM/(7042:7042): Se iniciaron 3 tripulantes
+[INFO] 00:53:35:277 Mi-RAM/(7042:7042): Se iniciaron 2 tripulantes
+[INFO] 00:58:47:215 Mi-RAM/(7042:7042): Se iniciaron 3 tripulantes
+[INFO] 01:39:03:500 Mi-RAM/(8229:8229): Se iniciaron 3 tripulantes
+[INFO] 01:50:45:922 Mi-RAM/(8505:8505): Se iniciaron 3 tripulantes
+[INFO] 01:51:34:488 Mi-RAM/(8505:8505): Se iniciaron 2 tripulantes
+[INFO] 01:52:10:305 Mi-RAM/(8505:8505): Se iniciaron 3 tripulantes
+[INFO] 01:52:45:833 Mi-RAM/(8505:8505): Se iniciaron 3 tripulantes
+[INFO] 01:53:28:277 Mi-RAM/(8505:8505): Se iniciaron 3 tripulantes
+[INFO] 01:55:19:585 Mi-RAM/(8505:8505): Se iniciaron 3 tripulantes
+[INFO] 10:57:42:127 Mi-RAM/(4683:4683): Se iniciaron 3 tripulantes
+[INFO] 11:03:08:747 Mi-RAM/(5034:5034): Se iniciaron 3 tripulantes
+[INFO] 11:04:42:794 Mi-RAM/(5107:5107): Se iniciaron 2 tripulantes
+[INFO] 11:05:08:176 Mi-RAM/(5119:5119): Se iniciaron 3 tripulantes
+[INFO] 11:10:57:467 Mi-RAM/(5329:5329): Se iniciaron 2 tripulantes
+>>>>>>> 29da1269de676556064a2f48f96d23c570d21920
+[INFO] 18:09:24:218 Mi-RAM/(5717:5717): Se inicio una patota.
+
+[INFO] 18:09:24:219 Mi-RAM/(5717:5779): Se creo al tripulante 0 de la patota 1
+[INFO] 18:14:05:246 Mi-RAM/(5717:5717): Se inicio una patota.
+
+[INFO] 18:14:05:247 Mi-RAM/(5717:6304): Se creo al tripulante 0 de la patota 1
+[INFO] 18:20:15:112 Mi-RAM/(6988:6988): Se inicio una patota.
+
+[INFO] 18:20:15:114 Mi-RAM/(6988:7000): Se creo al tripulante 0 de la patota 1
+[INFO] 18:22:07:012 Mi-RAM/(6988:6988): Se inicio una patota.
+
+[INFO] 18:22:07:013 Mi-RAM/(6988:7208): Se creo al tripulante 0 de la patota 1
+[INFO] 18:23:25:222 Mi-RAM/(7347:7347): Se inicio una patota.
+
+[INFO] 18:23:25:223 Mi-RAM/(7347:7358): Se creo al tripulante 0 de la patota 1
+[INFO] 18:23:35:228 Mi-RAM/(7347:7372): Se creo al tripulante 0 de la patota 1
+[INFO] 18:26:21:553 Mi-RAM/(7347:7347): Se inicio una patota.
+
+[INFO] 18:26:21:554 Mi-RAM/(7347:7633): Se creo al tripulante 0 de la patota 1
+[INFO] 18:26:31:554 Mi-RAM/(7347:7647): Se creo al tripulante 0 de la patota 1
+[INFO] 18:46:27:068 Mi-RAM/(9652:9652): Se inicio una patota.
+
+[INFO] 18:46:27:073 Mi-RAM/(9652:9679): Se creo al tripulante 0 de la patota 1
+[INFO] 18:46:37:084 Mi-RAM/(9652:9693): Se creo al tripulante 0 de la patota 1
+[INFO] 18:50:25:619 Mi-RAM/(10151:10151): Se inicio una patota.
+
+[INFO] 18:50:25:620 Mi-RAM/(10151:10168): Se creo al tripulante 0 de la patota 1
+[INFO] 18:50:25:622 Mi-RAM/(10151:10170): Se creo al tripulante 0 de la patota 1
+[INFO] 18:58:20:685 Mi-RAM/(10151:10151): Se inicio una patota.
+
+[INFO] 18:58:20:686 Mi-RAM/(10151:10826): Se creo al tripulante 0 de la patota 1
+[INFO] 18:58:20:687 Mi-RAM/(10151:10828): Se creo al tripulante 0 de la patota 1
+[INFO] 19:01:22:203 Mi-RAM/(11071:11071): Se inicio una patota.
+
+[INFO] 19:01:22:204 Mi-RAM/(11071:11092): Se creo al tripulante 0 de la patota 1
+[INFO] 19:01:22:205 Mi-RAM/(11071:11094): Se creo al tripulante 0 de la patota 1
+[INFO] 19:01:22:207 Mi-RAM/(11071:11096): Se creo al tripulante 0 de la patota 1
+[INFO] 19:01:22:208 Mi-RAM/(11071:11098): Se creo al tripulante 0 de la patota 1
+[INFO] 19:01:22:209 Mi-RAM/(11071:11100): Se creo al tripulante 0 de la patota 1

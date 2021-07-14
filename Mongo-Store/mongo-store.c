@@ -4,17 +4,6 @@ void enviar_mensaje_a_discordiador();
 
 int main() {
 
-	int socket_mongo_store, socket_cliente;
-//	t_config *config;
-	char* puerto;
-//	t_log* logger;
-
-	pthread_t hilo_sabotaje;
-
-
-	//-------------------------------------------------------//
-
-
 
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 
@@ -28,13 +17,9 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-
-	pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)socket_mongo_store);
-	pthread_detach(hilo_sabotaje);
-
 	gestionarCliente(socket_mongo_store );
 
-	//signal(SIGUSR1,rutina);
+	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
 
 
 	return EXIT_SUCCESS;
@@ -313,16 +298,19 @@ void *gestionarCliente(int socket) {
 			break;
 		case ACTUALIZAR_POSICION:;
 
-			m_movimiento_tripulante *tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
 
-			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
-					tripulanteEnMovimiento->idPatota,
-					tripulanteEnMovimiento->origenX,
-					tripulanteEnMovimiento->origenY,
-					tripulanteEnMovimiento->destinoX,
-					tripulanteEnMovimiento->destinoY);
+			actualizar_posicion(tripulanteEnMovimiento);
+
+//			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
+//					tripulanteEnMovimiento->idPatota,
+//					tripulanteEnMovimiento->idTripulante,
+//					tripulanteEnMovimiento->origenX,
+//					tripulanteEnMovimiento->origenY,
+//					tripulanteEnMovimiento->destinoX,
+//					tripulanteEnMovimiento->destinoY);
 
 			break;
 
@@ -387,16 +375,18 @@ int operacion;
 }
 }
 void rutina(int n){
-switch(n) {
-		case SIGUSR1:;
-			printf("llego sigusr1");
-			break;
-		case 2:
-			break;
-    default:
-	printf("Operacion desconocida.\n");
-	break;
-}
+//switch(n) {
+//		case SIGUSR1:;
+		pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)socket_mongo_store);
+		pthread_detach(hilo_sabotaje);
+//			printf("llego sigusr1");
+//			break;
+//		case 2:
+//			break;
+//    default:
+//	printf("Operacion desconocida.\n");
+//	break;
+//}
 }
 
 int obtener_bloque_libre(t_bitarray* bitmap){
@@ -570,3 +560,41 @@ void descartar_basura(int cant_borrar){
     	    return;
     	  }
     	}
+void actualizar_posicion(m_movimiento_tripulante *tripulante){
+	char* tri =  strcat("Tripulante", (char*)tripulanteEnMovimiento->idTripulante);
+	char* pat = strcat("Patota", (char*) tripulanteEnMovimiento->idPatota);
+	char* tripat = strcat(tri,pat);
+	strcat("/",tripat);
+	strcat(tripat,".ims");
+	char* tripulanteRuta = malloc(strlen(dirBitacora) + strlen(tripat) + 1);
+	strcpy(tripulanteRuta, dirBitacora);
+	strcat(tripulanteRuta, tripat);
+	int existeArchivo = access(tripulanteRuta, F_OK);
+
+	  FILE *archivo = fopen(tripulanteRuta, "a+");
+
+	  if(existeArchivo == 0){
+//Bitacora existente
+	    fseek(archivo, -1, SEEK_END);
+//		memcpy(nuevo_bloques_config,bloques_config,tamanio_bloques_config-strlen(bloques_array[viejaCantidadDeBloques-1])-2);
+//	    memcpy(atrapar,&menosUno,sizeof(int));
+//	    for(int i=0; i < cantidad; i++)
+	      fputc('C', archivo);
+	  }
+	  else {
+//Se crea archivo para el tripulante de la patota
+	      fputc('C', archivo);
+	  }
+	  fclose(archivo);
+		//					tripulanteEnMovimiento->idPatota,
+		//					tripulanteEnMovimiento->idTripulante,
+		//					tripulanteEnMovimiento->origenX,
+		//					tripulanteEnMovimiento->origenY,
+		//					tripulanteEnMovimiento->destinoX,
+		//					tripulanteEnMovimiento->destinoY);
+	  return;
+}
+
+
+
+

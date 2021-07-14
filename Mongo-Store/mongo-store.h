@@ -25,16 +25,20 @@ t_log* mongoLogger;
 int socket_cliente;
 int blocks;
 int block_size;
+m_movimiento_tripulante * tripulanteEnMovimiento;
+pthread_t hilo_sabotaje;
 t_bitarray *bitmap;
 t_list* archAbiertos;
-
+int socket_mongo_store, socket_cliente;
+char* puerto;
 void crearEstructuraFileSystem();
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
 
 void liberar_bloque(t_bitarray* bitmap, int bloque);
 void ocupar_bloque(t_bitarray* bitmap, int bloque);
 int obtener_bloque_libre(t_bitarray* bitmap) ;
-
+void actualizar_posicion(m_movimiento_tripulante *tripulante);
+void rutina(int n);
 void *gestionarCliente(int cliente);
 void gestionarSabotaje();
 void generar_oxigeno(int);

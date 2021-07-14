@@ -459,17 +459,21 @@ void *gestionarClienteSeg(int socket) {
 }
 
 void dumpMemoriaSeg(){
-	printf("Perdon\n");
-	//exit(1);
-	/*
-	int idPatota;
-	char *horaActual = *temporal_get_string_time("%d-%m-%y_%H:%M:%S");
-	char *nombreArchivo = "dump_";//+horaActual+".dmp";
 
-	char* ruta = string_from_format("./Dump/%s",nombreArchivo);
+	int idPatota;
+	char *horaActual = temporal_get_string_time("%d-%m-%y_%H:%M:%S\n\n");
+	char *nombreArchivo = string_new();
+	string_append(&nombreArchivo,"dump_");
+	string_append(&nombreArchivo,horaActual);
+	string_append(&nombreArchivo,".txt");
+
+	char* ruta = string_new();
+	ruta = string_from_format("./Dump/%s",nombreArchivo);
 
 	FILE* archivo = txt_open_for_append(ruta);
-	char* textoAEscribir = "Dump :";// + horaActual;
+	char* textoAEscribir = string_new();
+	string_append(&textoAEscribir,"Dump :");
+	string_append(&textoAEscribir,horaActual);
 
 	void _recorrerSegmentos(void* segmento){
 		Segmento *unSegmento = (Segmento*) segmento;
@@ -491,12 +495,17 @@ void dumpMemoriaSeg(){
 
 
 
-	txt_write_in_file(archivo, "---------------------------------\n");
-	txt_write_in_file(textoAEscribir, textoAEscribir);
+	txt_write_in_file(archivo, "---------------------------------\n\n");
+	txt_write_in_file(archivo, textoAEscribir);
+	if(list_is_empty(patotas)){
+		txt_write_in_file(archivo,"No se encontraron tripulantes.\n\n" );
+	}else{
+		list_iterate(patotas, _recorrerPatotas);
+		txt_write_in_file(archivo,"\n");
+	}
 
-	list_iterate(patotas, _recorrerPatotas);
 
-	txt_write_in_file(archivo, "---------------------------------\n");*/
+	txt_write_in_file(archivo, "---------------------------------");
 }
 
 

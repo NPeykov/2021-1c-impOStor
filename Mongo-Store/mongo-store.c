@@ -248,6 +248,11 @@ void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTa
 		break;
 
 	case DESCARTAR_BASURA:
+		 printf("ES DESCARTARAR BASURA \n");
+						printf("Cantidad a llenar: %d\n",
+											tripulanteConTareaFinalizada->parametro);
+						int cantidadBa = tripulanteConTareaFinalizada->parametro;
+						descartar_basura(cantidadBa);
 		break;
 
 	}
@@ -415,7 +420,6 @@ void liberar_bloque(t_bitarray* bitmap, int bloque){
 
 
 
-#define PATH_BASURA "pruebas_tarea/Basura.ims"
 void generar_oxigeno(int cantidad){
 	char* oxigenoRuta = malloc(strlen(dirFiles) + strlen("/Oxigeno.ims") + 1);
 	strcpy(oxigenoRuta, dirFiles);
@@ -551,36 +555,18 @@ void generar_basura(int cantidad){
   fclose(archivo);
 }
 
-//    	void descartar_basura(int cant_borrar){
-//
-//    	  if(access(PATH_BASURA, F_OK) == 0){
-//    	    FILE *archivo = fopen(PATH_BASURA, "a+");
-//    	    long int pos_actual;
-//    	    long int cant_bas_disponible;
-//
-//    	    fseek(archivo, 0, SEEK_END);
-//    	    cant_bas_disponible = ftell(archivo) / sizeof(char);
-//
-//    	    printf("cantidadBasura = %ld\n", cant_bas_disponible);
-//
-//    	    if(cant_borrar > cant_bas_disponible){
-//    	      fseek(archivo, 0, SEEK_SET);
-//    	      //hay que avisar que intento borrar mas de los disponible
-//    	    }
-//    	    else{
-//    	      fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
-//    	    }
-//    	    pos_actual = ftell(archivo);
-//    	    ftruncate(fileno(archivo), pos_actual);
-//    	    fclose(archivo);
-//    	    return;
-//    	  }
-//
-//    	  else{
-//    	    printf("SACAR-BASURA: no existe archivo!\n");
-//    	    //no existe el archivo
-//    	    //hay que avisar
-//    	    //se podria avisar mediante un valor de retorno
-//    	    return;
-//    	  }
-//    	}
+void descartar_basura(int cant_borrar){
+  		char* basuraRuta = malloc(strlen(dirFiles) + strlen("/Basura.ims") + 1);
+		strcpy(basuraRuta, dirFiles);
+		strcat(basuraRuta, "/Basura.ims");
+    	  if(access(basuraRuta, F_OK) == 0){
+    		  remove(basuraRuta);
+    	  }
+
+    	  else{
+    	    printf("SACAR-BASURA: no existe archivo!\n");
+    	    //no existe el archivo
+    	    log_error(mongoLogger, "No existe el archivo Basura.ims");
+    	    return;
+    	  }
+    	}

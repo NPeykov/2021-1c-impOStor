@@ -176,7 +176,9 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 }
 
 int crear_segmento_tcb(void* elTripulante) {
-	t_tripulante_iniciado *unTripulante = (t_tripulante_iniciado *) elTripulante;
+	TripulanteConSocket *tripulanteConSocket = (TripulanteConSocket *) elTripulante;
+	t_tripulante_iniciado *unTripulante = tripulanteConSocket->tripulante;
+	int _socket_cliente = tripulanteConSocket->socket;
 
 	printf("Llegue aca");
 	sem_wait(&creacion_tripulante);
@@ -213,18 +215,21 @@ int crear_segmento_tcb(void* elTripulante) {
 	segmento->base = calcular_base_logica(segmento);
 
 	if(segmento->base == -1){
-		//enviar_mensaje_simple("no", socket_cliente);
+		enviar_mensaje_simple("no", _socket_cliente);
 		sem_post(&creacion_tripulante);
 		//return -1;//Por si hay error retorna -1
-		pthread_exit("no");
+		liberar_cliente(_socket_cliente);
+		pthread_exit(NULL);
+		printf("ESTO NO SE DEBERIA IMPRIMIR------------------------");
 	}else{
 		agregar_a_memoria(segmento);
-		//enviar_mensaje_simple("ok", socket_cliente);
+		enviar_mensaje_simple("ok", _socket_cliente);
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
 		sem_post(&tripulantesRestantes);
 		sem_post(&creacion_tripulante);
 		//return 0;
-		pthread_exit("ok");
+		liberar_cliente(_socket_cliente);
+		pthread_exit(NULL);
 	}
 }
 
@@ -245,15 +250,20 @@ void agregar_a_memoria(Segmento* unSegmento){
 	//El t_list memoriaPrincipal se usa para hacer la compactacion
 }
 
-void crear_proceso(char* contenido, int cliente){
+void crear_proceso(void *data){
 	t_list* tabla_de_segmentos = list_create();
+	t_datos_inicio_patota *datos_patota = (t_datos_inicio_patota*)data;
+	char* contenido = datos_patota->contenido_tareas;
+	int _socket_cliente = datos_patota->socket;
 
 	//Se crea el segmento de tareas
 	int result_tareas =crear_segmento_tareas(contenido, tabla_de_segmentos);
 	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
 	uint32_t inicioTareas = segmento_tareas->base;//Sabemos que siempre se empieza por las tareas
 	if(result_tareas == -1){
-		enviar_mensaje_simple("no", cliente);
+		enviar_mensaje_simple("no", _socket_cliente);
+		liberar_cliente(_socket_cliente);
+		pthread_exit(NULL);
 		return;
 	}
 	agregar_a_memoria(segmento_tareas);
@@ -263,7 +273,9 @@ void crear_proceso(char* contenido, int cliente){
 	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
 	//verificarSegmento(result_pcb, cliente);
 	if(result_pcb == -1){
-		enviar_mensaje_simple("no", cliente);
+		enviar_mensaje_simple("no", _socket_cliente);
+		liberar_cliente(_socket_cliente);
+		pthread_exit(NULL);
 		return;
 	}
 	agregar_a_memoria(segmento_pcb);
@@ -275,7 +287,9 @@ void crear_proceso(char* contenido, int cliente){
 	list_add(patotas, proceso);
 	numero_patota += 1;
 
-	enviar_mensaje_simple("ok", cliente);
+	enviar_mensaje_simple("ok", _socket_cliente);
+	liberar_cliente(_socket_cliente);
+	pthread_exit(NULL);
 }
 
 void eliminarTripulante(int idTripulante,int idPatota){
@@ -390,7 +404,7 @@ void *gestionarClienteSeg(int socket) {
 	int idTripulante;
 
 	while(1) {
-		cliente = esperar_cliente(socket);
+		int cliente = esperar_cliente(socket);
 
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
@@ -400,14 +414,18 @@ void *gestionarClienteSeg(int socket) {
 		switch(operacion) {
 			case INICIO_PATOTA:
 				lista = recibir_paquete(cliente);
-				char *contenido;
-				int cantidad;
-				cantidad = atoi(list_get(lista, 0));
-				contenido = list_get(lista, 2);
+				t_datos_inicio_patota *datos_inicio = malloc(sizeof(t_datos_inicio_patota));
+				datos_inicio->cantidad_tripulantes = atoi(list_get(lista, 0));
+				datos_inicio->contenido_tareas     = list_get(lista, 1);
+				datos_inicio->socket 			   = cliente;
 
-				crear_proceso(contenido, cliente);
+				pthread_t hiloCreacionPatota;
 
-				log_info(logs_ram, "Se inicio una patota.\n", cantidad);
+				pthread_create(&hiloCreacionPatota, NULL, (void*)crear_proceso, (void*)datos_inicio);
+				pthread_detach(hiloCreacionPatota);
+
+				log_info(logs_ram, "Se inicio una patota.\n");
+				//liberar_cliente(cliente);
 				break;
 
 			case ELIMINAR_TRIPULANTE:
@@ -416,6 +434,7 @@ void *gestionarClienteSeg(int socket) {
 				int idPatota = (int)((char *) list_get(lista,1));
 				eliminarTripulante(idTripulante, idPatota);
 				printf("Tripulante %d de la patota %d eliminado de la nave\n", idTripulante, idPatota);
+				liberar_cliente(cliente);
 				break;
 
 			case ACTUALIZAR_POSICION:;
@@ -423,18 +442,19 @@ void *gestionarClienteSeg(int socket) {
 				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
 
 				actualizarTripulante(tripulante_desplazado);
+				liberar_cliente(cliente);
 				break;
 
 			case NUEVO_TRIPULANTE:;
-				void *respuesta;
 				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
+				TripulanteConSocket *nuevo_tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
+				nuevo_tripulante_con_socket->tripulante = nuevo_tripulante;
+				nuevo_tripulante_con_socket->socket     = cliente;
 
 				pthread_t hiloTripulante;
 
-				pthread_create(&hiloTripulante, NULL, (void*)crear_segmento_tcb,(void*)nuevo_tripulante);
-				pthread_join(hiloTripulante, &respuesta);
-
-				enviar_mensaje_simple(respuesta, cliente);
+				pthread_create(&hiloTripulante, NULL, (void*)crear_segmento_tcb,(void*)nuevo_tripulante_con_socket);
+				pthread_detach(hiloTripulante);
 				break;
 
 			case PEDIDO_TAREA:;
@@ -451,17 +471,19 @@ void *gestionarClienteSeg(int socket) {
 						tripulante_desplazado->tid);*/
 
 				enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
+				liberar_cliente(cliente);
 				break;
 
 			case -1:
 				printf("El cliente %d se desconecto.\n", cliente);
+				liberar_cliente(cliente);
 				break;
 
 			default:
 				printf("Operacion desconocida.\n");
+				liberar_cliente(cliente);
 				break;
 		}
-		liberar_cliente(cliente);
 	}
 }
 

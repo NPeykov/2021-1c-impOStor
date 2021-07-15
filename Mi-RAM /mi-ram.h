@@ -36,4 +36,10 @@ typedef struct{
 	t_list *tabla;
 } t_proceso;
 
+typedef struct {
+	int cantidad_tripulantes;
+	char *contenido_tareas;
+	int socket;
+} t_datos_inicio_patota;
+
 #endif

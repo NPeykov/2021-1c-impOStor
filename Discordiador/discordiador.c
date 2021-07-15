@@ -991,7 +991,7 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 	contenido_tareas[size_contenido_tareas] = '\0'; //posible error
 
 	agregar_a_paquete(paquete, cantidad, string_length(cantidad) + 1);
-	agregar_a_paquete(paquete, posiciones, string_length(posiciones) + 1);
+	//agregar_a_paquete(paquete, posiciones, string_length(posiciones) + 1);
 	agregar_a_paquete(paquete, contenido_tareas, string_length(contenido_tareas) + 1);
 
 	enviar_paquete(paquete, socket);
@@ -1272,7 +1272,8 @@ void tripulante(void *argumentos){
 		}
 
 		if(tripulante_trabajando->fui_expulsado){
-			printf("Hay %d lUGARES EN EXEC -----------------", lugares_en_exec);
+			//TODO: LOG
+			log_info(logs_discordiador, "El tripulante %d fue EXPULSADO", tripulante_trabajando->tripulante->id);
 			sem_post(&voy_a_ready);
 
 			pthread_exit(NULL);
@@ -1281,10 +1282,6 @@ void tripulante(void *argumentos){
 		if(g_hay_sabotaje){
 			tripulante_trabajando->sigo_planificando = false;
 			sem_wait(&tripulante_trabajando->termino_sabotaje);
-			log_info(logs_discordiador, "SOY LIBRE! Pat; %d, Trip: %d ",
-					tripulante_trabajando->tripulante->id,
-					tripulante_trabajando->tripulante->patota);
-			log_info(logs_discordiador, "Mi estado es: %d", tripulante_trabajando->tripulante->estado);
 			tripulante_trabajando->sigo_planificando = true;
 		}
 

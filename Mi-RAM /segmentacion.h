@@ -15,7 +15,7 @@
 t_list* memoriaPrincipal;
 bool noCompactado = true;
 bool esFF;
-int cliente;
+//int cliente;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
 
@@ -74,7 +74,7 @@ TripuCB *buscarTripulante(int ,int);
 //Crea un proceso
 // #crear_proceso(cantidadTripulantes, posicionesTripulantes, stringTareas, socket_cliente)
 //
-void crear_proceso(char *, int);
+void crear_proceso(void*);
 
 //
 //Actualiza la posicion del tripulante en memoria

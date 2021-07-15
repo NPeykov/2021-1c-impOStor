@@ -51,104 +51,106 @@ void crearEstructuraFileSystem()
 	strcat(dirFiles, "/Files");
 
 	dirBitacora = malloc(strlen(dirFiles) + strlen("/Bitacora") + 1);
-		strcpy(dirBitacora, dirFiles);
-		strcat(dirBitacora, "/Bitacora");
+	strcpy(dirBitacora, dirFiles);
+	strcat(dirBitacora, "/Bitacora");
 
 	dirBlocks = malloc(strlen(puntoMontaje) + strlen("/Blocks") + 1);
 	strcpy(dirBlocks, puntoMontaje);
 	strcat(dirBlocks, "/Blocks");
 
-	char *metadataRuta = malloc(strlen(dirMetadata) + strlen("/Metadata.AFIP") + 1); // /Metadata.bin  /Bitmap.bin
-	strcpy(metadataRuta, dirMetadata);
-	strcat(metadataRuta, "/Metadata.AFIP"); ///Metadata.bin  /Bitmap.bin
 
 
 	if(mkdir(puntoMontaje, 0777) != 0)
 	{
-		printf("El directorio de montaje ya existe!! =( \n");
-		/*
-		//Si el fileSystem esta creado se toman los datos de la metadata existente.
-		log_info(logger, "El directorio %s ya existe. ", puntoMontaje);
-		t_config* metadataConfig=config_create(metadataRuta);
+	//Directorio de montaje existente, se verifica que exista superbloque y blocks
+	  char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+	  strcpy(superBloqueRuta, puntoMontaje);
+	  strcat(superBloqueRuta, "/SuperBloque.ims");
+	  char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+	  strcpy(blocksRuta, puntoMontaje);
+	  strcat(blocksRuta, "/Blocks.ims");
+	  int existeArchivo = access(superBloqueRuta, F_OK);
+	  if(existeArchivo == 0)
+	  {
+		  existeArchivo = access(blocksRuta, F_OK);
+	      if(existeArchivo == 0)
+	      {
+	    	  return;
+		  }
+	      else{
+	    	  log_error(mongoLogger,"No se encuentra archivo Blocks.ims");
+	      }
+	      return;
+	  }
+	  else
+	  {
+		  log_error(mongoLogger,"No se encuentra archivo SuperBloque.ims");
+	  }
+	  free(superBloqueRuta);
+	  free(blocksRuta);
+	  return;
 
-		block_size=atoi(config_get_string_value(metadataConfig,"BLOCK_SIZE"));
-		blocks=atoi(config_get_string_value(metadataConfig,"BLOCKS"));
-		magic_number=malloc(20);
-		strcpy(magic_number,(char*)config_get_string_value(metadataConfig,"MAGIC_NUMBER"));
-
-		config_destroy(metadataConfig);
-
-		log_info(logger,"BLOCK_SIZE: %d. BLOCKS: %d. MAGIC_NUMBER: %s. ", block_size, blocks, magic_number);
-		bitmap = crear_bitmap(dirMetadata, blocks);
-		free(metadataRuta);
-		*/
-		return;
 	}
 	else
 	{
-			printf("Se creo el directorio de montaje =) \n");
-			//Crea superBloque
-		    char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
-			strcpy(superBloqueRuta, puntoMontaje);
-			strcat(superBloqueRuta, "/SuperBloque.ims");
-			block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-			blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
-
-			// Creo el archivo superBloque
-			 f = fopen(superBloqueRuta, "w");
-			 char* tamanioBloque = malloc(10); sprintf(tamanioBloque, "%d",block_size);
-			 fputs("BLOCK_SIZE=", f); fputs(tamanioBloque,f); fputs("\n",f);
-			 char* bloques = malloc(10);
-			 sprintf(bloques, "%d",block_size);
-			 fputs("BLOCKS=", f);fputs(bloques,f); fputs("\n",f);
-			 fclose(f);
-			 free(superBloqueRuta);
-			 free(tamanioBloque);
-			 free(bloques);
-			//Crep el archivo bitmap.bin
-			 bitmap = crear_bitmap(puntoMontaje,blocks);
-
-
-			 //Crea Blocks
-			 char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-			 strcpy(blocksRuta, puntoMontaje);
-			 strcat(blocksRuta, "/Blocks.ims");
-			 //			log_trace(mongoLogger, "Estructura creada.");
-			 int X = block_size * blocks;
-			 f = fopen(blocksRuta, "w");
-			 fputs("1", f);
-			 fseek(f, X , SEEK_SET);
-			 putc('\0', f);
-			 fclose(f);
-			 free(blocksRuta);
-
-
-		//Creo carpeta Files
-		if(mkdir(dirFiles, 0777) == 0)
-				{
-					printf("Se creo carpeta Files  =) \n");
-					// Creo archivo Metadata.bin
-					char* metadataRuta = malloc(strlen(dirFiles) + strlen("/Metadata.ims") + 1); // /Metadata.bin o Bitmap.bin
-					strcpy(metadataRuta, dirFiles);
-					strcat(metadataRuta, "/Metadata.ims"); // /Metadata.bin o Bitmap.bin
-					// Creo el archivo Metadata.bin (para indicar que es un directorio)
-					f = fopen(metadataRuta, "w");
-					fputs("SIZE=132", f);
-					fclose(f);
-					free(metadataRuta);
-					//Creo carpeta Bitacora
-					if(mkdir(dirBitacora, 0777) == 0)
-					{
-						printf("Se creo carpeta Bitacora  =) \n");
-					}
-				}
-				else
-				{
-					log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Files.");
-					free(metadataRuta);
-					return;
-				}
+	printf("Se creo el directorio de montaje =) \n");
+	//Crea superBloque
+	char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+	strcpy(superBloqueRuta, puntoMontaje);
+	strcat(superBloqueRuta, "/SuperBloque.ims");
+	block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+	blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	// Creo el archivo superBloque
+	f = fopen(superBloqueRuta, "w");
+	char* tamanioBloque = malloc(10); sprintf(tamanioBloque, "%d",block_size);
+	fputs("BLOCK_SIZE=", f); fputs(tamanioBloque,f); fputs("\n",f);
+	char* bloques = malloc(10);
+	sprintf(bloques, "%d",block_size);
+	fputs("BLOCKS=", f);fputs(bloques,f); fputs("\n",f);
+	fclose(f);
+	free(superBloqueRuta);
+	free(tamanioBloque);
+	free(bloques);
+	//Crep el archivo bitmap.bin
+	bitmap = crear_bitmap(puntoMontaje,blocks);
+	//Crea Blocks
+	char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+	strcpy(blocksRuta, puntoMontaje);
+	strcat(blocksRuta, "/Blocks.ims");
+	//			log_trace(mongoLogger, "Estructura creada.");
+	int X = block_size * blocks;
+	f = fopen(blocksRuta, "w");
+	fputs("1", f);
+	fseek(f, X , SEEK_SET);
+	putc('\0', f);
+	fclose(f);
+	free(blocksRuta);
+	//Creo carpeta Files
+	if(mkdir(dirFiles, 0777) == 0)
+	{
+	 printf("Se creo carpeta Files  =) \n");
+	 // Creo archivo Metadata.bin
+	 char* metadataRuta = malloc(strlen(dirFiles) + strlen("/Metadata.ims") + 1);
+	 strcpy(metadataRuta, dirFiles);
+	 strcat(metadataRuta, "/Metadata.ims");
+	 // Creo el archivo Metadata.bin (para indicar que es un directorio)
+	 f = fopen(metadataRuta, "w");
+	 fputs("SIZE=132", f);
+	 fclose(f);
+	 free(metadataRuta);
+	 //Creo carpeta Bitacora
+	 if(mkdir(dirBitacora, 0777) == 0)
+	 {
+	  printf("Se creo carpeta Bitacora  =) \n");
+	 }
+	 free(metadataRuta);
 	}
+    else
+    {
+    log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Files.");
+	return;
+    }
+}
 }
 
 

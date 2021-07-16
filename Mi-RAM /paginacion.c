@@ -78,7 +78,7 @@ uint32_t buscar_marco_disponible(int tipo_memoria){
 }
 
 /* Crea la estructura administrativa para manejar los tipos en la pagina y la agrega a la pagina correspondiente */
-void agregarEstructAdminTipoPAG(t_pagina* pagina,int desplazamiento_pag, int bytesAlojados, tipo_estructura estructura, int flag){
+void agregarEstructAdminTipoPAG(t_pagina* pagina,int desplazamiento_pag, int bytesAlojados, int estructura, int flag){
 
 	t_alojado* nueva_estructura_pag = malloc(sizeof(t_alojado));
 	log_info(logs_ram, "Se va a agregar a la pagina %d , la estructura %d con base %d , y tamanio %d", pagina->nro_pagina,
@@ -108,7 +108,7 @@ void* leer_memoria_pag(int frame, int mem){
 	return pagina;
 }
 
-int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, int* bytesAInsertar,  tipo_estructura estructura, int* bytesEscritos, int flag){
+int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, int* bytesAInsertar,  int estructura, int* bytesEscritos, int flag){
 	if(!traer_marco_valido(pagina->nro_frame_mpal, tipo_memoria)){
 
 		int desplazamiento_pag = TAM_PAG - pagina->tam_disponible;
@@ -150,6 +150,34 @@ int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, i
 		return 0;
 	}
 }
+
+void* buscar_pagina(t_pagina* pagina_buscada) {
+    void* pagina = NULL;
+    int frame_ppal = pagina_buscada->nro_frame_mpal;
+    //int frame_virtual = info_pagina->frame_m_virtual;
+    if(frame_ppal != NULL)
+        pagina = leer_memoria_pag(frame_ppal, MEM_PPAL);
+
+        // log_info(logger, "pagina encontrada en memoria principal");
+    return pagina;
+}
+
+t_pagina* crear_pagina_en_tabla(t_proceso* proceso,int estructura){
+	log_info(logs_ram, "Creando pagina en la tabla de la patota: %d", proceso->pid);
+
+	t_pagina* pagina = malloc(sizeof(t_pagina));
+	pagina->nro_pagina = list_size(proceso->tabla);
+	pagina->nro_frame_mpal = NULL;
+	pagina->tam_disponible = TAM_PAG;
+	pagina->estructuras_alojadas = list_create();
+
+	log_info(logs_ram, "Se creo el t_info_pagina de tipo: %d", estructura);
+
+	list_add(proceso->tabla, pagina);
+
+	return pagina;
+}
+
 
 
 /*

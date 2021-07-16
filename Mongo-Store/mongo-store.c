@@ -289,7 +289,7 @@ void *gestionarCliente(int socket) {
 			//liberar_cliente(cliente);
 			break;
 		case ESPERANDO_SABOTAJE:;
-		      pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void)cliente);
+		      pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)cliente);
 		      pthread_detach(hilo_sabotaje);
 		      break;
 		case ACTUALIZAR_POSICION:;
@@ -384,8 +384,8 @@ int operacion;
 
     printf("ESTOY POR ENVIAR SABOTAJE\n");
     enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_mongo_store);
-    liberar(socket_mongo_store);
-    return;
+    liberar_cliente(socket_mongo_store);
+
 }
 
 int obtener_bloque_libre(t_bitarray* bitmap){

@@ -382,6 +382,7 @@ int operacion;
     void enviar_mensaje_a_discordiador(void *data){
     int socket_mongo_store = (int) data;
     //int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
+    printf("ESTOY POR ENVIAR SABOTAJE\n");
     sem_wait(&dar_orden_sabotaje);
     //sleep(50);
 

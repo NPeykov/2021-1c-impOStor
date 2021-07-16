@@ -1594,8 +1594,8 @@ int main(void){
 	pthread_create(&hilo_planificador, NULL, (void *)planificar, NULL);
 	pthread_detach(hilo_planificador);
 
-	//pthread_create(&hilo_para_sabotaje, NULL, (void *)esperar_sabotaje, NULL);
-	//pthread_detach(hilo_para_sabotaje);
+	pthread_create(&hilo_para_sabotaje, NULL, (void *)esperar_sabotaje, NULL);
+	pthread_detach(hilo_para_sabotaje);
 
 	pthread_create(&hilo_consola, NULL, (void *)atender_comandos_consola, NULL);
 	pthread_join(hilo_consola, NULL);

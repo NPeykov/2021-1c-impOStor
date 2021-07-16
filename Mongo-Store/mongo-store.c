@@ -3,8 +3,10 @@
 void enviar_mensaje_a_discordiador();
 
 int main() {
+	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
 
 	sem_init(&dar_orden_sabotaje,0 , 0);
+
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 
 	puerto = config_get_string_value(mongoConfig, "PUERTO");
@@ -19,7 +21,7 @@ int main() {
 
 	gestionarCliente(socket_mongo_store );
 
-	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
+
 
 
 	return EXIT_SUCCESS;
@@ -372,6 +374,7 @@ int operacion;
 }
 
 	void rutina(int n){
+		  printf("El SABOTAJE EXISTE!\n");
 	    sem_post(&dar_orden_sabotaje);
 	}
 

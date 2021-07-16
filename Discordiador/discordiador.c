@@ -10,9 +10,11 @@ void esperar_sabotaje(void){ //este es un hilo
 	int sabotaje_posY;
 	char *mensaje;
 
-	_socket_mongo = iniciar_conexion(I_MONGO_STORE, config);
+
 
 	while(1){
+		_socket_mongo = iniciar_conexion(I_MONGO_STORE, config);
+		enviar_mensaje(ESPERANDO_SABOTAJE,"",_socket_mongo);
 		codigo_recibido = recibir_operacion(_socket_mongo);
 		mensaje = recibir_mensaje(_socket_mongo);
 

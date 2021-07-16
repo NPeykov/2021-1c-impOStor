@@ -29,7 +29,8 @@ typedef enum{
 	PEDIDO_TAREA, //para ram
 	INICIO_TAREA, //para store
 	FIN_TAREA, //para store
-	INICIO_SABOTAJE
+	INICIO_SABOTAJE,
+	ESPERANDO_SABOTAJE
 }op_code;
 
 typedef enum{

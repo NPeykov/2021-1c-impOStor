@@ -4,7 +4,7 @@ void enviar_mensaje_a_discordiador();
 
 int main() {
 
-
+	sem_init(&dar_orden_sabotaje,0 , 0);
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 
 	puerto = config_get_string_value(mongoConfig, "PUERTO");
@@ -25,17 +25,7 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
-//para probar el aviso de inicio de sabotaje
-void enviar_mensaje_a_discordiador(void *data){
-	int socket_mongo_store = (int) data;
-	int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
 
-	sleep(50);
-
-	printf("ESTOY POR ENVIAR SABOTAJE\n");
-
-	enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_para_sabotaje);
-}
 
 void crearEstructuraFileSystem()
 {
@@ -298,12 +288,16 @@ void *gestionarCliente(int socket) {
 //				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 			//liberar_cliente(cliente);
 			break;
+		case ESPERANDO_SABOTAJE:;
+		      pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void)cliente);
+		      pthread_detach(hilo_sabotaje);
+		      break;
 		case ACTUALIZAR_POSICION:;
 
 			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
-
+			//Se escribe en blocks.ims
 			actualizar_posicion(tripulanteEnMovimiento);
 
 //			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
@@ -376,19 +370,22 @@ int operacion;
 
 }
 }
-void rutina(int n){
-//switch(n) {
-//		case SIGUSR1:;
-		pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)socket_mongo_store);
-		pthread_detach(hilo_sabotaje);
-//			printf("llego sigusr1");
-//			break;
-//		case 2:
-//			break;
-//    default:
-//	printf("Operacion desconocida.\n");
-//	break;
-//}
+
+	void rutina(int n){
+	    sem_post(&dar_orden_sabotaje);
+	}
+
+//para probar el aviso de inicio de sabotaje
+    void enviar_mensaje_a_discordiador(void *data){
+    int socket_mongo_store = (int) data;
+    //int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
+    sem_wait(&dar_orden_sabotaje);
+    //sleep(50);
+
+    printf("ESTOY POR ENVIAR SABOTAJE\n");
+    enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_mongo_store);
+    liberar(socket_mongo_store);
+    return;
 }
 
 int obtener_bloque_libre(t_bitarray* bitmap){

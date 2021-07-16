@@ -33,6 +33,8 @@ int socket_mongo_store, socket_cliente;
 char* puerto;
 void crearEstructuraFileSystem();
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
+sem_t dar_orden_sabotaje;
+
 
 void liberar_bloque(t_bitarray* bitmap, int bloque);
 void ocupar_bloque(t_bitarray* bitmap, int bloque);
@@ -48,7 +50,7 @@ void consumir_comida(int);
 void generar_basura(int);
 void descartar_basura(int);
 void (*signal(int sig, void (*func)(int)))(int) ;
-
+void enviar_mensaje_a_discordiador(void *data);
 typedef enum{
 	SUPERBLOQUE,
 	FILES

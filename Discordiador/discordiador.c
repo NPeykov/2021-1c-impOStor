@@ -3,7 +3,7 @@
 ///************************************************ Sabotajes **********************************************
 ///TODO: ver como se recibe la señal de mongo
 void esperar_sabotaje(void){ //este es un hilo
-	int _socket_mongo;
+	int socket_mongo;
 	int codigo_recibido;
 	t_list *lista;
 	int sabotaje_posX;
@@ -13,20 +13,18 @@ void esperar_sabotaje(void){ //este es un hilo
 
 
 	while(1){
-		_socket_mongo = iniciar_conexion(I_MONGO_STORE, config);
-		enviar_mensaje(ESPERANDO_SABOTAJE,"",_socket_mongo);
-		codigo_recibido = recibir_operacion(_socket_mongo);
-		mensaje = recibir_mensaje(_socket_mongo);
+		socket_mongo = iniciar_conexion(I_MONGO_STORE, config);
+		enviar_mensaje(ESPERANDO_SABOTAJE," ",socket_mongo);
+		codigo_recibido = recibir_operacion(socket_mongo);
 
 		printf("SABOTAJEEEE\n");
 
 		if(codigo_recibido == INICIO_SABOTAJE){
-
 			pthread_mutex_lock(&sabotaje_lock);
 			g_hay_sabotaje = true; //activo para q todos detengan su ejecucion
 			pthread_mutex_unlock(&sabotaje_lock);
 
-			lista = recibir_paquete(_socket_mongo);
+			lista = recibir_paquete(socket_mongo);
 			sabotaje_posX = atoi(list_get(lista, 0));
 			sabotaje_posY = atoi(list_get(lista, 1));
 			log_info(logs_discordiador, "SABOTAJE EN (%d, %d)!", sabotaje_posX, sabotaje_posY);
@@ -35,8 +33,9 @@ void esperar_sabotaje(void){ //este es un hilo
 
 		else {
 			log_info(logs_discordiador, "RECIBI UNA OPERACION DIFERENTE DE SABOTAJE!");
-			lista = recibir_paquete(_socket_mongo); //para vaciar el buffer
+			lista = recibir_paquete(socket_mongo); //para vaciar el buffer
 		}
+		liberar_cliente(socket_mongo);
 	}
 
 }

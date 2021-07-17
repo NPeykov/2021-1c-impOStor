@@ -50,7 +50,7 @@ void consumir_comida(int);
 void generar_basura(int);
 void descartar_basura(int);
 void (*signal(int sig, void (*func)(int)))(int) ;
-void enviar_mensaje_a_discordiador(void *data);
+void enviar_aviso_sabotaje_a_discordiador(void *data);
 typedef enum{
 	SUPERBLOQUE,
 	FILES

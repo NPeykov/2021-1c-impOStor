@@ -1,6 +1,6 @@
 #include "mongo-store.h"
 
-void enviar_mensaje_a_discordiador();
+void enviar_aviso_sabotaje_a_discordiador();
 
 int main() {
 	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
@@ -281,6 +281,7 @@ void *gestionarCliente(int socket) {
 			enviar_paquete(paquete,cliente);
 //             	int idTripulante = atoi((char *) list_get(lista,0));
 //            	printf("Tripulante recibido %d\n", idTripulante);
+			liberar_cliente(cliente);
 			break;
 		case ELIMINAR_TRIPULANTE:
 
@@ -288,10 +289,10 @@ void *gestionarCliente(int socket) {
 //				int idTripulante = atoi((char *) list_get(lista,0));
 //				eliminarTripulante(idTripulante);
 //				printf("Tripulante eliminado de la nave %d\n", idTripulante);
-			//liberar_cliente(cliente);
+			liberar_cliente(cliente);
 			break;
 		case ESPERANDO_SABOTAJE:;
-		      pthread_create(&hilo_sabotaje, NULL, (void*)enviar_mensaje_a_discordiador, (void*)cliente);
+		      pthread_create(&hilo_sabotaje, NULL, (void*)enviar_aviso_sabotaje_a_discordiador, (void*)cliente);
 		      pthread_detach(hilo_sabotaje);
 		      break;
 		case ACTUALIZAR_POSICION:;
@@ -309,7 +310,7 @@ void *gestionarCliente(int socket) {
 //					tripulanteEnMovimiento->origenY,
 //					tripulanteEnMovimiento->destinoX,
 //					tripulanteEnMovimiento->destinoY);
-
+			liberar_cliente(cliente);
 			break;
 
 		case INICIO_TAREA:;
@@ -317,7 +318,7 @@ void *gestionarCliente(int socket) {
 			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
 			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
 			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
-
+			liberar_cliente(cliente);
 			break;
 
 		case FIN_TAREA:;
@@ -332,19 +333,20 @@ void *gestionarCliente(int socket) {
 				//aca llenaria el archivo tantas veces como el 'parametro'
 				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);
 			}
-
+			liberar_cliente(cliente);
 			break;
 
 		case -1:
 			printf("El cliente %d se desconecto.\n", cliente);
-			//liberar_cliente(cliente);
+			liberar_cliente(cliente);
 			break;
 		default:
 			printf("Operacion desconocida.\n");
+			liberar_cliente(cliente);
 			break;
 
 		}
-		liberar_cliente(cliente);
+		//liberar_cliente(cliente);
 
 	}
 //	 Se mueve de X|Y a X’|Y’
@@ -379,15 +381,23 @@ int operacion;
 	}
 
 //para probar el aviso de inicio de sabotaje
-    void enviar_mensaje_a_discordiador(void *data){
+    void enviar_aviso_sabotaje_a_discordiador(void *data){
     int socket_mongo_store = (int) data;
+    char* sabotaje_posX;
+    char* sabotaje_posY;
     //int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
-    printf("ESTOY POR ENVIAR SABOTAJE\n");
     sem_wait(&dar_orden_sabotaje);
     //sleep(50);
 
     printf("ESTOY POR ENVIAR SABOTAJE\n");
-    enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_mongo_store);
+    sabotaje_posX="2";//agarrar la posicion x
+    sabotaje_posY="3";//agarrar la posicion y
+    t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
+    agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posX) + 1);
+    agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posY) + 1);
+    enviar_paquete(paquete_sabotaje, socket_mongo_store);
+    eliminar_paquete(paquete_sabotaje);
+    //enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_mongo_store);
     liberar_cliente(socket_mongo_store);
 
 }

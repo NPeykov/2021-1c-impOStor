@@ -22,8 +22,6 @@ int main() {
 	gestionarCliente(socket_mongo_store );
 
 
-
-
 	return EXIT_SUCCESS;
 }
 
@@ -383,15 +381,21 @@ int operacion;
 //para probar el aviso de inicio de sabotaje
     void enviar_aviso_sabotaje_a_discordiador(void *data){
     int socket_mongo_store = (int) data;
-    char* sabotaje_posX;
+    char** sabotaje_posX_aux;
     char* sabotaje_posY;
+    char** pos_dividida;
+    char* sabotaje_posX;
     //int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
     sem_wait(&dar_orden_sabotaje);
     //sleep(50);
 
+    pos_dividida = config_get_array_value(mongoConfig,"POSICIONES_SABOTAJE");//array con todas las posiciones
+
+    sabotaje_posX_aux = string_split(pos_dividida[0],"|");//tomo la posicion i del array y lo paso a otro
     printf("ESTOY POR ENVIAR SABOTAJE\n");
-    sabotaje_posX="2";//agarrar la posicion x
-    sabotaje_posY="3";//agarrar la posicion y
+    sabotaje_posX=sabotaje_posX_aux[0];//agarrar la posicion x
+    sabotaje_posY=sabotaje_posX_aux[1];//agarrar la posicion y
+
     t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
     agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posX) + 1);
     agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posY) + 1);

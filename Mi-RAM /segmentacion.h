@@ -32,21 +32,6 @@ typedef enum{
 	PAGINACION, SEGMENTACION
 }esquemaMemoria;
 
-typedef struct{
-	uint32_t pid; //Identificador de la Patota
-	uint32_t tareas; //Direccion Lista de tareas de la patota
-} PatotaCB; //Patota Control Block
-
-typedef struct{
-	uint32_t tid;//Identificador del Tripulante
-	char status;//Estado del tripulante (Ejecucion,Bloqueado,Nuevo o Listo)
-	uint32_t posX;//Posicion en el eje x
-	uint32_t posY;//Posicion en el eje Y
-	uint32_t proxIns; //Proxima Instruccion
-	uint32_t pcb; //Direccion de la PCB asociada al tripulante
-} TripuCB; //Tripulante Control Block
-
-
 //Semaforos
 
 sem_t tripulantesRestantes;
@@ -62,7 +47,7 @@ void *gestionarClienteSeg(int );
 //Busca un tripulante dado un idTripulante e id de Patota.
 // #eliminarTripulante(idTripulante, idPatota)
 //
-void eliminarTripulante(int, int);
+void eliminarTripulante(void*);
 
 //
 //Busca entre todos los procesos y retorna el tripulante buscado
@@ -153,6 +138,26 @@ char *obtenerTareaSiguiente(t_tripulante_iniciado*);
 // #obtenertareaSiguiente(tripulanteDeDiscordiador)
 //
 void dumpMemoriaSeg();
+
+//
+//Verifica si un proceso tiene al menos un segmento tripulante activo
+// noTieneMasTripulantes(tablaDePatota)
+//
+bool noTieneMasTripulantes(t_list *);
+
+//
+//Elimina una Patota quitando cada segmento del t_list de memoria principal
+//Y luego eliminando todos los punteros del t_list que contiene la patota.
+//	eliminarPatota(unaPatota);
+//
+void eliminarPatota(t_proceso *);
+
+//
+//Elimina un segmento de la memoria principal. Usando la base del mismo para ubicarlo
+//	eliminarSegmento(baseSegmento)
+//
+void eliminarSegmento(uint32_t);
+
 
 
 #endif

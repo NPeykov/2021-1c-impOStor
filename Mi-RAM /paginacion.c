@@ -8,7 +8,7 @@
 #include "paginacion.h"
 #include "mi-ram.h"
 
-/* Verifica que un frame existe en memoria y es válido */
+
 bool traer_marco_valido(int frame, int tipo_memoria){
 	if(tipo_memoria == MEM_PPAL){
 		return bitarray_test_bit(frames_ocupados_ppal, frame);
@@ -19,7 +19,7 @@ bool traer_marco_valido(int frame, int tipo_memoria){
 	}
 }
 
-/* Setea el frame como bit en uso */
+
 void asignar_marco_en_uso(int frame, int tipo_memoria){
 	if(tipo_memoria == MEM_PPAL){
 		bitarray_set_bit(frames_ocupados_ppal, frame);
@@ -29,7 +29,7 @@ void asignar_marco_en_uso(int frame, int tipo_memoria){
 	}
 }
 
-/* Libera el marco que recibe por parametro */
+
 void liberar_marco(int frame, int tipo_memoria)
 {
 	if(tipo_memoria == MEM_PPAL) {
@@ -43,7 +43,7 @@ void liberar_marco(int frame, int tipo_memoria)
 	}
 }
 
-/* Verifica si el marco se encuentra utilizado por alguna pagina */
+
 int marco_vacio(int marco){
 
 	bool _marco_en_uso(t_proceso* patota) {
@@ -60,7 +60,7 @@ int marco_vacio(int marco){
 	return !a;
 }
 
-/* Busca en la memoria un marco disponible */
+
 uint32_t buscar_marco_disponible(int tipo_memoria){
 	int size = 0;
 	if(tipo_memoria == MEM_PPAL){
@@ -77,7 +77,7 @@ uint32_t buscar_marco_disponible(int tipo_memoria){
 	return -1;
 }
 
-/* Crea la estructura administrativa para manejar los tipos en la pagina y la agrega a la pagina correspondiente */
+
 void agregarEstructAdminTipoPAG(t_pagina* pagina,int desplazamiento_pag, int bytesAlojados, int estructura, int flag){
 
 	t_alojado* nueva_estructura_pag = malloc(sizeof(t_alojado));
@@ -92,7 +92,7 @@ void agregarEstructAdminTipoPAG(t_pagina* pagina,int desplazamiento_pag, int byt
 }
 
 
-/* Esta función lee la pagina que esta en el frame indicado.  */
+
 void* leer_memoria_pag(int frame, int mem){
 
 	int desplazamiento = frame * TAM_PAG;
@@ -151,6 +151,30 @@ int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, i
 	}
 }
 
+int frame_libre(int frame){
+	bool frameEnUso(t_proceso* patota) {
+
+		t_list_iterator* iteradorTablaPaginas = list_iterator_create(patota->tabla);
+
+		while(list_iterator_has_next(iteradorTablaPaginas))
+		{
+			t_pagina* pagina = list_iterator_next(iteradorTablaPaginas);
+			if(pagina->nro_frame_mpal == frame) {
+				list_iterator_destroy(iteradorTablaPaginas);
+				return 1;
+			}
+		}
+
+		list_iterator_destroy(iteradorTablaPaginas);
+
+		return 0;
+	}
+
+	bool a = list_any_satisfy(patotas,(void*) frameEnUso);
+
+	return !a;
+}
+
 void* buscar_pagina(t_pagina* pagina_buscada) {
     void* pagina = NULL;
     int frame_ppal = pagina_buscada->nro_frame_mpal;
@@ -182,7 +206,7 @@ int asignar_paginas_en_tabla(void* bytesAGuardar, t_proceso* proceso, int estruc
 
 	int aMeter = 0;
 	int flagid;
-	void* bufferAMeter = meterEnBuffer(bytesAGuardar, estructura, &aMeter, &flagid);
+	void* bufferAMeter = meterEnBuffer(bytesAGuardar, estructura, &aMeter, &flagid); //No entiendo como manejar el tema de los buffer aca hay que crear la funcion para meter los datos en el buffer.
 	void* copiaBuffer = bufferAMeter;
 	int bytesEscritos;
 
@@ -263,12 +287,12 @@ t_pagina* buscar_ultima_pagina_disponible(t_proceso* proceso) {
 
 void existencia_patota(t_proceso* proceso) {
 	if(proceso == NULL) {
-		log_error(logs_ram, "No existe TCB para ese PCB");
+		log_error(logs_ram, "Este proceso es inexistente");
 		exit(1);
 	}
 }
 
-char* irABuscarSiguienteTareaPag(t_proceso* proceso, TripuCB* tcb) {
+char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 
 	log_info(logs_ram,"Soy el tripu %d voy a buscar tarea a %d", tcb->tid, tcb->proxIns);
 
@@ -289,7 +313,7 @@ char* irABuscarSiguienteTareaPag(t_proceso* proceso, TripuCB* tcb) {
 
 	t_list_iterator* iteradorTablaPaginas = iterarHastaIndice(proceso->tabla, indicePagina);
 
-	// pagina = list_get(proceso->tablaDePaginas, indicePagina);
+	pagina = list_get(proceso->tabla, indicePagina);
 	*proximoALeer = '0';
 
 	log_info(logs_ram,"Sacando tarea arrancando de indice: %d - desplazamiento: %d ", indicePagina, desplazamiento);
@@ -370,21 +394,6 @@ char* irABuscarSiguienteTareaPag(t_proceso* proceso, TripuCB* tcb) {
 	return tareaAMandar;
 }
 
-int guardar_TCB_pag(TripuCB* tcb,int idPatota) {
-	t_proceso* proceso = buscar_tabla_de_paginas_de_patota(idPatota);
-	tcb->pcb = 00;
-	tcb->proxIns = buscar_inicio_tareas(proceso);
-	existencia_patota(proceso);
-
-	int res = asignar_paginas_en_tabla((void*) tcb, proceso,TCB);
-	if(res == 0) {
-		return NULL;
-	} else {
-		return 1;
-	}
-
-}
-
 uint32_t buscar_inicio_tareas(t_proceso* proceso) {
 
 
@@ -419,6 +428,148 @@ uint32_t buscar_inicio_tareas(t_proceso* proceso) {
 
     return a;
 }
+
+uint32_t calcuar_DL_tareas_pag(){
+	//REVISAR
+
+	int nroPagina;
+	int desplazamiento;
+
+	if(TAM_PAG > 8)
+	{
+		nroPagina = 0;
+		desplazamiento = 8;
+	}
+	else
+	{
+		nroPagina = (int) (floor(8/TAM_PAG));
+		desplazamiento = 8 % TAM_PAG;
+	}
+
+	log_info(logs_ram,"DL TAREA: %d \n", nroPagina * 100 + desplazamiento);
+
+	return nroPagina * 100 + desplazamiento;
+}
+
+t_proceso* buscar_patota(int id_patota) {
+
+	bool idIgualA(t_proceso* patotaBuscada)
+	    {
+	        bool a;
+
+	        a = patotaBuscada->pid == id_patota;
+
+	        return a;
+	    }
+
+		lock(&mutexTablaProcesos);
+	    t_proceso* patota = list_find(patotas, (void*)idIgualA);
+	    unlock(&mutexTablaProcesos);
+
+	    if(patota == NULL)
+	    {
+	        log_error(logs_ram,"Tabla de pagina de patota %d no encontrada!!", id_patota);
+	        exit(1);
+	    }
+
+	    return patota;
+}
+
+int guardar_TCB_pag(TripuCB* tcb, int idPatota) {
+	t_proceso* proceso = buscar_patota(idPatota);
+	tcb->pcb = 00;//Habria que revisar esto pero entiendo que la PCB es siempre 00 el inicio de cada tabla de pagina.
+	tcb->proxIns = buscar_inicio_tareas(proceso);
+	existencia_patota(proceso);
+
+	int res = asignar_paginas_en_tabla((void*) tcb, proceso,TCB);
+	if(res == 0) {
+		return NULL;
+	} else {
+		return 1;
+	}
+
+}
+
+int guardar_PCB_pag(PatotaCB* pcbAGuardar, char* tareas){
+	int pcbGuardado, tareasGuardadas;
+	t_proceso* patota = malloc(sizeof(t_proceso));
+	patota->pid = pcbAGuardar->pid;
+	patota->tabla = list_create();
+
+	lock(&mutexTablaProcesos);
+	list_add(patotas, patota);
+	unlock(&mutexTablaProcesos);
+
+	log_info(logs_ram, "Se creo la tabla de paginas para la patota: %d", pcbAGuardar->pid);
+
+	pcbAGuardar->tareas = calcuar_DL_tareas_pag();
+
+	pcbGuardado = asignar_paginas_en_tabla((void*) pcbAGuardar, patota,PCB);
+
+	log_info(logs_ram, "La direccion logica de las tareas es: %d", pcbAGuardar->tareas);
+
+	tareasGuardadas = asignar_paginas_en_tabla((void*) tareas, patota,TAREAS);
+
+	free(pcbAGuardar);
+	free(tareas);
+
+	return pcbGuardado && tareasGuardadas;
+}
+
+bool tiene_pagina_estructura_alojadas(t_list* estructuras_alojadas, int estructura){
+	bool contieneTipo(t_alojado* estructuraAlojada){
+		return estructuraAlojada->tipo == estructura;
+	}
+
+	//lock(&mutexAlojados);
+	t_alojado* alojadoConTarea = list_find(estructuras_alojadas, (void*) contieneTipo);
+	//unlock(&mutexAlojados);
+
+	return alojadoConTarea != NULL;
+}
+
+
+bool tiene_pagina_tripu_alojado(t_list* estructuras_alojadas, int id_tripulante){
+	//lock(&mutexAlojados);
+	t_alojado* alojadoConTarea = obtener_tripulante_pagina(estructuras_alojadas, id_tripulante);
+	//unlock(&mutexAlojados);
+
+	return alojadoConTarea != NULL;
+}
+
+t_alojado* obtener_tripulante_pagina(t_list* estructuras_alojadas, int id_tripulante){
+
+	bool contieneTipo(t_alojado* estructuraAlojada){
+		return estructuraAlojada->tipo == TCB && estructuraAlojada->flagid == id_tripulante;
+	}
+
+	//lock(&mutexAlojados);
+	t_alojado* alojadoConTarea = list_find(estructuras_alojadas, (void*) contieneTipo);
+	//unlock(&mutexAlojados);
+
+	return alojadoConTarea;
+}
+
+int actualizar_tripulante_EnMem_pag(t_proceso* proceso, TripuCB* tcb) {
+
+	t_list* tablaPaginasConTripu = paginasConTripu(proceso->tabla, tcb->tid});
+
+	return sobreescribir_tripulante(tablaPaginasConTripu, tcb);
+}
+
+t_list* lista_paginas_tripulantes(t_list* tabla_paginas_proceso, uint32_t id_tripulante){
+	bool tieneTripu(t_pagina* pagina)
+	{
+		return tieneTripulanteAlojado(pagina->estructuras_alojadas, id_tripulante);
+	}
+
+	lock(&mutexTablaPatota);
+	t_list* tablaPaginasConTripu = list_filter(tabla_paginas_proceso, (void*) tieneTripu);
+	unlock(&mutexTablaPatota);
+
+	return tablaPaginasConTripu;
+}
+
 
 /*
 void dividir_memoria_en_frames() {

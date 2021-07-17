@@ -58,4 +58,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-logs_files/
+# Logs y dumps nuevos
+**/logs_files/
+**/Mi-RAM\ /Dump/

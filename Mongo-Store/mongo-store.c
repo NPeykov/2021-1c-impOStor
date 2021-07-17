@@ -390,7 +390,7 @@ int operacion;
     //sleep(50);
 
     pos_dividida = config_get_array_value(mongoConfig,"POSICIONES_SABOTAJE");//array con todas las posiciones
-
+//falta semaforo para tomar una posicion a la vez
     sabotaje_posX_aux = string_split(pos_dividida[0],"|");//tomo la posicion i del array y lo paso a otro
     printf("ESTOY POR ENVIAR SABOTAJE\n");
     sabotaje_posX=sabotaje_posX_aux[0];//agarrar la posicion x
@@ -578,6 +578,20 @@ void descartar_basura(int cant_borrar){
     	  }
     	}
 void actualizar_posicion(m_movimiento_tripulante *tripulante){
+	//1)buscar bitacora del tripulante
+	//2)Sino existe crearla sino pasar al paso 3
+	//3)leer la bitacora blocks y size
+	//4)ir a block.ims
+//	Ej: Si mi tripulante se tiene que mover de 0|0 a 3|3
+//
+//	Lo que se va a escribir en mi archivo Blocks.ims va a ser:
+
+//	Se mueve de 0|0 a 0|1
+//	Se mueve de 0|1 a 0|2
+//	Se mueve de 0|2 a 0|3
+//	Se mueve de 0|3 a 1|3
+//	Se mueve de 1|3 a 2|3
+//	Se mueve de 2|3 a 3|3
 	char* tri =  strcat("Tripulante", (char*)tripulanteEnMovimiento->idTripulante);
 	char* pat = strcat("Patota", (char*) tripulanteEnMovimiento->idPatota);
 	char* tripat = strcat(tri,pat);

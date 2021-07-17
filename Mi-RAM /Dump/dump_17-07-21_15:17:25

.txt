@@ -1,0 +1,12 @@
+---------------------------------
+
+Dump :17-07-21_15:17:25
+
+Proceso:1    Segmento:0      Inicio:0x0    Tamanio:44b 
+Proceso:1    Segmento:1      Inicio:0x2c    Tamanio:8b 
+Proceso:1    Segmento:2      Inicio:0x34    Tamanio:24b 
+Proceso:1    Segmento:3      Inicio:0x4c    Tamanio:24b 
+Proceso:1    Segmento:4      Inicio:0x64    Tamanio:24b 
+Proceso:1    Segmento:5      Inicio:0x7c    Tamanio:24b 
+
+---------------------------------

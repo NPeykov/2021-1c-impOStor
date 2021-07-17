@@ -175,7 +175,7 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	}
 }
 
-int crear_segmento_tcb(void* elTripulante) {
+void crear_segmento_tcb(void* elTripulante) {
 	TripulanteConSocket *tripulanteConSocket = (TripulanteConSocket *) elTripulante;
 	t_tripulante_iniciado *unTripulante = tripulanteConSocket->tripulante;
 	int _socket_cliente = tripulanteConSocket->socket;

@@ -32,6 +32,20 @@ typedef enum{
 	PAGINACION, SEGMENTACION
 }esquemaMemoria;
 
+typedef struct{
+	uint32_t pid; //Identificador de la Patota
+	uint32_t tareas; //Direccion Lista de tareas de la patota
+} PatotaCB; //Patota Control Block
+
+typedef struct{
+	uint32_t tid;//Identificador del Tripulante
+	char status;//Estado del tripulante (Ejecucion,Bloqueado,Nuevo o Listo)
+	uint32_t posX;//Posicion en el eje x
+	uint32_t posY;//Posicion en el eje Y
+	uint32_t proxIns; //Proxima Instruccion
+	uint32_t pcb; //Direccion de la PCB asociada al tripulante
+} TripuCB; //Tripulante Control Block
+
 
 //Semaforos
 
@@ -88,7 +102,7 @@ int crear_segmento_tareas(char *, t_list*);
 // &Retorna -1 si no hay espacio en memoria
 // #crear_segmento_tcb(numero_tripulante, posX, posY, dir_pcb, tabla_segmentos_proceso)
 //
-int crear_segmento_tcb(void*);
+void crear_segmento_tcb(void*);
 
 //
 //Obtiene la base logica del ultimo segmento que entrará a RAM

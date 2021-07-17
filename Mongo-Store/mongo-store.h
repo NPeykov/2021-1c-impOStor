@@ -15,6 +15,10 @@
 #include <fcntl.h>
 #include <signal.h>
 
+//Semaforos
+sem_t contador_sabotaje; //iniciar en 1
+
+
 char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
@@ -25,6 +29,7 @@ t_log* mongoLogger;
 int socket_cliente;
 int blocks;
 int block_size;
+int numero_sabotaje=0;
 m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;
 t_bitarray *bitmap;
@@ -51,6 +56,7 @@ void generar_basura(int);
 void descartar_basura(int);
 void (*signal(int sig, void (*func)(int)))(int) ;
 void enviar_aviso_sabotaje_a_discordiador(void *data);
+char* siguiente_posicion_sabotaje();
 typedef enum{
 	SUPERBLOQUE,
 	FILES

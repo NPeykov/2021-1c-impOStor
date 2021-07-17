@@ -217,7 +217,6 @@ void crear_segmento_tcb(void* elTripulante) {
 	if(segmento->base == -1){
 		enviar_mensaje_simple("no", _socket_cliente);
 		sem_post(&creacion_tripulante);
-		//return -1;//Por si hay error retorna -1
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 		printf("ESTO NO SE DEBERIA IMPRIMIR------------------------");
@@ -227,7 +226,6 @@ void crear_segmento_tcb(void* elTripulante) {
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
 		sem_post(&tripulantesRestantes);
 		sem_post(&creacion_tripulante);
-		//return 0;
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 	}
@@ -292,14 +290,50 @@ void crear_proceso(void *data){
 	pthread_exit(NULL);
 }
 
-void eliminarTripulante(int idTripulante,int idPatota){
+bool noTieneMasTripulantes(t_list *tablaDePatota){
+
+	bool _esPCB(void *algo){
+		Segmento *elSegmento = (Segmento*) algo;
+		return elSegmento->tipo == TCB;
+	}
+
+	bool resul = list_any_satisfy(tablaDePatota, _esPCB);
+	return !resul;
+}
+
+void eliminarPatota(t_proceso *laPatota){
+	void _eliminarSegmentos(void *algo){
+		Segmento *unSegmento = (Segmento*) algo;
+		eliminarSegmento(unSegmento->base);
+		free(unSegmento);
+	}
+	list_destroy_and_destroy_elements(laPatota->tabla,_eliminarSegmentos);
+}
+
+void eliminarSegmento(uint32_t baseSegmento){
+
+	bool _esElSegmento(void *algo){
+		Segmento *unSegmento = (Segmento*) algo;
+		return (unSegmento->base == baseSegmento);
+	}
+
+	list_remove_by_condition(memoriaPrincipal, _esElSegmento);
+}
+
+
+void eliminarTripulante(void *unTripulante){
+	IdentificadorTripulante *tripulanteAEliminar = (IdentificadorTripulante*) unTripulante;
+	int idTripulante = tripulanteAEliminar->idTripulante;
+	int idPatota = tripulanteAEliminar->idPatota;
+
 
 	bool _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
 		if (unSegmento->tipo == TCB) {
 			TripuCB *unTripulante = (TripuCB*) (unSegmento->dato);
 			if(unTripulante->tid == idTripulante){
-				free(unSegmento); //Para que se borre el nodo del segmento
+				eliminarSegmento(unSegmento->base);
+				free(unSegmento);
 				return 1;
 			}else{
 				return 0;
@@ -314,6 +348,9 @@ void eliminarTripulante(int idTripulante,int idPatota){
 		if(unaPatota->pid == idPatota){
 			t_list* segmentosProceso = unaPatota->tabla;
 			list_remove_by_condition(segmentosProceso, _chequearSegmentosTCB);
+			if(noTieneMasTripulantes(unaPatota->tabla)){
+				eliminarPatota(unaPatota);//En caso de que el tripulante eliminado haya sido el ultimo
+			}
 		}
 	}
 
@@ -379,7 +416,10 @@ char *buscarTarea(uint32_t baseSegmentoTareas, int indiceTarea){
 	return tareasSeparadas[indiceTarea];
 }
 
-char *obtenerTareaSiguiente(t_tripulante_iniciado *tripulante){
+void enviarTareaSiguiente(void *unTripulante){
+	TripulanteConSocket *elTripuConSocket = (TripulanteConSocket*) unTripulante;
+	int cliente = elTripuConSocket->socket;
+	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
 	int idTripulante = tripulante->tid;
 	int idPatota = tripulante->numPatota;
 
@@ -388,8 +428,12 @@ char *obtenerTareaSiguiente(t_tripulante_iniciado *tripulante){
 	elTripulante->proxIns +=1; //Se asigna la siguiente tarea en RAM
 	Segmento *segmentoPatotaDelTripulante = buscarSegmento(elTripulante->pcb);
 	PatotaCB *PatotaDelTripu = (PatotaCB*) segmentoPatotaDelTripulante->dato;
-	return buscarTarea(PatotaDelTripu->tareas, proximaTarea);
+	char* tarea = buscarTarea(PatotaDelTripu->tareas, proximaTarea);
 
+	printf("Tripulante %d pidio la tarea %s.\n", idTripulante, tarea);
+
+	enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
+	liberar_cliente(cliente);
 
 }
 
@@ -399,9 +443,6 @@ void *gestionarClienteSeg(int socket) {
 
 	int operacion;
 	t_list *lista;
-
-
-	int idTripulante;
 
 	while(1) {
 		int cliente = esperar_cliente(socket);
@@ -425,15 +466,18 @@ void *gestionarClienteSeg(int socket) {
 				pthread_detach(hiloCreacionPatota);
 
 				log_info(logs_ram, "Se inicio una patota.\n");
-				//liberar_cliente(cliente);
 				break;
 
 			case ELIMINAR_TRIPULANTE:
 				lista = recibir_paquete(cliente);
-				int idTripulante = atoi(list_get(lista,0));
-				int idPatota = (int)((char *) list_get(lista,1));
-				eliminarTripulante(idTripulante, idPatota);
-				printf("Tripulante %d de la patota %d eliminado de la nave\n", idTripulante, idPatota);
+
+				IdentificadorTripulante *unTripulante;
+				unTripulante->idTripulante = atoi(list_get(lista,0));
+				unTripulante->idPatota = atoi(list_get(lista,1));
+
+				pthread_t hiloEliminacionTripulante;
+				pthread_create(&hiloEliminacionTripulante, NULL, (void*)eliminarTripulante, (void*)unTripulante);
+				pthread_detach(hiloEliminacionTripulante);
 				liberar_cliente(cliente);
 				break;
 
@@ -441,7 +485,9 @@ void *gestionarClienteSeg(int socket) {
 
 				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
 
-				actualizarTripulante(tripulante_desplazado);
+				pthread_t hiloActualizacionTripulante;
+				pthread_create(&hiloEliminacionTripulante, NULL, (void*)actualizarTripulante, (void*)tripulante_desplazado);
+				pthread_detach(hiloEliminacionTripulante);
 				liberar_cliente(cliente);
 				break;
 
@@ -458,20 +504,17 @@ void *gestionarClienteSeg(int socket) {
 				break;
 
 			case PEDIDO_TAREA:;
-				 //char *ejemplo_tarea = "COMER;10;14;15";hardcodeo un string para probar desde discordiado
-
-				//recibo datos del tripulante para buscarlo (ignoro datos q no me sirven)
 
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
-				sem_wait(&tripulantesRestantes);
-				char* tarea = obtenerTareaSiguiente(tripulante_tarea);
+				TripulanteConSocket *tripulante_con_socket;
+				tripulante_con_socket->tripulante = tripulante_tarea;
+				tripulante_con_socket->socket     = cliente;
 
-				printf("Tripulante %d pidio la tarea %s.\n", tripulante_tarea->tid, tarea);
-				/*log_info(logs_ram, "Tripulante %d pidio tarea.",
-						tripulante_desplazado->tid);*/
+				pthread_t hiloPedidoTarea;
+				pthread_create(&hiloTripulante, NULL, (void*)enviarTareaSiguiente,(void*)tripulante_con_socket);
+				pthread_detach(hiloTripulante);
 
-				enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
-				liberar_cliente(cliente);
+
 				break;
 
 			case -1:

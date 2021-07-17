@@ -1,7 +1,7 @@
 #include "discordiador.h"
 
 ///************************************************ Sabotajes **********************************************
-///TODO: ver como se recibe la señal de mongo
+
 void esperar_sabotaje(void){ //este es un hilo
 	int socket_mongo;
 	int codigo_recibido;
@@ -34,6 +34,7 @@ void esperar_sabotaje(void){ //este es un hilo
 		else {
 			log_info(logs_discordiador, "RECIBI UNA OPERACION DIFERENTE DE SABOTAJE!");
 			lista = recibir_paquete(socket_mongo); //para vaciar el buffer
+			return;
 		}
 		liberar_cliente(socket_mongo);
 	}

@@ -1,6 +1,6 @@
-#include "mi-ram.h"
 #include "segmentacion.c"
 //#include "paginacion.c"
+#include "mi-ram.h"
 
 void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");

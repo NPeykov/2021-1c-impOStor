@@ -6,6 +6,8 @@ int main() {
 	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
 
 	sem_init(&dar_orden_sabotaje,0 , 0);
+	sem_init(&contador_sabotaje, 0, 1);
+
 
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 
@@ -245,10 +247,10 @@ void *gestionarCliente(int socket) {
 	int operacion;
 	t_paquete *paquete;
 	int respuesta;
-	int cliente;
+
 
 	while (1) {
-		cliente = esperar_cliente(socket);
+		int cliente = esperar_cliente(socket);
 		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
@@ -299,7 +301,7 @@ void *gestionarCliente(int socket) {
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
 			//Se escribe en blocks.ims
-			actualizar_posicion(tripulanteEnMovimiento);
+			//actualizar_posicion(tripulanteEnMovimiento);
 
 //			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
 //					tripulanteEnMovimiento->idPatota,
@@ -378,31 +380,57 @@ int operacion;
 	    sem_post(&dar_orden_sabotaje);
 	}
 
+	char* siguiente_posicion_sabotaje(){
+	    char** posiciones_divididas;
+	    char * siguiente_posicion;
+	    int cantidad = 0;
+
+	    posiciones_divididas = config_get_array_value(mongoConfig,"POSICIONES_SABOTAJE");//array con todas las posiciones
+	    while(posiciones_divididas[cantidad]!=NULL){
+	    	cantidad++;
+	    }
+	    if(numero_sabotaje<cantidad){
+			siguiente_posicion=posiciones_divididas[numero_sabotaje];
+			sem_wait(&contador_sabotaje);
+			numero_sabotaje++;
+			sem_post(&contador_sabotaje);
+			return siguiente_posicion;
+		}
+		else{
+			printf("NO HAY MAS SABOTAJES\n");
+			return "";
+		}
+
+	}
+
 //para probar el aviso de inicio de sabotaje
     void enviar_aviso_sabotaje_a_discordiador(void *data){
     int socket_mongo_store = (int) data;
-    char** sabotaje_posX_aux;
+    char** sabotaje_pos_aux;
     char* sabotaje_posY;
-    char** pos_dividida;
+    //char** pos_dividida;
     char* sabotaje_posX;
+    char* pos_sabotaje;
     //int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
-    sem_wait(&dar_orden_sabotaje);
-    //sleep(50);
+    while(1){
+    	 sem_wait(&dar_orden_sabotaje);
 
-    pos_dividida = config_get_array_value(mongoConfig,"POSICIONES_SABOTAJE");//array con todas las posiciones
+    	    pos_sabotaje=siguiente_posicion_sabotaje();
+    	    sabotaje_pos_aux = string_split(pos_sabotaje,"|");//tomo la posicion i del array y lo paso a otro
+    	    printf("ESTOY POR ENVIAR SABOTAJE\n");
+    	    sabotaje_posX=sabotaje_pos_aux[0];//agarrar la posicion x
+    	    sabotaje_posY=sabotaje_pos_aux[1];//agarrar la posicion y
+    	    printf("posicion en X de sabotaje: %s\n",sabotaje_posX);
+    	    printf("posicion en Y de sabotaje: %s\n",sabotaje_posY);
 
-    sabotaje_posX_aux = string_split(pos_dividida[0],"|");//tomo la posicion i del array y lo paso a otro
-    printf("ESTOY POR ENVIAR SABOTAJE\n");
-    sabotaje_posX=sabotaje_posX_aux[0];//agarrar la posicion x
-    sabotaje_posY=sabotaje_posX_aux[1];//agarrar la posicion y
+    	    t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
+    	    agregar_a_paquete(paquete_sabotaje, sabotaje_posX, strlen(sabotaje_posX) + 1);
+    	    agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posY) + 1);
+    	    enviar_paquete(paquete_sabotaje, socket_mongo_store);
+    	    eliminar_paquete(paquete_sabotaje);
+    	    liberar_cliente(socket_mongo_store);
+    }
 
-    t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
-    agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posX) + 1);
-    agregar_a_paquete(paquete_sabotaje, sabotaje_posY, strlen(sabotaje_posY) + 1);
-    enviar_paquete(paquete_sabotaje, socket_mongo_store);
-    eliminar_paquete(paquete_sabotaje);
-    //enviar_mensaje(INICIO_SABOTAJE, "Ks", socket_mongo_store);
-    liberar_cliente(socket_mongo_store);
 
 }
 
@@ -578,6 +606,20 @@ void descartar_basura(int cant_borrar){
     	  }
     	}
 void actualizar_posicion(m_movimiento_tripulante *tripulante){
+	//1)buscar bitacora del tripulante
+	//2)Sino existe crearla sino pasar al paso 3
+	//3)leer la bitacora blocks y size
+	//4)ir a block.ims
+//	Ej: Si mi tripulante se tiene que mover de 0|0 a 3|3
+//
+//	Lo que se va a escribir en mi archivo Blocks.ims va a ser:
+
+//	Se mueve de 0|0 a 0|1
+//	Se mueve de 0|1 a 0|2
+//	Se mueve de 0|2 a 0|3
+//	Se mueve de 0|3 a 1|3
+//	Se mueve de 1|3 a 2|3
+//	Se mueve de 2|3 a 3|3
 	char* tri =  strcat("Tripulante", (char*)tripulanteEnMovimiento->idTripulante);
 	char* pat = strcat("Patota", (char*) tripulanteEnMovimiento->idPatota);
 	char* tripat = strcat(tri,pat);

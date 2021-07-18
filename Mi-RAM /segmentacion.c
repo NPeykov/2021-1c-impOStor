@@ -224,6 +224,7 @@ void crear_segmento_tcb(void* elTripulante) {
 	}else{
 		agregar_a_memoria(segmento);
 		sem_post(&direcciones);
+		sem_post(&tripulantesDisponibles);
 		enviar_mensaje_simple("ok", _socket_cliente);
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
 		liberar_cliente(_socket_cliente);
@@ -428,6 +429,7 @@ void enviarTareaSiguiente(void *unTripulante){
 	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
 	int idTripulante = tripulante->tid;
 	int idPatota = tripulante->numPatota;
+	printf("Cree las variables para buscar la tarea\n");
 
 	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
 	int proximaTarea = (int) elTripulante->proxIns;
@@ -475,7 +477,7 @@ void *gestionarClienteSeg(int socket) {
 			case ELIMINAR_TRIPULANTE:
 				lista = recibir_paquete(cliente);
 
-				IdentificadorTripulante *unTripulante;
+				IdentificadorTripulante *unTripulante = malloc(sizeof(IdentificadorTripulante));
 				unTripulante->idTripulante = atoi(list_get(lista,0));
 				unTripulante->idPatota = atoi(list_get(lista,1));
 
@@ -510,10 +512,12 @@ void *gestionarClienteSeg(int socket) {
 			case PEDIDO_TAREA:;
 
 				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
-				TripulanteConSocket *tripulante_con_socket;
+				TripulanteConSocket *tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
 				tripulante_con_socket->tripulante = tripulante_tarea;
 				tripulante_con_socket->socket     = cliente;
+				printf("Cree el tripulante con socket\n");
 
+				sem_wait(&tripulantesDisponibles);
 				pthread_t hiloPedidoTarea;
 				pthread_create(&hiloTripulante, NULL, (void*)enviarTareaSiguiente,(void*)tripulante_con_socket);
 				pthread_detach(hiloTripulante);

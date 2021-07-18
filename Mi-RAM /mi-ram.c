@@ -34,6 +34,8 @@ void atenderSegunEsquema(){
 		}
 		sem_init(&direcciones,0,1); //Estos semaforos pueden iniciarse en segmentacion.c
 		sem_init(&numeroPatotas,0,1);
+		sem_init(&tripulantesDisponibles,0,0);
+
 		pthread_t hilo_cliente;
 
 		pthread_create(&hilo_cliente, NULL, (void *)gestionarClienteSeg(socket_principal_ram), NULL);

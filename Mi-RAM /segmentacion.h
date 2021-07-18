@@ -36,6 +36,7 @@ typedef enum{
 
 sem_t direcciones;
 sem_t numeroPatotas;
+sem_t tripulantesDisponibles;
 
 
 //Prototipos de Funciones

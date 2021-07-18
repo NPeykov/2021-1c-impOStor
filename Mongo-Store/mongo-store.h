@@ -12,6 +12,7 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <sys/mman.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <signal.h>
 

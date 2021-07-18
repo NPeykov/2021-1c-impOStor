@@ -19,9 +19,9 @@ int main() {
 
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
-	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
-
-	gestionarCliente(socket_mongo_store );
+//	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
+//
+//	gestionarCliente(socket_mongo_store );
 
 
 	return EXIT_SUCCESS;
@@ -95,16 +95,23 @@ void crearEstructuraFileSystem()
 	// Creo el archivo superBloque
 	f = fopen(superBloqueRuta, "w");
 	char* tamanioBloque = malloc(10); sprintf(tamanioBloque, "%d",block_size);
-	fputs("BLOCK_SIZE=", f); fputs(tamanioBloque,f); fputs("\n",f);
+
 	char* bloques = malloc(10);
-	sprintf(bloques, "%d",block_size);
-	fputs("BLOCKS=", f);fputs(bloques,f); fputs("\n",f);
+	sprintf(bloques, "%d",blocks);
+	int bitmapsize = blocks / 8;
+	int sizesuperbloque = string_length(tamanioBloque)+ string_length(bloques)+ bitmapsize;
+	fputs(tamanioBloque,f);
+	fputs(bloques,f);
+
+	fseek(f, sizesuperbloque , SEEK_SET);
+	putc('\0', f);
 	fclose(f);
+	//Creo el archivo bitmap.bin
+	bitmap = crear_bitmap(superBloqueRuta,blocks);
 	free(superBloqueRuta);
 	free(tamanioBloque);
 	free(bloques);
-	//Crep el archivo bitmap.bin
-	bitmap = crear_bitmap(puntoMontaje,blocks);
+
 	//Crea Blocks
 	char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
 	strcpy(blocksRuta, puntoMontaje);
@@ -121,21 +128,12 @@ void crearEstructuraFileSystem()
 	if(mkdir(dirFiles, 0777) == 0)
 	{
 	 printf("Se creo carpeta Files  =) \n");
-	 // Creo archivo Metadata.bin
-	 char* metadataRuta = malloc(strlen(dirFiles) + strlen("/Metadata.ims") + 1);
-	 strcpy(metadataRuta, dirFiles);
-	 strcat(metadataRuta, "/Metadata.ims");
-	 // Creo el archivo Metadata.bin (para indicar que es un directorio)
-	 f = fopen(metadataRuta, "w");
-	 fputs("SIZE=132", f);
-	 fclose(f);
-	 free(metadataRuta);
 	 //Creo carpeta Bitacora
 	 if(mkdir(dirBitacora, 0777) == 0)
 	 {
 	  printf("Se creo carpeta Bitacora  =) \n");
 	 }
-	 free(metadataRuta);
+
 	}
     else
     {
@@ -148,23 +146,22 @@ void crearEstructuraFileSystem()
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);
-
-
+	struct stat file_st;
 	size_t size = (size_t) cant_bloques / 8;
 	//printf("\nSize = %d\n", size);
-	char *rutaBitmap = malloc(strlen(ubicacion) + 20);
+	char *rutaBitmap = malloc(strlen(ubicacion) );
 	strcpy(rutaBitmap, ubicacion);
-	strcat(rutaBitmap, "/Bitmap.bin");
+//	strcat(rutaBitmap, "/Bitmap.bin");
 
-	int fd = open(rutaBitmap, O_CREAT | O_RDWR, 0777);
+	int fd = open(rutaBitmap, O_RDWR);
 
 	if (fd == -1) {
-		log_error(mongoLogger, "Error al abrir el archivo Bitmap.bin");
+		log_error(mongoLogger, "Error al crear el Bitmap");
 		exit(1);
 	}
-	ftruncate(fd, size);
+	fstat(fd, &file_st);
 
-	void* bmap = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+	char* bmap = mmap(NULL, file_st.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd,0);
 	if (bmap == MAP_FAILED) {
 		close(fd);
 		exit(1);

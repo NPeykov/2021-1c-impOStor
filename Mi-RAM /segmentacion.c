@@ -27,7 +27,6 @@ uint32_t algoritmoBestFit(Segmento *segmento){
 	uint32_t inicioSegmentoActual = 0;
 	uint32_t espacioLibreUbicacion = (uint32_t) tamaniomemoria; //Cuanto espacio queda libre si se coloca en ubicacionMasJusta
 	uint32_t ubicacionMasJusta = 0; //Aca se va guardando la mejor posicion encontrada
-	printf("Calcule una base logica\n");
 	//ESTO SERIA FIRST FIT
 	//Determina si hay un espacio libre entre dos segmentos
 	void espacioLibre(void* segmentoActual){
@@ -55,8 +54,10 @@ uint32_t algoritmoBestFit(Segmento *segmento){
 
 	list_iterate(memoriaPrincipal, espacioLibre);//Este es el mayor cambio entre FF y BF
 	if(tamaniomemoria >= ubicacionMasJusta + tamanioNecesario){
+		log_info(logs_ram,"Calcule una base logica: %d\n", finalSegmentoAnterior);
 		return ubicacionMasJusta;
 	}else if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
+		log_info(logs_ram,"Calcule una base logica: %d\n", finalSegmentoAnterior);
 		return finalSegmentoAnterior;//Para el ultimo segmento
 	}else{
 		if(noCompactado){
@@ -106,20 +107,20 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 
 	//Si no hay nada en memoria principal la dir es 0 por ser primero
 	if(list_is_empty(memoriaPrincipal)){
-		printf("Calcule una base logica 0\n");
+		log_info(logs_ram,"Calcule una base logica: 0\n");
 		return (uint32_t) 0;
 
 	}
 
 	list_find(memoriaPrincipal, espacioLibre);
 	if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
-		printf("Calcule una base logica %d\n", finalSegmentoAnterior);
+		log_info(logs_ram,"Calcule una base logica: %d\n", finalSegmentoAnterior);
 		return finalSegmentoAnterior;
 	}else{
 		if(noCompactado){
 			compactacion();//Se compacta y se hace de nuevo
 			finalSegmentoAnterior =  algoritmoFirstFit(segmento);
-			printf("Calcule una base logica %d\n", finalSegmentoAnterior);
+			log_info(logs_ram,"Calcule una base logica: %d\n", finalSegmentoAnterior);
 			noCompactado = true;
 			return finalSegmentoAnterior;
 		}else{
@@ -135,7 +136,7 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	//Se llena el segmento
 	segmento->tipo = TAREAS;
 	segmento->dato = tareas;
-	printf("Tareas guardadas: %s\n", tareas);
+	log_info(logs_ram,"Tareas guardadas: %s\n", tareas);
 	segmento->tamanio = string_length(tareas);
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
@@ -220,7 +221,6 @@ void crear_segmento_tcb(void* elTripulante) {
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
-		printf("ESTO NO SE DEBERIA IMPRIMIR------------------------");
 	}else{
 		agregar_a_memoria(segmento);
 		sem_post(&direcciones);
@@ -288,7 +288,7 @@ void crear_proceso(void *data){
 	proceso->tabla = tabla_de_segmentos;
 	list_add(patotas, proceso);
 
-
+	log_info(logs_ram, "Se inicio una patota.\n");
 	enviar_mensaje_simple("ok", _socket_cliente);
 	liberar_cliente(_socket_cliente);
 	pthread_exit(NULL);
@@ -336,6 +336,7 @@ void eliminarTripulante(void *unTripulante){
 		if (unSegmento->tipo == TCB) {
 			TripuCB *unTripulante = (TripuCB*) (unSegmento->dato);
 			if(unTripulante->tid == idTripulante){
+				log_info(logs_ram, "Se elimino al tripulante %d de la patota %d",idTripulante,idPatota);
 				eliminarSegmento(unSegmento->base);
 				free(unSegmento);
 				return 1;
@@ -399,6 +400,7 @@ void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 	elTripulante->posX = posicionX;
 	elTripulante->posY = posicionY;
 	elTripulante->status = tripulanteActualizado->status;
+	log_info(logs_ram,"El tripulante %d de la patota %d se movio a: %d|%d\n",idTripulante, idPatota, posicionX, posicionY);
 }
 
 Segmento *buscarSegmento(uint32_t baseSegmento){
@@ -434,7 +436,7 @@ void enviarTareaSiguiente(void *unTripulante){
 	PatotaCB *PatotaDelTripu = (PatotaCB*) segmentoPatotaDelTripulante->dato;
 	char* tarea = buscarTarea(PatotaDelTripu->tareas, proximaTarea);
 
-	printf("Tripulante %d pidio la tarea %s.\n", idTripulante, tarea);
+	log_info(logs_ram,"Tripulante %d pidio la tarea %s.\n", idTripulante, tarea);
 
 	enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
 	liberar_cliente(cliente);
@@ -454,7 +456,7 @@ void *gestionarClienteSeg(int socket) {
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
-		printf("\nLA OPERACION ES: %d\n", operacion);
+		log_info(logs_ram,"\nSe recibio una operacion: %d\n", operacion);
 
 		switch(operacion) {
 			case INICIO_PATOTA:
@@ -468,8 +470,6 @@ void *gestionarClienteSeg(int socket) {
 
 				pthread_create(&hiloCreacionPatota, NULL, (void*)crear_proceso, (void*)datos_inicio);
 				pthread_detach(hiloCreacionPatota);
-
-				log_info(logs_ram, "Se inicio una patota.\n");
 				break;
 
 			case ELIMINAR_TRIPULANTE:
@@ -522,12 +522,12 @@ void *gestionarClienteSeg(int socket) {
 				break;
 
 			case -1:
-				printf("El cliente %d se desconecto.\n", cliente);
+				log_info(logs_ram,"El cliente %d se desconecto.\n", cliente);
 				liberar_cliente(cliente);
 				break;
 
 			default:
-				printf("Operacion desconocida.\n");
+				log_info(logs_ram,"Operacion desconocida.\n");
 				liberar_cliente(cliente);
 				break;
 		}

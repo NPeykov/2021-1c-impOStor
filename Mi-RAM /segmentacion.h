@@ -34,8 +34,8 @@ typedef enum{
 
 //Semaforos
 
-sem_t tripulantesRestantes;
-sem_t creacion_tripulante;
+sem_t direcciones;
+sem_t numeroPatotas;
 
 
 //Prototipos de Funciones

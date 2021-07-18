@@ -32,8 +32,8 @@ void atenderSegunEsquema(){
 		}else{
 			esFF = false; //Entonces es Best Fit (BF)
 		}
-		sem_init(&creacion_tripulante,0,1); //Estos semaforos pueden iniciarse en segmentacion.c
-		sem_init(&tripulantesRestantes,0,0);
+		sem_init(&direcciones,0,1); //Estos semaforos pueden iniciarse en segmentacion.c
+		sem_init(&numeroPatotas,0,1);
 		pthread_t hilo_cliente;
 
 		pthread_create(&hilo_cliente, NULL, (void *)gestionarClienteSeg(socket_principal_ram), NULL);

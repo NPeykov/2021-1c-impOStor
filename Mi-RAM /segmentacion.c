@@ -137,6 +137,7 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	segmento->dato = tareas;
 	printf("Tareas guardadas: %s\n", tareas);
 	segmento->tamanio = string_length(tareas);
+	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 	segmento->idSegmento = tabla_segmentos->elements_count;
 
@@ -156,6 +157,7 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	//Se llena la estructura de PatotaCB
 	PatotaCB *pcb = (PatotaCB*) malloc(sizeof(PatotaCB));
 	pcb->pid = numero_patota;
+	sem_post(&numeroPatotas);
 	pcb->tareas = inicioTareas;
 
 	//Se llena la informacion del Segmento
@@ -163,6 +165,7 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
 	segmento->tamanio = sizeof(PatotaCB);
+	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 
 	//Se lo agrega a la tabla de Segmentos del proceso actual
@@ -180,8 +183,6 @@ void crear_segmento_tcb(void* elTripulante) {
 	t_tripulante_iniciado *unTripulante = tripulanteConSocket->tripulante;
 	int _socket_cliente = tripulanteConSocket->socket;
 
-	printf("Llegue aca");
-	sem_wait(&creacion_tripulante);
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	//Para buscar su patota
@@ -212,20 +213,19 @@ void crear_segmento_tcb(void* elTripulante) {
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
 	segmento->tamanio = sizeof(TripuCB);
+	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 
 	if(segmento->base == -1){
 		enviar_mensaje_simple("no", _socket_cliente);
-		sem_post(&creacion_tripulante);
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 		printf("ESTO NO SE DEBERIA IMPRIMIR------------------------");
 	}else{
 		agregar_a_memoria(segmento);
+		sem_post(&direcciones);
 		enviar_mensaje_simple("ok", _socket_cliente);
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
-		sem_post(&tripulantesRestantes);
-		sem_post(&creacion_tripulante);
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 	}
@@ -265,11 +265,17 @@ void crear_proceso(void *data){
 		return;
 	}
 	agregar_a_memoria(segmento_tareas);
+	sem_post(&direcciones);
+
+	//Se crea t_proceso como accedo rapido a los segmentos de la patota
+	t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
+	sem_wait(&numeroPatotas);
+	proceso->pid = numero_patota;
+	numero_patota += 1;
 
 	//Se crea el segmento PCB
 	int result_pcb =crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
 	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
-	//verificarSegmento(result_pcb, cliente);
 	if(result_pcb == -1){
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
@@ -277,13 +283,11 @@ void crear_proceso(void *data){
 		return;
 	}
 	agregar_a_memoria(segmento_pcb);
+	sem_post(&direcciones);
 
-	//Se crea t_proceso como accedo rapido a los segmentos de la patota
-	t_proceso *proceso = (t_proceso*) malloc(sizeof(t_proceso));
-	proceso->pid = numero_patota;
 	proceso->tabla = tabla_de_segmentos;
 	list_add(patotas, proceso);
-	numero_patota += 1;
+
 
 	enviar_mensaje_simple("ok", _socket_cliente);
 	liberar_cliente(_socket_cliente);

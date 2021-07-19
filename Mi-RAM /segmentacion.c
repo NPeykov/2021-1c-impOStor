@@ -136,6 +136,7 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	//Se llena el segmento
 	segmento->tipo = TAREAS;
 	segmento->dato = tareas;
+	segmento->valorRepresentacion = 0;
 	log_info(logs_ram,"Tareas guardadas: %s\n", tareas);
 	segmento->tamanio = string_length(tareas);
 	sem_wait(&direcciones);
@@ -166,6 +167,7 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
 	segmento->tamanio = sizeof(PatotaCB);
+	segmento->valorRepresentacion = 0;
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 
@@ -222,6 +224,7 @@ void crear_segmento_tcb(void* elTripulante) {
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 	}else{
+		segmento->valorRepresentacion = nuevoTripuMapa(tcb->posX,tcb->posY);
 		agregar_a_memoria(segmento);
 		sem_post(&direcciones);
 		sem_post(&tripulantesDisponibles);
@@ -363,14 +366,14 @@ void eliminarTripulante(void *unTripulante){
 	list_iterate(patotas, _buscarTripulantes);
 }
 
-TripuCB *buscarTripulante(int idTripulante,int idPatota){
-	TripuCB *elTripulante;
+Segmento *buscarTripulante(int idTripulante,int idPatota){
+	Segmento *segmentoDelTripulante;
 
 	void _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
 		if (unSegmento->tipo == TCB) {
 			TripuCB *unTripulante = (TripuCB*) unSegmento->dato;
-			if(unTripulante->tid == idTripulante){elTripulante = unTripulante;};
+			if(unTripulante->tid == idTripulante){segmentoDelTripulante = unSegmento;};
 		}
 	}
 
@@ -385,23 +388,30 @@ TripuCB *buscarTripulante(int idTripulante,int idPatota){
 	//Hacer que itere entre cada uno de los procesos, y luego cada uno
 	//de sus segmentos
 	list_iterate(patotas, _recorrerProcesos);
-	return elTripulante;
+	return segmentoDelTripulante;
 }
 
 void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 	//Se espera que ubicacion vengaa en un string del estilo "1|2"
-	uint32_t posicionX;
-	uint32_t posicionY;
-	posicionX = tripulanteActualizado->posX;
-	posicionY = tripulanteActualizado->posY;
 	int idTripulante = tripulanteActualizado->tid;
 	int idPatota = tripulanteActualizado->numPatota;
 
-	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
-	elTripulante->posX = posicionX;
-	elTripulante->posY = posicionY;
+	//Busco tripulante y su segmento
+	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
+	TripuCB *elTripulante = (TripuCB*)SegmentoDelTripulante->dato;
+
+	//Calculo cuanto se va a mover y lo muevo en el mapa
+	int difX = tripulanteActualizado->posX - elTripulante->posX;
+	int difY = tripulanteActualizado->posY - elTripulante->posY;
+	moverTripuMapa(SegmentoDelTripulante->valorRepresentacion,difX, difY);
+
+	//Asigno la nueva posicion
+	elTripulante->posX = tripulanteActualizado->posX;
+	elTripulante->posY = tripulanteActualizado->posY;
 	elTripulante->status = tripulanteActualizado->status;
-	log_info(logs_ram,"El tripulante %d de la patota %d se movio a: %d|%d\n",idTripulante, idPatota, posicionX, posicionY);
+	log_info(logs_ram,"El tripulante %d de la patota %d se movio a: %d|%d."
+			" Y su estatus actual es: \n",idTripulante, idPatota, tripulanteActualizado->posX,
+			tripulanteActualizado->posY,tripulanteActualizado->status);
 }
 
 Segmento *buscarSegmento(uint32_t baseSegmento){
@@ -431,7 +441,8 @@ void enviarTareaSiguiente(void *unTripulante){
 	int idPatota = tripulante->numPatota;
 	printf("Cree las variables para buscar la tarea\n");
 
-	TripuCB *elTripulante = buscarTripulante(idTripulante, idPatota);
+	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
+	TripuCB *elTripulante = (TripuCB*)SegmentoDelTripulante->dato;
 	int proximaTarea = (int) elTripulante->proxIns;
 	elTripulante->proxIns +=1; //Se asigna la siguiente tarea en RAM
 	Segmento *segmentoPatotaDelTripulante = buscarSegmento(elTripulante->pcb);

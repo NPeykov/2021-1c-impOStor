@@ -552,7 +552,7 @@ t_alojado* obtener_tripulante_pagina(t_list* estructuras_alojadas, int id_tripul
 
 int actualizar_tripulante_EnMem_pag(t_proceso* proceso, TripuCB* tcb) {
 
-	t_list* tablaPaginasConTripu = paginasConTripu(proceso->tabla, tcb->tid});
+	t_list* tablaPaginasConTripu = paginasConTripu(proceso->tabla, tcb->tid);
 
 	return sobreescribir_tripulante(tablaPaginasConTripu, tcb);
 }

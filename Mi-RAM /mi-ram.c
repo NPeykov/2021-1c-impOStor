@@ -1,11 +1,11 @@
 #include "segmentacion.c"
+#include "mapa.c"
 //#include "paginacion.c"
-#include "mi-ram.h"
 
 void inicializar_ram(){
 	printf("################# Modulo Mi-RAM #################\n");
 
-	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 1, LOG_LEVEL_DEBUG);
+	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_INFO);
 
 	socket_principal_ram = levantar_servidor(MI_RAM_HQ);
 
@@ -21,6 +21,8 @@ void inicializar_ram(){
 	memoria = malloc(tamaniomemoria);
 	memoriaPrincipal = list_create();
 	patotas = list_create();
+
+	crear_nivel();
 }
 
 void atenderSegunEsquema(){
@@ -58,9 +60,9 @@ void dumpMemoria(){
 
 
 int main(){
-	signal(SIGTSTP, dumpMemoriaSeg);
-
 	inicializar_ram();
+
+	signal(SIGTSTP, dumpMemoriaSeg);
 
 	atenderSegunEsquema();
 

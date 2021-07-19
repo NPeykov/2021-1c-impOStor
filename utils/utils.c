@@ -374,8 +374,8 @@ m_movimiento_tripulante *recibirMovimientoTripulante(int socket_cliente){
 	movimiento_tripulante->origenY 		= atoi(list_get(lista, 1));
 	movimiento_tripulante->destinoX 	= atoi(list_get(lista, 2));
 	movimiento_tripulante->destinoY 	= atoi(list_get(lista, 3));
-	movimiento_tripulante->idPatota     = atoi(list_get(lista, 4));
-	movimiento_tripulante->idTripulante = atoi(list_get(lista, 5));
+	movimiento_tripulante->idTripulante = atoi(list_get(lista, 4));
+	movimiento_tripulante->idPatota     = atoi(list_get(lista, 5));
 
 	return movimiento_tripulante;
 }

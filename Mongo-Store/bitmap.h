@@ -1,5 +1,18 @@
-#ifndef SERVIDOR_H_
-#define SERVIDOR_H_
+/*
+ * bitmap.h
+ *
+ *  Created on: 19 jul. 2021
+ *      Author: utnso
+ */
+
+#ifndef BITMAP_H_
+#define BITMAP_H_
+/*
+ * bitmap1.h
+ *
+ *  Created on: 19 jul. 2021
+ *      Author: utnso
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,10 +28,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <signal.h>
-#include "bitmap.h"
+
+
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
-
 
 char *puntoMontaje;
 char *dirMetadata;
@@ -30,30 +43,17 @@ t_log* mongoLogger;
 int socket_cliente;
 int blocks;
 int block_size;
-int numero_sabotaje=0;
-m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;
+t_bitarray *bitmap;
 t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
-void crearEstructuraFileSystem();
-sem_t dar_orden_sabotaje;
-void enviar_aviso_sabotaje_a_discordiador();
+
+t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
+void liberar_bloque(t_bitarray* bitmap, int bloque);
+void ocupar_bloque(t_bitarray* bitmap, int bloque);
+int obtener_bloque_libre(t_bitarray* bitmap) ;
 void actualizar_posicion(m_movimiento_tripulante *tripulante);
-void rutina(int n);
-void *gestionarCliente(int cliente);
-void gestionarSabotaje();
-void generar_oxigeno(int);
-void consumir_oxigeno(int);
-void generar_comida(int);
-void consumir_comida(int);
-void generar_basura(int);
-void descartar_basura(int);
-void (*signal(int sig, void (*func)(int)))(int) ;
-void enviar_aviso_sabotaje_a_discordiador(void *data);
-char* siguiente_posicion_sabotaje();
-typedef enum{
-	SUPERBLOQUE,
-	FILES
-}sabotaje_code;
-#endif
+
+
+#endif /* BITMAP_H_ */

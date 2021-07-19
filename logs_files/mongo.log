@@ -18,3 +18,10 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 [ERROR] 16:54:47:594 Mongo/(27903:27903): No se encuentra archivo SuperBloque.ims
 [ERROR] 16:55:29:676 Mongo/(28078:28078): No se encuentra archivo SuperBloque.ims
 [ERROR] 17:38:46:920 Mongo/(32215:32215): Error al crear el Bitmap
+[INFO] 08:55:08:032 Mongo/(5326:5326): El directorio /home/utnso/workspace/mnt ya existe. 
+[INFO] 09:01:55:999 Mongo/(6588:6588): El directorio /home/utnso/workspace/mnt ya existe. 
+[INFO] 09:06:18:458 Mongo/(7380:7380): El directorio /home/utnso/workspace/mnt ya existe. 
+[INFO] 09:07:56:167 Mongo/(7610:7610): El directorio /home/utnso/workspace/mnt ya existe. 
+[INFO] 09:09:22:376 Mongo/(7831:7831): El directorio /home/utnso/workspace/mnt ya existe. 
+[INFO] 09:09:44:666 Mongo/(7884:7884): El directorio /home/utnso/workspace/mnt ya existe. 
+[INFO] 09:14:06:787 Mongo/(8533:8533): El directorio /home/utnso/workspace/mnt ya existe. 

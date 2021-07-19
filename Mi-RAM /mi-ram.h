@@ -13,6 +13,7 @@
 #include <commons/temporal.h>
 #include <commons/txt.h>
 #include <signal.h>
+#include "mapa.h"
 
 //Esenciales del Servidor
 t_log *logs_ram;
@@ -28,7 +29,7 @@ void* memoria;
 //Lista de procesos activos
 t_list* patotas;
 
-//Contador para asignar y saber cantidad de patotas que ingresaron al sistema
+//Contadores para patotas y tripulantes
 int numero_patota = 1;
 
 

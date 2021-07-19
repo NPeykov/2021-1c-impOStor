@@ -25,6 +25,7 @@ typedef struct{
 	uint32_t base;
 	int tamanio;
 	void *dato;
+	int valorRepresentacion;
 } Segmento; //Patota
 
 
@@ -54,7 +55,7 @@ void eliminarTripulante(void*);
 //Busca entre todos los procesos y retorna el tripulante buscado
 // #buscarTripulante(idTripulante, idPatota)
 //
-TripuCB *buscarTripulante(int ,int);
+Segmento *buscarTripulante(int ,int);
 
 //
 //Crea un proceso

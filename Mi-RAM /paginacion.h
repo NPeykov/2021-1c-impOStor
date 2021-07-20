@@ -153,18 +153,49 @@ int actualizar_tripulante_EnMem_pag(t_proceso* , TripuCB*);
 /* Trae todas la paginas asociadas a un tripulante */
 
 t_list* lista_paginas_tripulantes(t_list*, uint32_t );
-//SIN HACER
-t_list* paginasConTripu(t_list*, uint32_t );
-int sobreescribirTripu(t_list* , TripuCB* );
-int actualizarTripulantePag(TripuCB* , int);
-TripuCB* obtenerTripulante(t_proceso* ,int );
-char* asignarProxTareaPag(int , int);
+
+/* Actualiza la estructura administrativa del tripulante */
+
+int sobreescribir_tripulante(t_list* , TripuCB* );
+
+/* Actualiza en memoria al tripulante */
+
+int actualizar_tripulante_pag(TripuCB* , int);
+
+/* Trae la estructura administrativa del tripulante  */
+
+TripuCB* obtener_tripulante(t_proceso* ,int );
+
+/* Asigna la proxima tarea al tripulante de la patota pasado por parametro  */
+
+char* asignar_prox_tarea_pag(int , int);
+
+/* Esta funcion cambiar por un list_iterate */
+
 t_list_iterator* iterarHastaIndice(t_list*, int);
-void chequearUltimoTripulante(t_proceso*);
-bool tieneTripulantesPag(t_proceso*);
-t_proceso* patotaConFrame(int);
-t_pagina* paginaConFrame(int ,t_proceso*);
-void expulsarTripulantePag(int ,int);
-void dumpPag();
+
+/* Verifica si el tripulante que se elimino no fue el ultimo del proceso enviado por parametro  */
+
+void chequear_ultimo_tripulante(t_proceso*);
+
+/* Recibe patota id y tripu id, elimina tanto estructuras administrativas como en memoria */
+
+void expulsar_tripulante_pag(int ,int);
+
+/* Verifica que un proceso le queden tripulantes */
+
+bool proceso_tiene_tripulantes_pag(t_proceso*);
+
+/* Retorna una patota si hay en el frame pasado por parametro */
+
+t_proceso* frame_con_patota(int);
+
+/* Retorna una pagina si el proceso enviado por parametro se encuentra en el frame enviado por parametro*/
+
+t_pagina* frame_con_pagina(int ,t_proceso*);
+
+/* Realiza el dump de memoria para paginacion */
+
+void dump_pag();
 
 #endif

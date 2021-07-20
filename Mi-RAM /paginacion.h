@@ -4,14 +4,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <bits/semaphore.h>
+#include <semaphore.h>
 #include <commons/collections/list.h>
 #include <commons/bitarray.h>
+#include <math.h>
 
 #include "mi-ram.h"
 
 int TAM_PAG;
 int TAM_MEM;
+int cantidadDeFrames;
 
 typedef enum {
 	OCUPADO, LIBRE
@@ -88,7 +90,7 @@ void* leer_memoria_pag(int, int);
 
 /* Inserta en el malloc de memoria la pagina. */
 
-int insertar_en_memoria_pag(t_pagina*, void*, int, int*, int , int*);
+int insertar_en_memoria_pag(t_pagina*, void*, int, int*, int , int*, int);
 
 /* Busca la pagina pasada por parametro en el malloc de memoria */
 
@@ -197,5 +199,39 @@ t_pagina* frame_con_pagina(int ,t_proceso*);
 /* Realiza el dump de memoria para paginacion */
 
 void dump_pag();
+
+/*Crea un buffer y da los valores a flag y el tamaño que se buscara guardar*/
+
+void* meterEnBuffer(void* , int , int* , int* );
+
+/*Busca el numero del primer frame vacio */
+
+int buscar_frame_disponible(int);
+
+/*Confirma si la pagina tiene la estructura indicada */
+
+bool tieneEstructuraAlojada(t_list*, int);
+
+/* Actualiza la posicion y estatus del tripulante */
+
+void actualizarTripulanteEnMemPag(t_proceso*, TripuCB*);
+
+/* Crea una tarea */
+
+char* armarTarea(char*);
+
+t_list* paginasConTripu(t_list*, uint32_t);//TODO
+
+t_list* tieneTripulanteAlojado(t_list*, uint32_t); //TODO
+
+t_list* obtenerAlojadoPagina(t_list*, uint32_t);//TODO
+
+void sobreescribir_memoria(int, void*, int, int, int);//TODO
+
+void cargarDLTripulante(void*, TripuCB);//TODO
+
+TripuCB* cargarEnTripulante(void*);//TODO
+
+void clear_frame(int,int);//TODO
 
 #endif

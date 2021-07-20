@@ -120,7 +120,7 @@ int levantar_servidor(int server_a_abrir) {
 	return socket_servidor;
 }
 
-int esperar_cliente(int socket_servidor,t_log log)
+int esperar_cliente(int socket_servidor,t_log *log)
 {
 	struct sockaddr_in dir_cliente;
 	int tam_direccion = sizeof(struct sockaddr_in);

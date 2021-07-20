@@ -221,7 +221,7 @@ void *gestionarCliente(int socket) {
 
 
 	while (1) {
-		int cliente = esperar_cliente(socket);
+		int cliente = esperar_cliente(socket, mongoLogger);
 		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
@@ -611,7 +611,7 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		//					tripulanteEnMovimiento->origenY,
 		//					tripulanteEnMovimiento->destinoX,
 		//					tripulanteEnMovimiento->destinoY);
-	  return;*/
+	  return;
 }
 
 

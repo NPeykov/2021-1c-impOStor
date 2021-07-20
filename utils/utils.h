@@ -98,7 +98,7 @@ int errno;
 
 int crear_servidor(char*, char*);
 int levantar_servidor(int);
-int esperar_cliente(int);
+int esperar_cliente(int, t_log*);
 void liberar_cliente(int socket_cliente);
 int crear_conexion(char* ip, char* puerto);
 int iniciar_conexion(int, t_config *); //es para uno de los svs en especifico

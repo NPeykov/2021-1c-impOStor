@@ -120,14 +120,14 @@ int levantar_servidor(int server_a_abrir) {
 	return socket_servidor;
 }
 
-int esperar_cliente(int socket_servidor)
+int esperar_cliente(int socket_servidor,t_log log)
 {
 	struct sockaddr_in dir_cliente;
 	int tam_direccion = sizeof(struct sockaddr_in);
 
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
 
-	printf("SE CONECTO UN CLIENTE CON SOCKET: %d\n", socket_cliente);
+	log_info(log,"Se conecto un cliente con socket: %d\n", socket_cliente);
 
 	return socket_cliente;
 }

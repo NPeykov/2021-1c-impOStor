@@ -13,7 +13,7 @@ void compactacion(){
 			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
 		}else if(inicioSegmentoActual > finalSegmentoAnterior){//Hay un espacio
 			memcpy(memoria + finalSegmentoAnterior, unSegmento->dato, unSegmento->tamanio);
-			printf("Se compacto un espacio");
+			log_info(logs_ram,"Se compacto un espacio");
 		}
 	}
 
@@ -439,7 +439,6 @@ void enviarTareaSiguiente(void *unTripulante){
 	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
 	int idTripulante = tripulante->tid;
 	int idPatota = tripulante->numPatota;
-	printf("Cree las variables para buscar la tarea\n");
 
 	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
 	TripuCB *elTripulante = (TripuCB*)SegmentoDelTripulante->dato;
@@ -458,13 +457,11 @@ void enviarTareaSiguiente(void *unTripulante){
 
 void *gestionarClienteSeg(int socket) {
 
-	void iterator(char* value) {printf("%s\n", value);}
-
 	int operacion;
 	t_list *lista;
 
 	while(1) {
-		int cliente = esperar_cliente(socket);
+		int cliente = esperar_cliente(socket, logs_ram);
 
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
@@ -526,7 +523,6 @@ void *gestionarClienteSeg(int socket) {
 				TripulanteConSocket *tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
 				tripulante_con_socket->tripulante = tripulante_tarea;
 				tripulante_con_socket->socket     = cliente;
-				printf("Cree el tripulante con socket\n");
 
 				sem_wait(&tripulantesDisponibles);
 				pthread_t hiloPedidoTarea;

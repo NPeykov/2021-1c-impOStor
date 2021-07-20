@@ -3,9 +3,9 @@
 //#include "paginacion.c"
 
 void inicializar_ram(){
-	printf("################# Modulo Mi-RAM #################\n");
+	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_WARNING);
 
-	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_INFO);
+	log_info(logs_ram,"################# Modulo Mi-RAM #################\n");
 
 	socket_principal_ram = levantar_servidor(MI_RAM_HQ);
 

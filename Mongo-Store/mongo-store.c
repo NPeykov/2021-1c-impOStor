@@ -272,15 +272,15 @@ void *gestionarCliente(int socket) {
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
 			//Se escribe en blocks.ims
-			//actualizar_posicion(tripulanteEnMovimiento);
+			actualizar_posicion(tripulanteEnMovimiento);
 
-//			printf("Tripulante N: %d se movio de (%d, %d) a (%d, %d)",
-//					tripulanteEnMovimiento->idPatota,
-//					tripulanteEnMovimiento->idTripulante,
-//					tripulanteEnMovimiento->origenX,
-//					tripulanteEnMovimiento->origenY,
-//					tripulanteEnMovimiento->destinoX,
-//					tripulanteEnMovimiento->destinoY);
+			printf("Tripulante N: %d de la patota %d se movio de (%d, %d) a (%d, %d)",
+					tripulanteEnMovimiento->idTripulante,
+		     		tripulanteEnMovimiento->idPatota,
+					tripulanteEnMovimiento->origenX,
+					tripulanteEnMovimiento->origenY,
+					tripulanteEnMovimiento->destinoX,
+					tripulanteEnMovimiento->destinoY);
 			liberar_cliente(cliente);
 			break;
 
@@ -578,21 +578,23 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 //	Se mueve de 0|3 a 1|3
 //	Se mueve de 1|3 a 2|3
 //	Se mueve de 2|3 a 3|3
-	char* tri =  strcat("Tripulante", (char*)tripulanteEnMovimiento->idTripulante);
-	char* pat = strcat("Patota", (char*) tripulanteEnMovimiento->idPatota);
-	char* tripat = strcat(tri,pat);
-	strcat("/",tripat);
-	strcat(tripat,".ims");
-	char* tripulanteRuta = malloc(strlen(dirBitacora) + strlen(tripat) + 1);
-	strcpy(tripulanteRuta, dirBitacora);
-	strcat(tripulanteRuta, tripat);
-	int existeArchivo = access(tripulanteRuta, F_OK);
+	char *ruta=string_new();
+	string_append(&ruta, dirBitacora);
+	string_append(&ruta, "/");
+	char *idTripulante=string_itoa(tripulante->idTripulante);
+	char *idPatota=string_itoa(tripulante->idPatota);
+	string_append(&ruta, "Tripulante");
+	string_append(&ruta, idTripulante);
+	string_append(&ruta, "Patota");
+	string_append(&ruta, idPatota);
+	string_append(&ruta, ".ims");
 
-	  FILE *archivo = fopen(tripulanteRuta, "a+");
+	int existeArchivo = access(ruta, F_OK);
+	FILE *archivo = fopen(ruta, "a+");
 
 	  if(existeArchivo == 0){
 //Bitacora existente
-	    fseek(archivo, -1, SEEK_END);
+	    fseek(archivo, 0 , SEEK_END);
 //		memcpy(nuevo_bloques_config,bloques_config,tamanio_bloques_config-strlen(bloques_array[viejaCantidadDeBloques-1])-2);
 //	    memcpy(atrapar,&menosUno,sizeof(int));
 //	    for(int i=0; i < cantidad; i++)
@@ -609,7 +611,7 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		//					tripulanteEnMovimiento->origenY,
 		//					tripulanteEnMovimiento->destinoX,
 		//					tripulanteEnMovimiento->destinoY);
-	  return;
+	  return;*/
 }
 
 

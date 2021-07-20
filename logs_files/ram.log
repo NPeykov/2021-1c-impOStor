@@ -316,3 +316,3664 @@
 [INFO] 23:00:21:177 Mi-RAM/(6815:6840): Se creo al tripulante 0 de la patota 1
 [INFO] 23:00:21:179 Mi-RAM/(6815:6843): Se creo al tripulante 0 de la patota 1
 [INFO] 23:00:21:180 Mi-RAM/(6815:6846): Se creo al tripulante 0 de la patota 1
+[INFO] 13:53:30:749 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 2
+
+[INFO] 13:53:30:749 Mi-RAM/(6541:6727): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 13:53:30:749 Mi-RAM/(6541:6727): Calcule una base logica: 0
+
+[INFO] 13:53:30:749 Mi-RAM/(6541:6727): Calcule una base logica: 44
+
+[INFO] 13:53:30:750 Mi-RAM/(6541:6727): Se inicio una patota.
+
+[INFO] 13:53:30:750 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 3
+
+[INFO] 13:53:30:750 Mi-RAM/(6541:6729): Calcule una base logica: 52
+
+[INFO] 13:53:30:751 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 8
+
+[INFO] 13:53:30:751 Mi-RAM/(6541:6729): Se creo al tripulante 0 de la patota 1
+[INFO] 13:53:30:751 Mi-RAM/(6541:6730): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 13:53:30:752 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 3
+
+[INFO] 13:53:30:752 Mi-RAM/(6541:6732): Calcule una base logica: 76
+
+[INFO] 13:53:30:752 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 8
+
+[INFO] 13:53:30:752 Mi-RAM/(6541:6732): Se creo al tripulante 0 de la patota 1
+[INFO] 13:53:30:753 Mi-RAM/(6541:6733): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 13:53:30:753 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 3
+
+[INFO] 13:53:30:753 Mi-RAM/(6541:6735): Calcule una base logica: 100
+
+[INFO] 13:53:30:754 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 8
+
+[INFO] 13:53:30:754 Mi-RAM/(6541:6735): Se creo al tripulante 0 de la patota 1
+[INFO] 13:53:30:754 Mi-RAM/(6541:6736): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 13:53:39:419 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:39:419 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:39:419 Mi-RAM/(6541:6740): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 13:53:39:420 Mi-RAM/(6541:6739): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 13:53:44:420 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:44:421 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:44:421 Mi-RAM/(6541:6742): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 13:53:44:421 Mi-RAM/(6541:6741): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 13:53:49:421 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:49:421 Mi-RAM/(6541:6743): El tripulante 1 de la patota 1 se movio a: 2|1
+
+[INFO] 13:53:49:421 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:49:422 Mi-RAM/(6541:6744): El tripulante 2 de la patota 1 se movio a: 1|2
+
+[INFO] 13:53:54:422 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:54:422 Mi-RAM/(6541:6745): El tripulante 1 de la patota 1 se movio a: 3|1
+
+[INFO] 13:53:54:422 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:54:422 Mi-RAM/(6541:6746): El tripulante 2 de la patota 1 se movio a: 1|3
+
+[INFO] 13:53:59:422 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:59:423 Mi-RAM/(6541:6747): El tripulante 1 de la patota 1 se movio a: 4|1
+
+[INFO] 13:53:59:423 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:53:59:423 Mi-RAM/(6541:6748): El tripulante 2 de la patota 1 se movio a: 1|4
+
+[INFO] 13:54:04:423 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:54:04:423 Mi-RAM/(6541:6749): El tripulante 1 de la patota 1 se movio a: 5|1
+
+[INFO] 13:54:04:424 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:54:04:424 Mi-RAM/(6541:6750): El tripulante 2 de la patota 1 se movio a: 2|4
+
+[INFO] 13:54:09:424 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:54:09:424 Mi-RAM/(6541:6751): El tripulante 1 de la patota 1 se movio a: 5|2
+
+[INFO] 13:54:09:424 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:54:09:425 Mi-RAM/(6541:6752): El tripulante 2 de la patota 1 se movio a: 3|4
+
+[INFO] 13:54:14:425 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:54:14:425 Mi-RAM/(6541:6754): El tripulante 1 de la patota 1 se movio a: 5|3
+
+[INFO] 13:54:14:425 Mi-RAM/(6541:6541): 
+Se recibio una operacion: 4
+
+[INFO] 13:54:14:425 Mi-RAM/(6541:6755): El tripulante 2 de la patota 1 se movio a: 4|4
+
+[INFO] 14:13:51:792 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 2
+
+[INFO] 14:13:51:792 Mi-RAM/(7516:7578): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:13:51:792 Mi-RAM/(7516:7578): Calcule una base logica: 0
+
+[INFO] 14:13:51:792 Mi-RAM/(7516:7578): Calcule una base logica: 44
+
+[INFO] 14:13:51:792 Mi-RAM/(7516:7578): Se inicio una patota.
+
+[INFO] 14:13:51:793 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 3
+
+[INFO] 14:13:51:793 Mi-RAM/(7516:7580): Calcule una base logica: 52
+
+[INFO] 14:13:51:793 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 8
+
+[INFO] 14:13:51:793 Mi-RAM/(7516:7580): Se creo al tripulante 0 de la patota 1
+[INFO] 14:13:51:794 Mi-RAM/(7516:7581): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:13:51:794 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 3
+
+[INFO] 14:13:51:794 Mi-RAM/(7516:7583): Calcule una base logica: 76
+
+[INFO] 14:13:51:795 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 8
+
+[INFO] 14:13:51:795 Mi-RAM/(7516:7583): Se creo al tripulante 0 de la patota 1
+[INFO] 14:13:51:795 Mi-RAM/(7516:7584): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:13:51:795 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 3
+
+[INFO] 14:13:51:795 Mi-RAM/(7516:7586): Calcule una base logica: 100
+
+[INFO] 14:13:51:796 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 8
+
+[INFO] 14:13:51:796 Mi-RAM/(7516:7586): Se creo al tripulante 0 de la patota 1
+[INFO] 14:13:51:796 Mi-RAM/(7516:7587): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:13:59:654 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:13:59:654 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:13:59:654 Mi-RAM/(7516:7589): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 14:13:59:654 Mi-RAM/(7516:7588): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 14:14:02:655 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:02:655 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:02:655 Mi-RAM/(7516:7590): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 14:14:02:655 Mi-RAM/(7516:7591): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 14:14:05:655 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:05:655 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:05:655 Mi-RAM/(7516:7592): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 14:14:05:656 Mi-RAM/(7516:7593): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 14:14:08:656 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:08:656 Mi-RAM/(7516:7594): El tripulante 2 de la patota 1 se movio a: 3|1
+
+[INFO] 14:14:08:656 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:08:656 Mi-RAM/(7516:7595): El tripulante 1 de la patota 1 se movio a: 1|3
+
+[INFO] 14:14:11:656 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:11:656 Mi-RAM/(7516:7601): El tripulante 2 de la patota 1 se movio a: 4|1
+
+[INFO] 14:14:11:657 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:11:657 Mi-RAM/(7516:7602): El tripulante 1 de la patota 1 se movio a: 1|4
+
+[INFO] 14:14:14:657 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:14:657 Mi-RAM/(7516:7604): El tripulante 2 de la patota 1 se movio a: 5|1
+
+[INFO] 14:14:14:657 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:14:657 Mi-RAM/(7516:7605): El tripulante 1 de la patota 1 se movio a: 2|4
+
+[INFO] 14:14:17:657 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:17:657 Mi-RAM/(7516:7611): El tripulante 2 de la patota 1 se movio a: 5|2
+
+[INFO] 14:14:17:658 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:17:658 Mi-RAM/(7516:7612): El tripulante 1 de la patota 1 se movio a: 3|4
+
+[INFO] 14:14:20:658 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:20:658 Mi-RAM/(7516:7619): El tripulante 2 de la patota 1 se movio a: 5|3
+
+[INFO] 14:14:20:658 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:20:658 Mi-RAM/(7516:7620): El tripulante 1 de la patota 1 se movio a: 4|4
+
+[INFO] 14:14:23:659 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:23:659 Mi-RAM/(7516:7627): El tripulante 2 de la patota 1 se movio a: 5|4
+
+[INFO] 14:14:23:659 Mi-RAM/(7516:7516): 
+Se recibio una operacion: 4
+
+[INFO] 14:14:23:659 Mi-RAM/(7516:7628): El tripulante 1 de la patota 1 se movio a: 5|4
+
+[INFO] 14:14:58:768 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 2
+
+[INFO] 14:14:58:769 Mi-RAM/(7657:7669): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:14:58:769 Mi-RAM/(7657:7669): Calcule una base logica: 0
+
+[INFO] 14:14:58:769 Mi-RAM/(7657:7669): Calcule una base logica: 44
+
+[INFO] 14:14:58:769 Mi-RAM/(7657:7669): Se inicio una patota.
+
+[INFO] 14:14:58:770 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 3
+
+[INFO] 14:14:58:770 Mi-RAM/(7657:7671): Calcule una base logica: 52
+
+[INFO] 14:14:58:770 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 8
+
+[INFO] 14:14:58:770 Mi-RAM/(7657:7671): Se creo al tripulante 0 de la patota 1
+[INFO] 14:14:58:770 Mi-RAM/(7657:7672): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:14:58:771 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 3
+
+[INFO] 14:14:58:771 Mi-RAM/(7657:7674): Calcule una base logica: 76
+
+[INFO] 14:14:58:771 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 8
+
+[INFO] 14:14:58:771 Mi-RAM/(7657:7674): Se creo al tripulante 0 de la patota 1
+[INFO] 14:14:58:771 Mi-RAM/(7657:7675): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:14:58:772 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 3
+
+[INFO] 14:14:58:772 Mi-RAM/(7657:7677): Calcule una base logica: 100
+
+[INFO] 14:14:58:772 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 8
+
+[INFO] 14:14:58:772 Mi-RAM/(7657:7677): Se creo al tripulante 0 de la patota 1
+[INFO] 14:14:58:773 Mi-RAM/(7657:7678): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:15:04:527 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:04:527 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:04:528 Mi-RAM/(7657:7680): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 14:15:04:528 Mi-RAM/(7657:7679): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 14:15:07:528 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:07:528 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:07:528 Mi-RAM/(7657:7681): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 14:15:07:528 Mi-RAM/(7657:7682): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 14:15:10:528 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:10:528 Mi-RAM/(7657:7683): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 14:15:10:529 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:10:529 Mi-RAM/(7657:7684): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 14:15:13:529 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:13:529 Mi-RAM/(7657:7685): El tripulante 1 de la patota 1 se movio a: 2|2
+
+[INFO] 14:15:13:529 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:13:529 Mi-RAM/(7657:7686): El tripulante 2 de la patota 1 se movio a: 2|2
+
+[INFO] 14:15:16:529 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:16:529 Mi-RAM/(7657:7687): El tripulante 1 de la patota 1 se movio a: 3|2
+
+[INFO] 14:15:16:530 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:16:530 Mi-RAM/(7657:7688): El tripulante 2 de la patota 1 se movio a: 2|3
+
+[INFO] 14:15:19:529 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:19:530 Mi-RAM/(7657:7689): El tripulante 1 de la patota 1 se movio a: 4|2
+
+[INFO] 14:15:19:530 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:19:530 Mi-RAM/(7657:7690): El tripulante 2 de la patota 1 se movio a: 2|4
+
+[INFO] 14:15:22:530 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:22:530 Mi-RAM/(7657:7691): El tripulante 1 de la patota 1 se movio a: 5|2
+
+[INFO] 14:15:22:531 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:22:531 Mi-RAM/(7657:7692): El tripulante 2 de la patota 1 se movio a: 3|4
+
+[INFO] 14:15:25:530 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:25:531 Mi-RAM/(7657:7693): El tripulante 1 de la patota 1 se movio a: 5|3
+
+[INFO] 14:15:25:531 Mi-RAM/(7657:7657): 
+Se recibio una operacion: 4
+
+[INFO] 14:15:25:531 Mi-RAM/(7657:7694): El tripulante 2 de la patota 1 se movio a: 4|4
+
+[INFO] 14:22:04:236 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 2
+
+[INFO] 14:22:04:237 Mi-RAM/(7839:7845): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:22:04:237 Mi-RAM/(7839:7845): Calcule una base logica: 0
+
+[INFO] 14:22:04:237 Mi-RAM/(7839:7845): Calcule una base logica: 44
+
+[INFO] 14:22:04:237 Mi-RAM/(7839:7845): Se inicio una patota.
+
+[INFO] 14:22:04:238 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 3
+
+[INFO] 14:22:04:238 Mi-RAM/(7839:7847): Calcule una base logica: 52
+
+[INFO] 14:22:04:238 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 8
+
+[INFO] 14:22:04:238 Mi-RAM/(7839:7847): Se creo al tripulante 0 de la patota 1
+[INFO] 14:22:04:238 Mi-RAM/(7839:7848): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:22:04:239 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 3
+
+[INFO] 14:22:04:239 Mi-RAM/(7839:7850): Calcule una base logica: 76
+
+[INFO] 14:22:04:239 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 8
+
+[INFO] 14:22:04:240 Mi-RAM/(7839:7850): Se creo al tripulante 0 de la patota 1
+[INFO] 14:22:04:240 Mi-RAM/(7839:7851): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:22:04:240 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 3
+
+[INFO] 14:22:04:240 Mi-RAM/(7839:7853): Calcule una base logica: 100
+
+[INFO] 14:22:04:241 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 8
+
+[INFO] 14:22:04:241 Mi-RAM/(7839:7853): Se creo al tripulante 0 de la patota 1
+[INFO] 14:22:04:241 Mi-RAM/(7839:7854): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:22:19:754 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 4
+
+[INFO] 14:22:19:754 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 4
+
+[INFO] 14:22:19:754 Mi-RAM/(7839:7862): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 14:22:19:754 Mi-RAM/(7839:7861): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 14:22:22:754 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 4
+
+[INFO] 14:22:22:754 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 4
+
+[INFO] 14:22:22:754 Mi-RAM/(7839:7864): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 14:22:22:754 Mi-RAM/(7839:7863): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 14:22:25:755 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 4
+
+[INFO] 14:22:25:755 Mi-RAM/(7839:7839): 
+Se recibio una operacion: 4
+
+[INFO] 14:22:25:756 Mi-RAM/(7839:7866): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 14:22:25:756 Mi-RAM/(7839:7867): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 14:22:56:743 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 2
+
+[INFO] 14:22:56:743 Mi-RAM/(7890:7896): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:22:56:743 Mi-RAM/(7890:7896): Calcule una base logica: 0
+
+[INFO] 14:22:56:743 Mi-RAM/(7890:7896): Calcule una base logica: 44
+
+[INFO] 14:22:56:743 Mi-RAM/(7890:7896): Se inicio una patota.
+
+[INFO] 14:22:56:744 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 3
+
+[INFO] 14:22:56:744 Mi-RAM/(7890:7898): Calcule una base logica: 52
+
+[INFO] 14:22:56:744 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 8
+
+[INFO] 14:22:56:745 Mi-RAM/(7890:7898): Se creo al tripulante 0 de la patota 1
+[INFO] 14:22:56:745 Mi-RAM/(7890:7899): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:22:56:746 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 3
+
+[INFO] 14:22:56:746 Mi-RAM/(7890:7901): Calcule una base logica: 76
+
+[INFO] 14:22:56:746 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 8
+
+[INFO] 14:22:56:746 Mi-RAM/(7890:7901): Se creo al tripulante 0 de la patota 1
+[INFO] 14:22:56:746 Mi-RAM/(7890:7902): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:22:56:747 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 3
+
+[INFO] 14:22:56:747 Mi-RAM/(7890:7904): Calcule una base logica: 100
+
+[INFO] 14:22:56:747 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 8
+
+[INFO] 14:22:56:747 Mi-RAM/(7890:7904): Se creo al tripulante 0 de la patota 1
+[INFO] 14:22:56:747 Mi-RAM/(7890:7905): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:23:00:254 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 4
+
+[INFO] 14:23:00:254 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 4
+
+[INFO] 14:23:00:255 Mi-RAM/(7890:7908): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 14:23:00:255 Mi-RAM/(7890:7907): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 14:23:03:255 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 4
+
+[INFO] 14:23:03:256 Mi-RAM/(7890:7890): 
+Se recibio una operacion: 4
+
+[INFO] 14:23:03:256 Mi-RAM/(7890:7910): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 14:23:03:256 Mi-RAM/(7890:7909): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 14:24:00:603 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 2
+
+[INFO] 14:24:00:603 Mi-RAM/(7943:7949): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:24:00:604 Mi-RAM/(7943:7949): Calcule una base logica: 0
+
+[INFO] 14:24:00:604 Mi-RAM/(7943:7949): Calcule una base logica: 44
+
+[INFO] 14:24:00:604 Mi-RAM/(7943:7949): Se inicio una patota.
+
+[INFO] 14:24:00:604 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 3
+
+[INFO] 14:24:00:604 Mi-RAM/(7943:7951): Calcule una base logica: 52
+
+[INFO] 14:24:00:605 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 8
+
+[INFO] 14:24:00:605 Mi-RAM/(7943:7951): Se creo al tripulante 0 de la patota 1
+[INFO] 14:24:00:605 Mi-RAM/(7943:7952): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:24:00:606 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 3
+
+[INFO] 14:24:00:606 Mi-RAM/(7943:7954): Calcule una base logica: 76
+
+[INFO] 14:24:00:606 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 8
+
+[INFO] 14:24:00:606 Mi-RAM/(7943:7954): Se creo al tripulante 0 de la patota 1
+[INFO] 14:24:00:607 Mi-RAM/(7943:7955): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:24:00:607 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 3
+
+[INFO] 14:24:00:607 Mi-RAM/(7943:7957): Calcule una base logica: 100
+
+[INFO] 14:24:00:608 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 8
+
+[INFO] 14:24:00:608 Mi-RAM/(7943:7957): Se creo al tripulante 0 de la patota 1
+[INFO] 14:24:00:608 Mi-RAM/(7943:7958): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:24:22:247 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:22:247 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:22:248 Mi-RAM/(7943:7961): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 14:24:22:248 Mi-RAM/(7943:7960): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 14:24:25:248 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:25:248 Mi-RAM/(7943:7962): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 14:24:25:248 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:25:248 Mi-RAM/(7943:7963): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 14:24:28:249 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:28:249 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:28:249 Mi-RAM/(7943:7964): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 14:24:28:249 Mi-RAM/(7943:7965): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 14:24:31:249 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:31:249 Mi-RAM/(7943:7966): El tripulante 1 de la patota 1 se movio a: 2|2
+
+[INFO] 14:24:31:250 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:31:250 Mi-RAM/(7943:7967): El tripulante 2 de la patota 1 se movio a: 2|2
+
+[INFO] 14:24:34:250 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:34:250 Mi-RAM/(7943:7968): El tripulante 1 de la patota 1 se movio a: 3|2
+
+[INFO] 14:24:34:251 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:34:251 Mi-RAM/(7943:7969): El tripulante 2 de la patota 1 se movio a: 2|3
+
+[INFO] 14:24:37:250 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:37:251 Mi-RAM/(7943:7972): El tripulante 1 de la patota 1 se movio a: 4|2
+
+[INFO] 14:24:37:251 Mi-RAM/(7943:7943): 
+Se recibio una operacion: 4
+
+[INFO] 14:24:37:251 Mi-RAM/(7943:7973): El tripulante 2 de la patota 1 se movio a: 2|4
+
+[INFO] 14:28:12:844 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 2
+
+[INFO] 14:28:12:844 Mi-RAM/(8039:8055): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:28:12:844 Mi-RAM/(8039:8055): Calcule una base logica: 0
+
+[INFO] 14:28:12:844 Mi-RAM/(8039:8055): Calcule una base logica: 44
+
+[INFO] 14:28:12:844 Mi-RAM/(8039:8055): Se inicio una patota.
+
+[INFO] 14:28:12:845 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 3
+
+[INFO] 14:28:12:845 Mi-RAM/(8039:8057): Calcule una base logica: 52
+
+[INFO] 14:28:12:846 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 8
+
+[INFO] 14:28:12:847 Mi-RAM/(8039:8057): Se creo al tripulante 0 de la patota 1
+[INFO] 14:28:12:847 Mi-RAM/(8039:8058): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:28:12:847 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 3
+
+[INFO] 14:28:12:847 Mi-RAM/(8039:8060): Calcule una base logica: 76
+
+[INFO] 14:28:12:848 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 8
+
+[INFO] 14:28:12:848 Mi-RAM/(8039:8060): Se creo al tripulante 0 de la patota 1
+[INFO] 14:28:12:848 Mi-RAM/(8039:8061): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:28:12:849 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 3
+
+[INFO] 14:28:12:849 Mi-RAM/(8039:8063): Calcule una base logica: 100
+
+[INFO] 14:28:12:849 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 8
+
+[INFO] 14:28:12:849 Mi-RAM/(8039:8063): Se creo al tripulante 0 de la patota 1
+[INFO] 14:28:12:849 Mi-RAM/(8039:8064): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:28:18:923 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:18:923 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:18:923 Mi-RAM/(8039:8066): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 14:28:18:923 Mi-RAM/(8039:8065): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 14:28:21:924 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:21:924 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:21:924 Mi-RAM/(8039:8067): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 14:28:21:924 Mi-RAM/(8039:8068): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 14:28:24:925 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:24:925 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:24:925 Mi-RAM/(8039:8069): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 14:28:24:925 Mi-RAM/(8039:8070): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 14:28:27:926 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:27:926 Mi-RAM/(8039:8039): 
+Se recibio una operacion: 4
+
+[INFO] 14:28:27:926 Mi-RAM/(8039:8071): El tripulante 2 de la patota 1 se movio a: 2|2
+
+[INFO] 14:28:27:926 Mi-RAM/(8039:8072): El tripulante 1 de la patota 1 se movio a: 2|2
+
+[INFO] 17:31:44:438 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 2
+
+[INFO] 17:31:44:439 Mi-RAM/(12417:12432): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:31:44:439 Mi-RAM/(12417:12432): Calcule una base logica: 0
+
+[INFO] 17:31:44:439 Mi-RAM/(12417:12432): Calcule una base logica: 44
+
+[INFO] 17:31:44:439 Mi-RAM/(12417:12432): Se inicio una patota.
+
+[INFO] 17:31:44:439 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 3
+
+[INFO] 17:31:44:440 Mi-RAM/(12417:12434): Calcule una base logica: 52
+
+[INFO] 17:31:44:440 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 8
+
+[INFO] 17:31:44:440 Mi-RAM/(12417:12434): Se creo al tripulante 0 de la patota 1
+[INFO] 17:31:44:440 Mi-RAM/(12417:12435): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:31:44:441 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 3
+
+[INFO] 17:31:44:441 Mi-RAM/(12417:12437): Calcule una base logica: 76
+
+[INFO] 17:31:44:441 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 8
+
+[INFO] 17:31:44:441 Mi-RAM/(12417:12437): Se creo al tripulante 0 de la patota 1
+[INFO] 17:31:44:442 Mi-RAM/(12417:12438): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:31:44:442 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 3
+
+[INFO] 17:31:44:442 Mi-RAM/(12417:12440): Calcule una base logica: 100
+
+[INFO] 17:31:44:442 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 8
+
+[INFO] 17:31:44:443 Mi-RAM/(12417:12440): Se creo al tripulante 0 de la patota 1
+[INFO] 17:31:44:443 Mi-RAM/(12417:12441): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:31:49:176 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 4
+
+[INFO] 17:31:49:176 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 4
+
+[INFO] 17:31:49:177 Mi-RAM/(12417:12445): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:31:49:177 Mi-RAM/(12417:12446): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:31:52:177 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 4
+
+[INFO] 17:31:52:177 Mi-RAM/(12417:12417): 
+Se recibio una operacion: 4
+
+[INFO] 17:31:52:177 Mi-RAM/(12417:12448): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:31:52:177 Mi-RAM/(12417:12447): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:33:02:185 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 2
+
+[INFO] 17:33:02:185 Mi-RAM/(12484:12490): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:33:02:185 Mi-RAM/(12484:12490): Calcule una base logica: 0
+
+[INFO] 17:33:02:185 Mi-RAM/(12484:12490): Calcule una base logica: 44
+
+[INFO] 17:33:02:185 Mi-RAM/(12484:12490): Se inicio una patota.
+
+[INFO] 17:33:02:186 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 3
+
+[INFO] 17:33:02:186 Mi-RAM/(12484:12492): Calcule una base logica: 52
+
+[INFO] 17:33:02:186 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 8
+
+[INFO] 17:33:02:187 Mi-RAM/(12484:12492): Se creo al tripulante 0 de la patota 1
+[INFO] 17:33:02:187 Mi-RAM/(12484:12493): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:33:02:187 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 3
+
+[INFO] 17:33:02:188 Mi-RAM/(12484:12495): Calcule una base logica: 76
+
+[INFO] 17:33:02:188 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 8
+
+[INFO] 17:33:02:188 Mi-RAM/(12484:12495): Se creo al tripulante 0 de la patota 1
+[INFO] 17:33:02:188 Mi-RAM/(12484:12496): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:33:02:189 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 3
+
+[INFO] 17:33:02:189 Mi-RAM/(12484:12498): Calcule una base logica: 100
+
+[INFO] 17:33:02:189 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 8
+
+[INFO] 17:33:02:189 Mi-RAM/(12484:12498): Se creo al tripulante 0 de la patota 1
+[INFO] 17:33:02:189 Mi-RAM/(12484:12499): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:33:05:930 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 4
+
+[INFO] 17:33:05:930 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 4
+
+[INFO] 17:33:05:930 Mi-RAM/(12484:12502): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:33:05:930 Mi-RAM/(12484:12501): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:33:08:930 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 4
+
+[INFO] 17:33:08:930 Mi-RAM/(12484:12503): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 17:33:08:931 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 4
+
+[INFO] 17:33:08:931 Mi-RAM/(12484:12504): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 17:33:11:930 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 4
+
+[INFO] 17:33:11:930 Mi-RAM/(12484:12505): El tripulante 2 de la patota 1 se movio a: 3|0
+
+[INFO] 17:33:11:931 Mi-RAM/(12484:12484): 
+Se recibio una operacion: 4
+
+[INFO] 17:33:11:931 Mi-RAM/(12484:12506): El tripulante 1 de la patota 1 se movio a: 0|3
+
+[INFO] 17:34:54:666 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 2
+
+[INFO] 17:34:54:666 Mi-RAM/(12549:12562): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:34:54:666 Mi-RAM/(12549:12562): Calcule una base logica: 0
+
+[INFO] 17:34:54:666 Mi-RAM/(12549:12562): Calcule una base logica: 44
+
+[INFO] 17:34:54:666 Mi-RAM/(12549:12562): Se inicio una patota.
+
+[INFO] 17:34:54:667 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 3
+
+[INFO] 17:34:54:667 Mi-RAM/(12549:12564): Calcule una base logica: 52
+
+[INFO] 17:34:54:667 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 8
+
+[INFO] 17:34:54:667 Mi-RAM/(12549:12564): Se creo al tripulante 0 de la patota 1
+[INFO] 17:34:54:667 Mi-RAM/(12549:12565): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:34:54:668 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 3
+
+[INFO] 17:34:54:668 Mi-RAM/(12549:12567): Calcule una base logica: 76
+
+[INFO] 17:34:54:668 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 8
+
+[INFO] 17:34:54:669 Mi-RAM/(12549:12567): Se creo al tripulante 0 de la patota 1
+[INFO] 17:34:54:669 Mi-RAM/(12549:12568): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:34:54:669 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 3
+
+[INFO] 17:34:54:669 Mi-RAM/(12549:12570): Calcule una base logica: 100
+
+[INFO] 17:34:54:670 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 8
+
+[INFO] 17:34:54:670 Mi-RAM/(12549:12570): Se creo al tripulante 0 de la patota 1
+[INFO] 17:34:54:670 Mi-RAM/(12549:12571): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:34:59:305 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:34:59:305 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:34:59:305 Mi-RAM/(12549:12573): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:34:59:305 Mi-RAM/(12549:12572): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:35:02:305 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:02:305 Mi-RAM/(12549:12574): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 17:35:02:306 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:02:306 Mi-RAM/(12549:12575): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 17:35:05:307 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:05:307 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:05:307 Mi-RAM/(12549:12576): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 17:35:05:307 Mi-RAM/(12549:12577): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 17:35:08:308 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:08:308 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:08:308 Mi-RAM/(12549:12578): El tripulante 1 de la patota 1 se movio a: 1|3
+
+[INFO] 17:35:08:308 Mi-RAM/(12549:12579): El tripulante 2 de la patota 1 se movio a: 3|1
+
+[INFO] 17:35:11:308 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:11:308 Mi-RAM/(12549:12549): 
+Se recibio una operacion: 4
+
+[INFO] 17:35:11:308 Mi-RAM/(12549:12580): El tripulante 2 de la patota 1 se movio a: 3|2
+
+[INFO] 17:35:11:308 Mi-RAM/(12549:12581): El tripulante 1 de la patota 1 se movio a: 2|3
+
+[INFO] 17:39:07:808 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 2
+
+[INFO] 17:39:07:808 Mi-RAM/(12630:12645): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:39:07:808 Mi-RAM/(12630:12645): Calcule una base logica: 0
+
+[INFO] 17:39:07:808 Mi-RAM/(12630:12645): Calcule una base logica: 44
+
+[INFO] 17:39:07:809 Mi-RAM/(12630:12645): Se inicio una patota.
+
+[INFO] 17:39:07:809 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 3
+
+[INFO] 17:39:07:809 Mi-RAM/(12630:12647): Calcule una base logica: 52
+
+[INFO] 17:39:07:810 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 8
+
+[INFO] 17:39:07:810 Mi-RAM/(12630:12647): Se creo al tripulante 0 de la patota 1
+[INFO] 17:39:07:810 Mi-RAM/(12630:12648): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:39:07:811 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 3
+
+[INFO] 17:39:07:811 Mi-RAM/(12630:12650): Calcule una base logica: 76
+
+[INFO] 17:39:07:811 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 8
+
+[INFO] 17:39:07:811 Mi-RAM/(12630:12650): Se creo al tripulante 0 de la patota 1
+[INFO] 17:39:07:811 Mi-RAM/(12630:12651): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:39:07:812 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 3
+
+[INFO] 17:39:07:812 Mi-RAM/(12630:12653): Calcule una base logica: 100
+
+[INFO] 17:39:07:812 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 8
+
+[INFO] 17:39:07:812 Mi-RAM/(12630:12653): Se creo al tripulante 0 de la patota 1
+[INFO] 17:39:07:813 Mi-RAM/(12630:12654): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:39:11:391 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:11:392 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:11:392 Mi-RAM/(12630:12657): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:39:11:392 Mi-RAM/(12630:12656): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:39:14:392 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:14:392 Mi-RAM/(12630:12659): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 17:39:14:392 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:14:392 Mi-RAM/(12630:12660): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 17:39:17:392 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:17:392 Mi-RAM/(12630:12662): El tripulante 2 de la patota 1 se movio a: 3|0
+
+[INFO] 17:39:17:393 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:17:393 Mi-RAM/(12630:12663): El tripulante 1 de la patota 1 se movio a: 0|3
+
+[INFO] 17:39:20:393 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:20:394 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:20:395 Mi-RAM/(12630:12666): El tripulante 1 de la patota 1 se movio a: 0|4
+
+[INFO] 17:39:20:395 Mi-RAM/(12630:12665): El tripulante 2 de la patota 1 se movio a: 4|0
+
+[INFO] 17:39:23:393 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:23:393 Mi-RAM/(12630:12667): El tripulante 2 de la patota 1 se movio a: 5|0
+
+[INFO] 17:39:23:394 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:23:394 Mi-RAM/(12630:12668): El tripulante 1 de la patota 1 se movio a: 1|4
+
+[INFO] 17:39:26:394 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:26:395 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:26:396 Mi-RAM/(12630:12670): El tripulante 2 de la patota 1 se movio a: 5|1
+
+[INFO] 17:39:26:396 Mi-RAM/(12630:12671): El tripulante 1 de la patota 1 se movio a: 2|4
+
+[INFO] 17:39:29:394 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:29:394 Mi-RAM/(12630:12673): El tripulante 2 de la patota 1 se movio a: 5|2
+
+[INFO] 17:39:29:395 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:29:395 Mi-RAM/(12630:12674): El tripulante 1 de la patota 1 se movio a: 3|4
+
+[INFO] 17:39:32:395 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:32:395 Mi-RAM/(12630:12678): El tripulante 2 de la patota 1 se movio a: 5|3
+
+[INFO] 17:39:32:396 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:32:396 Mi-RAM/(12630:12679): El tripulante 1 de la patota 1 se movio a: 4|4
+
+[INFO] 17:39:35:395 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:35:395 Mi-RAM/(12630:12683): El tripulante 2 de la patota 1 se movio a: 5|4
+
+[INFO] 17:39:35:396 Mi-RAM/(12630:12630): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:35:396 Mi-RAM/(12630:12684): El tripulante 1 de la patota 1 se movio a: 5|4
+
+[INFO] 17:39:56:152 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 2
+
+[INFO] 17:39:56:152 Mi-RAM/(12685:12703): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:39:56:153 Mi-RAM/(12685:12703): Calcule una base logica: 0
+
+[INFO] 17:39:56:153 Mi-RAM/(12685:12703): Calcule una base logica: 44
+
+[INFO] 17:39:56:153 Mi-RAM/(12685:12703): Se inicio una patota.
+
+[INFO] 17:39:56:153 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 3
+
+[INFO] 17:39:56:153 Mi-RAM/(12685:12705): Calcule una base logica: 52
+
+[INFO] 17:39:56:154 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 8
+
+[INFO] 17:39:56:154 Mi-RAM/(12685:12705): Se creo al tripulante 0 de la patota 1
+[INFO] 17:39:56:154 Mi-RAM/(12685:12706): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:39:56:154 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 3
+
+[INFO] 17:39:56:155 Mi-RAM/(12685:12708): Calcule una base logica: 76
+
+[INFO] 17:39:56:155 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 8
+
+[INFO] 17:39:56:155 Mi-RAM/(12685:12708): Se creo al tripulante 0 de la patota 1
+[INFO] 17:39:56:155 Mi-RAM/(12685:12709): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:39:56:156 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 3
+
+[INFO] 17:39:56:156 Mi-RAM/(12685:12711): Calcule una base logica: 100
+
+[INFO] 17:39:56:156 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 8
+
+[INFO] 17:39:56:156 Mi-RAM/(12685:12711): Se creo al tripulante 0 de la patota 1
+[INFO] 17:39:56:156 Mi-RAM/(12685:12712): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:39:59:384 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:59:384 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 4
+
+[INFO] 17:39:59:384 Mi-RAM/(12685:12715): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:39:59:384 Mi-RAM/(12685:12714): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:40:02:385 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 4
+
+[INFO] 17:40:02:385 Mi-RAM/(12685:12685): 
+Se recibio una operacion: 4
+
+[INFO] 17:40:02:385 Mi-RAM/(12685:12717): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:40:02:385 Mi-RAM/(12685:12716): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:40:38:988 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 2
+
+[INFO] 17:40:38:989 Mi-RAM/(12737:12744): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:40:38:989 Mi-RAM/(12737:12744): Calcule una base logica: 0
+
+[INFO] 17:40:38:989 Mi-RAM/(12737:12744): Calcule una base logica: 44
+
+[INFO] 17:40:38:989 Mi-RAM/(12737:12744): Se inicio una patota.
+
+[INFO] 17:40:38:990 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 3
+
+[INFO] 17:40:38:990 Mi-RAM/(12737:12746): Calcule una base logica: 52
+
+[INFO] 17:40:38:990 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 8
+
+[INFO] 17:40:38:990 Mi-RAM/(12737:12746): Se creo al tripulante 0 de la patota 1
+[INFO] 17:40:38:990 Mi-RAM/(12737:12747): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:40:38:991 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 3
+
+[INFO] 17:40:38:991 Mi-RAM/(12737:12749): Calcule una base logica: 76
+
+[INFO] 17:40:38:991 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 8
+
+[INFO] 17:40:38:991 Mi-RAM/(12737:12749): Se creo al tripulante 0 de la patota 1
+[INFO] 17:40:38:992 Mi-RAM/(12737:12750): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:40:38:992 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 3
+
+[INFO] 17:40:38:992 Mi-RAM/(12737:12752): Calcule una base logica: 100
+
+[INFO] 17:40:38:993 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 8
+
+[INFO] 17:40:38:993 Mi-RAM/(12737:12752): Se creo al tripulante 0 de la patota 1
+[INFO] 17:40:38:993 Mi-RAM/(12737:12753): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:40:41:997 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 4
+
+[INFO] 17:40:41:997 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 4
+
+[INFO] 17:40:41:998 Mi-RAM/(12737:12754): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:40:41:998 Mi-RAM/(12737:12755): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:40:44:998 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 4
+
+[INFO] 17:40:44:998 Mi-RAM/(12737:12756): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 17:40:44:998 Mi-RAM/(12737:12737): 
+Se recibio una operacion: 4
+
+[INFO] 17:40:44:998 Mi-RAM/(12737:12757): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 17:41:24:283 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 2
+
+[INFO] 17:41:24:284 Mi-RAM/(12783:12789): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:41:24:284 Mi-RAM/(12783:12789): Calcule una base logica: 0
+
+[INFO] 17:41:24:284 Mi-RAM/(12783:12789): Calcule una base logica: 44
+
+[INFO] 17:41:24:284 Mi-RAM/(12783:12789): Se inicio una patota.
+
+[INFO] 17:41:24:285 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 3
+
+[INFO] 17:41:24:285 Mi-RAM/(12783:12791): Calcule una base logica: 52
+
+[INFO] 17:41:24:285 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 8
+
+[INFO] 17:41:24:285 Mi-RAM/(12783:12791): Se creo al tripulante 0 de la patota 1
+[INFO] 17:41:24:286 Mi-RAM/(12783:12792): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:41:24:286 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 3
+
+[INFO] 17:41:24:286 Mi-RAM/(12783:12794): Calcule una base logica: 76
+
+[INFO] 17:41:24:287 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 8
+
+[INFO] 17:41:24:287 Mi-RAM/(12783:12794): Se creo al tripulante 0 de la patota 1
+[INFO] 17:41:24:287 Mi-RAM/(12783:12795): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:41:24:288 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 3
+
+[INFO] 17:41:24:288 Mi-RAM/(12783:12797): Calcule una base logica: 100
+
+[INFO] 17:41:24:288 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 8
+
+[INFO] 17:41:24:288 Mi-RAM/(12783:12797): Se creo al tripulante 0 de la patota 1
+[INFO] 17:41:24:288 Mi-RAM/(12783:12798): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:41:27:765 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 4
+
+[INFO] 17:41:27:765 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 4
+
+[INFO] 17:41:27:765 Mi-RAM/(12783:12800): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:41:27:765 Mi-RAM/(12783:12799): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:41:30:766 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 4
+
+[INFO] 17:41:30:767 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 4
+
+[INFO] 17:41:30:767 Mi-RAM/(12783:12801): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:41:30:767 Mi-RAM/(12783:12802): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:41:33:767 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 4
+
+[INFO] 17:41:33:767 Mi-RAM/(12783:12803): El tripulante 1 de la patota 1 se movio a: 2|1
+
+[INFO] 17:41:33:767 Mi-RAM/(12783:12783): 
+Se recibio una operacion: 4
+
+[INFO] 17:41:33:767 Mi-RAM/(12783:12804): El tripulante 2 de la patota 1 se movio a: 1|2
+
+[INFO] 17:45:35:595 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 2
+
+[INFO] 17:45:35:595 Mi-RAM/(12890:12897): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:45:35:595 Mi-RAM/(12890:12897): Calcule una base logica: 0
+
+[INFO] 17:45:35:596 Mi-RAM/(12890:12897): Calcule una base logica: 44
+
+[INFO] 17:45:35:596 Mi-RAM/(12890:12897): Se inicio una patota.
+
+[INFO] 17:45:35:596 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 3
+
+[INFO] 17:45:35:596 Mi-RAM/(12890:12899): Calcule una base logica: 52
+
+[INFO] 17:45:35:596 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 8
+
+[INFO] 17:45:35:597 Mi-RAM/(12890:12899): Se creo al tripulante 0 de la patota 1
+[INFO] 17:45:35:597 Mi-RAM/(12890:12900): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:45:35:598 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 3
+
+[INFO] 17:45:35:598 Mi-RAM/(12890:12902): Calcule una base logica: 76
+
+[INFO] 17:45:35:598 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 8
+
+[INFO] 17:45:35:598 Mi-RAM/(12890:12902): Se creo al tripulante 0 de la patota 1
+[INFO] 17:45:35:598 Mi-RAM/(12890:12903): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:45:35:599 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 3
+
+[INFO] 17:45:35:599 Mi-RAM/(12890:12905): Calcule una base logica: 100
+
+[INFO] 17:45:35:599 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 8
+
+[INFO] 17:45:35:599 Mi-RAM/(12890:12905): Se creo al tripulante 0 de la patota 1
+[INFO] 17:45:35:599 Mi-RAM/(12890:12906): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:45:38:851 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 4
+
+[INFO] 17:45:38:851 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 4
+
+[INFO] 17:45:38:851 Mi-RAM/(12890:12909): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:45:38:851 Mi-RAM/(12890:12908): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:45:41:852 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 4
+
+[INFO] 17:45:41:852 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 4
+
+[INFO] 17:45:41:852 Mi-RAM/(12890:12911): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:45:41:852 Mi-RAM/(12890:12910): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:45:44:852 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 4
+
+[INFO] 17:45:44:852 Mi-RAM/(12890:12890): 
+Se recibio una operacion: 4
+
+[INFO] 17:45:44:853 Mi-RAM/(12890:12912): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 17:45:44:853 Mi-RAM/(12890:12913): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 17:46:12:908 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 2
+
+[INFO] 17:46:12:909 Mi-RAM/(12931:12937): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:46:12:909 Mi-RAM/(12931:12937): Calcule una base logica: 0
+
+[INFO] 17:46:12:909 Mi-RAM/(12931:12937): Calcule una base logica: 44
+
+[INFO] 17:46:12:909 Mi-RAM/(12931:12937): Se inicio una patota.
+
+[INFO] 17:46:12:910 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 3
+
+[INFO] 17:46:12:910 Mi-RAM/(12931:12939): Calcule una base logica: 52
+
+[INFO] 17:46:12:910 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 8
+
+[INFO] 17:46:12:910 Mi-RAM/(12931:12939): Se creo al tripulante 0 de la patota 1
+[INFO] 17:46:12:911 Mi-RAM/(12931:12940): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:46:12:911 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 3
+
+[INFO] 17:46:12:911 Mi-RAM/(12931:12942): Calcule una base logica: 76
+
+[INFO] 17:46:12:912 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 8
+
+[INFO] 17:46:12:912 Mi-RAM/(12931:12942): Se creo al tripulante 0 de la patota 1
+[INFO] 17:46:12:912 Mi-RAM/(12931:12943): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:46:12:912 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 3
+
+[INFO] 17:46:12:913 Mi-RAM/(12931:12945): Calcule una base logica: 100
+
+[INFO] 17:46:12:913 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 8
+
+[INFO] 17:46:12:913 Mi-RAM/(12931:12945): Se creo al tripulante 0 de la patota 1
+[INFO] 17:46:12:913 Mi-RAM/(12931:12946): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:46:17:580 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 4
+
+[INFO] 17:46:17:580 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 4
+
+[INFO] 17:46:17:581 Mi-RAM/(12931:12949): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:46:17:581 Mi-RAM/(12931:12948): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:46:20:581 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 4
+
+[INFO] 17:46:20:581 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 4
+
+[INFO] 17:46:20:581 Mi-RAM/(12931:12950): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:46:20:581 Mi-RAM/(12931:12951): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:46:23:582 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 4
+
+[INFO] 17:46:23:582 Mi-RAM/(12931:12931): 
+Se recibio una operacion: 4
+
+[INFO] 17:46:23:582 Mi-RAM/(12931:12953): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 17:46:23:582 Mi-RAM/(12931:12952): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 17:46:58:037 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 2
+
+[INFO] 17:46:58:038 Mi-RAM/(12972:12978): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:46:58:038 Mi-RAM/(12972:12978): Calcule una base logica: 0
+
+[INFO] 17:46:58:038 Mi-RAM/(12972:12978): Calcule una base logica: 44
+
+[INFO] 17:46:58:038 Mi-RAM/(12972:12978): Se inicio una patota.
+
+[INFO] 17:46:58:039 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 3
+
+[INFO] 17:46:58:039 Mi-RAM/(12972:12980): Calcule una base logica: 52
+
+[INFO] 17:46:58:039 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 8
+
+[INFO] 17:46:58:039 Mi-RAM/(12972:12980): Se creo al tripulante 0 de la patota 1
+[INFO] 17:46:58:039 Mi-RAM/(12972:12981): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:46:58:040 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 3
+
+[INFO] 17:46:58:040 Mi-RAM/(12972:12983): Calcule una base logica: 76
+
+[INFO] 17:46:58:040 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 8
+
+[INFO] 17:46:58:040 Mi-RAM/(12972:12983): Se creo al tripulante 0 de la patota 1
+[INFO] 17:46:58:040 Mi-RAM/(12972:12984): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:46:58:041 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 3
+
+[INFO] 17:46:58:041 Mi-RAM/(12972:12986): Calcule una base logica: 100
+
+[INFO] 17:46:58:041 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 8
+
+[INFO] 17:46:58:041 Mi-RAM/(12972:12986): Se creo al tripulante 0 de la patota 1
+[INFO] 17:46:58:042 Mi-RAM/(12972:12987): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:47:02:669 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 4
+
+[INFO] 17:47:02:669 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 4
+
+[INFO] 17:47:02:669 Mi-RAM/(12972:12988): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:47:02:669 Mi-RAM/(12972:12989): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:47:05:669 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 4
+
+[INFO] 17:47:05:669 Mi-RAM/(12972:12990): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:47:05:670 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 4
+
+[INFO] 17:47:05:670 Mi-RAM/(12972:12991): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:47:08:670 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 4
+
+[INFO] 17:47:08:670 Mi-RAM/(12972:12992): El tripulante 1 de la patota 1 se movio a: 2|1
+
+[INFO] 17:47:08:670 Mi-RAM/(12972:12972): 
+Se recibio una operacion: 4
+
+[INFO] 17:47:08:670 Mi-RAM/(12972:12993): El tripulante 2 de la patota 1 se movio a: 1|2
+
+[INFO] 17:48:24:343 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 2
+
+[INFO] 17:48:24:343 Mi-RAM/(13050:13057): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:48:24:344 Mi-RAM/(13050:13057): Calcule una base logica: 0
+
+[INFO] 17:48:24:344 Mi-RAM/(13050:13057): Calcule una base logica: 44
+
+[INFO] 17:48:24:344 Mi-RAM/(13050:13057): Se inicio una patota.
+
+[INFO] 17:48:24:344 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 3
+
+[INFO] 17:48:24:345 Mi-RAM/(13050:13059): Calcule una base logica: 52
+
+[INFO] 17:48:24:345 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 8
+
+[INFO] 17:48:24:345 Mi-RAM/(13050:13059): Se creo al tripulante 0 de la patota 1
+[INFO] 17:48:24:345 Mi-RAM/(13050:13060): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:48:24:346 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 3
+
+[INFO] 17:48:24:346 Mi-RAM/(13050:13062): Calcule una base logica: 76
+
+[INFO] 17:48:24:346 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 8
+
+[INFO] 17:48:24:346 Mi-RAM/(13050:13062): Se creo al tripulante 0 de la patota 1
+[INFO] 17:48:24:346 Mi-RAM/(13050:13063): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:48:24:347 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 3
+
+[INFO] 17:48:24:347 Mi-RAM/(13050:13065): Calcule una base logica: 100
+
+[INFO] 17:48:24:347 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 8
+
+[INFO] 17:48:24:347 Mi-RAM/(13050:13065): Se creo al tripulante 0 de la patota 1
+[INFO] 17:48:24:348 Mi-RAM/(13050:13066): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:48:27:799 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 4
+
+[INFO] 17:48:27:799 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 4
+
+[INFO] 17:48:27:799 Mi-RAM/(13050:13068): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:48:27:800 Mi-RAM/(13050:13067): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:48:30:799 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 4
+
+[INFO] 17:48:30:799 Mi-RAM/(13050:13069): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 17:48:30:800 Mi-RAM/(13050:13050): 
+Se recibio una operacion: 4
+
+[INFO] 17:48:30:800 Mi-RAM/(13050:13070): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 17:49:12:663 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 2
+
+[INFO] 17:49:12:663 Mi-RAM/(13090:13097): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:49:12:664 Mi-RAM/(13090:13097): Calcule una base logica: 0
+
+[INFO] 17:49:12:664 Mi-RAM/(13090:13097): Calcule una base logica: 44
+
+[INFO] 17:49:12:664 Mi-RAM/(13090:13097): Se inicio una patota.
+
+[INFO] 17:49:12:664 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 3
+
+[INFO] 17:49:12:664 Mi-RAM/(13090:13099): Calcule una base logica: 52
+
+[INFO] 17:49:12:665 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 8
+
+[INFO] 17:49:12:665 Mi-RAM/(13090:13099): Se creo al tripulante 0 de la patota 1
+[INFO] 17:49:12:665 Mi-RAM/(13090:13100): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:49:12:666 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 3
+
+[INFO] 17:49:12:666 Mi-RAM/(13090:13102): Calcule una base logica: 76
+
+[INFO] 17:49:12:666 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 8
+
+[INFO] 17:49:12:666 Mi-RAM/(13090:13102): Se creo al tripulante 0 de la patota 1
+[INFO] 17:49:12:666 Mi-RAM/(13090:13103): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:49:12:667 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 3
+
+[INFO] 17:49:12:667 Mi-RAM/(13090:13105): Calcule una base logica: 100
+
+[INFO] 17:49:12:667 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 8
+
+[INFO] 17:49:12:667 Mi-RAM/(13090:13105): Se creo al tripulante 0 de la patota 1
+[INFO] 17:49:12:667 Mi-RAM/(13090:13106): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:49:16:655 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 4
+
+[INFO] 17:49:16:655 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 4
+
+[INFO] 17:49:16:655 Mi-RAM/(13090:13109): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:49:16:655 Mi-RAM/(13090:13108): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:49:19:656 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 4
+
+[INFO] 17:49:19:656 Mi-RAM/(13090:13090): 
+Se recibio una operacion: 4
+
+[INFO] 17:49:19:656 Mi-RAM/(13090:13111): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:49:19:656 Mi-RAM/(13090:13110): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:51:19:372 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 2
+
+[INFO] 17:51:19:372 Mi-RAM/(13157:13163): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:51:19:372 Mi-RAM/(13157:13163): Calcule una base logica: 0
+
+[INFO] 17:51:19:372 Mi-RAM/(13157:13163): Calcule una base logica: 44
+
+[INFO] 17:51:19:372 Mi-RAM/(13157:13163): Se inicio una patota.
+
+[INFO] 17:51:19:373 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 3
+
+[INFO] 17:51:19:373 Mi-RAM/(13157:13165): Calcule una base logica: 52
+
+[INFO] 17:51:19:373 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 8
+
+[INFO] 17:51:19:373 Mi-RAM/(13157:13165): Se creo al tripulante 0 de la patota 1
+[INFO] 17:51:19:374 Mi-RAM/(13157:13166): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:51:19:374 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 3
+
+[INFO] 17:51:19:374 Mi-RAM/(13157:13168): Calcule una base logica: 76
+
+[INFO] 17:51:19:375 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 8
+
+[INFO] 17:51:19:375 Mi-RAM/(13157:13168): Se creo al tripulante 0 de la patota 1
+[INFO] 17:51:19:375 Mi-RAM/(13157:13169): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:51:19:375 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 3
+
+[INFO] 17:51:19:375 Mi-RAM/(13157:13171): Calcule una base logica: 100
+
+[INFO] 17:51:19:376 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 8
+
+[INFO] 17:51:19:376 Mi-RAM/(13157:13171): Se creo al tripulante 0 de la patota 1
+[INFO] 17:51:19:376 Mi-RAM/(13157:13172): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:51:23:979 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:23:980 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:23:980 Mi-RAM/(13157:13175): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:51:23:980 Mi-RAM/(13157:13174): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:51:26:980 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:26:980 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:26:980 Mi-RAM/(13157:13177): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 17:51:26:980 Mi-RAM/(13157:13176): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 17:51:29:980 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:29:980 Mi-RAM/(13157:13178): El tripulante 2 de la patota 1 se movio a: 3|0
+
+[INFO] 17:51:29:981 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:29:981 Mi-RAM/(13157:13179): El tripulante 1 de la patota 1 se movio a: 0|3
+
+[INFO] 17:51:32:981 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:32:981 Mi-RAM/(13157:13180): El tripulante 2 de la patota 1 se movio a: 4|0
+
+[INFO] 17:51:32:982 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:32:982 Mi-RAM/(13157:13181): El tripulante 1 de la patota 1 se movio a: 0|4
+
+[INFO] 17:51:35:983 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:35:983 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:35:983 Mi-RAM/(13157:13183): El tripulante 1 de la patota 1 se movio a: 1|4
+
+[INFO] 17:51:35:983 Mi-RAM/(13157:13182): El tripulante 2 de la patota 1 se movio a: 4|1
+
+[INFO] 17:51:38:983 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:38:983 Mi-RAM/(13157:13184): El tripulante 1 de la patota 1 se movio a: 2|4
+
+[INFO] 17:51:38:984 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:38:984 Mi-RAM/(13157:13185): El tripulante 2 de la patota 1 se movio a: 4|2
+
+[INFO] 17:51:41:984 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:41:985 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:41:985 Mi-RAM/(13157:13189): El tripulante 2 de la patota 1 se movio a: 5|2
+
+[INFO] 17:51:41:985 Mi-RAM/(13157:13188): El tripulante 1 de la patota 1 se movio a: 3|4
+
+[INFO] 17:51:44:985 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:44:985 Mi-RAM/(13157:13190): El tripulante 2 de la patota 1 se movio a: 5|3
+
+[INFO] 17:51:44:985 Mi-RAM/(13157:13157): 
+Se recibio una operacion: 4
+
+[INFO] 17:51:44:985 Mi-RAM/(13157:13191): El tripulante 1 de la patota 1 se movio a: 4|4
+
+[INFO] 17:56:31:769 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 2
+
+[INFO] 17:56:31:770 Mi-RAM/(13304:13310): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 17:56:31:770 Mi-RAM/(13304:13310): Calcule una base logica: 0
+
+[INFO] 17:56:31:770 Mi-RAM/(13304:13310): Calcule una base logica: 44
+
+[INFO] 17:56:31:770 Mi-RAM/(13304:13310): Se inicio una patota.
+
+[INFO] 17:56:31:771 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 3
+
+[INFO] 17:56:31:771 Mi-RAM/(13304:13312): Calcule una base logica: 52
+
+[INFO] 17:56:31:771 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 8
+
+[INFO] 17:56:31:771 Mi-RAM/(13304:13312): Se creo al tripulante 0 de la patota 1
+[INFO] 17:56:31:772 Mi-RAM/(13304:13313): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:56:31:772 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 3
+
+[INFO] 17:56:31:772 Mi-RAM/(13304:13315): Calcule una base logica: 76
+
+[INFO] 17:56:31:772 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 8
+
+[INFO] 17:56:31:773 Mi-RAM/(13304:13315): Se creo al tripulante 0 de la patota 1
+[INFO] 17:56:31:773 Mi-RAM/(13304:13316): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:56:31:773 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 3
+
+[INFO] 17:56:31:773 Mi-RAM/(13304:13318): Calcule una base logica: 100
+
+[INFO] 17:56:31:774 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 8
+
+[INFO] 17:56:31:774 Mi-RAM/(13304:13318): Se creo al tripulante 0 de la patota 1
+[INFO] 17:56:31:774 Mi-RAM/(13304:13319): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 17:56:35:321 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:35:322 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:35:322 Mi-RAM/(13304:13320): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 17:56:35:322 Mi-RAM/(13304:13321): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 17:56:38:322 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:38:322 Mi-RAM/(13304:13322): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 17:56:38:322 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:38:323 Mi-RAM/(13304:13323): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 17:56:41:322 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:41:322 Mi-RAM/(13304:13324): El tripulante 1 de la patota 1 se movio a: 2|1
+
+[INFO] 17:56:41:323 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:41:323 Mi-RAM/(13304:13325): El tripulante 2 de la patota 1 se movio a: 1|2
+
+[INFO] 17:56:44:323 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:44:323 Mi-RAM/(13304:13326): El tripulante 1 de la patota 1 se movio a: 3|1
+
+[INFO] 17:56:44:324 Mi-RAM/(13304:13304): 
+Se recibio una operacion: 4
+
+[INFO] 17:56:44:324 Mi-RAM/(13304:13327): El tripulante 2 de la patota 1 se movio a: 1|3
+
+[INFO] 18:03:49:500 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 2
+
+[INFO] 18:03:49:500 Mi-RAM/(13440:13514): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:03:49:501 Mi-RAM/(13440:13514): Calcule una base logica: 0
+
+[INFO] 18:03:49:501 Mi-RAM/(13440:13514): Calcule una base logica: 44
+
+[INFO] 18:03:49:501 Mi-RAM/(13440:13514): Se inicio una patota.
+
+[INFO] 18:03:49:501 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 3
+
+[INFO] 18:03:49:502 Mi-RAM/(13440:13516): Calcule una base logica: 52
+
+[INFO] 18:03:49:502 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 8
+
+[INFO] 18:03:49:502 Mi-RAM/(13440:13516): Se creo al tripulante 0 de la patota 1
+[INFO] 18:03:49:502 Mi-RAM/(13440:13517): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:03:49:503 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 3
+
+[INFO] 18:03:49:503 Mi-RAM/(13440:13519): Calcule una base logica: 76
+
+[INFO] 18:03:49:503 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 8
+
+[INFO] 18:03:49:504 Mi-RAM/(13440:13519): Se creo al tripulante 0 de la patota 1
+[INFO] 18:03:49:504 Mi-RAM/(13440:13520): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:03:49:504 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 3
+
+[INFO] 18:03:49:504 Mi-RAM/(13440:13522): Calcule una base logica: 100
+
+[INFO] 18:03:49:505 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 8
+
+[INFO] 18:03:49:505 Mi-RAM/(13440:13522): Se creo al tripulante 0 de la patota 1
+[INFO] 18:03:49:505 Mi-RAM/(13440:13523): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:03:53:779 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 4
+
+[INFO] 18:03:53:779 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 4
+
+[INFO] 18:03:53:779 Mi-RAM/(13440:13526): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:03:53:779 Mi-RAM/(13440:13525): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:03:56:779 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 4
+
+[INFO] 18:03:56:779 Mi-RAM/(13440:13527): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 18:03:56:780 Mi-RAM/(13440:13440): 
+Se recibio una operacion: 4
+
+[INFO] 18:03:56:780 Mi-RAM/(13440:13528): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 18:10:08:475 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 2
+
+[INFO] 18:10:08:476 Mi-RAM/(13713:13719): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:10:08:476 Mi-RAM/(13713:13719): Calcule una base logica: 0
+
+[INFO] 18:10:08:476 Mi-RAM/(13713:13719): Calcule una base logica: 44
+
+[INFO] 18:10:08:476 Mi-RAM/(13713:13719): Se inicio una patota.
+
+[INFO] 18:10:08:476 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 3
+
+[INFO] 18:10:08:476 Mi-RAM/(13713:13721): Calcule una base logica: 52
+
+[INFO] 18:10:08:477 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 8
+
+[INFO] 18:10:08:477 Mi-RAM/(13713:13721): Se creo al tripulante 0 de la patota 1
+[INFO] 18:10:08:477 Mi-RAM/(13713:13722): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:10:08:478 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 3
+
+[INFO] 18:10:08:478 Mi-RAM/(13713:13724): Calcule una base logica: 76
+
+[INFO] 18:10:08:478 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 8
+
+[INFO] 18:10:08:478 Mi-RAM/(13713:13724): Se creo al tripulante 0 de la patota 1
+[INFO] 18:10:08:478 Mi-RAM/(13713:13725): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:10:08:479 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 3
+
+[INFO] 18:10:08:479 Mi-RAM/(13713:13727): Calcule una base logica: 100
+
+[INFO] 18:10:08:479 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 8
+
+[INFO] 18:10:08:479 Mi-RAM/(13713:13727): Se creo al tripulante 0 de la patota 1
+[INFO] 18:10:08:480 Mi-RAM/(13713:13728): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:10:13:180 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 4
+
+[INFO] 18:10:13:180 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 4
+
+[INFO] 18:10:13:182 Mi-RAM/(13713:13731): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:10:13:182 Mi-RAM/(13713:13730): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:10:16:181 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 4
+
+[INFO] 18:10:16:181 Mi-RAM/(13713:13713): 
+Se recibio una operacion: 4
+
+[INFO] 18:10:16:181 Mi-RAM/(13713:13733): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:10:16:181 Mi-RAM/(13713:13732): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:11:51:044 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 2
+
+[INFO] 18:11:51:045 Mi-RAM/(13789:13806): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:11:51:045 Mi-RAM/(13789:13806): Calcule una base logica: 0
+
+[INFO] 18:11:51:045 Mi-RAM/(13789:13806): Calcule una base logica: 44
+
+[INFO] 18:11:51:045 Mi-RAM/(13789:13806): Se inicio una patota.
+
+[INFO] 18:11:51:046 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 3
+
+[INFO] 18:11:51:046 Mi-RAM/(13789:13808): Calcule una base logica: 52
+
+[INFO] 18:11:51:046 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 8
+
+[INFO] 18:11:51:046 Mi-RAM/(13789:13808): Se creo al tripulante 0 de la patota 1
+[INFO] 18:11:51:046 Mi-RAM/(13789:13809): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:11:51:047 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 3
+
+[INFO] 18:11:51:047 Mi-RAM/(13789:13811): Calcule una base logica: 76
+
+[INFO] 18:11:51:047 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 8
+
+[INFO] 18:11:51:048 Mi-RAM/(13789:13811): Se creo al tripulante 0 de la patota 1
+[INFO] 18:11:51:048 Mi-RAM/(13789:13812): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:11:51:048 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 3
+
+[INFO] 18:11:51:048 Mi-RAM/(13789:13814): Calcule una base logica: 100
+
+[INFO] 18:11:51:049 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 8
+
+[INFO] 18:11:51:049 Mi-RAM/(13789:13814): Se creo al tripulante 0 de la patota 1
+[INFO] 18:11:51:049 Mi-RAM/(13789:13815): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:11:56:486 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 4
+
+[INFO] 18:11:56:487 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 4
+
+[INFO] 18:11:56:487 Mi-RAM/(13789:13818): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:11:56:487 Mi-RAM/(13789:13817): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:11:59:487 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 4
+
+[INFO] 18:11:59:487 Mi-RAM/(13789:13819): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 18:11:59:487 Mi-RAM/(13789:13789): 
+Se recibio una operacion: 4
+
+[INFO] 18:11:59:487 Mi-RAM/(13789:13820): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 18:16:02:432 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 2
+
+[INFO] 18:16:02:432 Mi-RAM/(13910:13916): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:16:02:432 Mi-RAM/(13910:13916): Calcule una base logica: 0
+
+[INFO] 18:16:02:432 Mi-RAM/(13910:13916): Calcule una base logica: 44
+
+[INFO] 18:16:02:432 Mi-RAM/(13910:13916): Se inicio una patota.
+
+[INFO] 18:16:02:433 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 3
+
+[INFO] 18:16:02:433 Mi-RAM/(13910:13918): Calcule una base logica: 52
+
+[INFO] 18:16:02:433 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 8
+
+[INFO] 18:16:02:434 Mi-RAM/(13910:13918): Se creo al tripulante 0 de la patota 1
+[INFO] 18:16:02:434 Mi-RAM/(13910:13919): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:16:02:435 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 3
+
+[INFO] 18:16:02:435 Mi-RAM/(13910:13921): Calcule una base logica: 76
+
+[INFO] 18:16:02:435 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 8
+
+[INFO] 18:16:02:435 Mi-RAM/(13910:13921): Se creo al tripulante 0 de la patota 1
+[INFO] 18:16:02:435 Mi-RAM/(13910:13922): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:16:02:436 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 3
+
+[INFO] 18:16:02:436 Mi-RAM/(13910:13924): Calcule una base logica: 100
+
+[INFO] 18:16:02:436 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 8
+
+[INFO] 18:16:02:436 Mi-RAM/(13910:13924): Se creo al tripulante 0 de la patota 1
+[INFO] 18:16:02:437 Mi-RAM/(13910:13925): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:16:06:335 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 4
+
+[INFO] 18:16:06:335 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 4
+
+[INFO] 18:16:06:336 Mi-RAM/(13910:13928): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:16:06:336 Mi-RAM/(13910:13927): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:16:09:337 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 4
+
+[INFO] 18:16:09:337 Mi-RAM/(13910:13910): 
+Se recibio una operacion: 4
+
+[INFO] 18:16:09:337 Mi-RAM/(13910:13930): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:16:09:337 Mi-RAM/(13910:13929): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:19:59:951 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 2
+
+[INFO] 18:19:59:952 Mi-RAM/(14035:14041): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:19:59:952 Mi-RAM/(14035:14041): Calcule una base logica: 0
+
+[INFO] 18:19:59:952 Mi-RAM/(14035:14041): Calcule una base logica: 44
+
+[INFO] 18:19:59:952 Mi-RAM/(14035:14041): Se inicio una patota.
+
+[INFO] 18:19:59:953 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 3
+
+[INFO] 18:19:59:953 Mi-RAM/(14035:14043): Calcule una base logica: 52
+
+[INFO] 18:19:59:953 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 8
+
+[INFO] 18:19:59:953 Mi-RAM/(14035:14043): Se creo al tripulante 0 de la patota 1
+[INFO] 18:19:59:953 Mi-RAM/(14035:14044): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:19:59:954 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 3
+
+[INFO] 18:19:59:954 Mi-RAM/(14035:14046): Calcule una base logica: 76
+
+[INFO] 18:19:59:955 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 8
+
+[INFO] 18:19:59:955 Mi-RAM/(14035:14046): Se creo al tripulante 0 de la patota 1
+[INFO] 18:19:59:955 Mi-RAM/(14035:14047): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:19:59:955 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 3
+
+[INFO] 18:19:59:955 Mi-RAM/(14035:14049): Calcule una base logica: 100
+
+[INFO] 18:19:59:956 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 8
+
+[INFO] 18:19:59:956 Mi-RAM/(14035:14049): Se creo al tripulante 0 de la patota 1
+[INFO] 18:19:59:956 Mi-RAM/(14035:14050): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:20:05:711 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 4
+
+[INFO] 18:20:05:711 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 4
+
+[INFO] 18:20:05:711 Mi-RAM/(14035:14053): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:20:05:711 Mi-RAM/(14035:14052): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:20:08:712 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 4
+
+[INFO] 18:20:08:712 Mi-RAM/(14035:14035): 
+Se recibio una operacion: 4
+
+[INFO] 18:20:08:712 Mi-RAM/(14035:14055): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:20:08:712 Mi-RAM/(14035:14054): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:22:56:873 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 2
+
+[INFO] 18:22:56:873 Mi-RAM/(14129:14135): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:22:56:873 Mi-RAM/(14129:14135): Calcule una base logica: 0
+
+[INFO] 18:22:56:874 Mi-RAM/(14129:14135): Calcule una base logica: 44
+
+[INFO] 18:22:56:874 Mi-RAM/(14129:14135): Se inicio una patota.
+
+[INFO] 18:22:56:874 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 3
+
+[INFO] 18:22:56:874 Mi-RAM/(14129:14137): Calcule una base logica: 52
+
+[INFO] 18:22:56:875 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 8
+
+[INFO] 18:22:56:875 Mi-RAM/(14129:14137): Se creo al tripulante 0 de la patota 1
+[INFO] 18:22:56:875 Mi-RAM/(14129:14138): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:22:56:876 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 3
+
+[INFO] 18:22:56:876 Mi-RAM/(14129:14140): Calcule una base logica: 76
+
+[INFO] 18:22:56:876 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 8
+
+[INFO] 18:22:56:876 Mi-RAM/(14129:14140): Se creo al tripulante 0 de la patota 1
+[INFO] 18:22:56:876 Mi-RAM/(14129:14141): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:22:56:877 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 3
+
+[INFO] 18:22:56:877 Mi-RAM/(14129:14143): Calcule una base logica: 100
+
+[INFO] 18:22:56:877 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 8
+
+[INFO] 18:22:56:877 Mi-RAM/(14129:14143): Se creo al tripulante 0 de la patota 1
+[INFO] 18:22:56:877 Mi-RAM/(14129:14144): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:23:00:747 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 4
+
+[INFO] 18:23:00:747 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 4
+
+[INFO] 18:23:00:747 Mi-RAM/(14129:14147): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:23:00:747 Mi-RAM/(14129:14146): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:23:03:748 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 4
+
+[INFO] 18:23:03:748 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 4
+
+[INFO] 18:23:03:748 Mi-RAM/(14129:14149): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:23:03:748 Mi-RAM/(14129:14148): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:23:06:748 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 4
+
+[INFO] 18:23:06:748 Mi-RAM/(14129:14150): El tripulante 1 de la patota 1 se movio a: 2|1
+
+[INFO] 18:23:06:748 Mi-RAM/(14129:14129): 
+Se recibio una operacion: 4
+
+[INFO] 18:23:06:748 Mi-RAM/(14129:14151): El tripulante 2 de la patota 1 se movio a: 1|2
+
+[INFO] 18:27:02:819 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 2
+
+[INFO] 18:27:02:820 Mi-RAM/(14202:14227): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:27:02:820 Mi-RAM/(14202:14227): Calcule una base logica: 0
+
+[INFO] 18:27:02:820 Mi-RAM/(14202:14227): Calcule una base logica: 44
+
+[INFO] 18:27:02:820 Mi-RAM/(14202:14227): Se inicio una patota.
+
+[INFO] 18:27:02:821 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 3
+
+[INFO] 18:27:02:821 Mi-RAM/(14202:14229): Calcule una base logica: 52
+
+[INFO] 18:27:02:821 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 8
+
+[INFO] 18:27:02:824 Mi-RAM/(14202:14229): Se creo al tripulante 0 de la patota 1
+[INFO] 18:27:02:824 Mi-RAM/(14202:14230): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:27:02:825 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 3
+
+[INFO] 18:27:02:825 Mi-RAM/(14202:14232): Calcule una base logica: 76
+
+[INFO] 18:27:02:825 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 8
+
+[INFO] 18:27:02:825 Mi-RAM/(14202:14232): Se creo al tripulante 0 de la patota 1
+[INFO] 18:27:02:825 Mi-RAM/(14202:14233): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:27:02:826 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 3
+
+[INFO] 18:27:02:826 Mi-RAM/(14202:14235): Calcule una base logica: 100
+
+[INFO] 18:27:02:826 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 8
+
+[INFO] 18:27:02:826 Mi-RAM/(14202:14235): Se creo al tripulante 0 de la patota 1
+[INFO] 18:27:02:827 Mi-RAM/(14202:14236): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:27:06:819 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 4
+
+[INFO] 18:27:06:819 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 4
+
+[INFO] 18:27:06:819 Mi-RAM/(14202:14239): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:27:06:819 Mi-RAM/(14202:14238): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:27:09:819 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 4
+
+[INFO] 18:27:09:819 Mi-RAM/(14202:14240): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 18:27:09:820 Mi-RAM/(14202:14202): 
+Se recibio una operacion: 4
+
+[INFO] 18:27:09:820 Mi-RAM/(14202:14241): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 18:28:30:524 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 2
+
+[INFO] 18:28:30:524 Mi-RAM/(14278:14284): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:28:30:525 Mi-RAM/(14278:14284): Calcule una base logica: 0
+
+[INFO] 18:28:30:525 Mi-RAM/(14278:14284): Calcule una base logica: 44
+
+[INFO] 18:28:30:525 Mi-RAM/(14278:14284): Se inicio una patota.
+
+[INFO] 18:28:30:526 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 3
+
+[INFO] 18:28:30:526 Mi-RAM/(14278:14286): Calcule una base logica: 52
+
+[INFO] 18:28:30:526 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 8
+
+[INFO] 18:28:30:526 Mi-RAM/(14278:14286): Se creo al tripulante 0 de la patota 1
+[INFO] 18:28:30:526 Mi-RAM/(14278:14287): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:28:30:527 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 3
+
+[INFO] 18:28:30:527 Mi-RAM/(14278:14289): Calcule una base logica: 76
+
+[INFO] 18:28:30:527 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 8
+
+[INFO] 18:28:30:527 Mi-RAM/(14278:14289): Se creo al tripulante 0 de la patota 1
+[INFO] 18:28:30:527 Mi-RAM/(14278:14290): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:28:30:528 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 3
+
+[INFO] 18:28:30:528 Mi-RAM/(14278:14292): Calcule una base logica: 100
+
+[INFO] 18:28:30:528 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 8
+
+[INFO] 18:28:30:528 Mi-RAM/(14278:14292): Se creo al tripulante 0 de la patota 1
+[INFO] 18:28:30:529 Mi-RAM/(14278:14293): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:28:34:748 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 4
+
+[INFO] 18:28:34:748 Mi-RAM/(14278:14278): 
+Se recibio una operacion: 4
+
+[INFO] 18:28:34:748 Mi-RAM/(14278:14295): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:28:34:748 Mi-RAM/(14278:14296): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:36:46:098 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:36:46:099 Mi-RAM/(14463:14469): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:36:46:099 Mi-RAM/(14463:14469): Calcule una base logica: 0
+
+[INFO] 18:36:46:099 Mi-RAM/(14463:14469): Calcule una base logica: 44
+
+[INFO] 18:36:46:099 Mi-RAM/(14463:14469): Se inicio una patota.
+
+[INFO] 18:36:46:100 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:36:46:100 Mi-RAM/(14463:14471): Calcule una base logica: 52
+
+[INFO] 18:36:46:100 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:36:46:100 Mi-RAM/(14463:14471): Se creo al tripulante 0 de la patota 1
+[INFO] 18:36:46:100 Mi-RAM/(14463:14472): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:36:46:101 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:36:46:101 Mi-RAM/(14463:14474): Calcule una base logica: 76
+
+[INFO] 18:36:46:101 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:36:46:101 Mi-RAM/(14463:14474): Se creo al tripulante 0 de la patota 1
+[INFO] 18:36:46:102 Mi-RAM/(14463:14475): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:36:46:102 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:36:46:102 Mi-RAM/(14463:14477): Calcule una base logica: 100
+
+[INFO] 18:36:46:103 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:36:46:103 Mi-RAM/(14463:14477): Se creo al tripulante 0 de la patota 1
+[INFO] 18:36:46:103 Mi-RAM/(14463:14478): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:36:52:655 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:36:52:655 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:36:52:656 Mi-RAM/(14463:14484): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:36:52:656 Mi-RAM/(14463:14483): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:36:55:656 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:36:55:656 Mi-RAM/(14463:14485): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 18:36:55:656 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:36:55:656 Mi-RAM/(14463:14486): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 18:37:18:883 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:37:18:883 Mi-RAM/(14463:14513): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:37:18:883 Mi-RAM/(14463:14513): Calcule una base logica: 124
+
+[INFO] 18:37:18:883 Mi-RAM/(14463:14513): Calcule una base logica: 168
+
+[INFO] 18:37:18:883 Mi-RAM/(14463:14513): Se inicio una patota.
+
+[INFO] 18:37:18:884 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:37:18:884 Mi-RAM/(14463:14515): Calcule una base logica: 176
+
+[INFO] 18:37:18:884 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:37:18:884 Mi-RAM/(14463:14515): Se creo al tripulante 0 de la patota 1
+[INFO] 18:37:18:885 Mi-RAM/(14463:14516): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:37:18:885 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:37:18:885 Mi-RAM/(14463:14518): Calcule una base logica: 200
+
+[INFO] 18:37:18:886 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:37:18:886 Mi-RAM/(14463:14518): Se creo al tripulante 0 de la patota 1
+[INFO] 18:37:18:886 Mi-RAM/(14463:14519): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:37:18:886 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:37:18:886 Mi-RAM/(14463:14521): Calcule una base logica: 224
+
+[INFO] 18:37:18:887 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:37:18:887 Mi-RAM/(14463:14521): Se creo al tripulante 0 de la patota 1
+[INFO] 18:37:18:887 Mi-RAM/(14463:14522): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:37:22:626 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:37:22:626 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:37:22:626 Mi-RAM/(14463:14525): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:37:22:626 Mi-RAM/(14463:14524): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:37:25:626 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:37:25:626 Mi-RAM/(14463:14526): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 18:37:25:627 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:37:25:627 Mi-RAM/(14463:14527): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 18:38:03:883 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:38:03:883 Mi-RAM/(14463:14554): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:38:03:883 Mi-RAM/(14463:14554): Calcule una base logica: 248
+
+[INFO] 18:38:03:884 Mi-RAM/(14463:14554): Calcule una base logica: 292
+
+[INFO] 18:38:03:884 Mi-RAM/(14463:14554): Se inicio una patota.
+
+[INFO] 18:38:03:884 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:38:03:884 Mi-RAM/(14463:14556): Calcule una base logica: 300
+
+[INFO] 18:38:03:885 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:38:03:885 Mi-RAM/(14463:14556): Se creo al tripulante 0 de la patota 1
+[INFO] 18:38:03:885 Mi-RAM/(14463:14557): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:38:03:885 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:38:03:885 Mi-RAM/(14463:14559): Calcule una base logica: 324
+
+[INFO] 18:38:03:886 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:38:03:886 Mi-RAM/(14463:14559): Se creo al tripulante 0 de la patota 1
+[INFO] 18:38:03:886 Mi-RAM/(14463:14560): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:38:03:886 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:38:03:887 Mi-RAM/(14463:14562): Calcule una base logica: 348
+
+[INFO] 18:38:03:887 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:38:03:887 Mi-RAM/(14463:14562): Se creo al tripulante 0 de la patota 1
+[INFO] 18:38:03:887 Mi-RAM/(14463:14563): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:38:08:139 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:08:139 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:08:139 Mi-RAM/(14463:14566): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:38:08:139 Mi-RAM/(14463:14565): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:38:11:140 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:11:140 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:11:140 Mi-RAM/(14463:14568): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:38:11:140 Mi-RAM/(14463:14567): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:38:14:140 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:14:140 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:14:140 Mi-RAM/(14463:14571): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 18:38:14:140 Mi-RAM/(14463:14570): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 18:38:17:140 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:17:141 Mi-RAM/(14463:14574): El tripulante 2 de la patota 1 se movio a: 3|1
+
+[INFO] 18:38:17:141 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:38:17:141 Mi-RAM/(14463:14575): El tripulante 1 de la patota 1 se movio a: 1|3
+
+[INFO] 18:39:00:554 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:39:00:554 Mi-RAM/(14463:14607): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:39:00:554 Mi-RAM/(14463:14607): Calcule una base logica: 372
+
+[INFO] 18:39:00:554 Mi-RAM/(14463:14607): Calcule una base logica: 416
+
+[INFO] 18:39:00:555 Mi-RAM/(14463:14607): Se inicio una patota.
+
+[INFO] 18:39:00:555 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:39:00:555 Mi-RAM/(14463:14609): Calcule una base logica: 424
+
+[INFO] 18:39:00:555 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:39:00:555 Mi-RAM/(14463:14609): Se creo al tripulante 0 de la patota 1
+[INFO] 18:39:00:556 Mi-RAM/(14463:14610): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:39:00:556 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:39:00:556 Mi-RAM/(14463:14612): Calcule una base logica: 448
+
+[INFO] 18:39:00:557 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:39:00:557 Mi-RAM/(14463:14612): Se creo al tripulante 0 de la patota 1
+[INFO] 18:39:00:557 Mi-RAM/(14463:14613): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:39:00:557 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:39:00:558 Mi-RAM/(14463:14615): Calcule una base logica: 472
+
+[INFO] 18:39:00:558 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:39:00:558 Mi-RAM/(14463:14615): Se creo al tripulante 0 de la patota 1
+[INFO] 18:39:00:558 Mi-RAM/(14463:14616): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:39:05:289 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:05:289 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:05:290 Mi-RAM/(14463:14619): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:39:05:290 Mi-RAM/(14463:14618): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:39:08:290 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:08:290 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:08:291 Mi-RAM/(14463:14621): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:39:08:291 Mi-RAM/(14463:14620): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:39:11:292 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:11:292 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:11:292 Mi-RAM/(14463:14624): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 18:39:11:292 Mi-RAM/(14463:14623): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 18:39:14:292 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:14:292 Mi-RAM/(14463:14625): El tripulante 2 de la patota 1 se movio a: 3|1
+
+[INFO] 18:39:14:293 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:14:293 Mi-RAM/(14463:14626): El tripulante 1 de la patota 1 se movio a: 1|3
+
+[INFO] 18:39:17:293 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:17:293 Mi-RAM/(14463:14627): El tripulante 2 de la patota 1 se movio a: 4|1
+
+[INFO] 18:39:17:293 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:17:293 Mi-RAM/(14463:14628): El tripulante 1 de la patota 1 se movio a: 1|4
+
+[INFO] 18:39:20:293 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:20:293 Mi-RAM/(14463:14629): El tripulante 2 de la patota 1 se movio a: 5|1
+
+[INFO] 18:39:20:294 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:39:20:294 Mi-RAM/(14463:14630): El tripulante 1 de la patota 1 se movio a: 2|4
+
+[INFO] 18:43:35:239 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:43:35:239 Mi-RAM/(14463:14714): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:43:35:240 Mi-RAM/(14463:14714): Calcule una base logica: 496
+
+[INFO] 18:43:35:240 Mi-RAM/(14463:14714): Calcule una base logica: 540
+
+[INFO] 18:43:35:240 Mi-RAM/(14463:14714): Se inicio una patota.
+
+[INFO] 18:43:35:240 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:43:35:240 Mi-RAM/(14463:14716): Calcule una base logica: 548
+
+[INFO] 18:43:35:241 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:43:35:241 Mi-RAM/(14463:14716): Se creo al tripulante 0 de la patota 1
+[INFO] 18:43:35:241 Mi-RAM/(14463:14717): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:43:35:241 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:43:35:241 Mi-RAM/(14463:14719): Calcule una base logica: 572
+
+[INFO] 18:43:35:242 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:43:35:242 Mi-RAM/(14463:14719): Se creo al tripulante 0 de la patota 1
+[INFO] 18:43:35:242 Mi-RAM/(14463:14720): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:43:35:242 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:43:35:243 Mi-RAM/(14463:14722): Calcule una base logica: 596
+
+[INFO] 18:43:35:243 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:43:35:243 Mi-RAM/(14463:14722): Se creo al tripulante 0 de la patota 1
+[INFO] 18:43:35:243 Mi-RAM/(14463:14723): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:43:47:777 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:43:47:777 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:43:47:778 Mi-RAM/(14463:14726): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:43:47:778 Mi-RAM/(14463:14725): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:43:50:779 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:43:50:779 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:43:50:779 Mi-RAM/(14463:14730): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:43:50:779 Mi-RAM/(14463:14729): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:45:42:996 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:45:42:997 Mi-RAM/(14463:14795): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:45:42:997 Mi-RAM/(14463:14795): Calcule una base logica: 620
+
+[INFO] 18:45:42:997 Mi-RAM/(14463:14795): Calcule una base logica: 664
+
+[INFO] 18:45:42:997 Mi-RAM/(14463:14795): Se inicio una patota.
+
+[INFO] 18:45:42:997 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:45:42:997 Mi-RAM/(14463:14797): Calcule una base logica: 672
+
+[INFO] 18:45:42:998 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:45:42:998 Mi-RAM/(14463:14797): Se creo al tripulante 0 de la patota 1
+[INFO] 18:45:42:998 Mi-RAM/(14463:14798): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:45:42:999 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:45:42:999 Mi-RAM/(14463:14800): Calcule una base logica: 696
+
+[INFO] 18:45:42:999 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:45:42:999 Mi-RAM/(14463:14800): Se creo al tripulante 0 de la patota 1
+[INFO] 18:45:42:999 Mi-RAM/(14463:14801): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:45:43:000 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:45:43:000 Mi-RAM/(14463:14803): Calcule una base logica: 720
+
+[INFO] 18:45:43:000 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:45:43:000 Mi-RAM/(14463:14803): Se creo al tripulante 0 de la patota 1
+[INFO] 18:45:43:000 Mi-RAM/(14463:14804): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:45:47:860 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:47:860 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:47:860 Mi-RAM/(14463:14807): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:45:47:860 Mi-RAM/(14463:14806): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:45:50:860 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:50:860 Mi-RAM/(14463:14810): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 18:45:50:861 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:50:861 Mi-RAM/(14463:14811): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 18:45:53:861 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:53:862 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:53:864 Mi-RAM/(14463:14812): El tripulante 2 de la patota 1 se movio a: 3|0
+
+[INFO] 18:45:53:865 Mi-RAM/(14463:14813): El tripulante 1 de la patota 1 se movio a: 0|3
+
+[INFO] 18:45:56:861 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:56:861 Mi-RAM/(14463:14815): El tripulante 2 de la patota 1 se movio a: 4|0
+
+[INFO] 18:45:56:862 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:56:862 Mi-RAM/(14463:14816): El tripulante 1 de la patota 1 se movio a: 0|4
+
+[INFO] 18:45:59:862 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:59:862 Mi-RAM/(14463:14819): El tripulante 2 de la patota 1 se movio a: 5|0
+
+[INFO] 18:45:59:862 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:45:59:862 Mi-RAM/(14463:14820): El tripulante 1 de la patota 1 se movio a: 1|4
+
+[INFO] 18:46:02:863 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:02:863 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:02:866 Mi-RAM/(14463:14824): El tripulante 2 de la patota 1 se movio a: 5|1
+
+[INFO] 18:46:02:867 Mi-RAM/(14463:14825): El tripulante 1 de la patota 1 se movio a: 2|4
+
+[INFO] 18:46:05:864 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:05:864 Mi-RAM/(14463:14835): El tripulante 2 de la patota 1 se movio a: 5|2
+
+[INFO] 18:46:05:865 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:05:865 Mi-RAM/(14463:14837): El tripulante 1 de la patota 1 se movio a: 3|4
+
+[INFO] 18:46:08:864 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:08:864 Mi-RAM/(14463:14838): El tripulante 2 de la patota 1 se movio a: 5|3
+
+[INFO] 18:46:08:865 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:08:865 Mi-RAM/(14463:14839): El tripulante 1 de la patota 1 se movio a: 4|4
+
+[INFO] 18:46:26:045 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:46:26:045 Mi-RAM/(14463:14851): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:46:26:046 Mi-RAM/(14463:14851): Calcule una base logica: 744
+
+[INFO] 18:46:26:046 Mi-RAM/(14463:14851): Calcule una base logica: 788
+
+[INFO] 18:46:26:046 Mi-RAM/(14463:14851): Se inicio una patota.
+
+[INFO] 18:46:26:046 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:46:26:046 Mi-RAM/(14463:14853): Calcule una base logica: 796
+
+[INFO] 18:46:26:047 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:46:26:047 Mi-RAM/(14463:14853): Se creo al tripulante 0 de la patota 1
+[INFO] 18:46:26:047 Mi-RAM/(14463:14854): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:46:26:047 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:46:26:047 Mi-RAM/(14463:14856): Calcule una base logica: 820
+
+[INFO] 18:46:26:048 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:46:26:048 Mi-RAM/(14463:14856): Se creo al tripulante 0 de la patota 1
+[INFO] 18:46:26:048 Mi-RAM/(14463:14857): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:46:26:049 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:46:26:049 Mi-RAM/(14463:14859): Calcule una base logica: 844
+
+[INFO] 18:46:26:049 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:46:26:049 Mi-RAM/(14463:14859): Se creo al tripulante 0 de la patota 1
+[INFO] 18:46:26:049 Mi-RAM/(14463:14860): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:46:32:596 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:32:596 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:32:597 Mi-RAM/(14463:14863): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:46:32:597 Mi-RAM/(14463:14862): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:46:35:597 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:35:597 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:35:598 Mi-RAM/(14463:14865): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:46:35:598 Mi-RAM/(14463:14864): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:46:38:598 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:38:599 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:38:599 Mi-RAM/(14463:14867): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 18:46:38:599 Mi-RAM/(14463:14866): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 18:46:41:599 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:41:599 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:41:599 Mi-RAM/(14463:14870): El tripulante 1 de la patota 1 se movio a: 2|2
+
+[INFO] 18:46:41:599 Mi-RAM/(14463:14869): El tripulante 2 de la patota 1 se movio a: 2|2
+
+[INFO] 18:46:44:600 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:44:600 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:44:600 Mi-RAM/(14463:14874): El tripulante 2 de la patota 1 se movio a: 3|2
+
+[INFO] 18:46:44:600 Mi-RAM/(14463:14873): El tripulante 1 de la patota 1 se movio a: 2|3
+
+[INFO] 18:46:47:600 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:47:600 Mi-RAM/(14463:14877): El tripulante 2 de la patota 1 se movio a: 4|2
+
+[INFO] 18:46:47:601 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:47:601 Mi-RAM/(14463:14878): El tripulante 1 de la patota 1 se movio a: 2|4
+
+[INFO] 18:46:50:601 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:50:601 Mi-RAM/(14463:14882): El tripulante 2 de la patota 1 se movio a: 5|2
+
+[INFO] 18:46:50:601 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:50:601 Mi-RAM/(14463:14883): El tripulante 1 de la patota 1 se movio a: 3|4
+
+[INFO] 18:46:53:602 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:53:602 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:53:604 Mi-RAM/(14463:14888): El tripulante 1 de la patota 1 se movio a: 4|4
+
+[INFO] 18:46:53:605 Mi-RAM/(14463:14887): El tripulante 2 de la patota 1 se movio a: 5|3
+
+[INFO] 18:46:56:602 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:56:603 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:46:56:603 Mi-RAM/(14463:14898): El tripulante 1 de la patota 1 se movio a: 5|4
+
+[INFO] 18:46:56:603 Mi-RAM/(14463:14899): El tripulante 2 de la patota 1 se movio a: 5|4
+
+[INFO] 18:54:58:705 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 18:54:58:705 Mi-RAM/(14463:15159): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 18:54:58:705 Mi-RAM/(14463:15159): Calcule una base logica: 868
+
+[INFO] 18:54:58:706 Mi-RAM/(14463:15159): Calcule una base logica: 912
+
+[INFO] 18:54:58:706 Mi-RAM/(14463:15159): Se inicio una patota.
+
+[INFO] 18:54:58:706 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:54:58:706 Mi-RAM/(14463:15161): Calcule una base logica: 920
+
+[INFO] 18:54:58:707 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:54:58:707 Mi-RAM/(14463:15161): Se creo al tripulante 0 de la patota 1
+[INFO] 18:54:58:707 Mi-RAM/(14463:15162): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:54:58:707 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:54:58:708 Mi-RAM/(14463:15164): Calcule una base logica: 944
+
+[INFO] 18:54:58:708 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:54:58:708 Mi-RAM/(14463:15164): Se creo al tripulante 0 de la patota 1
+[INFO] 18:54:58:708 Mi-RAM/(14463:15165): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:54:58:709 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 18:54:58:709 Mi-RAM/(14463:15167): Calcule una base logica: 968
+
+[INFO] 18:54:58:709 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 18:54:58:709 Mi-RAM/(14463:15167): Se creo al tripulante 0 de la patota 1
+[INFO] 18:54:58:709 Mi-RAM/(14463:15168): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 18:55:01:874 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:01:875 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:01:875 Mi-RAM/(14463:15169): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 18:55:01:875 Mi-RAM/(14463:15170): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 18:55:04:875 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:04:876 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:04:876 Mi-RAM/(14463:15171): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 18:55:04:876 Mi-RAM/(14463:15172): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 18:55:07:877 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:07:877 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:07:877 Mi-RAM/(14463:15173): El tripulante 1 de la patota 1 se movio a: 1|2
+
+[INFO] 18:55:07:877 Mi-RAM/(14463:15174): El tripulante 2 de la patota 1 se movio a: 2|1
+
+[INFO] 18:55:10:877 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:10:877 Mi-RAM/(14463:15175): El tripulante 2 de la patota 1 se movio a: 3|1
+
+[INFO] 18:55:10:878 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 18:55:10:878 Mi-RAM/(14463:15176): El tripulante 1 de la patota 1 se movio a: 1|3
+
+[INFO] 19:03:17:771 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 19:03:17:771 Mi-RAM/(14463:15328): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:03:17:771 Mi-RAM/(14463:15328): Calcule una base logica: 992
+
+[INFO] 19:03:17:771 Mi-RAM/(14463:15328): Calcule una base logica: 1036
+
+[INFO] 19:03:17:772 Mi-RAM/(14463:15328): Se inicio una patota.
+
+[INFO] 19:03:17:772 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:03:17:772 Mi-RAM/(14463:15330): Calcule una base logica: 1044
+
+[INFO] 19:03:17:773 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:03:17:773 Mi-RAM/(14463:15330): Se creo al tripulante 0 de la patota 1
+[INFO] 19:03:17:773 Mi-RAM/(14463:15331): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:03:17:773 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:03:17:773 Mi-RAM/(14463:15333): Calcule una base logica: 1068
+
+[INFO] 19:03:17:774 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:03:17:774 Mi-RAM/(14463:15333): Se creo al tripulante 0 de la patota 1
+[INFO] 19:03:17:774 Mi-RAM/(14463:15334): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:03:17:775 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:03:17:775 Mi-RAM/(14463:15336): Calcule una base logica: 1092
+
+[INFO] 19:03:17:775 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:03:17:775 Mi-RAM/(14463:15336): Se creo al tripulante 0 de la patota 1
+[INFO] 19:03:17:775 Mi-RAM/(14463:15337): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:03:17:776 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:03:17:776 Mi-RAM/(14463:15339): Calcule una base logica: 1116
+
+[INFO] 19:03:17:776 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:03:17:776 Mi-RAM/(14463:15339): Se creo al tripulante 0 de la patota 1
+[INFO] 19:03:17:776 Mi-RAM/(14463:15340): Tripulante 4 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:03:22:285 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 19:03:22:285 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 19:03:22:285 Mi-RAM/(14463:15341): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:03:22:285 Mi-RAM/(14463:15342): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:06:29:721 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 2
+
+[INFO] 19:06:29:721 Mi-RAM/(14463:15389): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:06:29:721 Mi-RAM/(14463:15389): Calcule una base logica: 1140
+
+[INFO] 19:06:29:721 Mi-RAM/(14463:15389): Calcule una base logica: 1184
+
+[INFO] 19:06:29:721 Mi-RAM/(14463:15389): Se inicio una patota.
+
+[INFO] 19:06:29:722 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:06:29:722 Mi-RAM/(14463:15391): Calcule una base logica: 1192
+
+[INFO] 19:06:29:722 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:06:29:722 Mi-RAM/(14463:15391): Se creo al tripulante 0 de la patota 1
+[INFO] 19:06:29:722 Mi-RAM/(14463:15392): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:06:29:723 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:06:29:723 Mi-RAM/(14463:15394): Calcule una base logica: 1216
+
+[INFO] 19:06:29:723 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:06:29:724 Mi-RAM/(14463:15394): Se creo al tripulante 0 de la patota 1
+[INFO] 19:06:29:724 Mi-RAM/(14463:15395): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:06:29:724 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 3
+
+[INFO] 19:06:29:724 Mi-RAM/(14463:15397): Calcule una base logica: 1240
+
+[INFO] 19:06:29:725 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 8
+
+[INFO] 19:06:29:725 Mi-RAM/(14463:15397): Se creo al tripulante 0 de la patota 1
+[INFO] 19:06:29:725 Mi-RAM/(14463:15398): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:06:33:688 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 19:06:33:688 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 19:06:33:689 Mi-RAM/(14463:15399): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:06:33:689 Mi-RAM/(14463:15400): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:06:36:689 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 19:06:36:689 Mi-RAM/(14463:15401): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 19:06:36:689 Mi-RAM/(14463:14463): 
+Se recibio una operacion: 4
+
+[INFO] 19:06:36:689 Mi-RAM/(14463:15402): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 19:08:39:220 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 2
+
+[INFO] 19:08:39:220 Mi-RAM/(15648:15655): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:08:39:220 Mi-RAM/(15648:15655): Calcule una base logica: 0
+
+[INFO] 19:08:39:221 Mi-RAM/(15648:15655): Calcule una base logica: 44
+
+[INFO] 19:08:39:221 Mi-RAM/(15648:15655): Se inicio una patota.
+
+[INFO] 19:08:39:221 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:08:39:221 Mi-RAM/(15648:15657): Calcule una base logica: 52
+
+[INFO] 19:08:39:222 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:08:39:222 Mi-RAM/(15648:15657): Se creo al tripulante 0 de la patota 1
+[INFO] 19:08:39:222 Mi-RAM/(15648:15658): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:08:39:222 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:08:39:223 Mi-RAM/(15648:15660): Calcule una base logica: 76
+
+[INFO] 19:08:39:223 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:08:39:223 Mi-RAM/(15648:15660): Se creo al tripulante 0 de la patota 1
+[INFO] 19:08:39:223 Mi-RAM/(15648:15661): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:08:39:224 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:08:39:224 Mi-RAM/(15648:15663): Calcule una base logica: 100
+
+[INFO] 19:08:39:224 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:08:39:224 Mi-RAM/(15648:15663): Se creo al tripulante 0 de la patota 1
+[INFO] 19:08:39:224 Mi-RAM/(15648:15664): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:08:42:515 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:08:42:516 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:08:42:516 Mi-RAM/(15648:15665): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:08:42:516 Mi-RAM/(15648:15666): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:08:45:516 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:08:45:516 Mi-RAM/(15648:15667): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 19:08:45:516 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:08:45:516 Mi-RAM/(15648:15668): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 19:09:26:492 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 2
+
+[INFO] 19:09:26:492 Mi-RAM/(15648:15694): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:09:26:493 Mi-RAM/(15648:15694): Calcule una base logica: 124
+
+[INFO] 19:09:26:493 Mi-RAM/(15648:15694): Calcule una base logica: 168
+
+[INFO] 19:09:26:493 Mi-RAM/(15648:15694): Se inicio una patota.
+
+[INFO] 19:09:26:493 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:09:26:493 Mi-RAM/(15648:15696): Calcule una base logica: 176
+
+[INFO] 19:09:26:494 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:09:26:494 Mi-RAM/(15648:15696): Se creo al tripulante 0 de la patota 1
+[INFO] 19:09:26:494 Mi-RAM/(15648:15697): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:09:26:495 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:09:26:495 Mi-RAM/(15648:15699): Calcule una base logica: 200
+
+[INFO] 19:09:26:495 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:09:26:495 Mi-RAM/(15648:15699): Se creo al tripulante 0 de la patota 1
+[INFO] 19:09:26:495 Mi-RAM/(15648:15700): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:09:26:496 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:09:26:496 Mi-RAM/(15648:15702): Calcule una base logica: 224
+
+[INFO] 19:09:26:496 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:09:26:496 Mi-RAM/(15648:15702): Se creo al tripulante 0 de la patota 1
+[INFO] 19:09:26:496 Mi-RAM/(15648:15703): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:09:29:492 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:09:29:492 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:09:29:492 Mi-RAM/(15648:15704): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:09:29:492 Mi-RAM/(15648:15705): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:11:46:269 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 2
+
+[INFO] 19:11:46:270 Mi-RAM/(15648:15749): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:11:46:270 Mi-RAM/(15648:15749): Calcule una base logica: 248
+
+[INFO] 19:11:46:270 Mi-RAM/(15648:15749): Calcule una base logica: 292
+
+[INFO] 19:11:46:270 Mi-RAM/(15648:15749): Se inicio una patota.
+
+[INFO] 19:11:46:271 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:11:46:271 Mi-RAM/(15648:15751): Calcule una base logica: 300
+
+[INFO] 19:11:46:271 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:11:46:271 Mi-RAM/(15648:15751): Se creo al tripulante 0 de la patota 1
+[INFO] 19:11:46:271 Mi-RAM/(15648:15752): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:11:46:272 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:11:46:272 Mi-RAM/(15648:15754): Calcule una base logica: 324
+
+[INFO] 19:11:46:272 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:11:46:272 Mi-RAM/(15648:15754): Se creo al tripulante 0 de la patota 1
+[INFO] 19:11:46:272 Mi-RAM/(15648:15755): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:11:46:273 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 3
+
+[INFO] 19:11:46:273 Mi-RAM/(15648:15757): Calcule una base logica: 348
+
+[INFO] 19:11:46:273 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 8
+
+[INFO] 19:11:46:273 Mi-RAM/(15648:15757): Se creo al tripulante 0 de la patota 1
+[INFO] 19:11:46:274 Mi-RAM/(15648:15758): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:11:52:253 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:11:52:253 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:11:52:253 Mi-RAM/(15648:15761): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:11:52:253 Mi-RAM/(15648:15762): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:11:55:253 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:11:55:253 Mi-RAM/(15648:15763): El tripulante 2 de la patota 1 se movio a: 2|0
+
+[INFO] 19:11:55:254 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:11:55:254 Mi-RAM/(15648:15764): El tripulante 1 de la patota 1 se movio a: 0|2
+
+[INFO] 19:11:58:254 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:11:58:254 Mi-RAM/(15648:15765): El tripulante 2 de la patota 1 se movio a: 3|0
+
+[INFO] 19:11:58:254 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:11:58:254 Mi-RAM/(15648:15766): El tripulante 1 de la patota 1 se movio a: 0|3
+
+[INFO] 19:12:01:255 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:12:01:255 Mi-RAM/(15648:15767): El tripulante 2 de la patota 1 se movio a: 4|0
+
+[INFO] 19:12:01:255 Mi-RAM/(15648:15648): 
+Se recibio una operacion: 4
+
+[INFO] 19:12:01:255 Mi-RAM/(15648:15768): El tripulante 1 de la patota 1 se movio a: 0|4
+
+[INFO] 19:15:23:861 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 2
+
+[INFO] 19:15:23:861 Mi-RAM/(3338:3484): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:15:23:862 Mi-RAM/(3338:3484): Calcule una base logica: 0
+
+[INFO] 19:15:23:862 Mi-RAM/(3338:3484): Calcule una base logica: 44
+
+[INFO] 19:15:23:862 Mi-RAM/(3338:3484): Se inicio una patota.
+
+[INFO] 19:15:23:865 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 3
+
+[INFO] 19:15:23:865 Mi-RAM/(3338:3486): Calcule una base logica: 52
+
+[INFO] 19:15:23:865 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 8
+
+[INFO] 19:15:23:865 Mi-RAM/(3338:3486): Se creo al tripulante 0 de la patota 1
+[INFO] 19:15:23:865 Mi-RAM/(3338:3487): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:15:23:866 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 3
+
+[INFO] 19:15:23:866 Mi-RAM/(3338:3489): Calcule una base logica: 76
+
+[INFO] 19:15:23:866 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 8
+
+[INFO] 19:15:23:866 Mi-RAM/(3338:3489): Se creo al tripulante 0 de la patota 1
+[INFO] 19:15:23:867 Mi-RAM/(3338:3490): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:15:23:867 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 3
+
+[INFO] 19:15:23:867 Mi-RAM/(3338:3492): Calcule una base logica: 100
+
+[INFO] 19:15:23:868 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 8
+
+[INFO] 19:15:23:868 Mi-RAM/(3338:3492): Se creo al tripulante 0 de la patota 1
+[INFO] 19:15:23:868 Mi-RAM/(3338:3493): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:15:27:444 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 4
+
+[INFO] 19:15:27:444 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 4
+
+[INFO] 19:15:27:444 Mi-RAM/(3338:3494): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:15:27:444 Mi-RAM/(3338:3495): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:15:30:445 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 4
+
+[INFO] 19:15:30:445 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 4
+
+[INFO] 19:15:30:445 Mi-RAM/(3338:3496): El tripulante 2 de la patota 1 se movio a: 1|1
+
+[INFO] 19:15:30:445 Mi-RAM/(3338:3497): El tripulante 1 de la patota 1 se movio a: 1|1
+
+[INFO] 19:16:46:550 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 2
+
+[INFO] 19:16:46:550 Mi-RAM/(3338:3597): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:16:46:550 Mi-RAM/(3338:3597): Calcule una base logica: 124
+
+[INFO] 19:16:46:550 Mi-RAM/(3338:3597): Calcule una base logica: 168
+
+[INFO] 19:16:46:550 Mi-RAM/(3338:3597): Se inicio una patota.
+
+[INFO] 19:16:46:553 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 3
+
+[INFO] 19:16:46:553 Mi-RAM/(3338:3599): Calcule una base logica: 176
+
+[INFO] 19:16:46:554 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 8
+
+[INFO] 19:16:46:554 Mi-RAM/(3338:3599): Se creo al tripulante 0 de la patota 1
+[INFO] 19:16:46:554 Mi-RAM/(3338:3600): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:16:46:554 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 3
+
+[INFO] 19:16:46:555 Mi-RAM/(3338:3602): Calcule una base logica: 200
+
+[INFO] 19:16:46:555 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 8
+
+[INFO] 19:16:46:555 Mi-RAM/(3338:3602): Se creo al tripulante 0 de la patota 1
+[INFO] 19:16:46:555 Mi-RAM/(3338:3603): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:16:46:556 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 3
+
+[INFO] 19:16:46:556 Mi-RAM/(3338:3605): Calcule una base logica: 224
+
+[INFO] 19:16:46:556 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 8
+
+[INFO] 19:16:46:556 Mi-RAM/(3338:3605): Se creo al tripulante 0 de la patota 1
+[INFO] 19:16:46:556 Mi-RAM/(3338:3606): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:16:51:189 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 4
+
+[INFO] 19:16:51:190 Mi-RAM/(3338:3338): 
+Se recibio una operacion: 4
+
+[INFO] 19:16:51:190 Mi-RAM/(3338:3607): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:16:51:190 Mi-RAM/(3338:3608): El tripulante 2 de la patota 1 se movio a: 1|0
+
+[INFO] 19:22:35:745 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 2
+
+[INFO] 19:22:35:745 Mi-RAM/(3786:3806): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 19:22:35:745 Mi-RAM/(3786:3806): Calcule una base logica: 0
+
+[INFO] 19:22:35:745 Mi-RAM/(3786:3806): Calcule una base logica: 44
+
+[INFO] 19:22:35:745 Mi-RAM/(3786:3806): Se inicio una patota.
+
+[INFO] 19:22:35:746 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 3
+
+[INFO] 19:22:35:746 Mi-RAM/(3786:3808): Calcule una base logica: 52
+
+[INFO] 19:22:35:746 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 8
+
+[INFO] 19:22:35:746 Mi-RAM/(3786:3808): Se creo al tripulante 0 de la patota 1
+[INFO] 19:22:35:746 Mi-RAM/(3786:3809): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:22:35:747 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 3
+
+[INFO] 19:22:35:747 Mi-RAM/(3786:3811): Calcule una base logica: 76
+
+[INFO] 19:22:35:747 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 8
+
+[INFO] 19:22:35:747 Mi-RAM/(3786:3811): Se creo al tripulante 0 de la patota 1
+[INFO] 19:22:35:747 Mi-RAM/(3786:3812): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:22:35:748 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 3
+
+[INFO] 19:22:35:748 Mi-RAM/(3786:3814): Calcule una base logica: 100
+
+[INFO] 19:22:35:748 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 8
+
+[INFO] 19:22:35:749 Mi-RAM/(3786:3814): Se creo al tripulante 0 de la patota 1
+[INFO] 19:22:35:749 Mi-RAM/(3786:3815): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 19:22:38:808 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 4
+
+[INFO] 19:22:38:808 Mi-RAM/(3786:3786): 
+Se recibio una operacion: 4
+
+[INFO] 19:22:38:809 Mi-RAM/(3786:3816): El tripulante 1 de la patota 1 se movio a: 0|1
+
+[INFO] 19:22:38:809 Mi-RAM/(3786:3817): El tripulante 2 de la patota 1 se movio a: 1|0
+

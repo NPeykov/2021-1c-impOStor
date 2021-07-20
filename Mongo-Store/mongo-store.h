@@ -9,6 +9,7 @@
 #include "../utils/utils.h"
 #include <signal.h>
 #include <commons/bitarray.h>
+#include <commons/string.h>
 #include <pthread.h>
 #include <semaphore.h>
 #include <sys/mman.h>

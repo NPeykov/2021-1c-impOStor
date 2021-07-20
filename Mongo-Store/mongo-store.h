@@ -19,7 +19,7 @@
 #include "bitmap.h"
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
-
+sem_t dar_orden_sabotaje;
 
 char *puntoMontaje;
 char *dirMetadata;
@@ -38,8 +38,9 @@ t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 void crearEstructuraFileSystem();
-sem_t dar_orden_sabotaje;
+
 void enviar_aviso_sabotaje_a_discordiador();
+int cantidad_bloques_a_ocupar(char* texto);
 void actualizar_posicion(m_movimiento_tripulante *tripulante);
 void rutina(int n);
 void *gestionarCliente(int cliente);

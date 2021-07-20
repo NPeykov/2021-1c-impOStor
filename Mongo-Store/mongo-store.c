@@ -613,7 +613,11 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		//					tripulanteEnMovimiento->destinoY);
 	  return;
 }
-
+int cantidad_bloques_a_ocupar(char* texto)
+{
+	int cantidad = string_length(texto)/block_size;
+	return cantidad;
+}
 
 
 

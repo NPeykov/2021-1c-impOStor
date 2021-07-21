@@ -212,19 +212,11 @@ int buscar_frame_disponible(int);
 
 bool tieneEstructuraAlojada(t_list*, int);
 
-/* Actualiza la posicion y estatus del tripulante */
-
-void actualizarTripulanteEnMemPag(t_proceso*, TripuCB*);
-
 /* Crea una tarea */
 
 char* armarTarea(char*);
 
-t_list* paginasConTripu(t_list*, uint32_t);//TODO
-
-t_list* tieneTripulanteAlojado(t_list*, uint32_t); //TODO
-
-t_list* obtenerAlojadoPagina(t_list*, uint32_t);//TODO
+/* Actualiza un tripulante en memoria */
 
 void sobreescribir_memoria(int, void*, int, int, int);//TODO
 
@@ -232,6 +224,5 @@ void cargarDLTripulante(void*, TripuCB);//TODO
 
 TripuCB* cargarEnTripulante(void*);//TODO
 
-void clear_frame(int,int);//TODO
 
 #endif

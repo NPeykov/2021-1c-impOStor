@@ -152,25 +152,16 @@ int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, i
 }
 
 int frame_libre(int frame){
-	bool frameEnUso(t_proceso* patota) {
+	bool estaEnUso(t_frame* unFrame) {
 
-		t_list_iterator* iteradorTablaPaginas = list_iterator_create(patota->tabla);
-
-		while(list_iterator_has_next(iteradorTablaPaginas))
-		{
-			t_pagina* pagina = list_iterator_next(iteradorTablaPaginas);
-			if(pagina->nro_frame_mpal == frame) {
-				list_iterator_destroy(iteradorTablaPaginas);
-				return 1;
-			}
+		if (unFrame->nro_frame == frame && unFrame->estado == LIBRE){
+			return 1;
 		}
-
-		list_iterator_destroy(iteradorTablaPaginas);
 
 		return 0;
 	}
 
-	bool a = list_any_satisfy(patotas,(void*) frameEnUso);
+	bool a = list_any_satisfy(memoriaPrincipal,(void*) estaEnUso);
 
 	return !a;
 }
@@ -303,7 +294,7 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 	*(proximoALeer+1) = '\0';
 	void* paginaAGuardar;
 	void* recorredorPagina;
-	int indicePagina = (int) floor((double) tcb->proxIns / 100.0);
+	int indicePagina = (int) tcb->proxIns / 100.0;
 	int desplazamiento = tcb->proxIns % 100;
 	t_pagina* pagina;
 
@@ -311,62 +302,60 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 	log_info(logs_ram, "PAGINAS EN TABLA: %d - ME MUEVO %d PAGINAS", list_size(proceso->tabla), indicePagina);
 	pthread_mutex_unlock(&mutexTablaPatota);
 
-	t_list_iterator* iteradorTablaPaginas = iterarHastaIndice(proceso->tabla, indicePagina);
-
-	pagina = list_get(proceso->tabla, indicePagina);
 	*proximoALeer = '0';
 
 	log_info(logs_ram,"Sacando tarea arrancando de indice: %d - desplazamiento: %d ", indicePagina, desplazamiento);
 
 	pthread_mutex_lock(&mutexTablaPatota);
-	while(list_iterator_has_next(iteradorTablaPaginas))
-	{
-		pagina = list_iterator_next(iteradorTablaPaginas);
+	for(int i = 0; i <= indicePagina; i++){
+
+		pagina = list_get(proceso->tabla, i);
 
 		if(tieneEstructuraAlojada(pagina->estructuras_alojadas, TAREAS))
 		{
-		pagina = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
-		recorredorPagina = pagina;
-		recorredorPagina += desplazamiento;
+			paginaAGuardar = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
+			recorredorPagina = paginaAGuardar;
+			recorredorPagina += desplazamiento;
 
-		memcpy(aux,recorredorPagina,1);
+			memcpy(aux,recorredorPagina,1);
 
-		log_info(logs_ram, "VALOR DE PROXIMA A LEER: %s", aux);
+			log_info(logs_ram, "VALOR DE PROXIMA A LEER: %s", aux);
 
-		if(*aux == '|' && !string_is_empty(tarea))
-		{
-			log_info(logs_ram, "LLEGUE", aux);
-			break;
-		}
+			if(*aux == '|' && !string_is_empty(tarea))
+			{
+				log_info(logs_ram, "LLEGUE", aux);
+				break;
+			}
 
-		log_info(logs_ram, "ME CHUPO UN HUEVO", proximoALeer);
+			log_info(logs_ram, "ME CHUPO UN HUEVO", proximoALeer);
 
-			while(desplazamiento != TAM_PAG && *proximoALeer != '|'  && *proximoALeer != '\0')
+			while(desplazamiento != TAM_PAG && *proximoALeer != '\n'  && *proximoALeer != '\0')
+			{
+				memcpy(aux,recorredorPagina,1);
+				string_append(&tarea,aux);
+				recorredorPagina++;
+				desplazamiento++;
+
+				if(desplazamiento != TAM_PAG)
 				{
-					memcpy(aux,recorredorPagina,1);
-					string_append(&tarea,aux);
-					recorredorPagina++;
-					desplazamiento++;
-
-					if(desplazamiento != TAM_PAG)
-					{
-						memcpy(proximoALeer,recorredorPagina,1);
-					}
-
-					log_info(logs_ram,"Sacando tarea: %s",tarea);
-					log_info(logs_ram,"Proximo a leer: %s",proximoALeer);
+					memcpy(proximoALeer,recorredorPagina,1);
 				}
 
+				log_info(logs_ram,"Sacando tarea: %s",tarea);
+				log_info(logs_ram,"Proximo a leer: %s",proximoALeer);
+			}
 
-		log_info(logs_ram,"Asignando al TCB prox a ejecutar - indice: %d - desplazamiento: %d ", pagina->nro_pagina, desplazamiento);
 
-		tcb->proxIns = pagina->nro_pagina * 100 + desplazamiento;
+			log_info(logs_ram,"Asignando al TCB prox a ejecutar - indice: %d - desplazamiento: %d ", pagina->nro_pagina, desplazamiento);
 
-		desplazamiento = 0;
-		free(pagina);
+			tcb->proxIns = pagina->nro_pagina * 100 + desplazamiento;
+
+			desplazamiento = 0;
+			free(paginaAGuardar);
 		}
 
-		if(*proximoALeer == '|' || *proximoALeer == '\0') break;
+		if(*proximoALeer == '\n' || *proximoALeer == '\0') break;
+
 	}
 	pthread_mutex_unlock(&mutexTablaPatota);
 
@@ -380,7 +369,7 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 	}
 
 
-	actualizarTripulanteEnMemPag(proceso, tcb);
+	actualizar_tripulante_EnMem_pag(proceso, tcb);
 
 
 	if(*tarea == '|') tarea = string_substring_from(tarea,1);
@@ -388,7 +377,6 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 	char* tareaAMandar = armarTarea(tarea);
 	free(aux);
 	free(proximoALeer);
-	list_iterator_destroy(iteradorTablaPaginas);
 	free(tarea);
 
 	return tareaAMandar;
@@ -736,19 +724,6 @@ char* asignar_prox_tarea_pag(int pid,int tid) {
 	return tarea;
 }
 
-t_list_iterator* iterarHastaIndice(t_list* tablaPaginas, int nro_pagina) {
-
-	t_list_iterator* iteradorTablaPaginas = list_iterator_create(tablaPaginas);
-
-	while(nro_pagina > 0) {
-		list_iterator_next(iteradorTablaPaginas);
-		nro_pagina--;
-	}
-
-	return iteradorTablaPaginas;
-}
-
-
 void expulsar_tripulante_pag(int tid,int pid) {
 
 	t_proceso* proceso = buscar_patota(pid);
@@ -886,26 +861,26 @@ void chequear_ultimo_tripulante(t_proceso* proceso) {
 }
 
 t_proceso* frame_con_patota(int frame) {
-		bool frameEnUso(t_proceso* proceso) {
+	bool frameEnUso(t_proceso* proceso) {
 
-			t_list_iterator* iteradorTablaPaginas = list_iterator_create(proceso->tabla);
+		t_list_iterator* iteradorTablaPaginas = list_iterator_create(proceso->tabla);
 
-			while(list_iterator_has_next(iteradorTablaPaginas))
-			{
-				t_pagina* pagina = list_iterator_next(iteradorTablaPaginas);
-				if(pagina->nro_frame_mpal == frame) return 1;
-			}
-
-			list_iterator_destroy(iteradorTablaPaginas);
-
-			return 0;
+		while(list_iterator_has_next(iteradorTablaPaginas))
+		{
+			t_pagina* pagina = list_iterator_next(iteradorTablaPaginas);
+			if(pagina->nro_frame_mpal == frame) return 1;
 		}
 
-		pthread_mutex_lock(&mutexTablaPatota);
-		t_proceso* procesoEnFrame = list_find(patotas,(void*) frameEnUso);
-		pthread_mutex_unlock(&mutexTablaPatota);
+		list_iterator_destroy(iteradorTablaPaginas);
 
-		return procesoEnFrame;
+		return 0;
+	}
+
+	pthread_mutex_lock(&mutexTablaPatota);
+	t_proceso* procesoEnFrame = list_find(patotas,(void*) frameEnUso);
+	pthread_mutex_unlock(&mutexTablaPatota);
+
+	return procesoEnFrame;
 }
 
 
@@ -922,6 +897,7 @@ t_pagina* frame_con_pagina(int frame, t_proceso* proceso) {
 	log_error(logs_ram,"Esa patota no tiene asignado ninguna pagina");
 	return NULL;
 }
+
 /*
 void dumpPag() {
 
@@ -1004,8 +980,6 @@ void* meterEnBuffer(void* bytesAGuardar, int estructura, int* aMeter, int* flagi
 }
 
 /*
-
->>>>>>> Stashed changes
 
 t_pagina* crear_pagina(){
 	t_pagina* pagina = malloc(sizeof(t_pagina));
@@ -1092,6 +1066,32 @@ void crear_proceso_paginas(t_list* paquete){
 	}
 
 }
+
+void sobreescribir_memoria(int frame, void* buffer, int mem, int desplInicial, int bytesAEscribir) {
+
+
+	int desp = frame * configRam.tamanioPagina + desplInicial;
+
+	if(mem == MEM_PPAL)
+	{
+		lock(&mutexEscribirMemoria);
+		memcpy(memoria_principal+desp, buffer, bytesAEscribir);
+		unlock(&mutexEscribirMemoria);
+
+		log_info(logMemoria, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", frame,
+		        		desplInicial, bytesAEscribir + desplInicial -1);
+	}
+	/*
+	else if(mem == MEM_VIRT){
+		FILE * file = fopen(configRam.pathSwap, "r+");
+		fseek(file, desp, SEEK_SET);
+		int sz = fwrite(pagina, configRam.tamanioPagina , 1, file);
+		fclose(file);
+		// printf("bytes written %d\n",sz);
+	} */
+
+}
+
 */
 
 

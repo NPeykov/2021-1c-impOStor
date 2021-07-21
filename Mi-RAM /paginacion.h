@@ -118,7 +118,7 @@ t_pagina* buscar_ultima_pagina_disponible(t_proceso* );
 
 /* Guarda el TCB en el malloc de memoria */
 
-int guardar_TripuCB_pag(TripuCB*, int);
+int guardar_TCB_pag(TripuCB*, int);
 
 /* Guarda la patota(PCB) y las tareas en el malloc de memoria */
 

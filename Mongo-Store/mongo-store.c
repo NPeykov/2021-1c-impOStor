@@ -82,7 +82,8 @@ void crearEstructurasBloques(){
 }
 
 
-char* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
+t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
+	t_bloque* el_bloque;
 	int cantidad_de_bloques=0;
 	struct stat statbuf;
 	int archivo = open(rutaBitacora, O_RDWR);
@@ -94,8 +95,10 @@ char* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 	while(bloques_bitacora[cantidad_de_bloques]!=NULL){
 		cantidad_de_bloques++;
 	}
-
-	return bloques_bitacora[cantidad_de_bloques-1];
+	el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_bitacora[cantidad_de_bloques-1])-1);
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+	return el_bloque;
 }
 
 
@@ -687,9 +690,8 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
 	if(existeArchivo==0){
 		//ultimo bloque en char
-		bloque=buscar_ultimo_bloque_del_tripulante(rutaBitacora);
-		//recupero el ultimo bloque que utilizo el tripulante
-		el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloque)-1);
+		el_bloque=buscar_ultimo_bloque_del_tripulante(rutaBitacora);
+		printf("el bloque es: %d\n",el_bloque->id_bloque);
 		//si hay espacio en el bloque para escribir to do, entonces lo escribo
 		if(el_bloque->espacio>string_length(lo_que_se_va_a_escribir)){
 				//TODO escribir en blocks posicion bloque->posicion_para_escribir

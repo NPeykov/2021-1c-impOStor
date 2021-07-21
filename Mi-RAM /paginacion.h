@@ -118,7 +118,7 @@ t_pagina* buscar_ultima_pagina_disponible(t_proceso* );
 
 /* Guarda el TCB en el malloc de memoria */
 
-int guardar_TripuCB_pag(TripuCB*, int);
+int guardar_TCB_pag(TripuCB*, int);
 
 /* Guarda la patota(PCB) y las tareas en el malloc de memoria */
 
@@ -212,26 +212,23 @@ int buscar_frame_disponible(int);
 
 bool tieneEstructuraAlojada(t_list*, int);
 
-/* Actualiza la posicion y estatus del tripulante */
-
-void actualizarTripulanteEnMemPag(t_proceso*, TripuCB*);
-
 /* Crea una tarea */
 
 char* armarTarea(char*);
 
 t_list* paginasConTripu(t_list*, uint32_t);//TODO
 
-t_list* tieneTripulanteAlojado(t_list*, uint32_t); //TODO
+bool tieneTripulanteAlojado(t_list*, uint32_t); //TODO
 
 t_list* obtenerAlojadoPagina(t_list*, uint32_t);//TODO
+
+/* Actualiza un tripulante en memoria */
 
 void sobreescribir_memoria(int, void*, int, int, int);//TODO
 
 void cargarDLTripulante(void*, TripuCB);//TODO
 
-TripuCB* cargarEnTripulante(void*);//TODO
+TripuCB* transformarEnTripulante(void*);
 
-void clear_frame(int,int);//TODO
 
 #endif

@@ -21,11 +21,24 @@
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
 
+typedef struct {
+	t_list *bloques;
+} t_disco_logico;
+
+typedef struct {
+	int inicio;
+	int fin;
+	int id_bloque;
+	int espacio;
+	int posicion_para_escribir;
+} t_bloque;
+
 char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
 char *dirBlocks;
+t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
 int socket_cliente;
@@ -37,9 +50,15 @@ pthread_t hilo_sabotaje;
 t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
-void crearEstructuraFileSystem();
 
+
+
+
+void crearEstructuraFileSystem();
+void crearEstructurasBloques();
+t_disco_logico* crearEstructuraDiscoLogico();
 void enviar_aviso_sabotaje_a_discordiador();
+char* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void actualizar_posicion(m_movimiento_tripulante *tripulante);
 void rutina(int n);

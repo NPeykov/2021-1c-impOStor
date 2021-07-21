@@ -4,7 +4,35 @@
 
 
 int main() {
-	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
+	m_movimiento_tripulante *tripulante=malloc(sizeof(m_movimiento_tripulante));
+	t_bloque* bloque1 = malloc(sizeof(t_bloque));
+	t_bloque* bloque2 = malloc(sizeof(t_bloque));
+	t_bloque* bloque3 = malloc(sizeof(t_bloque));
+	tripulante->destinoX=0;
+	tripulante->destinoY=2;
+	tripulante->idPatota=1;
+	tripulante->idTripulante=1;
+	tripulante->origenX=0;
+	tripulante->origenY=0;
+	bloque1->id_bloque=1;
+	bloque1->inicio=0;
+	bloque1->fin=255;
+	bloque1->espacio=256;
+	bloque2->id_bloque=2;
+	bloque2->inicio=256;
+	bloque2->fin=511;
+	bloque2->espacio=256;
+	bloque3->id_bloque=3;
+	bloque3->inicio=512;
+	bloque3->fin=767;
+	bloque3->espacio=256;
+	crearEstructuraDiscoLogico();
+	list_add(disco_logico->bloques,bloque1);
+	list_add(disco_logico->bloques,bloque2);
+	list_add(disco_logico->bloques,bloque3);
+	actualizar_posicion(tripulante);
+
+	/*signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
 
 	sem_init(&dar_orden_sabotaje,0 , 0);
 	sem_init(&contador_sabotaje, 0, 1);
@@ -25,7 +53,49 @@ int main() {
 	gestionarCliente(socket_mongo_store );
 
 	printf("SOCKET DISCO %d\n", socket_mongo_store);
-	return EXIT_SUCCESS;
+	return EXIT_SUCCESS;*/
+}
+
+t_disco_logico* crearEstructuraDiscoLogico(){
+	//TODO poner semaforo para disco logico
+	disco_logico=(t_disco_logico *)malloc(sizeof(t_disco_logico));
+	disco_logico->bloques=list_create();
+	return disco_logico;
+}
+
+void crearEstructurasBloques(){
+	//TODO poner semaforo para disco logico
+	int tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+	int cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	t_bloque *bloque = (t_bloque *)malloc(sizeof(t_bloque));
+
+	for(int contador=1;contador<=cantidad_de_bloques;contador++){
+		bloque->id_bloque=contador;
+		bloque->inicio= (contador-1) * tamanio_de_bloque;
+		bloque->fin = bloque->inicio+ (tamanio_de_bloque-1);
+		bloque->espacio=tamanio_de_bloque;
+		bloque->posicion_para_escribir=bloque->inicio;
+		list_add(disco_logico->bloques,bloque);
+
+	}
+	free(bloque);
+}
+
+
+char* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
+	int cantidad_de_bloques=0;
+	struct stat statbuf;
+	int archivo = open(rutaBitacora, O_RDWR);
+	fstat(archivo,&statbuf);
+	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ, MAP_SHARED, archivo, 0);
+	char **renglones_bitacora= string_split(archivo_addr, "=");
+	char **bloques_bitacora= string_split(renglones_bitacora[2], ",");
+
+	while(bloques_bitacora[cantidad_de_bloques]!=NULL){
+		cantidad_de_bloques++;
+	}
+
+	return bloques_bitacora[cantidad_de_bloques-1];
 }
 
 
@@ -564,6 +634,20 @@ void descartar_basura(int cant_borrar){
     	  }
     	}
 void actualizar_posicion(m_movimiento_tripulante *tripulante){
+	t_bloque *el_bloque = (t_bloque*)malloc(sizeof(t_bloque*));
+	t_bloque *nuevo_bloque = (t_bloque*)malloc(sizeof(t_bloque*));
+	char *bloque;
+	char *lo_que_se_va_a_escribir=string_new();
+	char *rutaBitacora=string_new();
+	char *idTripulante=string_itoa(tripulante->idTripulante);
+	char *idPatota=string_itoa(tripulante->idPatota);
+	char *xinicio=string_itoa(tripulante->origenX);
+	char *yinicio=string_itoa(tripulante->origenY);
+	char *xfinal=string_itoa(tripulante->destinoX);
+	char *yfinal=string_itoa(tripulante->destinoY);
+	int numero_del_nuevo_bloque;
+
+
 	//1)buscar bitacora del tripulante
 	//2)Sino existe crearla sino pasar al paso 3
 	//3)leer la bitacora blocks y size
@@ -578,19 +662,76 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 //	Se mueve de 0|3 a 1|3
 //	Se mueve de 1|3 a 2|3
 //	Se mueve de 2|3 a 3|3
-	char *ruta=string_new();
-	string_append(&ruta, dirBitacora);
-	string_append(&ruta, "/");
-	char *idTripulante=string_itoa(tripulante->idTripulante);
-	char *idPatota=string_itoa(tripulante->idPatota);
-	string_append(&ruta, "Tripulante");
-	string_append(&ruta, idTripulante);
-	string_append(&ruta, "Patota");
-	string_append(&ruta, idPatota);
-	string_append(&ruta, ".ims");
+	//armo toda la cadena que se va a escribir por movimiento
+	string_append(&lo_que_se_va_a_escribir, "Se mueve de ");
+	string_append(&lo_que_se_va_a_escribir, xinicio);
+	string_append(&lo_que_se_va_a_escribir, "|");
+	string_append(&lo_que_se_va_a_escribir, yinicio);
+	string_append(&lo_que_se_va_a_escribir," a ");
+	string_append(&lo_que_se_va_a_escribir,xfinal);
+	string_append(&lo_que_se_va_a_escribir,"|");
+	string_append(&lo_que_se_va_a_escribir,yfinal);
+	string_append(&lo_que_se_va_a_escribir,"\n");
 
-	int existeArchivo = access(ruta, F_OK);
-	FILE *archivo = fopen(ruta, "a+");
+	//armo la ruta de la bitacora correspondiente al tripulante
+	char *dirBitacora="/home/utnso/workspace/mnt/Files/Bitacora";
+	string_append(&rutaBitacora, dirBitacora);
+	string_append(&rutaBitacora, "/");
+	string_append(&rutaBitacora, "Tripulante");
+	string_append(&rutaBitacora, idTripulante);
+	string_append(&rutaBitacora, "Patota");
+	string_append(&rutaBitacora, idPatota);
+	string_append(&rutaBitacora, ".ims");
+
+	int existeArchivo = access(rutaBitacora, F_OK);
+	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
+	if(existeArchivo==0){
+		//ultimo bloque en char
+		bloque=buscar_ultimo_bloque_del_tripulante(rutaBitacora);
+		//recupero el ultimo bloque que utilizo el tripulante
+		el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloque)-1);
+		//si hay espacio en el bloque para escribir to do, entonces lo escribo
+		if(el_bloque->espacio>string_length(lo_que_se_va_a_escribir)){
+				//TODO escribir en blocks posicion bloque->posicion_para_escribir
+			el_bloque->espacio=el_bloque->espacio-string_length(lo_que_se_va_a_escribir);
+			el_bloque->posicion_para_escribir=el_bloque->posicion_para_escribir+string_length(lo_que_se_va_a_escribir);
+			}
+		//sino escribo una parte y elijo otro bloque para lo restante
+			else{
+				char *lo_que_entra_en_el_boque=string_substring_until(lo_que_se_va_a_escribir,el_bloque->espacio);
+				//TODO escribir en blocks posicion bloque->posicion_para_escribir solo lo_que_entra_en_el_boque
+				char *lo_que_falta_escribir=string_substring_from(lo_que_se_va_a_escribir,el_bloque->espacio);
+				el_bloque->espacio=0;
+				//asigno el bloque nuevo
+				numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+				nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques, numero_del_nuevo_bloque);
+				//escribir lo_que_falta_escribir
+				nuevo_bloque->espacio=nuevo_bloque->espacio-string_length(lo_que_falta_escribir);
+				nuevo_bloque->posicion_para_escribir=nuevo_bloque->posicion_para_escribir+string_length(lo_que_falta_escribir);
+				//actualizar el bitmap
+				ocupar_bloque(bitmap, numero_del_nuevo_bloque);
+				//TODO actualizar bitacora con el bloque nuevo del tripulante
+			}
+	}
+	else{
+		//creo el archivo bitacora
+		FILE *archivo = fopen(rutaBitacora, "a+");
+		//asigno el bloque nuevo
+		numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques, numero_del_nuevo_bloque);
+		//modifico bitmap
+		ocupar_bloque(bitmap, numero_del_nuevo_bloque);
+		//TODO escribo lo_que_se_va_a_escribir en block
+		//modifico espacio y posicion del nuevo bloque
+		nuevo_bloque->espacio=nuevo_bloque->espacio-string_length(lo_que_se_va_a_escribir);
+		nuevo_bloque->posicion_para_escribir=nuevo_bloque->posicion_para_escribir+string_length(lo_que_se_va_a_escribir);
+		//escribo tamaño y bloque en archivo bitacora
+	}
+
+
+/*
+
+	FILE *archivo = fopen(rutaBitacora, "a+");
 
 	  if(existeArchivo == 0){
 //Bitacora existente
@@ -610,7 +751,7 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		//					tripulanteEnMovimiento->origenX,
 		//					tripulanteEnMovimiento->origenY,
 		//					tripulanteEnMovimiento->destinoX,
-		//					tripulanteEnMovimiento->destinoY);
+		//					tripulanteEnMovimiento->destinoY);*/
 	  return;
 }
 int cantidad_bloques_a_ocupar(char* texto)

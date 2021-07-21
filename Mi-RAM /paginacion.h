@@ -216,13 +216,23 @@ bool tieneEstructuraAlojada(t_list*, int);
 
 char* armarTarea(char*);
 
+<<<<<<< HEAD
+t_list* paginasConTripu(t_list*, uint32_t);//TODO
+
+bool tieneTripulanteAlojado(t_list*, uint32_t); //TODO
+
+t_list* obtenerAlojadoPagina(t_list*, uint32_t);//TODO
+=======
+/* Actualiza un tripulante en memoria */
+>>>>>>> aa52a4f0fddca3db0e623a6d75d52d965a41f94a
+
 /* Actualiza un tripulante en memoria */
 
 void sobreescribir_memoria(int, void*, int, int, int);//TODO
 
 void cargarDLTripulante(void*, TripuCB);//TODO
 
-TripuCB* cargarEnTripulante(void*);//TODO
+TripuCB* transformarEnTripulante(void*);
 
 
 #endif

@@ -418,25 +418,20 @@ uint32_t buscar_inicio_tareas(t_proceso* proceso) {
 }
 
 uint32_t calcuar_DL_tareas_pag(){
-	//REVISAR
-
-	int nroPagina;
+	int pagina;
 	int desplazamiento;
-
-	if(TAM_PAG > 8)
-	{
-		nroPagina = 0;
-		desplazamiento = 8;
+	int espacioRestante = TAM_PAG-8;//Tamaño de PCB es 8 bytes
+	//Sabemos que lo primero que se guarda de un proceso es la PCB
+	//Por tanto tiene un porcentaje de la primera pagina ocupada
+	if(espacioRestante>0){
+		pagina = 0;
+		desplazamiento = espacioRestante;
+	}else{//Sabemos que las paginas seran de minimo 8 bytes
+		pagina=1;
+		desplazamiento = 0;
 	}
-	else
-	{
-		nroPagina = (int) (floor(8/TAM_PAG));
-		desplazamiento = 8 % TAM_PAG;
-	}
-
-	log_info(logs_ram,"DL TAREA: %d \n", nroPagina * 100 + desplazamiento);
-
-	return nroPagina * 100 + desplazamiento;
+	uint32_t direccionLogica = (uint32_t) (pagina*100 + desplazamiento);
+	return direccionLogica;
 }
 
 t_proceso* buscar_patota(int id_patota) {
@@ -451,7 +446,7 @@ t_proceso* buscar_patota(int id_patota) {
 	    }
 
 		pthread_mutex_lock(&mutexTablaProcesos);
-	    t_proceso* patota = list_find(patotas, (void*)idIgualA);
+	    t_proceso* patota = list_find(patotas, idIgualA);
 	    pthread_mutex_unlock(&mutexTablaProcesos);
 
 	    if(patota == NULL)
@@ -643,6 +638,7 @@ int actualizar_tripulante_pag(TripuCB* tcb, int idPatota) {
 			else {
 				log_error(logs_ram, "Se leyo mal la pagina mi bro");
 				free(paginasConTripulante);
+				free(bufferTripu);
 				return 0;
 			}
 		}
@@ -695,7 +691,7 @@ TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
 		free(pagina);
 	}
 
-	TripuCB* tcb = cargarEnTripulante(bufferTripu);//TODO //Crea la estructura administravia del tripulante
+	TripuCB* tcb = transformarEnTripulante(bufferTripu);
 	free(bufferTripu);
 	list_destroy(paginasConTripulante);
 
@@ -861,6 +857,7 @@ void chequear_ultimo_tripulante(t_proceso* proceso) {
 }
 
 t_proceso* frame_con_patota(int frame) {
+
 	bool frameEnUso(t_proceso* proceso) {
 
 		t_list_iterator* iteradorTablaPaginas = list_iterator_create(proceso->tabla);
@@ -977,6 +974,14 @@ void* meterEnBuffer(void* bytesAGuardar, int estructura, int* aMeter, int* flagi
 	}
 	void *buffer = bytesAGuardar;
 	return buffer;
+}
+
+TripuCB* transformarEnTripulante(void* buffer){
+	TripuCB *elTripulante = NULL;
+	if(sizeof(buffer) == 21){
+		elTripulante = (TripuCB*) buffer;
+	}
+	return elTripulante;
 }
 
 /*

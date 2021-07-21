@@ -995,6 +995,7 @@ void* meterEnBuffer(void* bytesAGuardar, int estructura, int* aMeter, int* flagi
 	return buffer;
 }
 
+<<<<<<< HEAD
 TripuCB* transformarEnTripulante(void* buffer){
 	TripuCB *elTripulante = NULL;
 	if(sizeof(buffer) == 21){
@@ -1003,6 +1004,8 @@ TripuCB* transformarEnTripulante(void* buffer){
 	return elTripulante;
 }
 
+=======
+>>>>>>> aa52a4f0fddca3db0e623a6d75d52d965a41f94a
 /*
 
 >>>>>>> Stashed changes

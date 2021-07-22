@@ -50,7 +50,7 @@ pthread_t hilo_sabotaje;
 t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
-
+char *block_mmap;
 
 
 

@@ -74,3 +74,17 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 [INFO] 19:14:53:457 Mongo/(3345:3345): El directorio /home/utnso/workspace/mnt ya existe. 
 [INFO] 19:16:38:040 Mongo/(3591:3591): El directorio /home/utnso/workspace/mnt ya existe. 
 [INFO] 19:22:22:028 Mongo/(3795:3795): El directorio /home/utnso/workspace/mnt ya existe. 
+[ERROR] 14:26:40:870 Mongo/(14232:14232): Error al crear el Bitmap
+[ERROR] 14:27:10:474 Mongo/(14260:14260): Error al crear el Bitmap
+[ERROR] 14:34:37:356 Mongo/(14721:14721): Error al crear el Bitmap
+[ERROR] 14:38:35:374 Mongo/(15074:15074): Error al crear el Bitmap
+[ERROR] 14:41:23:401 Mongo/(15125:15125): Error al crear el Bitmap
+[ERROR] 14:41:52:118 Mongo/(15146:15146): Error al crear el Bitmap
+[ERROR] 14:44:46:857 Mongo/(15224:15224): Error al crear el Bitmap
+[ERROR] 14:45:31:368 Mongo/(15255:15255): Error al crear el Bitmap
+[ERROR] 14:46:05:210 Mongo/(15275:15275): Error al crear el Bitmap
+[ERROR] 14:46:50:806 Mongo/(15314:15314): Error al crear el Bitmap
+[ERROR] 14:47:00:768 Mongo/(15330:15330): Error al crear el Bitmap
+[ERROR] 14:47:55:159 Mongo/(15395:15395): Error al crear el Bitmap
+[ERROR] 14:48:17:386 Mongo/(15414:15414): Error al crear el Bitmap
+[ERROR] 14:59:38:741 Mongo/(16007:16007): Error al crear el Bitmap

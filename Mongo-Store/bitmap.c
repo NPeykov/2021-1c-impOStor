@@ -9,6 +9,7 @@
 #include "bitmap.h"
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
+
 	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_TRACE);
 	struct stat file_st;
 	size_t size = (size_t) cant_bloques / 8;
@@ -17,8 +18,7 @@ t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 	strcpy(rutaBitmap, ubicacion);
 //	strcat(rutaBitmap, "/Bitmap.bin");
 
-	int fd = open(rutaBitmap, O_RDWR);
-
+	int fd = open("/home/utnso/workspace/mnt/Bitmap.bin", O_CREAT);
 	if (fd == -1) {
 		log_error(mongoLogger, "Error al crear el Bitmap");
 		exit(1);
@@ -27,6 +27,7 @@ t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 
 	char* bmap = mmap(NULL, file_st.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd,0);
 	if (bmap == MAP_FAILED) {
+
 		close(fd);
 		exit(1);
 	}

@@ -1,6 +1,6 @@
 #include "segmentacion.c"
 #include "mapa.c"
-//#include "paginacion.c"
+#include "paginacion.c"
 
 void inicializar_ram(){
 	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_WARNING);
@@ -22,7 +22,7 @@ void inicializar_ram(){
 	memoriaPrincipal = list_create();
 	patotas = list_create();
 
-	crear_nivel();
+	//crear_nivel();
 }
 
 void atenderSegunEsquema(){

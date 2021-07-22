@@ -16,7 +16,7 @@ int TAM_MEM;
 int cantidadDeFrames;
 
 typedef enum {
-	OCUPADO, LIBRE
+	LIBRE,OCUPADO
 } estado_frame;
 
 typedef enum {
@@ -63,7 +63,7 @@ void liberar_marco(int, int);
 
 /* Verifica si el marco se encuentra utilizado por alguna pagina */
 
-int marco_vacio(int );
+bool marco_vacio(int );
 
 /* Busca en la memoria un marco disponible */
 
@@ -76,7 +76,7 @@ int frame_libre(int );
 /* Crea la estructura administrativa para manejar los tipos en la pagina
  * y la agrega a la pagina correspondiente */
 
-void agregarEstructAdminTipoPAG(t_pagina*, int ,int , int , int);
+void agregar_estructura_a_pagina(t_pagina*, int ,int , int , int);
 
 /* Lee la pagina que esta en el frame indicado. */
 

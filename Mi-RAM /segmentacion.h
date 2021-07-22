@@ -35,6 +35,7 @@ typedef enum{
 
 //Semaforos
 
+pthread_mutex_t listaPatotasEnUso;
 sem_t direcciones;
 sem_t numeroPatotas;
 sem_t tripulantesDisponibles;

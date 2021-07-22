@@ -196,7 +196,9 @@ void crear_segmento_tcb(void* elTripulante) {
 	}
 
 	//Para obtener los valores de la patota
+	pthread_mutex_lock(&listaPatotasEnUso);
 	t_proceso *miPatota = (t_proceso*) list_find(patotas, _esLaPatota);
+	pthread_mutex_unlock(&listaPatotasEnUso);
 	t_list *tabla_segmentos = miPatota->tabla;
 	Segmento *laPatota = (Segmento*) list_get(tabla_segmentos, 1);//Porque sabemos que se crea tarea->patota
 
@@ -290,7 +292,9 @@ void crear_proceso(void *data){
 	sem_post(&direcciones);
 
 	proceso->tabla = tabla_de_segmentos;
+	pthread_mutex_lock(&listaPatotasEnUso);
 	list_add(patotas, proceso);
+	pthread_mutex_unlock(&listaPatotasEnUso);
 
 	log_info(logs_ram, "Se inicio una patota.\n");
 	enviar_mensaje_simple("ok", _socket_cliente);
@@ -363,7 +367,9 @@ void eliminarTripulante(void *unTripulante){
 		}
 	}
 
+	pthread_mutex_lock(&listaPatotasEnUso);
 	list_iterate(patotas, _buscarTripulantes);
+	pthread_mutex_unlock(&listaPatotasEnUso);
 }
 
 Segmento *buscarTripulante(int idTripulante,int idPatota){
@@ -387,7 +393,9 @@ Segmento *buscarTripulante(int idTripulante,int idPatota){
 
 	//Hacer que itere entre cada uno de los procesos, y luego cada uno
 	//de sus segmentos
+	pthread_mutex_lock(&listaPatotasEnUso);
 	list_iterate(patotas, _recorrerProcesos);
+	pthread_mutex_unlock(&listaPatotasEnUso);
 	return segmentoDelTripulante;
 }
 
@@ -584,13 +592,15 @@ void dumpMemoriaSeg(){
 
 	txt_write_in_file(archivo, "---------------------------------\n\n");
 	txt_write_in_file(archivo, textoAEscribir);
+
+	pthread_mutex_lock(&listaPatotasEnUso);
 	if(list_is_empty(patotas)){
 		txt_write_in_file(archivo,"No se encontraron tripulantes.\n\n" );
 	}else{
 		list_iterate(patotas, _recorrerPatotas);
 		txt_write_in_file(archivo,"\n");
 	}
-
+	pthread_mutex_unlock(&listaPatotasEnUso);
 
 	txt_write_in_file(archivo, "---------------------------------");
 }

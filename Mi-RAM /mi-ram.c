@@ -22,31 +22,85 @@ void inicializar_ram(){
 	memoriaPrincipal = list_create();
 	patotas = list_create();
 
-	//crear_nivel();
+	crear_nivel();
+}
+
+void *gestionarCliente(int socket) {
+
+	int operacion;
+	t_list *lista;
+
+	bool esSegmentacion = strcmp(tipoMemoria, "SEGMENTACION") == 0;
+
+	while(1) {
+		int cliente = esperar_cliente(socket, logs_ram);
+
+		operacion = recibir_operacion(cliente);
+		lista = NULL;
+
+		log_info(logs_ram,"\nSe recibio una operacion: %d\n", operacion);
+
+		switch(operacion) {
+			case INICIO_PATOTA:
+				if(esSegmentacion){
+					iniciarPatotaSeg(lista, cliente);
+				}else{
+					//iniciarPatotaPag(lista, cliente);
+				}
+				break;
+			case ELIMINAR_TRIPULANTE:
+				if(esSegmentacion){
+					eliminarTripulanteSeg(lista, cliente);
+				}else{
+					//eliminarTripulantePag(lista, cliente);
+				}
+				break;
+			case ACTUALIZAR_POSICION:;
+				if(esSegmentacion){
+					actualizarPosicionSeg(lista, cliente);
+				}else{
+					//actualizarPosicionPag(lista, cliente);
+				}
+				break;
+			case NUEVO_TRIPULANTE:;
+				if(esSegmentacion){
+					crearTripulanteSeg(lista, cliente);
+				}else{
+					//crearTripulantePag(lista, cliente);
+				}
+				break;
+
+			case PEDIDO_TAREA:;
+				if(esSegmentacion){
+					obtenerSgteTareaSeg(lista, cliente);
+				}else{
+					//obtenerSgteTareaPag(lista, cliente);
+				}
+				break;
+
+			case -1:
+				log_info(logs_ram,"El cliente %d se desconecto.\n", cliente);
+				liberar_cliente(cliente);
+				break;
+
+			default:
+				log_info(logs_ram,"Operacion desconocida.\n");
+				liberar_cliente(cliente);
+				break;
+		}
+	}
 }
 
 void atenderSegunEsquema(){
 	if(strcmp(tipoMemoria, "SEGMENTACION") == 0){
-		//Se establece el algoritmo de ubicacion
-		char* algoritmoUbicacion =config_get_string_value(config, "ALGORITMO_UBICACION");
-		if(strcmp(algoritmoUbicacion, "FF") == 0){
-			esFF = true;
-		}else{
-			esFF = false; //Entonces es Best Fit (BF)
-		}
-		sem_init(&direcciones,0,1); //Estos semaforos pueden iniciarse en segmentacion.c
-		sem_init(&numeroPatotas,0,1);
-		sem_init(&tripulantesDisponibles,0,0);
-
-		pthread_t hilo_cliente;
-
-		pthread_create(&hilo_cliente, NULL, (void *)gestionarClienteSeg(socket_principal_ram), NULL);
-		pthread_join(hilo_cliente, NULL);
+		inicializarSegmentacion(); //Inicializacion de semaforos y variables del esquema
 	}else{
-		//Agregar Hilos
 
-		//gestionarClientePag(socket_mi_ram);
 	}
+	pthread_t hilo_cliente;
+
+	pthread_create(&hilo_cliente, NULL, (void *)gestionarCliente(socket_principal_ram), NULL);
+	pthread_join(hilo_cliente, NULL);
 }
 
 void dumpMemoria(){

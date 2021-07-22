@@ -24,12 +24,6 @@ typedef enum {
 } tipo_memoria;
 
 typedef struct {
-	estado_frame estado;
-	uint32_t memoria;
-	int nro_frame;
-} t_frame;
-
-typedef struct {
 	int nro_pagina;
 	int nro_frame_mpal;
 	//int nro_frame_swap;
@@ -142,7 +136,7 @@ bool tiene_pagina_estructura_alojadas(t_list* , int);
 
 /* Verifica si una pagina tiene un tripulante como estructura alojada */
 
-bool pagina_tripu_alojado(t_list* , int);
+bool tiene_pagina_tripu_alojado(t_list* , int);
 
 /* Retorna la estructura administrativa de la pagina de un tripulante */
 
@@ -171,10 +165,6 @@ TripuCB* obtener_tripulante(t_proceso* ,int );
 /* Asigna la proxima tarea al tripulante de la patota pasado por parametro  */
 
 char* asignar_prox_tarea_pag(int , int);
-
-/* Esta funcion cambiar por un list_iterate */
-
-t_list_iterator* iterarHastaIndice(t_list*, int);
 
 /* Verifica si el tripulante que se elimino no fue el ultimo del proceso enviado por parametro  */
 
@@ -208,23 +198,15 @@ void* meterEnBuffer(void* , int , int* , int* );
 
 int buscar_frame_disponible(int);
 
-/*Confirma si la pagina tiene la estructura indicada */
-
-bool tieneEstructuraAlojada(t_list*, int);
-
 /* Crea una tarea */
 
 char* armarTarea(char*);
 
-bool tieneTripulanteAlojado(t_list*, uint32_t); //TODO
-
-t_list* obtenerAlojadoPagina(t_list*, uint32_t);//TODO
-
 /* Actualiza un tripulante en memoria */
 
-void sobreescribir_memoria(int, void*, int, int, int);//TODO
+void sobreescribir_memoria(int, void*, int, int, int);
 
-void cargarDLTripulante(void*, TripuCB*);//TODO
+void cargarDLTripulante(void*, TripuCB*);
 
 TripuCB* transformarEnTripulante(void*);
 

@@ -222,7 +222,7 @@ int asignar_paginas_en_tabla(void* bytesAGuardar, t_proceso* proceso, int estruc
 
 				pagina = crear_pagina_en_tabla(proceso,estructura);
 
-				pagina->nro_frame_mpal = buscar_frame_disponible(MEM_PPAL);
+				pagina->nro_frame_mpal = buscar_marco_disponible(MEM_PPAL);
 
 				if(pagina->nro_frame_mpal != -1)
 				{
@@ -240,7 +240,7 @@ int asignar_paginas_en_tabla(void* bytesAGuardar, t_proceso* proceso, int estruc
 		{
 			pagina = crear_pagina_en_tabla(proceso, estructura);
 
-			pagina->nro_frame_mpal = buscar_frame_disponible(MEM_PPAL);
+			pagina->nro_frame_mpal = buscar_marco_disponible(MEM_PPAL);
 
 			if(pagina->nro_frame_mpal != -1)
 			{
@@ -311,7 +311,7 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 
 		pagina = list_get(proceso->tabla, i);
 
-		if(tieneEstructuraAlojada(pagina->estructuras_alojadas, TAREAS))
+		if(tiene_pagina_estructura_alojadas(pagina->estructuras_alojadas, TAREAS))
 		{
 			paginaAGuardar = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
 			recorredorPagina = paginaAGuardar;
@@ -388,7 +388,7 @@ uint32_t buscar_inicio_tareas(t_proceso* proceso) {
     bool buscarDLTarea(t_pagina* pagina) {
 
     	//pthread_mutex_lock(&mutexAlojados);
-    	bool a = tieneEstructuraAlojada(pagina->estructuras_alojadas, TAREAS);
+    	bool a = tiene_pagina_estructura_alojadas(pagina->estructuras_alojadas, TAREAS);
     	//pthread_mutex_unlock(&mutexAlojados);
 
     	return a;
@@ -941,17 +941,7 @@ void dumpPag() {
 
 
 void dividir_memoria_en_frames() {
-	t_frame *frame_ptr;
-	uint32_t memoria = 0;
 	cantidadDeFrames = TAM_MEM/TAM_PAG;
-	for (int i = 0; i < cantidadDeFrames; i++) {
-		frame_ptr = (t_frame*) malloc(sizeof(t_frame));
-		memoria += i * TAM_PAG;
-		frame_ptr->memoria = memoria;
-		frame_ptr->estado = LIBRE;
-		frame_ptr->nro_frame = i;
-		list_add(memoriaPrincipal, frame_ptr);
-	}
 }
 
 
@@ -980,6 +970,24 @@ TripuCB* transformarEnTripulante(void* buffer){
 	return elTripulante;
 }
 
+void sobreescribir_memoria(int frame, void* buffer, int mem, int desplazPagina, int bytesAEscribir) {
+
+
+	int desplazamiento = frame * TAM_PAG + desplazPagina;
+
+	if(mem == MEM_PPAL)
+	{
+		pthread_mutex_lock(&mutexEscribiendoMemoria);
+		memcpy(memoria+desplazamiento, buffer, bytesAEscribir);
+		pthread_mutex_unlock(&mutexEscribiendoMemoria);
+
+		log_info(logs_ram, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", frame,
+				desplazPagina, bytesAEscribir + desplazPagina -1);
+	}else if(mem == MEM_VIRT){
+		//TODO:Hacer para memoria virtual
+	}
+}
+
 /*
 
 t_pagina* crear_pagina(){
@@ -989,33 +997,8 @@ t_pagina* crear_pagina(){
 	return pagina;
 }
 
-int buscar_frame_disponible(int tipo_memoria){
-	int numeroFrame = 0;
 
-	bool _estaLibre(void *algo){
-		t_frame *unFrame = (t_frame*) algo;
-		if(unFrame->estado == LIBRE ){
-			return 1;
-		}else{
-			numeroFrame++;
-			return 0;
-		}
-	}
 
-	list_find(memoriaPrincipal, _estaLibre);
-
-	return numeroFrame;
-}
-
-bool tieneEstructuraAlojada(t_list *estructurasAlojadas, int tipo_estructura){
-	bool _estaEnLaPagina(void *algo){
-		t_alojado *unaEstructura = (t_alojado*) algo;
-		return unaEstructura->tipo == tipo_estructura;
-	}
-
-	bool resul = list_any_satisfy(estructurasAlojadas, _estaEnLaPagina);
-	return resul;
-}
 /*
 void crear_proceso_paginas(t_list* paquete){
 	t_list* lista_de_paginas = list_create();
@@ -1068,23 +1051,6 @@ void crear_proceso_paginas(t_list* paquete){
 
 }
 */
-void sobreescribir_memoria(int frame, void* buffer, int mem, int desplazPagina, int bytesAEscribir) {
-
-
-	int desplazamiento = frame * TAM_PAG + desplazPagina;
-
-	if(mem == MEM_PPAL)
-	{
-		pthread_mutex_lock(&mutexEscribiendoMemoria);
-		memcpy(memoria+desplazamiento, buffer, bytesAEscribir);
-		pthread_mutex_unlock(&mutexEscribiendoMemoria);
-
-		log_info(logs_ram, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", frame,
-				desplazPagina, bytesAEscribir + desplazPagina -1);
-	}else if(mem == MEM_VIRT){
-		//TODO:Hacer para memoria virtual
-	}
-}
 
 
 

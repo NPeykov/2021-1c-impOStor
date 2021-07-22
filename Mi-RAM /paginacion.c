@@ -23,6 +23,8 @@ bool traer_marco_valido(int frame, int tipo_memoria){
 void asignar_marco_en_uso(int frame, int tipo_memoria){
 	if(tipo_memoria == MEM_PPAL){
 		bitarray_set_bit(frames_ocupados_ppal, frame);
+		t_frame elMarco = list_get(memoriaPrincipal, frame);
+		elMarco->estado = OCUPADO;//TODO REVISAR
 	}else{
 		log_error(logs_ram, "El frame que trata de poner en uso es invalido");
 		exit(1);
@@ -36,6 +38,8 @@ void liberar_marco(int frame, int tipo_memoria)
 		pthread_mutex_lock(&mutexBitArray);
 		bitarray_clean_bit(frames_ocupados_ppal, frame);
 		pthread_mutex_unlock(&mutexBitArray);
+		t_frame elMarco = list_get(memoriaPrincipal, frame);
+		elMarco->estado = LIBRE;//TODO REVISAR
 	}
 	else {
 		log_error(logs_ram, "El frame que se quiere eliminar es invalido");
@@ -43,19 +47,15 @@ void liberar_marco(int frame, int tipo_memoria)
 	}
 }
 
-
 int marco_vacio(int marco){
 
-	bool _marco_en_uso(t_proceso* patota) {
 
-		bool _marco_usado_por_pagina(t_pagina* pagina){
-			return pagina->nro_frame_mpal == marco;
-		}
-
-		return list_any_satisfy(patota->tabla,(void*) _marco_usado_por_pagina);
+	bool _marco_en_uso(void* frame) {//TODO REVISAR
+		t_frame unFrame = (t_frame*) frame;
+		return (unFrame->estado == OCUPADO && unFrame->nro_frame == marco);
 	}
 
-	bool a = list_any_satisfy(patotas,(void*) _marco_en_uso);
+	bool a = list_any_satisfy(memoriaPrincipal,(void*) _marco_en_uso);
 
 	return !a;
 }
@@ -436,8 +436,9 @@ uint32_t calcuar_DL_tareas_pag(){
 
 t_proceso* buscar_patota(int id_patota) {
 
-	bool idIgualA(t_proceso* patotaBuscada)
+	bool idIgualA(void* algo)
 	    {
+		t_proceso *patotaBuscada = (t_proceso*) algo;
 	        bool a;
 
 	        a = patotaBuscada->pid == id_patota;
@@ -724,7 +725,7 @@ void expulsar_tripulante_pag(int tid,int pid) {
 
 	t_proceso* proceso = buscar_patota(pid);
 	existencia_patota(proceso);
-	t_list* paginasTripu = lista_paginas_tripulantes(proceso->pid, tid);//TODO: Corregir
+	t_list* paginasTripu = lista_paginas_tripulantes(proceso->tabla, tid);
 
 	log_info(logs_ram, "Se va a eliminar el tripulante %d de la patota %d",tid, proceso-pid);
 
@@ -737,13 +738,9 @@ void expulsar_tripulante_pag(int tid,int pid) {
 			t_pagina* paginaActual = list_iterator_next(iteradorPaginas);
 			pthread_mutex_lock(&mutexAlojados);
 			t_alojado* tripuAlojado = obtener_tripulante_pagina(paginaActual->estructuras_alojadas, tid);
-			pthread_mutex_unlock(&mutexAlojados);
 
-			pthread_mutex_lock(&mutexAlojados);
 			paginaActual->tam_disponible += tripuAlojado->tamanio;
-			pthread_mutex_unlock(&mutexAlojados);
 
-			pthread_mutex_lock(&mutexAlojados);
 			log_info(logs_ram,"Se va a sacar de la lista de alojados de cant %d el tripu %d",
 					list_size(paginaActual->estructuras_alojadas), tripuAlojado->flagid);
 			pthread_mutex_unlock(&mutexAlojados);
@@ -804,15 +801,20 @@ void expulsar_tripulante_pag(int tid,int pid) {
 	}
 }
 
-bool proceso_tiene_tripulantes_pag(t_proceso* proceso) {
+bool proceso_tiene_tripulantes_(t_proceso* proceso) {
 
-	bool tienePaginaTripulante(t_pagina* pagina)
-	{
-		return pagina_tripu_alojado(pagina->estructuras_alojadas, TCB);
+	bool _esTCB(void* alojado){
+		t_alojado *unaEstructura = (t_alojado*) alojado;
+		return unaEstructura->tipo == TCB;
+	}
+
+	bool _tieneAlgunTripulante(void* pagina){
+		t_pagina *unaPagina = (t_pagina*) pagina;
+		return list_any_satisfy(unaPagina->estructuras_alojadas, _esTCB);
 	}
 
 	pthread_mutex_lock(&mutexTablaPatota);
-	bool a = list_any_satisfy(proceso->tabla, (void*) tienePaginaTripulante);
+	bool a = list_any_satisfy(proceso->tabla, (void*) _tieneAlgunTripulante);
 	pthread_mutex_unlock(&mutexTablaPatota);
 
 	return a;
@@ -820,32 +822,35 @@ bool proceso_tiene_tripulantes_pag(t_proceso* proceso) {
 
 void chequear_ultimo_tripulante(t_proceso* proceso) {
 
-	if(!proceso_tiene_tripulantes_pag(proceso)) {
+	if(!proceso_tiene_tripulantes(proceso)) {
 
 		log_info(logs_ram,"La patota %d no tiene mas tripulantes. Se procede a borrarla de memoria", proceso->pid);
 
-		void borrarProceso(t_pagina* pagina)
+		void borrarProceso(void* algo)
 		{
+			t_pagina *unaPagina = (t_pagina*) algo;
 
-			void borrarAlojados(t_alojado* alojado)
+			void borrarAlojados(void* alojado)
 			{
-				free(alojado);
+				t_alojado *unaEstructura = (t_alojado*) alojado;
+				free(unaEstructura);
 			}
 
 			pthread_mutex_lock(&mutexAlojados);
-			list_destroy_and_destroy_elements(pagina->estructuras_alojadas, (void*) borrarAlojados);
+			list_destroy_and_destroy_elements(unaPagina->estructuras_alojadas, borrarAlojados);
 			pthread_mutex_unlock(&mutexAlojados);
-			log_info(logs_ram,"SE LIBERA  EL FRAME: %d",pagina->nro_pagina);
-			clear_frame(pagina->nro_frame_mpal, MEM_PPAL);
-			free(pagina);
+			log_info(logs_ram,"SE LIBERA  EL FRAME: %d",unaPagina->nro_pagina);
+			liberar_marco(unaPagina->nro_frame_mpal, MEM_PPAL);
+			free(unaPagina);
 		}
 
-		bool tablaConID(t_proceso* proceso2) {
-			return proceso2->pid == proceso->pid;
+		bool _esElProceso(void* algo) {
+			t_proceso *unProceso = (t_proceso*) algo;
+			return unProceso->pid == proceso->pid;
 		}
 
 		pthread_mutex_lock(&mutexTablaPatota);
-		list_remove_by_condition(patotas, (void*) tablaConID);
+		list_remove_by_condition(patotas, (void*) _esElProceso);
 		pthread_mutex_unlock(&mutexTablaPatota);
 
 		pthread_mutex_lock(&mutexTablaProcesos);
@@ -856,25 +861,20 @@ void chequear_ultimo_tripulante(t_proceso* proceso) {
 	}
 }
 
-t_proceso* frame_con_patota(int frame) {
+t_proceso* patota_que_tiene_el_frame(int frame){
+		//Antes llamada frame_con_patota
+	bool _tieneElFrame(void* algo){
+		t_pagina *unaPagina = (t_pagina*) algo;
+		return unaPagina->nro_frame_mpal == frame;
+	}
 
-	bool frameEnUso(t_proceso* proceso) {
-
-		t_list_iterator* iteradorTablaPaginas = list_iterator_create(proceso->tabla);
-
-		while(list_iterator_has_next(iteradorTablaPaginas))
-		{
-			t_pagina* pagina = list_iterator_next(iteradorTablaPaginas);
-			if(pagina->nro_frame_mpal == frame) return 1;
-		}
-
-		list_iterator_destroy(iteradorTablaPaginas);
-
-		return 0;
+	bool _frameEnUso(void* algo) {
+		t_proceso *unProceso = (t_proceso*) algo;
+		return list_any_satisfy(unProceso->tabla, _tieneElFrame);
 	}
 
 	pthread_mutex_lock(&mutexTablaPatota);
-	t_proceso* procesoEnFrame = list_find(patotas,(void*) frameEnUso);
+	t_proceso* procesoEnFrame = list_find(patotas,(void*) _frameEnUso);
 	pthread_mutex_unlock(&mutexTablaPatota);
 
 	return procesoEnFrame;
@@ -883,16 +883,12 @@ t_proceso* frame_con_patota(int frame) {
 
 t_pagina* frame_con_pagina(int frame, t_proceso* proceso) {
 
-	t_list_iterator* iteradorTablaPaginas = list_iterator_create(proceso->tabla);
-
-	while(list_iterator_has_next(iteradorTablaPaginas))
-	{
-		t_pagina* pagina = list_iterator_next(iteradorTablaPaginas);
-		if(pagina->nro_frame_mpal == frame) return pagina;
+	bool esLaPagina(void* algo){
+		t_pagina *unaPagina = (t_pagina*)algo;
+		return unaPagina->nro_frame_mpal == frame;
 	}
 
-	log_error(logs_ram,"Esa patota no tiene asignado ninguna pagina");
-	return NULL;
+	return list_find(proceso->tabla, esLaPagina);
 }
 
 /*
@@ -1071,33 +1067,25 @@ void crear_proceso_paginas(t_list* paquete){
 	}
 
 }
+*/
+void sobreescribir_memoria(int frame, void* buffer, int mem, int desplazPagina, int bytesAEscribir) {
 
-void sobreescribir_memoria(int frame, void* buffer, int mem, int desplInicial, int bytesAEscribir) {
 
-
-	int desp = frame * configRam.tamanioPagina + desplInicial;
+	int desplazamiento = frame * TAM_PAG + desplazPagina;
 
 	if(mem == MEM_PPAL)
 	{
-		lock(&mutexEscribirMemoria);
-		memcpy(memoria_principal+desp, buffer, bytesAEscribir);
-		unlock(&mutexEscribirMemoria);
+		pthread_mutex_lock(&mutexEscribiendoMemoria);
+		memcpy(memoria+desplazamiento, buffer, bytesAEscribir);
+		pthread_mutex_unlock(&mutexEscribiendoMemoria);
 
-		log_info(logMemoria, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", frame,
-		        		desplInicial, bytesAEscribir + desplInicial -1);
+		log_info(logs_ram, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", frame,
+				desplazPagina, bytesAEscribir + desplazPagina -1);
+	}else if(mem == MEM_VIRT){
+		//TODO:Hacer para memoria virtual
 	}
-	/*
-	else if(mem == MEM_VIRT){
-		FILE * file = fopen(configRam.pathSwap, "r+");
-		fseek(file, desp, SEEK_SET);
-		int sz = fwrite(pagina, configRam.tamanioPagina , 1, file);
-		fclose(file);
-		// printf("bytes written %d\n",sz);
-	} */
-
 }
 
-*/
 
 
 

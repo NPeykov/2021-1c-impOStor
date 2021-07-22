@@ -126,7 +126,7 @@ int guardar_PCB_pag(PatotaCB*, char*);
 
 /* Busca la siguiente tarea en el malloc de memoria */
 
-char* obtener_siguiente_tarea_pag(t_proceso* , TripuCB* );
+char* obtener_siguiente_tarea_pag(t_proceso* , TripuCB* );//TODO:REVISAR
 
 /* Busca la direccion logica donde empiezan las paginas de tareas de un proceso/patota */
 
@@ -216,21 +216,15 @@ bool tieneEstructuraAlojada(t_list*, int);
 
 char* armarTarea(char*);
 
-<<<<<<< HEAD
-t_list* paginasConTripu(t_list*, uint32_t);//TODO
-
 bool tieneTripulanteAlojado(t_list*, uint32_t); //TODO
 
 t_list* obtenerAlojadoPagina(t_list*, uint32_t);//TODO
-=======
-/* Actualiza un tripulante en memoria */
->>>>>>> aa52a4f0fddca3db0e623a6d75d52d965a41f94a
 
 /* Actualiza un tripulante en memoria */
 
 void sobreescribir_memoria(int, void*, int, int, int);//TODO
 
-void cargarDLTripulante(void*, TripuCB);//TODO
+void cargarDLTripulante(void*, TripuCB*);//TODO
 
 TripuCB* transformarEnTripulante(void*);
 

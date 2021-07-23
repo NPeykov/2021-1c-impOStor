@@ -593,6 +593,10 @@ void dumpMemoriaSeg(){
 	pthread_mutex_unlock(&listaPatotasEnUso);
 
 	txt_write_in_file(archivo, "---------------------------------");
+	free(horaActual);
+	free(nombreArchivo);
+	free(archivo);
+	free(textoAEscribir);
 }
 
 

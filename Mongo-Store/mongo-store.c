@@ -146,6 +146,47 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
+//genera el MD5 pasandole por parametro el contenido de un archivo de file
+//por ejemplo el contenido puede ser 'OOOOOOOOOOO'
+char *generarMD5(char *contenido){
+  int fd;
+  char command[string_length(contenido) + 150]; //por las dudas q el path sea largo
+  int retorno;
+  struct stat statbuf;
+  void *data;
+  char *md5;
+  char ruta_md5[200];
+  char *punto_montaje = config_get_string_value(mongoConfig,"PUNTO_MONTAJE");
+
+  sprintf(ruta_md5, "%s/Files/md5.txt", punto_montaje);
+
+  sprintf(command, "echo -n %s | md5sum > %s", contenido, ruta_md5);
+
+  retorno = system(command);
+
+  if(retorno != 0)
+    {
+      printf("ERROR AL GENERAR EL MD5\n");
+      exit(1);
+    }
+
+  fd = open("../MD5/md5.txt", O_RDWR);
+
+  if (fd == -1){
+    printf("ERROR AL ABRIR ARCHIVO\n");
+    exit(1);
+  }
+
+  fstat(fd, &statbuf);
+
+  data = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+  md5 = strdup(data);
+
+  munmap(data, statbuf.st_size); //cierro el archivo
+
+  return md5;
+}
+
 void crearEstructuraDiscoLogico(){
 	//TODO poner semaforo para disco logico
 	disco_logico=(t_disco_logico *)malloc(sizeof(t_disco_logico));
@@ -290,6 +331,15 @@ void crearCarpetaFile(char * dirFiles){
 		printf("se creo el directorio file correctamente\n");
 		}
 	else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio Files.");
+
+/*	string_append(dirFiles, "/MD5");
+
+	if(mkdir(dirFiles, 0777) == 0){
+		printf("se creo el directorio para md5 correctamente\n");
+	}
+
+	else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio de md5.");*/
+
 }
 
 void crearCarpetaBitacora(char * dirBitacora){

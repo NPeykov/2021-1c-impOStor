@@ -161,6 +161,19 @@ void eliminarPatota(t_proceso *);
 //
 void eliminarSegmento(uint32_t);
 
+//--------------------------------------------------
+//-------Funciones de atencion de cliente-----------
+//--------------------------------------------------
+
+void iniciarPatotaSeg(t_list*, int );
+
+void eliminarTripulanteSeg(t_list*, int );
+
+void actualizarPosicionSeg(t_list*, int );
+
+void crearTripulanteSeg(t_list*, int );
+
+void obtenerSgteTareaSeg(t_list*, int );
 
 
 #endif

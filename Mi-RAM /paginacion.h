@@ -27,8 +27,9 @@ typedef enum {
 typedef struct {
 	int nro_pagina;
 	int nro_frame_mpal;
-	//int nro_frame_swap;
+	int nro_frame_swap;
 	bool bit_uso;
+	bool bit_presencia;
 	t_list* estructuras_alojadas;
 	int tam_disponible;
 } t_pagina;

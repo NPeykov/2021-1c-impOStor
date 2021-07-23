@@ -1127,4 +1127,15 @@ void inicializarPaginacion(){
 	}
 }
 
+/////////////////// SWAPPING
+
+void asignar_marco_en_swap(t_pagina* pag){
+	int posicionLibre = posicion_libre_en_swap();
+	bitarray_set_bit(BIT_ARRAY_SWAP, (off_t) posicionLibre);
+	pag->nro_frame_mpal = NULL;
+	pag->bit_uso = false;
+	pag->bit_presencia = false
+	pag->nro_frame_swap = posicionLibre;
+}
+
 

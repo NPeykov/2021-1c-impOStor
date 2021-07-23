@@ -42,17 +42,25 @@ t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 
 
 int obtener_bloque_libre(t_bitarray* bitmap){
+	sem_wait(&semaforo_bitmap);
 	size_t tamanio = bitarray_get_max_bit(bitmap);
+	sem_post(&semaforo_bitmap);
 	int i;
 	for(i=0; i<tamanio; i++){
+		sem_wait(&semaforo_bitmap);
 		if(bitarray_test_bit(bitmap, i)== 0){
+			sem_post(&semaforo_bitmap);
+
 			return i;
 		}
+	sem_post(&semaforo_bitmap);
 	}
 	return -1;
 }
 void ocupar_bloque(t_bitarray* bitmap, int bloque){
+	sem_wait(&semaforo_bitmap);
 	bitarray_set_bit(bitmap,bloque);
+	sem_post(&semaforo_bitmap);
 	return;
 }
 void liberar_bloque(t_bitarray* bitmap, int bloque){

@@ -271,7 +271,7 @@ void crearEstructuraFileSystem()
 	    	  log_info(mongoLogger, "El directorio %s ya existe. ", puntoMontaje);
 	    	  block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
 	    	  blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
-	    	  bitmap = crear_bitmap(superBloqueRuta, blocks);
+	    	  //bitmap = crear_bitmap(superBloqueRuta, blocks);
 	    	  return;
 		  }
 	      else{
@@ -345,7 +345,7 @@ void crearEstructuraFileSystem()
     log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Files.");
 	return;
     }
-}
+	}
 }
 
 
@@ -474,22 +474,23 @@ void *gestionarCliente(int socket) {
 		      pthread_detach(hilo_sabotaje);
 		      break;
 		case ACTUALIZAR_POSICION:;
-
+			pthread_t hilo_actualizar_posicion;
 			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
+			pthread_create(&hilo_actualizar_posicion, NULL, (void*)actualizar_posicion, (void*)tripulanteEnMovimiento);
+			pthread_detach(hilo_sabotaje);
 			//Se escribe en blocks.ims
-			actualizar_posicion(tripulanteEnMovimiento);
+			liberar_cliente(cliente);
 
-			printf("Tripulante N: %d de la patota %d se movio de (%d, %d) a (%d, %d)",
+			/*printf("Tripulante N: %d de la patota %d se movio de (%d, %d) a (%d, %d)",
 					tripulanteEnMovimiento->idTripulante,
 		     		tripulanteEnMovimiento->idPatota,
 					tripulanteEnMovimiento->origenX,
 					tripulanteEnMovimiento->origenY,
 					tripulanteEnMovimiento->destinoX,
-					tripulanteEnMovimiento->destinoY);
-			liberar_cliente(cliente);
-			break;
+					tripulanteEnMovimiento->destinoY);*/
+		break;
 
 		case INICIO_TAREA:;
 			m_estado_tarea_tripulante *tripulanteConTarea = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
@@ -784,21 +785,6 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 	char *yfinal=string_itoa(tripulante->destinoY);
 	int numero_del_nuevo_bloque;
 
-
-	//1)buscar bitacora del tripulante
-	//2)Sino existe crearla sino pasar al paso 3
-	//3)leer la bitacora blocks y size
-	//4)ir a block.ims
-//	Ej: Si mi tripulante se tiene que mover de 0|0 a 3|3
-//
-//	Lo que se va a escribir en mi archivo Blocks.ims va a ser:
-
-//	Se mueve de 0|0 a 0|1
-//	Se mueve de 0|1 a 0|2
-//	Se mueve de 0|2 a 0|3
-//	Se mueve de 0|3 a 1|3
-//	Se mueve de 1|3 a 2|3
-//	Se mueve de 2|3 a 3|3
 	//armo toda la cadena que se va a escribir por movimiento
 	string_append(&lo_que_se_va_a_escribir, "Se mueve de ");
 	string_append(&lo_que_se_va_a_escribir, xinicio);
@@ -860,33 +846,8 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		escribir_en_block(lo_que_se_va_a_escribir,nuevo_bloque);
 
 	}
-
-
-/*
-
-	FILE *archivo = fopen(rutaBitacora, "a+");
-
-	  if(existeArchivo == 0){
-//Bitacora existente
-	    fseek(archivo, 0 , SEEK_END);
-//		memcpy(nuevo_bloques_config,bloques_config,tamanio_bloques_config-strlen(bloques_array[viejaCantidadDeBloques-1])-2);
-//	    memcpy(atrapar,&menosUno,sizeof(int));
-//	    for(int i=0; i < cantidad; i++)
-	      fputc('C', archivo);
-	  }
-	  else {
-//Se crea archivo para el tripulante de la patota
-	      fputc('C', archivo);
-	  }
-	  fclose(archivo);
-		//					tripulanteEnMovimiento->idPatota,
-		//					tripulanteEnMovimiento->idTripulante,
-		//					tripulanteEnMovimiento->origenX,
-		//					tripulanteEnMovimiento->origenY,
-		//					tripulanteEnMovimiento->destinoX,
-		//					tripulanteEnMovimiento->destinoY);*/
-	  return;
 }
+
 int cantidad_bloques_a_ocupar(char* texto)
 {
 	int cantidad = string_length(texto)/block_size;

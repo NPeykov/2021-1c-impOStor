@@ -146,11 +146,10 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
-t_disco_logico* crearEstructuraDiscoLogico(){
+void crearEstructuraDiscoLogico(){
 	//TODO poner semaforo para disco logico
 	disco_logico=(t_disco_logico *)malloc(sizeof(t_disco_logico));
 	disco_logico->bloques=list_create();
-	return disco_logico;
 }
 
 void crearEstructurasBloques(){
@@ -181,11 +180,13 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	char **renglones_bitacora= string_split(archivo_addr, "=");
 	char **bloques_bitacora= string_split(renglones_bitacora[2], ",");
-
-	while(bloques_bitacora[cantidad_de_bloques]!=NULL){
+	while(bloques_bitacora[cantidad_de_bloques]){
 		cantidad_de_bloques++;
 	}
+
 	el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_bitacora[cantidad_de_bloques-1])-1);
+	printf("cantidad de bloques: %d\n",cantidad_de_bloques);
+
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
 	return el_bloque;
@@ -244,9 +245,6 @@ void crearBitMapLogico(){
 	}
 }
 
-void cargar_datos(){
-
-}
 
 void crearSuperbloque(char * dirSuperbloque){
 	char *block_size= config_get_string_value(mongoConfig,"BLOCK_SIZE");
@@ -302,6 +300,45 @@ void crearCarpetaBitacora(char * dirBitacora){
 		else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio bitacora.");
 }
 
+int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
+
+	dirSuperbloque = string_new();
+	string_append(&dirSuperbloque, puntoMontaje);
+	string_append(&dirSuperbloque,"/SuperBloque.ims");
+	int existeArchivoSuperBloque = access(dirSuperbloque, F_OK);
+
+	dirFiles= string_new();
+	string_append(&dirFiles, puntoMontaje);
+	string_append(&dirFiles, "/Files");
+	int existeArchivoFiles = access(dirFiles, F_OK);
+
+	dirBitacora= string_new();
+	string_append(&dirBitacora, puntoMontaje);
+	string_append(&dirBitacora, "/Bitacora");
+	int existeArchivoBitacora = access(dirBitacora, F_OK);
+
+	dirBlocks= string_new();
+	string_append(&dirBlocks, puntoMontaje);
+	string_append(&dirBlocks, "/Blocks.ims");
+	int existeArchivoBlocks = access(dirBlocks, F_OK);
+
+	if(!existeArchivoSuperBloque && !existeArchivoBitacora && !existeArchivoFiles && !existeArchivoBlocks){
+		printf("se recupero todo perfecto\n");
+		return 1;
+	}
+	else {
+		printf("no se recupero todo perfecto\n");
+
+		return 0;
+	}
+
+}
+
+void copiar_bitmap_de_disco(t_bitarray *bitmap,char* dirSuperbloque){
+
+}
+
+
 void crear_estructura_filesystem(){
 	puntoMontaje = config_get_string_value(mongoConfig, "PUNTO_MONTAJE");
 	dirMetadata = string_new();
@@ -324,11 +361,18 @@ void crear_estructura_filesystem(){
 	string_append(&dirBlocks, puntoMontaje);
 	string_append(&dirBlocks, "/Blocks.ims");
 
-
 	if (mkdir(puntoMontaje, 0777) != 0) {
-		cargar_datos();
+		int todoBien=comprobar_que_todos_los_datos_existen(puntoMontaje);
+		if(todoBien){
+			crearEstructuraDiscoLogico();
+			crearEstructurasBloques();
+			crearBitMapLogico();
+			copiar_bitmap_de_disco(bitmap,dirSuperbloque);
+			copiar_datos_de_bloques(disco_logico->bloques,dirBlocks);
+		}
 	}
 	else{
+
 
 		crearEstructuraDiscoLogico();
 		crearEstructurasBloques();
@@ -410,8 +454,6 @@ void crearEstructuraFileSystem() {
 		crearEstructurasBloques();
 
 		crearBitMapLogico();
-
-
 
 		//Crea superBloque
 		char* superBloqueRuta = malloc(
@@ -949,12 +991,13 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 	int existeArchivo = access(rutaBitacora, F_OK);
 	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
 	if(existeArchivo==0){
-
 		//ultimo bloque en char
 		el_bloque=buscar_ultimo_bloque_del_tripulante(rutaBitacora);
 		//si hay espacio en el bloque para escribir to do, entonces lo escribo
 		if(el_bloque->espacio>string_length(lo_que_se_va_a_escribir)){
+
 			escribir_en_block(lo_que_se_va_a_escribir,el_bloque);
+
 			}
 		//sino escribo una parte y elijo otro bloque para lo restante
 			else{
@@ -978,7 +1021,7 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
 		//creo el archivo bitacora
 		printf("bloque:%d\n",numero_del_nuevo_bloque);
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques, 3);
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
 		printf("bloque:%d\n",nuevo_bloque->id_bloque);
 		sem_wait(&semaforo_bitacora);
 		inicializar_bitacora(rutaBitacora,string_itoa(nuevo_bloque->id_bloque));
@@ -996,6 +1039,4 @@ int cantidad_bloques_a_ocupar(char* texto)
 	int cantidad = string_length(texto)/block_size;
 	return cantidad;
 }
-
-
 

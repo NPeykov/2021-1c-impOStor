@@ -62,7 +62,7 @@ size_t block_mmap_size;
 void crearEstructuraFileSystem();
 void crear_estructura_filesystem();
 void crearEstructurasBloques();
-t_disco_logico* crearEstructuraDiscoLogico();
+void crearEstructuraDiscoLogico();
 void enviar_aviso_sabotaje_a_discordiador();
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);

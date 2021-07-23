@@ -395,7 +395,7 @@ int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
 	}
 
 }
-/*
+
 void copiar_bitmap_de_disco(t_bitarray *bitmap,char* dirSuperbloque){
 	struct stat statbuf;
 
@@ -408,24 +408,27 @@ void copiar_bitmap_de_disco(t_bitarray *bitmap,char* dirSuperbloque){
 
 	fstat(fdm, &statbuf);
 	superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
-	block_size = superbloque;
-	blocks = superbloque + sizeof(uint32_t);
+	g_block_size = superbloque;
+	g_blocks = superbloque + sizeof(uint32_t);
 	bitarrayComoVoid = superbloque + 2 * sizeof(uint32_t);
 
-	int cantLeer2 = (int) ceil((double) blocks / 8);
+	int cantLeer2 = (int) ceil((double) *g_blocks / 8);
 
 	bitmap = bitarray_create(bitarrayComoVoid, cantLeer2);
 
 	//reviso las cosas
 
-	printf("SIZE GUARDADO: %d\n", *block_size);
-	printf("CANT GUARDADO: %d\n", *blocks);
+	printf("SIZE GUARDADO: %d\n", *g_block_size);
+	printf("CANT GUARDADO: %d\n", *g_blocks);
 
-	for (int i = 1; i <= *blocks; i++) {
+	sleep(10);
+
+	for (int i = 1; i <= *g_blocks; i++) {
 		if (i % 5 == 0)
 			printf("%d\n", bitarray_test_bit(bitmap, i));
 		else
 			printf("%d", bitarray_test_bit(bitmap, i));
+
 	}
 
 }
@@ -447,7 +450,7 @@ void crearSuperbloqueNuevo(char *path){
 	fwrite(bitmap->bitarray, cantBytes, 1, fd);
 
 	fclose(fd);
-}*/
+}
 
 int leer_y_contar_caracteres_en_block(int inicio,int fin){
 	int cantidad=0;
@@ -506,7 +509,7 @@ void crear_estructura_filesystem(){
 			crearEstructuraDiscoLogico();
 			crearEstructurasBloques();
 			crearBitMapLogico();
-			//copiar_bitmap_de_disco(bitmap,dirSuperbloque); //ya existente
+			copiar_bitmap_de_disco(bitmap,dirSuperbloque); //ya existente
 			copiar_datos_de_bloques(disco_logico->bloques);
 
 
@@ -518,8 +521,8 @@ void crear_estructura_filesystem(){
 		crearEstructuraDiscoLogico();
 		crearEstructurasBloques();
 		crearBitMapLogico();
-		//crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
-		crearSuperbloque(dirSuperbloque);
+		crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
+		//crearSuperbloque(dirSuperbloque);
 		crearblocks(dirBlocks);//archivo
 		crearCarpetaFile(dirFiles);//carpeta
 		crearCarpetaBitacora(dirBitacora);//carpeta

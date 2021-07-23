@@ -38,7 +38,7 @@ char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
-char *dirBlocks;
+//char *dirBlocks;
 t_log* mongoLogger;
 int socket_cliente;
 //int blocks;

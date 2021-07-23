@@ -5,6 +5,25 @@
 
 int main() {
 
+	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
+	struct stat statbuf;
+	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
+	fstat(archivo,&statbuf);
+	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	crearEstructuraDiscoLogico();
+	crearEstructurasBloques();
+
+
+	int cantidad_de_bloques=list_size(disco_logico->bloques);
+	for(int i=0;i<10;i++){
+		t_bloque* bloque = malloc(sizeof(t_bloque));
+		bloque=list_get(disco_logico->bloques,i);
+		int a=ultima_posicion_escrita(bloque->inicio,bloque->fin);
+		bloque->espacio=bloque->espacio-a;
+		bloque->posicion_para_escribir=bloque->posicion_para_escribir+a;
+		printf("el bloque %d tiene %d lugares y empieza a escribir en %d\n",bloque->id_bloque,bloque->espacio,bloque->posicion_para_escribir);
+	}*/
+
 	//////////////////////prueba/////////////////
 	/*sem_init(&semaforo_bitmap, 0, 1);
 	sem_init(&semaforo_bitacora, 0, 1);
@@ -118,17 +137,10 @@ int main() {
 	munmap(block_mmap,statbuf.st_size);
 	close(archivo);*/
 	/////////////////////fin prueba/////////////////////////////////////
-	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
-	puntoMontaje = config_get_string_value(mongoConfig, "PUNTO_MONTAJE");
-	//crear_estructura_filesystem();
-	crearEstructuraDiscoLogico();
-	crearEstructurasBloques();
-	copiar_datos_de_bloques(disco_logico->bloques);
-	t_bloque* bloque =list_get(disco_logico->bloques,0);
-	printf("id del bloque= %d\n",bloque->id_bloque);
-	printf("tiene espacio desocupado= %d\n",bloque->espacio);
+
 	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
-*/
+
+
 	sem_init(&dar_orden_sabotaje,0 , 0);
 	sem_init(&contador_sabotaje, 0, 1);
 	sem_init(&semaforo_bitmap, 0, 1);
@@ -235,7 +247,6 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 	}
 
 	el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_bitacora[cantidad_de_bloques-1])-1);
-	printf("cantidad de bloques: %d\n",cantidad_de_bloques);
 
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
@@ -449,19 +460,24 @@ void crearSuperbloqueNuevo(char *path){
 	fclose(fd);
 }*/
 
-int leer_y_contar_caracteres_en_block(int inicio,int fin){
-	int cantidad=0;
-	while(inicio<fin && block_mmap[inicio]!=' '){
-		cantidad++;
-		inicio++;
+int ultima_posicion_escrita(int inicio,int fin){
+	int ultima_posicion=inicio;
+	int offset=0;
+	int primera_posicion=inicio;
+	while(primera_posicion<=fin){
+		if(block_mmap[primera_posicion]!=' '){
+			ultima_posicion=primera_posicion;
+		}
+		primera_posicion++;
 	}
-	return cantidad;
+	offset=ultima_posicion-inicio;
+	return offset;
 }
 
 void copiar_datos_de_bloques(t_list* bloques){
-	t_bloque *bloque;
 
 	for(int i=0;i<list_size(bloques);i++){
+		t_bloque *bloque=malloc(sizeof(t_bloque));
 		//agarro un bloque
 		bloque=list_get(bloques,i);
 		//veo donde empieza
@@ -469,11 +485,11 @@ void copiar_datos_de_bloques(t_list* bloques){
 		//veo donde termina
 		int fin = bloque->fin;
 		//leo desde empieza hasta termina en bloc los caracteres escritos
-		int caracteres = leer_y_contar_caracteres_en_block(inicio,fin);
+		int offset = ultima_posicion_escrita(inicio,fin);
 		//resto espacio en bloque
-		bloque->espacio=bloque->espacio-caracteres;
+		bloque->espacio=bloque->espacio-offset;
 		//acomodo el puntero en bloque
-		bloque->posicion_para_escribir=bloque->posicion_para_escribir+caracteres;
+		bloque->posicion_para_escribir=bloque->posicion_para_escribir+offset+1;
 	}
 }
 
@@ -500,12 +516,19 @@ void crear_estructura_filesystem(){
 	dirBlocks= string_new();
 	string_append(&dirBlocks, puntoMontaje);
 	string_append(&dirBlocks, "/Blocks.ims");
+
+
+
 	if (mkdir(puntoMontaje, 0777) != 0) {
 		int todoBien=comprobar_que_todos_los_datos_existen(puntoMontaje);
 		if(todoBien){
 			crearEstructuraDiscoLogico();
 			crearEstructurasBloques();
 			crearBitMapLogico();
+			struct stat statbuf;
+			int archivo = open(dirBlocks, O_RDWR);
+			fstat(archivo,&statbuf);
+			block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 			//copiar_bitmap_de_disco(bitmap,dirSuperbloque); //ya existente
 			copiar_datos_de_bloques(disco_logico->bloques);
 
@@ -527,12 +550,11 @@ void crear_estructura_filesystem(){
 		int archivo = open(dirBlocks, O_RDWR);
 		fstat(archivo,&statbuf);
 		block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
 	}
 
 
 }
-
+/*
 void crearEstructuraFileSystem() {
 	FILE *f;
 
@@ -660,7 +682,7 @@ void crearEstructuraFileSystem() {
 			return;
 		}
 	}
-}
+}*/
 
 
 void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){

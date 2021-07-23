@@ -68,7 +68,7 @@ void enviar_aviso_sabotaje_a_discordiador();
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);
-int leer_y_contar_caracteres_en_block(int,int);
+int ultima_posicion_escrita(int,int);
 void actualizar_posicion(m_movimiento_tripulante *tripulante);
 void rutina(int n);
 void *gestionarCliente(int cliente);

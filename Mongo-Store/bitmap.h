@@ -39,7 +39,6 @@ char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
 char *dirBlocks;
-t_config* mongoConfig;
 t_log* mongoLogger;
 int socket_cliente;
 //int blocks;
@@ -49,7 +48,7 @@ t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 
-void *superbloque;
+char *superbloque;
 void *bitarrayComoVoid;
 t_bitarray *bitmap;
 uint32_t block_size;

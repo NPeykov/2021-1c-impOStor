@@ -8,6 +8,9 @@
 #include "paginacion.h"
 #include "mi-ram.h"
 
+//----------------------------------------------------------
+//--------------FUNCIONES DE MARCOS-------------------------
+//----------------------------------------------------------
 
 bool traer_marco_valido(int frame, int tipo_memoria){
 	if(tipo_memoria == MEM_PPAL){
@@ -65,6 +68,9 @@ uint32_t buscar_marco_disponible(int tipo_memoria){
 	return -1;
 }
 
+//-------------------------------------------------------------------------
+//-----------------------FUNCIONES DE PAGINAS------------------------------
+//-------------------------------------------------------------------------
 
 void agregar_estructura_a_pagina(t_pagina* pagina,int desplazamiento_pag, int bytesAlojados, int estructura, int flag){
 
@@ -80,6 +86,51 @@ void agregar_estructura_a_pagina(t_pagina* pagina,int desplazamiento_pag, int by
 }
 
 
+
+void* buscar_pagina(t_pagina* pagina_buscada) {
+    void* pagina = NULL;
+    int frame_ppal = pagina_buscada->nro_frame_mpal;
+    //int frame_virtual = pagina->frame_m_virtual;
+    if(frame_ppal != -1)
+        pagina = leer_memoria_pag(frame_ppal, MEM_PPAL);
+
+    // log_info(logger, "pagina encontrada en memoria principal");
+    return pagina;
+}
+
+t_pagina* crear_pagina_en_tabla(t_proceso* proceso,int estructura){
+	log_info(logs_ram, "Creando pagina en la tabla de la patota: %d", proceso->pid);
+
+	t_pagina* pagina = malloc(sizeof(t_pagina));
+	pagina->nro_pagina = list_size(proceso->tabla);
+	pagina->nro_frame_mpal = -1;
+	pagina->tam_disponible = TAM_PAG;
+	pagina->estructuras_alojadas = list_create();
+
+	log_info(logs_ram, "Se creo el t_pagina de estructura: %d", estructura);
+
+	list_add(proceso->tabla, pagina);
+
+	return pagina;
+}
+
+t_pagina* buscar_ultima_pagina_disponible(t_proceso* proceso) {
+
+    int nro_ult_pag = list_size(proceso->tabla) - 1;
+
+    t_pagina* ultima_pagina = list_get(proceso->tabla, nro_ult_pag);
+
+    if(ultima_pagina->tam_disponible == 0)
+    {
+        return NULL;
+    }
+
+    return ultima_pagina;
+}
+
+//------------------------------------------------------------------------------------
+//-------------------------FUNCIONES DE MANEJO DE MEMORIA-----------------------------
+//------------------------------------------------------------------------------------
 
 void* leer_memoria_pag(int frame, int mem){
 
@@ -140,38 +191,11 @@ int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, i
 }
 
 
-void* buscar_pagina(t_pagina* pagina_buscada) {
-    void* pagina = NULL;
-    int frame_ppal = pagina_buscada->nro_frame_mpal;
-    //int frame_virtual = pagina->frame_m_virtual;
-    if(frame_ppal != -1)
-        pagina = leer_memoria_pag(frame_ppal, MEM_PPAL);
-
-    // log_info(logger, "pagina encontrada en memoria principal");
-    return pagina;
-}
-
-t_pagina* crear_pagina_en_tabla(t_proceso* proceso,int estructura){
-	log_info(logs_ram, "Creando pagina en la tabla de la patota: %d", proceso->pid);
-
-	t_pagina* pagina = malloc(sizeof(t_pagina));
-	pagina->nro_pagina = list_size(proceso->tabla);
-	pagina->nro_frame_mpal = -1;
-	pagina->tam_disponible = TAM_PAG;
-	pagina->estructuras_alojadas = list_create();
-
-	log_info(logs_ram, "Se creo el t_pagina de estructura: %d", estructura);
-
-	list_add(proceso->tabla, pagina);
-
-	return pagina;
-}
-
 int asignar_paginas_en_tabla(void* bytesAGuardar, t_proceso* proceso, int estructura){
 
 	int aMeter = 0;
-	int flagid;
-	void* bufferAMeter = meterEnBuffer(bytesAGuardar, estructura, &aMeter, &flagid); //No entiendo como manejar el tema de los buffer aca hay que crear la funcion para meter los datos en el buffer.
+	int flagid;//TODO CAMBIAR LA FUNCION METERENBUFFER PARA LAS DISTINTAS FLAGS
+	void* bufferAMeter = meterEnBuffer(bytesAGuardar, estructura, &aMeter, &flagid);
 	void* copiaBuffer = bufferAMeter;
 	int bytesEscritos;
 
@@ -234,20 +258,6 @@ int asignar_paginas_en_tabla(void* bytesAGuardar, t_proceso* proceso, int estruc
 	log_info(logs_ram,"Se insertaron todos los bytes en ram");
 	free(bufferAMeter);
 	return 1;
-}
-
-t_pagina* buscar_ultima_pagina_disponible(t_proceso* proceso) {
-
-    int nro_ult_pag = list_size(proceso->tabla) - 1;
-
-    t_pagina* ultima_pagina = list_get(proceso->tabla, nro_ult_pag);
-
-    if(ultima_pagina->tam_disponible == 0)
-    {
-        return NULL;
-    }
-
-    return ultima_pagina;
 }
 
 void existencia_patota(t_proceso* proceso) {
@@ -322,6 +332,10 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 
 	return tarea;
 }
+
+//-----------------------------------------------------------------------
+//---------------------MANEJO DE DIRECCIONES LOGICAS---------------------
+//-----------------------------------------------------------------------
 
 uint32_t buscar_inicio_tareas(t_proceso* proceso) {
 
@@ -400,13 +414,27 @@ t_proceso* buscar_patota(int id_patota) {
 	    return patota;
 }
 
-int guardar_TCB_pag(TripuCB* tcb, int idPatota) {
-	t_proceso* proceso = buscar_patota(idPatota);
-	tcb->pcb = 00;
-	tcb->proxIns = buscar_inicio_tareas(proceso);
+//-----------------------------------------------------------------------
+//----------------------CREACION Y GUARDADO DE ESTRUCTURAS---------------
+//-----------------------------------------------------------------------
+
+int guardar_TCB_pag(void* algo) {
+	TripulanteConSocket *tripulanteConSocket = (TripulanteConSocket *) algo;
+	t_tripulante_iniciado *unTripulante = tripulanteConSocket->tripulante;
+	int _socket_cliente = tripulanteConSocket->socket;
+
+	t_proceso* proceso = buscar_patota(unTripulante->numPatota);
+
+	TripuCB *elTripulante = (TripuCB*) malloc(sizeof(TripuCB));
+	elTripulante->tid = unTripulante->tid;
+	elTripulante->status = unTripulante->status;
+	elTripulante->pcb = 00;
+	elTripulante->posX = unTripulante->posX;
+	elTripulante->posY = unTripulante->posY;
+	elTripulante->proxIns = buscar_inicio_tareas(proceso);
 	existencia_patota(proceso);
 
-	int res = asignar_paginas_en_tabla((void*) tcb, proceso,TCB);
+	int res = asignar_paginas_en_tabla((void*) elTripulante, proceso,TCB);
 	if(res == 0) {
 		return -1;
 	} else {
@@ -417,30 +445,47 @@ int guardar_TCB_pag(TripuCB* tcb, int idPatota) {
 
 }
 
-int guardar_PCB_pag(PatotaCB* pcbAGuardar, char* tareas){
+int guardar_PCB_pag(void* data){
+	t_datos_inicio_patota *datos_patota = (t_datos_inicio_patota*)data;
+	char* contenido = datos_patota->contenido_tareas;
+	int _socket_cliente = datos_patota->socket;
+
 	int pcbGuardado, tareasGuardadas;
 	t_proceso* patota = malloc(sizeof(t_proceso));
-	patota->pid = pcbAGuardar->pid;
+
+	PatotaCB *laPatota = (PatotaCB*) malloc(sizeof(PatotaCB));
+
+	patota->pid = numero_patota;
+	numero_patota++;
+
 	patota->tabla = list_create();
 
 	pthread_mutex_lock(&mutexTablaProcesos);
 	list_add(patotas, patota);
 	pthread_mutex_unlock(&mutexTablaProcesos);
 
-	log_info(logs_ram, "Se creo la tabla de paginas para la patota: %d", pcbAGuardar->pid);
+	log_info(logs_ram, "Se creo la tabla de paginas para la patota: %d", patota->pid);
 
-	pcbAGuardar->tareas = calcuar_DL_tareas_pag();
+	laPatota->tareas = calcuar_DL_tareas_pag();
 
-	pcbGuardado = asignar_paginas_en_tabla((void*) pcbAGuardar, patota,PCB);
+	pcbGuardado = asignar_paginas_en_tabla((void*) laPatota, patota,PCB);
+	if(!pcbGuardado){
+		enviar_mensaje_simple("no", _socket_cliente);
+	}
 
-	log_info(logs_ram, "La direccion logica de las tareas es: %d", pcbAGuardar->tareas);
+	log_info(logs_ram, "La direccion logica de las tareas es: %d", laPatota->tareas);
 
-	tareasGuardadas = asignar_paginas_en_tabla((void*) tareas, patota,TAREAS);
+	tareasGuardadas = asignar_paginas_en_tabla((void*) contenido, patota,TAREAS);
 
-	free(pcbAGuardar);
-	free(tareas);
+	if(!tareasGuardadas){
+		enviar_mensaje_simple("no", _socket_cliente);
+	}
 
-	return pcbGuardado && tareasGuardadas;
+	free(laPatota);
+	free(contenido);
+	enviar_mensaje_simple("ok", _socket_cliente);
+	liberar_cliente(_socket_cliente);
+	return 1;
 }
 
 bool tiene_pagina_estructura_alojadas(t_list* estructuras_alojadas, int estructura){
@@ -524,7 +569,7 @@ int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb) {
 		log_info(logs_ram, "Se va a sobreescrbir el tripulante: ID: %d | ESTADO: %c | X: %d | Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
 				tcb->tid, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);
 
-		sobreescribir_memoria(pagina->nro_frame_mpal, bufferAMeter + offset, MEM_PPAL, alojado->base, alojado->tamanio);//TODO
+		sobreescribir_memoria(pagina->nro_frame_mpal, bufferAMeter + offset, MEM_PPAL, alojado->base, alojado->tamanio);
 		offset += alojado->tamanio;
 		i++;
 	}
@@ -534,24 +579,26 @@ int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb) {
 	return 1;
 }
 
-int actualizar_tripulante_pag(TripuCB* tcb, int idPatota) {
+void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
+	int idTripulante = tripulanteActualizado->tid;
+	int idPatota = tripulanteActualizado->numPatota;
 
 	t_proceso* proceso = buscar_patota(idPatota);
 
 	existencia_patota(proceso);
 
-	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, tcb->tid);
+	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, idTripulante);
 
 	int cantPaginasConTripu = list_size(paginasConTripulante);
 
 		if(cantPaginasConTripu == 0) {
 			//Si esto pasa, corr
-			log_error(logs_ram, "No hay paginas que contengan al tripulante %d en memoria" , tcb->tid);
+			log_error(logs_ram, "No hay paginas que contengan al tripulante %d en memoria" , idTripulante);
 			free(paginasConTripulante);
-			return 0;
+			return;
 		}
 
-		log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", tcb->tid, cantPaginasConTripu);
+		log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", idTripulante, cantPaginasConTripu);
 		int i = 0;
 
 		void* bufferTripu = malloc(21);
@@ -561,17 +608,17 @@ int actualizar_tripulante_pag(TripuCB* tcb, int idPatota) {
 		{
 			t_pagina* pagina = list_get(paginasConTripulante,i);
 			pthread_mutex_lock(&mutexAlojados);
-			t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, tcb->tid);
+			t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, idTripulante);
 			pthread_mutex_unlock(&mutexAlojados);
 			if(alojado == NULL){
-				return 0;
-			}//TODO:MATAR AL HIJO DE PUTA QUE CODEO ESTO
+				return;
+			}//TODO:MATAR AL HIJO DE PUTA QUE CODEO ESTO Y CAMBIAR TO-DO
 
 			pthread_mutex_lock(&mutexTablaPatota);
 			void* pagina_mem = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
 			pthread_mutex_unlock(&mutexTablaPatota);
 
-			log_info(logs_ram, "SE LEE DEL TRIPULANTE: %d - FRAME: %d | D_INCIAL: %d | TAMANIO: %d", tcb->tid,
+			log_info(logs_ram, "SE LEE DEL TRIPULANTE: %d - FRAME: %d | D_INCIAL: %d | TAMANIO: %d", idTripulante,
 					pagina->nro_frame_mpal, alojado->base, alojado->tamanio);
 
 			if(pagina_mem != NULL) {
@@ -584,18 +631,18 @@ int actualizar_tripulante_pag(TripuCB* tcb, int idPatota) {
 				log_error(logs_ram, "Se leyo mal la pagina mi bro");
 				free(paginasConTripulante);
 				free(bufferTripu);
-				return 0;
+				return;
 			}
 		}
 
 		//cargarDLTripulante(bufferTripu, tcb);//TODO
-
+		/*
 		log_info(logs_ram, "Se va a actualizar el tripulante: ID: %d | ESTADO: %c | X: %d | Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
-		tcb->tid, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);
+		idTripulante, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);*/
 
 		free(bufferTripu);
 		list_destroy(paginasConTripulante);
-		return actualizar_tripulante_EnMem_pag(proceso, tcb);
+		//return actualizar_tripulante_EnMem_pag(proceso, tcb);
 }
 
 TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
@@ -643,9 +690,14 @@ TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
 	return tcb;
 }
 
-char* asignar_prox_tarea_pag(int pid,int tid) {
+void asignar_prox_tarea_pag(void *unTripulante) {
+	TripulanteConSocket *elTripuConSocket = (TripulanteConSocket*) unTripulante;
+	int cliente = elTripuConSocket->socket;
+	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
+	int idTripulante = tripulante->tid;
+	int idPatota = tripulante->numPatota;
 
-	t_proceso* proceso = buscar_patota(pid);
+	t_proceso* proceso = buscar_patota(idPatota);
 
 	existencia_patota(proceso);
 
@@ -654,7 +706,7 @@ char* asignar_prox_tarea_pag(int pid,int tid) {
 					proceso->pid, list_size(proceso->tabla));
 	pthread_mutex_unlock(&mutexTablaProcesos);
 
-	TripuCB* tcb = obtener_tripulante(proceso, tid);
+	TripuCB* tcb = obtener_tripulante(proceso, idTripulante);
 
 	log_info(logs_ram, "Tripulante a asignar proxima tarea: ID: %d | ESTADO: %c | POS_X: %d | POS_Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
 			tcb->tid, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);
@@ -662,10 +714,16 @@ char* asignar_prox_tarea_pag(int pid,int tid) {
 	char* tarea = obtener_siguiente_tarea_pag(proceso, tcb);
 
 	free(tcb);
-	return tarea;
+	log_info(logs_ram,"Tripulante %d pidio la tarea %s.\n", idTripulante, tarea);
+
+	enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
+	liberar_cliente(cliente);
 }
 
-void expulsar_tripulante_pag(int tid,int pid) {
+void expulsar_tripulante_pag(void* algo) {
+	IdentificadorTripulante *tripulanteAEliminar = (IdentificadorTripulante*) algo;
+	int tid = tripulanteAEliminar->idTripulante;
+	int pid = tripulanteAEliminar->idPatota;
 
 	t_proceso* proceso = buscar_patota(pid);
 	existencia_patota(proceso);
@@ -997,7 +1055,76 @@ void crear_proceso_paginas(t_list* paquete){
 }
 */
 
+//-----------------------------------------------------------------------
+//-----------------FUNCIONES DE GESTION DE CLIENTE-----------------------
+//-----------------------------------------------------------------------
 
+void iniciarPatotaPag(t_list *lista, int cliente){
+	lista = recibir_paquete(cliente);
+	t_datos_inicio_patota *datos_inicio = malloc(sizeof(t_datos_inicio_patota));
+	datos_inicio->cantidad_tripulantes = atoi(list_get(lista, 0));
+	datos_inicio->contenido_tareas     = list_get(lista, 1);
+	datos_inicio->socket 			   = cliente;
 
+	pthread_t hiloCreacionPatota;
+
+	pthread_create(&hiloCreacionPatota, NULL, (void*)guardar_PCB_pag, (void*)datos_inicio);
+	pthread_detach(hiloCreacionPatota);
+}
+
+void crearTripulantePag(t_list *lista, int cliente){
+	t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
+	TripulanteConSocket *nuevo_tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
+	nuevo_tripulante_con_socket->tripulante = nuevo_tripulante;
+	nuevo_tripulante_con_socket->socket     = cliente;
+
+	pthread_t hiloTripulante;
+
+	pthread_create(&hiloTripulante, NULL, (void*)guardar_TCB_pag,(void*)nuevo_tripulante_con_socket);
+}
+
+void eliminarTripulantePag(t_list *lista, int cliente){
+	lista = recibir_paquete(cliente);
+
+	IdentificadorTripulante *unTripulante = malloc(sizeof(IdentificadorTripulante));
+	unTripulante->idTripulante = atoi(list_get(lista,0));
+	unTripulante->idPatota = atoi(list_get(lista,1));
+
+	pthread_t hiloEliminacionTripulante;
+	pthread_create(&hiloEliminacionTripulante, NULL, (void*)expulsar_tripulante_pag, (void*)unTripulante);
+	pthread_detach(hiloEliminacionTripulante);
+	liberar_cliente(cliente);
+}
+
+void actualizarPosicionPag(t_list *lista, int cliente){
+	t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
+
+	pthread_t hiloActualizacionTripulante;
+	pthread_create(&hiloActualizacionTripulante, NULL, (void*)actualizar_tripulante_pag, (void*)tripulante_desplazado);
+	pthread_detach(hiloActualizacionTripulante);
+	liberar_cliente(cliente);
+}
+
+void obtenerSgteTareaPag(t_list *lista, int cliente){
+	t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
+	TripulanteConSocket *tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
+	tripulante_con_socket->tripulante = tripulante_tarea;
+	tripulante_con_socket->socket     = cliente;
+
+	sem_wait(&tripulantesDisponibles);
+	pthread_t hiloPedidoTarea;
+	pthread_create(&hiloPedidoTarea, NULL, (void*)asignar_prox_tarea_pag,(void*)tripulante_con_socket);
+	pthread_detach(hiloPedidoTarea);
+}
+
+void inicializarPaginacion(){
+	//Se establece el algoritmo de reemplazo
+	char* algoritmoReemplazo =config_get_string_value(config, "ALGORITMO_REEMPLAZO");
+	if(strcmp(algoritmoReemplazo, "LRU") == 0){
+		esLRU = true;
+	}else{
+		esLRU = false; //Entonces es Clock (CK)
+	}
+}
 
 

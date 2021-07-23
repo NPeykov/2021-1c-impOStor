@@ -14,6 +14,7 @@
 int TAM_PAG;
 int TAM_MEM;
 int cantidadDeFrames;
+bool esLRU;
 
 typedef enum {
 	LIBRE,OCUPADO
@@ -112,11 +113,11 @@ t_pagina* buscar_ultima_pagina_disponible(t_proceso* );
 
 /* Guarda el TCB en el malloc de memoria */
 
-int guardar_TCB_pag(TripuCB*, int);
+int guardar_TCB_pag(void*);
 
 /* Guarda la patota(PCB) y las tareas en el malloc de memoria */
 
-int guardar_PCB_pag(PatotaCB*, char*);
+int guardar_PCB_pag(void*);
 
 /* Busca la siguiente tarea en el malloc de memoria */
 
@@ -156,7 +157,7 @@ int sobreescribir_tripulante(t_list* , TripuCB* );
 
 /* Actualiza en memoria al tripulante */
 
-int actualizar_tripulante_pag(TripuCB* , int);
+void actualizar_tripulante_pag(t_tripulante_iniciado*);
 
 /* Trae la estructura administrativa del tripulante  */
 
@@ -164,7 +165,7 @@ TripuCB* obtener_tripulante(t_proceso* ,int );
 
 /* Asigna la proxima tarea al tripulante de la patota pasado por parametro  */
 
-char* asignar_prox_tarea_pag(int , int);
+void asignar_prox_tarea_pag(void*);
 
 /* Verifica si el tripulante que se elimino no fue el ultimo del proceso enviado por parametro  */
 
@@ -172,7 +173,7 @@ void chequear_ultimo_tripulante(t_proceso*);
 
 /* Recibe patota id y tripu id, elimina tanto estructuras administrativas como en memoria */
 
-void expulsar_tripulante_pag(int ,int);
+void expulsar_tripulante_pag(void*);
 
 /* Verifica que un proceso le queden tripulantes */
 

@@ -527,6 +527,7 @@ void obtenerSgteTareaSeg(t_list *lista, int cliente){
 
 void inicializarSegmentacion(){
 	//Se establece el algoritmo de ubicacion
+	signal(SIGINT, compactacion);
 	char* algoritmoUbicacion =config_get_string_value(config, "ALGORITMO_UBICACION");
 	if(strcmp(algoritmoUbicacion, "FF") == 0){
 		esFF = true;

@@ -17,6 +17,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include "bitmap.h"
+#include<math.h>
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
@@ -40,6 +41,7 @@ char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
 char *dirBlocks;
+char *dirSuperbloque;
 t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
@@ -53,10 +55,12 @@ t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 char *block_mmap;
+size_t block_mmap_size;
 
 
 
 void crearEstructuraFileSystem();
+void crear_estructura_filesystem();
 void crearEstructurasBloques();
 t_disco_logico* crearEstructuraDiscoLogico();
 void enviar_aviso_sabotaje_a_discordiador();

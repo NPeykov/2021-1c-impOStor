@@ -14,6 +14,7 @@
 #include <commons/txt.h>
 #include <signal.h>
 #include "mapa.h"
+#include <math.h>
 
 //Esenciales del Servidor
 t_log *logs_ram;

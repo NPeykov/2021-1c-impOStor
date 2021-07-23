@@ -228,12 +228,26 @@ void agregar_bloque_bitacora(char *rutaBitacora,int bloque){
 	close(archivo);
 }
 
+void crearBitMapLogico(){
+	int cantBloques = config_get_string_value(mongoConfig,"BLOCKS");
+	int cantBytes = (int)ceil(cantBloques/8);
 
-void crearEstructuraFileSystem()
-{
+	void* puntero_a_bits = malloc(cantBytes);
+
+	bitmap = bitarray_create(puntero_a_bits, cantBytes);
+
+	for(int i = 0; i < cantBloques; i++){
+		bitarray_clean_bit(bitmap, i);
+	}
+}
+
+
+void crearEstructuraFileSystem() {
 	FILE *f;
 
-	puntoMontaje = config_get_string_value(mongoConfig,"PUNTO_MONTAJE");
+
+
+	puntoMontaje = config_get_string_value(mongoConfig, "PUNTO_MONTAJE");
 	dirMetadata = malloc(strlen(puntoMontaje) + strlen("/Metadata") + 1);
 	strcpy(dirMetadata, puntoMontaje);
 	strcat(dirMetadata, "/Metadata");
@@ -250,101 +264,102 @@ void crearEstructuraFileSystem()
 	strcpy(dirBlocks, puntoMontaje);
 	strcat(dirBlocks, "/Blocks");
 
+	if (mkdir(puntoMontaje, 0777) != 0) {
+		//Directorio de montaje existente, se verifica que exista superbloque y blocks
+		char* superBloqueRuta = malloc(
+				strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+		strcpy(superBloqueRuta, puntoMontaje);
+		strcat(superBloqueRuta, "/SuperBloque.ims");
+		char* blocksRuta = malloc(
+				strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+		strcpy(blocksRuta, puntoMontaje);
+		strcat(blocksRuta, "/Blocks.ims");
+		int existeArchivo = access(superBloqueRuta, F_OK);
+		if (existeArchivo == 0) {
+			existeArchivo = access(blocksRuta, F_OK);
+			if (existeArchivo == 0) {
+				//Si el fileSystem esta creado se toman los datos de la metadata existente.
+				log_info(mongoLogger, "El directorio %s ya existe. ",
+						puntoMontaje);
+				block_size = atoi(
+						config_get_string_value(mongoConfig, "BLOCK_SIZE"));
+				blocks = atoi(config_get_string_value(mongoConfig, "BLOCKS"));
+				//bitmap = crear_bitmap(superBloqueRuta, blocks);
+				return;
+			} else {
+				log_error(mongoLogger, "No se encuentra archivo Blocks.ims");
+			}
+			return;
+		} else {
+			log_error(mongoLogger, "No se encuentra archivo SuperBloque.ims");
+		}
+		free(superBloqueRuta);
+		free(blocksRuta);
+		return;
 
+	} else {
+		printf("Se creo el directorio de montaje =) \n");
 
-	if(mkdir(puntoMontaje, 0777) != 0)
-	{
-	//Directorio de montaje existente, se verifica que exista superbloque y blocks
-	  char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
-	  strcpy(superBloqueRuta, puntoMontaje);
-	  strcat(superBloqueRuta, "/SuperBloque.ims");
-	  char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-	  strcpy(blocksRuta, puntoMontaje);
-	  strcat(blocksRuta, "/Blocks.ims");
-	  int existeArchivo = access(superBloqueRuta, F_OK);
-	  if(existeArchivo == 0)
-	  {
-		  existeArchivo = access(blocksRuta, F_OK);
-	      if(existeArchivo == 0)
-	      {
-	    	  //Si el fileSystem esta creado se toman los datos de la metadata existente.
-	    	  log_info(mongoLogger, "El directorio %s ya existe. ", puntoMontaje);
-	    	  block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	    	  blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
-	    	  //bitmap = crear_bitmap(superBloqueRuta, blocks);
-	    	  return;
-		  }
-	      else{
-	    	  log_error(mongoLogger,"No se encuentra archivo Blocks.ims");
-	      }
-	      return;
-	  }
-	  else
-	  {
-		  log_error(mongoLogger,"No se encuentra archivo SuperBloque.ims");
-	  }
-	  free(superBloqueRuta);
-	  free(blocksRuta);
-	  return;
+		crearEstructuraDiscoLogico();
 
-	}
-	else
-	{
-	printf("Se creo el directorio de montaje =) \n");
-	//Crea superBloque
-	char* superBloqueRuta = malloc(strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
-	strcpy(superBloqueRuta, puntoMontaje);
-	strcat(superBloqueRuta, "/SuperBloque.ims");
-	block_size=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	blocks=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
-	// Creo el archivo superBloque
-	f = fopen(superBloqueRuta, "w");
-	char* tamanioBloque = malloc(10); sprintf(tamanioBloque, "%d",block_size);
+		crearEstructurasBloques();
 
-	char* bloques = malloc(10);
-	sprintf(bloques, "%d",blocks);
-	int bitmapsize = blocks / 8;
-	int sizesuperbloque = string_length(tamanioBloque)+ string_length(bloques)+ bitmapsize;
-	fputs(tamanioBloque,f);
-	fputs(bloques,f);
+		//Crea superBloque
+		char* superBloqueRuta = malloc(
+				strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
+		strcpy(superBloqueRuta, puntoMontaje);
+		strcat(superBloqueRuta, "/SuperBloque.ims");
+		block_size = atoi(config_get_string_value(mongoConfig, "BLOCK_SIZE"));
+		blocks = atoi(config_get_string_value(mongoConfig, "BLOCKS"));
+		// Creo el archivo superBloque
+		f = fopen(superBloqueRuta, "w");
+		char* tamanioBloque = malloc(10);
+		sprintf(tamanioBloque, "%d", block_size);
 
-	fseek(f, sizesuperbloque , SEEK_SET);
-	putc('\0', f);
-	fclose(f);
-	//Creo el archivo bitmap.bin
-	bitmap = crear_bitmap(superBloqueRuta,blocks);
-	free(superBloqueRuta);
-	free(tamanioBloque);
-	free(bloques);
+		char* bloques = malloc(10);
+		sprintf(bloques, "%d", blocks);
+		int bitmapsize = blocks / 8;
+		int sizesuperbloque = string_length(tamanioBloque)
+				+ string_length(bloques) + bitmapsize;
+		fputs(tamanioBloque, f);
+		fputs(bloques, f);
 
-	//Crea Blocks
-	char* blocksRuta = malloc(strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-	strcpy(blocksRuta, puntoMontaje);
-	strcat(blocksRuta, "/Blocks.ims");
-	//			log_trace(mongoLogger, "Estructura creada.");
-	int X = block_size * blocks;
-	f = fopen(blocksRuta, "w");
-	fputs("1", f);
-	fseek(f, X , SEEK_SET);
-	putc('\0', f);
-	fclose(f);
-	free(blocksRuta);
-	//Creo carpeta Files
-	if(mkdir(dirFiles, 0777) == 0)
-	{
-	 printf("Se creo carpeta Files  =) \n");
-	 //Creo carpeta Bitacora
-	 if(mkdir(dirBitacora, 0777) == 0)
-	 {
-	  printf("Se creo carpeta Bitacora  =) \n");
-	 }
+		fseek(f, sizesuperbloque, SEEK_SET);
+		putc('\0', f);
+		fclose(f);
+		//Creo el archivo bitmap.bin
+		crearBitMapLogico();
+		//bitmap = crear_bitmap(superBloqueRuta, blocks);
+		free(superBloqueRuta);
+		free(tamanioBloque);
+		free(bloques);
 
-	}
-    else
-    {
-    log_error(mongoLogger, "Ha ocurrido un error al crear el directorio Files.");
-	return;
-    }
+		//Crea Blocks
+		char* blocksRuta = malloc(
+				strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
+		strcpy(blocksRuta, puntoMontaje);
+		strcat(blocksRuta, "/Blocks.ims");
+		//			log_trace(mongoLogger, "Estructura creada.");
+		int X = block_size * blocks;
+		f = fopen(blocksRuta, "w");
+		fputs("1", f);
+		fseek(f, X, SEEK_SET);
+		putc('\0', f);
+		fclose(f);
+		free(blocksRuta);
+		//Creo carpeta Files
+		if (mkdir(dirFiles, 0777) == 0) {
+			printf("Se creo carpeta Files  =) \n");
+			//Creo carpeta Bitacora
+			if (mkdir(dirBitacora, 0777) == 0) {
+				printf("Se creo carpeta Bitacora  =) \n");
+			}
+
+		} else {
+			log_error(mongoLogger,
+					"Ha ocurrido un error al crear el directorio Files.");
+			return;
+		}
 	}
 }
 
@@ -426,7 +441,6 @@ void *gestionarCliente(int socket) {
 	t_paquete *paquete;
 	int respuesta;
 
-
 	while (1) {
 		int cliente = esperar_cliente(socket, mongoLogger);
 		printf("Cliente: %d\n", cliente);
@@ -434,8 +448,6 @@ void *gestionarCliente(int socket) {
 		lista = NULL;
 
 		printf("\nLA OPERACION ES: %d\n", operacion);
-
-
 
 //		switch(operacion) {
 //			case OBTENGO_BITACORA:
@@ -451,12 +463,12 @@ void *gestionarCliente(int socket) {
 		case OBTENGO_BITACORA:
 			lista = recibir_paquete(cliente);
 			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
-			uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
+			uint32_t idPatota = (uint32_t) atoi(list_get(lista, 1));
 			printf("Tripulante recibido %d\n", idTripulante);
-			paquete=crear_paquete(OBTENGO_BITACORA);
+			paquete = crear_paquete(OBTENGO_BITACORA);
 			printf("Patota recibida %d\n", idPatota);
 			//agregar los elementos encontrados para ese ID al paquete "paquete"
-			enviar_paquete(paquete,cliente);
+			enviar_paquete(paquete, cliente);
 //             	int idTripulante = atoi((char *) list_get(lista,0));
 //            	printf("Tripulante recibido %d\n", idTripulante);
 			liberar_cliente(cliente);
@@ -469,45 +481,59 @@ void *gestionarCliente(int socket) {
 //				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 			liberar_cliente(cliente);
 			break;
-		case ESPERANDO_SABOTAJE:;
-		      pthread_create(&hilo_sabotaje, NULL, (void*)enviar_aviso_sabotaje_a_discordiador, (void*)cliente);
-		      pthread_detach(hilo_sabotaje);
-		      break;
-		case ACTUALIZAR_POSICION:;
+		case ESPERANDO_SABOTAJE:
+			;
+			pthread_create(&hilo_sabotaje, NULL,
+					(void*) enviar_aviso_sabotaje_a_discordiador,
+					(void*) cliente);
+			pthread_detach(hilo_sabotaje);
+			break;
+		case ACTUALIZAR_POSICION:
+			;
 			pthread_t hilo_actualizar_posicion;
-			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(
+					sizeof(m_movimiento_tripulante));
 
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
-			pthread_create(&hilo_actualizar_posicion, NULL, (void*)actualizar_posicion, (void*)tripulanteEnMovimiento);
+			pthread_create(&hilo_actualizar_posicion, NULL,
+					(void*) actualizar_posicion,
+					(void*) tripulanteEnMovimiento);
 			pthread_detach(hilo_sabotaje);
 			//Se escribe en blocks.ims
 			liberar_cliente(cliente);
 
 			/*printf("Tripulante N: %d de la patota %d se movio de (%d, %d) a (%d, %d)",
-					tripulanteEnMovimiento->idTripulante,
-		     		tripulanteEnMovimiento->idPatota,
-					tripulanteEnMovimiento->origenX,
-					tripulanteEnMovimiento->origenY,
-					tripulanteEnMovimiento->destinoX,
-					tripulanteEnMovimiento->destinoY);*/
-		break;
+			 tripulanteEnMovimiento->idTripulante,
+			 tripulanteEnMovimiento->idPatota,
+			 tripulanteEnMovimiento->origenX,
+			 tripulanteEnMovimiento->origenY,
+			 tripulanteEnMovimiento->destinoX,
+			 tripulanteEnMovimiento->destinoY);*/
+			break;
 
-		case INICIO_TAREA:;
-			m_estado_tarea_tripulante *tripulanteConTarea = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+		case INICIO_TAREA:
+			;
+			m_estado_tarea_tripulante *tripulanteConTarea =
+					(m_estado_tarea_tripulante *) malloc(
+							sizeof(m_estado_tarea_tripulante));
 			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
 			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
 			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
 			liberar_cliente(cliente);
 			break;
 
-		case FIN_TAREA:;
-			m_estado_tarea_tripulante *tripulanteConTareaFinalizada = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+		case FIN_TAREA:
+			;
+			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
+					(m_estado_tarea_tripulante *) malloc(
+							sizeof(m_estado_tarea_tripulante));
 
-			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
+			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(
+					cliente);
 
 			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
 
-			if(tripulanteConTareaFinalizada -> tipo_tarea == TAREA_IO){
+			if (tripulanteConTareaFinalizada->tipo_tarea == TAREA_IO) {
 
 				//aca llenaria el archivo tantas veces como el 'parametro'
 				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);

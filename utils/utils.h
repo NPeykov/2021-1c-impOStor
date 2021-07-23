@@ -12,7 +12,7 @@
 #include<string.h>
 #include<errno.h>
 
-#define PATH_MI_RAM_CONFIG "../config_files/Pruebas1/mi_ram.config"
+#define PATH_MI_RAM_CONFIG "../config_files/mi_ram.config"
 #define PATH_MONGO_STORE_CONFIG "../config_files/mongo_store.config"
 #define PATH_DISCORDIADOR_CONFIG "../config_files/discordiador.config"
 #define PATH_MONGO_STORE_LOG "../logs_files/mongo.log"

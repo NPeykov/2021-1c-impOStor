@@ -45,28 +45,28 @@ void *gestionarCliente(int socket) {
 				if(esSegmentacion){
 					iniciarPatotaSeg(lista, cliente);
 				}else{
-					//iniciarPatotaPag(lista, cliente);
+					iniciarPatotaPag(lista, cliente);
 				}
 				break;
 			case ELIMINAR_TRIPULANTE:
 				if(esSegmentacion){
 					eliminarTripulanteSeg(lista, cliente);
 				}else{
-					//eliminarTripulantePag(lista, cliente);
+					eliminarTripulantePag(lista, cliente);
 				}
 				break;
 			case ACTUALIZAR_POSICION:;
 				if(esSegmentacion){
 					actualizarPosicionSeg(lista, cliente);
 				}else{
-					//actualizarPosicionPag(lista, cliente);
+					actualizarPosicionPag(lista, cliente);
 				}
 				break;
 			case NUEVO_TRIPULANTE:;
 				if(esSegmentacion){
 					crearTripulanteSeg(lista, cliente);
 				}else{
-					//crearTripulantePag(lista, cliente);
+					crearTripulantePag(lista, cliente);
 				}
 				break;
 
@@ -74,7 +74,7 @@ void *gestionarCliente(int socket) {
 				if(esSegmentacion){
 					obtenerSgteTareaSeg(lista, cliente);
 				}else{
-					//obtenerSgteTareaPag(lista, cliente);
+					obtenerSgteTareaPag(lista, cliente);
 				}
 				break;
 

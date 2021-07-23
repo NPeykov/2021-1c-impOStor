@@ -154,13 +154,16 @@ int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, i
 		int desplazamiento_mem = pagina->nro_frame_mpal * TAM_PAG + desplazamiento_pag;
 		int bytesAEscribir = pagina->tam_disponible - *bytesAInsertar;
 
+
 		if(bytesAEscribir < 0)
 		{
+
 			bytesAEscribir = pagina->tam_disponible;
 			pagina->tam_disponible = 0;
 			asignar_marco_en_uso(pagina->nro_frame_mpal,tipo_memoria);
 		}
 		else {
+			if(estructura == TAREAS){ flag= 1;}
 			bytesAEscribir = *bytesAInsertar;
 			pagina->tam_disponible = pagina->tam_disponible - *bytesAInsertar;
 		}
@@ -193,66 +196,59 @@ int insertar_en_memoria_pag(t_pagina* pagina, void* pag_mem, int tipo_memoria, i
 
 int asignar_paginas_en_tabla(void* bytesAGuardar, t_proceso* proceso, int estructura){
 
-	int aMeter = 0;
-	int flagid;//TODO CAMBIAR LA FUNCION METERENBUFFER PARA LAS DISTINTAS FLAGS
-	void* bufferAMeter = meterEnBuffer(bytesAGuardar, estructura, &aMeter, &flagid);
-	void* copiaBuffer = bufferAMeter;
+	int aMeter = sizeof(bytesAGuardar);
+	void* bufferAMeter = bytesAGuardar;
+	void* siguienteAEscribir = bufferAMeter;
 	int bytesEscritos;
-
 	t_pagina* pagina;
+	int flag;
+	if(estructura == TCB){
+		TripuCB *elTripu = (TripuCB*) bytesAGuardar;
+		flag = elTripu->tid;
+	}
 
 	while(aMeter > 0)
 	{
 		pthread_mutex_lock(&mutexEscribiendoMemoria);
 		log_info(logs_ram, "HAY QUE METER %d BYTES",aMeter);
 
-		if(estructura != PCB)
-		{
+		if(estructura != PCB){
 			pagina = buscar_ultima_pagina_disponible(proceso);
 
-			if(pagina != NULL)
-			{
-				log_info(logs_ram, "La pagina en el frame %d tiene lugar y se va a aprovechar", pagina->nro_frame_mpal);
-				insertar_en_memoria_pag(pagina, copiaBuffer, MEM_PPAL, &aMeter, estructura, &bytesEscritos, flagid);
-			} else
-			{
+			if(pagina != NULL){
+				log_info(logs_ram, "La pagina en el frame %d tiene lugar", pagina->nro_frame_mpal);
+				insertar_en_memoria_pag(pagina, siguienteAEscribir, MEM_PPAL, &aMeter, estructura, &bytesEscritos, flag);
+			}else{
 				log_info(logs_ram, "No se encontro una pagina con espacio restante");
-
 				pagina = crear_pagina_en_tabla(proceso,estructura);
-
 				pagina->nro_frame_mpal = buscar_marco_disponible(MEM_PPAL);
 
-				if(pagina->nro_frame_mpal != -1)
-				{
+				if(pagina->nro_frame_mpal != -1){
 					log_info(logs_ram,"Hay un frame disponible, el %d", pagina->nro_frame_mpal);
-					insertar_en_memoria_pag(pagina, copiaBuffer, MEM_PPAL, &aMeter, estructura,&bytesEscritos , flagid);
-				}
-				else
-				{
+					insertar_en_memoria_pag(pagina, siguienteAEscribir, MEM_PPAL, &aMeter, estructura, &bytesEscritos,flag);
+				}else{
+					//TODO Aca se debe enviar a SWAP
+					//insertar_en_memoria_pag(pagina, siguinteAEscribir, MEM_VIR, &aMeter, estructura, &bytesEscritos)
 					log_info(logs_ram, "Memoria principal llena");
 					return 0;
 				}
 			}
-		}
-		else
-		{
+		}else{
+			//Si es PCB se hace esto ya que sabemos que la PCB es lo primero que se guarda
 			pagina = crear_pagina_en_tabla(proceso, estructura);
 
 			pagina->nro_frame_mpal = buscar_marco_disponible(MEM_PPAL);
 
-			if(pagina->nro_frame_mpal != -1)
-			{
+			if(pagina->nro_frame_mpal != -1){
 				log_info(logs_ram,"Hay un frame disponible, el %d", pagina->nro_frame_mpal);
-				insertar_en_memoria_pag(pagina, copiaBuffer, MEM_PPAL, &aMeter ,estructura ,&bytesEscritos ,flagid);
-			}
-			else
-			{
+				insertar_en_memoria_pag(pagina, siguienteAEscribir, MEM_PPAL, &aMeter ,estructura ,&bytesEscritos,flag);
+			}else{
 				log_info(logs_ram, "Memoria principal llena");
 				return 0;
 			}
 		}
 
-		copiaBuffer += bytesEscritos;
+		siguienteAEscribir += bytesEscritos;
 		pthread_mutex_unlock(&mutexEscribiendoMemoria);
 	}
 	log_info(logs_ram,"Se insertaron todos los bytes en ram");
@@ -546,7 +542,7 @@ t_list* lista_paginas_tripulantes(t_list* tabla_paginas_proceso, uint32_t id_tri
 int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb) {
 
 	int aMeter, relleno, offset = 0;
-	void* bufferAMeter = meterEnBuffer(tcb, TCB, &aMeter, &relleno);
+	void* bufferAMeter = (void*)tcb;
 
 	int cantPaginasConTripu = list_size(lista_paginas_tripulantes);
 
@@ -591,58 +587,63 @@ void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 
 	int cantPaginasConTripu = list_size(paginasConTripulante);
 
-		if(cantPaginasConTripu == 0) {
-			//Si esto pasa, corr
-			log_error(logs_ram, "No hay paginas que contengan al tripulante %d en memoria" , idTripulante);
-			free(paginasConTripulante);
+	if(cantPaginasConTripu == 0) {
+		//Si esto pasa, corre
+		log_error(logs_ram, "No hay paginas que contengan al tripulante %d en memoria" , idTripulante);
+		free(paginasConTripulante);
+		return;
+	}
+	log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", idTripulante, cantPaginasConTripu);
+	int i = 0;
+
+	void* bufferTripu = malloc(21);
+	int offset = 0;
+
+	while(i < cantPaginasConTripu)
+	{
+		t_pagina* pagina = list_get(paginasConTripulante,i);
+		pthread_mutex_lock(&mutexAlojados);
+		t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, idTripulante);
+		pthread_mutex_unlock(&mutexAlojados);
+		if(alojado == NULL){
 			return;
 		}
 
-		log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", idTripulante, cantPaginasConTripu);
-		int i = 0;
+		pthread_mutex_lock(&mutexEscribiendoMemoria);
+		void* pagina_mem = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
+		pthread_mutex_unlock(&mutexEscribiendoMemoria);
 
-		void* bufferTripu = malloc(21);
-		int offset = 0;
+		log_info(logs_ram, "SE LEE DEL TRIPULANTE: %d - FRAME: %d | D_INCIAL: %d | TAMANIO: %d", idTripulante,
+				pagina->nro_frame_mpal, alojado->base, alojado->tamanio);
 
-		while(i < cantPaginasConTripu)
-		{
-			t_pagina* pagina = list_get(paginasConTripulante,i);
-			pthread_mutex_lock(&mutexAlojados);
-			t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, idTripulante);
-			pthread_mutex_unlock(&mutexAlojados);
-			if(alojado == NULL){
-				return;
-			}//TODO:MATAR AL HIJO DE PUTA QUE CODEO ESTO Y CAMBIAR TO-DO
-
-			pthread_mutex_lock(&mutexTablaPatota);
-			void* pagina_mem = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
-			pthread_mutex_unlock(&mutexTablaPatota);
-
-			log_info(logs_ram, "SE LEE DEL TRIPULANTE: %d - FRAME: %d | D_INCIAL: %d | TAMANIO: %d", idTripulante,
-					pagina->nro_frame_mpal, alojado->base, alojado->tamanio);
-
-			if(pagina_mem != NULL) {
-				memcpy(bufferTripu + offset,pagina_mem + alojado->base, alojado->tamanio);
-				offset += alojado->tamanio;
-				i++;
-				free(pagina_mem);
-			}
-			else {
-				log_error(logs_ram, "Se leyo mal la pagina mi bro");
-				free(paginasConTripulante);
-				free(bufferTripu);
-				return;
-			}
+		if(pagina_mem != NULL) {
+			memcpy(bufferTripu + offset,pagina_mem + alojado->base, alojado->tamanio);
+			offset += alojado->tamanio;
+			i++;
+			free(pagina_mem);
 		}
+		else {
+			log_error(logs_ram, "Se leyo mal la pagina mi bro");
+			free(paginasConTripulante);
+			free(bufferTripu);
+			return;
+		}
+	}
 
-		//cargarDLTripulante(bufferTripu, tcb);//TODO
+		TripuCB *elTripulante = (TripuCB*) bufferTripu;
+		elTripulante->posX = tripulanteActualizado->posX;
+		elTripulante->posY = tripulanteActualizado->posY;
+		elTripulante->status = tripulanteActualizado->status;
+
+
 		/*
 		log_info(logs_ram, "Se va a actualizar el tripulante: ID: %d | ESTADO: %c | X: %d | Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
 		idTripulante, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);*/
 
 		free(bufferTripu);
 		list_destroy(paginasConTripulante);
-		//return actualizar_tripulante_EnMem_pag(proceso, tcb);
+		actualizar_tripulante_EnMem_pag(proceso, elTripulante);
+		return;
 }
 
 TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
@@ -863,83 +864,7 @@ void chequear_ultimo_tripulante(t_proceso* proceso) {
 	}
 }
 
-t_proceso* patota_que_tiene_el_frame(int frame){
-		//Antes llamada frame_con_patota
-	bool _tieneElFrame(void* algo){
-		t_pagina *unaPagina = (t_pagina*) algo;
-		return unaPagina->nro_frame_mpal == frame;
-	}
 
-	bool _frameEnUso(void* algo) {
-		t_proceso *unProceso = (t_proceso*) algo;
-		return list_any_satisfy(unProceso->tabla, _tieneElFrame);
-	}
-
-	pthread_mutex_lock(&mutexTablaPatota);
-	t_proceso* procesoEnFrame = list_find(patotas,(void*) _frameEnUso);
-	pthread_mutex_unlock(&mutexTablaPatota);
-
-	return procesoEnFrame;
-}
-
-
-t_pagina* frame_con_pagina(int frame, t_proceso* proceso) {
-
-	bool esLaPagina(void* algo){
-		t_pagina *unaPagina = (t_pagina*)algo;
-		return unaPagina->nro_frame_mpal == frame;
-	}
-
-	return list_find(proceso->tabla, esLaPagina);
-}
-
-/*
-void dumpPag() {
-
-	char* nombreArchivo = temporal_get_string_time("DUMP_%y%m%d%H%M%S%MS.dmp");
-	char* rutaAbsoluta = string_from_format("/home/utnso/tp-2021-1c-holy-C/Mi-RAM_HQ/Dump/%s",nombreArchivo);
-
-	FILE* archivoDump = txt_open_for_append(rutaAbsoluta);
-
-	if(archivoDump == NULL){
-		log_error(logs_ram, "No se pudo abrir el archivo correctamente");
-		exit(1);
-	}
-
-	char* fechaYHora = temporal_get_string_time("%d/%m/%y %H:%M:%S \n");
-	char* dump = string_from_format("DUMP: %s",fechaYHora);
-
-	txt_write_in_file(archivoDump, "--------------------------------------------------------------------------\n");
-	txt_write_in_file(archivoDump, dump);
-
-	for(int i=0; i< cantidadDeFrames; i++) { //cant_frames en memoria principal tiene que ser una variable global cuando se inicializa la memoria.
-
-		t_proceso* proceso = patotaConFrame(i);
-
-		if(proceso != NULL)
-		{
-			t_pagina* info_pagina = paginaConFrame(i,proceso);
-
-			char* dumpMarco = string_from_format("Marco:%d    Estado:Ocupado    Proceso:%d    Pagina:%d \n",
-					i, proceso->pid, info_pagina->nro_pagina);
-
-			txt_write_in_file(archivoDump, dumpMarco);
-			free(dumpMarco);
-		}
-		else
-		{
-			char* dumpMarco = string_from_format("Marco:%d    Estado:Libre      Proceso:-    Pagina:- \n",i);
-			txt_write_in_file(archivoDump, dumpMarco);
-			free(dumpMarco);
-		}
-	}
-
-	txt_write_in_file(archivoDump, "--------------------------------------------------------------------------\n");
-
-	txt_close_file(archivoDump);
-	free(rutaAbsoluta);
-	free(dump);
-}*/
 
 
 void dividir_memoria_en_frames() {
@@ -949,7 +874,7 @@ void dividir_memoria_en_frames() {
 
 
 void* meterEnBuffer(void* bytesAGuardar, int estructura, int* aMeter, int* flagid){
-	if(estructura==PCB){
+	if(estructura==PCB){//TODO Borrar si encuentro otra forma de asignar los flags
 		*flagid = -1;
 		*aMeter = sizeof(PatotaCB);
 	}else if(estructura == TAREAS){
@@ -991,14 +916,14 @@ void sobreescribir_memoria(int frame, void* buffer, int mem, int desplazPagina, 
 	}
 }
 
-/*
+
 
 t_pagina* crear_pagina(){
 	t_pagina* pagina = malloc(sizeof(t_pagina));
 	pagina->bit_uso=1;
 	pagina->tam_disponible = TAM_PAG;
 	return pagina;
-}
+}//TODO: Me parece que esto no se usa
 
 
 
@@ -1054,6 +979,89 @@ void crear_proceso_paginas(t_list* paquete){
 
 }
 */
+//---------------------------------------------------------------------------
+//-----------------FUNCIONES DE VISUALIZACION DE DATOS-----------------------
+//---------------------------------------------------------------------------
+
+t_proceso* patota_que_tiene_el_frame(int frame){
+		//Antes llamada frame_con_patota
+	bool _tieneElFrame(void* algo){
+		t_pagina *unaPagina = (t_pagina*) algo;
+		return unaPagina->nro_frame_mpal == frame;
+	}
+
+	bool _frameEnUso(void* algo) {
+		t_proceso *unProceso = (t_proceso*) algo;
+		return list_any_satisfy(unProceso->tabla, _tieneElFrame);
+	}
+
+	pthread_mutex_lock(&mutexTablaPatota);
+	t_proceso* procesoEnFrame = list_find(patotas,(void*) _frameEnUso);
+	pthread_mutex_unlock(&mutexTablaPatota);
+
+	return procesoEnFrame;
+}
+
+
+t_pagina* pagina_que_tiene_el_frame(int frame, t_proceso* proceso) {
+
+	bool esLaPagina(void* algo){
+		t_pagina *unaPagina = (t_pagina*)algo;
+		return unaPagina->nro_frame_mpal == frame;
+	}
+
+	return list_find(proceso->tabla, esLaPagina);
+}
+
+void dumpPag() {
+
+	char* horaActual = temporal_get_string_time("%d-%m-%y_%H:%M:%S\n\n");
+	char *nombreArchivo = string_new();
+	string_append(&nombreArchivo,"dump_");
+	string_append(&nombreArchivo,horaActual);
+	string_append(&nombreArchivo,".txt");
+	char* rutaRelativa = string_from_format("./Dump/%s",nombreArchivo);
+
+	FILE* archivoDump = txt_open_for_append(rutaRelativa);
+
+	if(archivoDump == NULL){
+		log_error(logs_ram, "No se pudo abrir el archivo correctamente");
+		exit(1);
+	}
+
+	char* dump = string_from_format("DUMP: %s\n\n",horaActual);
+
+	txt_write_in_file(archivoDump, "--------------------------------------------------------------------------\n\n");
+	txt_write_in_file(archivoDump, dump);
+
+	for(int i=0; i< cantidadDeFrames; i++) { //cant_frames en memoria principal tiene que ser una variable global cuando se inicializa la memoria.
+
+		t_proceso* proceso = patota_que_tiene_el_frame(i);
+
+		if(proceso != NULL)
+		{
+			t_pagina* info_pagina = pagina_que_tiene_el_frame(i,proceso);
+
+			char* dumpMarco = string_from_format("Marco:%d    Estado:Ocupado    Proceso:%d    Pagina:%d \n",
+					i, proceso->pid, info_pagina->nro_pagina);
+
+			txt_write_in_file(archivoDump, dumpMarco);
+			free(dumpMarco);
+		}
+		else
+		{
+			char* dumpMarco = string_from_format("Marco:%d    Estado:Libre      Proceso:-    Pagina:- \n",i);
+			txt_write_in_file(archivoDump, dumpMarco);
+			free(dumpMarco);
+		}
+	}
+
+	txt_write_in_file(archivoDump, "--------------------------------------------------------------------------\n");
+
+	txt_close_file(archivoDump);
+	free(rutaRelativa);
+	free(dump);
+}
 
 //-----------------------------------------------------------------------
 //-----------------FUNCIONES DE GESTION DE CLIENTE-----------------------
@@ -1128,7 +1136,7 @@ void inicializarPaginacion(){
 }
 
 /////////////////// SWAPPING
-
+/*
 void asignar_marco_en_swap(t_pagina* pag){
 	int posicionLibre = posicion_libre_en_swap();
 	bitarray_set_bit(BIT_ARRAY_SWAP, (off_t) posicionLibre);
@@ -1136,6 +1144,6 @@ void asignar_marco_en_swap(t_pagina* pag){
 	pag->bit_uso = false;
 	pag->bit_presencia = false
 	pag->nro_frame_swap = posicionLibre;
-}
+}*/
 
 

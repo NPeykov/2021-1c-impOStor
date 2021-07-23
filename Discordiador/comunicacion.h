@@ -1,0 +1,12 @@
+#ifndef COMUNICACION_H_
+#define COMUNICACION_H_
+
+#include "utils_disc.h"
+
+void crear_y_enviar_inicio_patota(char*, char*, char*, int);
+void serializar_y_enviar_tripulante(Tripulante*, op_code, int);
+void avisar_a_mongo_estado_tarea(Tarea *, Tripulante*, op_code);
+void avisar_movimiento_a_mongo(int, int, Tripulante*);
+
+
+#endif

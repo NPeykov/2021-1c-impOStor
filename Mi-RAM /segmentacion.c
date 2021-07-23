@@ -462,96 +462,85 @@ void enviarTareaSiguiente(void *unTripulante){
 	liberar_cliente(cliente);
 
 }
+//-------------------------------------------------------------------------------
+//---------------------FUNCIONES ATENCION DE CLIENTE ----------------------------
+//-------------------------------------------------------------------------------
 
-void *gestionarClienteSeg(int socket) {
+void iniciarPatotaSeg(t_list *lista, int cliente){
+	lista = recibir_paquete(cliente);
+	t_datos_inicio_patota *datos_inicio = malloc(sizeof(t_datos_inicio_patota));
+	datos_inicio->cantidad_tripulantes = atoi(list_get(lista, 0));
+	datos_inicio->contenido_tareas     = list_get(lista, 1);
+	datos_inicio->socket 			   = cliente;
 
-	int operacion;
-	t_list *lista;
+	pthread_t hiloCreacionPatota;
 
-	while(1) {
-		int cliente = esperar_cliente(socket, logs_ram);
-
-		operacion = recibir_operacion(cliente);
-		lista = NULL;
-
-		log_info(logs_ram,"\nSe recibio una operacion: %d\n", operacion);
-
-		switch(operacion) {
-			case INICIO_PATOTA:
-				lista = recibir_paquete(cliente);
-				t_datos_inicio_patota *datos_inicio = malloc(sizeof(t_datos_inicio_patota));
-				datos_inicio->cantidad_tripulantes = atoi(list_get(lista, 0));
-				datos_inicio->contenido_tareas     = list_get(lista, 1);
-				datos_inicio->socket 			   = cliente;
-
-				pthread_t hiloCreacionPatota;
-
-				pthread_create(&hiloCreacionPatota, NULL, (void*)crear_proceso, (void*)datos_inicio);
-				pthread_detach(hiloCreacionPatota);
-				break;
-
-			case ELIMINAR_TRIPULANTE:
-				lista = recibir_paquete(cliente);
-
-				IdentificadorTripulante *unTripulante = malloc(sizeof(IdentificadorTripulante));
-				unTripulante->idTripulante = atoi(list_get(lista,0));
-				unTripulante->idPatota = atoi(list_get(lista,1));
-
-				pthread_t hiloEliminacionTripulante;
-				pthread_create(&hiloEliminacionTripulante, NULL, (void*)eliminarTripulante, (void*)unTripulante);
-				pthread_detach(hiloEliminacionTripulante);
-				liberar_cliente(cliente);
-				break;
-
-			case ACTUALIZAR_POSICION:;
-
-				t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
-
-				pthread_t hiloActualizacionTripulante;
-				pthread_create(&hiloEliminacionTripulante, NULL, (void*)actualizarTripulante, (void*)tripulante_desplazado);
-				pthread_detach(hiloEliminacionTripulante);
-				liberar_cliente(cliente);
-				break;
-
-			case NUEVO_TRIPULANTE:;
-				t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
-				TripulanteConSocket *nuevo_tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
-				nuevo_tripulante_con_socket->tripulante = nuevo_tripulante;
-				nuevo_tripulante_con_socket->socket     = cliente;
-
-				pthread_t hiloTripulante;
-
-				pthread_create(&hiloTripulante, NULL, (void*)crear_segmento_tcb,(void*)nuevo_tripulante_con_socket);
-				pthread_detach(hiloTripulante);
-				break;
-
-			case PEDIDO_TAREA:;
-
-				t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
-				TripulanteConSocket *tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
-				tripulante_con_socket->tripulante = tripulante_tarea;
-				tripulante_con_socket->socket     = cliente;
-
-				sem_wait(&tripulantesDisponibles);
-				pthread_t hiloPedidoTarea;
-				pthread_create(&hiloTripulante, NULL, (void*)enviarTareaSiguiente,(void*)tripulante_con_socket);
-				pthread_detach(hiloTripulante);
-
-
-				break;
-
-			case -1:
-				log_info(logs_ram,"El cliente %d se desconecto.\n", cliente);
-				liberar_cliente(cliente);
-				break;
-
-			default:
-				log_info(logs_ram,"Operacion desconocida.\n");
-				liberar_cliente(cliente);
-				break;
-		}
-	}
+	pthread_create(&hiloCreacionPatota, NULL, (void*)crear_proceso, (void*)datos_inicio);
+	pthread_detach(hiloCreacionPatota);
 }
+
+void eliminarTripulanteSeg(t_list *lista, int cliente){
+	lista = recibir_paquete(cliente);
+
+	IdentificadorTripulante *unTripulante = malloc(sizeof(IdentificadorTripulante));
+	unTripulante->idTripulante = atoi(list_get(lista,0));
+	unTripulante->idPatota = atoi(list_get(lista,1));
+
+	pthread_t hiloEliminacionTripulante;
+	pthread_create(&hiloEliminacionTripulante, NULL, (void*)eliminarTripulante, (void*)unTripulante);
+	pthread_detach(hiloEliminacionTripulante);
+	liberar_cliente(cliente);
+}
+
+void actualizarPosicionSeg(t_list *lista, int cliente){
+	t_tripulante_iniciado *tripulante_desplazado = recibir_tripulante_iniciado(cliente);
+
+	pthread_t hiloActualizacionTripulante;
+	pthread_create(&hiloActualizacionTripulante, NULL, (void*)actualizarTripulante, (void*)tripulante_desplazado);
+	pthread_detach(hiloActualizacionTripulante);
+	liberar_cliente(cliente);
+}
+
+void crearTripulanteSeg(t_list *lista, int cliente){
+	t_tripulante_iniciado *nuevo_tripulante= recibir_tripulante_iniciado(cliente);
+	TripulanteConSocket *nuevo_tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
+	nuevo_tripulante_con_socket->tripulante = nuevo_tripulante;
+	nuevo_tripulante_con_socket->socket     = cliente;
+
+	pthread_t hiloTripulante;
+
+	pthread_create(&hiloTripulante, NULL, (void*)crear_segmento_tcb,(void*)nuevo_tripulante_con_socket);
+	pthread_detach(hiloTripulante);
+}
+
+void obtenerSgteTareaSeg(t_list *lista, int cliente){
+	t_tripulante_iniciado *tripulante_tarea = recibir_tripulante_iniciado(cliente);
+	TripulanteConSocket *tripulante_con_socket = malloc(sizeof(TripulanteConSocket));
+	tripulante_con_socket->tripulante = tripulante_tarea;
+	tripulante_con_socket->socket     = cliente;
+
+	sem_wait(&tripulantesDisponibles);
+	pthread_t hiloPedidoTarea;
+	pthread_create(&hiloPedidoTarea, NULL, (void*)enviarTareaSiguiente,(void*)tripulante_con_socket);
+	pthread_detach(hiloPedidoTarea);
+}
+
+void inicializarSegmentacion(){
+	//Se establece el algoritmo de ubicacion
+	char* algoritmoUbicacion =config_get_string_value(config, "ALGORITMO_UBICACION");
+	if(strcmp(algoritmoUbicacion, "FF") == 0){
+		esFF = true;
+	}else{
+		esFF = false; //Entonces es Best Fit (BF)
+	}
+	sem_init(&direcciones,0,1);
+	sem_init(&numeroPatotas,0,1);
+	sem_init(&tripulantesDisponibles,0,0);
+}
+
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------
 
 void dumpMemoriaSeg(){
 

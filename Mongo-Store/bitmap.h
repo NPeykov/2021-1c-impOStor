@@ -34,7 +34,7 @@
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 
-char *puntoMontaje;
+//char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;

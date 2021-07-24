@@ -64,6 +64,7 @@ void crearblocks(char*);
 void crear_estructura_filesystem();
 void crearEstructurasBloques();
 void crearEstructuraDiscoLogico();
+void inicializar_archivo(char* , int , char);
 void enviar_aviso_sabotaje_a_discordiador();
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);

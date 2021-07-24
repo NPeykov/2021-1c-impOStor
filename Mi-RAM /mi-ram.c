@@ -107,7 +107,7 @@ void dumpMemoria(){
 	if(strcmp(tipoMemoria, "SEGMENTACION") == 0){
 		dumpMemoriaSeg();
 	}else{
-		//dumpMemoriaPag(); TODO:Hacer dump Paginacion
+		dumpMemoriaPag();
 	}
 }
 
@@ -116,7 +116,7 @@ void dumpMemoria(){
 int main(){
 	inicializar_ram();
 
-	signal(SIGTSTP, dumpMemoriaSeg);
+	signal(SIGTSTP, dumpMemoria);
 
 	atenderSegunEsquema();
 

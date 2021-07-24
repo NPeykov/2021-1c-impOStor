@@ -48,10 +48,16 @@ pthread_mutex_t mutexEscribiendoMemoria;
 pthread_mutex_t mutexBitArray;
 pthread_mutex_t mutexTablaPaginas;
 pthread_mutex_t mutexAlojados;
+
 pthread_mutex_t mutexTablaPatotas;
 pthread_mutex_t mutexNumeroPatotas;
 
 sem_t tripulantesDisponiblesPag;
+
+pthread_mutex_t mutexTablaProcesos;
+pthread_mutex_t mutex_swap_file;
+pthread_mutex_t mutex_clock;
+
 
 /* Verifica que un frame existe en memoria y es válido */
 
@@ -210,5 +216,14 @@ void cargarDLTripulante(void*, TripuCB*);
 
 TripuCB* transformarEnTripulante(void*);
 
+/* Asigna un marco libre en swap a una pagina */
+
+void asignar_marco_en_swap(t_pagina* pag);
+
+void escribir_en_archivo_swap(void *file, t_list *tabla_de_paginas, size_t tam_a_mappear,size_t tam_arch);
+
+/* Trae la pagina a reemplazar por algoritmo de clock */
+
+t_pagina* algoritmo_clock();
 
 #endif

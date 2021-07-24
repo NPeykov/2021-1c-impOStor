@@ -1,12 +1,6 @@
-/*
- * paginacion.c
- *
- *  Created on: 25 jun. 2021
- *      Author: utnso
- */
-
 #include "paginacion.h"
 #include "mi-ram.h"
+#include "memoria-virtual.c"
 
 //----------------------------------------------------------
 //--------------FUNCIONES DE MARCOS-------------------------
@@ -65,7 +59,7 @@ uint32_t buscar_marco_disponible(int tipo_memoria){
 	}
 
 	log_info(logs_ram, "No se encontro un frame disponible");
-	return -1;
+	return 0;
 }
 
 void dividir_memoria_en_frames() {
@@ -1049,15 +1043,154 @@ void inicializarPaginacion(){
 	dividir_memoria_en_frames();
 }
 
-/////////////////// SWAPPING
-/*
+
+//-----------------------------------------------------------------------
+//-----------------FUNCIONES DE SWAPPING---------------------------------
+//-----------------------------------------------------------------------
+
 void asignar_marco_en_swap(t_pagina* pag){
 	int posicionLibre = posicion_libre_en_swap();
 	bitarray_set_bit(BIT_ARRAY_SWAP, (off_t) posicionLibre);
 	pag->nro_frame_mpal = NULL;
 	pag->bit_uso = false;
-	pag->bit_presencia = false
+	pag->bit_presencia = false;
 	pag->nro_frame_swap = posicionLibre;
-}*/
+}
 
+void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
+	//datos de la victima
+	log_info(logs_ram,"Se swapea la pagina %d con la pagina %d",paginaPedida->nro_pagina,victima->nro_pagina);
+	int nroFrame = victima->nro_frame_mpal;
+	int frameVictima = memoria+nroFrame*TAM_PAG;
+
+	int posicionEnSwap = paginaPedida->nro_frame_swap*TAM_PAG;
+
+
+	void* bufferAux = (void*)malloc(TAM_PAG);
+
+	pthread_mutex_lock(&mutex_swap_file);
+	memcpy(bufferAux, MEMORIA_VIRTUAL+posicionEnSwap, TAM_PAG); //Swap mappeado como variable global por ahora
+	memcpy(MEMORIA_VIRTUAL+posicionEnSwap, frameVictima, TAM_PAG);
+	memcpy(frameVictima, bufferAux, TAM_PAG);
+	pthread_mutex_unlock(&mutex_swap_file);
+
+	victima->bit_presencia = false;
+	victima->nro_frame_mpal = NULL;
+	victima->nro_frame_swap = paginaPedida->nro_frame_swap;
+
+	paginaPedida->bit_presencia = true;
+	paginaPedida->nro_frame_swap = NULL ;
+	paginaPedida->nro_frame_mpal = frameVictima;
+	paginaPedida->bit_uso = true;
+
+	free(bufferAux);
+}
+
+void traer_pagina(t_pagina* pagina){
+	//cada vez que referencian
+	//una pagina si no esta en memoria la buscamos
+	//y cargamos, si esta en memoria seteamos el bit de uso
+
+	if (!pagina->bit_presencia){//Si la pagina no esta presente
+		log_info(logs_ram,"Se produce un PF (pagina %d)",pagina->nro_pagina);
+		uint32_t marco_libre = buscar_marco_disponible();
+		if(marco_libre){
+			log_info(logs_ram,"Se procede a asignar el marco %d a la pagina %d",marco_libre,pagina->nro_pagina);
+			pthread_mutex_lock(&mutex_swap_file);
+			memcpy(marco_libre, MEMORIA_VIRTUAL + pagina->nro_frame_swap* TAM_PAG, TAM_PAG); //Swap mappeado como variable global por ahora
+			pthread_mutex_unlock(&mutex_swap_file);
+			bitarray_clean_bit(BIT_ARRAY_SWAP,(off_t) pagina->nro_frame_mpal);
+			bitarray_set_bit(frames_ocupados_ppal, (off_t) marco_libre);
+			pagina->nro_frame_mpal = marco_libre;
+			pagina->bit_presencia = true;
+			pagina->bit_uso = true;
+		}else{
+			t_pagina* victima = algoritmo_clock();
+			swap_pages(victima, pagina);
+		}
+		//sem_post(&mutex_frames);
+	}
+	pagina->bit_uso = true;
+}
+
+void escribir_en_archivo_swap(void *file, t_list *tabla_de_paginas, size_t tam_a_mappear,size_t tam_arch){
+	int offset = tam_a_mappear;
+	int tam_archivo = tam_arch;
+	void *padding;
+	bool archivo_completo=false;
+	void _escribir_en_frame_de_swap (void *element){
+		t_pagina *pagina = (t_pagina*)element;
+		int pag_pos = pagina->nro_pagina;
+		int posicion_en_swap = TAM_PAG * pagina->nro_frame_swap;
+		if(offset >0 && archivo_completo){
+			padding = malloc(TAM_PAG);
+			memset(padding,'\0',TAM_PAG);
+			pthread_mutex_lock(&mutex_swap_file);
+			memcpy(MEMORIA_VIRTUAL+posicion_en_swap,padding,TAM_PAG);
+			pthread_mutex_unlock(&mutex_swap_file);
+			offset -= TAM_PAG;
+			free(padding);
+		}
+		if(tam_archivo>=TAM_PAG && offset > 0 && !archivo_completo){
+			pthread_mutex_lock(&mutex_swap_file);
+			memcpy(MEMORIA_VIRTUAL+posicion_en_swap,file+(pag_pos*TAM_PAG),TAM_PAG);
+			pthread_mutex_unlock(&mutex_swap_file);
+			offset -= TAM_PAG;
+			tam_archivo-= TAM_PAG;
+		}else if (offset > 0 && tam_archivo>0){
+			pthread_mutex_lock(&mutex_swap_file);
+			memcpy(MEMORIA_VIRTUAL+posicion_en_swap,file+(pag_pos*TAM_PAG),tam_archivo);
+			padding = malloc(TAM_PAG-tam_archivo);
+			memset(padding,'\0',TAM_PAG-tam_archivo);
+			memcpy(MEMORIA_VIRTUAL+posicion_en_swap+tam_archivo,padding,TAM_PAG-tam_archivo);
+			pthread_mutex_unlock(&mutex_swap_file);
+			offset-=TAM_PAG;
+			tam_archivo-= TAM_PAG;
+			archivo_completo=true;
+			free(padding);
+		}
+
+	}
+	list_iterate(tabla_de_paginas,_escribir_en_frame_de_swap);
+}
+
+t_pagina* algoritmo_clock(){
+	pthread_mutex_lock(&mutex_clock);
+	t_pagina* victima = NULL;
+	log_info(logs_ram,"Se comienza a ejecutar el algoritmo clock");
+	while(!victima){
+		victima = buscar_cero();
+	}
+	log_info(logs_ram,"Se eligio como victima la pagina %d cuyo frame es %d.",victima->nro_pagina,victima->nro_frame_mpal);
+	pthread_mutex_unlock(&mutex_clock);
+	return victima;
+}
+
+void incrementar_puntero(){
+	if(PUNTERO_ALGORITMO == (cantidadDeFrames-1)){
+		PUNTERO_ALGORITMO = 0;
+	} else {
+		PUNTERO_ALGORITMO ++;
+	}
+}
+
+t_pagina* buscar_cero(){
+	for(int index=0; index<cantidadDeFrames; index++){
+
+		t_proceso* patota = patota_que_tiene_el_frame(index);
+
+		t_pagina* pagina = frame_con_pagina(index, patota);
+
+		if(pagina && index == PUNTERO_ALGORITMO && bitarray_test_bit(frames_ocupados_ppal,index)){
+
+			if(pagina->bit_uso == 0){
+				incrementar_puntero();
+				return pagina;
+			}
+			pagina->bit_uso = 0;
+			incrementar_puntero();
+		}
+	}
+	return NULL;
+}
 

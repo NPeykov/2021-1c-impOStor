@@ -4,9 +4,9 @@
 
 
 int main() {
-	generar_oxigeno(8);
+	/*generar_oxigeno(8);
 	generar_basura(250);
-	generar_comida(340);
+	generar_comida(340);*/
 	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
 	struct stat statbuf;
 	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
@@ -139,7 +139,7 @@ int main() {
 	munmap(block_mmap,statbuf.st_size);
 	close(archivo);*/
 	/////////////////////fin prueba/////////////////////////////////////
-/*
+
 	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
 
 
@@ -166,7 +166,7 @@ int main() {
 	gestionarCliente(socket_mongo_store );
 
 	printf("SOCKET DISCO %d\n", socket_mongo_store);
-	return EXIT_SUCCESS;*/
+	return EXIT_SUCCESS;
 }
 
 //genera el MD5 pasandole por parametro el contenido de un archivo de file
@@ -980,15 +980,15 @@ void inicializar_archivo(char* ruta_archivo, int cantidad_caracter, char caracte
 
 	int archivo = open(ruta_archivo, O_RDWR);
 	struct stat statbuf;
-	ftruncate(archivo, (off_t)58+string_length(caracter_a_string)+string_length(cantidad_de_bloques_a_string));
+	ftruncate(archivo, (off_t)59/*+string_length(caracter_a_string)+string_length(cantidad_de_bloques_a_string)*/);
 	fstat(archivo,&statbuf);
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 
 	char* cadena = string_new();
-	string_append(&cadena,"SIZE=");
-	string_append(&cadena,caracter_a_string);
+	string_append(&cadena,"SIZE=0");
+	//string_append(&cadena,caracter_a_string);
 	string_append(&cadena,"\nBLOCK_COUNT=");
-	string_append(&cadena,cantidad_de_bloques_a_string);
+	//string_append(&cadena,cantidad_de_bloques_a_string);
 	string_append(&cadena,"\nBLOCKS=");
 	string_append(&cadena,"\nCARACTER_LLENADO=");
 	string_append(&cadena,el_caracter);
@@ -1002,19 +1002,45 @@ void inicializar_archivo(char* ruta_archivo, int cantidad_caracter, char caracte
 	close(archivo);
 }
 
-void escribir_el_archivo(char* ruta,char* cadena){
+void actualizar_el_archivo(char *ruta,char* cadena,t_bloque* bloque){
+/*
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
-	//ftruncate(archivo, (off_t)58+string_length(caracter_a_string)+string_length(cantidad_de_bloques_a_string));
 	fstat(archivo,&statbuf);
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	//archivo_addr[30]='w';
+
+	char* texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s";
+
 	munmap(archivo_addr,statbuf.st_size);
-	close(archivo);
+	close(archivo);*/
+}
+
+void escribir_el_archivo(char* ruta,char* cadena, t_bloque* bloque){
+	char* lo_que_entra;
+	char* lo_que_falta;
+
+	if(bloque->espacio>=string_length(cadena)){
+		escribir_en_block(cadena,bloque);
+		actualizar_el_archivo(ruta,cadena,bloque);
+	}
+	else{
+		char *lo_que_entra_en_el_bloque=string_substring_until(cadena,bloque->espacio);
+		char *lo_que_falta_escribir=string_substring_from(cadena,string_length(lo_que_entra_en_el_bloque));
+		t_bloque* nuevo_bloque=malloc(sizeof(t_bloque));
+
+		escribir_en_block(lo_que_entra_en_el_bloque,bloque);
+		actualizar_el_archivo(ruta,cadena,bloque);
+		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		escribir_el_archivo(ruta,lo_que_falta_escribir,nuevo_bloque);
+	}
+
 
 }
 
+void recuperar_ultimo_bloque_file(char* ruta){
 
+}
 
 void generar_oxigeno(int cantidad){
 	puntoMontaje="/home/utnso/workspace/mnt";
@@ -1024,12 +1050,19 @@ void generar_oxigeno(int cantidad){
 	string_append(&ruta_oxigeno,"/Files/oxigeno.ims");
 	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
 	int existeArchivo = access(ruta_oxigeno, F_OK);
-	if(existeArchivo=!0){
-		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
+	t_bloque* bloque=malloc(sizeof(bloque));
+
+	if(existeArchivo==-1){
+		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		inicializar_archivo(ruta_oxigeno,cantidad, 'O');
+		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
 	}
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
-	escribir_el_archivo(ruta_oxigeno,cadena);
+	else{
+		recuperar_ultimo_bloque_file(ruta_oxigeno);
+		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
+	}
 
 
 }
@@ -1080,12 +1113,19 @@ void generar_comida(int cantidad){
 	string_append(&ruta_comida,"/Files/comida.ims");
 	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
 	int existeArchivo = access(ruta_comida, F_OK);
-	if(existeArchivo=!0){
-	//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
-	inicializar_archivo(ruta_comida,cantidad, 'C');
+	t_bloque* bloque=malloc(sizeof(bloque));
+
+	if(existeArchivo==-1){
+		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
+		inicializar_archivo(ruta_comida,cantidad, 'C');
+		escribir_el_archivo(ruta_comida,cadena,bloque);
 	}
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
-	escribir_el_archivo(ruta_comida,cadena);
+	else{
+		recuperar_ultimo_bloque_file(ruta_comida);
+		escribir_el_archivo(ruta_comida,cadena,bloque);
+	}
 }
 
 
@@ -1132,14 +1172,19 @@ void generar_basura(int cantidad){
 	string_append(&ruta_basura,"/Files/basura.ims");
 	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
 	int existeArchivo = access(ruta_basura, F_OK);
-	if(existeArchivo=!0){
-	//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
-	inicializar_archivo(ruta_basura,cantidad, 'B');
+	t_bloque* bloque=malloc(sizeof(bloque));
+
+	if(existeArchivo==-1){
+		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
+		inicializar_archivo(ruta_basura,cantidad, 'B');
+		escribir_el_archivo(ruta_basura,cadena,bloque);
 	}
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
-	escribir_el_archivo(ruta_basura,cadena);
-
-
+	else{
+		recuperar_ultimo_bloque_file(ruta_basura);
+		escribir_el_archivo(ruta_basura,cadena,bloque);
+	}
 
 }
 
@@ -1230,8 +1275,6 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		sem_wait(&semaforo_bitacora);
 		inicializar_bitacora(rutaBitacora,string_itoa(nuevo_bloque->id_bloque));
 		sem_post(&semaforo_bitacora);
-		//modifico bitmap
-		//ocupar_bloque(bitmap, numero_del_nuevo_bloque);
 		//escribo lo_que_se_va_a_escribir en block
 		escribir_en_block(lo_que_se_va_a_escribir,nuevo_bloque);
 

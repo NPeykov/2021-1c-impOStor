@@ -7,6 +7,7 @@
 
 
 #include "bitmap.h"
+#include "mongo-store.h"
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 

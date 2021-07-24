@@ -5,6 +5,25 @@
 
 int main() {
 
+	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
+	struct stat statbuf;
+	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
+	fstat(archivo,&statbuf);
+	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	crearEstructuraDiscoLogico();
+	crearEstructurasBloques();
+
+
+	int cantidad_de_bloques=list_size(disco_logico->bloques);
+	for(int i=0;i<10;i++){
+		t_bloque* bloque = malloc(sizeof(t_bloque));
+		bloque=list_get(disco_logico->bloques,i);
+		int a=ultima_posicion_escrita(bloque->inicio,bloque->fin);
+		bloque->espacio=bloque->espacio-a;
+		bloque->posicion_para_escribir=bloque->posicion_para_escribir+a;
+		printf("el bloque %d tiene %d lugares y empieza a escribir en %d\n",bloque->id_bloque,bloque->espacio,bloque->posicion_para_escribir);
+	}*/
+
 	//////////////////////prueba/////////////////
 	/*sem_init(&semaforo_bitmap, 0, 1);
 	sem_init(&semaforo_bitacora, 0, 1);
@@ -118,7 +137,9 @@ int main() {
 	munmap(block_mmap,statbuf.st_size);
 	close(archivo);*/
 	/////////////////////fin prueba/////////////////////////////////////
+
 	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
+
 
 	sem_init(&dar_orden_sabotaje,0 , 0);
 	sem_init(&contador_sabotaje, 0, 1);
@@ -146,6 +167,47 @@ int main() {
 	return EXIT_SUCCESS;
 }
 
+//genera el MD5 pasandole por parametro el contenido de un archivo de file
+//por ejemplo el contenido puede ser 'OOOOOOOOOOO'
+char *generarMD5(char *contenido){
+  int fd;
+  char command[string_length(contenido) + 150]; //por las dudas q el path sea largo
+  int retorno;
+  struct stat statbuf;
+  void *data;
+  char *md5;
+  char ruta_md5[200];
+  char *punto_montaje = config_get_string_value(mongoConfig,"PUNTO_MONTAJE");
+
+  sprintf(ruta_md5, "%s/Files/md5.txt", punto_montaje);
+
+  sprintf(command, "echo -n %s | md5sum > %s", contenido, ruta_md5);
+
+  retorno = system(command);
+
+  if(retorno != 0)
+    {
+      printf("ERROR AL GENERAR EL MD5\n");
+      exit(1);
+    }
+
+  fd = open("../MD5/md5.txt", O_RDWR);
+
+  if (fd == -1){
+    printf("ERROR AL ABRIR ARCHIVO\n");
+    exit(1);
+  }
+
+  fstat(fd, &statbuf);
+
+  data = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+  md5 = strdup(data);
+
+  munmap(data, statbuf.st_size); //cierro el archivo
+
+  return md5;
+}
+
 void crearEstructuraDiscoLogico(){
 	//TODO poner semaforo para disco logico
 	disco_logico=(t_disco_logico *)malloc(sizeof(t_disco_logico));
@@ -154,8 +216,8 @@ void crearEstructuraDiscoLogico(){
 
 void crearEstructurasBloques(){
 	//TODO poner semaforo para disco logico
-	int tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	int cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+	cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
 
 	for(int contador=1;contador<=cantidad_de_bloques;contador++){
 		t_bloque *bloque = (t_bloque *)malloc(sizeof(t_bloque));
@@ -185,7 +247,6 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 	}
 
 	el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_bitacora[cantidad_de_bloques-1])-1);
-	printf("cantidad de bloques: %d\n",cantidad_de_bloques);
 
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
@@ -266,10 +327,10 @@ void crearSuperbloque(char * dirSuperbloque){
 		}
 		munmap(archivo_addr,statbuf.st_size);
 		close(archivo);
-
 }
 
 void crearblocks(char* dirBlocks){
+
 	struct stat statbuf;
 	int block_size= atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
 	int blocks= atoi(config_get_string_value(mongoConfig,"BLOCKS"));
@@ -277,10 +338,13 @@ void crearblocks(char* dirBlocks){
 	int peso=(int)block_size*blocks;
 	int archivo = open(dirBlocks, O_RDWR);
 	ftruncate(archivo, (off_t)peso);
+
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	for(int i=0; i<statbuf.st_size;i++){
 				archivo_addr[i]=' ';
-			}
+	}
+
+
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
 
@@ -291,6 +355,15 @@ void crearCarpetaFile(char * dirFiles){
 		printf("se creo el directorio file correctamente\n");
 		}
 	else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio Files.");
+
+/*	string_append(dirFiles, "/MD5");
+
+	if(mkdir(dirFiles, 0777) == 0){
+		printf("se creo el directorio para md5 correctamente\n");
+	}
+
+	else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio de md5.");*/
+
 }
 
 void crearCarpetaBitacora(char * dirBitacora){
@@ -333,10 +406,93 @@ int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
 	}
 
 }
-
+/*
 void copiar_bitmap_de_disco(t_bitarray *bitmap,char* dirSuperbloque){
+	struct stat statbuf;
+
+	int fdm = open(dirSuperbloque, O_RDWR);
+
+	if (fdm == -1) {
+		printf("ERROR AL ABRIR ARCHIVO");
+		exit(1);
+	}
+
+	fstat(fdm, &statbuf);
+	superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
+	block_size = superbloque;
+	blocks = superbloque + sizeof(uint32_t);
+	bitarrayComoVoid = superbloque + 2 * sizeof(uint32_t);
+
+	int cantLeer2 = (int) ceil((double) blocks / 8);
+
+	bitmap = bitarray_create(bitarrayComoVoid, cantLeer2);
+
+	//reviso las cosas
+
+	printf("SIZE GUARDADO: %d\n", *block_size);
+	printf("CANT GUARDADO: %d\n", *blocks);
+
+	for (int i = 1; i <= *blocks; i++) {
+		if (i % 5 == 0)
+			printf("%d\n", bitarray_test_bit(bitmap, i));
+		else
+			printf("%d", bitarray_test_bit(bitmap, i));
+	}
 
 }
+
+void crearSuperbloqueNuevo(char *path){
+	FILE *fd;
+
+	fd = fopen(path, "wb");
+
+	if (fd == NULL) {
+		printf("ERROR AL ABRIR ARCHIVO");
+		exit(1);
+	}
+
+	int cantBytes = (int)ceil((double) cantidad_de_bloques / 8);
+
+	fwrite(&tamanio_de_bloque, sizeof(uint32_t), 1, fd);
+	fwrite(&cantidad_de_bloques, sizeof(uint32_t), 1, fd);
+	fwrite(bitmap->bitarray, cantBytes, 1, fd);
+
+	fclose(fd);
+}*/
+
+int ultima_posicion_escrita(int inicio,int fin){
+	int ultima_posicion=inicio;
+	int offset=0;
+	int primera_posicion=inicio;
+	while(primera_posicion<=fin){
+		if(block_mmap[primera_posicion]!=' '){
+			ultima_posicion=primera_posicion;
+		}
+		primera_posicion++;
+	}
+	offset=ultima_posicion-inicio;
+	return offset;
+}
+
+void copiar_datos_de_bloques(t_list* bloques){
+
+	for(int i=0;i<list_size(bloques);i++){
+		t_bloque *bloque=malloc(sizeof(t_bloque));
+		//agarro un bloque
+		bloque=list_get(bloques,i);
+		//veo donde empieza
+		int inicio = bloque->inicio;
+		//veo donde termina
+		int fin = bloque->fin;
+		//leo desde empieza hasta termina en bloc los caracteres escritos
+		int offset = ultima_posicion_escrita(inicio,fin);
+		//resto espacio en bloque
+		bloque->espacio=bloque->espacio-offset;
+		//acomodo el puntero en bloque
+		bloque->posicion_para_escribir=bloque->posicion_para_escribir+offset+1;
+	}
+}
+
 
 
 void crear_estructura_filesystem(){
@@ -361,14 +517,22 @@ void crear_estructura_filesystem(){
 	string_append(&dirBlocks, puntoMontaje);
 	string_append(&dirBlocks, "/Blocks.ims");
 
+
+
 	if (mkdir(puntoMontaje, 0777) != 0) {
 		int todoBien=comprobar_que_todos_los_datos_existen(puntoMontaje);
 		if(todoBien){
 			crearEstructuraDiscoLogico();
 			crearEstructurasBloques();
 			crearBitMapLogico();
-			copiar_bitmap_de_disco(bitmap,dirSuperbloque);
-			copiar_datos_de_bloques(disco_logico->bloques,dirBlocks);
+			struct stat statbuf;
+			int archivo = open(dirBlocks, O_RDWR);
+			fstat(archivo,&statbuf);
+			block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+			//copiar_bitmap_de_disco(bitmap,dirSuperbloque); //ya existente
+			copiar_datos_de_bloques(disco_logico->bloques);
+
+
 		}
 	}
 	else{
@@ -377,7 +541,8 @@ void crear_estructura_filesystem(){
 		crearEstructuraDiscoLogico();
 		crearEstructurasBloques();
 		crearBitMapLogico();
-		crearSuperbloque(dirSuperbloque);//archivo
+		//crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
+		crearSuperbloque(dirSuperbloque);
 		crearblocks(dirBlocks);//archivo
 		crearCarpetaFile(dirFiles);//carpeta
 		crearCarpetaBitacora(dirBitacora);//carpeta
@@ -385,12 +550,11 @@ void crear_estructura_filesystem(){
 		int archivo = open(dirBlocks, O_RDWR);
 		fstat(archivo,&statbuf);
 		block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
 	}
 
 
 }
-
+/*
 void crearEstructuraFileSystem() {
 	FILE *f;
 
@@ -518,7 +682,7 @@ void crearEstructuraFileSystem() {
 			return;
 		}
 	}
-}
+}*/
 
 
 void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){

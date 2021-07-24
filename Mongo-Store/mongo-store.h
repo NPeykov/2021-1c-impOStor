@@ -46,8 +46,8 @@ t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
 int socket_cliente;
-int blocks;
-int block_size;
+//int blocks;
+//int block_size;
 int numero_sabotaje=0;
 m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;
@@ -60,12 +60,15 @@ size_t block_mmap_size;
 
 
 void crearEstructuraFileSystem();
+void crearblocks(char*);
 void crear_estructura_filesystem();
 void crearEstructurasBloques();
 void crearEstructuraDiscoLogico();
 void enviar_aviso_sabotaje_a_discordiador();
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
+void copiar_datos_de_bloques(t_list*);
+int ultima_posicion_escrita(int,int);
 void actualizar_posicion(m_movimiento_tripulante *tripulante);
 void rutina(int n);
 void *gestionarCliente(int cliente);

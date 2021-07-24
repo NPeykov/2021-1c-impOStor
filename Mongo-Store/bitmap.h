@@ -38,19 +38,27 @@ char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
-char *dirBlocks;
-t_config* mongoConfig;
+//char *dirBlocks;
 t_log* mongoLogger;
 int socket_cliente;
-int blocks;
-int block_size;
+//int blocks;
+//int block_size;
 pthread_t hilo_sabotaje;
-t_bitarray *bitmap;
 t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 
+char *superbloque;
+void *bitarrayComoVoid;
+t_bitarray *bitmap;
+uint32_t block_size;
+uint32_t blocks;
+
+int tamanio_de_bloque;
+int cantidad_de_bloques;
+
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
+
 void liberar_bloque(t_bitarray* bitmap, int bloque);
 void ocupar_bloque(t_bitarray* bitmap, int bloque);
 int obtener_bloque_libre(t_bitarray* bitmap) ;

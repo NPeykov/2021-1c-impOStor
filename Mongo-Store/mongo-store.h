@@ -21,12 +21,13 @@
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
-sem_t semaforo_bitmap;
+//sem_t semaforo_bitmap;
 sem_t semaforo_bitacora;
 
 
 //MUTEXS
 pthread_mutex_t mutex_disco_logico;
+pthread_mutex_t mutex_bitmap;
 
 
 

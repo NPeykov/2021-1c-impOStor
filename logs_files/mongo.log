@@ -2089,3 +2089,309 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 [INFO] 04:17:26:014 Mongo/(30214:30214): Se conecto un cliente con socket: 8
 
 [INFO] 04:17:26:039 Mongo/(30214:30239): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:08:35:678 Mongo/(5394:5394): INICIANDO RECURSOS
+[INFO] 18:08:35:690 Mongo/(5394:5394): Generando estructura del FS
+[INFO] 18:08:35:691 Mongo/(5394:5394): Se creo estructura bloques!
+[INFO] 18:08:35:691 Mongo/(5394:5394): Cantidad de bloques generados: 326
+[INFO] 18:08:35:691 Mongo/(5394:5394): Se creo el Bitmap logico con 41 Bytes
+[INFO] 18:08:35:691 Mongo/(5394:5394): Se creo el superbloque nuevo!
+[INFO] 18:08:35:691 Mongo/(5394:5394): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:08:35:691 Mongo/(5394:5394): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:08:35:694 Mongo/(5394:5394): Se bajaron los datos del Superbloque existente!
+[INFO] 18:08:35:694 Mongo/(5394:5394): Se crearon los bloques!
+[INFO] 18:08:35:695 Mongo/(5394:5394): se creo el directorio file correctamente
+
+[INFO] 18:08:35:695 Mongo/(5394:5394): se creo el directorio bitacora correctamente
+
+[INFO] 18:08:55:264 Mongo/(5394:5394): Se conecto un cliente con socket: 8
+
+[INFO] 18:08:55:287 Mongo/(5394:5394): Se conecto un cliente con socket: 8
+
+[INFO] 18:08:59:125 Mongo/(5394:5394): Se conecto un cliente con socket: 8
+
+[INFO] 18:08:59:127 Mongo/(5394:5394): Se conecto un cliente con socket: 8
+
+[INFO] 18:08:59:133 Mongo/(5394:5426): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:08:59:134 Mongo/(5394:5423): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:09:04:130 Mongo/(5394:5394): Se conecto un cliente con socket: 8
+
+[INFO] 18:09:04:133 Mongo/(5394:5431): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:09:34:212 Mongo/(5458:5458): INICIANDO RECURSOS
+[INFO] 18:09:34:213 Mongo/(5458:5458): Es un FS existente.
+[INFO] 18:09:34:214 Mongo/(5458:5458): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:09:34:214 Mongo/(5458:5458): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:09:34:223 Mongo/(5458:5458): Se bajaron los datos del Superbloque existente!
+[INFO] 18:09:34:226 Mongo/(5458:5458): Se creo estructura bloques!
+[INFO] 18:09:34:231 Mongo/(5458:5458): Cantidad de bloques generados: 326
+[INFO] 18:10:28:836 Mongo/(5516:5516): INICIANDO RECURSOS
+[INFO] 18:10:28:837 Mongo/(5516:5516): Es un FS existente.
+[INFO] 18:10:28:838 Mongo/(5516:5516): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:10:28:838 Mongo/(5516:5516): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:10:28:871 Mongo/(5516:5516): Se bajaron los datos del Superbloque existente!
+[INFO] 18:10:28:873 Mongo/(5516:5516): Se creo estructura bloques!
+[INFO] 18:10:28:874 Mongo/(5516:5516): Cantidad de bloques generados: 326
+[INFO] 18:10:35:132 Mongo/(5516:5516): Se conecto un cliente con socket: 8
+
+[INFO] 18:10:35:168 Mongo/(5516:5516): Se conecto un cliente con socket: 8
+
+[INFO] 18:10:39:003 Mongo/(5516:5516): Se conecto un cliente con socket: 8
+
+[INFO] 18:10:39:005 Mongo/(5516:5516): Se conecto un cliente con socket: 8
+
+[INFO] 18:10:39:012 Mongo/(5516:5535): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:10:39:013 Mongo/(5516:5532): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:10:57:511 Mongo/(5557:5557): INICIANDO RECURSOS
+[INFO] 18:10:57:519 Mongo/(5557:5557): Generando estructura del FS
+[INFO] 18:10:57:534 Mongo/(5557:5557): Se creo estructura bloques!
+[INFO] 18:10:57:559 Mongo/(5557:5557): Cantidad de bloques generados: 326
+[INFO] 18:10:57:559 Mongo/(5557:5557): Se creo el Bitmap logico con 41 Bytes
+[INFO] 18:10:57:559 Mongo/(5557:5557): Se creo el superbloque nuevo!
+[INFO] 18:10:57:560 Mongo/(5557:5557): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:10:57:560 Mongo/(5557:5557): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:10:57:561 Mongo/(5557:5557): Se bajaron los datos del Superbloque existente!
+[INFO] 18:10:57:562 Mongo/(5557:5557): Se crearon los bloques!
+[INFO] 18:10:57:562 Mongo/(5557:5557): se creo el directorio file correctamente
+
+[INFO] 18:10:57:562 Mongo/(5557:5557): se creo el directorio bitacora correctamente
+
+[INFO] 18:11:04:907 Mongo/(5557:5557): Se conecto un cliente con socket: 8
+
+[INFO] 18:11:04:939 Mongo/(5557:5557): Se conecto un cliente con socket: 8
+
+[INFO] 18:11:12:271 Mongo/(5557:5557): Se conecto un cliente con socket: 8
+
+[INFO] 18:11:12:273 Mongo/(5557:5557): Se conecto un cliente con socket: 8
+
+[INFO] 18:11:12:277 Mongo/(5557:5587): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:11:12:278 Mongo/(5557:5584): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:11:17:275 Mongo/(5557:5557): Se conecto un cliente con socket: 8
+
+[INFO] 18:11:17:277 Mongo/(5557:5597): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:12:53:663 Mongo/(5699:5699): INICIANDO RECURSOS
+[INFO] 18:12:53:664 Mongo/(5699:5699): Generando estructura del FS
+[INFO] 18:12:53:665 Mongo/(5699:5699): Se creo estructura bloques!
+[INFO] 18:12:53:665 Mongo/(5699:5699): Cantidad de bloques generados: 326
+[INFO] 18:12:53:666 Mongo/(5699:5699): Se creo el Bitmap logico con 41 Bytes
+[INFO] 18:12:53:666 Mongo/(5699:5699): Se creo el superbloque nuevo!
+[INFO] 18:12:53:666 Mongo/(5699:5699): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:12:53:666 Mongo/(5699:5699): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:12:53:671 Mongo/(5699:5699): Se bajaron los datos del Superbloque existente!
+[INFO] 18:12:53:671 Mongo/(5699:5699): Se crearon los bloques!
+[INFO] 18:12:53:671 Mongo/(5699:5699): se creo el directorio file correctamente
+
+[INFO] 18:12:53:678 Mongo/(5699:5699): se creo el directorio bitacora correctamente
+
+[INFO] 18:13:01:160 Mongo/(5699:5699): Se conecto un cliente con socket: 8
+
+[INFO] 18:13:01:176 Mongo/(5699:5699): Se conecto un cliente con socket: 8
+
+[INFO] 18:13:24:577 Mongo/(5699:5699): Se conecto un cliente con socket: 8
+
+[INFO] 18:13:24:580 Mongo/(5699:5699): Se conecto un cliente con socket: 8
+
+[INFO] 18:13:24:584 Mongo/(5699:5749): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:13:24:585 Mongo/(5699:5748): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:13:29:582 Mongo/(5699:5699): Se conecto un cliente con socket: 8
+
+[INFO] 18:13:29:583 Mongo/(5699:5699): Se conecto un cliente con socket: 8
+
+[INFO] 18:13:29:583 Mongo/(5699:5761): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:07:898 Mongo/(5808:5808): INICIANDO RECURSOS
+[INFO] 18:14:07:906 Mongo/(5808:5808): Generando estructura del FS
+[INFO] 18:14:07:911 Mongo/(5808:5808): Se creo estructura bloques!
+[INFO] 18:14:07:912 Mongo/(5808:5808): Cantidad de bloques generados: 326
+[INFO] 18:14:07:912 Mongo/(5808:5808): Se creo el Bitmap logico con 41 Bytes
+[INFO] 18:14:07:912 Mongo/(5808:5808): Se creo el superbloque nuevo!
+[INFO] 18:14:07:912 Mongo/(5808:5808): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:14:07:912 Mongo/(5808:5808): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:14:07:917 Mongo/(5808:5808): Se bajaron los datos del Superbloque existente!
+[INFO] 18:14:07:918 Mongo/(5808:5808): Se crearon los bloques!
+[INFO] 18:14:07:918 Mongo/(5808:5808): se creo el directorio file correctamente
+
+[INFO] 18:14:07:919 Mongo/(5808:5808): se creo el directorio bitacora correctamente
+
+[INFO] 18:14:15:570 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:15:599 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:21:304 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:21:307 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:21:312 Mongo/(5808:5831): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:14:21:313 Mongo/(5808:5828): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 18:14:26:308 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:26:310 Mongo/(5808:5841): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:26:311 Mongo/(5808:5841): El ultimo bloque del tripulante es: 1
+[INFO] 18:14:26:313 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:26:315 Mongo/(5808:5843): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:26:316 Mongo/(5808:5843): El ultimo bloque del tripulante es: 0
+[INFO] 18:14:31:313 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:31:315 Mongo/(5808:5848): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:31:316 Mongo/(5808:5848): El ultimo bloque del tripulante es: 1
+[INFO] 18:14:31:318 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:31:320 Mongo/(5808:5850): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:31:320 Mongo/(5808:5850): El ultimo bloque del tripulante es: 0
+[INFO] 18:14:36:317 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:36:319 Mongo/(5808:5860): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:36:320 Mongo/(5808:5860): El ultimo bloque del tripulante es: 1
+[INFO] 18:14:36:323 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:36:325 Mongo/(5808:5862): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:36:343 Mongo/(5808:5862): El ultimo bloque del tripulante es: 0
+[INFO] 18:14:41:320 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:41:322 Mongo/(5808:5869): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:41:323 Mongo/(5808:5869): El ultimo bloque del tripulante es: 1
+[INFO] 18:14:41:327 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:41:329 Mongo/(5808:5871): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:41:329 Mongo/(5808:5871): El ultimo bloque del tripulante es: 0
+[INFO] 18:14:46:325 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:46:330 Mongo/(5808:5875): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:46:331 Mongo/(5808:5875): El ultimo bloque del tripulante es: 1
+[INFO] 18:14:46:353 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:46:357 Mongo/(5808:5877): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:46:357 Mongo/(5808:5877): El ultimo bloque del tripulante es: 0
+[INFO] 18:14:51:331 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:51:335 Mongo/(5808:5888): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:51:337 Mongo/(5808:5888): El ultimo bloque del tripulante es: 1
+[INFO] 18:14:51:360 Mongo/(5808:5808): Se conecto un cliente con socket: 8
+
+[INFO] 18:14:51:373 Mongo/(5808:5890): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:14:51:374 Mongo/(5808:5890): El ultimo bloque del tripulante es: 0
+[INFO] 18:35:11:714 Mongo/(7201:7201): INICIANDO RECURSOS
+[INFO] 18:35:11:716 Mongo/(7201:7201): Generando estructura del FS
+[INFO] 18:35:11:720 Mongo/(7201:7201): Se creo estructura bloques!
+[INFO] 18:35:11:728 Mongo/(7201:7201): Cantidad de bloques generados: 326
+[INFO] 18:35:11:729 Mongo/(7201:7201): Se creo el Bitmap logico con 41 Bytes
+[INFO] 18:35:11:730 Mongo/(7201:7201): Se creo el superbloque nuevo!
+[INFO] 18:35:11:731 Mongo/(7201:7201): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:35:11:731 Mongo/(7201:7201): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:35:11:754 Mongo/(7201:7201): Se bajaron los datos del Superbloque existente!
+[INFO] 18:35:11:755 Mongo/(7201:7201): Se crearon los bloques!
+[INFO] 18:35:11:755 Mongo/(7201:7201): se creo el directorio file correctamente
+
+[INFO] 18:35:11:756 Mongo/(7201:7201): se creo el directorio bitacora correctamente
+
+[INFO] 18:35:24:257 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:24:273 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:27:871 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:27:876 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:27:879 Mongo/(7201:7226): Creando el archivo del tripulante 2 de patota 1
+[INFO] 18:35:27:879 Mongo/(7201:7227): Creando el archivo del tripulante 1 de patota 1
+[INFO] 18:35:27:881 Mongo/(7201:7226): Asigno el bloque numero:1 al tripulante 2 de patota 1
+
+[INFO] 18:35:27:898 Mongo/(7201:7227): Asigno el bloque numero:2 al tripulante 1 de patota 1
+
+[INFO] 18:35:32:875 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:32:878 Mongo/(7201:7233): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:32:879 Mongo/(7201:7233): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:35:32:882 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:32:906 Mongo/(7201:7236): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:32:907 Mongo/(7201:7236): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 1 y esta en indice: 0
+[INFO] 18:35:37:880 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:37:882 Mongo/(7201:7241): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:37:884 Mongo/(7201:7241): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:35:37:887 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:37:888 Mongo/(7201:7243): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:37:899 Mongo/(7201:7243): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 1 y esta en indice: 0
+[INFO] 18:35:42:884 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:42:886 Mongo/(7201:7250): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:42:887 Mongo/(7201:7250): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:35:42:889 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:42:892 Mongo/(7201:7252): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:42:892 Mongo/(7201:7252): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 1 y esta en indice: 0
+[INFO] 18:35:47:888 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:47:890 Mongo/(7201:7257): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:47:891 Mongo/(7201:7257): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:35:47:894 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:47:911 Mongo/(7201:7259): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:47:912 Mongo/(7201:7259): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 1 y esta en indice: 0
+[INFO] 18:35:52:891 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:52:893 Mongo/(7201:7264): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:52:894 Mongo/(7201:7264): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:35:52:899 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:52:919 Mongo/(7201:7266): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:52:920 Mongo/(7201:7266): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 1 y esta en indice: 0
+[INFO] 18:35:57:894 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:57:897 Mongo/(7201:7271): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:57:898 Mongo/(7201:7271): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:35:57:906 Mongo/(7201:7201): Se conecto un cliente con socket: 8
+
+[INFO] 18:35:57:921 Mongo/(7201:7272): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:35:57:922 Mongo/(7201:7272): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 1 y esta en indice: 0
+[INFO] 18:41:14:759 Mongo/(7576:7576): INICIANDO RECURSOS
+[INFO] 18:41:14:761 Mongo/(7576:7576): Es un FS existente.
+[INFO] 18:41:14:768 Mongo/(7576:7576): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:41:14:768 Mongo/(7576:7576): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:41:14:773 Mongo/(7576:7576): Se bajaron los datos del Superbloque existente!
+[INFO] 18:41:14:777 Mongo/(7576:7576): Se creo estructura bloques!
+[INFO] 18:41:14:788 Mongo/(7576:7576): Cantidad de bloques generados: 326
+[INFO] 18:42:28:742 Mongo/(7649:7649): INICIANDO RECURSOS
+[INFO] 18:42:28:743 Mongo/(7649:7649): Es un FS existente.
+[INFO] 18:42:28:744 Mongo/(7649:7649): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:42:28:744 Mongo/(7649:7649): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:42:28:761 Mongo/(7649:7649): Se bajaron los datos del Superbloque existente!
+[INFO] 18:42:28:777 Mongo/(7649:7649): Se creo estructura bloques!
+[INFO] 18:42:28:784 Mongo/(7649:7649): Cantidad de bloques generados: 326
+[INFO] 18:43:39:771 Mongo/(7813:7813): INICIANDO RECURSOS
+[INFO] 18:43:39:773 Mongo/(7813:7813): Es un FS existente.
+[INFO] 18:43:39:773 Mongo/(7813:7813): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:43:39:774 Mongo/(7813:7813): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 18:43:39:779 Mongo/(7813:7813): Se bajaron los datos del Superbloque existente!
+[INFO] 18:43:39:799 Mongo/(7813:7813): Se creo estructura bloques!
+[INFO] 18:43:39:800 Mongo/(7813:7813): Cantidad de bloques generados: 326
+[INFO] 18:43:48:987 Mongo/(7813:7813): Se conecto un cliente con socket: 8
+
+[INFO] 18:43:52:156 Mongo/(7813:7813): Se conecto un cliente con socket: 8
+
+[INFO] 18:43:52:158 Mongo/(7813:7830): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:43:52:159 Mongo/(7813:7830): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 2 y esta en indice: 1
+[INFO] 18:43:57:158 Mongo/(7813:7813): Se conecto un cliente con socket: 8
+
+[INFO] 18:43:57:161 Mongo/(7813:7838): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 18:43:57:162 Mongo/(7813:7838): El ultimo bloque asinado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 4 y esta en indice: 3

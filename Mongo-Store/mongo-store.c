@@ -157,7 +157,7 @@ void iniciar_recursos_mongo(void) {
 
 	sem_init(&dar_orden_sabotaje, 0, 0);
 	sem_init(&contador_sabotaje, 0, 1);
-	sem_init(&semaforo_bitmap, 0, 1);
+//	sem_init(&semaforo_bitmap, 0, 1); lo cambie por un mutex
 	sem_init(&semaforo_bitacora, 0, 1);
 
 
@@ -256,7 +256,6 @@ void crearEstructurasBloques(){
 
 t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 
-	//sleep(10);
 	t_bloque* el_bloque;
 	int cantidad_de_bloques=0;
 	struct stat statbuf;
@@ -266,17 +265,16 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 	char **renglones_bitacora= string_split(archivo_addr, "=");
 
 	char **bloques_bitacora= string_split(renglones_bitacora[2], ",");
-	while(bloques_bitacora[cantidad_de_bloques]){
+	while(bloques_bitacora[cantidad_de_bloques] != NULL){
 		cantidad_de_bloques++;
 	}
 
-	int indexUltimoBloque = atoi(bloques_bitacora[cantidad_de_bloques])-1;
-
-	log_info(mongoLogger, "El ultimo bloque del tripulante es: %d", indexUltimoBloque);
-
-	sleep(6);
+	int indexUltimoBloque = atoi(bloques_bitacora[cantidad_de_bloques - 1]) - 1;
 
 	el_bloque=(t_bloque *)list_get(disco_logico->bloques, indexUltimoBloque);
+
+	log_info(mongoLogger, "El ultimo bloque asinado en la bitacora %s es: %d y esta en indice: %d",
+				rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);
 
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
@@ -837,11 +835,11 @@ void *gestionarCliente(int socket) {
 
 	while (1) {
 		int cliente = esperar_cliente(socket, mongoLogger);
-		printf("Cliente: %d\n", cliente);
+//		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
-		printf("\nLA OPERACION ES: %d\n", operacion);
+//		printf("\nLA OPERACION ES: %d\n", operacion);
 
 //		switch(operacion) {
 //			case OBTENGO_BITACORA:
@@ -1227,41 +1225,49 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 	string_append(&rutaBitacora, ".ims");
 	int existeArchivo = access(rutaBitacora, F_OK);
 	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
-	if(existeArchivo==0){
-		log_info(mongoLogger, "El archivo del tripulante existe, buscando su ultimo bloque");
+	if (existeArchivo == 0) {
+		log_info(mongoLogger,
+				"El archivo del tripulante existe, buscando su ultimo bloque");
 
 		//ultimo bloque en char
 		el_bloque = buscar_ultimo_bloque_del_tripulante(rutaBitacora);
 		//si hay espacio en el bloque para escribir to do, entonces lo escribo
-		if(el_bloque->espacio>string_length(lo_que_se_va_a_escribir)){
+		if (el_bloque->espacio > string_length(lo_que_se_va_a_escribir)) {
 
-			escribir_en_block(lo_que_se_va_a_escribir,el_bloque);
+			escribir_en_block(lo_que_se_va_a_escribir, el_bloque);
 
-			}
+		}
 		//sino escribo una parte y elijo otro bloque para lo restante
-			else{
-				char *lo_que_entra_en_el_bloque=string_substring_until(lo_que_se_va_a_escribir,el_bloque->espacio);
-				escribir_en_block(lo_que_entra_en_el_bloque,el_bloque);
-				char *lo_que_falta_escribir=string_substring_from(lo_que_se_va_a_escribir,string_length(lo_que_entra_en_el_bloque));
-				//asigno el bloque nuevo
-				numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
-				nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques, numero_del_nuevo_bloque);
-				//escribir lo_que_falta_escribir
-				escribir_en_block(lo_que_falta_escribir,nuevo_bloque);
-				//actualizar el bitmap
-				//ocupar_bloque(bitmap, numero_del_nuevo_bloque);
-				// actualizar bitacora con el bloque nuevo del tripulante
-				agregar_bloque_bitacora(rutaBitacora,nuevo_bloque->id_bloque);
-			}
+		else {
+			char *lo_que_entra_en_el_bloque = string_substring_until(
+					lo_que_se_va_a_escribir, el_bloque->espacio);
+			escribir_en_block(lo_que_entra_en_el_bloque, el_bloque);
+			char *lo_que_falta_escribir = string_substring_from(
+					lo_que_se_va_a_escribir,
+					string_length(lo_que_entra_en_el_bloque));
+			//asigno el bloque nuevo
+			numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+			nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
+					numero_del_nuevo_bloque);
+			//escribir lo_que_falta_escribir
+			escribir_en_block(lo_que_falta_escribir, nuevo_bloque);
+			//actualizar el bitmap
+			ocupar_bloque(bitmap, numero_del_nuevo_bloque);
+			// actualizar bitacora con el bloque nuevo del tripulante
+			agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);
+		}
 	}
 	else{
-		log_info(mongoLogger, "El archivo del tripulante no existe, generando nuevo bloque");
+		log_info(mongoLogger, "Creando el archivo del tripulante %d de patota %d",
+						tripulante->idTripulante, tripulante->idPatota);
 		//asigno el bloque nuevo
 		numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+
+		log_info(mongoLogger, "Asigno el bloque numero:%d al tripulante %d de patota %d\n",
+				numero_del_nuevo_bloque, tripulante->idTripulante, tripulante->idPatota);
+
 		//creo el archivo bitacora
-		printf("Bloque que me dio:%d\n",numero_del_nuevo_bloque);
 		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1);
-		printf("bloque:%d\n", nuevo_bloque->id_bloque);
 		sem_wait(&semaforo_bitacora);
 		inicializar_bitacora(rutaBitacora,string_itoa(nuevo_bloque->id_bloque));
 		sem_post(&semaforo_bitacora);

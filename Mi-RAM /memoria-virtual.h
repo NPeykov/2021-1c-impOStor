@@ -15,6 +15,7 @@ int TAM_SWAP;
 int PUNTERO_ALGORITMO;
 t_bitarray *BIT_ARRAY_SWAP;
 void *MEMORIA_VIRTUAL;
+int marcos_en_swap;
 
 int crear_archivo_swap();
 void llenarArchivo(int, int);

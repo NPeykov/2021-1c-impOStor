@@ -43,13 +43,15 @@ typedef struct {
 } t_alojado;
 
 t_bitarray* frames_ocupados_ppal;
-int cant_marcos_memoria;
 
 pthread_mutex_t mutexEscribiendoMemoria;
 pthread_mutex_t mutexBitArray;
-pthread_mutex_t mutexTablaPatota;
+pthread_mutex_t mutexTablaPaginas;
 pthread_mutex_t mutexAlojados;
-pthread_mutex_t mutexTablaProcesos;
+pthread_mutex_t mutexTablaPatotas;
+pthread_mutex_t mutexNumeroPatotas;
+
+sem_t tripulantesDisponiblesPag;
 
 /* Verifica que un frame existe en memoria y es válido */
 
@@ -98,7 +100,7 @@ t_pagina* crear_pagina_en_tabla(t_proceso* ,int);
 
 /* Asigna la pagina en la tabla de la patota y la inserta en el malloc de memoria */
 
-int asignar_paginas_en_tabla(void* , t_proceso* , int);
+int insertar_en_paginas(void* , t_proceso* , int, int);
 
 /* Verifica que la patota/proceso exista */
 
@@ -143,10 +145,6 @@ bool tiene_pagina_tripu_alojado(t_list* , int);
 /* Retorna la estructura administrativa de la pagina de un tripulante */
 
 t_alojado* obtener_tripulante_pagina(t_list* , int);
-
-/* Sirve para actualizar el estado del tripulante en el malloc memoria */
-
-int actualizar_tripulante_EnMem_pag(t_proceso* , TripuCB*);
 
 /* Trae todas la paginas asociadas a un tripulante */
 

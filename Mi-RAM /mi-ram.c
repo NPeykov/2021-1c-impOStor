@@ -3,7 +3,7 @@
 #include "paginacion.c"
 
 void inicializar_ram(){
-	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_WARNING);
+	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_INFO);
 
 	log_info(logs_ram,"################# Modulo Mi-RAM #################\n");
 
@@ -22,7 +22,7 @@ void inicializar_ram(){
 	memoriaPrincipal = list_create();
 	patotas = list_create();
 
-	crear_nivel();
+	//crear_nivel();
 }
 
 void *gestionarCliente(int socket) {
@@ -95,7 +95,7 @@ void atenderSegunEsquema(){
 	if(strcmp(tipoMemoria, "SEGMENTACION") == 0){
 		inicializarSegmentacion(); //Inicializacion de semaforos y variables del esquema
 	}else{
-
+		inicializarPaginacion();
 	}
 	pthread_t hilo_cliente;
 

@@ -38,7 +38,7 @@ char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
-char *dirBlocks;
+//char *dirBlocks;
 t_log* mongoLogger;
 int socket_cliente;
 int blocks;
@@ -48,11 +48,14 @@ t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 
-char *superbloque;
-void *bitarrayComoVoid;
+void *superbloque;
+char *bitarrayEnChar;
 t_bitarray *bitmap;
 uint32_t *g_block_size;
 uint32_t *g_blocks;
+
+uint32_t g_nuevo_blocks;
+uint32_t g_nuevo_block_size;
 
 int tamanio_de_bloque;
 int cantidad_de_bloques;

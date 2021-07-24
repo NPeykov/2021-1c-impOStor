@@ -116,3 +116,1976 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 
 [INFO] 01:06:52:071 Mongo/(11137:11137): Se conecto un cliente con socket: 7
 
+[INFO] 19:41:58:141 Mongo/(17207:17207): Se conecto un cliente con socket: 7
+
+[INFO] 19:42:07:523 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:10:973 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:13:973 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:16:974 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:19:975 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:22:976 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:25:977 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:28:977 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:31:979 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:42:34:980 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:43:22:988 Mongo/(17207:17207): Se conecto un cliente con socket: 8
+
+[INFO] 19:49:32:385 Mongo/(17450:17450): Se conecto un cliente con socket: 5
+
+[INFO] 19:50:34:937 Mongo/(17578:17578): Se conecto un cliente con socket: 5
+
+[INFO] 19:50:40:087 Mongo/(17578:17578): Se conecto un cliente con socket: 7
+
+[INFO] 19:50:45:758 Mongo/(17578:17578): Se conecto un cliente con socket: 7
+
+[INFO] 19:53:44:554 Mongo/(17671:17671): Se conecto un cliente con socket: 7
+
+[INFO] 19:53:56:752 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:11:311 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:14:311 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:17:312 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:20:313 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:23:314 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:26:315 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:29:316 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:32:317 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:54:35:317 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:55:23:324 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:55:45:346 Mongo/(17671:17671): Se conecto un cliente con socket: 8
+
+[INFO] 19:56:38:626 Mongo/(17671:17671): Se conecto un cliente con socket: 9
+
+[INFO] 19:56:48:905 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:56:58:279 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:01:280 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:04:280 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:07:282 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:10:282 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:13:283 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:16:284 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:19:284 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:57:22:284 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 19:58:10:292 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 20:00:06:907 Mongo/(17671:17671): Se conecto un cliente con socket: 10
+
+[INFO] 20:00:24:417 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:30:688 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:33:688 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:36:690 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:39:690 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:42:691 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:45:692 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:47:905 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:47:906 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:48:693 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:50:906 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:51:694 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:53:907 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:54:695 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:56:908 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:00:59:908 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:01:02:908 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:01:05:909 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:01:08:910 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:01:11:910 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:01:42:703 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:01:59:917 Mongo/(17671:17671): Se conecto un cliente con socket: 11
+
+[INFO] 20:06:42:988 Mongo/(18193:18193): Se conecto un cliente con socket: 7
+
+[INFO] 20:06:49:163 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:06:54:953 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:06:57:954 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:00:955 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:03:955 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:06:956 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:09:957 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:12:957 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:15:958 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:07:18:959 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:08:06:967 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:11:27:310 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:11:27:311 Mongo/(18193:18193): Se conecto un cliente con socket: 8
+
+[INFO] 20:54:35:336 Mongo/(28751:28751): Es un FS existente.
+[INFO] 20:54:35:364 Mongo/(28751:28751): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 20:54:35:364 Mongo/(28751:28751): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 20:54:45:366 Mongo/(28751:28751): Se bajaron los datos del Superbloque existente!
+[INFO] 20:54:45:366 Mongo/(28751:28751): Se creo el Bitmap logico
+[INFO] 20:54:45:367 Mongo/(28751:28751): INICIANDO RECURSOS
+[INFO] 20:55:02:183 Mongo/(28751:28751): Se conecto un cliente con socket: 8
+
+[INFO] 20:55:02:186 Mongo/(28751:28751): Se conecto un cliente con socket: 8
+
+[INFO] 20:55:11:738 Mongo/(28751:28751): Se conecto un cliente con socket: 8
+
+[INFO] 20:55:11:739 Mongo/(28751:28751): Se conecto un cliente con socket: 8
+
+[INFO] 20:56:20:469 Mongo/(28878:28878): Es un FS existente.
+[INFO] 20:56:20:501 Mongo/(28878:28878): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 20:56:20:502 Mongo/(28878:28878): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 20:56:30:504 Mongo/(28878:28878): Se bajaron los datos del Superbloque existente!
+[INFO] 20:56:30:505 Mongo/(28878:28878): Se creo el Bitmap logico
+[INFO] 20:56:30:505 Mongo/(28878:28878): INICIANDO RECURSOS
+[INFO] 20:59:31:707 Mongo/(29033:29033): Generando estructura del FS
+[INFO] 21:01:51:585 Mongo/(29199:29199): INICIANDO RECURSOS
+[INFO] 21:01:51:586 Mongo/(29199:29199): Generando estructura del FS
+[INFO] 21:02:49:805 Mongo/(29272:29272): INICIANDO RECURSOS
+[INFO] 21:02:57:533 Mongo/(29278:29278): INICIANDO RECURSOS
+[INFO] 21:02:57:541 Mongo/(29278:29278): Generando estructura del FS
+[INFO] 21:03:56:132 Mongo/(29360:29360): INICIANDO RECURSOS
+[INFO] 21:04:02:163 Mongo/(29366:29366): INICIANDO RECURSOS
+[INFO] 21:04:02:166 Mongo/(29366:29366): Generando estructura del FS
+[INFO] 21:06:06:521 Mongo/(29507:29507): INICIANDO RECURSOS
+[INFO] 21:06:12:371 Mongo/(29513:29513): INICIANDO RECURSOS
+[INFO] 21:06:12:373 Mongo/(29513:29513): Generando estructura del FS
+[INFO] 21:09:47:209 Mongo/(29693:29693): INICIANDO RECURSOS
+[INFO] 21:09:47:212 Mongo/(29693:29693): Generando estructura del FS
+[INFO] 21:10:20:284 Mongo/(29736:29736): INICIANDO RECURSOS
+[INFO] 21:10:38:586 Mongo/(29753:29753): INICIANDO RECURSOS
+[INFO] 21:10:38:589 Mongo/(29753:29753): Generando estructura del FS
+[INFO] 21:11:42:517 Mongo/(29830:29830): INICIANDO RECURSOS
+[INFO] 21:11:47:747 Mongo/(29838:29838): INICIANDO RECURSOS
+[INFO] 21:11:47:749 Mongo/(29838:29838): Generando estructura del FS
+[INFO] 21:11:57:751 Mongo/(29838:29838): Se creo estructura bloques!
+[INFO] 21:13:00:305 Mongo/(29916:29916): INICIANDO RECURSOS
+[INFO] 21:13:04:976 Mongo/(29921:29921): INICIANDO RECURSOS
+[INFO] 21:13:04:977 Mongo/(29921:29921): Generando estructura del FS
+[INFO] 21:13:14:977 Mongo/(29921:29921): Se creo estructura bloques!
+[INFO] 21:13:38:775 Mongo/(29966:29966): INICIANDO RECURSOS
+[INFO] 21:13:47:325 Mongo/(29977:29977): INICIANDO RECURSOS
+[INFO] 21:13:47:327 Mongo/(29977:29977): Generando estructura del FS
+[INFO] 21:13:57:328 Mongo/(29977:29977): Se creo estructura bloques!
+[INFO] 21:14:29:605 Mongo/(30036:30036): INICIANDO RECURSOS
+[INFO] 21:14:37:585 Mongo/(30053:30053): INICIANDO RECURSOS
+[INFO] 21:14:37:588 Mongo/(30053:30053): Generando estructura del FS
+[INFO] 21:14:47:589 Mongo/(30053:30053): Se creo estructura bloques!
+[INFO] 21:15:15:415 Mongo/(30109:30109): INICIANDO RECURSOS
+[INFO] 21:15:31:274 Mongo/(30136:30136): INICIANDO RECURSOS
+[INFO] 21:15:36:503 Mongo/(30148:30148): INICIANDO RECURSOS
+[INFO] 21:15:36:504 Mongo/(30148:30148): Generando estructura del FS
+[INFO] 21:15:46:505 Mongo/(30148:30148): Se creo estructura bloques!
+[INFO] 21:16:19:794 Mongo/(30209:30209): INICIANDO RECURSOS
+[INFO] 21:16:19:796 Mongo/(30209:30209): Generando estructura del FS
+[INFO] 21:16:29:797 Mongo/(30209:30209): Se creo estructura bloques!
+[INFO] 21:17:28:223 Mongo/(30294:30294): INICIANDO RECURSOS
+[INFO] 21:17:28:226 Mongo/(30294:30294): Generando estructura del FS
+[INFO] 21:17:38:226 Mongo/(30294:30294): Se creo estructura bloques!
+[INFO] 21:18:15:042 Mongo/(30347:30347): INICIANDO RECURSOS
+[INFO] 21:18:15:044 Mongo/(30347:30347): Generando estructura del FS
+[INFO] 21:18:25:045 Mongo/(30347:30347): Se creo estructura bloques!
+[INFO] 21:19:14:532 Mongo/(30413:30413): INICIANDO RECURSOS
+[INFO] 21:19:14:556 Mongo/(30413:30413): Generando estructura del FS
+[INFO] 21:20:28:552 Mongo/(30495:30495): INICIANDO RECURSOS
+[INFO] 21:20:28:556 Mongo/(30495:30495): Generando estructura del FS
+[INFO] 21:20:38:560 Mongo/(30495:30495): Se creo estructura bloques!
+[INFO] 21:20:48:560 Mongo/(30495:30495): Se creo el Bitmap logico
+[INFO] 21:22:15:350 Mongo/(30604:30604): INICIANDO RECURSOS
+[INFO] 21:22:15:353 Mongo/(30604:30604): Generando estructura del FS
+[INFO] 21:22:25:354 Mongo/(30604:30604): Se creo estructura bloques!
+[INFO] 21:23:17:708 Mongo/(30674:30674): INICIANDO RECURSOS
+[INFO] 21:23:17:711 Mongo/(30674:30674): Generando estructura del FS
+[INFO] 21:23:27:712 Mongo/(30674:30674): Se creo estructura bloques!
+[INFO] 21:23:32:713 Mongo/(30674:30674): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:28:51:034 Mongo/(30958:30958): INICIANDO RECURSOS
+[INFO] 21:28:51:037 Mongo/(30958:30958): Generando estructura del FS
+[INFO] 21:28:51:037 Mongo/(30958:30958): Se creo estructura bloques!
+[INFO] 21:28:51:037 Mongo/(30958:30958): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:31:12:127 Mongo/(31104:31104): INICIANDO RECURSOS
+[INFO] 21:31:12:129 Mongo/(31104:31104): Generando estructura del FS
+[INFO] 21:31:12:129 Mongo/(31104:31104): Se creo estructura bloques!
+[INFO] 21:31:12:129 Mongo/(31104:31104): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:32:08:861 Mongo/(31184:31184): INICIANDO RECURSOS
+[INFO] 21:32:08:879 Mongo/(31184:31184): Generando estructura del FS
+[INFO] 21:32:08:880 Mongo/(31184:31184): Se creo estructura bloques!
+[INFO] 21:32:08:880 Mongo/(31184:31184): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:32:30:672 Mongo/(31217:31217): INICIANDO RECURSOS
+[INFO] 21:32:30:673 Mongo/(31217:31217): Generando estructura del FS
+[INFO] 21:32:30:675 Mongo/(31217:31217): Se creo estructura bloques!
+[INFO] 21:32:30:675 Mongo/(31217:31217): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:34:03:363 Mongo/(31350:31350): INICIANDO RECURSOS
+[INFO] 21:34:03:365 Mongo/(31350:31350): Generando estructura del FS
+[INFO] 21:34:03:367 Mongo/(31350:31350): Se creo estructura bloques!
+[INFO] 21:34:03:367 Mongo/(31350:31350): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:40:26:125 Mongo/(31650:31650): INICIANDO RECURSOS
+[INFO] 21:40:26:127 Mongo/(31650:31650): Generando estructura del FS
+[INFO] 21:40:26:128 Mongo/(31650:31650): Se creo estructura bloques!
+[INFO] 21:40:26:128 Mongo/(31650:31650): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:41:53:372 Mongo/(31759:31759): INICIANDO RECURSOS
+[INFO] 21:41:53:404 Mongo/(31759:31759): Generando estructura del FS
+[INFO] 21:41:53:407 Mongo/(31759:31759): Se creo estructura bloques!
+[INFO] 21:41:53:407 Mongo/(31759:31759): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:42:03:408 Mongo/(31759:31759): Se creo el superbloque nuevo!
+[INFO] 21:43:01:312 Mongo/(31846:31846): INICIANDO RECURSOS
+[INFO] 21:43:01:314 Mongo/(31846:31846): Generando estructura del FS
+[INFO] 21:43:01:315 Mongo/(31846:31846): Se creo estructura bloques!
+[INFO] 21:43:01:315 Mongo/(31846:31846): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:43:11:315 Mongo/(31846:31846): Se creo el superbloque nuevo!
+[INFO] 21:45:42:619 Mongo/(32023:32023): INICIANDO RECURSOS
+[INFO] 21:45:42:621 Mongo/(32023:32023): Generando estructura del FS
+[INFO] 21:45:42:622 Mongo/(32023:32023): Se creo estructura bloques!
+[INFO] 21:45:42:622 Mongo/(32023:32023): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:46:13:069 Mongo/(32070:32070): INICIANDO RECURSOS
+[INFO] 21:46:13:072 Mongo/(32070:32070): Generando estructura del FS
+[INFO] 21:46:13:073 Mongo/(32070:32070): Se creo estructura bloques!
+[INFO] 21:46:13:073 Mongo/(32070:32070): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:46:31:777 Mongo/(32098:32098): INICIANDO RECURSOS
+[INFO] 21:46:31:780 Mongo/(32098:32098): Generando estructura del FS
+[INFO] 21:46:31:781 Mongo/(32098:32098): Se creo estructura bloques!
+[INFO] 21:46:31:781 Mongo/(32098:32098): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:46:41:781 Mongo/(32098:32098): Se creo el superbloque nuevo!
+[INFO] 21:47:09:777 Mongo/(32143:32143): INICIANDO RECURSOS
+[INFO] 21:47:09:816 Mongo/(32143:32143): Generando estructura del FS
+[INFO] 21:47:09:816 Mongo/(32143:32143): Se creo estructura bloques!
+[INFO] 21:47:09:816 Mongo/(32143:32143): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:50:38:384 Mongo/(32337:32337): INICIANDO RECURSOS
+[INFO] 21:50:38:387 Mongo/(32337:32337): Generando estructura del FS
+[INFO] 21:50:38:387 Mongo/(32337:32337): Se creo estructura bloques!
+[INFO] 21:50:38:387 Mongo/(32337:32337): Se creo el Bitmap logico con 41 Bytes
+[INFO] 21:50:48:388 Mongo/(32337:32337): Se creo el superbloque nuevo!
+[INFO] 00:09:03:386 Mongo/(1900:1900): INICIANDO RECURSOS
+[INFO] 00:09:03:454 Mongo/(1900:1900): Generando estructura del FS
+[INFO] 00:09:03:454 Mongo/(1900:1900): Se creo estructura bloques!
+[INFO] 00:09:03:455 Mongo/(1900:1900): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:09:13:455 Mongo/(1900:1900): Se creo el superbloque nuevo!
+[INFO] 00:10:37:585 Mongo/(2007:2007): INICIANDO RECURSOS
+[INFO] 00:10:37:628 Mongo/(2007:2007): Generando estructura del FS
+[INFO] 00:10:37:629 Mongo/(2007:2007): Se creo estructura bloques!
+[INFO] 00:10:37:629 Mongo/(2007:2007): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:10:47:630 Mongo/(2007:2007): Se creo el superbloque nuevo!
+[INFO] 00:12:43:500 Mongo/(2114:2114): INICIANDO RECURSOS
+[INFO] 00:12:43:501 Mongo/(2114:2114): Generando estructura del FS
+[INFO] 00:12:43:501 Mongo/(2114:2114): Se creo estructura bloques!
+[INFO] 00:12:43:501 Mongo/(2114:2114): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:12:53:502 Mongo/(2114:2114): Se creo el superbloque nuevo!
+[INFO] 00:13:40:861 Mongo/(2177:2177): INICIANDO RECURSOS
+[INFO] 00:13:40:862 Mongo/(2177:2177): Generando estructura del FS
+[INFO] 00:13:40:862 Mongo/(2177:2177): Se creo estructura bloques!
+[INFO] 00:13:40:862 Mongo/(2177:2177): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:13:50:863 Mongo/(2177:2177): Se creo el superbloque nuevo!
+[INFO] 00:15:40:800 Mongo/(2297:2297): INICIANDO RECURSOS
+[INFO] 00:15:40:808 Mongo/(2297:2297): Generando estructura del FS
+[INFO] 00:15:40:809 Mongo/(2297:2297): Se creo estructura bloques!
+[INFO] 00:15:40:809 Mongo/(2297:2297): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:16:46:470 Mongo/(2381:2381): INICIANDO RECURSOS
+[INFO] 00:16:46:473 Mongo/(2381:2381): Generando estructura del FS
+[INFO] 00:16:46:473 Mongo/(2381:2381): Se creo estructura bloques!
+[INFO] 00:16:46:473 Mongo/(2381:2381): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:17:29:819 Mongo/(2451:2451): INICIANDO RECURSOS
+[INFO] 00:17:29:820 Mongo/(2451:2451): Generando estructura del FS
+[INFO] 00:17:29:820 Mongo/(2451:2451): Se creo estructura bloques!
+[INFO] 00:17:29:820 Mongo/(2451:2451): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:18:51:763 Mongo/(2590:2590): INICIANDO RECURSOS
+[INFO] 00:18:51:766 Mongo/(2590:2590): Generando estructura del FS
+[INFO] 00:20:37:967 Mongo/(2700:2700): INICIANDO RECURSOS
+[INFO] 00:20:37:971 Mongo/(2700:2700): Generando estructura del FS
+[INFO] 00:24:39:854 Mongo/(2964:2964): INICIANDO RECURSOS
+[INFO] 00:24:39:885 Mongo/(2964:2964): Generando estructura del FS
+[INFO] 00:24:39:885 Mongo/(2964:2964): Se creo estructura bloques!
+[INFO] 00:24:39:886 Mongo/(2964:2964): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:24:44:886 Mongo/(2964:2964): Se creo el superbloque nuevo!
+[INFO] 00:24:49:888 Mongo/(2964:2964): Se crearon los bloques!
+[INFO] 00:24:49:889 Mongo/(2964:2964): se creo el directorio file correctamente
+
+[INFO] 00:24:49:889 Mongo/(2964:2964): se creo el directorio bitacora correctamente
+
+[INFO] 00:25:38:545 Mongo/(2964:2964): Se conecto un cliente con socket: 7
+
+[INFO] 00:25:49:476 Mongo/(2964:2964): Se conecto un cliente con socket: 8
+
+[INFO] 00:25:49:477 Mongo/(2964:2964): Se conecto un cliente con socket: 8
+
+[INFO] 00:26:31:328 Mongo/(3207:3207): INICIANDO RECURSOS
+[INFO] 00:26:31:342 Mongo/(3207:3207): Es un FS existente.
+[INFO] 00:26:31:342 Mongo/(3207:3207): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:26:31:342 Mongo/(3207:3207): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:26:41:343 Mongo/(3207:3207): Se bajaron los datos del Superbloque existente!
+[INFO] 00:26:41:343 Mongo/(3207:3207): Se creo estructura bloques!
+[INFO] 00:26:41:343 Mongo/(3207:3207): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:27:43:199 Mongo/(3207:3207): Se conecto un cliente con socket: 8
+
+[INFO] 00:27:49:292 Mongo/(3207:3207): Se conecto un cliente con socket: 9
+
+[INFO] 00:27:49:294 Mongo/(3207:3207): Se conecto un cliente con socket: 9
+
+[INFO] 00:27:54:625 Mongo/(3207:3207): Se conecto un cliente con socket: 9
+
+[INFO] 00:27:54:625 Mongo/(3207:3207): Se conecto un cliente con socket: 9
+
+[INFO] 00:28:11:069 Mongo/(3399:3399): INICIANDO RECURSOS
+[INFO] 00:28:11:090 Mongo/(3399:3399): Generando estructura del FS
+[INFO] 00:28:11:090 Mongo/(3399:3399): Se creo estructura bloques!
+[INFO] 00:28:11:090 Mongo/(3399:3399): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:28:16:091 Mongo/(3399:3399): Se creo el superbloque nuevo!
+[INFO] 00:28:21:091 Mongo/(3399:3399): Se crearon los bloques!
+[INFO] 00:28:21:092 Mongo/(3399:3399): se creo el directorio file correctamente
+
+[INFO] 00:28:21:092 Mongo/(3399:3399): se creo el directorio bitacora correctamente
+
+[INFO] 00:28:25:337 Mongo/(3399:3399): Se conecto un cliente con socket: 7
+
+[INFO] 00:28:31:625 Mongo/(3399:3399): Se conecto un cliente con socket: 8
+
+[INFO] 00:28:31:626 Mongo/(3399:3399): Se conecto un cliente con socket: 8
+
+[INFO] 00:28:38:484 Mongo/(3399:3399): Se conecto un cliente con socket: 8
+
+[INFO] 00:28:38:484 Mongo/(3399:3399): Se conecto un cliente con socket: 8
+
+[INFO] 00:46:04:557 Mongo/(5740:5740): INICIANDO RECURSOS
+[INFO] 00:46:04:675 Mongo/(5740:5740): Es un FS existente.
+[INFO] 00:46:04:676 Mongo/(5740:5740): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:46:04:676 Mongo/(5740:5740): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:46:14:676 Mongo/(5740:5740): Se bajaron los datos del Superbloque existente!
+[INFO] 00:46:14:676 Mongo/(5740:5740): Se creo estructura bloques!
+[INFO] 00:46:14:676 Mongo/(5740:5740): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:46:17:393 Mongo/(5740:5740): Se conecto un cliente con socket: 8
+
+[INFO] 00:47:45:240 Mongo/(5975:5975): INICIANDO RECURSOS
+[INFO] 00:47:45:240 Mongo/(5975:5975): Es un FS existente.
+[INFO] 00:47:45:240 Mongo/(5975:5975): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:47:45:240 Mongo/(5975:5975): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:47:45:240 Mongo/(5975:5975): Se bajaron los datos del Superbloque existente!
+[INFO] 00:47:45:240 Mongo/(5975:5975): Se creo estructura bloques!
+[INFO] 00:47:45:240 Mongo/(5975:5975): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:50:02:215 Mongo/(6335:6335): INICIANDO RECURSOS
+[INFO] 00:50:02:253 Mongo/(6335:6335): Generando estructura del FS
+[INFO] 00:50:02:253 Mongo/(6335:6335): Se creo estructura bloques!
+[INFO] 00:50:02:253 Mongo/(6335:6335): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:50:02:254 Mongo/(6335:6335): Se creo el superbloque nuevo!
+[INFO] 00:50:02:256 Mongo/(6335:6335): Se crearon los bloques!
+[INFO] 00:50:02:256 Mongo/(6335:6335): se creo el directorio file correctamente
+
+[INFO] 00:50:02:258 Mongo/(6335:6335): se creo el directorio bitacora correctamente
+
+[INFO] 00:50:48:148 Mongo/(6456:6456): INICIANDO RECURSOS
+[INFO] 00:50:48:151 Mongo/(6456:6456): Generando estructura del FS
+[INFO] 00:50:48:151 Mongo/(6456:6456): Se creo estructura bloques!
+[INFO] 00:50:48:151 Mongo/(6456:6456): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:50:48:151 Mongo/(6456:6456): Se creo el superbloque nuevo!
+[INFO] 00:50:48:153 Mongo/(6456:6456): Se crearon los bloques!
+[INFO] 00:50:48:154 Mongo/(6456:6456): se creo el directorio file correctamente
+
+[INFO] 00:50:48:154 Mongo/(6456:6456): se creo el directorio bitacora correctamente
+
+[INFO] 00:51:06:069 Mongo/(6493:6493): INICIANDO RECURSOS
+[INFO] 00:51:06:069 Mongo/(6493:6493): Es un FS existente.
+[INFO] 00:51:06:069 Mongo/(6493:6493): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:51:06:069 Mongo/(6493:6493): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:51:06:070 Mongo/(6493:6493): Se bajaron los datos del Superbloque existente!
+[INFO] 00:51:06:070 Mongo/(6493:6493): Se creo estructura bloques!
+[INFO] 00:51:55:713 Mongo/(6635:6635): INICIANDO RECURSOS
+[INFO] 00:51:55:713 Mongo/(6635:6635): Es un FS existente.
+[INFO] 00:51:55:713 Mongo/(6635:6635): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:51:55:713 Mongo/(6635:6635): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:51:55:716 Mongo/(6635:6635): Se bajaron los datos del Superbloque existente!
+[INFO] 00:51:55:716 Mongo/(6635:6635): Se creo estructura bloques!
+[INFO] 00:54:02:768 Mongo/(6951:6951): INICIANDO RECURSOS
+[INFO] 00:54:02:777 Mongo/(6951:6951): Generando estructura del FS
+[INFO] 00:54:02:778 Mongo/(6951:6951): Se creo estructura bloques!
+[INFO] 00:54:02:778 Mongo/(6951:6951): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:54:02:778 Mongo/(6951:6951): Se creo el superbloque nuevo!
+[INFO] 00:54:02:780 Mongo/(6951:6951): Se crearon los bloques!
+[INFO] 00:54:02:781 Mongo/(6951:6951): se creo el directorio file correctamente
+
+[INFO] 00:54:02:781 Mongo/(6951:6951): se creo el directorio bitacora correctamente
+
+[INFO] 00:54:21:800 Mongo/(6991:6991): INICIANDO RECURSOS
+[INFO] 00:54:21:800 Mongo/(6991:6991): Es un FS existente.
+[INFO] 00:54:21:800 Mongo/(6991:6991): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:54:21:800 Mongo/(6991:6991): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:54:21:803 Mongo/(6991:6991): Se bajaron los datos del Superbloque existente!
+[INFO] 00:54:21:803 Mongo/(6991:6991): Se creo estructura bloques!
+[INFO] 00:54:48:841 Mongo/(7044:7044): INICIANDO RECURSOS
+[INFO] 00:54:48:844 Mongo/(7044:7044): Generando estructura del FS
+[INFO] 00:54:48:845 Mongo/(7044:7044): Se creo estructura bloques!
+[INFO] 00:54:48:845 Mongo/(7044:7044): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:54:48:845 Mongo/(7044:7044): Se creo el superbloque nuevo!
+[INFO] 00:54:48:848 Mongo/(7044:7044): Se crearon los bloques!
+[INFO] 00:54:48:848 Mongo/(7044:7044): se creo el directorio file correctamente
+
+[INFO] 00:54:48:848 Mongo/(7044:7044): se creo el directorio bitacora correctamente
+
+[INFO] 00:54:53:216 Mongo/(7044:7044): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:58:981 Mongo/(7044:7044): Se conecto un cliente con socket: 8
+
+[INFO] 00:54:58:982 Mongo/(7044:7044): Se conecto un cliente con socket: 8
+
+[INFO] 00:55:03:811 Mongo/(7044:7044): Se conecto un cliente con socket: 8
+
+[INFO] 00:55:03:811 Mongo/(7044:7044): Se conecto un cliente con socket: 8
+
+[INFO] 00:56:14:002 Mongo/(7294:7294): INICIANDO RECURSOS
+[INFO] 00:56:14:002 Mongo/(7294:7294): Es un FS existente.
+[INFO] 00:56:14:002 Mongo/(7294:7294): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:56:14:002 Mongo/(7294:7294): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:56:14:005 Mongo/(7294:7294): Se bajaron los datos del Superbloque existente!
+[INFO] 00:56:14:005 Mongo/(7294:7294): Se creo estructura bloques!
+[INFO] 00:56:20:162 Mongo/(7294:7294): Se conecto un cliente con socket: 8
+
+[INFO] 00:56:20:163 Mongo/(7294:7294): Se conecto un cliente con socket: 8
+
+[INFO] 00:56:23:081 Mongo/(7294:7294): Se conecto un cliente con socket: 8
+
+[INFO] 00:56:23:081 Mongo/(7294:7294): Se conecto un cliente con socket: 8
+
+[INFO] 00:58:33:535 Mongo/(7638:7638): INICIANDO RECURSOS
+[INFO] 00:58:33:561 Mongo/(7638:7638): Generando estructura del FS
+[INFO] 00:58:33:561 Mongo/(7638:7638): Se creo estructura bloques!
+[INFO] 00:58:33:561 Mongo/(7638:7638): Se creo el Bitmap logico con 41 Bytes
+[INFO] 00:58:33:561 Mongo/(7638:7638): Se creo el superbloque nuevo!
+[INFO] 00:58:33:561 Mongo/(7638:7638): Se crearon los bloques!
+[INFO] 00:58:33:561 Mongo/(7638:7638): se creo el directorio file correctamente
+
+[INFO] 00:58:33:561 Mongo/(7638:7638): se creo el directorio bitacora correctamente
+
+[INFO] 00:58:38:735 Mongo/(7654:7654): INICIANDO RECURSOS
+[INFO] 00:58:38:735 Mongo/(7654:7654): Es un FS existente.
+[INFO] 00:58:38:735 Mongo/(7654:7654): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 00:58:38:736 Mongo/(7654:7654): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 00:58:38:738 Mongo/(7654:7654): Se bajaron los datos del Superbloque existente!
+[INFO] 00:58:38:738 Mongo/(7654:7654): Se creo estructura bloques!
+[INFO] 01:02:01:606 Mongo/(8137:8137): INICIANDO RECURSOS
+[INFO] 01:02:01:611 Mongo/(8137:8137): Generando estructura del FS
+[INFO] 01:02:01:611 Mongo/(8137:8137): Se creo estructura bloques!
+[INFO] 01:02:01:615 Mongo/(8137:8137): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:02:01:615 Mongo/(8137:8137): Se creo el superbloque nuevo!
+[INFO] 01:02:01:618 Mongo/(8137:8137): Se crearon los bloques!
+[INFO] 01:02:01:618 Mongo/(8137:8137): se creo el directorio file correctamente
+
+[INFO] 01:02:01:618 Mongo/(8137:8137): se creo el directorio bitacora correctamente
+
+[INFO] 01:02:06:537 Mongo/(8156:8156): INICIANDO RECURSOS
+[INFO] 01:02:06:537 Mongo/(8156:8156): Es un FS existente.
+[INFO] 01:02:06:537 Mongo/(8156:8156): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:02:06:537 Mongo/(8156:8156): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:02:06:540 Mongo/(8156:8156): Se bajaron los datos del Superbloque existente!
+[INFO] 01:02:06:541 Mongo/(8156:8156): Se creo estructura bloques!
+[INFO] 01:06:56:911 Mongo/(8829:8829): INICIANDO RECURSOS
+[INFO] 01:06:56:915 Mongo/(8829:8829): Generando estructura del FS
+[INFO] 01:06:56:915 Mongo/(8829:8829): Se creo estructura bloques!
+[INFO] 01:06:56:915 Mongo/(8829:8829): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:06:56:915 Mongo/(8829:8829): Se creo el superbloque nuevo!
+[INFO] 01:06:56:918 Mongo/(8829:8829): Se crearon los bloques!
+[INFO] 01:06:56:918 Mongo/(8829:8829): se creo el directorio file correctamente
+
+[INFO] 01:06:56:918 Mongo/(8829:8829): se creo el directorio bitacora correctamente
+
+[INFO] 01:07:00:011 Mongo/(8831:8831): INICIANDO RECURSOS
+[INFO] 01:07:00:011 Mongo/(8831:8831): Es un FS existente.
+[INFO] 01:07:00:012 Mongo/(8831:8831): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:07:00:012 Mongo/(8831:8831): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:07:00:014 Mongo/(8831:8831): Se bajaron los datos del Superbloque existente!
+[INFO] 01:07:00:015 Mongo/(8831:8831): Se creo estructura bloques!
+[INFO] 01:07:30:110 Mongo/(8900:8900): INICIANDO RECURSOS
+[INFO] 01:07:30:114 Mongo/(8900:8900): Generando estructura del FS
+[INFO] 01:07:30:114 Mongo/(8900:8900): Se creo estructura bloques!
+[INFO] 01:07:30:115 Mongo/(8900:8900): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:07:30:115 Mongo/(8900:8900): Se creo el superbloque nuevo!
+[INFO] 01:07:30:117 Mongo/(8900:8900): Se crearon los bloques!
+[INFO] 01:07:30:118 Mongo/(8900:8900): se creo el directorio file correctamente
+
+[INFO] 01:07:30:118 Mongo/(8900:8900): se creo el directorio bitacora correctamente
+
+[INFO] 01:08:19:537 Mongo/(9045:9045): INICIANDO RECURSOS
+[INFO] 01:08:19:537 Mongo/(9045:9045): Generando estructura del FS
+[INFO] 01:08:19:537 Mongo/(9045:9045): Se creo estructura bloques!
+[INFO] 01:08:19:537 Mongo/(9045:9045): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:08:19:537 Mongo/(9045:9045): Se creo el superbloque nuevo!
+[INFO] 01:08:19:542 Mongo/(9045:9045): Se crearon los bloques!
+[INFO] 01:08:19:542 Mongo/(9045:9045): se creo el directorio file correctamente
+
+[INFO] 01:08:19:542 Mongo/(9045:9045): se creo el directorio bitacora correctamente
+
+[INFO] 01:08:56:915 Mongo/(9117:9117): INICIANDO RECURSOS
+[INFO] 01:08:56:915 Mongo/(9117:9117): Es un FS existente.
+[INFO] 01:08:56:916 Mongo/(9117:9117): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:08:56:916 Mongo/(9117:9117): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:08:56:918 Mongo/(9117:9117): Se bajaron los datos del Superbloque existente!
+[INFO] 01:08:56:918 Mongo/(9117:9117): Se creo estructura bloques!
+[INFO] 01:10:55:652 Mongo/(9383:9383): INICIANDO RECURSOS
+[INFO] 01:10:55:652 Mongo/(9383:9383): Es un FS existente.
+[INFO] 01:10:55:652 Mongo/(9383:9383): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:10:55:652 Mongo/(9383:9383): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:10:55:655 Mongo/(9383:9383): Se bajaron los datos del Superbloque existente!
+[INFO] 01:10:55:655 Mongo/(9383:9383): Se creo estructura bloques!
+[INFO] 01:11:41:881 Mongo/(9500:9500): INICIANDO RECURSOS
+[INFO] 01:11:41:881 Mongo/(9500:9500): Es un FS existente.
+[INFO] 01:11:41:882 Mongo/(9500:9500): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:11:41:882 Mongo/(9500:9500): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:11:41:885 Mongo/(9500:9500): Se bajaron los datos del Superbloque existente!
+[INFO] 01:11:41:886 Mongo/(9500:9500): Se creo estructura bloques!
+[INFO] 01:11:55:911 Mongo/(9527:9527): INICIANDO RECURSOS
+[INFO] 01:11:55:911 Mongo/(9527:9527): Es un FS existente.
+[INFO] 01:11:55:911 Mongo/(9527:9527): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:11:55:911 Mongo/(9527:9527): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:11:55:914 Mongo/(9527:9527): Se bajaron los datos del Superbloque existente!
+[INFO] 01:11:55:914 Mongo/(9527:9527): Se creo estructura bloques!
+[INFO] 01:13:04:520 Mongo/(9715:9715): INICIANDO RECURSOS
+[INFO] 01:13:04:520 Mongo/(9715:9715): Es un FS existente.
+[INFO] 01:13:04:520 Mongo/(9715:9715): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:13:04:520 Mongo/(9715:9715): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:13:04:523 Mongo/(9715:9715): Se bajaron los datos del Superbloque existente!
+[INFO] 01:13:04:523 Mongo/(9715:9715): Se creo estructura bloques!
+[INFO] 01:13:15:959 Mongo/(9737:9737): INICIANDO RECURSOS
+[INFO] 01:13:15:963 Mongo/(9737:9737): Generando estructura del FS
+[INFO] 01:13:15:963 Mongo/(9737:9737): Se creo estructura bloques!
+[INFO] 01:13:15:963 Mongo/(9737:9737): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:13:15:963 Mongo/(9737:9737): Se creo el superbloque nuevo!
+[INFO] 01:13:15:966 Mongo/(9737:9737): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:13:15:966 Mongo/(9737:9737): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:13:15:968 Mongo/(9737:9737): Se bajaron los datos del Superbloque existente!
+[INFO] 01:14:40:556 Mongo/(9950:9950): INICIANDO RECURSOS
+[INFO] 01:14:47:166 Mongo/(9968:9968): INICIANDO RECURSOS
+[INFO] 01:14:47:169 Mongo/(9968:9968): Generando estructura del FS
+[INFO] 01:14:47:170 Mongo/(9968:9968): Se creo estructura bloques!
+[INFO] 01:14:47:170 Mongo/(9968:9968): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:14:47:170 Mongo/(9968:9968): Se creo el superbloque nuevo!
+[INFO] 01:14:47:173 Mongo/(9968:9968): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:14:47:173 Mongo/(9968:9968): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:14:47:174 Mongo/(9968:9968): Se bajaron los datos del Superbloque existente!
+[INFO] 01:17:23:610 Mongo/(10358:10358): INICIANDO RECURSOS
+[INFO] 01:17:34:270 Mongo/(10379:10379): INICIANDO RECURSOS
+[INFO] 01:17:34:274 Mongo/(10379:10379): Generando estructura del FS
+[INFO] 01:17:34:274 Mongo/(10379:10379): Se creo estructura bloques!
+[INFO] 01:17:34:274 Mongo/(10379:10379): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:17:34:274 Mongo/(10379:10379): Se creo el superbloque nuevo!
+[INFO] 01:17:34:277 Mongo/(10379:10379): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:17:34:277 Mongo/(10379:10379): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:17:34:279 Mongo/(10379:10379): Se bajaron los datos del Superbloque existente!
+[INFO] 01:19:45:412 Mongo/(10668:10668): INICIANDO RECURSOS
+[INFO] 01:19:49:277 Mongo/(10684:10684): INICIANDO RECURSOS
+[INFO] 01:19:49:277 Mongo/(10684:10684): Generando estructura del FS
+[INFO] 01:19:49:277 Mongo/(10684:10684): Se creo estructura bloques!
+[INFO] 01:19:49:278 Mongo/(10684:10684): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:19:49:278 Mongo/(10684:10684): Se creo el superbloque nuevo!
+[INFO] 01:19:49:281 Mongo/(10684:10684): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:19:49:281 Mongo/(10684:10684): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:19:49:282 Mongo/(10684:10684): Se bajaron los datos del Superbloque existente!
+[INFO] 01:20:14:907 Mongo/(10734:10734): INICIANDO RECURSOS
+[INFO] 01:20:37:747 Mongo/(10792:10792): INICIANDO RECURSOS
+[INFO] 01:20:37:750 Mongo/(10792:10792): Generando estructura del FS
+[INFO] 01:20:37:750 Mongo/(10792:10792): Se creo estructura bloques!
+[INFO] 01:20:37:750 Mongo/(10792:10792): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:20:37:750 Mongo/(10792:10792): Se creo el superbloque nuevo!
+[INFO] 01:20:37:753 Mongo/(10792:10792): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:20:37:753 Mongo/(10792:10792): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:20:37:755 Mongo/(10792:10792): Se bajaron los datos del Superbloque existente!
+[INFO] 01:20:50:057 Mongo/(10830:10830): INICIANDO RECURSOS
+[INFO] 01:20:56:406 Mongo/(10842:10842): INICIANDO RECURSOS
+[INFO] 01:20:56:410 Mongo/(10842:10842): Generando estructura del FS
+[INFO] 01:20:56:410 Mongo/(10842:10842): Se creo estructura bloques!
+[INFO] 01:20:56:410 Mongo/(10842:10842): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:20:56:410 Mongo/(10842:10842): Se creo el superbloque nuevo!
+[INFO] 01:20:56:413 Mongo/(10842:10842): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:20:56:413 Mongo/(10842:10842): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:20:56:415 Mongo/(10842:10842): Se bajaron los datos del Superbloque existente!
+[INFO] 01:21:39:846 Mongo/(10960:10960): INICIANDO RECURSOS
+[INFO] 01:21:39:849 Mongo/(10960:10960): Generando estructura del FS
+[INFO] 01:21:39:850 Mongo/(10960:10960): Se creo estructura bloques!
+[INFO] 01:21:39:850 Mongo/(10960:10960): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:21:39:850 Mongo/(10960:10960): Se creo el superbloque nuevo!
+[INFO] 01:21:39:853 Mongo/(10960:10960): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:21:39:853 Mongo/(10960:10960): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:21:39:854 Mongo/(10960:10960): Se bajaron los datos del Superbloque existente!
+[INFO] 01:22:52:085 Mongo/(11137:11137): INICIANDO RECURSOS
+[INFO] 01:22:52:094 Mongo/(11137:11137): Generando estructura del FS
+[INFO] 01:22:52:094 Mongo/(11137:11137): Se creo estructura bloques!
+[INFO] 01:22:52:094 Mongo/(11137:11137): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:22:52:094 Mongo/(11137:11137): Se creo el superbloque nuevo!
+[INFO] 01:22:52:107 Mongo/(11137:11137): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:22:52:107 Mongo/(11137:11137): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:22:52:107 Mongo/(11137:11137): Se bajaron los datos del Superbloque existente!
+[INFO] 01:23:21:375 Mongo/(11219:11219): INICIANDO RECURSOS
+[INFO] 01:23:21:378 Mongo/(11219:11219): Generando estructura del FS
+[INFO] 01:23:21:378 Mongo/(11219:11219): Se creo estructura bloques!
+[INFO] 01:23:21:378 Mongo/(11219:11219): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:23:21:379 Mongo/(11219:11219): Se creo el superbloque nuevo!
+[INFO] 01:23:21:381 Mongo/(11219:11219): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:23:21:381 Mongo/(11219:11219): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:23:21:383 Mongo/(11219:11219): Se bajaron los datos del Superbloque existente!
+[INFO] 01:23:42:245 Mongo/(11282:11282): INICIANDO RECURSOS
+[INFO] 01:23:42:249 Mongo/(11282:11282): Generando estructura del FS
+[INFO] 01:23:42:249 Mongo/(11282:11282): Se creo estructura bloques!
+[INFO] 01:23:42:249 Mongo/(11282:11282): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:23:42:249 Mongo/(11282:11282): Se creo el superbloque nuevo!
+[INFO] 01:23:42:256 Mongo/(11282:11282): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:23:42:256 Mongo/(11282:11282): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:23:42:267 Mongo/(11282:11282): Se bajaron los datos del Superbloque existente!
+[INFO] 01:23:52:314 Mongo/(11317:11317): INICIANDO RECURSOS
+[INFO] 01:23:52:317 Mongo/(11317:11317): Generando estructura del FS
+[INFO] 01:23:52:323 Mongo/(11317:11317): Se creo estructura bloques!
+[INFO] 01:23:52:323 Mongo/(11317:11317): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:23:52:324 Mongo/(11317:11317): Se creo el superbloque nuevo!
+[INFO] 01:23:52:326 Mongo/(11317:11317): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:23:52:327 Mongo/(11317:11317): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:23:52:328 Mongo/(11317:11317): Se bajaron los datos del Superbloque existente!
+[INFO] 01:25:59:292 Mongo/(11602:11602): INICIANDO RECURSOS
+[INFO] 01:26:16:141 Mongo/(11640:11640): INICIANDO RECURSOS
+[INFO] 01:26:16:142 Mongo/(11640:11640): Generando estructura del FS
+[INFO] 01:26:16:142 Mongo/(11640:11640): Se creo estructura bloques!
+[INFO] 01:26:16:142 Mongo/(11640:11640): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:26:16:142 Mongo/(11640:11640): Se creo el superbloque nuevo!
+[INFO] 01:26:16:145 Mongo/(11640:11640): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:26:16:145 Mongo/(11640:11640): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:26:16:147 Mongo/(11640:11640): Se bajaron los datos del Superbloque existente!
+[INFO] 01:27:35:699 Mongo/(11841:11841): INICIANDO RECURSOS
+[INFO] 01:27:35:703 Mongo/(11841:11841): Generando estructura del FS
+[INFO] 01:27:35:703 Mongo/(11841:11841): Se creo estructura bloques!
+[INFO] 01:27:35:703 Mongo/(11841:11841): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:27:35:703 Mongo/(11841:11841): Se creo el superbloque nuevo!
+[INFO] 01:27:35:706 Mongo/(11841:11841): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:27:35:706 Mongo/(11841:11841): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:27:35:713 Mongo/(11841:11841): Se bajaron los datos del Superbloque existente!
+[INFO] 01:27:51:939 Mongo/(11891:11891): INICIANDO RECURSOS
+[INFO] 01:27:56:212 Mongo/(11903:11903): INICIANDO RECURSOS
+[INFO] 01:27:56:214 Mongo/(11903:11903): Generando estructura del FS
+[INFO] 01:27:56:216 Mongo/(11903:11903): Se creo estructura bloques!
+[INFO] 01:27:56:216 Mongo/(11903:11903): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:27:56:216 Mongo/(11903:11903): Se creo el superbloque nuevo!
+[INFO] 01:27:56:222 Mongo/(11903:11903): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:27:56:227 Mongo/(11903:11903): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:27:56:230 Mongo/(11903:11903): Se bajaron los datos del Superbloque existente!
+[INFO] 01:28:09:569 Mongo/(11939:11939): INICIANDO RECURSOS
+[INFO] 01:29:15:449 Mongo/(12102:12102): INICIANDO RECURSOS
+[INFO] 01:29:15:452 Mongo/(12102:12102): Generando estructura del FS
+[INFO] 01:29:15:453 Mongo/(12102:12102): Se creo estructura bloques!
+[INFO] 01:29:15:453 Mongo/(12102:12102): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:29:15:454 Mongo/(12102:12102): Se creo el superbloque nuevo!
+[INFO] 01:29:15:456 Mongo/(12102:12102): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:29:15:456 Mongo/(12102:12102): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:29:15:458 Mongo/(12102:12102): Se bajaron los datos del Superbloque existente!
+[INFO] 01:29:15:460 Mongo/(12102:12102): se creo el directorio file correctamente
+
+[INFO] 01:29:15:460 Mongo/(12102:12102): se creo el directorio bitacora correctamente
+
+[INFO] 01:29:21:380 Mongo/(12113:12113): INICIANDO RECURSOS
+[INFO] 01:31:35:808 Mongo/(12415:12415): INICIANDO RECURSOS
+[INFO] 01:31:35:812 Mongo/(12415:12415): Generando estructura del FS
+[INFO] 01:31:35:813 Mongo/(12415:12415): Se creo estructura bloques!
+[INFO] 01:31:35:813 Mongo/(12415:12415): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:31:35:813 Mongo/(12415:12415): Se creo el superbloque nuevo!
+[INFO] 01:31:35:816 Mongo/(12415:12415): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:31:35:816 Mongo/(12415:12415): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:31:35:819 Mongo/(12415:12415): Se bajaron los datos del Superbloque existente!
+[INFO] 01:35:44:743 Mongo/(12994:12994): INICIANDO RECURSOS
+[INFO] 01:35:50:652 Mongo/(13007:13007): INICIANDO RECURSOS
+[INFO] 01:35:50:655 Mongo/(13007:13007): Generando estructura del FS
+[INFO] 01:35:50:656 Mongo/(13007:13007): Se creo estructura bloques!
+[INFO] 01:35:50:656 Mongo/(13007:13007): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:35:50:656 Mongo/(13007:13007): Se creo el superbloque nuevo!
+[INFO] 01:35:50:659 Mongo/(13007:13007): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:35:50:659 Mongo/(13007:13007): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:35:50:661 Mongo/(13007:13007): Se bajaron los datos del Superbloque existente!
+[INFO] 01:35:50:663 Mongo/(13007:13007): Se crearon los bloques!
+[INFO] 01:35:50:663 Mongo/(13007:13007): se creo el directorio file correctamente
+
+[INFO] 01:35:50:663 Mongo/(13007:13007): se creo el directorio bitacora correctamente
+
+[INFO] 01:38:03:450 Mongo/(13314:13314): INICIANDO RECURSOS
+[INFO] 01:38:03:450 Mongo/(13314:13314): Es un FS existente.
+[INFO] 01:38:03:450 Mongo/(13314:13314): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:38:03:450 Mongo/(13314:13314): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:38:03:453 Mongo/(13314:13314): Se bajaron los datos del Superbloque existente!
+[INFO] 01:38:03:453 Mongo/(13314:13314): Se creo estructura bloques!
+[INFO] 01:38:13:040 Mongo/(13334:13334): INICIANDO RECURSOS
+[INFO] 01:38:13:046 Mongo/(13334:13334): Generando estructura del FS
+[INFO] 01:38:13:046 Mongo/(13334:13334): Se creo estructura bloques!
+[INFO] 01:38:13:046 Mongo/(13334:13334): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:38:13:046 Mongo/(13334:13334): Se creo el superbloque nuevo!
+[INFO] 01:38:13:052 Mongo/(13334:13334): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:38:13:052 Mongo/(13334:13334): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:38:13:053 Mongo/(13334:13334): Se bajaron los datos del Superbloque existente!
+[INFO] 01:38:29:390 Mongo/(13385:13385): INICIANDO RECURSOS
+[INFO] 01:38:29:395 Mongo/(13385:13385): Generando estructura del FS
+[INFO] 01:38:29:395 Mongo/(13385:13385): Se creo estructura bloques!
+[INFO] 01:38:29:395 Mongo/(13385:13385): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:38:29:395 Mongo/(13385:13385): Se creo el superbloque nuevo!
+[INFO] 01:38:29:398 Mongo/(13385:13385): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:38:29:398 Mongo/(13385:13385): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:38:29:400 Mongo/(13385:13385): Se bajaron los datos del Superbloque existente!
+[INFO] 01:38:43:550 Mongo/(13427:13427): INICIANDO RECURSOS
+[INFO] 01:38:43:553 Mongo/(13427:13427): Generando estructura del FS
+[INFO] 01:38:43:554 Mongo/(13427:13427): Se creo estructura bloques!
+[INFO] 01:38:43:554 Mongo/(13427:13427): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:38:43:554 Mongo/(13427:13427): Se creo el superbloque nuevo!
+[INFO] 01:38:43:558 Mongo/(13427:13427): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:38:43:558 Mongo/(13427:13427): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:38:43:559 Mongo/(13427:13427): Se bajaron los datos del Superbloque existente!
+[INFO] 01:38:43:560 Mongo/(13427:13427): Se crearon los bloques!
+[INFO] 01:38:43:560 Mongo/(13427:13427): se creo el directorio file correctamente
+
+[INFO] 01:38:43:560 Mongo/(13427:13427): se creo el directorio bitacora correctamente
+
+[INFO] 01:41:04:018 Mongo/(13801:13801): INICIANDO RECURSOS
+[INFO] 01:41:04:051 Mongo/(13801:13801): Generando estructura del FS
+[INFO] 01:41:04:051 Mongo/(13801:13801): Se creo estructura bloques!
+[INFO] 01:41:04:051 Mongo/(13801:13801): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:41:04:052 Mongo/(13801:13801): Se creo el superbloque nuevo!
+[INFO] 01:41:04:054 Mongo/(13801:13801): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:41:04:054 Mongo/(13801:13801): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:41:04:055 Mongo/(13801:13801): Se bajaron los datos del Superbloque existente!
+[INFO] 01:42:24:845 Mongo/(14002:14002): INICIANDO RECURSOS
+[INFO] 01:42:24:846 Mongo/(14002:14002): Generando estructura del FS
+[INFO] 01:42:24:846 Mongo/(14002:14002): Se creo estructura bloques!
+[INFO] 01:42:24:846 Mongo/(14002:14002): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:42:24:846 Mongo/(14002:14002): Se creo el superbloque nuevo!
+[INFO] 01:42:24:849 Mongo/(14002:14002): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:42:24:849 Mongo/(14002:14002): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:42:24:853 Mongo/(14002:14002): Se bajaron los datos del Superbloque existente!
+[INFO] 01:51:32:408 Mongo/(15097:15097): INICIANDO RECURSOS
+[INFO] 01:51:37:487 Mongo/(15109:15109): INICIANDO RECURSOS
+[INFO] 01:51:37:491 Mongo/(15109:15109): Generando estructura del FS
+[INFO] 01:51:37:491 Mongo/(15109:15109): Se creo estructura bloques!
+[INFO] 01:51:37:491 Mongo/(15109:15109): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:51:37:491 Mongo/(15109:15109): Se creo el superbloque nuevo!
+[INFO] 01:51:37:494 Mongo/(15109:15109): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:51:37:494 Mongo/(15109:15109): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:51:37:496 Mongo/(15109:15109): Se bajaron los datos del Superbloque existente!
+[INFO] 01:51:37:497 Mongo/(15109:15109): Se crearon los bloques!
+[INFO] 01:51:37:497 Mongo/(15109:15109): se creo el directorio file correctamente
+
+[INFO] 01:51:37:497 Mongo/(15109:15109): se creo el directorio bitacora correctamente
+
+[INFO] 01:52:52:938 Mongo/(15268:15268): INICIANDO RECURSOS
+[INFO] 01:52:52:938 Mongo/(15268:15268): Es un FS existente.
+[INFO] 01:52:52:938 Mongo/(15268:15268): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:52:52:938 Mongo/(15268:15268): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:52:52:941 Mongo/(15268:15268): Se bajaron los datos del Superbloque existente!
+[INFO] 01:52:52:941 Mongo/(15268:15268): Se creo estructura bloques!
+[INFO] 01:55:45:056 Mongo/(15656:15656): INICIANDO RECURSOS
+[INFO] 01:55:45:061 Mongo/(15656:15656): Generando estructura del FS
+[INFO] 01:55:45:062 Mongo/(15656:15656): Se creo estructura bloques!
+[INFO] 01:55:45:062 Mongo/(15656:15656): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:55:45:062 Mongo/(15656:15656): Se creo el superbloque nuevo!
+[INFO] 01:55:45:065 Mongo/(15656:15656): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:55:45:065 Mongo/(15656:15656): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:55:45:072 Mongo/(15656:15656): Se bajaron los datos del Superbloque existente!
+[INFO] 01:55:45:072 Mongo/(15656:15656): Se crearon los bloques!
+[INFO] 01:55:45:072 Mongo/(15656:15656): se creo el directorio file correctamente
+
+[INFO] 01:55:45:072 Mongo/(15656:15656): se creo el directorio bitacora correctamente
+
+[INFO] 01:57:32:044 Mongo/(15882:15882): INICIANDO RECURSOS
+[INFO] 01:57:32:046 Mongo/(15882:15882): Generando estructura del FS
+[INFO] 01:57:32:047 Mongo/(15882:15882): Se creo estructura bloques!
+[INFO] 01:57:32:047 Mongo/(15882:15882): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:57:32:047 Mongo/(15882:15882): Se creo el superbloque nuevo!
+[INFO] 01:57:32:050 Mongo/(15882:15882): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:57:32:051 Mongo/(15882:15882): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:57:32:052 Mongo/(15882:15882): Se bajaron los datos del Superbloque existente!
+[INFO] 01:57:32:053 Mongo/(15882:15882): Se crearon los bloques!
+[INFO] 01:57:32:053 Mongo/(15882:15882): se creo el directorio file correctamente
+
+[INFO] 01:57:32:055 Mongo/(15882:15882): se creo el directorio bitacora correctamente
+
+[INFO] 01:57:54:786 Mongo/(15939:15939): INICIANDO RECURSOS
+[INFO] 01:57:54:793 Mongo/(15939:15939): Es un FS existente.
+[INFO] 01:57:54:794 Mongo/(15939:15939): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:57:54:794 Mongo/(15939:15939): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:57:54:795 Mongo/(15939:15939): Se bajaron los datos del Superbloque existente!
+[INFO] 01:57:54:795 Mongo/(15939:15939): Se creo estructura bloques!
+[INFO] 01:58:04:645 Mongo/(15965:15965): INICIANDO RECURSOS
+[INFO] 01:58:04:648 Mongo/(15965:15965): Generando estructura del FS
+[INFO] 01:58:04:648 Mongo/(15965:15965): Se creo estructura bloques!
+[INFO] 01:58:04:648 Mongo/(15965:15965): Se creo el Bitmap logico con 41 Bytes
+[INFO] 01:58:04:648 Mongo/(15965:15965): Se creo el superbloque nuevo!
+[INFO] 01:58:04:648 Mongo/(15965:15965): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:58:04:648 Mongo/(15965:15965): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:58:04:651 Mongo/(15965:15965): Se bajaron los datos del Superbloque existente!
+[INFO] 01:58:04:653 Mongo/(15965:15965): Se crearon los bloques!
+[INFO] 01:58:04:653 Mongo/(15965:15965): se creo el directorio file correctamente
+
+[INFO] 01:58:04:653 Mongo/(15965:15965): se creo el directorio bitacora correctamente
+
+[INFO] 01:59:04:124 Mongo/(16085:16085): INICIANDO RECURSOS
+[INFO] 01:59:04:124 Mongo/(16085:16085): Es un FS existente.
+[INFO] 01:59:04:124 Mongo/(16085:16085): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 01:59:04:124 Mongo/(16085:16085): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 01:59:04:127 Mongo/(16085:16085): Se bajaron los datos del Superbloque existente!
+[INFO] 01:59:04:127 Mongo/(16085:16085): Se creo estructura bloques!
+[INFO] 02:00:29:783 Mongo/(16301:16301): INICIANDO RECURSOS
+[INFO] 02:00:29:787 Mongo/(16301:16301): Generando estructura del FS
+[INFO] 02:00:29:787 Mongo/(16301:16301): Se creo estructura bloques!
+[INFO] 02:00:29:787 Mongo/(16301:16301): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:00:29:787 Mongo/(16301:16301): Se creo el superbloque nuevo!
+[INFO] 02:00:29:787 Mongo/(16301:16301): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:00:29:788 Mongo/(16301:16301): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:00:29:790 Mongo/(16301:16301): Se bajaron los datos del Superbloque existente!
+[INFO] 02:00:29:792 Mongo/(16301:16301): Se crearon los bloques!
+[INFO] 02:00:29:792 Mongo/(16301:16301): se creo el directorio file correctamente
+
+[INFO] 02:00:29:792 Mongo/(16301:16301): se creo el directorio bitacora correctamente
+
+[INFO] 02:02:58:732 Mongo/(16625:16625): INICIANDO RECURSOS
+[INFO] 02:02:58:734 Mongo/(16625:16625): Generando estructura del FS
+[INFO] 02:02:58:735 Mongo/(16625:16625): Se creo estructura bloques!
+[INFO] 02:02:58:735 Mongo/(16625:16625): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:02:58:735 Mongo/(16625:16625): Se creo el superbloque nuevo!
+[INFO] 02:02:58:735 Mongo/(16625:16625): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:02:58:735 Mongo/(16625:16625): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:02:58:738 Mongo/(16625:16625): Se bajaron los datos del Superbloque existente!
+[INFO] 02:02:58:740 Mongo/(16625:16625): Se crearon los bloques!
+[INFO] 02:02:58:740 Mongo/(16625:16625): se creo el directorio file correctamente
+
+[INFO] 02:02:58:740 Mongo/(16625:16625): se creo el directorio bitacora correctamente
+
+[INFO] 02:03:08:333 Mongo/(16625:16625): Se conecto un cliente con socket: 8
+
+[INFO] 02:03:08:334 Mongo/(16625:16625): Se conecto un cliente con socket: 8
+
+[INFO] 02:03:23:890 Mongo/(16625:16625): Se conecto un cliente con socket: 8
+
+[INFO] 02:03:23:891 Mongo/(16625:16625): Se conecto un cliente con socket: 8
+
+[INFO] 02:07:58:039 Mongo/(17291:17291): INICIANDO RECURSOS
+[INFO] 02:07:58:042 Mongo/(17291:17291): Generando estructura del FS
+[INFO] 02:07:58:047 Mongo/(17291:17291): Se creo estructura bloques!
+[INFO] 02:07:58:047 Mongo/(17291:17291): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:07:58:047 Mongo/(17291:17291): Se creo el superbloque nuevo!
+[INFO] 02:07:58:047 Mongo/(17291:17291): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:07:58:047 Mongo/(17291:17291): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:07:58:050 Mongo/(17291:17291): Se bajaron los datos del Superbloque existente!
+[INFO] 02:07:58:051 Mongo/(17291:17291): Se crearon los bloques!
+[INFO] 02:07:58:051 Mongo/(17291:17291): se creo el directorio file correctamente
+
+[INFO] 02:07:58:051 Mongo/(17291:17291): se creo el directorio bitacora correctamente
+
+[INFO] 02:08:06:412 Mongo/(17291:17291): Se conecto un cliente con socket: 8
+
+[INFO] 02:08:06:418 Mongo/(17291:17291): Se conecto un cliente con socket: 8
+
+[INFO] 02:08:14:056 Mongo/(17291:17291): Se conecto un cliente con socket: 8
+
+[INFO] 02:08:14:057 Mongo/(17291:17291): Se conecto un cliente con socket: 8
+
+[INFO] 02:21:39:353 Mongo/(19260:19260): INICIANDO RECURSOS
+[INFO] 02:21:39:373 Mongo/(19260:19260): Generando estructura del FS
+[INFO] 02:21:39:373 Mongo/(19260:19260): Se creo estructura bloques!
+[INFO] 02:21:39:373 Mongo/(19260:19260): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:21:39:374 Mongo/(19260:19260): Se creo el superbloque nuevo!
+[INFO] 02:21:39:374 Mongo/(19260:19260): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:21:39:374 Mongo/(19260:19260): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:21:39:376 Mongo/(19260:19260): Se bajaron los datos del Superbloque existente!
+[INFO] 02:21:39:377 Mongo/(19260:19260): Se crearon los bloques!
+[INFO] 02:21:39:377 Mongo/(19260:19260): se creo el directorio file correctamente
+
+[INFO] 02:21:39:377 Mongo/(19260:19260): se creo el directorio bitacora correctamente
+
+[INFO] 02:21:45:419 Mongo/(19260:19260): Se conecto un cliente con socket: 8
+
+[INFO] 02:21:45:420 Mongo/(19260:19260): Se conecto un cliente con socket: 8
+
+[INFO] 02:21:50:793 Mongo/(19260:19260): Se conecto un cliente con socket: 8
+
+[INFO] 02:21:50:794 Mongo/(19260:19260): Se conecto un cliente con socket: 8
+
+[INFO] 02:22:17:794 Mongo/(19374:19374): INICIANDO RECURSOS
+[INFO] 02:22:17:798 Mongo/(19374:19374): Generando estructura del FS
+[INFO] 02:22:17:798 Mongo/(19374:19374): Se creo estructura bloques!
+[INFO] 02:22:17:798 Mongo/(19374:19374): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:22:17:798 Mongo/(19374:19374): Se creo el superbloque nuevo!
+[INFO] 02:22:17:798 Mongo/(19374:19374): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:22:17:798 Mongo/(19374:19374): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:22:17:801 Mongo/(19374:19374): Se bajaron los datos del Superbloque existente!
+[INFO] 02:22:17:801 Mongo/(19374:19374): Se crearon los bloques!
+[INFO] 02:22:17:801 Mongo/(19374:19374): se creo el directorio file correctamente
+
+[INFO] 02:22:17:801 Mongo/(19374:19374): se creo el directorio bitacora correctamente
+
+[INFO] 02:22:25:214 Mongo/(19374:19374): Se conecto un cliente con socket: 8
+
+[INFO] 02:22:25:216 Mongo/(19374:19374): Se conecto un cliente con socket: 8
+
+[INFO] 02:22:28:433 Mongo/(19374:19374): Se conecto un cliente con socket: 8
+
+[INFO] 02:22:28:433 Mongo/(19374:19374): Se conecto un cliente con socket: 8
+
+[INFO] 02:24:12:283 Mongo/(19644:19644): INICIANDO RECURSOS
+[INFO] 02:24:12:289 Mongo/(19644:19644): Generando estructura del FS
+[INFO] 02:24:12:289 Mongo/(19644:19644): Se creo estructura bloques!
+[INFO] 02:24:12:289 Mongo/(19644:19644): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:24:12:289 Mongo/(19644:19644): Se creo el superbloque nuevo!
+[INFO] 02:24:12:289 Mongo/(19644:19644): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:24:12:290 Mongo/(19644:19644): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:24:12:292 Mongo/(19644:19644): Se bajaron los datos del Superbloque existente!
+[INFO] 02:24:12:293 Mongo/(19644:19644): Se crearon los bloques!
+[INFO] 02:24:12:293 Mongo/(19644:19644): se creo el directorio file correctamente
+
+[INFO] 02:24:12:293 Mongo/(19644:19644): se creo el directorio bitacora correctamente
+
+[INFO] 02:24:18:257 Mongo/(19644:19644): Se conecto un cliente con socket: 8
+
+[INFO] 02:24:18:258 Mongo/(19644:19644): Se conecto un cliente con socket: 8
+
+[INFO] 02:24:23:091 Mongo/(19644:19644): Se conecto un cliente con socket: 8
+
+[INFO] 02:24:23:091 Mongo/(19644:19644): Se conecto un cliente con socket: 8
+
+[INFO] 02:24:55:742 Mongo/(19767:19767): INICIANDO RECURSOS
+[INFO] 02:24:55:745 Mongo/(19767:19767): Generando estructura del FS
+[INFO] 02:24:55:745 Mongo/(19767:19767): Se creo estructura bloques!
+[INFO] 02:24:55:746 Mongo/(19767:19767): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:24:55:746 Mongo/(19767:19767): Se creo el superbloque nuevo!
+[INFO] 02:24:55:746 Mongo/(19767:19767): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:24:55:747 Mongo/(19767:19767): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:24:55:749 Mongo/(19767:19767): Se bajaron los datos del Superbloque existente!
+[INFO] 02:24:55:750 Mongo/(19767:19767): Se crearon los bloques!
+[INFO] 02:24:55:750 Mongo/(19767:19767): se creo el directorio file correctamente
+
+[INFO] 02:24:55:750 Mongo/(19767:19767): se creo el directorio bitacora correctamente
+
+[INFO] 02:25:07:002 Mongo/(19767:19767): Se conecto un cliente con socket: 8
+
+[INFO] 02:25:07:003 Mongo/(19767:19767): Se conecto un cliente con socket: 8
+
+[INFO] 02:25:09:640 Mongo/(19767:19767): Se conecto un cliente con socket: 8
+
+[INFO] 02:25:09:641 Mongo/(19767:19767): Se conecto un cliente con socket: 8
+
+[INFO] 02:25:12:641 Mongo/(19767:19767): Se conecto un cliente con socket: 8
+
+[INFO] 02:25:12:642 Mongo/(19767:19767): Se conecto un cliente con socket: 8
+
+[INFO] 02:31:26:216 Mongo/(20621:20621): INICIANDO RECURSOS
+[INFO] 02:31:26:219 Mongo/(20621:20621): Generando estructura del FS
+[INFO] 02:31:26:219 Mongo/(20621:20621): Se creo estructura bloques!
+[INFO] 02:31:26:219 Mongo/(20621:20621): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:31:26:219 Mongo/(20621:20621): Se creo el superbloque nuevo!
+[INFO] 02:31:26:219 Mongo/(20621:20621): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:31:26:220 Mongo/(20621:20621): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:31:26:222 Mongo/(20621:20621): Se bajaron los datos del Superbloque existente!
+[INFO] 02:31:26:222 Mongo/(20621:20621): Se crearon los bloques!
+[INFO] 02:31:26:222 Mongo/(20621:20621): se creo el directorio file correctamente
+
+[INFO] 02:31:26:223 Mongo/(20621:20621): se creo el directorio bitacora correctamente
+
+[INFO] 02:33:13:273 Mongo/(20869:20869): INICIANDO RECURSOS
+[INFO] 02:33:13:297 Mongo/(20869:20869): Generando estructura del FS
+[INFO] 02:33:13:297 Mongo/(20869:20869): Se creo estructura bloques!
+[INFO] 02:33:13:297 Mongo/(20869:20869): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:33:13:297 Mongo/(20869:20869): Se creo el superbloque nuevo!
+[INFO] 02:33:13:298 Mongo/(20869:20869): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:33:13:298 Mongo/(20869:20869): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:33:13:300 Mongo/(20869:20869): Se bajaron los datos del Superbloque existente!
+[INFO] 02:33:13:300 Mongo/(20869:20869): Se crearon los bloques!
+[INFO] 02:33:13:300 Mongo/(20869:20869): se creo el directorio file correctamente
+
+[INFO] 02:33:13:300 Mongo/(20869:20869): se creo el directorio bitacora correctamente
+
+[INFO] 02:34:50:074 Mongo/(21116:21116): INICIANDO RECURSOS
+[INFO] 02:34:50:077 Mongo/(21116:21116): Generando estructura del FS
+[INFO] 02:34:50:078 Mongo/(21116:21116): Se creo estructura bloques!
+[INFO] 02:34:50:078 Mongo/(21116:21116): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:34:50:078 Mongo/(21116:21116): Se creo el superbloque nuevo!
+[INFO] 02:34:50:078 Mongo/(21116:21116): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:34:50:078 Mongo/(21116:21116): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:34:50:081 Mongo/(21116:21116): Se bajaron los datos del Superbloque existente!
+[INFO] 02:34:50:082 Mongo/(21116:21116): Se crearon los bloques!
+[INFO] 02:34:50:082 Mongo/(21116:21116): se creo el directorio file correctamente
+
+[INFO] 02:34:50:082 Mongo/(21116:21116): se creo el directorio bitacora correctamente
+
+[INFO] 02:35:58:061 Mongo/(21272:21272): INICIANDO RECURSOS
+[INFO] 02:35:58:066 Mongo/(21272:21272): Generando estructura del FS
+[INFO] 02:35:58:067 Mongo/(21272:21272): Se creo estructura bloques!
+[INFO] 02:35:58:067 Mongo/(21272:21272): Cantidad de bloques generados: 326
+[INFO] 02:35:58:067 Mongo/(21272:21272): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:35:58:067 Mongo/(21272:21272): Se creo el superbloque nuevo!
+[INFO] 02:35:58:067 Mongo/(21272:21272): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:35:58:067 Mongo/(21272:21272): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:35:58:073 Mongo/(21272:21272): Se bajaron los datos del Superbloque existente!
+[INFO] 02:35:58:073 Mongo/(21272:21272): Se crearon los bloques!
+[INFO] 02:35:58:073 Mongo/(21272:21272): se creo el directorio file correctamente
+
+[INFO] 02:35:58:073 Mongo/(21272:21272): se creo el directorio bitacora correctamente
+
+[INFO] 02:36:28:406 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:28:408 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:32:720 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:32:721 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:35:721 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:35:722 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:38:722 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:38:723 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:41:723 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:36:41:723 Mongo/(21272:21272): Se conecto un cliente con socket: 8
+
+[INFO] 02:37:02:833 Mongo/(21457:21457): INICIANDO RECURSOS
+[INFO] 02:37:02:833 Mongo/(21457:21457): Es un FS existente.
+[INFO] 02:37:02:833 Mongo/(21457:21457): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:37:02:833 Mongo/(21457:21457): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:37:02:837 Mongo/(21457:21457): Se bajaron los datos del Superbloque existente!
+[INFO] 02:37:02:837 Mongo/(21457:21457): Se creo estructura bloques!
+[INFO] 02:37:02:837 Mongo/(21457:21457): Cantidad de bloques generados: 326
+[INFO] 02:37:57:704 Mongo/(21590:21590): INICIANDO RECURSOS
+[INFO] 02:37:57:719 Mongo/(21590:21590): Generando estructura del FS
+[INFO] 02:37:57:720 Mongo/(21590:21590): Se creo estructura bloques!
+[INFO] 02:37:57:720 Mongo/(21590:21590): Cantidad de bloques generados: 326
+[INFO] 02:37:57:720 Mongo/(21590:21590): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:37:57:720 Mongo/(21590:21590): Se creo el superbloque nuevo!
+[INFO] 02:37:57:720 Mongo/(21590:21590): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:37:57:720 Mongo/(21590:21590): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:37:57:723 Mongo/(21590:21590): Se bajaron los datos del Superbloque existente!
+[INFO] 02:37:57:723 Mongo/(21590:21590): Se crearon los bloques!
+[INFO] 02:37:57:723 Mongo/(21590:21590): se creo el directorio file correctamente
+
+[INFO] 02:37:57:723 Mongo/(21590:21590): se creo el directorio bitacora correctamente
+
+[INFO] 02:38:06:822 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:06:823 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:12:469 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:12:470 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:15:470 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:18:471 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:21:472 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:24:473 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:27:475 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:38:30:475 Mongo/(21590:21590): Se conecto un cliente con socket: 8
+
+[INFO] 02:39:29:468 Mongo/(21816:21816): INICIANDO RECURSOS
+[INFO] 02:39:29:468 Mongo/(21816:21816): Es un FS existente.
+[INFO] 02:39:29:468 Mongo/(21816:21816): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:39:29:468 Mongo/(21816:21816): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:39:29:471 Mongo/(21816:21816): Se bajaron los datos del Superbloque existente!
+[INFO] 02:39:29:471 Mongo/(21816:21816): Se creo estructura bloques!
+[INFO] 02:39:29:472 Mongo/(21816:21816): Cantidad de bloques generados: 326
+[INFO] 02:43:22:808 Mongo/(22193:22193): INICIANDO RECURSOS
+[INFO] 02:43:22:811 Mongo/(22193:22193): Generando estructura del FS
+[INFO] 02:43:22:812 Mongo/(22193:22193): Se creo estructura bloques!
+[INFO] 02:43:22:812 Mongo/(22193:22193): Cantidad de bloques generados: 326
+[INFO] 02:43:22:812 Mongo/(22193:22193): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:43:22:812 Mongo/(22193:22193): Se creo el superbloque nuevo!
+[INFO] 02:43:22:813 Mongo/(22193:22193): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:43:22:813 Mongo/(22193:22193): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:43:22:815 Mongo/(22193:22193): Se bajaron los datos del Superbloque existente!
+[INFO] 02:43:22:817 Mongo/(22193:22193): Se crearon los bloques!
+[INFO] 02:43:22:817 Mongo/(22193:22193): se creo el directorio file correctamente
+
+[INFO] 02:43:22:817 Mongo/(22193:22193): se creo el directorio bitacora correctamente
+
+[INFO] 02:43:58:507 Mongo/(22253:22253): INICIANDO RECURSOS
+[INFO] 02:43:58:510 Mongo/(22253:22253): Generando estructura del FS
+[INFO] 02:43:58:513 Mongo/(22253:22253): Se creo estructura bloques!
+[INFO] 02:43:58:514 Mongo/(22253:22253): Cantidad de bloques generados: 326
+[INFO] 02:43:58:514 Mongo/(22253:22253): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:43:58:514 Mongo/(22253:22253): Se creo el superbloque nuevo!
+[INFO] 02:43:58:515 Mongo/(22253:22253): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:43:58:515 Mongo/(22253:22253): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:43:58:518 Mongo/(22253:22253): Se bajaron los datos del Superbloque existente!
+[INFO] 02:43:58:520 Mongo/(22253:22253): Se crearon los bloques!
+[INFO] 02:43:58:520 Mongo/(22253:22253): se creo el directorio file correctamente
+
+[INFO] 02:43:58:520 Mongo/(22253:22253): se creo el directorio bitacora correctamente
+
+[INFO] 02:46:37:605 Mongo/(22459:22459): INICIANDO RECURSOS
+[INFO] 02:46:37:606 Mongo/(22459:22459): Generando estructura del FS
+[INFO] 02:46:37:606 Mongo/(22459:22459): Se creo estructura bloques!
+[INFO] 02:46:37:606 Mongo/(22459:22459): Cantidad de bloques generados: 326
+[INFO] 02:46:37:606 Mongo/(22459:22459): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:46:37:606 Mongo/(22459:22459): Se creo el superbloque nuevo!
+[INFO] 02:46:37:607 Mongo/(22459:22459): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:46:37:607 Mongo/(22459:22459): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:46:37:609 Mongo/(22459:22459): Se bajaron los datos del Superbloque existente!
+[INFO] 02:46:37:611 Mongo/(22459:22459): Se crearon los bloques!
+[INFO] 02:46:37:611 Mongo/(22459:22459): se creo el directorio file correctamente
+
+[INFO] 02:46:37:611 Mongo/(22459:22459): se creo el directorio bitacora correctamente
+
+[INFO] 02:46:56:975 Mongo/(22489:22489): INICIANDO RECURSOS
+[INFO] 02:46:56:977 Mongo/(22489:22489): Generando estructura del FS
+[INFO] 02:46:56:978 Mongo/(22489:22489): Se creo estructura bloques!
+[INFO] 02:46:56:978 Mongo/(22489:22489): Cantidad de bloques generados: 326
+[INFO] 02:46:56:978 Mongo/(22489:22489): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:46:56:978 Mongo/(22489:22489): Se creo el superbloque nuevo!
+[INFO] 02:46:56:979 Mongo/(22489:22489): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:46:56:979 Mongo/(22489:22489): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:46:56:981 Mongo/(22489:22489): Se bajaron los datos del Superbloque existente!
+[INFO] 02:46:56:984 Mongo/(22489:22489): Se crearon los bloques!
+[INFO] 02:46:56:984 Mongo/(22489:22489): se creo el directorio file correctamente
+
+[INFO] 02:46:56:984 Mongo/(22489:22489): se creo el directorio bitacora correctamente
+
+[INFO] 02:47:03:644 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:03:645 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:08:343 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:08:344 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:11:344 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:11:348 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:14:345 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:14:348 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:17:346 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:17:349 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:20:347 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:20:350 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:23:348 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:23:350 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:26:350 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:26:351 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:29:351 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:29:352 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:32:352 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:47:32:353 Mongo/(22489:22489): Se conecto un cliente con socket: 8
+
+[INFO] 02:48:10:374 Mongo/(22664:22664): INICIANDO RECURSOS
+[INFO] 02:48:10:374 Mongo/(22664:22664): Es un FS existente.
+[INFO] 02:48:10:375 Mongo/(22664:22664): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:48:10:375 Mongo/(22664:22664): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:48:10:377 Mongo/(22664:22664): Se bajaron los datos del Superbloque existente!
+[INFO] 02:48:10:378 Mongo/(22664:22664): Se creo estructura bloques!
+[INFO] 02:48:10:378 Mongo/(22664:22664): Cantidad de bloques generados: 326
+[INFO] 02:50:52:573 Mongo/(22919:22919): INICIANDO RECURSOS
+[INFO] 02:50:52:573 Mongo/(22919:22919): Generando estructura del FS
+[INFO] 02:50:52:573 Mongo/(22919:22919): Se creo estructura bloques!
+[INFO] 02:50:52:574 Mongo/(22919:22919): Cantidad de bloques generados: 326
+[INFO] 02:50:52:574 Mongo/(22919:22919): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:50:52:574 Mongo/(22919:22919): Se creo el superbloque nuevo!
+[INFO] 02:50:52:574 Mongo/(22919:22919): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:50:52:574 Mongo/(22919:22919): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:50:52:576 Mongo/(22919:22919): Se bajaron los datos del Superbloque existente!
+[INFO] 02:50:52:577 Mongo/(22919:22919): Se crearon los bloques!
+[INFO] 02:50:52:577 Mongo/(22919:22919): se creo el directorio file correctamente
+
+[INFO] 02:50:52:577 Mongo/(22919:22919): se creo el directorio bitacora correctamente
+
+[INFO] 02:51:07:142 Mongo/(22949:22949): INICIANDO RECURSOS
+[INFO] 02:51:07:142 Mongo/(22949:22949): Es un FS existente.
+[INFO] 02:51:07:142 Mongo/(22949:22949): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:51:07:142 Mongo/(22949:22949): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:51:07:148 Mongo/(22949:22949): Se bajaron los datos del Superbloque existente!
+[INFO] 02:51:07:148 Mongo/(22949:22949): Se creo estructura bloques!
+[INFO] 02:51:07:148 Mongo/(22949:22949): Cantidad de bloques generados: 326
+[INFO] 02:51:24:882 Mongo/(22986:22986): INICIANDO RECURSOS
+[INFO] 02:51:24:882 Mongo/(22986:22986): Es un FS existente.
+[INFO] 02:51:24:882 Mongo/(22986:22986): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:51:24:883 Mongo/(22986:22986): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:51:24:888 Mongo/(22986:22986): Se bajaron los datos del Superbloque existente!
+[INFO] 02:51:24:888 Mongo/(22986:22986): Se creo estructura bloques!
+[INFO] 02:51:24:888 Mongo/(22986:22986): Cantidad de bloques generados: 326
+[INFO] 02:51:35:652 Mongo/(23002:23002): INICIANDO RECURSOS
+[INFO] 02:51:35:655 Mongo/(23002:23002): Generando estructura del FS
+[INFO] 02:51:35:656 Mongo/(23002:23002): Se creo estructura bloques!
+[INFO] 02:51:35:656 Mongo/(23002:23002): Cantidad de bloques generados: 326
+[INFO] 02:51:35:656 Mongo/(23002:23002): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:51:35:656 Mongo/(23002:23002): Se creo el superbloque nuevo!
+[INFO] 02:51:35:657 Mongo/(23002:23002): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:51:35:657 Mongo/(23002:23002): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:51:35:659 Mongo/(23002:23002): Se bajaron los datos del Superbloque existente!
+[INFO] 02:51:35:661 Mongo/(23002:23002): Se crearon los bloques!
+[INFO] 02:51:35:661 Mongo/(23002:23002): se creo el directorio file correctamente
+
+[INFO] 02:51:35:661 Mongo/(23002:23002): se creo el directorio bitacora correctamente
+
+[INFO] 02:54:59:423 Mongo/(23319:23319): INICIANDO RECURSOS
+[INFO] 02:54:59:430 Mongo/(23319:23319): Generando estructura del FS
+[INFO] 02:54:59:430 Mongo/(23319:23319): Se creo estructura bloques!
+[INFO] 02:54:59:430 Mongo/(23319:23319): Cantidad de bloques generados: 326
+[INFO] 02:54:59:430 Mongo/(23319:23319): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:54:59:433 Mongo/(23319:23319): Se creo el superbloque nuevo!
+[INFO] 02:54:59:433 Mongo/(23319:23319): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:54:59:433 Mongo/(23319:23319): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:54:59:438 Mongo/(23319:23319): Se bajaron los datos del Superbloque existente!
+[INFO] 02:54:59:441 Mongo/(23319:23319): Se crearon los bloques!
+[INFO] 02:54:59:441 Mongo/(23319:23319): se creo el directorio file correctamente
+
+[INFO] 02:54:59:441 Mongo/(23319:23319): se creo el directorio bitacora correctamente
+
+[INFO] 02:55:06:588 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:06:589 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:09:620 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:09:620 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:12:620 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:12:621 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:15:621 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:15:622 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:18:623 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:18:623 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:21:624 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:21:626 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:24:626 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:24:628 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:27:629 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:27:642 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:30:638 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:30:639 Mongo/(23319:23319): Se conecto un cliente con socket: 8
+
+[INFO] 02:55:56:510 Mongo/(23461:23461): INICIANDO RECURSOS
+[INFO] 02:55:56:510 Mongo/(23461:23461): Es un FS existente.
+[INFO] 02:55:56:510 Mongo/(23461:23461): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:55:56:511 Mongo/(23461:23461): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:55:56:513 Mongo/(23461:23461): Se bajaron los datos del Superbloque existente!
+[INFO] 02:55:56:514 Mongo/(23461:23461): Se creo estructura bloques!
+[INFO] 02:55:56:514 Mongo/(23461:23461): Cantidad de bloques generados: 326
+[INFO] 02:57:46:840 Mongo/(23645:23645): INICIANDO RECURSOS
+[INFO] 02:57:46:843 Mongo/(23645:23645): Generando estructura del FS
+[INFO] 02:57:46:844 Mongo/(23645:23645): Se creo estructura bloques!
+[INFO] 02:57:46:844 Mongo/(23645:23645): Cantidad de bloques generados: 326
+[INFO] 02:57:46:844 Mongo/(23645:23645): Se creo el Bitmap logico con 41 Bytes
+[INFO] 02:57:46:844 Mongo/(23645:23645): Se creo el superbloque nuevo!
+[INFO] 02:57:46:844 Mongo/(23645:23645): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:57:46:844 Mongo/(23645:23645): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:57:46:847 Mongo/(23645:23645): Se bajaron los datos del Superbloque existente!
+[INFO] 02:57:46:847 Mongo/(23645:23645): Se crearon los bloques!
+[INFO] 02:57:46:847 Mongo/(23645:23645): se creo el directorio file correctamente
+
+[INFO] 02:57:46:847 Mongo/(23645:23645): se creo el directorio bitacora correctamente
+
+[INFO] 02:57:56:740 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:57:56:741 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:57:59:829 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:57:59:829 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:02:830 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:02:831 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:05:832 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:05:833 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:08:832 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:08:833 Mongo/(23645:23645): Se conecto un cliente con socket: 8
+
+[INFO] 02:58:20:660 Mongo/(23736:23736): INICIANDO RECURSOS
+[INFO] 02:58:20:660 Mongo/(23736:23736): Es un FS existente.
+[INFO] 02:58:20:661 Mongo/(23736:23736): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 02:58:20:661 Mongo/(23736:23736): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 02:58:20:664 Mongo/(23736:23736): Se bajaron los datos del Superbloque existente!
+[INFO] 02:58:20:665 Mongo/(23736:23736): Se creo estructura bloques!
+[INFO] 02:58:20:665 Mongo/(23736:23736): Cantidad de bloques generados: 326
+[INFO] 03:00:19:639 Mongo/(23926:23926): INICIANDO RECURSOS
+[INFO] 03:00:19:642 Mongo/(23926:23926): Generando estructura del FS
+[INFO] 03:00:19:643 Mongo/(23926:23926): Se creo estructura bloques!
+[INFO] 03:00:19:643 Mongo/(23926:23926): Cantidad de bloques generados: 326
+[INFO] 03:00:19:643 Mongo/(23926:23926): Se creo el Bitmap logico con 41 Bytes
+[INFO] 03:00:19:643 Mongo/(23926:23926): Se creo el superbloque nuevo!
+[INFO] 03:00:19:643 Mongo/(23926:23926): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:00:19:643 Mongo/(23926:23926): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:00:19:647 Mongo/(23926:23926): Se bajaron los datos del Superbloque existente!
+[INFO] 03:00:19:647 Mongo/(23926:23926): Se crearon los bloques!
+[INFO] 03:00:19:647 Mongo/(23926:23926): se creo el directorio file correctamente
+
+[INFO] 03:00:19:647 Mongo/(23926:23926): se creo el directorio bitacora correctamente
+
+[INFO] 03:00:26:569 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:26:570 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:30:707 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:30:708 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:33:708 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:33:709 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:36:709 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:36:710 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:39:710 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:39:711 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:42:712 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:42:712 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:45:712 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:00:45:714 Mongo/(23926:23926): Se conecto un cliente con socket: 8
+
+[INFO] 03:01:17:679 Mongo/(24053:24053): INICIANDO RECURSOS
+[INFO] 03:01:17:679 Mongo/(24053:24053): Es un FS existente.
+[INFO] 03:01:17:679 Mongo/(24053:24053): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:01:17:679 Mongo/(24053:24053): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:01:17:683 Mongo/(24053:24053): Se bajaron los datos del Superbloque existente!
+[INFO] 03:01:17:683 Mongo/(24053:24053): Se creo estructura bloques!
+[INFO] 03:01:17:684 Mongo/(24053:24053): Cantidad de bloques generados: 326
+[INFO] 03:03:00:096 Mongo/(24254:24254): INICIANDO RECURSOS
+[INFO] 03:03:00:097 Mongo/(24254:24254): Generando estructura del FS
+[INFO] 03:03:00:098 Mongo/(24254:24254): Se creo estructura bloques!
+[INFO] 03:03:00:098 Mongo/(24254:24254): Cantidad de bloques generados: 326
+[INFO] 03:03:00:098 Mongo/(24254:24254): Se creo el Bitmap logico con 41 Bytes
+[INFO] 03:03:00:098 Mongo/(24254:24254): Se creo el superbloque nuevo!
+[INFO] 03:03:00:098 Mongo/(24254:24254): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:03:00:098 Mongo/(24254:24254): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:03:00:101 Mongo/(24254:24254): Se bajaron los datos del Superbloque existente!
+[INFO] 03:03:00:101 Mongo/(24254:24254): Se crearon los bloques!
+[INFO] 03:03:00:101 Mongo/(24254:24254): se creo el directorio file correctamente
+
+[INFO] 03:03:00:101 Mongo/(24254:24254): se creo el directorio bitacora correctamente
+
+[INFO] 03:03:05:937 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:05:938 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:08:487 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:08:487 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:11:489 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:11:490 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:14:489 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:03:14:491 Mongo/(24254:24254): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:36:157 Mongo/(24560:24560): INICIANDO RECURSOS
+[INFO] 03:05:36:180 Mongo/(24560:24560): Generando estructura del FS
+[INFO] 03:05:36:180 Mongo/(24560:24560): Se creo estructura bloques!
+[INFO] 03:05:36:180 Mongo/(24560:24560): Cantidad de bloques generados: 326
+[INFO] 03:05:36:180 Mongo/(24560:24560): Se creo el Bitmap logico con 41 Bytes
+[INFO] 03:05:36:181 Mongo/(24560:24560): Se creo el superbloque nuevo!
+[INFO] 03:05:36:181 Mongo/(24560:24560): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:05:36:181 Mongo/(24560:24560): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:05:36:184 Mongo/(24560:24560): Se bajaron los datos del Superbloque existente!
+[INFO] 03:05:36:184 Mongo/(24560:24560): Se crearon los bloques!
+[INFO] 03:05:36:184 Mongo/(24560:24560): se creo el directorio file correctamente
+
+[INFO] 03:05:36:184 Mongo/(24560:24560): se creo el directorio bitacora correctamente
+
+[INFO] 03:05:41:383 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:41:384 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:44:002 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:44:002 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:47:003 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:47:004 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:50:004 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:50:004 Mongo/(24560:24560): Se conecto un cliente con socket: 8
+
+[INFO] 03:05:59:376 Mongo/(24634:24634): INICIANDO RECURSOS
+[INFO] 03:05:59:376 Mongo/(24634:24634): Es un FS existente.
+[INFO] 03:05:59:376 Mongo/(24634:24634): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:05:59:376 Mongo/(24634:24634): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:05:59:379 Mongo/(24634:24634): Se bajaron los datos del Superbloque existente!
+[INFO] 03:05:59:379 Mongo/(24634:24634): Se creo estructura bloques!
+[INFO] 03:05:59:379 Mongo/(24634:24634): Cantidad de bloques generados: 326
+[INFO] 03:06:24:015 Mongo/(24634:24634): Se conecto un cliente con socket: 8
+
+[INFO] 03:06:24:017 Mongo/(24634:24634): Se conecto un cliente con socket: 8
+
+[INFO] 03:06:46:071 Mongo/(24634:24634): Se conecto un cliente con socket: 8
+
+[INFO] 03:06:46:072 Mongo/(24634:24634): Se conecto un cliente con socket: 8
+
+[INFO] 03:06:49:073 Mongo/(24634:24634): Se conecto un cliente con socket: 8
+
+[INFO] 03:06:49:073 Mongo/(24634:24634): Se conecto un cliente con socket: 8
+
+[INFO] 03:09:38:620 Mongo/(24990:24990): INICIANDO RECURSOS
+[INFO] 03:09:38:621 Mongo/(24990:24990): Es un FS existente.
+[INFO] 03:09:38:621 Mongo/(24990:24990): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:09:38:621 Mongo/(24990:24990): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:09:38:623 Mongo/(24990:24990): Se bajaron los datos del Superbloque existente!
+[INFO] 03:09:38:624 Mongo/(24990:24990): Se creo estructura bloques!
+[INFO] 03:09:38:624 Mongo/(24990:24990): Cantidad de bloques generados: 326
+[INFO] 03:12:27:429 Mongo/(25226:25226): INICIANDO RECURSOS
+[INFO] 03:12:27:429 Mongo/(25226:25226): Es un FS existente.
+[INFO] 03:12:27:429 Mongo/(25226:25226): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:12:27:429 Mongo/(25226:25226): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:12:27:432 Mongo/(25226:25226): Se bajaron los datos del Superbloque existente!
+[INFO] 03:12:27:432 Mongo/(25226:25226): Se creo estructura bloques!
+[INFO] 03:12:27:432 Mongo/(25226:25226): Cantidad de bloques generados: 326
+[INFO] 03:12:36:148 Mongo/(25226:25226): Se conecto un cliente con socket: 8
+
+[INFO] 03:12:36:152 Mongo/(25226:25226): Se conecto un cliente con socket: 8
+
+[INFO] 03:12:40:447 Mongo/(25226:25226): Se conecto un cliente con socket: 8
+
+[INFO] 03:12:40:447 Mongo/(25226:25226): Se conecto un cliente con socket: 8
+
+[INFO] 03:12:43:448 Mongo/(25226:25226): Se conecto un cliente con socket: 8
+
+[INFO] 03:12:43:449 Mongo/(25226:25226): Se conecto un cliente con socket: 8
+
+[INFO] 03:13:13:948 Mongo/(25325:25325): INICIANDO RECURSOS
+[INFO] 03:13:13:949 Mongo/(25325:25325): Es un FS existente.
+[INFO] 03:13:13:949 Mongo/(25325:25325): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:13:13:949 Mongo/(25325:25325): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:13:13:951 Mongo/(25325:25325): Se bajaron los datos del Superbloque existente!
+[INFO] 03:13:13:952 Mongo/(25325:25325): Se creo estructura bloques!
+[INFO] 03:13:13:952 Mongo/(25325:25325): Cantidad de bloques generados: 326
+[INFO] 03:13:22:181 Mongo/(25325:25325): Se conecto un cliente con socket: 8
+
+[INFO] 03:13:22:182 Mongo/(25325:25325): Se conecto un cliente con socket: 8
+
+[INFO] 03:13:33:316 Mongo/(25325:25325): Se conecto un cliente con socket: 8
+
+[INFO] 03:13:33:316 Mongo/(25325:25325): Se conecto un cliente con socket: 8
+
+[INFO] 03:13:36:316 Mongo/(25325:25325): Se conecto un cliente con socket: 8
+
+[INFO] 03:13:36:317 Mongo/(25325:25325): Se conecto un cliente con socket: 8
+
+[INFO] 03:14:46:067 Mongo/(25475:25475): INICIANDO RECURSOS
+[INFO] 03:14:46:067 Mongo/(25475:25475): Es un FS existente.
+[INFO] 03:14:46:067 Mongo/(25475:25475): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:14:46:067 Mongo/(25475:25475): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:14:46:070 Mongo/(25475:25475): Se bajaron los datos del Superbloque existente!
+[INFO] 03:14:46:070 Mongo/(25475:25475): Se creo estructura bloques!
+[INFO] 03:14:46:070 Mongo/(25475:25475): Cantidad de bloques generados: 326
+[INFO] 03:15:12:796 Mongo/(25475:25475): Se conecto un cliente con socket: 8
+
+[INFO] 03:15:12:797 Mongo/(25475:25475): Se conecto un cliente con socket: 8
+
+[INFO] 03:15:16:985 Mongo/(25475:25475): Se conecto un cliente con socket: 8
+
+[INFO] 03:15:16:986 Mongo/(25475:25475): Se conecto un cliente con socket: 8
+
+[INFO] 03:15:19:986 Mongo/(25475:25475): Se conecto un cliente con socket: 8
+
+[INFO] 03:15:19:987 Mongo/(25475:25475): Se conecto un cliente con socket: 8
+
+[INFO] 03:19:58:254 Mongo/(25975:25975): INICIANDO RECURSOS
+[INFO] 03:19:58:254 Mongo/(25975:25975): Es un FS existente.
+[INFO] 03:19:58:254 Mongo/(25975:25975): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:19:58:254 Mongo/(25975:25975): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:19:58:256 Mongo/(25975:25975): Se bajaron los datos del Superbloque existente!
+[INFO] 03:19:58:257 Mongo/(25975:25975): Se creo estructura bloques!
+[INFO] 03:19:58:257 Mongo/(25975:25975): Cantidad de bloques generados: 326
+[INFO] 03:20:07:864 Mongo/(25975:25975): Se conecto un cliente con socket: 8
+
+[INFO] 03:20:07:865 Mongo/(25975:25975): Se conecto un cliente con socket: 8
+
+[INFO] 03:20:10:612 Mongo/(25975:25975): Se conecto un cliente con socket: 8
+
+[INFO] 03:20:10:612 Mongo/(25975:25975): Se conecto un cliente con socket: 8
+
+[INFO] 03:20:10:613 Mongo/(25975:26004): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:20:10:613 Mongo/(25975:26001): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:20:13:613 Mongo/(25975:25975): Se conecto un cliente con socket: 8
+
+[INFO] 03:20:13:613 Mongo/(25975:26012): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:20:13:613 Mongo/(25975:25975): Se conecto un cliente con socket: 8
+
+[INFO] 03:20:13:613 Mongo/(25975:26014): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:28:24:479 Mongo/(26815:26815): INICIANDO RECURSOS
+[INFO] 03:28:24:502 Mongo/(26815:26815): Es un FS existente.
+[INFO] 03:28:24:518 Mongo/(26815:26815): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:28:24:518 Mongo/(26815:26815): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:28:24:521 Mongo/(26815:26815): Se bajaron los datos del Superbloque existente!
+[INFO] 03:28:24:522 Mongo/(26815:26815): Se creo estructura bloques!
+[INFO] 03:28:24:522 Mongo/(26815:26815): Cantidad de bloques generados: 326
+[INFO] 03:28:33:167 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:33:169 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:36:076 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:36:076 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:36:077 Mongo/(26815:26846): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:28:36:077 Mongo/(26815:26843): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:28:39:077 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:39:079 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:39:079 Mongo/(26815:26850): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:28:39:079 Mongo/(26815:26853): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:28:42:078 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:42:081 Mongo/(26815:26815): Se conecto un cliente con socket: 8
+
+[INFO] 03:28:42:081 Mongo/(26815:26860): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:28:42:083 Mongo/(26815:26859): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:58:47:676 Mongo/(28725:28725): INICIANDO RECURSOS
+[INFO] 03:58:47:743 Mongo/(28725:28725): Es un FS existente.
+[INFO] 03:58:47:757 Mongo/(28725:28725): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 03:58:47:757 Mongo/(28725:28725): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 03:58:47:757 Mongo/(28725:28725): Se bajaron los datos del Superbloque existente!
+[INFO] 03:58:47:758 Mongo/(28725:28725): Se creo estructura bloques!
+[INFO] 03:58:47:758 Mongo/(28725:28725): Cantidad de bloques generados: 326
+[INFO] 03:58:57:669 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:58:57:670 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:02:198 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:02:198 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:02:227 Mongo/(28725:28746): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:59:02:228 Mongo/(28725:28743): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:59:05:198 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:05:199 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:05:199 Mongo/(28725:28751): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:59:05:201 Mongo/(28725:28753): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:59:08:199 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:08:199 Mongo/(28725:28758): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 03:59:08:200 Mongo/(28725:28725): Se conecto un cliente con socket: 8
+
+[INFO] 03:59:08:200 Mongo/(28725:28760): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:00:16:517 Mongo/(28865:28865): INICIANDO RECURSOS
+[INFO] 04:00:16:582 Mongo/(28865:28865): Es un FS existente.
+[INFO] 04:00:16:598 Mongo/(28865:28865): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:00:16:598 Mongo/(28865:28865): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:00:16:604 Mongo/(28865:28865): Se bajaron los datos del Superbloque existente!
+[INFO] 04:00:16:606 Mongo/(28865:28865): Se creo estructura bloques!
+[INFO] 04:00:16:607 Mongo/(28865:28865): Cantidad de bloques generados: 326
+[INFO] 04:00:30:874 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:30:875 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:35:044 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:35:044 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:35:065 Mongo/(28865:28891): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:00:35:065 Mongo/(28865:28888): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:00:38:045 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:38:046 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:38:046 Mongo/(28865:28895): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:00:38:046 Mongo/(28865:28898): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:00:41:047 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:41:048 Mongo/(28865:28865): Se conecto un cliente con socket: 8
+
+[INFO] 04:00:41:049 Mongo/(28865:28902): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:00:41:049 Mongo/(28865:28899): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:02:20:416 Mongo/(29017:29017): INICIANDO RECURSOS
+[INFO] 04:02:20:472 Mongo/(29017:29017): Es un FS existente.
+[INFO] 04:02:20:488 Mongo/(29017:29017): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:02:20:488 Mongo/(29017:29017): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:02:20:502 Mongo/(29017:29017): Se bajaron los datos del Superbloque existente!
+[INFO] 04:02:20:502 Mongo/(29017:29017): Se creo estructura bloques!
+[INFO] 04:02:20:502 Mongo/(29017:29017): Cantidad de bloques generados: 326
+[INFO] 04:11:59:927 Mongo/(29778:29778): INICIANDO RECURSOS
+[INFO] 04:11:59:951 Mongo/(29778:29778): Generando estructura del FS
+[INFO] 04:11:59:951 Mongo/(29778:29778): Se creo estructura bloques!
+[INFO] 04:11:59:951 Mongo/(29778:29778): Cantidad de bloques generados: 326
+[INFO] 04:11:59:951 Mongo/(29778:29778): Se creo el Bitmap logico con 41 Bytes
+[INFO] 04:11:59:952 Mongo/(29778:29778): Se creo el superbloque nuevo!
+[INFO] 04:11:59:952 Mongo/(29778:29778): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:11:59:952 Mongo/(29778:29778): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:11:59:952 Mongo/(29778:29778): Se bajaron los datos del Superbloque existente!
+[INFO] 04:11:59:952 Mongo/(29778:29778): Se crearon los bloques!
+[INFO] 04:11:59:952 Mongo/(29778:29778): se creo el directorio file correctamente
+
+[INFO] 04:11:59:952 Mongo/(29778:29778): se creo el directorio bitacora correctamente
+
+[INFO] 04:12:21:649 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:21:651 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:24:587 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:24:587 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:24:588 Mongo/(29778:29817): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 04:12:24:588 Mongo/(29778:29816): El archivo del tripulante no existe, generando nuevo bloque
+[INFO] 04:12:27:587 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:27:587 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:27:588 Mongo/(29778:29818): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:12:27:588 Mongo/(29778:29821): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:12:30:588 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:30:588 Mongo/(29778:29778): Se conecto un cliente con socket: 8
+
+[INFO] 04:12:30:588 Mongo/(29778:29826): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:12:30:589 Mongo/(29778:29828): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:10:557 Mongo/(29873:29873): INICIANDO RECURSOS
+[INFO] 04:13:10:557 Mongo/(29873:29873): Es un FS existente.
+[INFO] 04:13:10:557 Mongo/(29873:29873): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:13:10:557 Mongo/(29873:29873): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:13:10:560 Mongo/(29873:29873): Se bajaron los datos del Superbloque existente!
+[INFO] 04:13:10:560 Mongo/(29873:29873): Se creo estructura bloques!
+[INFO] 04:13:10:560 Mongo/(29873:29873): Cantidad de bloques generados: 326
+[INFO] 04:13:21:437 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:21:439 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:24:115 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:24:116 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:24:116 Mongo/(29873:29896): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:24:117 Mongo/(29873:29893): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:27:116 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:27:117 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:27:117 Mongo/(29873:29903): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:27:117 Mongo/(29873:29900): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:30:117 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:30:117 Mongo/(29873:29908): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:30:118 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:30:118 Mongo/(29873:29912): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:33:118 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:33:118 Mongo/(29873:29915): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:13:33:119 Mongo/(29873:29873): Se conecto un cliente con socket: 8
+
+[INFO] 04:13:33:126 Mongo/(29873:29917): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:15:00:604 Mongo/(30036:30036): INICIANDO RECURSOS
+[INFO] 04:15:00:610 Mongo/(30036:30036): Es un FS existente.
+[INFO] 04:15:00:610 Mongo/(30036:30036): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:15:00:610 Mongo/(30036:30036): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:15:00:611 Mongo/(30036:30036): Se bajaron los datos del Superbloque existente!
+[INFO] 04:15:00:612 Mongo/(30036:30036): Se creo estructura bloques!
+[INFO] 04:15:00:612 Mongo/(30036:30036): Cantidad de bloques generados: 326
+[INFO] 04:15:07:696 Mongo/(30036:30036): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:07:697 Mongo/(30036:30036): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:23:067 Mongo/(30070:30070): INICIANDO RECURSOS
+[INFO] 04:15:23:068 Mongo/(30070:30070): Es un FS existente.
+[INFO] 04:15:23:068 Mongo/(30070:30070): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:15:23:068 Mongo/(30070:30070): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:15:23:073 Mongo/(30070:30070): Se bajaron los datos del Superbloque existente!
+[INFO] 04:15:23:074 Mongo/(30070:30070): Se creo estructura bloques!
+[INFO] 04:15:23:075 Mongo/(30070:30070): Cantidad de bloques generados: 326
+[INFO] 04:15:25:444 Mongo/(30070:30070): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:25:445 Mongo/(30070:30070): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:25:445 Mongo/(30070:30077): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:15:25:446 Mongo/(30070:30074): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:15:28:445 Mongo/(30070:30070): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:28:446 Mongo/(30070:30070): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:28:446 Mongo/(30070:30081): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:15:28:446 Mongo/(30070:30078): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 04:15:31:447 Mongo/(30070:30070): Se conecto un cliente con socket: 8
+
+[INFO] 04:15:31:447 Mongo/(30070:30070): Se conecto un cliente con socket: 8
+
+[INFO] 04:17:14:299 Mongo/(30214:30214): INICIANDO RECURSOS
+[INFO] 04:17:14:364 Mongo/(30214:30214): Es un FS existente.
+[INFO] 04:17:14:376 Mongo/(30214:30214): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 04:17:14:376 Mongo/(30214:30214): CANT GUARDADO EN SUPERBLOQUE: 326
+
+[INFO] 04:17:14:378 Mongo/(30214:30214): Se bajaron los datos del Superbloque existente!
+[INFO] 04:17:14:378 Mongo/(30214:30214): Se creo estructura bloques!
+[INFO] 04:17:14:379 Mongo/(30214:30214): Cantidad de bloques generados: 326
+[INFO] 04:17:22:880 Mongo/(30214:30214): Se conecto un cliente con socket: 8
+
+[INFO] 04:17:26:014 Mongo/(30214:30214): Se conecto un cliente con socket: 8
+
+[INFO] 04:17:26:039 Mongo/(30214:30239): El archivo del tripulante existe, buscando su ultimo bloque

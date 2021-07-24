@@ -54,7 +54,7 @@ int obtener_bloque_libre(t_bitarray* bitmap){
 	size_t tamanio = bitarray_get_max_bit(bitmap);
 	sem_post(&semaforo_bitmap);
 	int i;
-	for(i=0; i<tamanio; i++){
+	for(i=1; i<=tamanio; i++){
 		sem_wait(&semaforo_bitmap);
 		if(bitarray_test_bit(bitmap, i)== 0){
 			bitarray_set_bit(bitmap,i);

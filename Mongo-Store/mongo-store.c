@@ -9,8 +9,6 @@ int main() {
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
 
 	crear_estructura_filesystem();
-	crearEstructuraDiscoLogico();
-	crearEstructurasBloques();
 	crearBitMapLogico();
 
 	struct stat statbuf;
@@ -19,9 +17,9 @@ int main() {
 	fstat(archivo,&statbuf);
 	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 
-	generar_oxigeno(1478);
-	//generar_basura(250);
-	//generar_comida(340);
+	generar_oxigeno(5);
+	//generar_basura(100);
+	//generar_comida(100);
 	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
 	struct stat statbuf;
 	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
@@ -1097,24 +1095,52 @@ char* contenido_de_bloques(char* bloques){
 	return texto_todos_los_bloques;
 }
 
+bool contiene(char* bloques,char* bloque){
+	bool flag=false;
+	char** bloques_separados=string_split(bloques,",");
+	int i = 0;
+	while(bloques_separados[i]){
+
+		if(string_equals_ignore_case(bloques_separados[i],bloque)){
+			flag=true;
+		}
+		i++;
+	}
+
+	return flag;
+}
+
 void actualizar_el_archivo(char *ruta,char* cadena,t_bloque* bloque){
 
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo,&statbuf);
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
-	char* size=string_itoa(atoi(size_de_archivo(ruta))+string_length(cadena));
-	char* cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(ruta))+1);
+	char* cantidad_bloques;
 	char* bloques=bloques_de_archivo(ruta);
+	bool contiene_bloque=contiene(bloques,string_itoa(bloque->id_bloque));
+	if(!contiene_bloque){
+		cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(ruta))+1);
+	}
+	else{
+		cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(ruta)));
+	}
+	char* size=string_itoa(atoi(size_de_archivo(ruta))+string_length(cadena));
 
+	if(!contiene_bloque){
+		string_append(&bloques,string_itoa(bloque->id_bloque));
+	}
+	else{
+		bloques=string_substring_until(bloques,string_length(bloques)-1);
+	}
 
-	string_append(&bloques,string_itoa(bloque->id_bloque));
 	char* caracter_llenado=string_substring_until(cadena, 1);
 	char* contenido_de_los_bloques=contenido_de_bloques(bloques);
 	char* md5=generarMD5(contenido_de_los_bloques);
+	string_append(&bloques,",");
 
-	char* texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s,\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
+
+	char* texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
 			size,cantidad_bloques,bloques,caracter_llenado,md5);
 	int tamanio_texto=string_length(texto);
 	if(tamanio_texto>statbuf.st_size){
@@ -1242,26 +1268,30 @@ void consumir_oxigeno(int cant_borrar){
 
 
 void generar_comida(int cantidad){
-	puntoMontaje="/home/utnso/workspace/mnt";
 	char* cadena=string_repeat('C', cantidad);
-	char* ruta_comida =string_new();
-	string_append(&ruta_comida,puntoMontaje);
-	string_append(&ruta_comida,"/Files/comida.ims");
-	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
-	int existeArchivo = access(ruta_comida, F_OK);
-	t_bloque* bloque=malloc(sizeof(bloque));
+		char* ruta_comida =string_new();
+		string_append(&ruta_comida,puntoMontaje);
+		string_append(&ruta_comida,"/Files/comida.ims");
 
-	if(existeArchivo==-1){
-		inicializar_archivo(ruta_comida,cantidad, 'C');
-		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
-		escribir_el_archivo(ruta_comida,cadena,bloque);
-	}
-	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
-	else{
-		recuperar_ultimo_bloque_file(ruta_comida);
-		escribir_el_archivo(ruta_comida,cadena,bloque);
-	}
+		//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
+		int existeArchivo = access(ruta_comida, F_OK);
+
+		t_bloque* bloque=malloc(sizeof(bloque));
+
+		if(existeArchivo==-1){
+			inicializar_archivo(ruta_comida,cantidad, 'C');
+
+			int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+			bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+			//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
+			escribir_el_archivo(ruta_comida,cadena,bloque);
+
+		}
+		//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
+		else{
+			bloque=recuperar_ultimo_bloque_file(ruta_comida);
+			escribir_el_archivo(ruta_comida,cadena,bloque);
+		}
 }
 
 

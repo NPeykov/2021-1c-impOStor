@@ -17,7 +17,8 @@ int main() {
 	fstat(archivo,&statbuf);
 	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 
-	generar_oxigeno(5);
+	generar_oxigeno(257);
+	//consumir_oxigeno(160);
 	//generar_basura(100);
 	//generar_comida(100);
 	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
@@ -1078,19 +1079,22 @@ char* leo_el_bloque(t_bloque* bloque){
 
 char* contenido_de_bloques(char* bloques){
 
+
 	t_bloque* bloque= malloc(sizeof(t_bloque));
 	char** auxiliar=string_split(bloques,",");
 	char* texto_todos_los_bloques=string_new();
+
 	int i = 0;
+
+
 	while(auxiliar[i]){
 		bloque=list_get(disco_logico->bloques,atoi(auxiliar[i])-1);
-
 		char* texto= leo_el_bloque(bloque);
 
 		string_append(&texto_todos_los_bloques,texto);
-
 		i++;
 	}
+
 
 	return texto_todos_los_bloques;
 }
@@ -1136,9 +1140,49 @@ void actualizar_el_archivo(char *ruta,char* cadena,t_bloque* bloque){
 
 	char* caracter_llenado=string_substring_until(cadena, 1);
 	char* contenido_de_los_bloques=contenido_de_bloques(bloques);
+
+
 	char* md5=generarMD5(contenido_de_los_bloques);
 	string_append(&bloques,",");
 
+
+	char* texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
+			size,cantidad_bloques,bloques,caracter_llenado,md5);
+	int tamanio_texto=string_length(texto);
+	if(tamanio_texto>statbuf.st_size){
+		int lo_que_hay_que_agrandar=tamanio_texto-statbuf.st_size;
+		ftruncate(archivo, (off_t)statbuf.st_size+lo_que_hay_que_agrandar);
+	}
+	for(int i=0;i<tamanio_texto;i++){
+		archivo_addr[i]=texto[i];
+	}
+
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+}
+
+void actualizar_archivo_borrado(char *ruta,int cadena,bool flag,char caracter ){
+	int archivo = open(ruta, O_RDWR);
+	struct stat statbuf;
+	fstat(archivo,&statbuf);
+	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	char* cantidad_bloques;
+	char* bloques=bloques_de_archivo(ruta);
+	//bool contiene_bloque=contiene(bloques,string_itoa(bloque->id_bloque));
+	if(!flag){
+		cantidad_bloques=cantidad_de_bloques_de_archivo(ruta);
+	}
+	else{
+		cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(ruta))-1);
+		bloques=string_substring(bloques, 0, string_length(bloques)-2);
+
+	}
+	char* size=string_itoa(atoi(size_de_archivo(ruta))-cadena);
+
+	char* caracter_llenado=string_from_format("%c", caracter);
+	char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
+	char* contenido_de_los_bloques=contenido_de_bloques(bloquesaux);
+	char* md5=generarMD5(contenido_de_los_bloques);
 
 	char* texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
 			size,cantidad_bloques,bloques,caracter_llenado,md5);
@@ -1200,6 +1244,94 @@ t_bloque* recuperar_ultimo_bloque_file(char* ruta){
 	return el_bloque;
 }
 
+void borrar_del_archivo(char *ruta,int cant_borrar, t_bloque* bloque,char caracter){
+
+	int posicion_a_borrar=bloque->posicion_para_escribir-1;
+	int caracteres_ocupados=posicion_a_borrar - bloque->inicio;
+	if(cant_borrar<caracteres_ocupados){
+		for(int i = 0;i<cant_borrar;i++){
+			block_mmap[posicion_a_borrar]=' ';
+			posicion_a_borrar--;
+			bloque->espacio++;
+			bloque->posicion_para_escribir--;
+		}
+		actualizar_archivo_borrado(ruta,cant_borrar,false, caracter);
+
+	}
+	else{
+	//borrar_todo y actualizar el archivo
+		for(int i = bloque->posicion_para_escribir;i>=bloque->inicio;i--){
+			block_mmap[i]=' ';
+		}
+		bloque->espacio=bloque->fin-bloque->inicio+1;
+		bloque->posicion_para_escribir=bloque->inicio;
+		actualizar_archivo_borrado(ruta,cant_borrar,true,caracter);
+	}
+
+}
+
+void avisar_que_no_existe(){
+
+}
+
+void vaciar_bloque(t_bloque* bloque){
+	for(int i=bloque->posicion_para_escribir;i>=bloque->inicio;i--)
+	block_mmap[i]=' ';
+}
+
+
+void eliminar_del_archivo(char* ruta,int cant_borrar,char caracter){
+	char* bloques=bloques_de_archivo(ruta);
+	char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
+	char* contenido_total=contenido_de_bloques(bloquesaux);
+
+	t_bloque* bloque=malloc(sizeof(t_bloque*));
+
+	if(string_length(contenido_total)>cant_borrar){
+		//recupero el ultimo bloque
+		bloque= recuperar_ultimo_bloque_file(ruta);
+		int cantidad_ocupada=bloque->posicion_para_escribir-bloque->inicio;
+		printf("id bloque %d\n",bloque->id_bloque);
+		printf("cantidad_ocupada: %d\n",cantidad_ocupada);
+		printf("cant_borrar: %d\n",cant_borrar);
+		int lo_que_puedo_borrar;
+		int lo_que_falta;
+		//me fijo si la cantidad ocupada es mayor que la cantidad a borrar
+		if(cantidad_ocupada>=cant_borrar){
+			borrar_del_archivo(ruta,cant_borrar,bloque,caracter);
+		}
+		else{
+			lo_que_puedo_borrar=cantidad_ocupada;
+			printf("lo que puedo borrar: %d\n",lo_que_puedo_borrar);
+			lo_que_falta=cant_borrar-cantidad_ocupada;
+			printf("lo_que_falta: %d\n",lo_que_falta);
+
+			//sino borro lo que puedo
+			borrar_del_archivo(ruta,lo_que_puedo_borrar,bloque,caracter);
+			//elimino del archivo lo que falta
+			eliminar_del_archivo(ruta,lo_que_falta,caracter);
+		}
+	}
+	else{
+		char** bloques_divididos=string_split(bloques,",");
+		int cantidad_de_bloques= atoi(cantidad_de_bloques_de_archivo(ruta));
+		inicializar_archivo(ruta,0,caracter);
+		for(int i = 0 ; i < cantidad_de_bloques;i++){
+			bloque=list_get(disco_logico->bloques,atoi(bloques_divididos[i])-1);
+			vaciar_bloque(bloque);
+			bloque->espacio=bloque->fin-bloque->inicio+1;
+			bloque->posicion_para_escribir=bloque->inicio;
+			sem_wait(&semaforo_bitmap);
+			bitarray_set_bit(bitmap,atoi(bloques_divididos[i])-1);
+			sem_post(&semaforo_bitmap);
+
+		}
+		//TODO falta escribir en log
+	}
+
+}
+
+
 void generar_oxigeno(int cantidad){
 	char* cadena=string_repeat('O', cantidad);
 	char* ruta_oxigeno =string_new();
@@ -1224,46 +1356,25 @@ void generar_oxigeno(int cantidad){
 	else{
 		bloque=recuperar_ultimo_bloque_file(ruta_oxigeno);
 		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
+		int existeArchivo = access(ruta_oxigeno, F_OK);
 	}
 
 
 }
 
 void consumir_oxigeno(int cant_borrar){
-	char* oxigenoRuta = malloc(strlen(dirFiles) + strlen("/Oxigeno.ims") + 1);
-	strcpy(oxigenoRuta, dirFiles);
-	strcat(oxigenoRuta, "/Oxigeno.ims");
+	char* ruta_oxigeno =string_new();
+	string_append(&ruta_oxigeno,puntoMontaje);
+	string_append(&ruta_oxigeno,"/Files/oxigeno.ims");
+	int existeArchivo = access(ruta_oxigeno, F_OK);
 
-  if(access(oxigenoRuta, F_OK) == 0){
-    FILE *archivo = fopen(oxigenoRuta, "a+");
-    long int pos_actual;
-    long int cant_ox_disponible;
+	if(existeArchivo!=-1){
+		eliminar_del_archivo(ruta_oxigeno,cant_borrar,'O');
+	}
+	else{
+		avisar_que_no_existe();
+	}
 
-    fseek(archivo, 0, SEEK_END);
-    cant_ox_disponible = ftell(archivo) / sizeof(char);
-
-    printf("cantidadOxigenos = %ld\n", cant_ox_disponible);
-
-    if(cant_borrar > cant_ox_disponible){
-      fseek(archivo, 0, SEEK_SET);
-      //hay que avisar que intento borrar mas de los disponible
-      log_error(mongoLogger, "Se intento borrar más oxigenos de los disponibles");
-    }
-    else{
-      fseek(archivo, -cant_borrar * sizeof(char), SEEK_END);
-    }
-    pos_actual = ftell(archivo);
-    ftruncate(fileno(archivo), pos_actual);
-    fclose(archivo);
-    return;
-  }
-
-  else{
-    printf("SACAR-OX: no existe archivo!\n");
-    //no existe el archivo
-    log_error(mongoLogger, "No existe el archivo Oxigeno.ims");
-    return;
-  }
 }
 
 

@@ -62,9 +62,9 @@ int cantidad_de_bloques;
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
 
-void liberar_bloque(t_bitarray* bitmap, int bloque);
-void ocupar_bloque(t_bitarray* bitmap, int bloque);
-int obtener_bloque_libre(t_bitarray* bitmap) ;
+void liberar_bloque(int bloque);
+void ocupar_bloque(int bloque);
+int obtener_bloque_libre(void) ;
 void actualizar_posicion(m_movimiento_tripulante *tripulante);
 
 

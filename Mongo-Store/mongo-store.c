@@ -273,7 +273,7 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 
 	el_bloque=(t_bloque *)list_get(disco_logico->bloques, indexUltimoBloque);
 
-	log_info(mongoLogger, "El ultimo bloque asinado en la bitacora %s es: %d y esta en indice: %d",
+	log_info(mongoLogger, "El ultimo bloque asignado en la bitacora %s es: %d y esta en indice: %d",
 				rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);
 
 	munmap(archivo_addr,statbuf.st_size);
@@ -372,7 +372,18 @@ void crearblocks(char* dirBlocks){
 
 	printf("PESO ES: %d\n", peso);
 
+	FILE *fd;
 
+	fd = fopen(dirBlocks, "w+");
+
+	ftruncate(fileno(fd), peso);
+
+	for(int i=0; i < peso; i++) {
+		fputc(' ', fd);
+	}
+
+	fclose(fd);
+/*
 	int archivo = open(dirBlocks, O_RDWR);
 
 	fstat(archivo, &statbuf);
@@ -388,7 +399,7 @@ void crearblocks(char* dirBlocks){
 
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
-
+*/
 	log_info(mongoLogger, "Se crearon los bloques!");
 }
 
@@ -522,21 +533,28 @@ int ultima_posicion_escrita(int inicio,int fin){
 }
 
 void copiar_datos_de_bloques(t_list* bloques){
+	int inicio, fin, offset;
+	t_bloque *bloque;
 
 	for(int i=0;i<list_size(bloques);i++){
-		t_bloque *bloque=malloc(sizeof(t_bloque));
 		//agarro un bloque
 		bloque=list_get(bloques,i);
 		//veo donde empieza
-		int inicio = bloque->inicio;
+		inicio = bloque->inicio;
 		//veo donde termina
-		int fin = bloque->fin;
+		fin = bloque->fin;
 		//leo desde empieza hasta termina en bloc los caracteres escritos
-		int offset = ultima_posicion_escrita(inicio,fin);
+		offset = ultima_posicion_escrita(inicio,fin);
 		//resto espacio en bloque
 		bloque->espacio=bloque->espacio-offset;
 		//acomodo el puntero en bloque
-		bloque->posicion_para_escribir=bloque->posicion_para_escribir+offset+1;
+		//bloque->posicion_para_escribir=bloque->posicion_para_escribir+offset+1;
+		printf("Bloque %d inicio %d fin %d offset %d tiene espacio %d\n",
+				bloque->id_bloque,
+				bloque->inicio,
+				bloque->fin,
+				offset,
+				bloque->espacio);
 	}
 }
 
@@ -605,12 +623,6 @@ void crear_estructura_filesystem(){
 		crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
 		copiar_bitmap_de_disco(dirSuperbloque);
 		//crearSuperbloque(dirSuperbloque);
-		//bitarray_set_bit(bitmap, 1);
-
-		//printf("SETEO BIT EN 1\n");
-		//mostrar_estado_bitarray();
-
-
 
 		crearblocks(dirBlocks);//archivo
 		crearCarpetaFile(dirFiles);//carpeta
@@ -757,12 +769,20 @@ void crearEstructuraFileSystem() {
 
 
 void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){
-	for(int i=0;i<string_length(lo_que_se_va_a_escribir);i++){
+	pthread_mutex_lock(&mutex_disco_logico);
+	int longitud_texto = string_length(lo_que_se_va_a_escribir);
+	for(int i=0;i<longitud_texto;i++){
 		block_mmap[el_bloque->posicion_para_escribir]=lo_que_se_va_a_escribir[i];
 		el_bloque->posicion_para_escribir++;
 	}
 	el_bloque->espacio=el_bloque->espacio-string_length(lo_que_se_va_a_escribir);
 
+	log_info(mongoLogger, "Se escribieron %d bytes en el bloque %d, "
+			"le quedan %d bytes disponibles.",
+			longitud_texto,
+			el_bloque->id_bloque,
+			el_bloque->espacio);
+	pthread_mutex_unlock(&mutex_disco_logico);
 }
 
 
@@ -1190,9 +1210,8 @@ void descartar_basura(int cant_borrar){
     	  }
     	}
 void actualizar_posicion(m_movimiento_tripulante *tripulante){
-	t_bloque *el_bloque = (t_bloque*)malloc(sizeof(t_bloque*));
-	t_bloque *nuevo_bloque = (t_bloque*)malloc(sizeof(t_bloque*));
-
+	t_bloque *el_bloque;
+	t_bloque *nuevo_bloque;
 
 	char *bloque;
 	char *lo_que_se_va_a_escribir=string_new();
@@ -1246,35 +1265,45 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 					lo_que_se_va_a_escribir,
 					string_length(lo_que_entra_en_el_bloque));
 			//asigno el bloque nuevo
-			numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+			numero_del_nuevo_bloque = obtener_bloque_libre();
+			log_info(mongoLogger,
+					"Asigno el bloque numero:%d al tripulante %d de patota %d\n",
+					numero_del_nuevo_bloque, tripulante->idTripulante,
+					tripulante->idPatota);
+			pthread_mutex_lock(&mutex_disco_logico);
 			nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
-					numero_del_nuevo_bloque);
+					numero_del_nuevo_bloque - 1);
+			pthread_mutex_unlock(&mutex_disco_logico);
 			//escribir lo_que_falta_escribir
 			escribir_en_block(lo_que_falta_escribir, nuevo_bloque);
 			//actualizar el bitmap
-			ocupar_bloque(bitmap, numero_del_nuevo_bloque);
+			ocupar_bloque(numero_del_nuevo_bloque);
 			// actualizar bitacora con el bloque nuevo del tripulante
 			agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);
 		}
-	}
-	else{
-		log_info(mongoLogger, "Creando el archivo del tripulante %d de patota %d",
-						tripulante->idTripulante, tripulante->idPatota);
+	} else {
+		log_info(mongoLogger,
+				"Creando el archivo del tripulante %d de patota %d",
+				tripulante->idTripulante, tripulante->idPatota);
 		//asigno el bloque nuevo
-		numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		numero_del_nuevo_bloque = obtener_bloque_libre();
 
-		log_info(mongoLogger, "Asigno el bloque numero:%d al tripulante %d de patota %d\n",
-				numero_del_nuevo_bloque, tripulante->idTripulante, tripulante->idPatota);
+		log_info(mongoLogger,
+				"Asigno el bloque numero:%d al tripulante %d de patota %d\n",
+				numero_del_nuevo_bloque, tripulante->idTripulante,
+				tripulante->idPatota);
 
 		//creo el archivo bitacora
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1);
+		nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
+				numero_del_nuevo_bloque - 1);
 		sem_wait(&semaforo_bitacora);
-		inicializar_bitacora(rutaBitacora,string_itoa(nuevo_bloque->id_bloque));
+		inicializar_bitacora(rutaBitacora,
+				string_itoa(nuevo_bloque->id_bloque));
 		sem_post(&semaforo_bitacora);
 		//modifico bitmap
-		ocupar_bloque(bitmap, numero_del_nuevo_bloque);
+		ocupar_bloque(numero_del_nuevo_bloque);
 		//escribo lo_que_se_va_a_escribir en block
-		escribir_en_block(lo_que_se_va_a_escribir,nuevo_bloque);
+		escribir_en_block(lo_que_se_va_a_escribir, nuevo_bloque);
 	}
 }
 

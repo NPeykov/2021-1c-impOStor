@@ -34,35 +34,38 @@
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 
-//char *puntoMontaje;
+
+char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
 char *dirBitacora;
 //char *dirBlocks;
 t_log* mongoLogger;
 int socket_cliente;
-//int blocks;
-//int block_size;
+int blocks;
+int block_size;
 pthread_t hilo_sabotaje;
 t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 
-char *superbloque;
-void *bitarrayComoVoid;
+void *superbloque;
+char *bitarrayEnChar;
 t_bitarray *bitmap;
-uint32_t block_size;
-uint32_t blocks;
+uint32_t *g_block_size;
+uint32_t *g_blocks;
+
+uint32_t g_nuevo_blocks;
+uint32_t g_nuevo_block_size;
 
 int tamanio_de_bloque;
 int cantidad_de_bloques;
 
-t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
-
-void liberar_bloque(t_bitarray* bitmap, int bloque);
-void ocupar_bloque(t_bitarray* bitmap, int bloque);
-int obtener_bloque_libre(t_bitarray* bitmap) ;
-void actualizar_posicion(m_movimiento_tripulante *tripulante);
+t_bitarray* crear_bitmap(char *, int );
+void liberar_bloque(int );
+void ocupar_bloque(int );
+int obtener_bloque_libre(void) ;
+void actualizar_posicion(m_movimiento_tripulante *);
 
 
 #endif /* BITMAP_H_ */

@@ -21,8 +21,18 @@
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
-sem_t semaforo_bitmap;
+//sem_t semaforo_bitmap;
 sem_t semaforo_bitacora;
+
+
+//MUTEXS
+pthread_mutex_t mutex_disco_logico;
+pthread_mutex_t mutex_bitmap;
+
+typedef struct {
+	void *tripulante;
+	op_code accion;
+} tripulante_con_su_accion;
 
 typedef struct {
 	t_list *bloques;
@@ -48,7 +58,7 @@ t_log* mongoLogger;
 int socket_cliente;
 //int blocks;
 //int block_size;
-int numero_sabotaje=0;
+int numero_sabotaje;
 m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;
 t_list* archAbiertos;
@@ -58,7 +68,14 @@ char *block_mmap;
 size_t block_mmap_size;
 
 
+//relacionadas a escribir las acciones del tripulante
+char *generarTextoAEscribir(tripulante_con_su_accion *);
+void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion*);
 
+char *rutaBitacoraDelTripulante(tripulante_con_su_accion*);
+
+
+void iniciar_recursos_mongo(void);
 void crearEstructuraFileSystem();
 void crearblocks(char*);
 void crear_estructura_filesystem();
@@ -71,7 +88,7 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);
 int ultima_posicion_escrita(int,int);
-void actualizar_posicion(m_movimiento_tripulante *tripulante);
+
 void rutina(int n);
 void *gestionarCliente(int cliente);
 void gestionarSabotaje();
@@ -84,8 +101,10 @@ void descartar_basura(int);
 void (*signal(int sig, void (*func)(int)))(int) ;
 void enviar_aviso_sabotaje_a_discordiador(void *data);
 char* siguiente_posicion_sabotaje();
+
 typedef enum{
 	SUPERBLOQUE,
 	FILES
 }sabotaje_code;
+
 #endif

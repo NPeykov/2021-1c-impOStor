@@ -2,7 +2,7 @@ TARGET = Cliente
 UTILS  = ../utils
 PROG   = discordiador.c utils_disc.c tareas.c sabotaje.c\
          comunicacion.c $(UTILS)/utils.c
-FLAGS  = -I$(UTILS) -Wall -lcommons -lreadline -pthread
+FLAGS  = -I$(UTILS) -lcommons -lreadline -pthread
 
 $(TARGET) : $(PROG)
 	gcc $(PROG) -o $(TARGET) $(FLAGS)
@@ -10,7 +10,7 @@ $(TARGET) : $(PROG)
 
 .PHONY : clean
 clean :
-	rm -f Cliente$(TARGET) *.o
+	rm -f $(TARGET) *.o
 
 #Cliente : discordiador.c ../utils/utils.c
 #	gcc discordiador.c ../utils/utils.c -o Cliente -lcommons -lreadline -pthread

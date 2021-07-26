@@ -3706,3 +3706,72 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 [INFO] 16:46:21:425 Mongo/(10210:10210): Se bajaron los datos del Superbloque existente!
 [INFO] 16:46:21:425 Mongo/(10210:10210): Se creo estructura bloques!
 [INFO] 16:46:21:425 Mongo/(10210:10210): Cantidad de bloques generados: 52
+[INFO] 17:42:49:414 Mongo/(4356:4356): INICIANDO RECURSOS
+[INFO] 17:42:49:447 Mongo/(4356:4356): Es un FS existente.
+[INFO] 17:42:49:454 Mongo/(4356:4356): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 17:42:49:455 Mongo/(4356:4356): CANT GUARDADO EN SUPERBLOQUE: 52
+
+[INFO] 17:42:49:456 Mongo/(4356:4356): Se bajaron los datos del Superbloque existente!
+[INFO] 17:42:49:456 Mongo/(4356:4356): Se creo estructura bloques!
+[INFO] 17:42:49:456 Mongo/(4356:4356): Cantidad de bloques generados: 52
+[INFO] 17:42:56:592 Mongo/(4356:4356): Se conecto un cliente con socket: 8
+
+[INFO] 17:43:10:069 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:10:070 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:10:078 Mongo/(4356:4416): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:10:078 Mongo/(4356:4419): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:10:090 Mongo/(4356:4416): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 1 y esta en indice: 0
+[INFO] 17:43:10:090 Mongo/(4356:4416): Se escribieron 26 bytes en el bloque 1, le quedan 153 bytes disponibles.
+[INFO] 17:43:10:093 Mongo/(4356:4419): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 2 y esta en indice: 1
+[INFO] 17:43:10:093 Mongo/(4356:4419): Se escribieron 26 bytes en el bloque 2, le quedan 153 bytes disponibles.
+[INFO] 17:43:23:871 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:23:871 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:23:872 Mongo/(4356:4455): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:23:872 Mongo/(4356:4455): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 1 y esta en indice: 0
+[INFO] 17:43:23:872 Mongo/(4356:4455): Se escribieron 26 bytes en el bloque 1, le quedan 127 bytes disponibles.
+[INFO] 17:43:23:872 Mongo/(4356:4452): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:23:872 Mongo/(4356:4452): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 2 y esta en indice: 1
+[INFO] 17:43:23:872 Mongo/(4356:4452): Se escribieron 26 bytes en el bloque 2, le quedan 127 bytes disponibles.
+[INFO] 17:43:28:872 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:28:874 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:28:874 Mongo/(4356:4468): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:28:874 Mongo/(4356:4468): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 1 y esta en indice: 0
+[INFO] 17:43:28:875 Mongo/(4356:4468): Se escribieron 26 bytes en el bloque 1, le quedan 101 bytes disponibles.
+[INFO] 17:43:28:875 Mongo/(4356:4467): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:28:877 Mongo/(4356:4467): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 2 y esta en indice: 1
+[INFO] 17:43:28:877 Mongo/(4356:4467): Se escribieron 26 bytes en el bloque 2, le quedan 101 bytes disponibles.
+[INFO] 17:43:33:875 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:33:876 Mongo/(4356:4356): Se conecto un cliente con socket: 9
+
+[INFO] 17:43:33:877 Mongo/(4356:4481): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:33:877 Mongo/(4356:4481): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante1Patota1.ims es: 1 y esta en indice: 0
+[INFO] 17:43:33:877 Mongo/(4356:4481): Se escribieron 26 bytes en el bloque 1, le quedan 75 bytes disponibles.
+[INFO] 17:43:33:877 Mongo/(4356:4478): El archivo del tripulante existe, buscando su ultimo bloque
+[INFO] 17:43:33:877 Mongo/(4356:4478): El ultimo bloque asignado en la bitacora /home/utnso/workspace/mnt/Bitacora/Tripulante2Patota1.ims es: 2 y esta en indice: 1
+[INFO] 17:43:33:877 Mongo/(4356:4478): Se escribieron 26 bytes en el bloque 2, le quedan 75 bytes disponibles.
+[INFO] 17:43:44:262 Mongo/(4507:4507): INICIANDO RECURSOS
+[INFO] 17:43:44:262 Mongo/(4507:4507): Es un FS existente.
+[INFO] 17:43:44:262 Mongo/(4507:4507): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 17:43:44:262 Mongo/(4507:4507): CANT GUARDADO EN SUPERBLOQUE: 52
+
+[INFO] 17:43:44:263 Mongo/(4507:4507): Se bajaron los datos del Superbloque existente!
+[INFO] 17:43:44:263 Mongo/(4507:4507): Se creo estructura bloques!
+[INFO] 17:43:44:263 Mongo/(4507:4507): Cantidad de bloques generados: 52
+[INFO] 18:14:14:490 Mongo/(7866:7866): INICIANDO RECURSOS
+[INFO] 18:14:14:523 Mongo/(7866:7866): Es un FS existente.
+[INFO] 18:14:14:530 Mongo/(7866:7866): SIZE GUARDADO EN SUPERBLOQUE: 256
+
+[INFO] 18:14:14:531 Mongo/(7866:7866): CANT GUARDADO EN SUPERBLOQUE: 52
+
+[INFO] 18:14:14:531 Mongo/(7866:7866): Se bajaron los datos del Superbloque existente!
+[INFO] 18:14:14:531 Mongo/(7866:7866): Se creo estructura bloques!
+[INFO] 18:14:14:531 Mongo/(7866:7866): Cantidad de bloques generados: 52

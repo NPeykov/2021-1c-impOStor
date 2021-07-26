@@ -58,7 +58,7 @@ t_log* mongoLogger;
 int socket_cliente;
 //int blocks;
 //int block_size;
-int numero_sabotaje=0;
+int numero_sabotaje;
 m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;
 t_list* archAbiertos;
@@ -86,7 +86,7 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);
 int ultima_posicion_escrita(int,int);
-//void actualizar_posicion(m_movimiento_tripulante *tripulante); <-- fue cambiada
+
 void rutina(int n);
 void *gestionarCliente(int cliente);
 void gestionarSabotaje();

@@ -64,9 +64,9 @@ void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_
 	eliminar_paquete(paquete);
 }
 
-void avisar_inicio_sabotaje_a_mongo(int posX, int posY, Tripulante* tripulante) {
+void avisar_estado_sabotaje_a_mongo(int posX, int posY, Tripulante* tripulante, op_code estado) {
 
-	t_paquete *paquete = crear_paquete(INICIO_SABOTAJE);
+	t_paquete *paquete = crear_paquete(estado);
 	int _socket_store;
 	char origenX[5], origenY[5], destinoX[5], destinoY[5], idPatota[5],
 			idTripulante[5];

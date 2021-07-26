@@ -1,6 +1,4 @@
-#include "bitmap.c"
 #include "mongo-store.h"
-
 
 
 int main() {
@@ -155,6 +153,8 @@ int main() {
 void iniciar_recursos_mongo(void) {
 	signal(SIGUSR1, rutina); //Recepcion mensaje de sabotaje
 
+	numero_sabotaje = 0;
+
 	sem_init(&dar_orden_sabotaje, 0, 0);
 	sem_init(&contador_sabotaje, 0, 1);
 //	sem_init(&semaforo_bitmap, 0, 1); lo cambie por un mutex
@@ -244,7 +244,6 @@ void crearEstructurasBloques(){
 		bloque->espacio=*g_block_size;
 		bloque->posicion_para_escribir=bloque->inicio;
 		list_add(disco_logico->bloques,bloque);
-		//disco_logico->bloques = bloque; //TODO CAMBIE ACA
 
 	}
 
@@ -953,20 +952,32 @@ void *gestionarCliente(int socket) {
 
 		case INICIO_SABOTAJE:
 			;
+			pthread_t hilo_inicio_sabotaje;
 			m_movimiento_tripulante *trip_inicio_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 			trip_inicio_sabotaje = recibirMovimientoTripulante(cliente);
 
-			//TODO: GENERAR STRUCT, HILO DE INICIO
+			tripulante_con_su_accion *tripulanteIS = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteIS->tripulante = trip_inicio_sabotaje;
+			tripulanteIS->accion     = INICIO_SABOTAJE;
+
+			pthread_create(&hilo_inicio_sabotaje, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteIS);
+			pthread_detach(hilo_inicio_sabotaje);
 
 			liberar_cliente(cliente);
 			break;
 
 		case FIN_SABOTAJE:
 			;
+			pthread_t hilo_fin_sabotaje;
 			m_movimiento_tripulante *trip_fin_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 			trip_fin_sabotaje = recibirMovimientoTripulante(cliente);
 
-			//TODO: GENERAR STRUCT, HILO DE FIN
+			tripulante_con_su_accion *tripulanteFS = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteFS->tripulante = trip_fin_sabotaje;
+			tripulanteFS->accion     = FIN_SABOTAJE;
+
+			pthread_create(&hilo_fin_sabotaje, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFS);
+			pthread_detach(hilo_fin_sabotaje);
 
 			liberar_cliente(cliente);
 			break;
@@ -1035,7 +1046,7 @@ char* siguiente_posicion_sabotaje() {
 
 //para probar el aviso de inicio de sabotaje
 void enviar_aviso_sabotaje_a_discordiador(void *data) {
-	int socket_mongo_store = (int) data;
+	int socket_discordiador = (int) data;
 	char** sabotaje_pos_aux;
 	char* sabotaje_posY;
 	//char** pos_dividida;
@@ -1045,7 +1056,7 @@ void enviar_aviso_sabotaje_a_discordiador(void *data) {
 
 	sem_wait(&dar_orden_sabotaje);
 
-	printf("SOCKET DISCO %d\n", socket_mongo_store);
+	printf("SOCKET DISCO %d\n", socket_discordiador);
 
 	pos_sabotaje = siguiente_posicion_sabotaje();
 
@@ -1064,9 +1075,9 @@ void enviar_aviso_sabotaje_a_discordiador(void *data) {
 			strlen(sabotaje_posX) + 1);
 	agregar_a_paquete(paquete_sabotaje, sabotaje_posY,
 			strlen(sabotaje_posY) + 1);
-	enviar_paquete(paquete_sabotaje, socket_mongo_store);
+	enviar_paquete(paquete_sabotaje, socket_discordiador);
 	eliminar_paquete(paquete_sabotaje);
-	liberar_cliente(socket_mongo_store);
+	liberar_cliente(socket_discordiador);
 
 	pthread_exit(NULL);
 }

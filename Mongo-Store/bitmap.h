@@ -34,6 +34,7 @@
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 
+
 char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;
@@ -60,12 +61,11 @@ uint32_t g_nuevo_block_size;
 int tamanio_de_bloque;
 int cantidad_de_bloques;
 
-t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques);
-
-void liberar_bloque(int bloque);
-void ocupar_bloque(int bloque);
+t_bitarray* crear_bitmap(char *, int );
+void liberar_bloque(int );
+void ocupar_bloque(int );
 int obtener_bloque_libre(void) ;
-void actualizar_posicion(m_movimiento_tripulante *tripulante);
+void actualizar_posicion(m_movimiento_tripulante *);
 
 
 #endif /* BITMAP_H_ */

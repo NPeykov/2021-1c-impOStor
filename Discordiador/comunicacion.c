@@ -64,6 +64,35 @@ void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_
 	eliminar_paquete(paquete);
 }
 
+void avisar_inicio_sabotaje_a_mongo(int posX, int posY, Tripulante* tripulante) {
+
+	t_paquete *paquete = crear_paquete(INICIO_SABOTAJE);
+	int _socket_store;
+	char origenX[5], origenY[5], destinoX[5], destinoY[5], idPatota[5],
+			idTripulante[5];
+
+	_socket_store = iniciar_conexion(I_MONGO_STORE, config);
+
+	sprintf(origenX, "%d", posX);
+	sprintf(origenY, "%d", posY);
+	sprintf(destinoX, "%d", tripulante->posicionX);
+	sprintf(destinoY, "%d", tripulante->posicionY);
+	sprintf(idTripulante, "%d", tripulante->id);
+	sprintf(idPatota, "%d", tripulante->patota);
+
+	agregar_a_paquete(paquete, origenX, string_length(origenX) + 1);
+	agregar_a_paquete(paquete, origenY, string_length(origenY) + 1);
+	agregar_a_paquete(paquete, destinoX, string_length(destinoX) + 1);
+	agregar_a_paquete(paquete, destinoY, string_length(destinoY) + 1);
+	agregar_a_paquete(paquete, idTripulante, string_length(idTripulante) + 1);
+	agregar_a_paquete(paquete, idPatota, string_length(idPatota) + 1);
+
+	enviar_paquete(paquete, _socket_store);
+
+	//liberar_cliente(_socket_store);
+	eliminar_paquete(paquete);
+}
+
 
 void avisar_movimiento_a_mongo(int sourceX, int sourceY, Tripulante* tripulante){
 	t_paquete *paquete = crear_paquete(ACTUALIZAR_POSICION);

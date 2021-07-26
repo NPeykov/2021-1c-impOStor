@@ -846,12 +846,10 @@ void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTa
 
 
 void *gestionarCliente(int socket) {
-//	socket_cliente = esperar_cliente(socket);
-	int conexionCliente;
 	t_list* lista;
 	int operacion;
 	t_paquete *paquete;
-	int respuesta;
+//	int respuesta;
 
 	while (1) {
 		int cliente = esperar_cliente(socket, mongoLogger);
@@ -903,47 +901,47 @@ void *gestionarCliente(int socket) {
 		case ACTUALIZAR_POSICION:
 			;
 			pthread_t hilo_actualizar_posicion;
-			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(
-					sizeof(m_movimiento_tripulante));
-
+			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
-			pthread_create(&hilo_actualizar_posicion, NULL,
-					(void*) actualizar_posicion,
-					(void*) tripulanteEnMovimiento);
-			pthread_detach(hilo_sabotaje);
-			//Se escribe en blocks.ims
-			liberar_cliente(cliente);
 
-			/*printf("Tripulante N: %d de la patota %d se movio de (%d, %d) a (%d, %d)",
-			 tripulanteEnMovimiento->idTripulante,
-			 tripulanteEnMovimiento->idPatota,
-			 tripulanteEnMovimiento->origenX,
-			 tripulanteEnMovimiento->origenY,
-			 tripulanteEnMovimiento->destinoX,
-			 tripulanteEnMovimiento->destinoY);*/
+			tripulante_con_su_accion *tripulanteAP = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteAP->tripulante = tripulanteEnMovimiento;
+			tripulanteAP->accion	 = ACTUALIZAR_POSICION;
+
+
+			pthread_create(&hilo_actualizar_posicion, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteAP);
+			pthread_detach(hilo_actualizar_posicion);
+			liberar_cliente(cliente);
 			break;
 
 		case INICIO_TAREA:
 			;
-			m_estado_tarea_tripulante *tripulanteConTarea =
-					(m_estado_tarea_tripulante *) malloc(
-							sizeof(m_estado_tarea_tripulante));
+			pthread_t hilo_escribir_inicio_tarea;
+			m_estado_tarea_tripulante *tripulanteConTarea = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
-			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
-			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
+
+			tripulante_con_su_accion *tripulanteIT = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteIT->tripulante = tripulanteConTarea;
+			tripulanteIT->accion	 = INICIO_TAREA;
+
+			pthread_create(&hilo_escribir_inicio_tarea, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteIT);
+			pthread_detach(hilo_escribir_inicio_tarea);
+
 			liberar_cliente(cliente);
 			break;
 
 		case FIN_TAREA:
 			;
-			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
-					(m_estado_tarea_tripulante *) malloc(
-							sizeof(m_estado_tarea_tripulante));
+			pthread_t hilo_escribir_fin_tarea;
+			m_estado_tarea_tripulante *tripulanteConTareaFinalizada = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
 
-			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(
-					cliente);
-
+			tripulante_con_su_accion *tripulanteFT = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteFT->tripulante = tripulanteConTareaFinalizada;
+			tripulanteFT->accion	 = INICIO_TAREA;
 			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
+			pthread_create(&hilo_escribir_fin_tarea, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFT);
+			pthread_detach(hilo_escribir_fin_tarea);
 
 			if (tripulanteConTareaFinalizada->tipo_tarea == TAREA_IO) {
 
@@ -953,12 +951,32 @@ void *gestionarCliente(int socket) {
 			liberar_cliente(cliente);
 			break;
 
+		case INICIO_SABOTAJE:
+			;
+			m_movimiento_tripulante *trip_inicio_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			trip_inicio_sabotaje = recibirMovimientoTripulante(cliente);
+
+			//TODO: GENERAR STRUCT, HILO DE INICIO
+
+			liberar_cliente(cliente);
+			break;
+
+		case FIN_SABOTAJE:
+			;
+			m_movimiento_tripulante *trip_fin_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			trip_fin_sabotaje = recibirMovimientoTripulante(cliente);
+
+			//TODO: GENERAR STRUCT, HILO DE FIN
+
+			liberar_cliente(cliente);
+			break;
+
 		case -1:
-			printf("El cliente %d se desconecto.\n", cliente);
+			log_error(mongoLogger, "El cliente %d se desconecto", cliente);
 			liberar_cliente(cliente);
 			break;
 		default:
-			printf("Operacion desconocida.\n");
+			log_error(mongoLogger, "Operacion desconocida");
 			liberar_cliente(cliente);
 			break;
 
@@ -966,11 +984,6 @@ void *gestionarCliente(int socket) {
 		//liberar_cliente(cliente);
 
 	}
-//	 Se mueve de X|Y a X’|Y’
-//	 Comienza ejecución de tarea X
-//	 Se finaliza la tarea X
-//	 Se corre en pánico hacia la ubicación del sabotaje
-//	 Se resuelve el sabotaje
 }
 
 void gestionarSabotaje() {
@@ -1194,54 +1207,124 @@ void generar_basura(int cantidad){
   fclose(archivo);
 }
 
-void descartar_basura(int cant_borrar){
-  		char* basuraRuta = malloc(strlen(dirFiles) + strlen("/Basura.ims") + 1);
-		strcpy(basuraRuta, dirFiles);
-		strcat(basuraRuta, "/Basura.ims");
-    	  if(access(basuraRuta, F_OK) == 0){
-    		  remove(basuraRuta);
-    	  }
+void descartar_basura(int cant_borrar) {
+	char* basuraRuta = malloc(strlen(dirFiles) + strlen("/Basura.ims") + 1);
+	strcpy(basuraRuta, dirFiles);
+	strcat(basuraRuta, "/Basura.ims");
+	if (access(basuraRuta, F_OK) == 0) {
+		remove(basuraRuta);
+	}
 
-    	  else{
-    	    printf("SACAR-BASURA: no existe archivo!\n");
-    	    //no existe el archivo
-    	    log_error(mongoLogger, "No existe el archivo Basura.ims");
-    	    return;
-    	  }
-    	}
-void actualizar_posicion(m_movimiento_tripulante *tripulante){
+	else {
+		printf("SACAR-BASURA: no existe archivo!\n");
+		//no existe el archivo
+		log_error(mongoLogger, "No existe el archivo Basura.ims");
+		return;
+	}
+}
+
+/*arma la direccion de la bitacora dependiendo la accion que realiza.
+ * porque por ejemplo las estructuras de tareas y movimiento son difernetes,
+ * entonces los separo dependiendo de la accion q realiza*/
+char *rutaBitacoraDelTripulante(tripulante_con_su_accion *tripulante) {
+	char *rutaBitacora = string_new();
+
+
+
+	switch (tripulante->accion) {
+
+		case ACTUALIZAR_POSICION: ;
+			m_movimiento_tripulante *tripulante_mov = (m_movimiento_tripulante *) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+					dirBitacora, tripulante_mov->idTripulante, tripulante_mov->idPatota);
+			break;
+
+		case INICIO_TAREA: ;
+			m_estado_tarea_tripulante *tripulante_inicio_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_inicio_tarea->idTripulante, tripulante_inicio_tarea->numPatota);
+			break;
+
+		case FIN_TAREA: ;
+			m_estado_tarea_tripulante *tripulante_fin_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_fin_tarea->idTripulante, tripulante_fin_tarea->numPatota);
+			break;
+
+		case INICIO_SABOTAJE: ;
+			m_movimiento_tripulante *tripulante_sab = (m_movimiento_tripulante *) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_sab->idTripulante, tripulante_sab->idPatota);
+			break;
+
+		case FIN_SABOTAJE: ;
+			m_movimiento_tripulante *tripulante_fin_sab = (m_movimiento_tripulante *) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_fin_sab->idTripulante, tripulante_fin_sab->idPatota);
+			break;
+		default:
+			log_error(mongoLogger, "Error al buscar la bitacora del tripulante!");
+			break;
+
+	}
+
+	return rutaBitacora;
+}
+
+char *generarTextoAEscribir(tripulante_con_su_accion *tripulante) {
+	char *lo_que_se_va_a_escribir = string_new();
+
+
+	switch (tripulante->accion) {
+
+	case ACTUALIZAR_POSICION: ;
+		m_movimiento_tripulante *tripulante_mov = (m_movimiento_tripulante *) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format("Se mueve de %d | %d a %d | %d\n",
+				tripulante_mov->origenX, tripulante_mov->origenY,
+				tripulante_mov->destinoX, tripulante_mov->destinoY);
+		break;
+
+	case INICIO_TAREA: ;
+		m_estado_tarea_tripulante *tripulante_inicio_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format("Inicia la tarea %s\n",
+				tripulante_inicio_tarea->nombreTarea);
+		break;
+
+	case FIN_TAREA: ;
+		m_estado_tarea_tripulante *tripulante_fin_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format("Finaliza la tarea %s\n",
+				tripulante_fin_tarea->nombreTarea);
+		break;
+
+	case INICIO_SABOTAJE: ;
+		m_movimiento_tripulante *tripulante_sab = (m_movimiento_tripulante *) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format(
+				"Se corre al sabotaje en ubicacion (%d, %d)\n",
+				tripulante_sab->destinoX, tripulante_sab->destinoY);
+		break;
+
+	case FIN_SABOTAJE: ;
+		lo_que_se_va_a_escribir = string_from_format("Se resuelve el sabotaje\n");
+		break;
+	default:
+		log_error(mongoLogger, "Error al generar el tipo de texto a escribir!");
+		lo_que_se_va_a_escribir = NULL;
+		break;
+	}
+
+	return lo_que_se_va_a_escribir;
+}
+
+void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante){
 	t_bloque *el_bloque;
 	t_bloque *nuevo_bloque;
-
 	char *bloque;
-	char *lo_que_se_va_a_escribir=string_new();
-	char *rutaBitacora=string_new();
-	char *idTripulante=string_itoa(tripulante->idTripulante);
-	char *idPatota=string_itoa(tripulante->idPatota);
-	char *xinicio=string_itoa(tripulante->origenX);
-	char *yinicio=string_itoa(tripulante->origenY);
-	char *xfinal=string_itoa(tripulante->destinoX);
-	char *yfinal=string_itoa(tripulante->destinoY);
 	int numero_del_nuevo_bloque;
 	//armo toda la cadena que se va a escribir por movimiento
-	string_append(&lo_que_se_va_a_escribir, "Se mueve de ");
-	string_append(&lo_que_se_va_a_escribir, xinicio);
-	string_append(&lo_que_se_va_a_escribir, "|");
-	string_append(&lo_que_se_va_a_escribir, yinicio);
-	string_append(&lo_que_se_va_a_escribir," a ");
-	string_append(&lo_que_se_va_a_escribir,xfinal);
-	string_append(&lo_que_se_va_a_escribir,"|");
-	string_append(&lo_que_se_va_a_escribir,yfinal);
-	string_append(&lo_que_se_va_a_escribir,"\n");
+	char *rutaBitacora		      = rutaBitacoraDelTripulante(tripulante);
+	char *lo_que_se_va_a_escribir = generarTextoAEscribir(tripulante);
 
-	//armo la ruta de la bitacora correspondiente al tripulante
-	string_append(&rutaBitacora, dirBitacora);
-	string_append(&rutaBitacora, "/");
-	string_append(&rutaBitacora, "Tripulante");
-	string_append(&rutaBitacora, idTripulante);
-	string_append(&rutaBitacora, "Patota");
-	string_append(&rutaBitacora, idPatota);
-	string_append(&rutaBitacora, ".ims");
+
 	int existeArchivo = access(rutaBitacora, F_OK);
 	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
 	if (existeArchivo == 0) {
@@ -1267,9 +1350,8 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 			//asigno el bloque nuevo
 			numero_del_nuevo_bloque = obtener_bloque_libre();
 			log_info(mongoLogger,
-					"Asigno el bloque numero:%d al tripulante %d de patota %d\n",
-					numero_del_nuevo_bloque, tripulante->idTripulante,
-					tripulante->idPatota);
+					"Asigno el bloque numero:%d\n",
+					numero_del_nuevo_bloque);
 			pthread_mutex_lock(&mutex_disco_logico);
 			nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
 					numero_del_nuevo_bloque - 1);
@@ -1282,16 +1364,12 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 			agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);
 		}
 	} else {
-		log_info(mongoLogger,
-				"Creando el archivo del tripulante %d de patota %d",
-				tripulante->idTripulante, tripulante->idPatota);
 		//asigno el bloque nuevo
 		numero_del_nuevo_bloque = obtener_bloque_libre();
 
 		log_info(mongoLogger,
-				"Asigno el bloque numero:%d al tripulante %d de patota %d\n",
-				numero_del_nuevo_bloque, tripulante->idTripulante,
-				tripulante->idPatota);
+				"Asigno el bloque numero:%d\n",
+				numero_del_nuevo_bloque);
 
 		//creo el archivo bitacora
 		nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
@@ -1305,6 +1383,9 @@ void actualizar_posicion(m_movimiento_tripulante *tripulante){
 		//escribo lo_que_se_va_a_escribir en block
 		escribir_en_block(lo_que_se_va_a_escribir, nuevo_bloque);
 	}
+
+	free(tripulante->tripulante);
+	free(tripulante);
 }
 
 int cantidad_bloques_a_ocupar(char* texto)

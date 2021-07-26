@@ -15,6 +15,7 @@ int TAM_PAG;
 int TAM_MEM;
 int cantidadDeFrames;
 bool esLRU;
+char* dirSwap;
 
 typedef enum {
 	LIBRE,OCUPADO
@@ -40,16 +41,26 @@ typedef struct {
 	int tamanio;
 	tipo_estructura tipo;
 	int flagid;
+	int caracterRep;
 } t_alojado;
 
 t_bitarray* frames_ocupados_ppal;
-int cant_marcos_memoria;
 
+pthread_mutex_t charRepresentativo;
 pthread_mutex_t mutexEscribiendoMemoria;
 pthread_mutex_t mutexBitArray;
-pthread_mutex_t mutexTablaPatota;
+pthread_mutex_t mutexTablaPaginas;
 pthread_mutex_t mutexAlojados;
-pthread_mutex_t mutexTablaProcesos;
+pthread_mutex_t mutexTablaPatotas;
+pthread_mutex_t mutexNumeroPatotas;
+pthread_mutex_t mutexEscribiendoSwap;
+pthread_mutex_t mutex_swap_file;
+pthread_mutex_t mutex_clock;
+
+sem_t tripulantesDisponiblesPag;
+
+int caracterRepresentativo;
+
 
 /* Verifica que un frame existe en memoria y es válido */
 
@@ -98,7 +109,7 @@ t_pagina* crear_pagina_en_tabla(t_proceso* ,int);
 
 /* Asigna la pagina en la tabla de la patota y la inserta en el malloc de memoria */
 
-int asignar_paginas_en_tabla(void* , t_proceso* , int);
+int insertar_en_paginas(void* , t_proceso* , int, int);
 
 /* Verifica que la patota/proceso exista */
 
@@ -122,7 +133,7 @@ int guardar_PCB_pag(void*);
 
 /* Busca la siguiente tarea en el malloc de memoria */
 
-char* obtener_siguiente_tarea_pag(t_proceso* , TripuCB* );//TODO:REVISAR
+char* obtener_siguiente_tarea_pag(t_proceso* , TripuCB* );
 
 /* Busca la direccion logica donde empiezan las paginas de tareas de un proceso/patota */
 
@@ -143,10 +154,6 @@ bool tiene_pagina_tripu_alojado(t_list* , int);
 /* Retorna la estructura administrativa de la pagina de un tripulante */
 
 t_alojado* obtener_tripulante_pagina(t_list* , int);
-
-/* Sirve para actualizar el estado del tripulante en el malloc memoria */
-
-int actualizar_tripulante_EnMem_pag(t_proceso* , TripuCB*);
 
 /* Trae todas la paginas asociadas a un tripulante */
 
@@ -186,7 +193,7 @@ t_proceso* frame_con_patota(int);
 
 /* Retorna una pagina si el proceso enviado por parametro se encuentra en el frame enviado por parametro*/
 
-t_pagina* frame_con_pagina(int ,t_proceso*);
+t_pagina* pagina_que_tiene_el_frame(int ,t_proceso*);
 
 /* Realiza el dump de memoria para paginacion */
 
@@ -212,5 +219,14 @@ void cargarDLTripulante(void*, TripuCB*);
 
 TripuCB* transformarEnTripulante(void*);
 
+/* Asigna un marco libre en swap a una pagina */
+
+void asignar_marco_en_swap(t_pagina* pag);
+
+void escribir_en_archivo_swap(void *file, t_list *tabla_de_paginas, size_t tam_a_mappear,size_t tam_arch);
+
+/* Trae la pagina a reemplazar por algoritmo de clock */
+
+t_pagina* algoritmo_clock();
 
 #endif

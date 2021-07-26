@@ -272,6 +272,7 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 
 [INFO] 20:11:27:311 Mongo/(18193:18193): Se conecto un cliente con socket: 8
 
+<<<<<<< HEAD
 [INFO] 20:54:35:336 Mongo/(28751:28751): Es un FS existente.
 [INFO] 20:54:35:364 Mongo/(28751:28751): SIZE GUARDADO EN SUPERBLOQUE: 256
 
@@ -2089,3 +2090,221 @@ ARCHIVO_LOG=/home/utnso/workspace/logs/mongo.log[ERROR] 19:26:56:423 Mongo/(1002
 [INFO] 04:17:26:014 Mongo/(30214:30214): Se conecto un cliente con socket: 8
 
 [INFO] 04:17:26:039 Mongo/(30214:30239): El archivo del tripulante existe, buscando su ultimo bloque
+=======
+[INFO] 00:09:12:313 Mongo/(10983:10983): Se conecto un cliente con socket: 5
+
+[INFO] 00:09:22:580 Mongo/(10983:10983): Se conecto un cliente con socket: 7
+
+[INFO] 00:09:22:611 Mongo/(10983:10983): Se conecto un cliente con socket: 7
+
+[INFO] 00:09:31:954 Mongo/(10983:10983): Se conecto un cliente con socket: 7
+
+[INFO] 00:09:31:955 Mongo/(10983:10983): Se conecto un cliente con socket: 7
+
+[INFO] 00:21:40:190 Mongo/(12231:12231): Se conecto un cliente con socket: 5
+
+[INFO] 00:21:44:947 Mongo/(12231:12231): Se conecto un cliente con socket: 7
+
+[INFO] 00:21:44:967 Mongo/(12231:12231): Se conecto un cliente con socket: 7
+
+[INFO] 00:22:16:435 Mongo/(12231:12231): Se conecto un cliente con socket: 7
+
+[INFO] 00:22:16:436 Mongo/(12231:12231): Se conecto un cliente con socket: 7
+
+[INFO] 00:25:12:827 Mongo/(12574:12574): Se conecto un cliente con socket: 5
+
+[INFO] 00:25:23:110 Mongo/(12574:12574): Se conecto un cliente con socket: 7
+
+[INFO] 00:25:23:138 Mongo/(12574:12574): Se conecto un cliente con socket: 7
+
+[INFO] 00:25:33:089 Mongo/(12574:12574): Se conecto un cliente con socket: 7
+
+[INFO] 00:25:33:090 Mongo/(12574:12574): Se conecto un cliente con socket: 7
+
+[INFO] 00:28:10:419 Mongo/(12923:12923): Se conecto un cliente con socket: 5
+
+[INFO] 00:28:18:195 Mongo/(12923:12923): Se conecto un cliente con socket: 7
+
+[INFO] 00:28:18:207 Mongo/(12923:12923): Se conecto un cliente con socket: 7
+
+[INFO] 00:28:24:609 Mongo/(12923:12923): Se conecto un cliente con socket: 7
+
+[INFO] 00:28:24:610 Mongo/(12923:12923): Se conecto un cliente con socket: 7
+
+[INFO] 00:37:19:406 Mongo/(13754:13754): Se conecto un cliente con socket: 5
+
+[INFO] 00:37:26:637 Mongo/(13754:13754): Se conecto un cliente con socket: 7
+
+[INFO] 00:37:26:648 Mongo/(13754:13754): Se conecto un cliente con socket: 7
+
+[INFO] 00:41:38:045 Mongo/(14169:14169): Se conecto un cliente con socket: 5
+
+[INFO] 00:41:43:842 Mongo/(14169:14169): Se conecto un cliente con socket: 7
+
+[INFO] 00:41:43:852 Mongo/(14169:14169): Se conecto un cliente con socket: 7
+
+[INFO] 00:46:10:815 Mongo/(14583:14583): Se conecto un cliente con socket: 5
+
+[INFO] 00:46:19:767 Mongo/(14583:14583): Se conecto un cliente con socket: 7
+
+[INFO] 00:46:19:783 Mongo/(14583:14583): Se conecto un cliente con socket: 7
+
+[INFO] 00:46:27:051 Mongo/(14583:14583): Se conecto un cliente con socket: 7
+
+[INFO] 00:46:27:051 Mongo/(14583:14583): Se conecto un cliente con socket: 7
+
+[INFO] 00:49:24:364 Mongo/(14929:14929): Se conecto un cliente con socket: 5
+
+[INFO] 00:49:34:517 Mongo/(14929:14929): Se conecto un cliente con socket: 7
+
+[INFO] 00:49:34:527 Mongo/(14929:14929): Se conecto un cliente con socket: 7
+
+[INFO] 00:49:47:189 Mongo/(14929:14929): Se conecto un cliente con socket: 7
+
+[INFO] 00:49:47:190 Mongo/(14929:14929): Se conecto un cliente con socket: 7
+
+[INFO] 00:53:11:677 Mongo/(15278:15278): Se conecto un cliente con socket: 5
+
+[INFO] 00:53:20:514 Mongo/(15278:15278): Se conecto un cliente con socket: 7
+
+[INFO] 00:53:20:529 Mongo/(15278:15278): Se conecto un cliente con socket: 7
+
+[INFO] 00:55:52:259 Mongo/(15567:15567): Se conecto un cliente con socket: 5
+
+[INFO] 00:56:00:843 Mongo/(15567:15567): Se conecto un cliente con socket: 7
+
+[INFO] 00:56:00:862 Mongo/(15567:15567): Se conecto un cliente con socket: 7
+
+[INFO] 01:18:14:163 Mongo/(17730:17730): Se conecto un cliente con socket: 5
+
+[INFO] 01:18:29:935 Mongo/(17730:17730): Se conecto un cliente con socket: 7
+
+[INFO] 01:18:29:947 Mongo/(17730:17730): Se conecto un cliente con socket: 7
+
+[INFO] 01:18:29:961 Mongo/(17730:17730): Se conecto un cliente con socket: 7
+
+[INFO] 01:18:39:198 Mongo/(17730:17730): Se conecto un cliente con socket: 7
+
+[INFO] 01:18:39:200 Mongo/(17730:17730): Se conecto un cliente con socket: 7
+
+[INFO] 01:19:53:719 Mongo/(17886:17886): Se conecto un cliente con socket: 5
+
+[INFO] 01:20:03:356 Mongo/(17886:17886): Se conecto un cliente con socket: 7
+
+[INFO] 01:20:03:365 Mongo/(17886:17886): Se conecto un cliente con socket: 7
+
+[INFO] 01:20:17:592 Mongo/(17886:17886): Se conecto un cliente con socket: 7
+
+[INFO] 01:20:17:592 Mongo/(17886:17886): Se conecto un cliente con socket: 7
+
+[INFO] 01:22:37:104 Mongo/(18178:18178): Se conecto un cliente con socket: 5
+
+[INFO] 01:22:46:145 Mongo/(18178:18178): Se conecto un cliente con socket: 7
+
+[INFO] 01:22:46:147 Mongo/(18178:18178): Se conecto un cliente con socket: 7
+
+[INFO] 01:22:52:540 Mongo/(18178:18178): Se conecto un cliente con socket: 7
+
+[INFO] 01:22:52:540 Mongo/(18178:18178): Se conecto un cliente con socket: 7
+
+[INFO] 01:41:18:346 Mongo/(20016:20016): Se conecto un cliente con socket: 5
+
+[INFO] 01:41:26:894 Mongo/(20016:20016): Se conecto un cliente con socket: 7
+
+[INFO] 01:41:26:899 Mongo/(20016:20016): Se conecto un cliente con socket: 7
+
+[INFO] 01:41:40:273 Mongo/(20016:20016): Se conecto un cliente con socket: 7
+
+[INFO] 01:41:40:274 Mongo/(20016:20016): Se conecto un cliente con socket: 7
+
+[INFO] 01:43:38:526 Mongo/(20256:20256): Se conecto un cliente con socket: 5
+
+[INFO] 01:43:47:534 Mongo/(20256:20256): Se conecto un cliente con socket: 7
+
+[INFO] 01:43:47:538 Mongo/(20256:20256): Se conecto un cliente con socket: 7
+
+[INFO] 01:43:52:109 Mongo/(20256:20256): Se conecto un cliente con socket: 7
+
+[INFO] 01:43:52:109 Mongo/(20256:20256): Se conecto un cliente con socket: 7
+
+[INFO] 01:52:14:676 Mongo/(21091:21091): Se conecto un cliente con socket: 5
+
+[INFO] 01:52:22:802 Mongo/(21091:21091): Se conecto un cliente con socket: 7
+
+[INFO] 01:52:22:804 Mongo/(21091:21091): Se conecto un cliente con socket: 7
+
+[INFO] 01:52:29:652 Mongo/(21091:21091): Se conecto un cliente con socket: 7
+
+[INFO] 01:52:29:652 Mongo/(21091:21091): Se conecto un cliente con socket: 7
+
+[INFO] 01:59:36:220 Mongo/(21832:21832): Se conecto un cliente con socket: 5
+
+[INFO] 01:59:43:281 Mongo/(21832:21832): Se conecto un cliente con socket: 7
+
+[INFO] 01:59:43:283 Mongo/(21832:21832): Se conecto un cliente con socket: 7
+
+[INFO] 01:59:48:645 Mongo/(21832:21832): Se conecto un cliente con socket: 7
+
+[INFO] 01:59:48:645 Mongo/(21832:21832): Se conecto un cliente con socket: 7
+
+[INFO] 02:03:05:632 Mongo/(22236:22236): Se conecto un cliente con socket: 5
+
+[INFO] 02:03:18:292 Mongo/(22236:22236): Se conecto un cliente con socket: 7
+
+[INFO] 02:03:18:294 Mongo/(22236:22236): Se conecto un cliente con socket: 7
+
+[INFO] 02:03:25:254 Mongo/(22236:22236): Se conecto un cliente con socket: 7
+
+[INFO] 02:03:25:255 Mongo/(22236:22236): Se conecto un cliente con socket: 7
+
+[INFO] 02:04:28:585 Mongo/(22418:22418): Se conecto un cliente con socket: 5
+
+[INFO] 02:04:33:503 Mongo/(22418:22418): Se conecto un cliente con socket: 7
+
+[INFO] 02:04:33:504 Mongo/(22418:22418): Se conecto un cliente con socket: 7
+
+[INFO] 02:04:36:892 Mongo/(22418:22418): Se conecto un cliente con socket: 7
+
+[INFO] 02:04:36:892 Mongo/(22418:22418): Se conecto un cliente con socket: 7
+
+[INFO] 02:05:43:414 Mongo/(22597:22597): Se conecto un cliente con socket: 5
+
+[INFO] 02:05:47:908 Mongo/(22597:22597): Se conecto un cliente con socket: 7
+
+[INFO] 02:05:47:909 Mongo/(22597:22597): Se conecto un cliente con socket: 7
+
+[INFO] 02:05:56:755 Mongo/(22597:22597): Se conecto un cliente con socket: 7
+
+[INFO] 02:05:56:757 Mongo/(22597:22597): Se conecto un cliente con socket: 7
+
+[INFO] 02:08:08:183 Mongo/(22871:22871): Se conecto un cliente con socket: 5
+
+[INFO] 02:08:13:542 Mongo/(22871:22871): Se conecto un cliente con socket: 7
+
+[INFO] 02:08:13:543 Mongo/(22871:22871): Se conecto un cliente con socket: 7
+
+[INFO] 02:09:05:178 Mongo/(22871:22871): Se conecto un cliente con socket: 7
+
+[INFO] 02:13:03:692 Mongo/(23467:23467): Se conecto un cliente con socket: 5
+
+[INFO] 02:13:09:184 Mongo/(23467:23467): Se conecto un cliente con socket: 7
+
+[INFO] 02:13:09:194 Mongo/(23467:23467): Se conecto un cliente con socket: 7
+
+[INFO] 02:13:22:729 Mongo/(23467:23467): Se conecto un cliente con socket: 7
+
+[INFO] 02:13:22:729 Mongo/(23467:23467): Se conecto un cliente con socket: 7
+
+[INFO] 02:16:27:516 Mongo/(23828:23828): Se conecto un cliente con socket: 5
+
+[INFO] 02:16:33:809 Mongo/(23828:23828): Se conecto un cliente con socket: 7
+
+[INFO] 02:16:33:825 Mongo/(23828:23828): Se conecto un cliente con socket: 7
+
+[INFO] 02:18:51:423 Mongo/(24078:24078): Se conecto un cliente con socket: 5
+
+[INFO] 02:18:57:065 Mongo/(24078:24078): Se conecto un cliente con socket: 7
+
+[INFO] 02:18:57:082 Mongo/(24078:24078): Se conecto un cliente con socket: 7
+
+>>>>>>> cad60f8f5cfe4b84a3c904daea77dc2d1af58d05

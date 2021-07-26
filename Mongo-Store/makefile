@@ -8,7 +8,7 @@ $(TARGET) : $(PROG)
 
 .PHONY : clean
 clean :
-	rm -f $(MONGO) *.o
+	rm -f $(TARGET) *.o
 
 
 #mongo : mongo-store.c ../utils/utils.c mongo-store.h

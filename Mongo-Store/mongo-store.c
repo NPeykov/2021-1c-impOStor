@@ -213,7 +213,7 @@ void bajar_datos_blocks(void) {
 
 	contenido_blocks = (char*) mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, archivo_blocks, 0);
 
-	memcpy(contenido_blocks,block_mmap, statbuf.st_size);
+	memcpy(contenido_blocks, block_mmap, statbuf.st_size);
 
 	msync(contenido_blocks, statbuf.st_size, MS_SYNC);
 
@@ -223,7 +223,33 @@ void bajar_datos_blocks(void) {
 }
 
 void bajar_datos_superbloque(void) {
-	msync(superbloque, g_tamanio_superbloque, MS_SYNC);
+	int archivo_superbloque;
+	void *contenido_superbloque;
+	struct stat statbuf;
+
+	archivo_superbloque = open(dirSuperbloque, O_RDWR);
+
+	if (archivo_superbloque == -1) {
+		log_error(mongoLogger, "Error al abrir el archivo para bajar el superbloque");
+		exit(1);
+	}
+
+	fstat(archivo_superbloque, &statbuf);
+
+	contenido_superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, archivo_superbloque, 0);
+
+	memcpy(contenido_superbloque, superbloque, statbuf.st_size);
+
+	int retorno = msync(contenido_superbloque, statbuf.st_size, MS_SYNC);
+
+	munmap(contenido_superbloque, statbuf.st_size);
+
+	if(retorno == -1)
+	{
+		log_error(mongoLogger, "Error al sincronizar el superbloque");
+	}
+
+	close(archivo_superbloque);
 }
 
 void gestionar_bajadas_a_disco(void){
@@ -239,6 +265,8 @@ void gestionar_bajadas_a_disco(void){
 
 
 		bajar_datos_superbloque();
+
+		log_info(mongoLogger, "Finalizo la bajada a disco");
 	}
 }
 
@@ -539,7 +567,7 @@ int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
 
 void copiar_bitmap_de_disco(char* dirSuperbloque){
 	struct stat statbuf;
-
+	void *contenido_superbloque;
 	int fdm = open(dirSuperbloque, O_RDWR);
 
 	if (fdm == -1) {
@@ -548,7 +576,12 @@ void copiar_bitmap_de_disco(char* dirSuperbloque){
 	}
 
 	fstat(fdm, &statbuf);
-	superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
+	contenido_superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
+
+	superbloque = malloc(statbuf.st_size);
+
+	memcpy(superbloque, contenido_superbloque, statbuf.st_size);
+
 	g_block_size = superbloque;
 	g_blocks     = superbloque + sizeof(uint32_t);
 	bitarrayEnChar = superbloque + 2 * sizeof(uint32_t);
@@ -557,16 +590,18 @@ void copiar_bitmap_de_disco(char* dirSuperbloque){
 
 	bitmap = bitarray_create(bitarrayEnChar, cantLeer2);
 
-	g_tamanio_superbloque = 2 * sizeof(uint32_t) + cantLeer2;
+	g_tamanio_superbloque = statbuf.st_size;
 
 	//reviso las cosas
 	log_info(mongoLogger, "SIZE GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_block_size);
 	log_info(mongoLogger, "CANT GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_blocks);
 
-
 	mostrar_estado_bitarray(); //usarlo cuando hay pocos bits
 
 	log_info(mongoLogger, "Se bajaron los datos del Superbloque existente!");
+
+	munmap(contenido_superbloque, g_tamanio_superbloque);
+	close(fdm);
 
 }
 

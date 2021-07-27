@@ -22,17 +22,18 @@ void esperar_sabotaje(void){ //este es un hilo
 		enviar_mensaje(ESPERANDO_SABOTAJE," ",socket_mongo);
 		codigo_recibido = recibir_operacion(socket_mongo);
 
-		printf("SABOTAJEEEE\n");
-
 		if(codigo_recibido == INICIO_SABOTAJE){
+			lista = recibir_paquete(socket_mongo);
+			sabotaje_posX = atoi(list_get(lista, 0));
+			sabotaje_posY = atoi(list_get(lista, 1));
+
+			log_info(logs_discordiador, "SABOTAJE EN (%d, %d)!", sabotaje_posX, sabotaje_posY);
+
 			pthread_mutex_lock(&sabotaje_lock);
 			g_hay_sabotaje = true; //activo para q todos detengan su ejecucion
 			pthread_mutex_unlock(&sabotaje_lock);
 
-			lista = recibir_paquete(socket_mongo);
-			sabotaje_posX = atoi(list_get(lista, 0));
-			sabotaje_posY = atoi(list_get(lista, 1));
-			log_info(logs_discordiador, "SABOTAJE EN (%d, %d)!", sabotaje_posX, sabotaje_posY);
+
 			atender_sabotaje(sabotaje_posX, sabotaje_posY);
 		}
 
@@ -116,6 +117,9 @@ void atender_sabotaje(int x, int y){
 
 	tripulante_cercano = (Tripulante_Planificando*) mas_cercano_al_sabotaje(x, y);
 
+
+	avisar_estado_sabotaje_a_mongo(x, y, tripulante_cercano->tripulante, INICIO_SABOTAJE);
+
 	void destroyer(void *data){
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		free(tripulante->tripulante);
@@ -161,7 +165,11 @@ void atender_sabotaje(int x, int y){
 
 	resolver_sabotaje(tripulante_cercano, x, y);
 
+	//---------SE RESUELVE EL SABOTAJE
+
 	sem_wait(&resolvi_sabotaje);
+
+	avisar_estado_sabotaje_a_mongo(x, y, tripulante_cercano->tripulante, FIN_SABOTAJE);
 
     void reanudar_tripulantes(void *data) {
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;

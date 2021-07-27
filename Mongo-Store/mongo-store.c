@@ -1,10 +1,8 @@
-#include "bitmap.c"
 #include "mongo-store.h"
 
 
-
 int main() {
-	sem_init(&semaforo_bitmap, 0, 1);
+	/*sem_init(&semaforo_bitmap, 0, 1);
 	sem_init(&semaforo_bitacora, 0, 1);
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
 
@@ -16,9 +14,8 @@ int main() {
 
 	fstat(archivo,&statbuf);
 	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
-	//generar_oxigeno(554);
-	consumir_oxigeno(554);
+	generar_oxigeno(554);
+	//consumir_oxigeno(554);
 	//generar_basura(100);
 	//generar_comida(100);
 	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
@@ -153,26 +150,12 @@ int main() {
 	munmap(block_mmap,statbuf.st_size);
 	close(archivo);*/
 	/////////////////////fin prueba/////////////////////////////////////
-/*
-	signal(SIGUSR1,rutina); //Recepcion mensaje de sabotaje
-
-
-	sem_init(&dar_orden_sabotaje,0 , 0);
-	sem_init(&contador_sabotaje, 0, 1);
-	sem_init(&semaforo_bitmap, 0, 1);
-	sem_init(&semaforo_bitacora, 0, 1);
-
-
-	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
-
-	puerto = config_get_string_value(mongoConfig, "PUERTO");
-
-	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
 
 	//crearEstructuraFileSystem();
 
-	crear_estructura_filesystem();
-
+	iniciar_recursos_mongo();
+	//generar_oxigeno(200);
+	//consumir_oxigeno(300);
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
@@ -180,24 +163,62 @@ int main() {
 	gestionarCliente(socket_mongo_store );
 
 	printf("SOCKET DISCO %d\n", socket_mongo_store);
-	return EXIT_SUCCESS;*/
+	return EXIT_SUCCESS;
+}
+
+
+void iniciar_recursos_mongo(void) {
+	signal(SIGUSR1, rutina); //Recepcion mensaje de sabotaje
+
+	numero_sabotaje = 0;
+
+	sem_init(&dar_orden_sabotaje, 0, 0);
+	sem_init(&contador_sabotaje, 0, 1);
+//	sem_init(&semaforo_bitmap, 0, 1); lo cambie por un mutex
+	sem_init(&semaforo_bitacora, 0, 1);
+
+
+
+	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
+	puerto = config_get_string_value(mongoConfig, "PUERTO");
+	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
+
+	log_info(mongoLogger, "INICIANDO RECURSOS");
+
+	crear_estructura_filesystem();
+}
+
+void mostrar_estado_bitarray(void) {
+	for (int i = 1; i <= *g_blocks; i++) {
+		if (i % 5 == 0)
+			printf("%d\n", bitarray_test_bit(bitmap, i));
+		else
+			printf("%d", bitarray_test_bit(bitmap, i));
+
+	}
+
+	printf("\n");
+
 }
 
 //genera el MD5 pasandole por parametro el contenido de un archivo de file
 //por ejemplo el contenido puede ser 'OOOOOOOOOOO'
 char *generarMD5(char *contenido){
   int fd;
-  char command[string_length(contenido) + 150]; //por las dudas q el path sea largo
+  char *command = string_new(); //por las dudas q el path sea largo
   int retorno;
   struct stat statbuf;
   void *data;
   char *md5;
-  char ruta_md5[200];
+  char *ruta_md5 = string_new();
   char *punto_montaje = config_get_string_value(mongoConfig,"PUNTO_MONTAJE");
 
-  sprintf(ruta_md5, "%s/Files/md5.txt", punto_montaje);
 
-  sprintf(command, "echo -n %s | md5sum > %s", contenido, ruta_md5);
+  ruta_md5 = string_from_format("%s/Files/md5.txt", punto_montaje);
+  //sprintf(ruta_md5, "%s/Files/md5.txt", punto_montaje);
+
+  command = string_from_format("echo -n %s | md5sum > %s", contenido, ruta_md5);
+  //sprintf(command, "echo -n %s | md5sum > %s", contenido, ruta_md5);
 
   retorno = system(command);
 
@@ -234,24 +255,29 @@ void crearEstructuraDiscoLogico(){
 //creamos todos los bloques del filesystem
 void crearEstructurasBloques(){
 	//TODO poner semaforo para disco logico
-	tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	//tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+	//cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	int _cantidad_de_bloques = (int)*g_blocks;
 
-	for(int contador=1;contador<=cantidad_de_bloques;contador++){
+	for(int contador=1;contador <=_cantidad_de_bloques;contador++){
 		t_bloque *bloque = (t_bloque *)malloc(sizeof(t_bloque));
 		bloque->id_bloque=contador;
-		bloque->inicio= (contador-1) * tamanio_de_bloque;
-		bloque->fin = bloque->inicio+ (tamanio_de_bloque-1);
-		bloque->espacio=tamanio_de_bloque;
+		bloque->inicio= (contador-1) * *g_block_size;
+		bloque->fin = bloque->inicio+ (*g_block_size-1);
+		bloque->espacio=*g_block_size;
 		bloque->posicion_para_escribir=bloque->inicio;
 		list_add(disco_logico->bloques,bloque);
 
 	}
-	//free(bloque);
+
+	log_info(mongoLogger, "Se creo estructura bloques!");
+
+	log_info(mongoLogger, "Cantidad de bloques generados: %d", list_size(disco_logico->bloques));
 }
 
 //devuelve el ultimo bloque que usa el tripulante para sus datos
 t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
+
 	t_bloque* el_bloque;
 	int cantidad_de_bloques=0;
 	struct stat statbuf;
@@ -259,12 +285,18 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora){
 	fstat(archivo,&statbuf);
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	char **renglones_bitacora= string_split(archivo_addr, "=");
+
 	char **bloques_bitacora= string_split(renglones_bitacora[2], ",");
-	while(bloques_bitacora[cantidad_de_bloques]){
+	while(bloques_bitacora[cantidad_de_bloques] != NULL){
 		cantidad_de_bloques++;
 	}
 
-	el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_bitacora[cantidad_de_bloques-1])-1);
+	int indexUltimoBloque = atoi(bloques_bitacora[cantidad_de_bloques - 1]) - 1;
+
+	el_bloque=(t_bloque *)list_get(disco_logico->bloques, indexUltimoBloque);
+
+	log_info(mongoLogger, "El ultimo bloque asignado en la bitacora %s es: %d y esta en indice: %d",
+				rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);
 
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
@@ -316,14 +348,17 @@ void agregar_bloque_bitacora(char *rutaBitacora,int bloque){
 //crea el bitmap logico para operar los bloques
 void crearBitMapLogico(){
 	int cantBloques = atoi(config_get_string_value(mongoConfig,"BLOCKS"));
-	int cantBytes = (double)ceil(cantBloques/8);
+
+	int cantBytes = (double)ceil((double)cantBloques/8);
 
 	void* puntero_a_bits = malloc(cantBytes);
 
 	bitmap = bitarray_create(puntero_a_bits, cantBytes);
-	for(int i = 0; i < cantBloques; i++){
+	for(int i = 1; i <= cantBloques; i++){
 		bitarray_clean_bit(bitmap, i);
 	}
+
+	log_info(mongoLogger, "Se creo el Bitmap logico con %d Bytes", cantBytes);
 }
 
 //crea el archivo superbloque
@@ -353,46 +388,64 @@ void crearSuperbloque(char * dirSuperbloque){
 void crearblocks(char* dirBlocks){
 
 	struct stat statbuf;
-	int block_size= atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	int blocks= atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	//int block_size= atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+	int block_size  = (int) *g_block_size;
+	//int blocks= atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+	int blocks      = (int) *g_blocks;
 	crear_archivo(dirBlocks);
 	int peso=(int)block_size*blocks;
+
+	printf("PESO ES: %d\n", peso);
+
+	FILE *fd;
+
+	fd = fopen(dirBlocks, "w+");
+
+	ftruncate(fileno(fd), peso);
+
+	for(int i=0; i < peso; i++) {
+		fputc(' ', fd);
+	}
+
+	fclose(fd);
+/*
 	int archivo = open(dirBlocks, O_RDWR);
+
+	fstat(archivo, &statbuf);
+
 	ftruncate(archivo, (off_t)peso);
 
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	for(int i=0; i<statbuf.st_size;i++){
-				archivo_addr[i]=' ';
+
+	for (int i = 0; i < statbuf.st_size; i++) {
+		archivo_addr[i] = ' ';
 	}
 
 
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
-
+*/
+	log_info(mongoLogger, "Se crearon los bloques!");
 }
+
 //crea la carpeta file
 void crearCarpetaFile(char * dirFiles){
+
 	if (mkdir(dirFiles, 0777) == 0) {
-		printf("se creo el directorio file correctamente\n");
-		}
-	else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio Files.");
-
-/*	string_append(dirFiles, "/MD5");
-
-	if(mkdir(dirFiles, 0777) == 0){
-		printf("se creo el directorio para md5 correctamente\n");
-	}
-
-	else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio de md5.");*/
+		log_info(mongoLogger, "se creo el directorio file correctamente\n");
+	} else
+		log_error(mongoLogger,
+				"Ha ocurrido un error al crear el directorio Files.");
 
 }
 
 //crea la carpeta bitacora
 void crearCarpetaBitacora(char * dirBitacora){
 	if (mkdir(dirBitacora, 0777) == 0) {
-			printf("se creo el directorio bitacora correctamente\n");
-			}
-		else log_error(mongoLogger,"Ha ocurrido un error al crear el directorio bitacora.");
+		log_info(mongoLogger, "se creo el directorio bitacora correctamente\n");
+	} else
+		log_error(mongoLogger,
+				"Ha ocurrido un error al crear el directorio bitacora.");
 }
 
 //comprueba si existen todos los datos al levantar de nuevo el filesystem
@@ -429,44 +482,41 @@ int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
 	}
 
 }
-/*
-void copiar_bitmap_de_disco(t_bitarray *bitmap,char* dirSuperbloque){
+
+void copiar_bitmap_de_disco(char* dirSuperbloque){
 	struct stat statbuf;
 
 	int fdm = open(dirSuperbloque, O_RDWR);
 
 	if (fdm == -1) {
-		printf("ERROR AL ABRIR ARCHIVO");
+		log_error(mongoLogger, "ERROR AL ABRIR ARCHIVO");
 		exit(1);
 	}
 
 	fstat(fdm, &statbuf);
 	superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
-	block_size = superbloque;
-	blocks = superbloque + sizeof(uint32_t);
-	bitarrayComoVoid = superbloque + 2 * sizeof(uint32_t);
+	g_block_size = superbloque;
+	g_blocks     = superbloque + sizeof(uint32_t);
+	bitarrayEnChar = superbloque + 2 * sizeof(uint32_t);
 
-	int cantLeer2 = (int) ceil((double) blocks / 8);
+	int cantLeer2 = (int) ceil((double) *g_blocks / 8);
 
-	bitmap = bitarray_create(bitarrayComoVoid, cantLeer2);
+	bitmap = bitarray_create(bitarrayEnChar, cantLeer2);
 
 	//reviso las cosas
 
-	printf("SIZE GUARDADO: %d\n", *block_size);
-	printf("CANT GUARDADO: %d\n", *blocks);
+	log_info(mongoLogger, "SIZE GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_block_size);
+	log_info(mongoLogger, "CANT GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_blocks);
 
-	for (int i = 1; i <= *blocks; i++) {
-		if (i % 5 == 0)
-			printf("%d\n", bitarray_test_bit(bitmap, i));
-		else
-			printf("%d", bitarray_test_bit(bitmap, i));
-	}
+
+	mostrar_estado_bitarray(); //usarlo cuando hay pocos bits
+
+	log_info(mongoLogger, "Se bajaron los datos del Superbloque existente!");
 
 }
 
 void crearSuperbloqueNuevo(char *path){
 	FILE *fd;
-
 	fd = fopen(path, "wb");
 
 	if (fd == NULL) {
@@ -474,14 +524,28 @@ void crearSuperbloqueNuevo(char *path){
 		exit(1);
 	}
 
-	int cantBytes = (int)ceil((double) cantidad_de_bloques / 8);
+	uint32_t prueba = (unsigned)atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
 
-	fwrite(&tamanio_de_bloque, sizeof(uint32_t), 1, fd);
-	fwrite(&cantidad_de_bloques, sizeof(uint32_t), 1, fd);
+	int cantBytes = (int)ceil((double)(*g_blocks)/8);
+
+	printf("%d", cantBytes);
+
+	fwrite(g_block_size, sizeof(uint32_t), 1, fd);
+	fwrite(g_blocks, sizeof(uint32_t), 1, fd);
 	fwrite(bitmap->bitarray, cantBytes, 1, fd);
 
+	log_info(mongoLogger, "Se creo el superbloque nuevo!");
+
+	//mostrar_estado_bitarray();
+
+
+	//mostrar_estado_bitarray();
+
+	//msync(superbloque, 2*sizeof(uint32_t) + cantBytes, MS_SYNC);
+	//munmap(superbloque, 2*sizeof(uint32_t) + cantBytes);
+
 	fclose(fd);
-}*/
+}
 
 //devuelve la cantidad de caracteres ocupados
 int caracteres_ocupados(int inicio,int fin){
@@ -507,9 +571,10 @@ int caracteres_ocupados(int inicio,int fin){
 //copia los datos de cada bloque a los bloques logicos para recuperar la info cuando
 //se levanta el filesystem
 void copiar_datos_de_bloques(t_list* bloques){
+	int inicio, fin, offset;
+	t_bloque *bloque;
 
-	//for(int i=0;i<list_size(bloques);i++){
-	for(int i=0;i<12;i++){
+	for(int i=0;i<list_size(bloques);i++){
 		t_bloque *bloque=malloc(sizeof(t_bloque));
 		//agarro un bloque
 		bloque=list_get(bloques,i);
@@ -521,13 +586,18 @@ void copiar_datos_de_bloques(t_list* bloques){
 
 		//leo desde empieza hasta termina en bloc los caracteres escritos
 		int caracteresOcupados = caracteres_ocupados(inicio,fin);
-
 		//resto espacio en bloque
 		bloque->espacio=bloque->espacio-caracteresOcupados;
 
 		//acomodo el puntero en bloque
 		bloque->posicion_para_escribir=caracteresOcupados+bloque->inicio;
 
+		printf("Bloque %d inicio %d fin %d offset %d tiene espacio %d\n",
+				bloque->id_bloque,
+				bloque->inicio,
+				bloque->fin,
+				offset,
+				bloque->espacio);
 	}
 }
 
@@ -559,28 +629,44 @@ void crear_estructura_filesystem(){
 
 	if (mkdir(puntoMontaje, 0777) != 0) {
 		int todoBien=comprobar_que_todos_los_datos_existen(puntoMontaje);
+
 		if(todoBien){
+			log_info(mongoLogger, "Es un FS existente.");
+
+			copiar_bitmap_de_disco(dirSuperbloque); //busco la info superB
+
 			crearEstructuraDiscoLogico();
 			crearEstructurasBloques();
-			crearBitMapLogico();
+
+			//crearBitMapLogico();
 			struct stat statbuf;
 			int archivo = open(dirBlocks, O_RDWR);
 			fstat(archivo,&statbuf);
 			block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-			//copiar_bitmap_de_disco(bitmap,dirSuperbloque); //ya existente
+
 			copiar_datos_de_bloques(disco_logico->bloques);
-
-
 		}
 	}
 	else{
+		log_info(mongoLogger, "Generando estructura del FS");
 
+		g_nuevo_block_size = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
+		g_nuevo_blocks	 = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+
+		g_block_size = &g_nuevo_block_size;
+		g_blocks	 = &g_nuevo_blocks;
+
+		printf("BLOCKS SIZE: %u\n", *g_block_size);
+		printf("BLOCKS: %u\n", *g_blocks);
 
 		crearEstructuraDiscoLogico();
 		crearEstructurasBloques();
 		crearBitMapLogico();
-		//crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
-		crearSuperbloque(dirSuperbloque);
+
+		crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
+		copiar_bitmap_de_disco(dirSuperbloque);
+		//crearSuperbloque(dirSuperbloque);
+
 		crearblocks(dirBlocks);//archivo
 		crearCarpetaFile(dirFiles);//carpeta
 		crearCarpetaBitacora(dirBitacora);//carpeta
@@ -588,8 +674,10 @@ void crear_estructura_filesystem(){
 		int archivo = open(dirBlocks, O_RDWR);
 		fstat(archivo,&statbuf);
 		block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	}
 
+		//msync(superbloque, 2*sizeof(uint32_t) + 41, MS_SYNC);
+		//munmap(superbloque, 2*sizeof(uint32_t) + 41);
+	}
 
 }
 /*
@@ -724,12 +812,20 @@ void crearEstructuraFileSystem() {
 
 //escribe lo que quieras en el archivo block
 void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){
-	for(int i=0;i<string_length(lo_que_se_va_a_escribir);i++){
+	pthread_mutex_lock(&mutex_disco_logico);
+	int longitud_texto = string_length(lo_que_se_va_a_escribir);
+	for(int i=0;i<longitud_texto;i++){
 		block_mmap[el_bloque->posicion_para_escribir]=lo_que_se_va_a_escribir[i];
 		el_bloque->posicion_para_escribir++;
 	}
 	el_bloque->espacio=el_bloque->espacio-string_length(lo_que_se_va_a_escribir);
 
+	log_info(mongoLogger, "Se escribieron %d bytes en el bloque %d, "
+			"le quedan %d bytes disponibles.",
+			longitud_texto,
+			el_bloque->id_bloque,
+			el_bloque->espacio);
+	pthread_mutex_unlock(&mutex_disco_logico);
 }
 
 
@@ -793,20 +889,18 @@ void funcion_para_llenar_con_tarea_IO(m_estado_tarea_tripulante* tripulanteConTa
 
 
 void *gestionarCliente(int socket) {
-//	socket_cliente = esperar_cliente(socket);
-	int conexionCliente;
 	t_list* lista;
 	int operacion;
 	t_paquete *paquete;
-	int respuesta;
+//	int respuesta;
 
 	while (1) {
 		int cliente = esperar_cliente(socket, mongoLogger);
-		printf("Cliente: %d\n", cliente);
+//		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
-		printf("\nLA OPERACION ES: %d\n", operacion);
+//		printf("\nLA OPERACION ES: %d\n", operacion);
 
 //		switch(operacion) {
 //			case OBTENGO_BITACORA:
@@ -850,47 +944,47 @@ void *gestionarCliente(int socket) {
 		case ACTUALIZAR_POSICION:
 			;
 			pthread_t hilo_actualizar_posicion;
-			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(
-					sizeof(m_movimiento_tripulante));
-
+			tripulanteEnMovimiento = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 			tripulanteEnMovimiento = recibirMovimientoTripulante(cliente);
-			pthread_create(&hilo_actualizar_posicion, NULL,
-					(void*) actualizar_posicion,
-					(void*) tripulanteEnMovimiento);
-			pthread_detach(hilo_sabotaje);
-			//Se escribe en blocks.ims
-			liberar_cliente(cliente);
 
-			/*printf("Tripulante N: %d de la patota %d se movio de (%d, %d) a (%d, %d)",
-			 tripulanteEnMovimiento->idTripulante,
-			 tripulanteEnMovimiento->idPatota,
-			 tripulanteEnMovimiento->origenX,
-			 tripulanteEnMovimiento->origenY,
-			 tripulanteEnMovimiento->destinoX,
-			 tripulanteEnMovimiento->destinoY);*/
+			tripulante_con_su_accion *tripulanteAP = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteAP->tripulante = tripulanteEnMovimiento;
+			tripulanteAP->accion	 = ACTUALIZAR_POSICION;
+
+
+			pthread_create(&hilo_actualizar_posicion, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteAP);
+			pthread_detach(hilo_actualizar_posicion);
+			liberar_cliente(cliente);
 			break;
 
 		case INICIO_TAREA:
 			;
-			m_estado_tarea_tripulante *tripulanteConTarea =
-					(m_estado_tarea_tripulante *) malloc(
-							sizeof(m_estado_tarea_tripulante));
+			pthread_t hilo_escribir_inicio_tarea;
+			m_estado_tarea_tripulante *tripulanteConTarea = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 			tripulanteConTarea = recibirNuevoEstadoTareaTripulante(cliente);
-			printf("Nombre tarea: %s\n", tripulanteConTarea->nombreTarea);
-			printf("Duracion: %d\n", tripulanteConTarea->duracionTarea);
+
+			tripulante_con_su_accion *tripulanteIT = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteIT->tripulante = tripulanteConTarea;
+			tripulanteIT->accion	 = INICIO_TAREA;
+
+			pthread_create(&hilo_escribir_inicio_tarea, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteIT);
+			pthread_detach(hilo_escribir_inicio_tarea);
+
 			liberar_cliente(cliente);
 			break;
 
 		case FIN_TAREA:
 			;
-			m_estado_tarea_tripulante *tripulanteConTareaFinalizada =
-					(m_estado_tarea_tripulante *) malloc(
-							sizeof(m_estado_tarea_tripulante));
+			pthread_t hilo_escribir_fin_tarea;
+			m_estado_tarea_tripulante *tripulanteConTareaFinalizada = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
+			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
 
-			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(
-					cliente);
-
+			tripulante_con_su_accion *tripulanteFT = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteFT->tripulante = tripulanteConTareaFinalizada;
+			tripulanteFT->accion	 = INICIO_TAREA;
 			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
+			pthread_create(&hilo_escribir_fin_tarea, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFT);
+			pthread_detach(hilo_escribir_fin_tarea);
 
 			if (tripulanteConTareaFinalizada->tipo_tarea == TAREA_IO) {
 
@@ -900,12 +994,44 @@ void *gestionarCliente(int socket) {
 			liberar_cliente(cliente);
 			break;
 
+		case INICIO_SABOTAJE:
+			;
+			pthread_t hilo_inicio_sabotaje;
+			m_movimiento_tripulante *trip_inicio_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			trip_inicio_sabotaje = recibirMovimientoTripulante(cliente);
+
+			tripulante_con_su_accion *tripulanteIS = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteIS->tripulante = trip_inicio_sabotaje;
+			tripulanteIS->accion     = INICIO_SABOTAJE;
+
+			pthread_create(&hilo_inicio_sabotaje, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteIS);
+			pthread_detach(hilo_inicio_sabotaje);
+
+			liberar_cliente(cliente);
+			break;
+
+		case FIN_SABOTAJE:
+			;
+			pthread_t hilo_fin_sabotaje;
+			m_movimiento_tripulante *trip_fin_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
+			trip_fin_sabotaje = recibirMovimientoTripulante(cliente);
+
+			tripulante_con_su_accion *tripulanteFS = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
+			tripulanteFS->tripulante = trip_fin_sabotaje;
+			tripulanteFS->accion     = FIN_SABOTAJE;
+
+			pthread_create(&hilo_fin_sabotaje, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFS);
+			pthread_detach(hilo_fin_sabotaje);
+
+			liberar_cliente(cliente);
+			break;
+
 		case -1:
-			printf("El cliente %d se desconecto.\n", cliente);
+			log_error(mongoLogger, "El cliente %d se desconecto", cliente);
 			liberar_cliente(cliente);
 			break;
 		default:
-			printf("Operacion desconocida.\n");
+			log_error(mongoLogger, "Operacion desconocida");
 			liberar_cliente(cliente);
 			break;
 
@@ -913,11 +1039,6 @@ void *gestionarCliente(int socket) {
 		//liberar_cliente(cliente);
 
 	}
-//	 Se mueve de X|Y a X’|Y’
-//	 Comienza ejecución de tarea X
-//	 Se finaliza la tarea X
-//	 Se corre en pánico hacia la ubicación del sabotaje
-//	 Se resuelve el sabotaje
 }
 
 void gestionarSabotaje() {
@@ -970,7 +1091,7 @@ char* siguiente_posicion_sabotaje() {
 
 //para probar el aviso de inicio de sabotaje
 void enviar_aviso_sabotaje_a_discordiador(void *data) {
-	int socket_mongo_store = (int) data;
+	int socket_discordiador = (int) data;
 	char** sabotaje_pos_aux;
 	char* sabotaje_posY;
 	//char** pos_dividida;
@@ -980,7 +1101,7 @@ void enviar_aviso_sabotaje_a_discordiador(void *data) {
 
 	sem_wait(&dar_orden_sabotaje);
 
-	printf("SOCKET DISCO %d\n", socket_mongo_store);
+	printf("SOCKET DISCO %d\n", socket_discordiador);
 
 	pos_sabotaje = siguiente_posicion_sabotaje();
 
@@ -999,9 +1120,9 @@ void enviar_aviso_sabotaje_a_discordiador(void *data) {
 			strlen(sabotaje_posX) + 1);
 	agregar_a_paquete(paquete_sabotaje, sabotaje_posY,
 			strlen(sabotaje_posY) + 1);
-	enviar_paquete(paquete_sabotaje, socket_mongo_store);
+	enviar_paquete(paquete_sabotaje, socket_discordiador);
 	eliminar_paquete(paquete_sabotaje);
-	liberar_cliente(socket_mongo_store);
+	liberar_cliente(socket_discordiador);
 
 	pthread_exit(NULL);
 }
@@ -1258,7 +1379,7 @@ void escribir_el_archivo(char* ruta,char* cadena, t_bloque* bloque){
 		t_bloque* nuevo_bloque=malloc(sizeof(t_bloque));
 		escribir_en_block(lo_que_entra_en_el_bloque,bloque);
 		actualizar_el_archivo(ruta,lo_que_entra_en_el_bloque,bloque);
-		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		int numero_del_nuevo_bloque = obtener_bloque_libre();
 		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
 		escribir_el_archivo(ruta,lo_que_falta_escribir,nuevo_bloque);
 	}
@@ -1365,9 +1486,9 @@ void eliminar_del_archivo(char* ruta,int cant_borrar,char caracter){
 			vaciar_bloque(bloque);
 			bloque->espacio=bloque->fin-bloque->inicio+1;
 			bloque->posicion_para_escribir=bloque->inicio;
-			sem_wait(&semaforo_bitmap);
+			pthread_mutex_lock(&mutex_bitmap);
 			bitarray_set_bit(bitmap,atoi(bloques_divididos[i])-1);
-			sem_post(&semaforo_bitmap);
+			pthread_mutex_unlock(&mutex_bitmap);
 
 		}
 		//TODO falta escribir en log
@@ -1390,7 +1511,7 @@ void generar_oxigeno(int cantidad){
 	if(existeArchivo==-1){
 		inicializar_archivo(ruta_oxigeno,cantidad, 'O');
 
-		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		int numero_del_nuevo_bloque = obtener_bloque_libre();
 		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
@@ -1437,7 +1558,7 @@ void generar_comida(int cantidad){
 		if(existeArchivo==-1){
 			inicializar_archivo(ruta_comida,cantidad, 'C');
 
-			int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+			int numero_del_nuevo_bloque = obtener_bloque_libre();
 			bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
 			//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 			escribir_el_archivo(ruta_comida,cadena,bloque);
@@ -1478,7 +1599,7 @@ void generar_basura(int cantidad){
 
 	if(existeArchivo==-1){
 		inicializar_archivo(ruta_basura,cantidad, 'B');
-		int numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
+		int numero_del_nuevo_bloque = obtener_bloque_libre();
 		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_basura,cadena,bloque);
 	}
@@ -1489,97 +1610,177 @@ void generar_basura(int cantidad){
 	}
 
 }
+
 //comprueba el archivo de generar basura y borra en el
 void descartar_basura(int cant_borrar){
-  		char* basuraRuta = malloc(strlen(dirFiles) + strlen("/Basura.ims") + 1);
-		strcpy(basuraRuta, dirFiles);
-		strcat(basuraRuta, "/Basura.ims");
-    	  if(access(basuraRuta, F_OK) == 0){
-    		  remove(basuraRuta);
-    	  }
 
-    	  else{
-    	    printf("SACAR-BASURA: no existe archivo!\n");
-    	    //no existe el archivo
-    	    log_error(mongoLogger, "No existe el archivo Basura.ims");
-    	    return;
-    	  }
-    	}
+}
 //actualiza la posicion de un tripulante escribiendo en su bitacora
-void actualizar_posicion(m_movimiento_tripulante *tripulante){
-	t_bloque *el_bloque = (t_bloque*)malloc(sizeof(t_bloque*));
-	t_bloque *nuevo_bloque = (t_bloque*)malloc(sizeof(t_bloque*));
 
 
+/*arma la direccion de la bitacora dependiendo la accion que realiza.
+ * porque por ejemplo las estructuras de tareas y movimiento son difernetes,
+ * entonces los separo dependiendo de la accion q realiza*/
+char *rutaBitacoraDelTripulante(tripulante_con_su_accion *tripulante) {
+	char *rutaBitacora = string_new();
+
+	switch (tripulante->accion) {
+
+		case ACTUALIZAR_POSICION: ;
+			m_movimiento_tripulante *tripulante_mov = (m_movimiento_tripulante *) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+					dirBitacora, tripulante_mov->idTripulante, tripulante_mov->idPatota);
+			break;
+
+		case INICIO_TAREA: ;
+			m_estado_tarea_tripulante *tripulante_inicio_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_inicio_tarea->idTripulante, tripulante_inicio_tarea->numPatota);
+			break;
+
+		case FIN_TAREA: ;
+			m_estado_tarea_tripulante *tripulante_fin_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_fin_tarea->idTripulante, tripulante_fin_tarea->numPatota);
+			break;
+
+		case INICIO_SABOTAJE: ;
+			m_movimiento_tripulante *tripulante_sab = (m_movimiento_tripulante *) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_sab->idTripulante, tripulante_sab->idPatota);
+			break;
+
+		case FIN_SABOTAJE: ;
+			m_movimiento_tripulante *tripulante_fin_sab = (m_movimiento_tripulante *) tripulante->tripulante;
+			rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",
+								dirBitacora, tripulante_fin_sab->idTripulante, tripulante_fin_sab->idPatota);
+			break;
+		default:
+			log_error(mongoLogger, "Error al buscar la bitacora del tripulante!");
+			break;
+
+	}
+
+	return rutaBitacora;
+}
+
+char *generarTextoAEscribir(tripulante_con_su_accion *tripulante) {
+	char *lo_que_se_va_a_escribir = string_new();
+
+
+	switch (tripulante->accion) {
+
+	case ACTUALIZAR_POSICION: ;
+		m_movimiento_tripulante *tripulante_mov = (m_movimiento_tripulante *) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format("Se mueve de %d | %d a %d | %d\n",
+				tripulante_mov->origenX, tripulante_mov->origenY,
+				tripulante_mov->destinoX, tripulante_mov->destinoY);
+		break;
+
+	case INICIO_TAREA: ;
+		m_estado_tarea_tripulante *tripulante_inicio_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format("Inicia la tarea %s\n",
+				tripulante_inicio_tarea->nombreTarea);
+		break;
+
+	case FIN_TAREA: ;
+		m_estado_tarea_tripulante *tripulante_fin_tarea = (m_estado_tarea_tripulante*) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format("Finaliza la tarea %s\n",
+				tripulante_fin_tarea->nombreTarea);
+		break;
+
+	case INICIO_SABOTAJE: ;
+		m_movimiento_tripulante *tripulante_sab = (m_movimiento_tripulante *) tripulante->tripulante;
+		lo_que_se_va_a_escribir = string_from_format(
+				"Se corre al sabotaje en ubicacion (%d, %d)\n",
+				tripulante_sab->destinoX, tripulante_sab->destinoY);
+		break;
+
+	case FIN_SABOTAJE: ;
+		lo_que_se_va_a_escribir = string_from_format("Se resuelve el sabotaje\n");
+		break;
+	default:
+		log_error(mongoLogger, "Error al generar el tipo de texto a escribir!");
+		lo_que_se_va_a_escribir = NULL;
+		break;
+	}
+	return lo_que_se_va_a_escribir;
+}
+
+void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante){
+	t_bloque *el_bloque;
+	t_bloque *nuevo_bloque;
 	char *bloque;
-	char *lo_que_se_va_a_escribir=string_new();
-	char *rutaBitacora=string_new();
-	char *idTripulante=string_itoa(tripulante->idTripulante);
-	char *idPatota=string_itoa(tripulante->idPatota);
-	char *xinicio=string_itoa(tripulante->origenX);
-	char *yinicio=string_itoa(tripulante->origenY);
-	char *xfinal=string_itoa(tripulante->destinoX);
-	char *yfinal=string_itoa(tripulante->destinoY);
 	int numero_del_nuevo_bloque;
 	//armo toda la cadena que se va a escribir por movimiento
-	string_append(&lo_que_se_va_a_escribir, "Se mueve de ");
-	string_append(&lo_que_se_va_a_escribir, xinicio);
-	string_append(&lo_que_se_va_a_escribir, "|");
-	string_append(&lo_que_se_va_a_escribir, yinicio);
-	string_append(&lo_que_se_va_a_escribir," a ");
-	string_append(&lo_que_se_va_a_escribir,xfinal);
-	string_append(&lo_que_se_va_a_escribir,"|");
-	string_append(&lo_que_se_va_a_escribir,yfinal);
-	string_append(&lo_que_se_va_a_escribir,"\n");
+	char *rutaBitacora		      = rutaBitacoraDelTripulante(tripulante);
+	char *lo_que_se_va_a_escribir = generarTextoAEscribir(tripulante);
 
-	//armo la ruta de la bitacora correspondiente al tripulante
-	string_append(&rutaBitacora, dirBitacora);
-	string_append(&rutaBitacora, "/");
-	string_append(&rutaBitacora, "Tripulante");
-	string_append(&rutaBitacora, idTripulante);
-	string_append(&rutaBitacora, "Patota");
-	string_append(&rutaBitacora, idPatota);
-	string_append(&rutaBitacora, ".ims");
+
 	int existeArchivo = access(rutaBitacora, F_OK);
 	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
-	if(existeArchivo==0){
+	if (existeArchivo == 0) {
+		log_info(mongoLogger,
+				"El archivo del tripulante existe, buscando su ultimo bloque");
+
 		//ultimo bloque en char
-		el_bloque=buscar_ultimo_bloque_del_tripulante(rutaBitacora);
+		el_bloque = buscar_ultimo_bloque_del_tripulante(rutaBitacora);
 		//si hay espacio en el bloque para escribir to do, entonces lo escribo
-		if(el_bloque->espacio>string_length(lo_que_se_va_a_escribir)){
+		if (el_bloque->espacio > string_length(lo_que_se_va_a_escribir)) {
 
-			escribir_en_block(lo_que_se_va_a_escribir,el_bloque);
+			escribir_en_block(lo_que_se_va_a_escribir, el_bloque);
 
-			}
+		}
 		//sino escribo una parte y elijo otro bloque para lo restante
-			else{
-				char *lo_que_entra_en_el_bloque=string_substring_until(lo_que_se_va_a_escribir,el_bloque->espacio);
-				escribir_en_block(lo_que_entra_en_el_bloque,el_bloque);
-				char *lo_que_falta_escribir=string_substring_from(lo_que_se_va_a_escribir,string_length(lo_que_entra_en_el_bloque));
-				//asigno el bloque nuevo
-				numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
-				nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques, numero_del_nuevo_bloque);
-				//escribir lo_que_falta_escribir
-				escribir_en_block(lo_que_falta_escribir,nuevo_bloque);
-				//actualizar el bitmap
-				//ocupar_bloque(bitmap, numero_del_nuevo_bloque);
-				// actualizar bitacora con el bloque nuevo del tripulante
-				agregar_bloque_bitacora(rutaBitacora,nuevo_bloque->id_bloque);
-			}
-	}
-	else{
-
+		else {
+			char *lo_que_entra_en_el_bloque = string_substring_until(
+					lo_que_se_va_a_escribir, el_bloque->espacio);
+			escribir_en_block(lo_que_entra_en_el_bloque, el_bloque);
+			char *lo_que_falta_escribir = string_substring_from(
+					lo_que_se_va_a_escribir,
+					string_length(lo_que_entra_en_el_bloque));
+			//asigno el bloque nuevo
+			numero_del_nuevo_bloque = obtener_bloque_libre();
+			log_info(mongoLogger,
+					"Asigno el bloque numero:%d\n",
+					numero_del_nuevo_bloque);
+			pthread_mutex_lock(&mutex_disco_logico);
+			nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
+					numero_del_nuevo_bloque - 1);
+			pthread_mutex_unlock(&mutex_disco_logico);
+			//escribir lo_que_falta_escribir
+			escribir_en_block(lo_que_falta_escribir, nuevo_bloque);
+			//actualizar el bitmap
+			ocupar_bloque(numero_del_nuevo_bloque);
+			// actualizar bitacora con el bloque nuevo del tripulante
+			agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);
+		}
+	} else {
 		//asigno el bloque nuevo
-		numero_del_nuevo_bloque = obtener_bloque_libre(bitmap);
-		//creo el archivo bitacora
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
-		sem_wait(&semaforo_bitacora);
-		inicializar_bitacora(rutaBitacora,string_itoa(nuevo_bloque->id_bloque));
-		sem_post(&semaforo_bitacora);
-		//escribo lo_que_se_va_a_escribir en block
-		escribir_en_block(lo_que_se_va_a_escribir,nuevo_bloque);
+		numero_del_nuevo_bloque = obtener_bloque_libre();
 
+		log_info(mongoLogger,
+				"Asigno el bloque numero:%d\n",
+				numero_del_nuevo_bloque);
+		//TODO comprobar si esta bien mergieado porque estaba lo siguiente:
+		//nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1 );
+
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1 );
+
+		sem_wait(&semaforo_bitacora);
+		inicializar_bitacora(rutaBitacora,
+				string_itoa(nuevo_bloque->id_bloque));
+		sem_post(&semaforo_bitacora);
+
+		//modifico bitmap
+		ocupar_bloque(numero_del_nuevo_bloque);
+
+		//escribo lo_que_se_va_a_escribir en block
+		escribir_en_block(lo_que_se_va_a_escribir, nuevo_bloque);
 	}
+
+	free(tripulante->tripulante);
+	free(tripulante);
 }
 
 int cantidad_bloques_a_ocupar(char* texto)

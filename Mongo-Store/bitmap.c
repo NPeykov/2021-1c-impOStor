@@ -5,9 +5,7 @@
  *      Author: utnso
  */
 
-
 #include "bitmap.h"
-#include "mongo-store.h"
 
 t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 
@@ -35,38 +33,38 @@ t_bitarray* crear_bitmap(char *ubicacion, int cant_bloques){
 
 	t_bitarray* bitmap = bitarray_create_with_mode((char*) bmap, size, MSB_FIRST);
 
-
 	msync(bitmap, size, MS_SYNC);
 	free(rutaBitmap);
 	return bitmap;
 }
 
-void ocupar_bloque(t_bitarray* bitmap, int bloque){
-	sem_wait(&semaforo_bitmap);
+void ocupar_bloque(int bloque){
+	pthread_mutex_lock(&mutex_bitmap);
 	bitarray_set_bit(bitmap,bloque);
-	sem_post(&semaforo_bitmap);
+	pthread_mutex_unlock(&mutex_bitmap);
 	return;
 }
 
 
-int obtener_bloque_libre(t_bitarray* bitmap){
-	sem_wait(&semaforo_bitmap);
+int obtener_bloque_libre(){
+	pthread_mutex_lock(&mutex_bitmap);
 	size_t tamanio = bitarray_get_max_bit(bitmap);
-	sem_post(&semaforo_bitmap);
 	int i;
-	for(i=0; i<tamanio; i++){
-		sem_wait(&semaforo_bitmap);
+	for(i=1; i<=tamanio; i++){
 		if(bitarray_test_bit(bitmap, i)== 0){
 			bitarray_set_bit(bitmap,i);
-			sem_post(&semaforo_bitmap);
+			pthread_mutex_unlock(&mutex_bitmap);
 			return i;
 		}
-	sem_post(&semaforo_bitmap);
 	}
+	log_info(mongoLogger, "No se pudo obtener un bloque libre");
+	pthread_mutex_unlock(&mutex_bitmap);
 	return -1;
 }
 
-void liberar_bloque(t_bitarray* bitmap, int bloque){
+void liberar_bloque(int bloque){
+	pthread_mutex_lock(&mutex_bitmap);
 	bitarray_clean_bit(bitmap,bloque);
+	pthread_mutex_unlock(&mutex_bitmap);
 	return;
 }

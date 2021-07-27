@@ -30,7 +30,8 @@ typedef enum{
 	INICIO_TAREA, //para store
 	FIN_TAREA, //para store
 	INICIO_SABOTAJE,
-	ESPERANDO_SABOTAJE
+	ESPERANDO_SABOTAJE,
+	FIN_SABOTAJE
 }op_code;
 
 typedef enum{

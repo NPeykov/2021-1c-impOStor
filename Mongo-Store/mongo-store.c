@@ -155,8 +155,8 @@ int main() {
 	//crearEstructuraFileSystem();
 
 	iniciar_recursos_mongo();
-	//generar_oxigeno(100);
-	consumir_oxigeno(100);
+	generar_oxigeno(200);
+	//consumir_oxigeno(200);
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
@@ -1450,6 +1450,7 @@ void borrar_del_archivo(char *ruta,int cant_borrar, t_bloque* bloque,char caract
 //avisa que el archivo no existe por log
 void avisar_que_no_existe(){
  //TODO
+	printf("el archivo no existe\n");
 }
 
 //vacia to do un bloque
@@ -1460,10 +1461,14 @@ void vaciar_bloque(t_bloque* bloque){
 
 //comprueba si el archivo existe y si existe elimina los caracteres deseados
 void eliminar_del_archivo(char* ruta,int cant_borrar,char caracter){
-	char* bloques=bloques_de_archivo(ruta);
-	char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
+	char* contenido_total=string_new();
+	char* bloques;
+	if(atoi(size_de_archivo(ruta))>0){
+		bloques=bloques_de_archivo(ruta);
+		char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
+		contenido_total=contenido_de_bloques(bloquesaux);
+	}
 
-	char* contenido_total=contenido_de_bloques(bloquesaux);
 
 	t_bloque* bloque=malloc(sizeof(t_bloque*));
 

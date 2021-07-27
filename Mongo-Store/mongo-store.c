@@ -1024,10 +1024,14 @@ void *gestionarCliente(int socket) {
 			break;
 		case ESPERANDO_SABOTAJE:
 			;
-			pthread_create(&hilo_sabotaje, NULL,
-					(void*) enviar_aviso_sabotaje_a_discordiador,
-					(void*) cliente);
-			pthread_detach(hilo_sabotaje);
+			socket_sabotaje_cliente = cliente;
+
+			log_info(mongoLogger, "El socket para sabotajes es: %d\n", socket_sabotaje_cliente);
+
+			//pthread_create(&hilo_sabotaje, NULL,
+			//		(void*) enviar_aviso_sabotaje_a_discordiador,
+			//		NULL);
+			//pthread_detach(hilo_sabotaje);
 			break;
 		case ACTUALIZAR_POSICION:
 			;

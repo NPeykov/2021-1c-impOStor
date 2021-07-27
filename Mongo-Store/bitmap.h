@@ -35,11 +35,6 @@
 sem_t contador_sabotaje; //iniciar en 1
 
 
-char *puntoMontaje;
-char *dirMetadata;
-char *dirFiles;
-char *dirBitacora;
-//char *dirBlocks;
 t_log* mongoLogger;
 int socket_cliente;
 int blocks;
@@ -50,6 +45,7 @@ int socket_mongo_store, socket_cliente;
 char* puerto;
 
 void *superbloque;
+int g_tamanio_superbloque;
 char *bitarrayEnChar;
 t_bitarray *bitmap;
 uint32_t *g_block_size;

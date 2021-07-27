@@ -152,11 +152,14 @@ int main() {
 	close(archivo);*/
 	/////////////////////fin prueba/////////////////////////////////////
 
-	//crearEstructuraFileSystem();
-
 	iniciar_recursos_mongo();
-	generar_oxigeno(200);
-	//consumir_oxigeno(200);
+	pthread_t hilo_bajada_a_disco;
+
+	pthread_create(&hilo_bajada_a_disco, NULL, (void *)gestionar_bajadas_a_disco, NULL);
+	pthread_detach(hilo_bajada_a_disco);
+	generar_oxigeno(120);
+	consumir_oxigeno(100);
+
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
@@ -191,7 +194,57 @@ void iniciar_recursos_mongo(void) {
 	crear_estructura_filesystem();
 }
 
+void bajar_datos_blocks(void) {
+	int archivo_blocks;
+	char *contenido_blocks;
+	struct stat statbuf;
+
+	archivo_blocks = open(dirBlocks, O_RDWR);
+
+	if(archivo_blocks == -1)
+	{
+		log_error(mongoLogger, "Error al abrir el archivo para bajar los blocks");
+		exit(1);
+	}
+
+	fstat(archivo_blocks, &statbuf);
+
+	contenido_blocks = (char*) mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, archivo_blocks, 0);
+
+	memcpy(contenido_blocks,block_mmap, statbuf.st_size);
+
+	msync(contenido_blocks, statbuf.st_size, MS_SYNC);
+
+	munmap(contenido_blocks, statbuf.st_size);
+
+	close(archivo_blocks);
+}
+
+void bajar_datos_superbloque(void) {
+	msync(superbloque, g_tamanio_superbloque, MS_SYNC);
+}
+
+void gestionar_bajadas_a_disco(void){
+	int tiempo_bajada = atoi(config_get_string_value(mongoConfig, "TIEMPO_SINCRONIZACION"));
+
+	while(1)
+	{
+		sleep(tiempo_bajada);
+		log_info(mongoLogger, "Realizando bajada a disco de blocks y superbloque..");
+
+		//TODO poner un mutex de blocks
+		bajar_datos_blocks();
+
+
+		bajar_datos_superbloque();
+	}
+}
+
+
+
 void mostrar_estado_bitarray(void) {
+	//TODO: cambiarlo por un hexdump
+
 	for (int i = 1; i <= *g_blocks; i++) {
 		if (i % 5 == 0)
 			printf("%d\n", bitarray_test_bit(bitmap, i));
@@ -250,16 +303,12 @@ char *generarMD5(char *contenido){
 
 //creamos el disco logico
 void crearEstructuraDiscoLogico(){
-	//TODO poner semaforo para disco logico
 	disco_logico=(t_disco_logico *)malloc(sizeof(t_disco_logico));
 	disco_logico->bloques=list_create();
 }
 
 //creamos todos los bloques del filesystem
 void crearEstructurasBloques(){
-	//TODO poner semaforo para disco logico
-	//tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	//cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
 	int _cantidad_de_bloques = (int)*g_blocks;
 
 	for(int contador=1;contador <=_cantidad_de_bloques;contador++){
@@ -506,8 +555,9 @@ void copiar_bitmap_de_disco(char* dirSuperbloque){
 
 	bitmap = bitarray_create(bitarrayEnChar, cantLeer2);
 
-	//reviso las cosas
+	g_tamanio_superbloque = 2 * sizeof(uint32_t) + cantLeer2;
 
+	//reviso las cosas
 	log_info(mongoLogger, "SIZE GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_block_size);
 	log_info(mongoLogger, "CANT GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_blocks);
 
@@ -523,11 +573,9 @@ void crearSuperbloqueNuevo(char *path){
 	fd = fopen(path, "wb");
 
 	if (fd == NULL) {
-		printf("ERROR AL ABRIR ARCHIVO");
+		log_error(mongoLogger, "ERROR AL ABRIR ARCHIVO");
 		exit(1);
 	}
-
-	uint32_t prueba = (unsigned)atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
 
 	int cantBytes = (int)ceil((double)(*g_blocks)/8);
 
@@ -538,14 +586,6 @@ void crearSuperbloqueNuevo(char *path){
 	fwrite(bitmap->bitarray, cantBytes, 1, fd);
 
 	log_info(mongoLogger, "Se creo el superbloque nuevo!");
-
-	//mostrar_estado_bitarray();
-
-
-	//mostrar_estado_bitarray();
-
-	//msync(superbloque, 2*sizeof(uint32_t) + cantBytes, MS_SYNC);
-	//munmap(superbloque, 2*sizeof(uint32_t) + cantBytes);
 
 	fclose(fd);
 }
@@ -574,7 +614,7 @@ int caracteres_ocupados(int inicio,int fin){
 //copia los datos de cada bloque a los bloques logicos para recuperar la info cuando
 //se levanta el filesystem
 void copiar_datos_de_bloques(t_list* bloques){
-	int inicio, fin, offset;
+	int inicio, fin;
 	t_bloque *bloque;
 
 	for(int i=0;i<list_size(bloques);i++){
@@ -594,14 +634,30 @@ void copiar_datos_de_bloques(t_list* bloques){
 
 		//acomodo el puntero en bloque
 		bloque->posicion_para_escribir=caracteresOcupados+bloque->inicio;
-
-		printf("Bloque %d inicio %d fin %d offset %d tiene espacio %d\n",
-				bloque->id_bloque,
-				bloque->inicio,
-				bloque->fin,
-				offset,
-				bloque->espacio);
 	}
+}
+
+void crearCopiaBlocks(char *dirBlocks) {
+	struct stat statbuf;
+	int archivo;
+	char *contenidoArchivo;
+
+	archivo = open(dirBlocks, O_RDWR);
+
+	if (archivo == -1)
+	{
+		log_error(mongoLogger, "Error al abrir el archivo para copiar los blocks!");
+	}
+
+	fstat(archivo,&statbuf);
+
+	contenidoArchivo = (char *) mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+
+	block_mmap = (char *) malloc(statbuf.st_size);
+
+	memcpy(block_mmap, contenidoArchivo, statbuf.st_size);
+
+	munmap(contenidoArchivo, statbuf.st_size);
 }
 
 
@@ -640,46 +696,32 @@ void crear_estructura_filesystem(){
 
 			crearEstructuraDiscoLogico();
 			crearEstructurasBloques();
-
-			//crearBitMapLogico();
-			struct stat statbuf;
-			int archivo = open(dirBlocks, O_RDWR);
-			fstat(archivo,&statbuf);
-			block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
+			crearCopiaBlocks(dirBlocks);
 			copiar_datos_de_bloques(disco_logico->bloques);
 		}
 	}
+
 	else{
 		log_info(mongoLogger, "Generando estructura del FS");
 
 		g_nuevo_block_size = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-		g_nuevo_blocks	 = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+		g_nuevo_blocks	   = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCKS"));
 
 		g_block_size = &g_nuevo_block_size;
 		g_blocks	 = &g_nuevo_blocks;
 
-		printf("BLOCKS SIZE: %u\n", *g_block_size);
-		printf("BLOCKS: %u\n", *g_blocks);
+		log_info(mongoLogger, "BLOCKS SIZE: %u", *g_block_size);
+		log_info(mongoLogger, "BLOCKS: %u", *g_blocks);
 
 		crearEstructuraDiscoLogico();
 		crearEstructurasBloques();
 		crearBitMapLogico();
-
 		crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
 		copiar_bitmap_de_disco(dirSuperbloque);
-		//crearSuperbloque(dirSuperbloque);
-
 		crearblocks(dirBlocks);//archivo
 		crearCarpetaFile(dirFiles);//carpeta
 		crearCarpetaBitacora(dirBitacora);//carpeta
-		struct stat statbuf;
-		int archivo = open(dirBlocks, O_RDWR);
-		fstat(archivo,&statbuf);
-		block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
-		//msync(superbloque, 2*sizeof(uint32_t) + 41, MS_SYNC);
-		//munmap(superbloque, 2*sizeof(uint32_t) + 41);
+		crearCopiaBlocks(dirBlocks);
 	}
 
 }
@@ -1044,91 +1086,6 @@ void *gestionarCliente(int socket) {
 	}
 }
 
-void gestionarSabotaje() {
-	int operacion;
-	switch (operacion) {
-	case SUPERBLOQUE:
-		//si cambia valor Blocks constatar con tamaño archivo blocks.ims
-		//si cambia valor Bitmap recorrer FILES y obtener bloques usados
-		break;
-	case FILES:
-		//si cambia el SIZE recorrer todos los bloques y asumir correcto el tamaño de los mismos
-		//si son inconsistentes block_count y blocks actualizo block_count en base a la lista de blocks
-		//si se altera la lista BLOCKS y no estan en orden(nos damos cuenta porque cambia el valor de md5)
-		//se debe reescribir la lista hasta que se obtenga el mismo tamaño
-	default:
-		printf("Operacion desconocida.\n");
-		break;
-
-	}
-}
-
-void rutina(int n) {
-	printf("El SABOTAJE EXISTE!\n");
-	sem_post(&dar_orden_sabotaje);
-}
-
-//devuelve la siguiente posicion del sabotaje
-char* siguiente_posicion_sabotaje() {
-	char** posiciones_divididas;
-	char * siguiente_posicion;
-	int cantidad = 0;
-
-	posiciones_divididas = config_get_array_value(mongoConfig,
-			"POSICIONES_SABOTAJE");		//array con todas las posiciones
-	while (posiciones_divididas[cantidad] != NULL) {
-		cantidad++;
-	}
-	if (numero_sabotaje < cantidad) {
-		siguiente_posicion = posiciones_divididas[numero_sabotaje];
-		sem_wait(&contador_sabotaje);
-		numero_sabotaje++;
-		sem_post(&contador_sabotaje);
-		return siguiente_posicion;
-	} else {
-		printf("NO HAY MAS SABOTAJES\n");
-		return NULL;
-	}
-
-}
-
-//para probar el aviso de inicio de sabotaje
-void enviar_aviso_sabotaje_a_discordiador(void *data) {
-	int socket_discordiador = (int) data;
-	char** sabotaje_pos_aux;
-	char* sabotaje_posY;
-	//char** pos_dividida;
-	char* sabotaje_posX;
-	char* pos_sabotaje;
-	//int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
-
-	sem_wait(&dar_orden_sabotaje);
-
-	printf("SOCKET DISCO %d\n", socket_discordiador);
-
-	pos_sabotaje = siguiente_posicion_sabotaje();
-
-	if (pos_sabotaje == NULL) //no hay mas sabotajes
-		return;
-
-	sabotaje_pos_aux = string_split(pos_sabotaje, "|");	//tomo la posicion i del array y lo paso a otro
-	printf("ESTOY POR ENVIAR SABOTAJE\n");
-	sabotaje_posX = sabotaje_pos_aux[0];		//agarrar la posicion x
-	sabotaje_posY = sabotaje_pos_aux[1];		//agarrar la posicion y
-	printf("posicion en X de sabotaje: %s\n", sabotaje_posX);
-	printf("posicion en Y de sabotaje: %s\n", sabotaje_posY);
-
-	t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
-	agregar_a_paquete(paquete_sabotaje, sabotaje_posX,
-			strlen(sabotaje_posX) + 1);
-	agregar_a_paquete(paquete_sabotaje, sabotaje_posY,
-			strlen(sabotaje_posY) + 1);
-	enviar_paquete(paquete_sabotaje, socket_discordiador);
-	eliminar_paquete(paquete_sabotaje);
-	liberar_cliente(socket_discordiador);
-
-	pthread_exit(NULL);
-}
 
 //crea y escribe el archivo necesario con el texto necesario
 void inicializar_archivo(char* ruta_archivo, int cantidad_caracter, char caracter){
@@ -1383,7 +1340,7 @@ void escribir_el_archivo(char* ruta,char* cadena, t_bloque* bloque){
 		escribir_en_block(lo_que_entra_en_el_bloque,bloque);
 		actualizar_el_archivo(ruta,lo_que_entra_en_el_bloque,bloque);
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		escribir_el_archivo(ruta,lo_que_falta_escribir,nuevo_bloque);
 	}
 
@@ -1402,7 +1359,7 @@ t_bloque* recuperar_ultimo_bloque_file(char* ruta){
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	if(atoi(sizeArchivo)==0){
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 	}
 	else{
 		char **renglones_file= string_split(archivo_addr, "\n");
@@ -1531,7 +1488,7 @@ void generar_oxigeno(int cantidad){
 		inicializar_archivo(ruta_oxigeno,cantidad, 'O');
 
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
 
@@ -1579,7 +1536,7 @@ void generar_comida(int cantidad){
 		inicializar_archivo(ruta_comida,cantidad, 'C');
 
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_comida,cadena,bloque);
 
@@ -1625,7 +1582,7 @@ void generar_basura(int cantidad){
 		inicializar_archivo(ruta_basura,cantidad, 'B');
 
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_basura,cadena,bloque);
 
@@ -1644,7 +1601,6 @@ void generar_basura(int cantidad){
 void descartar_basura(int cant_borrar){
 
 }
-//actualiza la posicion de un tripulante escribiendo en su bitacora
 
 
 /*arma la direccion de la bitacora dependiendo la accion que realiza.

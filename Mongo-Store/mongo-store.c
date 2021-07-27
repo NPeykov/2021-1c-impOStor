@@ -2,6 +2,7 @@
 
 
 int main() {
+	//TODO levantar mongo con oxigeno en 0 y escribir da error
 	/*sem_init(&semaforo_bitmap, 0, 1);
 	sem_init(&semaforo_bitacora, 0, 1);
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
@@ -15,7 +16,7 @@ int main() {
 	fstat(archivo,&statbuf);
 	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	generar_oxigeno(554);
-	//consumir_oxigeno(554);
+	consumir_oxigeno(554);
 	//generar_basura(100);
 	//generar_comida(100);
 	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
@@ -154,8 +155,8 @@ int main() {
 	//crearEstructuraFileSystem();
 
 	iniciar_recursos_mongo();
-	//generar_oxigeno(200);
-	//consumir_oxigeno(300);
+	//generar_oxigeno(100);
+	consumir_oxigeno(100);
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
@@ -176,7 +177,9 @@ void iniciar_recursos_mongo(void) {
 	sem_init(&contador_sabotaje, 0, 1);
 //	sem_init(&semaforo_bitmap, 0, 1); lo cambie por un mutex
 	sem_init(&semaforo_bitacora, 0, 1);
-
+	sem_init(&semaforo_para_file_oxigeno,0,1);
+	sem_init(&semaforo_para_file_comida,0,1);
+	sem_init(&semaforo_para_file_basura,0,1);
 
 
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
@@ -1206,7 +1209,7 @@ char* bloques_de_archivo(char* ruta){
 	close(archivo);
 	return blocks;
 }
-//lee un bloque y devuelve todo su texto
+//lee un bloque y devuelve to do su texto
 char* leo_el_bloque(t_bloque* bloque){
 	char* texto=string_new();
 
@@ -1392,18 +1395,25 @@ t_bloque* recuperar_ultimo_bloque_file(char* ruta){
 
 	t_bloque* el_bloque;
 	int cantidad_de_bloques=0;
+	char* sizeArchivo=size_de_archivo(ruta);
 	struct stat statbuf;
 	int archivo = open(ruta, O_RDWR);
 	fstat(archivo,&statbuf);
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	char **renglones_file= string_split(archivo_addr, "\n");
-	char **linea_bloques_file= string_split(renglones_file[2], "=");
-	char **bloques_file= string_split(linea_bloques_file[1], ",");
-	while(bloques_file[cantidad_de_bloques]){
-		cantidad_de_bloques++;
+	if(atoi(sizeArchivo)==0){
+		int numero_del_nuevo_bloque = obtener_bloque_libre();
+		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+	}
+	else{
+		char **renglones_file= string_split(archivo_addr, "\n");
+		char **linea_bloques_file= string_split(renglones_file[2], "=");
+		char **bloques_file= string_split(linea_bloques_file[1], ",");
+		while(bloques_file[cantidad_de_bloques]){
+			cantidad_de_bloques++;
+		}
+		el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_file[cantidad_de_bloques-2])-1);
 	}
 
-	el_bloque=(t_bloque *)list_get(disco_logico->bloques, atoi(bloques_file[cantidad_de_bloques-2])-1);
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
 
@@ -1431,6 +1441,9 @@ void borrar_del_archivo(char *ruta,int cant_borrar, t_bloque* bloque,char caract
 		bloque->espacio=bloque->fin-bloque->inicio+1;
 		bloque->posicion_para_escribir=bloque->inicio;
 		actualizar_archivo_borrado(ruta,cant_borrar,true,caracter);
+		pthread_mutex_lock(&mutex_bitmap);
+		bitarray_clean_bit(bitmap,bloque->id_bloque-1);
+		pthread_mutex_unlock(&mutex_bitmap);
 	}
 }
 
@@ -1487,7 +1500,7 @@ void eliminar_del_archivo(char* ruta,int cant_borrar,char caracter){
 			bloque->espacio=bloque->fin-bloque->inicio+1;
 			bloque->posicion_para_escribir=bloque->inicio;
 			pthread_mutex_lock(&mutex_bitmap);
-			bitarray_set_bit(bitmap,atoi(bloques_divididos[i])-1);
+			bitarray_clean_bit(bitmap,atoi(bloques_divididos[i])-1);
 			pthread_mutex_unlock(&mutex_bitmap);
 
 		}
@@ -1504,6 +1517,7 @@ void generar_oxigeno(int cantidad){
 	string_append(&ruta_oxigeno,"/Files/oxigeno.ims");
 
 	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
+	sem_wait(&semaforo_para_file_oxigeno);
 	int existeArchivo = access(ruta_oxigeno, F_OK);
 
 	t_bloque* bloque=malloc(sizeof(bloque));
@@ -1521,8 +1535,8 @@ void generar_oxigeno(int cantidad){
 	else{
 		bloque=recuperar_ultimo_bloque_file(ruta_oxigeno);
 		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
-		//int existeArchivo = access(ruta_oxigeno, F_OK);
 	}
+	sem_post(&semaforo_para_file_oxigeno);
 
 
 }
@@ -1546,29 +1560,32 @@ void consumir_oxigeno(int cant_borrar){
 //crea el archivo de generar comida y escribe en el
 void generar_comida(int cantidad){
 	char* cadena=string_repeat('C', cantidad);
-		char* ruta_comida =string_new();
-		string_append(&ruta_comida,puntoMontaje);
-		string_append(&ruta_comida,"/Files/comida.ims");
+	char* ruta_comida =string_new();
+	string_append(&ruta_comida,puntoMontaje);
+	string_append(&ruta_comida,"/Files/comida.ims");
 
-		//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
-		int existeArchivo = access(ruta_comida, F_OK);
+	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
+	sem_wait(&semaforo_para_file_comida);
+	int existeArchivo = access(ruta_comida, F_OK);
 
-		t_bloque* bloque=malloc(sizeof(bloque));
+	t_bloque* bloque=malloc(sizeof(bloque));
 
-		if(existeArchivo==-1){
-			inicializar_archivo(ruta_comida,cantidad, 'C');
+	if(existeArchivo==-1){
+		inicializar_archivo(ruta_comida,cantidad, 'C');
 
-			int numero_del_nuevo_bloque = obtener_bloque_libre();
-			bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
-			//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
-			escribir_el_archivo(ruta_comida,cadena,bloque);
+		int numero_del_nuevo_bloque = obtener_bloque_libre();
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
+		escribir_el_archivo(ruta_comida,cadena,bloque);
 
-		}
-		//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
-		else{
-			bloque=recuperar_ultimo_bloque_file(ruta_comida);
-			escribir_el_archivo(ruta_comida,cadena,bloque);
-		}
+	}
+	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
+	else{
+		bloque=recuperar_ultimo_bloque_file(ruta_comida);
+		escribir_el_archivo(ruta_comida,cadena,bloque);
+	}
+	sem_post(&semaforo_para_file_comida);
+
 }
 
 //comprueba el archivo de generar comida y borra en el
@@ -1588,26 +1605,33 @@ void consumir_comida(int cant_borrar){
 
 //crea el archivo de generar basura y escribe en el
 void generar_basura(int cantidad){
-	puntoMontaje="/home/utnso/workspace/mnt";
 	char* cadena=string_repeat('B', cantidad);
 	char* ruta_basura =string_new();
 	string_append(&ruta_basura,puntoMontaje);
 	string_append(&ruta_basura,"/Files/basura.ims");
+
 	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
+	sem_wait(&semaforo_para_file_basura);
 	int existeArchivo = access(ruta_basura, F_OK);
+
 	t_bloque* bloque=malloc(sizeof(bloque));
 
 	if(existeArchivo==-1){
 		inicializar_archivo(ruta_basura,cantidad, 'B');
+
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_basura,cadena,bloque);
+
 	}
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
 	else{
-		recuperar_ultimo_bloque_file(ruta_basura);
+		bloque=recuperar_ultimo_bloque_file(ruta_basura);
 		escribir_el_archivo(ruta_basura,cadena,bloque);
 	}
+	sem_post(&semaforo_para_file_basura);
+
 
 }
 

@@ -23,7 +23,9 @@ sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
 //sem_t semaforo_bitmap;
 sem_t semaforo_bitacora;
-
+sem_t semaforo_para_file_oxigeno;
+sem_t semaforo_para_file_comida;
+sem_t semaforo_para_file_basura;
 
 //MUTEXS
 pthread_mutex_t mutex_disco_logico;

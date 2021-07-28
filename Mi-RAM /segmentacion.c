@@ -189,7 +189,7 @@ void crear_segmento_tcb(void* elTripulante) {
 	int _socket_cliente = tripulanteConSocket->socket;
 
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
-
+	log_info(logs_ram, "Llegue aca");
 	//Para buscar su patota
 	int patota = (int) unTripulante->numPatota;
 
@@ -213,7 +213,7 @@ void crear_segmento_tcb(void* elTripulante) {
 	tcb->posY = unTripulante->posY;
 	tcb->status = unTripulante->status;
 	tcb->proxIns = (uint32_t) 0;
-
+	log_info(logs_ram, "Llegue aca");
 	//Se asigna el acceso rapido de t_proceso
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
@@ -224,6 +224,7 @@ void crear_segmento_tcb(void* elTripulante) {
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 
+	log_info(logs_ram, "Llegue aca");
 	if(segmento->base == -1){
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
@@ -377,7 +378,7 @@ void eliminarTripulante(void *unTripulante){
 }
 
 Segmento *buscarTripulante(int idTripulante,int idPatota){
-	Segmento *segmentoDelTripulante;
+	Segmento *segmentoDelTripulante = NULL;
 
 	void _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
@@ -400,6 +401,10 @@ Segmento *buscarTripulante(int idTripulante,int idPatota){
 	pthread_mutex_lock(&listaPatotasEnUso);
 	list_iterate(patotas, _recorrerProcesos);
 	pthread_mutex_unlock(&listaPatotasEnUso);
+	if(segmentoDelTripulante == NULL){
+		sem_wait(&tripulantesDisponibles);//Si no existe, espera a que se haga el post y buscar de nuevo
+		segmentoDelTripulante = buscarTripulante( idTripulante, idPatota);
+	}
 	return segmentoDelTripulante;
 }
 
@@ -440,7 +445,10 @@ Segmento *buscarSegmento(uint32_t baseSegmento){
 char *buscarTarea(uint32_t baseSegmentoTareas, int indiceTarea){
 	Segmento *segmentoTareas = buscarSegmento(baseSegmentoTareas);
 	char *todasLasTareas = (char*) segmentoTareas->dato;
+	log_info(logs_ram, "Las tareas del tripulante son %s", todasLasTareas);
 	char **tareasSeparadas = string_split(todasLasTareas, "\n");
+	//int cantidadTareas = string_length(tareasSeparadas);
+	log_info(logs_ram, "La ultima tarea es %s de %d",tareasSeparadas[2]);
 	//Separe el string
 	return tareasSeparadas[indiceTarea];
 }
@@ -451,8 +459,10 @@ void enviarTareaSiguiente(void *unTripulante){
 	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
 	int idTripulante = tripulante->tid;
 	int idPatota = tripulante->numPatota;
+	log_info(logs_ram, "Tripulante %d de la patota %d pide tarea", idTripulante, idPatota);
 
 	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
+	if(SegmentoDelTripulante == NULL){log_info(logs_ram, "Segmento Tripu Vacio");}
 	TripuCB *elTripulante = (TripuCB*)SegmentoDelTripulante->dato;
 	int proximaTarea = (int) elTripulante->proxIns;
 	elTripulante->proxIns +=1; //Se asigna la siguiente tarea en RAM
@@ -523,7 +533,6 @@ void obtenerSgteTareaSeg(t_list *lista, int cliente){
 	tripulante_con_socket->tripulante = tripulante_tarea;
 	tripulante_con_socket->socket     = cliente;
 
-	sem_wait(&tripulantesDisponibles);
 	pthread_t hiloPedidoTarea;
 	pthread_create(&hiloPedidoTarea, NULL, (void*)enviarTareaSiguiente,(void*)tripulante_con_socket);
 	pthread_detach(hiloPedidoTarea);

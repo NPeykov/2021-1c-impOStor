@@ -11,6 +11,7 @@
 #include<commons/collections/list.h>
 #include<string.h>
 #include<errno.h>
+#include<stdbool.h>
 
 #define PATH_MI_RAM_CONFIG "../config_files/mi_ram.config"
 #define PATH_MONGO_STORE_CONFIG "../config_files/mongo_store.config"

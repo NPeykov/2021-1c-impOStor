@@ -17,7 +17,10 @@
 #include <fcntl.h>
 #include <signal.h>
 #include "bitmap.h"
-#include<math.h>
+#include <math.h>
+#include "sabotaje_mongo.h"
+
+
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
@@ -77,6 +80,11 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion*);
 char *rutaBitacoraDelTripulante(tripulante_con_su_accion*);
 
 
+//bajadas a disco
+void mostrar_estado_bitarray(void);
+void gestionar_bajadas_a_disco(void);
+void bajar_datos_superbloque(void);
+
 void iniciar_recursos_mongo(void);
 void crearEstructuraFileSystem();
 void crearblocks(char*);
@@ -85,14 +93,15 @@ void crearEstructurasBloques();
 void crearEstructuraDiscoLogico();
 void crearBitMapLogico();
 void inicializar_archivo(char* , int , char);
-void enviar_aviso_sabotaje_a_discordiador();
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);
 int ultima_posicion_escrita(int,int);
 
-void rutina(int n);
+
 void *gestionarCliente(int cliente);
+void obtener_bitacora_tripulante(int);
+char* contenido_de_bloques(char*);
 void gestionarSabotaje();
 void generar_oxigeno(int);
 void consumir_oxigeno(int);
@@ -101,12 +110,7 @@ void consumir_comida(int);
 void generar_basura(int);
 void descartar_basura(int);
 void (*signal(int sig, void (*func)(int)))(int) ;
-void enviar_aviso_sabotaje_a_discordiador(void *data);
-char* siguiente_posicion_sabotaje();
 
-typedef enum{
-	SUPERBLOQUE,
-	FILES
-}sabotaje_code;
+
 
 #endif

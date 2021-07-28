@@ -2,161 +2,12 @@
 
 
 int main() {
-	//TODO levantar mongo con oxigeno en 0 y escribir da error
-	/*sem_init(&semaforo_bitmap, 0, 1);
-	sem_init(&semaforo_bitacora, 0, 1);
-	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
-
-	crear_estructura_filesystem();
-	crearBitMapLogico();
-
-	struct stat statbuf;
-	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
-
-	fstat(archivo,&statbuf);
-	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	generar_oxigeno(554);
-	consumir_oxigeno(554);
-	//generar_basura(100);
-	//generar_comida(100);
-	/*mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
-	struct stat statbuf;
-	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
-	fstat(archivo,&statbuf);
-	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	crearEstructuraDiscoLogico();
-	crearEstructurasBloques();
-
-
-	int cantidad_de_bloques=list_size(disco_logico->bloques);
-	for(int i=0;i<10;i++){
-		t_bloque* bloque = malloc(sizeof(t_bloque));
-		bloque=list_get(disco_logico->bloques,i);
-		int a=ultima_posicion_escrita(bloque->inicio,bloque->fin);
-		bloque->espacio=bloque->espacio-a;
-		bloque->posicion_para_escribir=bloque->posicion_para_escribir+a;
-		printf("el bloque %d tiene %d lugares y empieza a escribir en %d\n",bloque->id_bloque,bloque->espacio,bloque->posicion_para_escribir);
-	}*/
-
-	//////////////////////prueba/////////////////
-	/*sem_init(&semaforo_bitmap, 0, 1);
-	sem_init(&semaforo_bitacora, 0, 1);
-
-	m_movimiento_tripulante *tripulante=malloc(sizeof(m_movimiento_tripulante));
-	t_bloque* bloque1 = malloc(sizeof(t_bloque));
-	t_bloque* bloque2 = malloc(sizeof(t_bloque));
-	t_bloque* bloque3 = malloc(sizeof(t_bloque));
-	t_bloque* bloque4 = malloc(sizeof(t_bloque));
-	t_bloque* bloque5 = malloc(sizeof(t_bloque));
-	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG);
-	void* puntero_a_bits =malloc(1); //un byte de memoria, como por ejemplo malloc(1)
-	sem_wait(&semaforo_bitmap);
-	bitmap=bitarray_create(puntero_a_bits, 1);
-	for(int i = 0; i<8;i++){
-				bitarray_clean_bit(bitmap, i);
-				printf("bitmap: %d\n",bitarray_test_bit(bitmap, i));
-	}
-
-	sem_post(&semaforo_bitmap);
-	printf("cantidad de bloques: %d\n",bitarray_get_max_bit(bitmap));
-	//bool a=bitarray_test_bit(bitmap, 0);
-	//printf("valor: %d\n",a);
-
-
-	sem_wait(&semaforo_bitmap);
-	bitarray_set_bit(bitmap, 1);//2
-	sem_post(&semaforo_bitmap);
-
-	sem_wait(&semaforo_bitmap);
-	bitarray_set_bit(bitmap, 3);//4
-	sem_post(&semaforo_bitmap);
-
-	sem_wait(&semaforo_bitmap);
-	bitarray_set_bit(bitmap, 0);//1
-	sem_post(&semaforo_bitmap);
-
-	sem_wait(&semaforo_bitmap);
-	bitarray_set_bit(bitmap, 2);//3
-	sem_post(&semaforo_bitmap);
-	//a=bitarray_test_bit(bitmap, 0);
-	//printf("valor: %d\n",a);
-	//int bloqueLibre= obtener_bloque_libre(bitmap);
-	//printf("bloque libre: %d\n",bloqueLibre);
-	for(int i = 0; i<8;i++){
-			printf("bitmap: %d\n",bitarray_test_bit(bitmap, i));
-		}
-	tripulante->destinoX=0;
-	tripulante->destinoY=2;
-	tripulante->idPatota=1;
-	tripulante->idTripulante=1;
-	tripulante->origenX=0;
-	tripulante->origenY=0;
-	bloque1->id_bloque=1;
-	bloque1->inicio=0;
-	bloque1->fin=255;
-	bloque1->espacio=256;
-	bloque1->posicion_para_escribir=bloque1->inicio;
-	bloque2->id_bloque=2;
-	bloque2->inicio=256;
-	bloque2->fin=511;
-	bloque2->espacio=256;
-	bloque2->posicion_para_escribir=bloque2->inicio;
-	bloque3->id_bloque=3;
-	bloque3->inicio=512;
-	bloque3->fin=767;
-	bloque3->espacio=256;
-	bloque3->posicion_para_escribir=bloque3->inicio;
-	bloque4->id_bloque=4;
-	bloque4->inicio=768;
-	bloque4->fin=1023;
-	bloque4->espacio=256;
-	bloque4->posicion_para_escribir=bloque4->inicio;
-	bloque5->id_bloque=5;
-	bloque5->inicio=1024;
-	bloque5->fin=1279;
-	bloque5->espacio=256;
-	bloque5->posicion_para_escribir=bloque5->inicio;
-
-	crearEstructuraDiscoLogico();
-	list_add(disco_logico->bloques,bloque1);
-	list_add(disco_logico->bloques,bloque2);
-	list_add(disco_logico->bloques,bloque3);
-	list_add(disco_logico->bloques,bloque4);
-	list_add(disco_logico->bloques,bloque5);
-	struct stat statbuf;
-	int archivo = open("/home/utnso/workspace/mnt/Blocks.ims", O_RDWR);
-	fstat(archivo,&statbuf);
-	block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-	actualizar_posicion(tripulante);
-
-
-
-	munmap(block_mmap,statbuf.st_size);
-	close(archivo);*/
-	/////////////////////fin prueba/////////////////////////////////////
-
-	//crearEstructuraFileSystem();
-
 	iniciar_recursos_mongo();
-	//generar_oxigeno(100);
-	consumir_oxigeno(100);
+	pthread_t hilo_bajada_a_disco;
+
+	pthread_create(&hilo_bajada_a_disco, NULL, (void *)gestionar_bajadas_a_disco, NULL);
+	pthread_detach(hilo_bajada_a_disco);
+
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
@@ -189,9 +40,88 @@ void iniciar_recursos_mongo(void) {
 	log_info(mongoLogger, "INICIANDO RECURSOS");
 
 	crear_estructura_filesystem();
+
 }
 
+void bajar_datos_blocks(void) {
+	int archivo_blocks;
+	char *contenido_blocks;
+	struct stat statbuf;
+
+	archivo_blocks = open(dirBlocks, O_RDWR);
+
+	if(archivo_blocks == -1)
+	{
+		log_error(mongoLogger, "Error al abrir el archivo para bajar los blocks");
+		exit(1);
+	}
+
+	fstat(archivo_blocks, &statbuf);
+
+	contenido_blocks = (char*) mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, archivo_blocks, 0);
+
+	memcpy(contenido_blocks, block_mmap, statbuf.st_size);
+
+	msync(contenido_blocks, statbuf.st_size, MS_SYNC);
+
+	munmap(contenido_blocks, statbuf.st_size);
+
+	close(archivo_blocks);
+}
+
+void bajar_datos_superbloque(void) {
+	int archivo_superbloque;
+	void *contenido_superbloque;
+	struct stat statbuf;
+
+	archivo_superbloque = open(dirSuperbloque, O_RDWR);
+
+	if (archivo_superbloque == -1) {
+		log_error(mongoLogger, "Error al abrir el archivo para bajar el superbloque");
+		exit(1);
+	}
+
+	fstat(archivo_superbloque, &statbuf);
+
+	contenido_superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, archivo_superbloque, 0);
+
+	memcpy(contenido_superbloque, superbloque, statbuf.st_size);
+
+	int retorno = msync(contenido_superbloque, statbuf.st_size, MS_SYNC);
+
+	munmap(contenido_superbloque, statbuf.st_size);
+
+	if(retorno == -1)
+	{
+		log_error(mongoLogger, "Error al sincronizar el superbloque");
+	}
+
+	close(archivo_superbloque);
+}
+
+void gestionar_bajadas_a_disco(void){
+	int tiempo_bajada = atoi(config_get_string_value(mongoConfig, "TIEMPO_SINCRONIZACION"));
+
+	while(1)
+	{
+		sleep(tiempo_bajada);
+		log_info(mongoLogger, "Realizando bajada a disco de blocks y superbloque..");
+
+		//TODO poner un mutex de blocks
+		bajar_datos_blocks();
+
+
+		bajar_datos_superbloque();
+
+		log_info(mongoLogger, "Finalizo la bajada a disco");
+	}
+}
+
+
+
 void mostrar_estado_bitarray(void) {
+	//TODO: cambiarlo por un hexdump
+
 	for (int i = 1; i <= *g_blocks; i++) {
 		if (i % 5 == 0)
 			printf("%d\n", bitarray_test_bit(bitmap, i));
@@ -250,16 +180,12 @@ char *generarMD5(char *contenido){
 
 //creamos el disco logico
 void crearEstructuraDiscoLogico(){
-	//TODO poner semaforo para disco logico
 	disco_logico=(t_disco_logico *)malloc(sizeof(t_disco_logico));
 	disco_logico->bloques=list_create();
 }
 
 //creamos todos los bloques del filesystem
 void crearEstructurasBloques(){
-	//TODO poner semaforo para disco logico
-	//tamanio_de_bloque=atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-	//cantidad_de_bloques=atoi(config_get_string_value(mongoConfig,"BLOCKS"));
 	int _cantidad_de_bloques = (int)*g_blocks;
 
 	for(int contador=1;contador <=_cantidad_de_bloques;contador++){
@@ -488,7 +414,7 @@ int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
 
 void copiar_bitmap_de_disco(char* dirSuperbloque){
 	struct stat statbuf;
-
+	void *contenido_superbloque;
 	int fdm = open(dirSuperbloque, O_RDWR);
 
 	if (fdm == -1) {
@@ -497,7 +423,12 @@ void copiar_bitmap_de_disco(char* dirSuperbloque){
 	}
 
 	fstat(fdm, &statbuf);
-	superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
+	contenido_superbloque = mmap(NULL, statbuf.st_size, PROT_WRITE, MAP_SHARED, fdm, 0);
+
+	superbloque = malloc(statbuf.st_size);
+
+	memcpy(superbloque, contenido_superbloque, statbuf.st_size);
+
 	g_block_size = superbloque;
 	g_blocks     = superbloque + sizeof(uint32_t);
 	bitarrayEnChar = superbloque + 2 * sizeof(uint32_t);
@@ -506,28 +437,29 @@ void copiar_bitmap_de_disco(char* dirSuperbloque){
 
 	bitmap = bitarray_create(bitarrayEnChar, cantLeer2);
 
-	//reviso las cosas
+	g_tamanio_superbloque = statbuf.st_size;
 
+	//reviso las cosas
 	log_info(mongoLogger, "SIZE GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_block_size);
 	log_info(mongoLogger, "CANT GUARDADO EN SUPERBLOQUE: %d\n", (int)*g_blocks);
-
 
 	mostrar_estado_bitarray(); //usarlo cuando hay pocos bits
 
 	log_info(mongoLogger, "Se bajaron los datos del Superbloque existente!");
 
+	munmap(contenido_superbloque, g_tamanio_superbloque);
+	close(fdm);
+
 }
 
 void crearSuperbloqueNuevo(char *path){
 	FILE *fd;
-	fd = fopen(path, "wb");
+	fd = fopen(path, "wb+");
 
 	if (fd == NULL) {
-		printf("ERROR AL ABRIR ARCHIVO");
+		log_error(mongoLogger, "ERROR AL ABRIR ARCHIVO");
 		exit(1);
 	}
-
-	uint32_t prueba = (unsigned)atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
 
 	int cantBytes = (int)ceil((double)(*g_blocks)/8);
 
@@ -538,14 +470,6 @@ void crearSuperbloqueNuevo(char *path){
 	fwrite(bitmap->bitarray, cantBytes, 1, fd);
 
 	log_info(mongoLogger, "Se creo el superbloque nuevo!");
-
-	//mostrar_estado_bitarray();
-
-
-	//mostrar_estado_bitarray();
-
-	//msync(superbloque, 2*sizeof(uint32_t) + cantBytes, MS_SYNC);
-	//munmap(superbloque, 2*sizeof(uint32_t) + cantBytes);
 
 	fclose(fd);
 }
@@ -574,7 +498,7 @@ int caracteres_ocupados(int inicio,int fin){
 //copia los datos de cada bloque a los bloques logicos para recuperar la info cuando
 //se levanta el filesystem
 void copiar_datos_de_bloques(t_list* bloques){
-	int inicio, fin, offset;
+	int inicio, fin;
 	t_bloque *bloque;
 
 	for(int i=0;i<list_size(bloques);i++){
@@ -594,14 +518,30 @@ void copiar_datos_de_bloques(t_list* bloques){
 
 		//acomodo el puntero en bloque
 		bloque->posicion_para_escribir=caracteresOcupados+bloque->inicio;
-
-		printf("Bloque %d inicio %d fin %d offset %d tiene espacio %d\n",
-				bloque->id_bloque,
-				bloque->inicio,
-				bloque->fin,
-				offset,
-				bloque->espacio);
 	}
+}
+
+void crearCopiaBlocks(char *dirBlocks) {
+	struct stat statbuf;
+	int archivo;
+	char *contenidoArchivo;
+
+	archivo = open(dirBlocks, O_RDWR);
+
+	if (archivo == -1)
+	{
+		log_error(mongoLogger, "Error al abrir el archivo para copiar los blocks!");
+	}
+
+	fstat(archivo,&statbuf);
+
+	contenidoArchivo = (char *) mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+
+	block_mmap = (char *) malloc(statbuf.st_size);
+
+	memcpy(block_mmap, contenidoArchivo, statbuf.st_size);
+
+	munmap(contenidoArchivo, statbuf.st_size);
 }
 
 
@@ -640,178 +580,35 @@ void crear_estructura_filesystem(){
 
 			crearEstructuraDiscoLogico();
 			crearEstructurasBloques();
-
-			//crearBitMapLogico();
-			struct stat statbuf;
-			int archivo = open(dirBlocks, O_RDWR);
-			fstat(archivo,&statbuf);
-			block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
+			crearCopiaBlocks(dirBlocks);
 			copiar_datos_de_bloques(disco_logico->bloques);
 		}
 	}
+
 	else{
 		log_info(mongoLogger, "Generando estructura del FS");
 
 		g_nuevo_block_size = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCK_SIZE"));
-		g_nuevo_blocks	 = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCKS"));
+		g_nuevo_blocks	   = (unsigned) atoi(config_get_string_value(mongoConfig,"BLOCKS"));
 
 		g_block_size = &g_nuevo_block_size;
 		g_blocks	 = &g_nuevo_blocks;
 
-		printf("BLOCKS SIZE: %u\n", *g_block_size);
-		printf("BLOCKS: %u\n", *g_blocks);
+		log_info(mongoLogger, "BLOCKS SIZE: %u", *g_block_size);
+		log_info(mongoLogger, "BLOCKS: %u", *g_blocks);
 
 		crearEstructuraDiscoLogico();
 		crearEstructurasBloques();
 		crearBitMapLogico();
-
 		crearSuperbloqueNuevo(dirSuperbloque);//archivo nuevo
 		copiar_bitmap_de_disco(dirSuperbloque);
-		//crearSuperbloque(dirSuperbloque);
-
 		crearblocks(dirBlocks);//archivo
 		crearCarpetaFile(dirFiles);//carpeta
 		crearCarpetaBitacora(dirBitacora);//carpeta
-		struct stat statbuf;
-		int archivo = open(dirBlocks, O_RDWR);
-		fstat(archivo,&statbuf);
-		block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-
-		//msync(superbloque, 2*sizeof(uint32_t) + 41, MS_SYNC);
-		//munmap(superbloque, 2*sizeof(uint32_t) + 41);
+		crearCopiaBlocks(dirBlocks);
 	}
 
 }
-/*
-void crearEstructuraFileSystem() {
-	FILE *f;
-
-
-
-	puntoMontaje = config_get_string_value(mongoConfig, "PUNTO_MONTAJE");
-	dirMetadata = malloc(strlen(puntoMontaje) + strlen("/Metadata") + 1);
-	strcpy(dirMetadata, puntoMontaje);
-	strcat(dirMetadata, "/Metadata");
-
-	dirFiles = malloc(strlen(puntoMontaje) + strlen("/Files") + 1);
-	strcpy(dirFiles, puntoMontaje);
-	strcat(dirFiles, "/Files");
-
-	dirBitacora = malloc(strlen(dirFiles) + strlen("/Bitacora") + 1);
-	strcpy(dirBitacora, dirFiles);
-	strcat(dirBitacora, "/Bitacora");
-
-	dirBlocks = malloc(strlen(puntoMontaje) + strlen("/Blocks") + 1);
-	strcpy(dirBlocks, puntoMontaje);
-	strcat(dirBlocks, "/Blocks");
-
-	if (mkdir(puntoMontaje, 0777) != 0) {
-		//Directorio de montaje existente, se verifica que exista superbloque y blocks
-		char* superBloqueRuta = malloc(
-				strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
-		strcpy(superBloqueRuta, puntoMontaje);
-		strcat(superBloqueRuta, "/SuperBloque.ims");
-		char* blocksRuta = malloc(
-				strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-		strcpy(blocksRuta, puntoMontaje);
-		strcat(blocksRuta, "/Blocks.ims");
-		int existeArchivo = access(superBloqueRuta, F_OK);
-		if (existeArchivo == 0) {
-			existeArchivo = access(blocksRuta, F_OK);
-			if (existeArchivo == 0) {
-				//Si el fileSystem esta creado se toman los datos de la metadata existente.
-				log_info(mongoLogger, "El directorio %s ya existe. ",
-						puntoMontaje);
-				block_size = atoi(
-						config_get_string_value(mongoConfig, "BLOCK_SIZE"));
-				blocks = atoi(config_get_string_value(mongoConfig, "BLOCKS"));
-				//bitmap = crear_bitmap(superBloqueRuta, blocks);
-				return;
-			} else {
-				log_error(mongoLogger, "No se encuentra archivo Blocks.ims");
-			}
-			return;
-		} else {
-			log_error(mongoLogger, "No se encuentra archivo SuperBloque.ims");
-		}
-		free(superBloqueRuta);
-		free(blocksRuta);
-		return;
-
-	} else {
-		printf("Se creo el directorio de montaje =) \n");
-
-		crearEstructuraDiscoLogico();
-
-		crearEstructurasBloques();
-
-		crearBitMapLogico();
-
-		//Crea superBloque
-		char* superBloqueRuta = malloc(
-				strlen(puntoMontaje) + strlen("/SuperBloque.ims") + 1);
-		strcpy(superBloqueRuta, puntoMontaje);
-		strcat(superBloqueRuta, "/SuperBloque.ims");
-		block_size = atoi(config_get_string_value(mongoConfig, "BLOCK_SIZE"));
-		blocks = atoi(config_get_string_value(mongoConfig, "BLOCKS"));
-		// Creo el archivo superBloque
-		f = fopen(superBloqueRuta, "w");
-		char* tamanioBloque = malloc(10);
-		sprintf(tamanioBloque, "%d", block_size);
-
-		char* bloques = malloc(10);
-		sprintf(bloques, "%d", blocks);
-		int bitmapsize = blocks / 8;
-		int sizesuperbloque = string_length(tamanioBloque)
-				+ string_length(bloques) + bitmapsize;
-		fputs(tamanioBloque, f);
-		fputs(bloques, f);
-
-		fseek(f, sizesuperbloque, SEEK_SET);
-		putc('\0', f);
-		fclose(f);
-		//Creo el archivo bitmap.bin
-		crearBitMapLogico();
-		//bitmap = crear_bitmap(superBloqueRuta, blocks);
-		free(superBloqueRuta);
-		free(tamanioBloque);
-		free(bloques);
-
-		//Crea Blocks
-		char* blocksRuta = malloc(
-				strlen(puntoMontaje) + strlen("/Blocks.ims") + 1);
-		strcpy(blocksRuta, puntoMontaje);
-		strcat(blocksRuta, "/Blocks.ims");
-		//			log_trace(mongoLogger, "Estructura creada.");
-		int X = block_size * blocks;
-		f = fopen(blocksRuta, "w");
-		fputs("1", f);
-		fseek(f, X, SEEK_SET);
-		putc('\0', f);
-		fclose(f);
-		//free(blocksRuta);
-		struct stat statbuf;
-		int archivo = open(blocksRuta, O_RDWR);
-		fstat(archivo,&statbuf);
-		block_mmap_size=statbuf.st_size;
-		block_mmap=mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-		printf("se levanto el archivo block\n");
-		//Creo carpeta Files
-		if (mkdir(dirFiles, 0777) == 0) {
-			printf("Se creo carpeta Files  =) \n");
-			//Creo carpeta Bitacora
-			if (mkdir(dirBitacora, 0777) == 0) {
-				printf("Se creo carpeta Bitacora  =) \n");
-			}
-
-		} else {
-			log_error(mongoLogger,
-					"Ha ocurrido un error al crear el directorio Files.");
-			return;
-		}
-	}
-}*/
 
 //escribe lo que quieras en el archivo block
 void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){
@@ -829,6 +626,42 @@ void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){
 			el_bloque->id_bloque,
 			el_bloque->espacio);
 	pthread_mutex_unlock(&mutex_disco_logico);
+}
+
+char* obtener_bloques_bitacora(char* ruta){
+	int archivo = open(ruta, O_RDWR);
+		struct stat statbuf;
+		fstat(archivo,&statbuf);
+		char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+		char** auxiliar = string_split(archivo_addr,"\n");
+		char** auxiliar2= string_split(auxiliar[1],"=");
+		char* blocks = auxiliar2[1];
+
+		munmap(archivo_addr,statbuf.st_size);
+		close(archivo);
+		return blocks;
+}
+
+void obtener_bitacora_tripulante(int cliente){
+	t_list* lista = recibir_paquete(cliente);
+	uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
+	uint32_t idPatota = (uint32_t) atoi(list_get(lista, 1));
+	char* rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",dirBitacora,idTripulante,idPatota);
+	int archivo = open(rutaBitacora, O_RDONLY);
+	if(archivo!=-1){
+		char* bloques_bitacora=obtener_bloques_bitacora(rutaBitacora);
+		char* texto=contenido_de_bloques(bloques_bitacora);
+		t_paquete* paquete = crear_paquete(OBTENGO_BITACORA);
+		agregar_a_paquete(paquete, texto, string_length(texto) + 1);
+		enviar_paquete(paquete, cliente);
+		eliminar_paquete(paquete);
+
+	}else{
+		printf("la bitacora todavia no existe\n");
+	}
+	liberar_cliente(cliente);
+	close(archivo);
+
 }
 
 
@@ -917,17 +750,10 @@ void *gestionarCliente(int socket) {
 
 		switch (operacion) {
 		case OBTENGO_BITACORA:
-			lista = recibir_paquete(cliente);
-			uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
-			uint32_t idPatota = (uint32_t) atoi(list_get(lista, 1));
-			printf("Tripulante recibido %d\n", idTripulante);
-			paquete = crear_paquete(OBTENGO_BITACORA);
-			printf("Patota recibida %d\n", idPatota);
-			//agregar los elementos encontrados para ese ID al paquete "paquete"
-			enviar_paquete(paquete, cliente);
-//             	int idTripulante = atoi((char *) list_get(lista,0));
-//            	printf("Tripulante recibido %d\n", idTripulante);
-			liberar_cliente(cliente);
+			;
+			pthread_t obtener_bitacora;
+			pthread_create(&obtener_bitacora, NULL,	(void*) obtener_bitacora_tripulante,(void*) cliente);
+			pthread_detach(obtener_bitacora);
 			break;
 		case ELIMINAR_TRIPULANTE:
 
@@ -939,10 +765,14 @@ void *gestionarCliente(int socket) {
 			break;
 		case ESPERANDO_SABOTAJE:
 			;
-			pthread_create(&hilo_sabotaje, NULL,
-					(void*) enviar_aviso_sabotaje_a_discordiador,
-					(void*) cliente);
-			pthread_detach(hilo_sabotaje);
+			socket_sabotaje_cliente = cliente;
+
+			log_info(mongoLogger, "El socket para sabotajes es: %d\n", socket_sabotaje_cliente);
+
+			//pthread_create(&hilo_sabotaje, NULL,
+			//		(void*) enviar_aviso_sabotaje_a_discordiador,
+			//		NULL);
+			//pthread_detach(hilo_sabotaje);
 			break;
 		case ACTUALIZAR_POSICION:
 			;
@@ -1044,91 +874,6 @@ void *gestionarCliente(int socket) {
 	}
 }
 
-void gestionarSabotaje() {
-	int operacion;
-	switch (operacion) {
-	case SUPERBLOQUE:
-		//si cambia valor Blocks constatar con tamaño archivo blocks.ims
-		//si cambia valor Bitmap recorrer FILES y obtener bloques usados
-		break;
-	case FILES:
-		//si cambia el SIZE recorrer todos los bloques y asumir correcto el tamaño de los mismos
-		//si son inconsistentes block_count y blocks actualizo block_count en base a la lista de blocks
-		//si se altera la lista BLOCKS y no estan en orden(nos damos cuenta porque cambia el valor de md5)
-		//se debe reescribir la lista hasta que se obtenga el mismo tamaño
-	default:
-		printf("Operacion desconocida.\n");
-		break;
-
-	}
-}
-
-void rutina(int n) {
-	printf("El SABOTAJE EXISTE!\n");
-	sem_post(&dar_orden_sabotaje);
-}
-
-//devuelve la siguiente posicion del sabotaje
-char* siguiente_posicion_sabotaje() {
-	char** posiciones_divididas;
-	char * siguiente_posicion;
-	int cantidad = 0;
-
-	posiciones_divididas = config_get_array_value(mongoConfig,
-			"POSICIONES_SABOTAJE");		//array con todas las posiciones
-	while (posiciones_divididas[cantidad] != NULL) {
-		cantidad++;
-	}
-	if (numero_sabotaje < cantidad) {
-		siguiente_posicion = posiciones_divididas[numero_sabotaje];
-		sem_wait(&contador_sabotaje);
-		numero_sabotaje++;
-		sem_post(&contador_sabotaje);
-		return siguiente_posicion;
-	} else {
-		printf("NO HAY MAS SABOTAJES\n");
-		return NULL;
-	}
-
-}
-
-//para probar el aviso de inicio de sabotaje
-void enviar_aviso_sabotaje_a_discordiador(void *data) {
-	int socket_discordiador = (int) data;
-	char** sabotaje_pos_aux;
-	char* sabotaje_posY;
-	//char** pos_dividida;
-	char* sabotaje_posX;
-	char* pos_sabotaje;
-	//int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
-
-	sem_wait(&dar_orden_sabotaje);
-
-	printf("SOCKET DISCO %d\n", socket_discordiador);
-
-	pos_sabotaje = siguiente_posicion_sabotaje();
-
-	if (pos_sabotaje == NULL) //no hay mas sabotajes
-		return;
-
-	sabotaje_pos_aux = string_split(pos_sabotaje, "|");	//tomo la posicion i del array y lo paso a otro
-	printf("ESTOY POR ENVIAR SABOTAJE\n");
-	sabotaje_posX = sabotaje_pos_aux[0];		//agarrar la posicion x
-	sabotaje_posY = sabotaje_pos_aux[1];		//agarrar la posicion y
-	printf("posicion en X de sabotaje: %s\n", sabotaje_posX);
-	printf("posicion en Y de sabotaje: %s\n", sabotaje_posY);
-
-	t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
-	agregar_a_paquete(paquete_sabotaje, sabotaje_posX,
-			strlen(sabotaje_posX) + 1);
-	agregar_a_paquete(paquete_sabotaje, sabotaje_posY,
-			strlen(sabotaje_posY) + 1);
-	enviar_paquete(paquete_sabotaje, socket_discordiador);
-	eliminar_paquete(paquete_sabotaje);
-	liberar_cliente(socket_discordiador);
-
-	pthread_exit(NULL);
-}
 
 //crea y escribe el archivo necesario con el texto necesario
 void inicializar_archivo(char* ruta_archivo, int cantidad_caracter, char caracter){
@@ -1383,7 +1128,7 @@ void escribir_el_archivo(char* ruta,char* cadena, t_bloque* bloque){
 		escribir_en_block(lo_que_entra_en_el_bloque,bloque);
 		actualizar_el_archivo(ruta,lo_que_entra_en_el_bloque,bloque);
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		escribir_el_archivo(ruta,lo_que_falta_escribir,nuevo_bloque);
 	}
 
@@ -1402,7 +1147,7 @@ t_bloque* recuperar_ultimo_bloque_file(char* ruta){
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	if(atoi(sizeArchivo)==0){
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 	}
 	else{
 		char **renglones_file= string_split(archivo_addr, "\n");
@@ -1450,6 +1195,7 @@ void borrar_del_archivo(char *ruta,int cant_borrar, t_bloque* bloque,char caract
 //avisa que el archivo no existe por log
 void avisar_que_no_existe(){
  //TODO
+	printf("el archivo no existe\n");
 }
 
 //vacia to do un bloque
@@ -1460,10 +1206,14 @@ void vaciar_bloque(t_bloque* bloque){
 
 //comprueba si el archivo existe y si existe elimina los caracteres deseados
 void eliminar_del_archivo(char* ruta,int cant_borrar,char caracter){
-	char* bloques=bloques_de_archivo(ruta);
-	char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
+	char* contenido_total=string_new();
+	char* bloques;
+	if(atoi(size_de_archivo(ruta))>0){
+		bloques=bloques_de_archivo(ruta);
+		char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
+		contenido_total=contenido_de_bloques(bloquesaux);
+	}
 
-	char* contenido_total=contenido_de_bloques(bloquesaux);
 
 	t_bloque* bloque=malloc(sizeof(t_bloque*));
 
@@ -1526,7 +1276,7 @@ void generar_oxigeno(int cantidad){
 		inicializar_archivo(ruta_oxigeno,cantidad, 'O');
 
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
 
@@ -1574,7 +1324,7 @@ void generar_comida(int cantidad){
 		inicializar_archivo(ruta_comida,cantidad, 'C');
 
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_comida,cadena,bloque);
 
@@ -1620,7 +1370,7 @@ void generar_basura(int cantidad){
 		inicializar_archivo(ruta_basura,cantidad, 'B');
 
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque );
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		escribir_el_archivo(ruta_basura,cadena,bloque);
 
@@ -1639,7 +1389,6 @@ void generar_basura(int cantidad){
 void descartar_basura(int cant_borrar){
 
 }
-//actualiza la posicion de un tripulante escribiendo en su bitacora
 
 
 /*arma la direccion de la bitacora dependiendo la accion que realiza.
@@ -1786,8 +1535,6 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante){
 		log_info(mongoLogger,
 				"Asigno el bloque numero:%d\n",
 				numero_del_nuevo_bloque);
-		//TODO comprobar si esta bien mergieado porque estaba lo siguiente:
-		//nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1 );
 
 		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1 );
 

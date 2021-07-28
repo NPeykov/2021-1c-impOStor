@@ -4,6 +4,8 @@
 #include "../utils/utils.h"
 #include "mongo-store.h"
 
+int socket_sabotaje_cliente;
+
 typedef enum{
 	SB_BLOCKS,
 	SB_BITMAP,
@@ -17,7 +19,7 @@ void rutina(int);
 sabotaje_code obtener_tipo_sabotaje();
 void gestionarSabotaje(void);
 char* siguiente_posicion_sabotaje(void);
-void enviar_aviso_sabotaje_a_discordiador(void *);
+void enviar_aviso_sabotaje_a_discordiador(void);
 
 
 #endif

@@ -9,17 +9,17 @@ void esperar_sabotaje(void){ //este es un hilo
 	int sabotaje_posY;
 	char *mensaje;
 
+	socket_mongo = iniciar_conexion(I_MONGO_STORE, config);
 
+	if (socket_mongo == -1) {
+		log_info(logs_discordiador, "ERROR AL CONECTARSE CON MONGO");
+		pthread_exit(NULL);
+	}
+
+	enviar_mensaje(ESPERANDO_SABOTAJE," ",socket_mongo);
 
 	while(1){
-		socket_mongo = iniciar_conexion(I_MONGO_STORE, config);
 
-		if(socket_mongo == -1) {
-			log_info(logs_discordiador, "ERROR AL CONECTARSE CON MONGO");
-			pthread_exit(NULL);
-		}
-
-		enviar_mensaje(ESPERANDO_SABOTAJE," ",socket_mongo);
 		codigo_recibido = recibir_operacion(socket_mongo);
 
 		if(codigo_recibido == INICIO_SABOTAJE){
@@ -42,7 +42,7 @@ void esperar_sabotaje(void){ //este es un hilo
 			lista = recibir_paquete(socket_mongo); //para vaciar el buffer
 			return;
 		}
-		liberar_cliente(socket_mongo);
+		//liberar_cliente(socket_mongo);
 	}
 
 }

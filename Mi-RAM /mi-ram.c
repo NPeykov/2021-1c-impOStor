@@ -38,7 +38,7 @@ void *gestionarCliente(int socket) {
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
-		log_info(logs_ram,"\nSe recibio una operacion: %d\n", operacion);
+		log_info(logs_ram,"Se recibio una operacion: %d\n", operacion);
 
 		switch(operacion) {
 			case INICIO_PATOTA:

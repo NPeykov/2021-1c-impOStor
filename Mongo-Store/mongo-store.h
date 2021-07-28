@@ -100,6 +100,8 @@ int ultima_posicion_escrita(int,int);
 
 
 void *gestionarCliente(int cliente);
+void obtener_bitacora_tripulante(int);
+char* contenido_de_bloques(char*);
 void gestionarSabotaje();
 void generar_oxigeno(int);
 void consumir_oxigeno(int);

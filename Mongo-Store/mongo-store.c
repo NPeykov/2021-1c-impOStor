@@ -607,7 +607,7 @@ void copiar_bitmap_de_disco(char* dirSuperbloque){
 
 void crearSuperbloqueNuevo(char *path){
 	FILE *fd;
-	fd = fopen(path, "wb");
+	fd = fopen(path, "wb+");
 
 	if (fd == NULL) {
 		log_error(mongoLogger, "ERROR AL ABRIR ARCHIVO");

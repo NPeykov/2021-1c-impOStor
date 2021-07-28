@@ -26,10 +26,47 @@ void rutina(int n) {
 
 }
 
+bool es_blocks_superbloque() {
+	bool resultado;
+	char *contenido_sb;
+	struct stat stat_superbloque;
+	struct stat stat_blocks;
+	int cant_bloques_sb;
+	int cant_bloques_reales;
+
+	int archivo_super_b = open(dirSuperbloque, O_RDWR);
+	int archivo_blocks  = open(dirBlocks, O_RDWR);
+
+	if (archivo_super_b == -1 || archivo_blocks == -1)
+	{
+		log_error(mongoLogger,"ERROR AL ABRIR EL SUPERBLOQUE O BLOCKS");
+		exit(1);
+	}
+
+	fstat(archivo_super_b, &stat_superbloque);
+
+	contenido_sb = (char*) mmap(NULL, stat_superbloque.st_size, PROT_WRITE, MAP_SHARED, archivo_super_b, 0);
+
+
+
+	return resultado;
+}
+
 sabotaje_code obtener_tipo_sabotaje() {
 	sabotaje_code tipo_sabotaje;
 
 
+	/*
+    -CANT_BLOQUES
+		- consiste en cambiar el vlaor de 'blocks' de superbloque
+		- deteccion: constratar con el tamaño de blocks.ims (usando block_size de superbloque)
+		- solucion: corregir el valor en caso que no concuerde
+
+	-BITMAP
+		- consiste en cambiar el valor binario de un bit del bitmap
+		- deteccion: recorrer los files y bitacoras sacando los bloques usados y constatar con el bitmap
+		- solucion: cambiar los valores del bitmap en base a los bloques detectados
+	 * */
 
 	return tipo_sabotaje;
 }

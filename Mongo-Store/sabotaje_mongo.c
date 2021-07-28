@@ -53,6 +53,92 @@ bool es_blocks_superbloque() {
 	return resultado;
 }
 
+void *levantar_blocks(int *tamanio_blocks) {
+	void *contenido_blocks;
+	int fd;
+	struct stat info;
+
+	fd = open(dirBlocks, O_RDWR);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "ERROR AL ABRIR BLOCKS.IMS");
+		exit(1);
+	}
+
+	fstat(fd, &info);
+
+	contenido_blocks = mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+
+	*(tamanio_blocks) = info.st_size;
+
+	return contenido_blocks;
+}
+
+void *levantar_bitarray_sb(int *tamanio_sp) {
+	void *contenido_sb;
+
+	int fd;
+	struct stat info;
+
+	fd = open(dirBlocks, O_RDWR);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "ERROR AL ABRIR SUPERBLOQUE");
+		exit(1);
+	}
+
+	fstat(fd, &info);
+
+	contenido_sb = mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+
+	*(tamanio_sp) = info.st_size;
+
+	return contenido_sb;
+}
+
+bool es_bitmap_superbloque() {
+	bool resultado;
+	int copia_offset;
+	int tamanio_blocks;
+	int tamanio_sp;
+	char *archivo_blocks = (char *)levantar_blocks(&tamanio_blocks);
+	char *archivo_sb     = (char *)levantar_bitarray_sb(&tamanio_sp);
+	t_bitarray *bitarray_sb;
+	void *bitmap_sb;
+
+	bitmap_sb = archivo_sb + 2*sizeof(uint32_t);
+
+	int bytes = (int) ceil((double) *g_blocks / 8);
+
+	bitarray_sb = bitarray_create(bitmap_sb, bytes);
+
+
+
+	bool n_bloque_ocupado;
+
+	for(int i=1, offset=0; i <= *g_blocks; i++, offset+=*g_block_size)
+	{
+		copia_offset = offset;
+		n_bloque_ocupado = false;
+
+		while (copia_offset <= copia_offset + *g_block_size) {
+			if (archivo_blocks[copia_offset] != ' ') {
+				n_bloque_ocupado = true;
+			}
+			copia_offset++;
+		}
+
+		if(bitarray_test_bit(bitarray_sb, i) != n_bloque_ocupado) {
+			resultado = true;
+			return resultado;
+		}
+	}
+
+	munmap(archivo_blocks, tamanio_blocks);
+	munmap(archivo_sb, tamanio_sp);
+	return resultado;
+}
+
 bool es_file_size(files file) {
 	bool esta_saboteado=false;
 	char* ruta;
@@ -163,18 +249,8 @@ bool es_file_Blocks(files file){
 sabotaje_code obtener_tipo_sabotaje() {
 	sabotaje_code tipo_sabotaje;
 
-
-	/*
-    -CANT_BLOQUES
-		- consiste en cambiar el vlaor de 'blocks' de superbloque
-		- deteccion: constratar con el tamaño de blocks.ims (usando block_size de superbloque)
-		- solucion: corregir el valor en caso que no concuerde
-
-	-BITMAP
-		- consiste en cambiar el valor binario de un bit del bitmap
-		- deteccion: recorrer los files y bitacoras sacando los bloques usados y constatar con el bitmap
-		- solucion: cambiar los valores del bitmap en base a los bloques detectados
-	 * */
+	levantar_superbloque();
+	levantar_blocks();
 
 	return tipo_sabotaje;
 }

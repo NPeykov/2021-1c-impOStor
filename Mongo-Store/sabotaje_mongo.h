@@ -6,6 +6,9 @@
 
 int socket_sabotaje_cliente;
 
+char *s_superbloque;
+char *s_blocks;
+
 typedef enum{
 	SB_BLOCKS,
 	SB_BITMAP,

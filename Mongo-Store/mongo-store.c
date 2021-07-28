@@ -2,6 +2,7 @@
 
 
 int main() {
+
 	iniciar_recursos_mongo();
 	pthread_t hilo_bajada_a_disco;
 
@@ -814,7 +815,7 @@ void *gestionarCliente(int socket) {
 
 			tripulante_con_su_accion *tripulanteFT = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
 			tripulanteFT->tripulante = tripulanteConTareaFinalizada;
-			tripulanteFT->accion	 = INICIO_TAREA;
+			tripulanteFT->accion	 = FIN_TAREA;
 			//aca avisaria A BITACORA que termino tarea independientemente si es IO/COMUN
 			pthread_create(&hilo_escribir_fin_tarea, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFT);
 			pthread_detach(hilo_escribir_fin_tarea);
@@ -962,7 +963,22 @@ char* leo_el_bloque(t_bloque* bloque){
 	int fin = bloque-> posicion_para_escribir;
 
 	while(inicio<fin){
-		string_from_format("%c", block_mmap[inicio]);
+		char *aux=string_from_format("%c", block_mmap[inicio]);
+
+
+		string_append(&texto,aux);
+		inicio++;
+	}
+	return texto;
+}
+
+char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque){
+	char* texto=string_new();
+
+	int inicio=bloque->inicio;
+	int fin = bloque-> fin;
+
+	while(inicio<=fin){
 		char *aux=string_from_format("%c", block_mmap[inicio]);
 
 
@@ -993,6 +1009,21 @@ char* contenido_de_bloques(char* bloques){
 
 	return texto_todos_los_bloques;
 }
+
+char* leer_md5file(char* ruta){
+	int archivo=open(ruta,O_RDWR);
+	char* md5=string_new();
+	struct stat statbuf;
+	fstat(archivo,&statbuf);
+	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	char** archivo_dividido=string_split(archivo_addr,"\n");
+	string_append(&md5,archivo_dividido[4]);
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+	return md5;
+}
+
+
 //para comprobar si un array de bloques en char* contiene a un bloque en char*
 bool contiene(char* bloques,char* bloque){
 	bool flag=false;
@@ -1193,9 +1224,8 @@ void borrar_del_archivo(char *ruta,int cant_borrar, t_bloque* bloque,char caract
 }
 
 //avisa que el archivo no existe por log
-void avisar_que_no_existe(){
- //TODO
-	printf("el archivo no existe\n");
+void avisar_que_no_existe(char* ruta){
+	log_info(mongoLogger, "El archivo %s al que intenta borrar no existe",ruta);
 }
 
 //vacia to do un bloque
@@ -1254,7 +1284,7 @@ void eliminar_del_archivo(char* ruta,int cant_borrar,char caracter){
 			pthread_mutex_unlock(&mutex_bitmap);
 
 		}
-		//TODO falta escribir en log
+		log_info(mongoLogger, "se borro mas de la cuenta");
 	}
 
 }
@@ -1302,7 +1332,7 @@ void consumir_oxigeno(int cant_borrar){
 		eliminar_del_archivo(ruta_oxigeno,cant_borrar,'O');
 	}
 	else{
-		avisar_que_no_existe();
+		avisar_que_no_existe(ruta_oxigeno);
 	}
 
 }
@@ -1342,14 +1372,14 @@ void generar_comida(int cantidad){
 void consumir_comida(int cant_borrar){
 	char* ruta_comida =string_new();
 		string_append(&ruta_comida,puntoMontaje);
-		string_append(&ruta_comida,"/Files/oxigeno.ims");
+		string_append(&ruta_comida,"/Files/comida.ims");
 		int existeArchivo = access(ruta_comida, F_OK);
 
 		if(existeArchivo!=-1){
 			eliminar_del_archivo(ruta_comida,cant_borrar,'C');
 		}
 		else{
-			avisar_que_no_existe();
+			avisar_que_no_existe(ruta_comida);
 		}
 }
 
@@ -1388,6 +1418,18 @@ void generar_basura(int cantidad){
 //comprueba el archivo de generar basura y borra en el
 void descartar_basura(int cant_borrar){
 
+	char* ruta_basura =string_new();
+		string_append(&ruta_basura,puntoMontaje);
+		string_append(&ruta_basura,"/Files/basura.ims");
+		int existeArchivo = access(ruta_basura, F_OK);
+
+		if(existeArchivo!=-1){
+			eliminar_del_archivo(ruta_basura,cant_borrar,'B');
+			remove(ruta_basura);
+		}
+		else{
+			avisar_que_no_existe(ruta_basura);
+		}
 }
 
 

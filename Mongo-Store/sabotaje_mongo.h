@@ -15,6 +15,12 @@ typedef enum{
 	NO_HAY_SABOTAJE
 }sabotaje_code;
 
+typedef enum{
+	OXIGENO,
+	COMIDA,
+	BASURA
+}files;
+
 void rutina(int);
 sabotaje_code obtener_tipo_sabotaje();
 void gestionarSabotaje(void);

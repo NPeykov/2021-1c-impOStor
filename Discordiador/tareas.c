@@ -50,8 +50,10 @@ Tarea *proxima_tarea(Tripulante *tripulante){
 
 	Tarea *nueva_tarea = (Tarea*) malloc(sizeof(Tarea));
 
-	if(tarea_string == NULL)
-		return NULL;
+	if(string_equals_ignore_case(tarea_string, "null")){
+				return NULL;
+
+	}
 
 	tarea_dividida = string_split(tarea_string, ";");
 	tarea_IO_dividida = string_split(tarea_dividida[0], " "); //por si es tarea I/O

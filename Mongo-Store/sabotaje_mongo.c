@@ -1,4 +1,5 @@
 #include "sabotaje_mongo.h"
+#include "mongo-store.h"
 
 
 void rutina(int n) {
@@ -50,6 +51,113 @@ bool es_blocks_superbloque() {
 
 
 	return resultado;
+}
+
+bool es_file_size(files file) {
+	bool esta_saboteado=false;
+	char* ruta;
+	switch(file){
+	case OXIGENO:ruta = rutaOxigeno;
+		break;
+	case COMIDA: ruta= rutaComida;
+		break;
+	case BASURA: ruta= rutaBasura;
+		break;
+	}
+	if(ruta!=NULL){
+		char* tamanio_del_archivo=size_de_archivo(ruta);
+		char* bloques_del_archivo=bloques_de_archivo(ruta);
+		char* texto_total=contenido_de_bloques(bloques_del_archivo);
+		if(string_length(texto_total)!=atoi(tamanio_del_archivo)){
+			esta_saboteado=true;
+		}
+
+	}
+	else {
+		printf("no existe el archivo");
+	}
+	return esta_saboteado;
+
+}
+
+bool es_file_block_count(files file){
+	bool esta_saboteado=false;
+	char* ruta;
+	switch(file){
+	case OXIGENO:ruta = rutaOxigeno;
+		break;
+	case COMIDA: ruta= rutaComida;
+		break;
+	case BASURA: ruta= rutaBasura;
+		break;
+	}
+	if(ruta!=NULL && open(ruta,O_RDWR)!=-1){
+		char* cant_bloques= cantidad_de_bloques_de_archivo(ruta);
+		char* bloques= bloques_de_archivo(ruta);
+		char** bloques_divididos = string_split(bloques,",");
+		int i=0;
+		int cantidad=0;
+		while(bloques_divididos[i]){
+			cantidad++;
+			i++;
+		}
+		if(atoi(cant_bloques)!=cantidad){
+			esta_saboteado=true;
+		}
+	}
+
+	return esta_saboteado;
+}
+
+
+bool es_file_Blocks(files file){
+	bool esta_saboteado=false;
+	char* ruta;
+	switch(file){
+	case OXIGENO:ruta = rutaOxigeno;
+		break;
+	case COMIDA: ruta= rutaComida;
+		break;
+	case BASURA: ruta= rutaBasura;
+		break;
+	}
+	if(ruta!=NULL && open(ruta,O_RDWR)!=-1){
+		char* bloques= bloques_de_archivo(ruta);
+		char** bloques_divididos = string_split(bloques,",");
+		int tamanio_del_archivo=atoi(size_de_archivo(ruta));
+		t_bloque* ultimo_bloque= recuperar_ultimo_bloque_file(ruta);
+		char* ultimo_bloque_id=string_itoa(ultimo_bloque->id_bloque);
+		char* texto_todos_los_bloques=string_new();
+		char* md5Original=leer_md5file(ruta);
+
+		int i = 0;
+
+		while(bloques_divididos[i]!=ultimo_bloque_id){
+			t_bloque* bloque_recuperado=malloc(sizeof(t_bloque));
+			bloque_recuperado=list_get(disco_logico->bloques,atoi(bloques_divididos[i])-1);
+			char* texto= leo_el_bloque_incluyendo_espacios(bloque_recuperado);
+			string_append(&texto_todos_los_bloques,texto);
+			i++;
+			free(bloque_recuperado);
+		}
+		int lo_que_lei=string_length(texto_todos_los_bloques);
+		int lo_que_falta=tamanio_del_archivo-lo_que_lei;
+		int inicio=ultimo_bloque->inicio;
+		while(inicio<ultimo_bloque->inicio+lo_que_falta){
+			char *aux=string_from_format("%c", block_mmap[inicio]);
+			string_append(&texto_todos_los_bloques,aux);
+			inicio++;
+		}
+
+		char* nuevo_md5=generarMD5(texto_todos_los_bloques);
+		if(nuevo_md5 != md5Original){
+			esta_saboteado=true;
+		}
+
+	}
+
+
+	return esta_saboteado;
 }
 
 sabotaje_code obtener_tipo_sabotaje() {

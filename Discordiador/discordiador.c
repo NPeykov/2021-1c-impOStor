@@ -92,6 +92,8 @@ void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 				"Tripulante:%d de Patota:%d pasa de EXEC a EXIT",
 				tripulante_trabajando->tripulante->id,
 				tripulante_trabajando->tripulante->patota);
+		sem_post(&voy_a_ready);
+
 		break;
 
 
@@ -108,6 +110,7 @@ void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 				"Tripulante:%d de Patota:%d pasa de BLOQUEADO_IO a EXIT",
 				tripulante_trabajando->tripulante->id,
 				tripulante_trabajando->tripulante->patota);
+		//sem_post(&voy_a_ready);
 		break;
 
 	default:
@@ -518,7 +521,7 @@ void tripulante(void *argumentos){
 	while(1){
 		//arrancar_de_nuevo:
 		sem_post(&voy_a_ready);
-
+//TODO no se libera el tripulante y no se envia a ram
 		sem_wait(&tripulante_trabajando -> ir_exec);
 		realizar_trabajo(tripulante_trabajando);
 

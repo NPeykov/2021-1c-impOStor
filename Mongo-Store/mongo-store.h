@@ -57,6 +57,9 @@ char *dirFiles;
 char *dirBitacora;
 char *dirBlocks;
 char *dirSuperbloque;
+char *rutaOxigeno;
+char *rutaComida;
+char *rutaBasura;
 t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
@@ -70,6 +73,9 @@ t_list* archAbiertos;
 int socket_mongo_store, socket_cliente;
 char* puerto;
 char *block_mmap;
+char * archivoBasura;
+char * archivoComida;
+char * archivoOxigeno;
 size_t block_mmap_size;
 
 
@@ -98,7 +104,7 @@ int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);
 int ultima_posicion_escrita(int,int);
 
-
+//sobre files
 void *gestionarCliente(int cliente);
 void obtener_bitacora_tripulante(int);
 char* contenido_de_bloques(char*);
@@ -109,7 +115,19 @@ void generar_comida(int);
 void consumir_comida(int);
 void generar_basura(int);
 void descartar_basura(int);
+char *generarMD5(char *);
 void (*signal(int sig, void (*func)(int)))(int) ;
+char *size_de_archivo(char*);
+char* bloques_de_archivo(char*);
+char* contenido_de_bloques(char*);
+char* cantidad_de_bloques_de_archivo(char*);
+t_bloque* recuperar_ultimo_bloque_file(char*);
+char* leo_el_bloque_incluyendo_espacios(t_bloque*);
+char* leer_md5file(char*);
+
+
+
+
 
 
 

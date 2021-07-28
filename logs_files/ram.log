@@ -1314,3 +1314,3824 @@ CENAR;1;14;15
 [INFO] 19:52:52:358 Mi-RAM/(8366:8509): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
 
 [INFO] 19:53:30:661 Mi-RAM/(8366:8366): Iniciando compactacion
+[INFO] 01:02:03:396 Mi-RAM/(23197:23197): ################# Modulo Mi-RAM #################
+
+[INFO] 01:02:21:187 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:21:188 Mi-RAM/(23197:23197): Se recibio una operacion: 2
+
+[INFO] 01:02:21:189 Mi-RAM/(23197:23211): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 01:02:21:189 Mi-RAM/(23197:23211): La posicion es 0 hasta 44
+[INFO] 01:02:21:189 Mi-RAM/(23197:23211): La posicion es 44 hasta 8
+[INFO] 01:02:21:189 Mi-RAM/(23197:23211): Se inicio una patota.
+
+[INFO] 01:02:21:190 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 7
+
+[INFO] 01:02:21:190 Mi-RAM/(23197:23197): Se recibio una operacion: 3
+
+[INFO] 01:02:21:190 Mi-RAM/(23197:23213): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 01:02:21:190 Mi-RAM/(23197:23213): La posicion es 52 hasta 24
+[INFO] 01:02:21:190 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:21:190 Mi-RAM/(23197:23197): Se recibio una operacion: 8
+
+[INFO] 01:02:21:190 Mi-RAM/(23197:23213): Se creo al tripulante 0 de la patota 1
+[INFO] 01:02:21:190 Mi-RAM/(23197:23214): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 01:02:21:191 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 8
+
+[INFO] 01:02:21:191 Mi-RAM/(23197:23197): Se recibio una operacion: 3
+
+[INFO] 01:02:21:191 Mi-RAM/(23197:23217): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 01:02:21:191 Mi-RAM/(23197:23217): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 01:02:21:191 Mi-RAM/(23197:23217): La posicion es 76 hasta 24
+[INFO] 01:02:21:191 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:21:191 Mi-RAM/(23197:23197): Se recibio una operacion: 8
+
+[INFO] 01:02:21:191 Mi-RAM/(23197:23217): Se creo al tripulante 0 de la patota 1
+[INFO] 01:02:21:191 Mi-RAM/(23197:23218): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 01:02:21:192 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 7
+
+[INFO] 01:02:21:192 Mi-RAM/(23197:23197): Se recibio una operacion: 3
+
+[INFO] 01:02:21:192 Mi-RAM/(23197:23221): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 01:02:21:192 Mi-RAM/(23197:23221): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 01:02:21:192 Mi-RAM/(23197:23221): Entre aca, el final del anterior es 76 y el nuevo es 76
+[INFO] 01:02:21:192 Mi-RAM/(23197:23221): La posicion es 100 hasta 24
+[INFO] 01:02:21:192 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:21:192 Mi-RAM/(23197:23197): Se recibio una operacion: 8
+
+[INFO] 01:02:21:193 Mi-RAM/(23197:23221): Se creo al tripulante 0 de la patota 1
+[INFO] 01:02:21:193 Mi-RAM/(23197:23222): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 01:02:26:338 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 8
+
+[INFO] 01:02:26:339 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:26:339 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:26:339 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:26:339 Mi-RAM/(23197:23228): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 01:02:26:340 Mi-RAM/(23197:23227): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 01:02:31:339 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:31:340 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:31:340 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:31:340 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:31:340 Mi-RAM/(23197:23233): El tripulante 1 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 01:02:31:340 Mi-RAM/(23197:23232): El tripulante 2 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 01:02:36:340 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:36:341 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:36:341 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:36:341 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:36:341 Mi-RAM/(23197:23237): El tripulante 2 de la patota 1 se movio a: 2|1. Y su estatus actual es: 
+
+[INFO] 01:02:36:341 Mi-RAM/(23197:23236): El tripulante 1 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 01:02:41:341 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:41:341 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:41:341 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:41:341 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:41:342 Mi-RAM/(23197:23241): El tripulante 1 de la patota 1 se movio a: 2|2. Y su estatus actual es: 
+
+[INFO] 01:02:41:342 Mi-RAM/(23197:23240): El tripulante 2 de la patota 1 se movio a: 2|2. Y su estatus actual es: 
+
+[INFO] 01:02:46:342 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:46:342 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:46:342 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:46:342 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:46:343 Mi-RAM/(23197:23245): El tripulante 2 de la patota 1 se movio a: 3|2. Y su estatus actual es: 
+
+[INFO] 01:02:46:343 Mi-RAM/(23197:23244): El tripulante 1 de la patota 1 se movio a: 2|3. Y su estatus actual es: 
+
+[INFO] 01:02:51:343 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:51:343 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:51:343 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:51:343 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:51:343 Mi-RAM/(23197:23249): El tripulante 1 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 01:02:51:344 Mi-RAM/(23197:23247): El tripulante 2 de la patota 1 se movio a: 4|2. Y su estatus actual es: 
+
+[INFO] 01:02:56:343 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:56:344 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:56:344 Mi-RAM/(23197:23251): El tripulante 2 de la patota 1 se movio a: 5|2. Y su estatus actual es: 
+
+[INFO] 01:02:56:344 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:02:56:344 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:02:56:345 Mi-RAM/(23197:23253): El tripulante 1 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 01:03:01:344 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:03:01:344 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:03:01:344 Mi-RAM/(23197:23255): El tripulante 2 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 01:03:01:345 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:03:01:345 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:03:01:345 Mi-RAM/(23197:23257): El tripulante 1 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 01:03:06:345 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:03:06:345 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:03:06:345 Mi-RAM/(23197:23259): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 01:03:06:346 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:03:06:346 Mi-RAM/(23197:23197): Se recibio una operacion: 4
+
+[INFO] 01:03:06:346 Mi-RAM/(23197:23261): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 01:04:26:355 Mi-RAM/(23197:23197): Se conecto un cliente con socket: 5
+
+[INFO] 01:04:26:355 Mi-RAM/(23197:23197): Se recibio una operacion: 8
+
+[INFO] 14:42:19:931 Mi-RAM/(11131:11131): ################# Modulo Mi-RAM #################
+
+[INFO] 14:43:15:019 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:15:024 Mi-RAM/(11131:11131): Se recibio una operacion: 2
+
+[INFO] 14:43:15:024 Mi-RAM/(11131:11370): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:43:15:025 Mi-RAM/(11131:11370): La posicion es 0 hasta 44
+[INFO] 14:43:15:025 Mi-RAM/(11131:11370): La posicion es 44 hasta 8
+[INFO] 14:43:15:025 Mi-RAM/(11131:11370): Se inicio una patota.
+
+[INFO] 14:43:15:025 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 7
+
+[INFO] 14:43:15:025 Mi-RAM/(11131:11131): Se recibio una operacion: 3
+
+[INFO] 14:43:15:025 Mi-RAM/(11131:11372): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 14:43:15:025 Mi-RAM/(11131:11372): La posicion es 52 hasta 24
+[INFO] 14:43:15:025 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:15:025 Mi-RAM/(11131:11131): Se recibio una operacion: 8
+
+[INFO] 14:43:15:025 Mi-RAM/(11131:11372): Se creo al tripulante 0 de la patota 1
+[INFO] 14:43:15:025 Mi-RAM/(11131:11373): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:43:15:027 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 8
+
+[INFO] 14:43:15:027 Mi-RAM/(11131:11131): Se recibio una operacion: 3
+
+[INFO] 14:43:15:027 Mi-RAM/(11131:11376): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 14:43:15:027 Mi-RAM/(11131:11376): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 14:43:15:027 Mi-RAM/(11131:11376): La posicion es 76 hasta 24
+[INFO] 14:43:15:028 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:15:028 Mi-RAM/(11131:11131): Se recibio una operacion: 8
+
+[INFO] 14:43:15:028 Mi-RAM/(11131:11376): Se creo al tripulante 0 de la patota 1
+[INFO] 14:43:15:028 Mi-RAM/(11131:11377): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:43:15:028 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 7
+
+[INFO] 14:43:15:029 Mi-RAM/(11131:11131): Se recibio una operacion: 3
+
+[INFO] 14:43:15:029 Mi-RAM/(11131:11380): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 14:43:15:029 Mi-RAM/(11131:11380): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 14:43:15:029 Mi-RAM/(11131:11380): Entre aca, el final del anterior es 76 y el nuevo es 76
+[INFO] 14:43:15:029 Mi-RAM/(11131:11380): La posicion es 100 hasta 24
+[INFO] 14:43:15:029 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:15:029 Mi-RAM/(11131:11131): Se recibio una operacion: 8
+
+[INFO] 14:43:15:029 Mi-RAM/(11131:11380): Se creo al tripulante 0 de la patota 1
+[INFO] 14:43:15:029 Mi-RAM/(11131:11381): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:43:33:579 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 8
+
+[INFO] 14:43:33:580 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:33:580 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:33:580 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:33:581 Mi-RAM/(11131:11387): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 14:43:33:581 Mi-RAM/(11131:11386): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 14:43:38:580 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:38:580 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:38:580 Mi-RAM/(11131:11393): El tripulante 2 de la patota 1 se movio a: 2|0. Y su estatus actual es: 
+
+[INFO] 14:43:38:581 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:38:581 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:38:581 Mi-RAM/(11131:11395): El tripulante 1 de la patota 1 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 14:43:43:581 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:43:581 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:43:581 Mi-RAM/(11131:11410): El tripulante 2 de la patota 1 se movio a: 3|0. Y su estatus actual es: 
+
+[INFO] 14:43:43:581 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:43:581 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:43:582 Mi-RAM/(11131:11412): El tripulante 1 de la patota 1 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 14:43:48:581 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:48:582 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:48:582 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:48:582 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:48:582 Mi-RAM/(11131:11422): El tripulante 1 de la patota 1 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 14:43:48:583 Mi-RAM/(11131:11421): El tripulante 2 de la patota 1 se movio a: 4|0. Y su estatus actual es: 
+
+[INFO] 14:43:53:583 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:53:583 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:53:583 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:53:583 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:53:583 Mi-RAM/(11131:11432): El tripulante 2 de la patota 1 se movio a: 5|0. Y su estatus actual es: 
+
+[INFO] 14:43:53:584 Mi-RAM/(11131:11431): El tripulante 1 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 14:43:58:583 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:58:584 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:58:584 Mi-RAM/(11131:11434): El tripulante 2 de la patota 1 se movio a: 5|1. Y su estatus actual es: 
+
+[INFO] 14:43:58:584 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:43:58:584 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:43:58:585 Mi-RAM/(11131:11436): El tripulante 1 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 14:44:03:584 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:44:03:584 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:44:03:584 Mi-RAM/(11131:11439): El tripulante 2 de la patota 1 se movio a: 5|2. Y su estatus actual es: 
+
+[INFO] 14:44:03:585 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:44:03:585 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:44:03:585 Mi-RAM/(11131:11441): El tripulante 1 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 14:44:08:585 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:44:08:585 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:44:08:585 Mi-RAM/(11131:11444): El tripulante 2 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 14:44:08:586 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:44:08:586 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:44:08:586 Mi-RAM/(11131:11446): El tripulante 1 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 14:44:13:586 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:44:13:586 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:44:13:586 Mi-RAM/(11131:11449): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 14:44:13:586 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:44:13:587 Mi-RAM/(11131:11131): Se recibio una operacion: 4
+
+[INFO] 14:44:13:587 Mi-RAM/(11131:11451): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 14:45:33:594 Mi-RAM/(11131:11131): Se conecto un cliente con socket: 5
+
+[INFO] 14:45:33:594 Mi-RAM/(11131:11131): Se recibio una operacion: 8
+
+[INFO] 14:53:37:724 Mi-RAM/(11131:11131): Iniciando compactacion
+[INFO] 14:54:07:645 Mi-RAM/(11591:11591): ################# Modulo Mi-RAM #################
+
+[INFO] 14:54:15:260 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:15:260 Mi-RAM/(11591:11591): Se recibio una operacion: 2
+
+[INFO] 14:54:15:260 Mi-RAM/(11591:11596): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 14:54:15:260 Mi-RAM/(11591:11596): La posicion es 0 hasta 44
+[INFO] 14:54:15:260 Mi-RAM/(11591:11596): La posicion es 44 hasta 8
+[INFO] 14:54:15:260 Mi-RAM/(11591:11596): Se inicio una patota.
+
+[INFO] 14:54:15:261 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 7
+
+[INFO] 14:54:15:261 Mi-RAM/(11591:11591): Se recibio una operacion: 3
+
+[INFO] 14:54:15:261 Mi-RAM/(11591:11598): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 14:54:15:261 Mi-RAM/(11591:11598): La posicion es 52 hasta 24
+[INFO] 14:54:15:261 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:15:261 Mi-RAM/(11591:11591): Se recibio una operacion: 8
+
+[INFO] 14:54:15:261 Mi-RAM/(11591:11598): Se creo al tripulante 0 de la patota 1
+[INFO] 14:54:15:261 Mi-RAM/(11591:11599): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:54:15:262 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 8
+
+[INFO] 14:54:15:262 Mi-RAM/(11591:11591): Se recibio una operacion: 3
+
+[INFO] 14:54:15:262 Mi-RAM/(11591:11602): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 14:54:15:262 Mi-RAM/(11591:11602): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 14:54:15:262 Mi-RAM/(11591:11602): La posicion es 76 hasta 24
+[INFO] 14:54:15:262 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:15:262 Mi-RAM/(11591:11591): Se recibio una operacion: 8
+
+[INFO] 14:54:15:262 Mi-RAM/(11591:11602): Se creo al tripulante 0 de la patota 1
+[INFO] 14:54:15:262 Mi-RAM/(11591:11603): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:54:15:263 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 7
+
+[INFO] 14:54:15:263 Mi-RAM/(11591:11591): Se recibio una operacion: 3
+
+[INFO] 14:54:15:263 Mi-RAM/(11591:11606): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 14:54:15:263 Mi-RAM/(11591:11606): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 14:54:15:263 Mi-RAM/(11591:11606): Entre aca, el final del anterior es 76 y el nuevo es 76
+[INFO] 14:54:15:263 Mi-RAM/(11591:11606): La posicion es 100 hasta 24
+[INFO] 14:54:15:263 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:15:263 Mi-RAM/(11591:11591): Se recibio una operacion: 8
+
+[INFO] 14:54:15:263 Mi-RAM/(11591:11606): Se creo al tripulante 0 de la patota 1
+[INFO] 14:54:15:263 Mi-RAM/(11591:11607): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 14:54:20:372 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 8
+
+[INFO] 14:54:20:373 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:20:373 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:20:373 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:20:374 Mi-RAM/(11591:11613): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 14:54:20:374 Mi-RAM/(11591:11611): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 14:54:25:374 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:25:374 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:25:374 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:25:374 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:25:374 Mi-RAM/(11591:11617): El tripulante 2 de la patota 1 se movio a: 2|0. Y su estatus actual es: 
+
+[INFO] 14:54:25:375 Mi-RAM/(11591:11616): El tripulante 1 de la patota 1 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 14:54:30:374 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:30:375 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:30:375 Mi-RAM/(11591:11630): El tripulante 2 de la patota 1 se movio a: 3|0. Y su estatus actual es: 
+
+[INFO] 14:54:30:375 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:30:375 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:30:375 Mi-RAM/(11591:11633): El tripulante 1 de la patota 1 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 14:54:35:375 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:35:376 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:35:376 Mi-RAM/(11591:11634): El tripulante 2 de la patota 1 se movio a: 4|0. Y su estatus actual es: 
+
+[INFO] 14:54:35:376 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:35:376 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:35:377 Mi-RAM/(11591:11636): El tripulante 1 de la patota 1 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 14:54:40:377 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:40:377 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:40:377 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:40:377 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:40:377 Mi-RAM/(11591:11640): El tripulante 1 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 14:54:40:378 Mi-RAM/(11591:11639): El tripulante 2 de la patota 1 se movio a: 4|1. Y su estatus actual es: 
+
+[INFO] 14:54:45:377 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:45:378 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:45:378 Mi-RAM/(11591:11649): El tripulante 1 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 14:54:45:378 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:45:378 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:45:379 Mi-RAM/(11591:11651): El tripulante 2 de la patota 1 se movio a: 4|2. Y su estatus actual es: 
+
+[INFO] 14:54:50:378 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:50:378 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:50:379 Mi-RAM/(11591:11664): El tripulante 1 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 14:54:50:379 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:50:379 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:50:380 Mi-RAM/(11591:11666): El tripulante 2 de la patota 1 se movio a: 4|3. Y su estatus actual es: 
+
+[INFO] 14:54:55:379 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:55:379 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:55:379 Mi-RAM/(11591:11668): El tripulante 1 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 14:54:55:380 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:54:55:380 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:54:55:380 Mi-RAM/(11591:11670): El tripulante 2 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 14:55:00:380 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:55:00:380 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:55:00:380 Mi-RAM/(11591:11672): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 14:55:00:380 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:55:00:381 Mi-RAM/(11591:11591): Se recibio una operacion: 4
+
+[INFO] 14:55:00:381 Mi-RAM/(11591:11674): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 14:56:20:390 Mi-RAM/(11591:11591): Se conecto un cliente con socket: 5
+
+[INFO] 14:56:20:390 Mi-RAM/(11591:11591): Se recibio una operacion: 8
+
+[INFO] 15:47:16:155 Mi-RAM/(11591:11591): Iniciando compactacion
+[INFO] 15:47:49:037 Mi-RAM/(12893:12893): ################# Modulo Mi-RAM #################
+
+[INFO] 15:47:57:172 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:47:57:172 Mi-RAM/(12893:12893): Se recibio una operacion: 2
+
+[INFO] 15:47:57:172 Mi-RAM/(12893:12903): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 15:47:57:172 Mi-RAM/(12893:12903): La posicion es 0 hasta 44
+[INFO] 15:47:57:172 Mi-RAM/(12893:12903): La posicion es 44 hasta 8
+[INFO] 15:47:57:172 Mi-RAM/(12893:12903): Se inicio una patota.
+
+[INFO] 15:47:57:172 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 7
+
+[INFO] 15:47:57:172 Mi-RAM/(12893:12893): Se recibio una operacion: 3
+
+[INFO] 15:47:57:173 Mi-RAM/(12893:12905): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 15:47:57:173 Mi-RAM/(12893:12905): La posicion es 52 hasta 24
+[INFO] 15:47:57:173 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:47:57:173 Mi-RAM/(12893:12893): Se recibio una operacion: 8
+
+[INFO] 15:47:57:173 Mi-RAM/(12893:12905): Se creo al tripulante 0 de la patota 1
+[INFO] 15:47:57:173 Mi-RAM/(12893:12906): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 15:47:57:174 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 8
+
+[INFO] 15:47:57:174 Mi-RAM/(12893:12893): Se recibio una operacion: 3
+
+[INFO] 15:47:57:174 Mi-RAM/(12893:12909): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 15:47:57:174 Mi-RAM/(12893:12909): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 15:47:57:174 Mi-RAM/(12893:12909): La posicion es 76 hasta 24
+[INFO] 15:47:57:174 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:47:57:174 Mi-RAM/(12893:12893): Se recibio una operacion: 8
+
+[INFO] 15:47:57:174 Mi-RAM/(12893:12909): Se creo al tripulante 0 de la patota 1
+[INFO] 15:47:57:174 Mi-RAM/(12893:12910): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 15:47:57:175 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 7
+
+[INFO] 15:47:57:175 Mi-RAM/(12893:12893): Se recibio una operacion: 3
+
+[INFO] 15:47:57:175 Mi-RAM/(12893:12913): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 15:47:57:175 Mi-RAM/(12893:12913): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 15:47:57:175 Mi-RAM/(12893:12913): Entre aca, el final del anterior es 76 y el nuevo es 76
+[INFO] 15:47:57:175 Mi-RAM/(12893:12913): La posicion es 100 hasta 24
+[INFO] 15:47:57:175 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:47:57:176 Mi-RAM/(12893:12893): Se recibio una operacion: 8
+
+[INFO] 15:47:57:176 Mi-RAM/(12893:12913): Se creo al tripulante 0 de la patota 1
+[INFO] 15:47:57:176 Mi-RAM/(12893:12914): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 15:48:01:652 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 8
+
+[INFO] 15:48:01:652 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:01:652 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:01:652 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:01:652 Mi-RAM/(12893:12919): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 15:48:01:652 Mi-RAM/(12893:12918): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 15:48:06:653 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:06:653 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:06:653 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:06:653 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:06:653 Mi-RAM/(12893:12923): El tripulante 1 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 15:48:06:653 Mi-RAM/(12893:12922): El tripulante 2 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 15:48:11:653 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:11:653 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:11:654 Mi-RAM/(12893:12925): El tripulante 1 de la patota 1 se movio a: 2|1. Y su estatus actual es: 
+
+[INFO] 15:48:11:654 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:11:654 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:11:654 Mi-RAM/(12893:12927): El tripulante 2 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 15:48:16:654 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:16:654 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:16:654 Mi-RAM/(12893:12933): El tripulante 1 de la patota 1 se movio a: 3|1. Y su estatus actual es: 
+
+[INFO] 15:48:16:655 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:16:655 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:16:655 Mi-RAM/(12893:12935): El tripulante 2 de la patota 1 se movio a: 1|3. Y su estatus actual es: 
+
+[INFO] 15:48:21:655 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:21:655 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:21:656 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:21:656 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:21:656 Mi-RAM/(12893:12955): El tripulante 2 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 15:48:21:657 Mi-RAM/(12893:12952): El tripulante 1 de la patota 1 se movio a: 4|1. Y su estatus actual es: 
+
+[INFO] 15:48:26:656 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:26:656 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:26:656 Mi-RAM/(12893:12963): El tripulante 1 de la patota 1 se movio a: 5|1. Y su estatus actual es: 
+
+[INFO] 15:48:26:657 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:26:657 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:26:658 Mi-RAM/(12893:12965): El tripulante 2 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 15:48:31:657 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:31:657 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:31:657 Mi-RAM/(12893:12967): El tripulante 1 de la patota 1 se movio a: 5|2. Y su estatus actual es: 
+
+[INFO] 15:48:31:658 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:31:658 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:31:658 Mi-RAM/(12893:12969): El tripulante 2 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 15:48:36:658 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:36:658 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:36:658 Mi-RAM/(12893:12972): El tripulante 1 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 15:48:36:658 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:36:659 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:36:659 Mi-RAM/(12893:12974): El tripulante 2 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 15:48:41:658 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:41:659 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:41:659 Mi-RAM/(12893:12977): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 15:48:41:659 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:48:41:659 Mi-RAM/(12893:12893): Se recibio una operacion: 4
+
+[INFO] 15:48:41:660 Mi-RAM/(12893:12979): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 15:50:01:669 Mi-RAM/(12893:12893): Se conecto un cliente con socket: 5
+
+[INFO] 15:50:01:669 Mi-RAM/(12893:12893): Se recibio una operacion: 8
+
+[INFO] 15:51:30:205 Mi-RAM/(13065:13065): ################# Modulo Mi-RAM #################
+
+[INFO] 15:51:49:900 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:49:900 Mi-RAM/(13065:13065): Se recibio una operacion: 2
+
+[INFO] 15:51:49:901 Mi-RAM/(13065:13070): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 15:51:49:901 Mi-RAM/(13065:13070): La posicion es 0 hasta 44
+[INFO] 15:51:49:901 Mi-RAM/(13065:13070): La posicion es 44 hasta 8
+[INFO] 15:51:49:901 Mi-RAM/(13065:13070): Se inicio una patota.
+
+[INFO] 15:51:49:901 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:51:49:901 Mi-RAM/(13065:13065): Se recibio una operacion: 3
+
+[INFO] 15:51:49:901 Mi-RAM/(13065:13072): Llegue aca
+[INFO] 15:51:49:901 Mi-RAM/(13065:13072): Llegue aca
+[INFO] 15:51:49:901 Mi-RAM/(13065:13072): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 15:51:49:901 Mi-RAM/(13065:13072): La posicion es 52 hasta 24
+[INFO] 15:51:49:901 Mi-RAM/(13065:13072): Llegue aca
+[INFO] 15:51:49:901 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:49:901 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:51:49:902 Mi-RAM/(13065:13072): Se creo al tripulante 0 de la patota 1
+[INFO] 15:51:49:902 Mi-RAM/(13065:13073): Tripulante 1 de la patota 1 pide tarea
+[INFO] 15:51:49:902 Mi-RAM/(13065:13073): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:51:49:902 Mi-RAM/(13065:13073): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:51:49:902 Mi-RAM/(13065:13073): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 15:51:49:902 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 8
+
+[INFO] 15:51:49:902 Mi-RAM/(13065:13065): Se recibio una operacion: 3
+
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): Llegue aca
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): Llegue aca
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): La posicion es 76 hasta 24
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): Llegue aca
+[INFO] 15:51:49:903 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:49:903 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:51:49:903 Mi-RAM/(13065:13076): Se creo al tripulante 0 de la patota 1
+[INFO] 15:51:49:903 Mi-RAM/(13065:13077): Tripulante 2 de la patota 1 pide tarea
+[INFO] 15:51:49:903 Mi-RAM/(13065:13077): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:51:49:903 Mi-RAM/(13065:13077): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:51:49:903 Mi-RAM/(13065:13077): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 15:51:49:903 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:51:49:904 Mi-RAM/(13065:13065): Se recibio una operacion: 3
+
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Llegue aca
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Llegue aca
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Entre aca, el final del anterior es 76 y el nuevo es 76
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): La posicion es 100 hasta 24
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Llegue aca
+[INFO] 15:51:49:904 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:49:904 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:51:49:904 Mi-RAM/(13065:13080): Se creo al tripulante 0 de la patota 1
+[INFO] 15:51:49:904 Mi-RAM/(13065:13081): Tripulante 3 de la patota 1 pide tarea
+[INFO] 15:51:49:904 Mi-RAM/(13065:13081): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:51:49:904 Mi-RAM/(13065:13081): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:51:49:904 Mi-RAM/(13065:13081): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 15:51:53:068 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 8
+
+[INFO] 15:51:53:069 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:51:53:069 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:53:069 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:51:53:069 Mi-RAM/(13065:13085): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 15:51:53:069 Mi-RAM/(13065:13084): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 15:51:58:069 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:58:069 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:51:58:069 Mi-RAM/(13065:13087): El tripulante 2 de la patota 1 se movio a: 2|0. Y su estatus actual es: 
+
+[INFO] 15:51:58:070 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:51:58:070 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:51:58:070 Mi-RAM/(13065:13089): El tripulante 1 de la patota 1 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 15:52:03:070 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:03:070 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:03:070 Mi-RAM/(13065:13091): El tripulante 2 de la patota 1 se movio a: 3|0. Y su estatus actual es: 
+
+[INFO] 15:52:03:070 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:03:071 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:03:071 Mi-RAM/(13065:13093): El tripulante 1 de la patota 1 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 15:52:08:071 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:08:071 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:08:071 Mi-RAM/(13065:13095): El tripulante 2 de la patota 1 se movio a: 4|0. Y su estatus actual es: 
+
+[INFO] 15:52:08:071 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:08:072 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:08:072 Mi-RAM/(13065:13097): El tripulante 1 de la patota 1 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 15:52:13:072 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:13:072 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:13:072 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:13:072 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:13:072 Mi-RAM/(13065:13101): El tripulante 1 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 15:52:13:073 Mi-RAM/(13065:13099): El tripulante 2 de la patota 1 se movio a: 5|0. Y su estatus actual es: 
+
+[INFO] 15:52:18:073 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:18:074 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:18:074 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:18:074 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:18:074 Mi-RAM/(13065:13105): El tripulante 1 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 15:52:18:074 Mi-RAM/(13065:13104): El tripulante 2 de la patota 1 se movio a: 5|1. Y su estatus actual es: 
+
+[INFO] 15:52:23:074 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:23:075 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:23:075 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:23:075 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:23:075 Mi-RAM/(13065:13111): El tripulante 2 de la patota 1 se movio a: 5|2. Y su estatus actual es: 
+
+[INFO] 15:52:23:075 Mi-RAM/(13065:13110): El tripulante 1 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 15:52:28:075 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:28:075 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:28:075 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:28:075 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:28:076 Mi-RAM/(13065:13114): El tripulante 1 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 15:52:28:076 Mi-RAM/(13065:13113): El tripulante 2 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 15:52:33:076 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:33:076 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:33:076 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:52:33:076 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:52:33:076 Mi-RAM/(13065:13120): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 15:52:33:077 Mi-RAM/(13065:13119): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 15:53:53:085 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:53:53:085 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:53:53:086 Mi-RAM/(13065:13130): Tripulante 1 de la patota 1 pide tarea
+[INFO] 15:53:53:086 Mi-RAM/(13065:13130): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:53:53:086 Mi-RAM/(13065:13130): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:53:53:086 Mi-RAM/(13065:13130): Tripulante 1 pidio la tarea COMER;10;4;15.
+
+[INFO] 15:53:53:086 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:53:53:086 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:53:53:087 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 8
+
+[INFO] 15:53:53:087 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:53:53:087 Mi-RAM/(13065:13134): Tripulante 2 de la patota 1 pide tarea
+[INFO] 15:53:53:087 Mi-RAM/(13065:13134): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:53:53:087 Mi-RAM/(13065:13134): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:53:53:087 Mi-RAM/(13065:13134): Tripulante 2 pidio la tarea COMER;10;4;15.
+
+[INFO] 15:53:53:087 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 8
+
+[INFO] 15:53:53:087 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:53:53:088 Mi-RAM/(13065:13135): El tripulante 3 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 15:53:53:088 Mi-RAM/(13065:13138): El tripulante 1 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 15:53:58:087 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:53:58:087 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:53:58:087 Mi-RAM/(13065:13140): El tripulante 3 de la patota 1 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 15:53:58:088 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:53:58:088 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:53:58:088 Mi-RAM/(13065:13142): El tripulante 1 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 15:54:03:088 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:03:088 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:03:088 Mi-RAM/(13065:13144): El tripulante 3 de la patota 1 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 15:54:03:088 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:03:088 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:03:089 Mi-RAM/(13065:13146): El tripulante 1 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 15:54:08:089 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:08:089 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:08:089 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:08:089 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:08:089 Mi-RAM/(13065:13150): El tripulante 1 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 15:54:08:090 Mi-RAM/(13065:13149): El tripulante 3 de la patota 1 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 15:54:13:090 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:13:090 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:13:091 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:13:091 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:13:091 Mi-RAM/(13065:13155): El tripulante 3 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 15:54:13:091 Mi-RAM/(13065:13154): El tripulante 1 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 15:54:18:091 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:18:091 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:18:091 Mi-RAM/(13065:13157): El tripulante 3 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 15:54:23:091 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:23:092 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:23:092 Mi-RAM/(13065:13161): El tripulante 3 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 15:54:28:092 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:28:092 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:28:093 Mi-RAM/(13065:13163): El tripulante 3 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 15:54:33:093 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:54:33:093 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:54:33:093 Mi-RAM/(13065:13165): El tripulante 3 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 15:55:33:099 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:55:33:100 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:55:33:100 Mi-RAM/(13065:13173): Tripulante 1 de la patota 1 pide tarea
+[INFO] 15:55:33:100 Mi-RAM/(13065:13173): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:55:33:100 Mi-RAM/(13065:13173): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:55:33:100 Mi-RAM/(13065:13173): Tripulante 1 pidio la tarea CENAR;1;14;15.
+
+[INFO] 15:55:33:100 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:55:33:100 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:33:101 Mi-RAM/(13065:13174): El tripulante 2 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 15:55:38:100 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:55:38:100 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:38:101 Mi-RAM/(13065:13177): El tripulante 2 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 15:55:43:101 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:55:43:101 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:43:101 Mi-RAM/(13065:13180): El tripulante 2 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 15:55:48:101 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:55:48:102 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:48:102 Mi-RAM/(13065:13181): El tripulante 2 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 15:55:53:103 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:55:53:103 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:53:103 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:55:53:104 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:55:53:104 Mi-RAM/(13065:13187): Tripulante 3 de la patota 1 pide tarea
+[INFO] 15:55:53:104 Mi-RAM/(13065:13187): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:55:53:104 Mi-RAM/(13065:13187): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:55:53:104 Mi-RAM/(13065:13187): Tripulante 3 pidio la tarea COMER;10;4;15.
+
+[INFO] 15:55:53:104 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:55:53:104 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:53:105 Mi-RAM/(13065:13184): El tripulante 2 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 15:55:53:105 Mi-RAM/(13065:13188): El tripulante 1 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 15:55:58:104 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:55:58:105 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:55:58:105 Mi-RAM/(13065:13192): El tripulante 1 de la patota 1 se movio a: 9|5. Y su estatus actual es: 
+
+[INFO] 15:56:03:105 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:03:105 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:03:105 Mi-RAM/(13065:13193): El tripulante 1 de la patota 1 se movio a: 9|6. Y su estatus actual es: 
+
+[INFO] 15:56:08:106 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:08:106 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:08:106 Mi-RAM/(13065:13195): El tripulante 1 de la patota 1 se movio a: 8|6. Y su estatus actual es: 
+
+[INFO] 15:56:13:106 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:13:106 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:13:107 Mi-RAM/(13065:13198): El tripulante 1 de la patota 1 se movio a: 8|7. Y su estatus actual es: 
+
+[INFO] 15:56:18:107 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:18:107 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:18:107 Mi-RAM/(13065:13199): El tripulante 1 de la patota 1 se movio a: 7|7. Y su estatus actual es: 
+
+[INFO] 15:56:23:107 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:23:108 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:23:108 Mi-RAM/(13065:13203): El tripulante 1 de la patota 1 se movio a: 7|8. Y su estatus actual es: 
+
+[INFO] 15:56:28:108 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:28:108 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:28:108 Mi-RAM/(13065:13205): El tripulante 1 de la patota 1 se movio a: 6|8. Y su estatus actual es: 
+
+[INFO] 15:56:33:109 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:33:109 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:33:109 Mi-RAM/(13065:13207): El tripulante 1 de la patota 1 se movio a: 6|9. Y su estatus actual es: 
+
+[INFO] 15:56:38:109 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:38:110 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:38:110 Mi-RAM/(13065:13210): El tripulante 1 de la patota 1 se movio a: 5|9. Y su estatus actual es: 
+
+[INFO] 15:56:43:110 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:43:110 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:43:110 Mi-RAM/(13065:13212): El tripulante 1 de la patota 1 se movio a: 5|10. Y su estatus actual es: 
+
+[INFO] 15:56:48:110 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:48:111 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:48:111 Mi-RAM/(13065:13214): El tripulante 1 de la patota 1 se movio a: 4|10. Y su estatus actual es: 
+
+[INFO] 15:56:53:111 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:53:111 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:53:111 Mi-RAM/(13065:13216): El tripulante 1 de la patota 1 se movio a: 4|11. Y su estatus actual es: 
+
+[INFO] 15:56:58:111 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:56:58:111 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:56:58:112 Mi-RAM/(13065:13218): El tripulante 1 de la patota 1 se movio a: 3|11. Y su estatus actual es: 
+
+[INFO] 15:57:03:112 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:03:112 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:03:112 Mi-RAM/(13065:13220): El tripulante 1 de la patota 1 se movio a: 3|12. Y su estatus actual es: 
+
+[INFO] 15:57:08:113 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:08:113 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:08:113 Mi-RAM/(13065:13222): El tripulante 1 de la patota 1 se movio a: 2|12. Y su estatus actual es: 
+
+[INFO] 15:57:13:113 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:13:113 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:13:113 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:13:114 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:57:13:114 Mi-RAM/(13065:13228): Tripulante 2 de la patota 1 pide tarea
+[INFO] 15:57:13:114 Mi-RAM/(13065:13228): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:57:13:114 Mi-RAM/(13065:13228): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 15:57:13:114 Mi-RAM/(13065:13228): Tripulante 2 pidio la tarea CENAR;1;14;15.
+
+[INFO] 15:57:13:114 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:57:13:114 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:13:115 Mi-RAM/(13065:13225): El tripulante 1 de la patota 1 se movio a: 2|13. Y su estatus actual es: 
+
+[INFO] 15:57:13:115 Mi-RAM/(13065:13229): El tripulante 3 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 15:57:18:114 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 7
+
+[INFO] 15:57:18:114 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:18:114 Mi-RAM/(13065:13232): El tripulante 1 de la patota 1 se movio a: 2|14. Y su estatus actual es: 
+
+[INFO] 15:57:18:115 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:18:115 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:18:115 Mi-RAM/(13065:13234): El tripulante 3 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 15:57:23:115 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:23:115 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:23:115 Mi-RAM/(13065:13238): El tripulante 1 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 15:57:23:115 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:23:116 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:23:116 Mi-RAM/(13065:13240): El tripulante 3 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 15:57:28:116 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:28:116 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:28:116 Mi-RAM/(13065:13242): El tripulante 3 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 15:57:33:116 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:57:33:117 Mi-RAM/(13065:13065): Se recibio una operacion: 4
+
+[INFO] 15:57:33:117 Mi-RAM/(13065:13244): El tripulante 3 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 15:58:43:126 Mi-RAM/(13065:13065): Se conecto un cliente con socket: 5
+
+[INFO] 15:58:43:126 Mi-RAM/(13065:13065): Se recibio una operacion: 8
+
+[INFO] 15:58:43:126 Mi-RAM/(13065:13255): Tripulante 1 de la patota 1 pide tarea
+[INFO] 15:58:43:126 Mi-RAM/(13065:13255): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 15:58:43:126 Mi-RAM/(13065:13255): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 16:04:52:567 Mi-RAM/(13416:13416): ################# Modulo Mi-RAM #################
+
+[INFO] 16:05:12:550 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:12:550 Mi-RAM/(13416:13416): Se recibio una operacion: 2
+
+[INFO] 16:05:12:550 Mi-RAM/(13416:13422): Tareas guardadas: DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+
+[INFO] 16:05:12:550 Mi-RAM/(13416:13422): La posicion es 0 hasta 44
+[INFO] 16:05:12:550 Mi-RAM/(13416:13422): La posicion es 44 hasta 8
+[INFO] 16:05:12:550 Mi-RAM/(13416:13422): Se inicio una patota.
+
+[INFO] 16:05:12:551 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 7
+
+[INFO] 16:05:12:551 Mi-RAM/(13416:13416): Se recibio una operacion: 3
+
+[INFO] 16:05:12:551 Mi-RAM/(13416:13424): Llegue aca
+[INFO] 16:05:12:551 Mi-RAM/(13416:13424): Llegue aca
+[INFO] 16:05:12:551 Mi-RAM/(13416:13424): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 16:05:12:551 Mi-RAM/(13416:13424): La posicion es 52 hasta 24
+[INFO] 16:05:12:551 Mi-RAM/(13416:13424): Llegue aca
+[INFO] 16:05:12:552 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:12:552 Mi-RAM/(13416:13416): Se recibio una operacion: 8
+
+[INFO] 16:05:12:552 Mi-RAM/(13416:13424): Se creo al tripulante 0 de la patota 1
+[INFO] 16:05:12:552 Mi-RAM/(13416:13425): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:05:12:552 Mi-RAM/(13416:13425): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 16:05:12:552 Mi-RAM/(13416:13425): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 16:05:12:552 Mi-RAM/(13416:13425): Tripulante 1 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 16:05:12:553 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 8
+
+[INFO] 16:05:12:553 Mi-RAM/(13416:13416): Se recibio una operacion: 3
+
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): Llegue aca
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): Llegue aca
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): La posicion es 76 hasta 24
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): Llegue aca
+[INFO] 16:05:12:553 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:12:553 Mi-RAM/(13416:13416): Se recibio una operacion: 8
+
+[INFO] 16:05:12:553 Mi-RAM/(13416:13428): Se creo al tripulante 0 de la patota 1
+[INFO] 16:05:12:553 Mi-RAM/(13416:13429): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:05:12:553 Mi-RAM/(13416:13429): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 16:05:12:553 Mi-RAM/(13416:13429): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 16:05:12:553 Mi-RAM/(13416:13429): Tripulante 2 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 16:05:12:554 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 7
+
+[INFO] 16:05:12:554 Mi-RAM/(13416:13416): Se recibio una operacion: 3
+
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): Llegue aca
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): Llegue aca
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): Entre aca, el final del anterior es 44 y el nuevo es 44
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): Entre aca, el final del anterior es 52 y el nuevo es 52
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): Entre aca, el final del anterior es 76 y el nuevo es 76
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): La posicion es 100 hasta 24
+[INFO] 16:05:12:554 Mi-RAM/(13416:13432): Llegue aca
+[INFO] 16:05:12:554 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:12:555 Mi-RAM/(13416:13416): Se recibio una operacion: 8
+
+[INFO] 16:05:12:555 Mi-RAM/(13416:13432): Se creo al tripulante 0 de la patota 1
+[INFO] 16:05:12:555 Mi-RAM/(13416:13433): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:05:12:555 Mi-RAM/(13416:13433): Las tareas del tripulante son DESAYUNAR;5;4;15
+COMER;10;4;15
+CENAR;1;14;15
+[INFO] 16:05:12:555 Mi-RAM/(13416:13433): La ultima tarea es CENAR;1;14;15 de 44
+[INFO] 16:05:12:555 Mi-RAM/(13416:13433): Tripulante 3 pidio la tarea DESAYUNAR;5;4;15.
+
+[INFO] 16:05:19:174 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 8
+
+[INFO] 16:05:19:174 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:19:174 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:19:174 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:19:175 Mi-RAM/(13416:13437): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 16:05:19:175 Mi-RAM/(13416:13436): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 16:05:24:175 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:24:175 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:24:175 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:24:175 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:24:175 Mi-RAM/(13416:13443): El tripulante 1 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:05:24:176 Mi-RAM/(13416:13442): El tripulante 2 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:05:29:175 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:29:176 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:29:176 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:29:176 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:29:176 Mi-RAM/(13416:13447): El tripulante 2 de la patota 1 se movio a: 2|1. Y su estatus actual es: 
+
+[INFO] 16:05:29:176 Mi-RAM/(13416:13446): El tripulante 1 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 16:05:34:176 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:34:176 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:34:176 Mi-RAM/(13416:13449): El tripulante 2 de la patota 1 se movio a: 3|1. Y su estatus actual es: 
+
+[INFO] 16:05:34:177 Mi-RAM/(13416:13416): Se conecto un cliente con socket: 5
+
+[INFO] 16:05:34:177 Mi-RAM/(13416:13416): Se recibio una operacion: 4
+
+[INFO] 16:05:34:177 Mi-RAM/(13416:13451): El tripulante 1 de la patota 1 se movio a: 1|3. Y su estatus actual es: 
+
+[INFO] 16:05:39:317 Mi-RAM/(13416:13416): Iniciando compactacion
+[INFO] 16:07:21:983 Mi-RAM/(13479:13479): ################# Modulo Mi-RAM #################
+
+[INFO] 16:07:45:710 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:45:710 Mi-RAM/(13479:13479): Se recibio una operacion: 2
+
+[INFO] 16:07:45:711 Mi-RAM/(13479:13501): Tareas guardadas: DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+
+[INFO] 16:07:45:711 Mi-RAM/(13479:13501): La posicion es 0 hasta 41
+[INFO] 16:07:45:711 Mi-RAM/(13479:13501): La posicion es 41 hasta 8
+[INFO] 16:07:45:711 Mi-RAM/(13479:13501): Se inicio una patota.
+
+[INFO] 16:07:45:711 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:07:45:711 Mi-RAM/(13479:13479): Se recibio una operacion: 3
+
+[INFO] 16:07:45:711 Mi-RAM/(13479:13503): Llegue aca
+[INFO] 16:07:45:711 Mi-RAM/(13479:13503): Llegue aca
+[INFO] 16:07:45:711 Mi-RAM/(13479:13503): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 16:07:45:711 Mi-RAM/(13479:13503): La posicion es 49 hasta 24
+[INFO] 16:07:45:711 Mi-RAM/(13479:13503): Llegue aca
+[INFO] 16:07:45:711 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:45:711 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:07:45:713 Mi-RAM/(13479:13503): Se creo al tripulante 0 de la patota 1
+[INFO] 16:07:45:713 Mi-RAM/(13479:13504): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:07:45:713 Mi-RAM/(13479:13504): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:07:45:713 Mi-RAM/(13479:13504): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:07:45:713 Mi-RAM/(13479:13504): Tripulante 1 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 16:07:45:713 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 8
+
+[INFO] 16:07:45:713 Mi-RAM/(13479:13479): Se recibio una operacion: 3
+
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): Llegue aca
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): Llegue aca
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): La posicion es 73 hasta 24
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): Llegue aca
+[INFO] 16:07:45:714 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:45:714 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:07:45:714 Mi-RAM/(13479:13507): Se creo al tripulante 0 de la patota 1
+[INFO] 16:07:45:714 Mi-RAM/(13479:13508): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:07:45:714 Mi-RAM/(13479:13508): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:07:45:714 Mi-RAM/(13479:13508): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:07:45:714 Mi-RAM/(13479:13508): Tripulante 2 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 16:07:45:715 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:07:45:715 Mi-RAM/(13479:13479): Se recibio una operacion: 3
+
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Llegue aca
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Llegue aca
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): La posicion es 97 hasta 24
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Llegue aca
+[INFO] 16:07:45:715 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:45:715 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:07:45:715 Mi-RAM/(13479:13511): Se creo al tripulante 0 de la patota 1
+[INFO] 16:07:45:715 Mi-RAM/(13479:13512): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:07:45:715 Mi-RAM/(13479:13512): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:07:45:715 Mi-RAM/(13479:13512): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:07:45:715 Mi-RAM/(13479:13512): Tripulante 3 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 16:07:50:030 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 8
+
+[INFO] 16:07:50:030 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:50:031 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:50:031 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:50:031 Mi-RAM/(13479:13516): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 16:07:50:032 Mi-RAM/(13479:13515): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 16:07:53:031 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:53:032 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:53:032 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:53:032 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:53:032 Mi-RAM/(13479:13529): El tripulante 1 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:07:53:032 Mi-RAM/(13479:13528): El tripulante 2 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:07:56:032 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:56:033 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:56:033 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:56:033 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:56:033 Mi-RAM/(13479:13548): El tripulante 2 de la patota 1 se movio a: 2|1. Y su estatus actual es: 
+
+[INFO] 16:07:56:033 Mi-RAM/(13479:13547): El tripulante 1 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 16:07:59:033 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:59:034 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:59:034 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:07:59:034 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:07:59:034 Mi-RAM/(13479:13555): El tripulante 1 de la patota 1 se movio a: 2|2. Y su estatus actual es: 
+
+[INFO] 16:07:59:035 Mi-RAM/(13479:13554): El tripulante 2 de la patota 1 se movio a: 2|2. Y su estatus actual es: 
+
+[INFO] 16:08:02:034 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:02:034 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:02:034 Mi-RAM/(13479:13564): El tripulante 1 de la patota 1 se movio a: 3|2. Y su estatus actual es: 
+
+[INFO] 16:08:02:035 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:02:035 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:02:035 Mi-RAM/(13479:13566): El tripulante 2 de la patota 1 se movio a: 2|3. Y su estatus actual es: 
+
+[INFO] 16:08:05:034 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:05:035 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:05:035 Mi-RAM/(13479:13582): El tripulante 1 de la patota 1 se movio a: 4|2. Y su estatus actual es: 
+
+[INFO] 16:08:05:035 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:05:035 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:05:036 Mi-RAM/(13479:13585): El tripulante 2 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 16:08:08:036 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:08:036 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:08:036 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:08:036 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:08:036 Mi-RAM/(13479:13595): El tripulante 2 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 16:08:08:037 Mi-RAM/(13479:13594): El tripulante 1 de la patota 1 se movio a: 4|3. Y su estatus actual es: 
+
+[INFO] 16:08:11:037 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:11:037 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:11:037 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:11:037 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:11:037 Mi-RAM/(13479:13606): El tripulante 1 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 16:08:11:038 Mi-RAM/(13479:13605): El tripulante 2 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 16:08:14:037 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:14:038 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:14:038 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:14:038 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:14:039 Mi-RAM/(13479:13616): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 16:08:14:039 Mi-RAM/(13479:13615): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 16:08:26:041 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:26:041 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:08:26:042 Mi-RAM/(13479:13621): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:08:26:042 Mi-RAM/(13479:13621): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:08:26:042 Mi-RAM/(13479:13621): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:08:26:042 Mi-RAM/(13479:13621): Tripulante 1 pidio la tarea COMER;10;4;3.
+
+[INFO] 16:08:26:042 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:08:26:042 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:08:26:043 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 8
+
+[INFO] 16:08:26:043 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:26:043 Mi-RAM/(13479:13625): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:08:26:043 Mi-RAM/(13479:13625): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:08:26:043 Mi-RAM/(13479:13625): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:08:26:043 Mi-RAM/(13479:13625): Tripulante 2 pidio la tarea COMER;10;4;3.
+
+[INFO] 16:08:26:044 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 8
+
+[INFO] 16:08:26:044 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:26:044 Mi-RAM/(13479:13626): El tripulante 3 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 16:08:26:045 Mi-RAM/(13479:13629): El tripulante 1 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 16:08:29:043 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:29:044 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:29:044 Mi-RAM/(13479:13631): El tripulante 3 de la patota 1 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 16:08:29:044 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:29:044 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:29:044 Mi-RAM/(13479:13633): El tripulante 1 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 16:08:32:045 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:32:045 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:32:045 Mi-RAM/(13479:13635): El tripulante 3 de la patota 1 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 16:08:32:045 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:32:046 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:32:046 Mi-RAM/(13479:13637): El tripulante 1 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 16:08:35:045 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:35:045 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:35:045 Mi-RAM/(13479:13639): El tripulante 3 de la patota 1 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 16:08:35:046 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:35:046 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:35:046 Mi-RAM/(13479:13641): El tripulante 1 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 16:08:38:046 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:38:047 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:38:047 Mi-RAM/(13479:13643): El tripulante 3 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 16:08:38:047 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:38:047 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:38:047 Mi-RAM/(13479:13645): El tripulante 1 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 16:08:41:047 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:41:047 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:41:047 Mi-RAM/(13479:13647): El tripulante 3 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 16:08:44:048 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:44:048 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:44:048 Mi-RAM/(13479:13649): El tripulante 3 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 16:08:47:049 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:47:049 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:47:049 Mi-RAM/(13479:13651): El tripulante 3 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 16:08:50:049 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:50:050 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:08:50:050 Mi-RAM/(13479:13654): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:08:50:050 Mi-RAM/(13479:13654): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:08:50:050 Mi-RAM/(13479:13654): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:08:50:050 Mi-RAM/(13479:13654): Tripulante 1 pidio la tarea CENAR;1;14;3.
+
+[INFO] 16:08:50:050 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:08:50:050 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:50:050 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:08:50:050 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:50:051 Mi-RAM/(13479:13656): El tripulante 2 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 16:08:50:051 Mi-RAM/(13479:13655): El tripulante 3 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 16:08:53:050 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:08:53:051 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:53:051 Mi-RAM/(13479:13660): El tripulante 2 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 16:08:56:052 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:56:052 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:56:052 Mi-RAM/(13479:13662): El tripulante 2 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 16:08:59:052 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:08:59:052 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:08:59:053 Mi-RAM/(13479:13664): El tripulante 2 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 16:09:02:053 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:02:054 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:02:054 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:02:054 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:09:02:054 Mi-RAM/(13479:13669): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:09:02:054 Mi-RAM/(13479:13669): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:09:02:054 Mi-RAM/(13479:13669): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:09:02:054 Mi-RAM/(13479:13669): Tripulante 3 pidio la tarea COMER;10;4;3.
+
+[INFO] 16:09:02:054 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:02:055 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:02:055 Mi-RAM/(13479:13666): El tripulante 2 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 16:09:02:056 Mi-RAM/(13479:13670): El tripulante 1 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 16:09:05:055 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:05:055 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:05:055 Mi-RAM/(13479:13673): El tripulante 1 de la patota 1 se movio a: 9|5. Y su estatus actual es: 
+
+[INFO] 16:09:08:055 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:08:055 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:08:055 Mi-RAM/(13479:13675): El tripulante 1 de la patota 1 se movio a: 9|6. Y su estatus actual es: 
+
+[INFO] 16:09:11:056 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:11:056 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:11:056 Mi-RAM/(13479:13677): El tripulante 1 de la patota 1 se movio a: 8|6. Y su estatus actual es: 
+
+[INFO] 16:09:14:056 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:14:056 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:09:14:056 Mi-RAM/(13479:13681): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:09:14:056 Mi-RAM/(13479:13681): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:09:14:056 Mi-RAM/(13479:13681): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:09:14:056 Mi-RAM/(13479:13681): Tripulante 2 pidio la tarea CENAR;1;14;3.
+
+[INFO] 16:09:14:056 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:14:057 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:14:057 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:14:057 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:14:058 Mi-RAM/(13479:13683): El tripulante 3 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 16:09:14:058 Mi-RAM/(13479:13682): El tripulante 1 de la patota 1 se movio a: 8|7. Y su estatus actual es: 
+
+[INFO] 16:09:17:058 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:17:058 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:17:058 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:17:058 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:17:058 Mi-RAM/(13479:13689): El tripulante 1 de la patota 1 se movio a: 8|8. Y su estatus actual es: 
+
+[INFO] 16:09:17:058 Mi-RAM/(13479:13688): El tripulante 3 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 16:09:20:059 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:20:059 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:20:059 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:20:059 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:20:059 Mi-RAM/(13479:13693): El tripulante 3 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 16:09:20:060 Mi-RAM/(13479:13692): El tripulante 1 de la patota 1 se movio a: 8|9. Y su estatus actual es: 
+
+[INFO] 16:09:23:059 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:23:059 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:23:060 Mi-RAM/(13479:13697): El tripulante 3 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 16:09:23:060 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:23:060 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:23:060 Mi-RAM/(13479:13699): El tripulante 1 de la patota 1 se movio a: 8|10. Y su estatus actual es: 
+
+[INFO] 16:09:26:060 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:26:060 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:26:060 Mi-RAM/(13479:13701): El tripulante 3 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 16:09:26:060 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:26:061 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:26:061 Mi-RAM/(13479:13703): El tripulante 1 de la patota 1 se movio a: 8|11. Y su estatus actual es: 
+
+[INFO] 16:09:29:061 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:29:061 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:29:061 Mi-RAM/(13479:13705): El tripulante 1 de la patota 1 se movio a: 7|11. Y su estatus actual es: 
+
+[INFO] 16:09:32:061 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:32:061 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:32:061 Mi-RAM/(13479:13707): El tripulante 1 de la patota 1 se movio a: 7|12. Y su estatus actual es: 
+
+[INFO] 16:09:35:061 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:35:062 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:35:062 Mi-RAM/(13479:13709): El tripulante 1 de la patota 1 se movio a: 6|12. Y su estatus actual es: 
+
+[INFO] 16:09:38:061 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:38:061 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:09:38:061 Mi-RAM/(13479:13712): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:09:38:061 Mi-RAM/(13479:13712): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:09:38:061 Mi-RAM/(13479:13712): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:09:38:061 Mi-RAM/(13479:13712): Tripulante 3 pidio la tarea CENAR;1;14;3.
+
+[INFO] 16:09:38:062 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:38:062 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:38:062 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:38:062 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:38:062 Mi-RAM/(13479:13713): El tripulante 2 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 16:09:38:062 Mi-RAM/(13479:13714): El tripulante 1 de la patota 1 se movio a: 5|12. Y su estatus actual es: 
+
+[INFO] 16:09:41:063 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:09:41:063 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:41:063 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:41:063 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:41:064 Mi-RAM/(13479:13720): El tripulante 1 de la patota 1 se movio a: 5|13. Y su estatus actual es: 
+
+[INFO] 16:09:41:064 Mi-RAM/(13479:13719): El tripulante 2 de la patota 1 se movio a: 9|5. Y su estatus actual es: 
+
+[INFO] 16:09:44:063 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:44:064 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:44:064 Mi-RAM/(13479:13722): El tripulante 1 de la patota 1 se movio a: 5|14. Y su estatus actual es: 
+
+[INFO] 16:09:44:064 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:44:064 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:44:064 Mi-RAM/(13479:13724): El tripulante 2 de la patota 1 se movio a: 8|5. Y su estatus actual es: 
+
+[INFO] 16:09:47:064 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:47:064 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:47:064 Mi-RAM/(13479:13726): El tripulante 1 de la patota 1 se movio a: 4|14. Y su estatus actual es: 
+
+[INFO] 16:09:47:065 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:47:065 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:47:065 Mi-RAM/(13479:13728): El tripulante 2 de la patota 1 se movio a: 8|6. Y su estatus actual es: 
+
+[INFO] 16:09:50:064 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:50:065 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:50:065 Mi-RAM/(13479:13730): El tripulante 1 de la patota 1 se movio a: 3|14. Y su estatus actual es: 
+
+[INFO] 16:09:50:065 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:50:065 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:50:065 Mi-RAM/(13479:13732): El tripulante 2 de la patota 1 se movio a: 8|7. Y su estatus actual es: 
+
+[INFO] 16:09:53:066 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:53:066 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:53:066 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:53:066 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:53:066 Mi-RAM/(13479:13736): El tripulante 2 de la patota 1 se movio a: 7|7. Y su estatus actual es: 
+
+[INFO] 16:09:53:067 Mi-RAM/(13479:13735): El tripulante 1 de la patota 1 se movio a: 2|14. Y su estatus actual es: 
+
+[INFO] 16:09:56:066 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:56:067 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:56:067 Mi-RAM/(13479:13738): El tripulante 2 de la patota 1 se movio a: 7|8. Y su estatus actual es: 
+
+[INFO] 16:09:56:067 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:56:067 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:56:067 Mi-RAM/(13479:13740): El tripulante 1 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 16:09:59:067 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:09:59:067 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:09:59:067 Mi-RAM/(13479:13742): El tripulante 2 de la patota 1 se movio a: 7|9. Y su estatus actual es: 
+
+[INFO] 16:10:02:067 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:02:068 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:02:068 Mi-RAM/(13479:13744): El tripulante 2 de la patota 1 se movio a: 6|9. Y su estatus actual es: 
+
+[INFO] 16:10:05:069 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:05:069 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:05:069 Mi-RAM/(13479:13746): El tripulante 2 de la patota 1 se movio a: 6|10. Y su estatus actual es: 
+
+[INFO] 16:10:08:069 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:08:069 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:08:070 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:08:070 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:10:08:070 Mi-RAM/(13479:13751): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:10:08:070 Mi-RAM/(13479:13751): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:10:08:070 Mi-RAM/(13479:13751): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:10:08:070 Mi-RAM/(13479:13748): El tripulante 2 de la patota 1 se movio a: 5|10. Y su estatus actual es: 
+
+[INFO] 16:10:11:070 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 7
+
+[INFO] 16:10:11:070 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:11:070 Mi-RAM/(13479:13752): El tripulante 2 de la patota 1 se movio a: 5|11. Y su estatus actual es: 
+
+[INFO] 16:10:14:071 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:14:071 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:14:071 Mi-RAM/(13479:13755): El tripulante 2 de la patota 1 se movio a: 4|11. Y su estatus actual es: 
+
+[INFO] 16:10:17:072 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:17:072 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:17:072 Mi-RAM/(13479:13756): El tripulante 2 de la patota 1 se movio a: 4|12. Y su estatus actual es: 
+
+[INFO] 16:10:20:073 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:20:073 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:20:073 Mi-RAM/(13479:13757): El tripulante 2 de la patota 1 se movio a: 3|12. Y su estatus actual es: 
+
+[INFO] 16:10:23:074 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:23:074 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:23:074 Mi-RAM/(13479:13760): El tripulante 2 de la patota 1 se movio a: 3|13. Y su estatus actual es: 
+
+[INFO] 16:10:26:075 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:26:075 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:26:075 Mi-RAM/(13479:13761): El tripulante 2 de la patota 1 se movio a: 2|13. Y su estatus actual es: 
+
+[INFO] 16:10:29:075 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:29:075 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:29:075 Mi-RAM/(13479:13762): El tripulante 2 de la patota 1 se movio a: 2|14. Y su estatus actual es: 
+
+[INFO] 16:10:32:075 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:32:075 Mi-RAM/(13479:13479): Se recibio una operacion: 4
+
+[INFO] 16:10:32:075 Mi-RAM/(13479:13763): El tripulante 2 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 16:10:44:076 Mi-RAM/(13479:13479): Se conecto un cliente con socket: 5
+
+[INFO] 16:10:44:076 Mi-RAM/(13479:13479): Se recibio una operacion: 8
+
+[INFO] 16:10:44:076 Mi-RAM/(13479:13764): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:10:44:076 Mi-RAM/(13479:13764): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:10:44:076 Mi-RAM/(13479:13764): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:15:39:783 Mi-RAM/(13479:13479): Iniciando compactacion
+[INFO] 16:15:42:056 Mi-RAM/(13827:13827): ################# Modulo Mi-RAM #################
+
+[INFO] 16:16:10:935 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:10:935 Mi-RAM/(13827:13827): Se recibio una operacion: 2
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13834): Tareas guardadas: DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13834): La posicion es 0 hasta 41
+[INFO] 16:16:10:936 Mi-RAM/(13827:13834): La posicion es 41 hasta 8
+[INFO] 16:16:10:936 Mi-RAM/(13827:13834): Se inicio una patota.
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13827): Se recibio una operacion: 3
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13836): Llegue aca
+[INFO] 16:16:10:936 Mi-RAM/(13827:13836): Llegue aca
+[INFO] 16:16:10:936 Mi-RAM/(13827:13836): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 16:16:10:936 Mi-RAM/(13827:13836): La posicion es 49 hasta 24
+[INFO] 16:16:10:936 Mi-RAM/(13827:13836): Llegue aca
+[INFO] 16:16:10:936 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:16:10:936 Mi-RAM/(13827:13836): Se creo al tripulante 0 de la patota 1
+[INFO] 16:16:10:937 Mi-RAM/(13827:13837): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:16:10:937 Mi-RAM/(13827:13837): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:16:10:937 Mi-RAM/(13827:13837): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:16:10:937 Mi-RAM/(13827:13837): Tripulante 1 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 16:16:10:942 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 8
+
+[INFO] 16:16:10:943 Mi-RAM/(13827:13827): Se recibio una operacion: 3
+
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): Llegue aca
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): Llegue aca
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): La posicion es 73 hasta 24
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): Llegue aca
+[INFO] 16:16:10:943 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:10:943 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:16:10:943 Mi-RAM/(13827:13839): Se creo al tripulante 0 de la patota 1
+[INFO] 16:16:10:943 Mi-RAM/(13827:13841): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:16:10:943 Mi-RAM/(13827:13841): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:16:10:943 Mi-RAM/(13827:13841): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:16:10:943 Mi-RAM/(13827:13841): Tripulante 2 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 16:16:10:944 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:16:10:946 Mi-RAM/(13827:13827): Se recibio una operacion: 3
+
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Llegue aca
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Llegue aca
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): La posicion es 97 hasta 24
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Llegue aca
+[INFO] 16:16:10:949 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:10:949 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:16:10:949 Mi-RAM/(13827:13844): Se creo al tripulante 0 de la patota 1
+[INFO] 16:16:10:949 Mi-RAM/(13827:13845): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:16:10:949 Mi-RAM/(13827:13845): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:16:10:949 Mi-RAM/(13827:13845): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:16:10:949 Mi-RAM/(13827:13845): Tripulante 3 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 16:16:16:863 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 8
+
+[INFO] 16:16:16:864 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:16:864 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:16:864 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:16:868 Mi-RAM/(13827:13848): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 16:16:16:868 Mi-RAM/(13827:13847): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 16:16:19:865 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:19:865 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:19:865 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:19:865 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:19:867 Mi-RAM/(13827:13852): El tripulante 1 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:16:19:868 Mi-RAM/(13827:13851): El tripulante 2 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:16:22:866 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:22:867 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:22:867 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:22:867 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:22:869 Mi-RAM/(13827:13858): El tripulante 2 de la patota 1 se movio a: 2|1. Y su estatus actual es: 
+
+[INFO] 16:16:22:870 Mi-RAM/(13827:13857): El tripulante 1 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 16:16:25:867 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:25:867 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:25:868 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:25:868 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:25:868 Mi-RAM/(13827:13863): El tripulante 1 de la patota 1 se movio a: 1|3. Y su estatus actual es: 
+
+[INFO] 16:16:25:869 Mi-RAM/(13827:13861): El tripulante 2 de la patota 1 se movio a: 3|1. Y su estatus actual es: 
+
+[INFO] 16:16:28:867 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:28:868 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:28:868 Mi-RAM/(13827:13865): El tripulante 2 de la patota 1 se movio a: 4|1. Y su estatus actual es: 
+
+[INFO] 16:16:28:869 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:28:869 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:28:871 Mi-RAM/(13827:13867): El tripulante 1 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 16:16:31:868 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:31:869 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:31:869 Mi-RAM/(13827:13869): El tripulante 2 de la patota 1 se movio a: 5|1. Y su estatus actual es: 
+
+[INFO] 16:16:31:870 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:31:870 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:31:872 Mi-RAM/(13827:13871): El tripulante 1 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 16:16:34:870 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:34:870 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:34:870 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:34:870 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:34:871 Mi-RAM/(13827:13874): El tripulante 1 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 16:16:34:872 Mi-RAM/(13827:13873): El tripulante 2 de la patota 1 se movio a: 5|2. Y su estatus actual es: 
+
+[INFO] 16:16:37:871 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:37:871 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:37:871 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:37:871 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:37:873 Mi-RAM/(13827:13878): El tripulante 1 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 16:16:37:874 Mi-RAM/(13827:13877): El tripulante 2 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 16:16:40:872 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:40:872 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:40:873 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:40:873 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:40:873 Mi-RAM/(13827:13883): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 16:16:40:874 Mi-RAM/(13827:13881): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 16:16:52:875 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:52:875 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:16:52:878 Mi-RAM/(13827:13885): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:16:52:878 Mi-RAM/(13827:13885): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:16:52:878 Mi-RAM/(13827:13885): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:16:52:878 Mi-RAM/(13827:13885): Tripulante 2 pidio la tarea COMER;10;4;3.
+
+[INFO] 16:16:52:878 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:16:52:878 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:16:52:878 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 8
+
+[INFO] 16:16:52:878 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:52:881 Mi-RAM/(13827:13888): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:16:52:881 Mi-RAM/(13827:13888): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:16:52:881 Mi-RAM/(13827:13888): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:16:52:881 Mi-RAM/(13827:13888): Tripulante 1 pidio la tarea COMER;10;4;3.
+
+[INFO] 16:16:52:882 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 8
+
+[INFO] 16:16:52:882 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:52:882 Mi-RAM/(13827:13889): El tripulante 3 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 16:16:52:882 Mi-RAM/(13827:13892): El tripulante 2 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 16:16:55:879 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:55:879 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:55:880 Mi-RAM/(13827:13895): El tripulante 3 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 16:16:55:882 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:55:883 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:55:883 Mi-RAM/(13827:13897): El tripulante 2 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 16:16:58:881 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:58:881 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:58:882 Mi-RAM/(13827:13899): El tripulante 3 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 16:16:58:883 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:16:58:883 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:16:58:884 Mi-RAM/(13827:13901): El tripulante 2 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 16:17:01:882 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:01:883 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:01:883 Mi-RAM/(13827:13906): El tripulante 3 de la patota 1 se movio a: 1|3. Y su estatus actual es: 
+
+[INFO] 16:17:01:884 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:01:884 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:01:886 Mi-RAM/(13827:13908): El tripulante 2 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 16:17:04:883 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:04:883 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:04:885 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:04:885 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:04:885 Mi-RAM/(13827:13910): El tripulante 3 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 16:17:04:886 Mi-RAM/(13827:13912): El tripulante 2 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 16:17:07:884 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:07:884 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:07:885 Mi-RAM/(13827:13914): El tripulante 3 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 16:17:10:885 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:10:886 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:10:886 Mi-RAM/(13827:13916): El tripulante 3 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 16:17:13:886 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:13:887 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:13:888 Mi-RAM/(13827:13919): El tripulante 3 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 16:17:16:887 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:16:888 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:16:889 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:16:889 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:17:16:890 Mi-RAM/(13827:13923): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:17:16:890 Mi-RAM/(13827:13923): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:17:16:890 Mi-RAM/(13827:13923): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:17:16:890 Mi-RAM/(13827:13923): Tripulante 2 pidio la tarea CENAR;1;14;3.
+
+[INFO] 16:17:16:890 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:16:890 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:16:893 Mi-RAM/(13827:13925): El tripulante 1 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 16:17:16:893 Mi-RAM/(13827:13921): El tripulante 3 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 16:17:19:890 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:19:891 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:19:891 Mi-RAM/(13827:13928): El tripulante 1 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 16:17:22:891 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:22:891 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:22:892 Mi-RAM/(13827:13932): El tripulante 1 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 16:17:25:891 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:25:892 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:25:892 Mi-RAM/(13827:13934): El tripulante 1 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 16:17:28:890 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:28:890 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:17:28:891 Mi-RAM/(13827:13936): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:17:28:891 Mi-RAM/(13827:13936): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:17:28:891 Mi-RAM/(13827:13936): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:17:28:891 Mi-RAM/(13827:13936): Tripulante 3 pidio la tarea COMER;10;4;3.
+
+[INFO] 16:17:28:892 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:28:892 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:28:893 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:28:893 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:28:895 Mi-RAM/(13827:13940): El tripulante 1 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 16:17:28:896 Mi-RAM/(13827:13938): El tripulante 2 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 16:17:31:892 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:31:892 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:31:894 Mi-RAM/(13827:13943): El tripulante 2 de la patota 1 se movio a: 10|6. Y su estatus actual es: 
+
+[INFO] 16:17:34:893 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:34:893 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:34:895 Mi-RAM/(13827:13945): El tripulante 2 de la patota 1 se movio a: 9|6. Y su estatus actual es: 
+
+[INFO] 16:17:37:894 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:37:894 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:37:895 Mi-RAM/(13827:13947): El tripulante 2 de la patota 1 se movio a: 9|7. Y su estatus actual es: 
+
+[INFO] 16:17:40:895 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:40:896 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:40:896 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:40:896 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:17:40:899 Mi-RAM/(13827:13950): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:17:40:899 Mi-RAM/(13827:13950): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:17:40:899 Mi-RAM/(13827:13950): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:17:40:899 Mi-RAM/(13827:13950): Tripulante 1 pidio la tarea CENAR;1;14;3.
+
+[INFO] 16:17:40:899 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:40:899 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:40:902 Mi-RAM/(13827:13949): El tripulante 2 de la patota 1 se movio a: 8|7. Y su estatus actual es: 
+
+[INFO] 16:17:40:903 Mi-RAM/(13827:13953): El tripulante 3 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 16:17:43:896 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:17:43:897 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:43:897 Mi-RAM/(13827:13956): El tripulante 2 de la patota 1 se movio a: 8|8. Y su estatus actual es: 
+
+[INFO] 16:17:43:899 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:43:899 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:43:900 Mi-RAM/(13827:13958): El tripulante 3 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 16:17:46:897 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:46:898 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:46:898 Mi-RAM/(13827:13960): El tripulante 2 de la patota 1 se movio a: 8|9. Y su estatus actual es: 
+
+[INFO] 16:17:46:900 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:46:900 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:46:900 Mi-RAM/(13827:13962): El tripulante 3 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 16:17:49:898 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:49:899 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:49:900 Mi-RAM/(13827:13964): El tripulante 2 de la patota 1 se movio a: 8|10. Y su estatus actual es: 
+
+[INFO] 16:17:49:901 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:49:901 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:49:902 Mi-RAM/(13827:13966): El tripulante 3 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 16:17:52:899 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:52:899 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:52:900 Mi-RAM/(13827:13973): El tripulante 2 de la patota 1 se movio a: 8|11. Y su estatus actual es: 
+
+[INFO] 16:17:52:901 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:52:902 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:52:903 Mi-RAM/(13827:13975): El tripulante 3 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 16:17:55:900 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:55:900 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:55:901 Mi-RAM/(13827:13977): El tripulante 2 de la patota 1 se movio a: 8|12. Y su estatus actual es: 
+
+[INFO] 16:17:58:901 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:17:58:901 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:17:58:902 Mi-RAM/(13827:13979): El tripulante 2 de la patota 1 se movio a: 7|12. Y su estatus actual es: 
+
+[INFO] 16:18:01:901 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:01:902 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:01:903 Mi-RAM/(13827:13981): El tripulante 2 de la patota 1 se movio a: 7|13. Y su estatus actual es: 
+
+[INFO] 16:18:04:902 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:04:903 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:04:904 Mi-RAM/(13827:13983): El tripulante 2 de la patota 1 se movio a: 6|13. Y su estatus actual es: 
+
+[INFO] 16:18:04:904 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:04:904 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:18:04:907 Mi-RAM/(13827:13985): Tripulante 3 de la patota 1 pide tarea
+[INFO] 16:18:04:907 Mi-RAM/(13827:13985): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:18:04:907 Mi-RAM/(13827:13985): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:18:04:907 Mi-RAM/(13827:13985): Tripulante 3 pidio la tarea CENAR;1;14;3.
+
+[INFO] 16:18:04:907 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:18:04:907 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:04:909 Mi-RAM/(13827:13987): El tripulante 1 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 16:18:07:903 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:18:07:904 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:07:904 Mi-RAM/(13827:13990): El tripulante 2 de la patota 1 se movio a: 5|13. Y su estatus actual es: 
+
+[INFO] 16:18:07:908 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:07:908 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:07:909 Mi-RAM/(13827:13992): El tripulante 1 de la patota 1 se movio a: 10|6. Y su estatus actual es: 
+
+[INFO] 16:18:10:904 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:10:904 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:10:905 Mi-RAM/(13827:13994): El tripulante 2 de la patota 1 se movio a: 4|13. Y su estatus actual es: 
+
+[INFO] 16:18:10:909 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:10:909 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:10:910 Mi-RAM/(13827:13996): El tripulante 1 de la patota 1 se movio a: 10|7. Y su estatus actual es: 
+
+[INFO] 16:18:13:905 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:13:905 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:13:906 Mi-RAM/(13827:13998): El tripulante 2 de la patota 1 se movio a: 3|13. Y su estatus actual es: 
+
+[INFO] 16:18:13:910 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:13:910 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:13:911 Mi-RAM/(13827:14000): El tripulante 1 de la patota 1 se movio a: 10|8. Y su estatus actual es: 
+
+[INFO] 16:18:16:906 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:16:906 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:16:907 Mi-RAM/(13827:14002): El tripulante 2 de la patota 1 se movio a: 2|13. Y su estatus actual es: 
+
+[INFO] 16:18:16:910 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:16:911 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:16:911 Mi-RAM/(13827:14004): El tripulante 1 de la patota 1 se movio a: 10|9. Y su estatus actual es: 
+
+[INFO] 16:18:19:906 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:19:907 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:19:908 Mi-RAM/(13827:14006): El tripulante 2 de la patota 1 se movio a: 1|13. Y su estatus actual es: 
+
+[INFO] 16:18:19:911 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:19:911 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:19:912 Mi-RAM/(13827:14008): El tripulante 1 de la patota 1 se movio a: 10|10. Y su estatus actual es: 
+
+[INFO] 16:18:22:907 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:22:907 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:22:908 Mi-RAM/(13827:14012): El tripulante 2 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 16:18:22:911 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:22:912 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:22:913 Mi-RAM/(13827:14014): El tripulante 1 de la patota 1 se movio a: 9|10. Y su estatus actual es: 
+
+[INFO] 16:18:25:912 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:25:913 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:25:913 Mi-RAM/(13827:14016): El tripulante 1 de la patota 1 se movio a: 9|11. Y su estatus actual es: 
+
+[INFO] 16:18:28:913 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:28:913 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:28:914 Mi-RAM/(13827:14018): El tripulante 1 de la patota 1 se movio a: 8|11. Y su estatus actual es: 
+
+[INFO] 16:18:31:913 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:31:914 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:31:915 Mi-RAM/(13827:14020): El tripulante 1 de la patota 1 se movio a: 8|12. Y su estatus actual es: 
+
+[INFO] 16:18:34:910 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:34:910 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:18:34:911 Mi-RAM/(13827:14022): Tripulante 2 de la patota 1 pide tarea
+[INFO] 16:18:34:911 Mi-RAM/(13827:14022): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:18:34:911 Mi-RAM/(13827:14022): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 16:18:34:914 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 7
+
+[INFO] 16:18:34:915 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:34:915 Mi-RAM/(13827:14024): El tripulante 1 de la patota 1 se movio a: 7|12. Y su estatus actual es: 
+
+[INFO] 16:18:37:916 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:37:916 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:37:916 Mi-RAM/(13827:14026): El tripulante 1 de la patota 1 se movio a: 7|13. Y su estatus actual es: 
+
+[INFO] 16:18:40:916 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:40:916 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:40:916 Mi-RAM/(13827:14027): El tripulante 1 de la patota 1 se movio a: 6|13. Y su estatus actual es: 
+
+[INFO] 16:18:43:917 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:43:917 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:43:917 Mi-RAM/(13827:14028): El tripulante 1 de la patota 1 se movio a: 6|14. Y su estatus actual es: 
+
+[INFO] 16:18:46:918 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:46:918 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:46:918 Mi-RAM/(13827:14029): El tripulante 1 de la patota 1 se movio a: 5|14. Y su estatus actual es: 
+
+[INFO] 16:18:49:918 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:49:918 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:49:918 Mi-RAM/(13827:14030): El tripulante 1 de la patota 1 se movio a: 4|14. Y su estatus actual es: 
+
+[INFO] 16:18:52:919 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:52:919 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:52:919 Mi-RAM/(13827:14031): El tripulante 1 de la patota 1 se movio a: 3|14. Y su estatus actual es: 
+
+[INFO] 16:18:55:919 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:55:920 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:55:920 Mi-RAM/(13827:14032): El tripulante 1 de la patota 1 se movio a: 2|14. Y su estatus actual es: 
+
+[INFO] 16:18:58:920 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:18:58:920 Mi-RAM/(13827:13827): Se recibio una operacion: 4
+
+[INFO] 16:18:58:920 Mi-RAM/(13827:14033): El tripulante 1 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 16:19:10:922 Mi-RAM/(13827:13827): Se conecto un cliente con socket: 5
+
+[INFO] 16:19:10:922 Mi-RAM/(13827:13827): Se recibio una operacion: 8
+
+[INFO] 16:19:10:922 Mi-RAM/(13827:14034): Tripulante 1 de la patota 1 pide tarea
+[INFO] 16:19:10:922 Mi-RAM/(13827:14034): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 16:19:10:922 Mi-RAM/(13827:14034): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:07:01:495 Mi-RAM/(14616:14616): ################# Modulo Mi-RAM #################
+
+[INFO] 17:07:19:494 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:19:494 Mi-RAM/(14616:14616): Se recibio una operacion: 2
+
+[INFO] 17:07:19:494 Mi-RAM/(14616:14641): Tareas guardadas: DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+
+[INFO] 17:07:19:494 Mi-RAM/(14616:14641): La posicion es 0 hasta 41
+[INFO] 17:07:19:494 Mi-RAM/(14616:14641): La posicion es 41 hasta 8
+[INFO] 17:07:19:494 Mi-RAM/(14616:14641): Se inicio una patota.
+
+[INFO] 17:07:19:495 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:07:19:495 Mi-RAM/(14616:14616): Se recibio una operacion: 3
+
+[INFO] 17:07:19:495 Mi-RAM/(14616:14643): Llegue aca
+[INFO] 17:07:19:495 Mi-RAM/(14616:14643): Llegue aca
+[INFO] 17:07:19:495 Mi-RAM/(14616:14643): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:07:19:495 Mi-RAM/(14616:14643): La posicion es 49 hasta 24
+[INFO] 17:07:19:495 Mi-RAM/(14616:14643): Llegue aca
+[INFO] 17:07:19:495 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:19:495 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:07:19:495 Mi-RAM/(14616:14643): Se creo al tripulante 0 de la patota 1
+[INFO] 17:07:19:495 Mi-RAM/(14616:14644): Tripulante 1 de la patota 1 pide tarea
+[INFO] 17:07:19:495 Mi-RAM/(14616:14644): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:07:19:495 Mi-RAM/(14616:14644): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:07:19:495 Mi-RAM/(14616:14644): Tripulante 1 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 17:07:19:496 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:07:19:496 Mi-RAM/(14616:14616): Se recibio una operacion: 3
+
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): Llegue aca
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): Llegue aca
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): La posicion es 73 hasta 24
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): Llegue aca
+[INFO] 17:07:19:496 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:19:496 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:07:19:496 Mi-RAM/(14616:14647): Se creo al tripulante 0 de la patota 1
+[INFO] 17:07:19:496 Mi-RAM/(14616:14648): Tripulante 2 de la patota 1 pide tarea
+[INFO] 17:07:19:496 Mi-RAM/(14616:14648): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:07:19:496 Mi-RAM/(14616:14648): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:07:19:496 Mi-RAM/(14616:14648): Tripulante 2 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 17:07:19:497 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:07:19:497 Mi-RAM/(14616:14616): Se recibio una operacion: 3
+
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Llegue aca
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Llegue aca
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): La posicion es 97 hasta 24
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Llegue aca
+[INFO] 17:07:19:497 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:19:497 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:07:19:497 Mi-RAM/(14616:14651): Se creo al tripulante 0 de la patota 1
+[INFO] 17:07:19:498 Mi-RAM/(14616:14652): Tripulante 3 de la patota 1 pide tarea
+[INFO] 17:07:19:498 Mi-RAM/(14616:14652): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:07:19:498 Mi-RAM/(14616:14652): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:07:19:498 Mi-RAM/(14616:14652): Tripulante 3 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 17:07:26:790 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:07:26:790 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:26:790 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:26:790 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:26:791 Mi-RAM/(14616:14658): El tripulante 2 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 17:07:26:791 Mi-RAM/(14616:14657): El tripulante 1 de la patota 1 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 17:07:29:790 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:29:790 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:29:791 Mi-RAM/(14616:14660): El tripulante 2 de la patota 1 se movio a: 2|0. Y su estatus actual es: 
+
+[INFO] 17:07:29:791 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:29:791 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:29:791 Mi-RAM/(14616:14662): El tripulante 1 de la patota 1 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 17:07:32:791 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:32:791 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:32:791 Mi-RAM/(14616:14664): El tripulante 2 de la patota 1 se movio a: 3|0. Y su estatus actual es: 
+
+[INFO] 17:07:32:792 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:32:792 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:32:792 Mi-RAM/(14616:14666): El tripulante 1 de la patota 1 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 17:07:35:791 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:35:792 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:35:792 Mi-RAM/(14616:14668): El tripulante 2 de la patota 1 se movio a: 4|0. Y su estatus actual es: 
+
+[INFO] 17:07:35:792 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:35:792 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:35:792 Mi-RAM/(14616:14670): El tripulante 1 de la patota 1 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 17:07:38:792 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:38:792 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:38:792 Mi-RAM/(14616:14672): El tripulante 2 de la patota 1 se movio a: 5|0. Y su estatus actual es: 
+
+[INFO] 17:07:38:792 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:38:793 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:38:793 Mi-RAM/(14616:14674): El tripulante 1 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 17:07:41:793 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:41:793 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:41:793 Mi-RAM/(14616:14681): El tripulante 2 de la patota 1 se movio a: 5|1. Y su estatus actual es: 
+
+[INFO] 17:07:41:793 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:41:793 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:41:793 Mi-RAM/(14616:14683): El tripulante 1 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 17:07:44:794 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:44:794 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:44:794 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:44:794 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:44:794 Mi-RAM/(14616:14687): El tripulante 1 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 17:07:44:795 Mi-RAM/(14616:14686): El tripulante 2 de la patota 1 se movio a: 5|2. Y su estatus actual es: 
+
+[INFO] 17:07:47:794 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:47:794 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:47:794 Mi-RAM/(14616:14689): El tripulante 1 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 17:07:47:795 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:47:795 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:47:795 Mi-RAM/(14616:14692): El tripulante 2 de la patota 1 se movio a: 5|3. Y su estatus actual es: 
+
+[INFO] 17:07:50:795 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:50:795 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:50:795 Mi-RAM/(14616:14693): El tripulante 1 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 17:07:50:796 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:07:50:796 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:07:50:797 Mi-RAM/(14616:14695): El tripulante 2 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 17:08:02:798 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:02:798 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:08:02:799 Mi-RAM/(14616:14702): Tripulante 2 de la patota 1 pide tarea
+[INFO] 17:08:02:799 Mi-RAM/(14616:14702): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:08:02:799 Mi-RAM/(14616:14702): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:08:02:799 Mi-RAM/(14616:14702): Tripulante 2 pidio la tarea COMER;10;4;3.
+
+[INFO] 17:08:02:799 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:02:799 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:08:02:799 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:08:02:799 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:02:800 Mi-RAM/(14616:14706): Tripulante 1 de la patota 1 pide tarea
+[INFO] 17:08:02:800 Mi-RAM/(14616:14706): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:08:02:800 Mi-RAM/(14616:14706): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:08:02:800 Mi-RAM/(14616:14706): Tripulante 1 pidio la tarea COMER;10;4;3.
+
+[INFO] 17:08:02:800 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:08:02:800 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:02:800 Mi-RAM/(14616:14707): El tripulante 3 de la patota 1 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 17:08:02:801 Mi-RAM/(14616:14710): El tripulante 2 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 17:08:05:801 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:05:801 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:05:801 Mi-RAM/(14616:14712): El tripulante 3 de la patota 1 se movio a: 1|1. Y su estatus actual es: 
+
+[INFO] 17:08:05:801 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:05:802 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:05:802 Mi-RAM/(14616:14714): El tripulante 2 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 17:08:08:801 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:08:802 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:08:802 Mi-RAM/(14616:14716): El tripulante 3 de la patota 1 se movio a: 1|2. Y su estatus actual es: 
+
+[INFO] 17:08:08:802 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:08:802 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:08:803 Mi-RAM/(14616:14718): El tripulante 2 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 17:08:11:802 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:11:802 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:11:802 Mi-RAM/(14616:14720): El tripulante 3 de la patota 1 se movio a: 1|3. Y su estatus actual es: 
+
+[INFO] 17:08:11:803 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:11:803 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:11:803 Mi-RAM/(14616:14722): El tripulante 2 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:08:14:803 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:14:803 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:14:803 Mi-RAM/(14616:14724): El tripulante 3 de la patota 1 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 17:08:14:803 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:14:804 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:14:804 Mi-RAM/(14616:14726): El tripulante 2 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 17:08:17:804 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:17:804 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:17:804 Mi-RAM/(14616:14728): El tripulante 3 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 17:08:20:805 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:20:805 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:20:805 Mi-RAM/(14616:14730): El tripulante 3 de la patota 1 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 17:08:23:805 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:23:805 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:23:805 Mi-RAM/(14616:14734): El tripulante 3 de la patota 1 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 17:08:26:805 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:26:806 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:08:26:806 Mi-RAM/(14616:14737): Tripulante 2 de la patota 1 pide tarea
+[INFO] 17:08:26:806 Mi-RAM/(14616:14737): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:08:26:806 Mi-RAM/(14616:14737): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:08:26:806 Mi-RAM/(14616:14737): Tripulante 2 pidio la tarea CENAR;1;14;3.
+
+[INFO] 17:08:26:806 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:26:806 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:26:806 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:26:806 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:26:807 Mi-RAM/(14616:14738): El tripulante 3 de la patota 1 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 17:08:26:807 Mi-RAM/(14616:14739): El tripulante 1 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 17:08:29:806 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:29:807 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:29:807 Mi-RAM/(14616:14743): El tripulante 1 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 17:08:32:807 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:32:807 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:32:807 Mi-RAM/(14616:14745): El tripulante 1 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 17:08:35:807 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:35:807 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:35:807 Mi-RAM/(14616:14747): El tripulante 1 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:08:38:807 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:38:808 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:08:38:808 Mi-RAM/(14616:14750): Tripulante 3 de la patota 1 pide tarea
+[INFO] 17:08:38:808 Mi-RAM/(14616:14750): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:08:38:808 Mi-RAM/(14616:14750): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:08:38:808 Mi-RAM/(14616:14750): Tripulante 3 pidio la tarea COMER;10;4;3.
+
+[INFO] 17:08:38:808 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:38:808 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:38:808 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:38:808 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:38:809 Mi-RAM/(14616:14754): El tripulante 1 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 17:08:38:809 Mi-RAM/(14616:14751): El tripulante 2 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 17:08:41:809 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:41:809 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:41:810 Mi-RAM/(14616:14756): El tripulante 2 de la patota 1 se movio a: 10|6. Y su estatus actual es: 
+
+[INFO] 17:08:44:810 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:44:810 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:44:810 Mi-RAM/(14616:14758): El tripulante 2 de la patota 1 se movio a: 9|6. Y su estatus actual es: 
+
+[INFO] 17:08:47:810 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:47:811 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:47:811 Mi-RAM/(14616:14760): El tripulante 2 de la patota 1 se movio a: 9|7. Y su estatus actual es: 
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14763): Tripulante 1 de la patota 1 pide tarea
+[INFO] 17:08:50:811 Mi-RAM/(14616:14763): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:08:50:811 Mi-RAM/(14616:14763): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:08:50:811 Mi-RAM/(14616:14763): Tripulante 1 pidio la tarea CENAR;1;14;3.
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:50:811 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:50:813 Mi-RAM/(14616:14765): El tripulante 2 de la patota 1 se movio a: 9|8. Y su estatus actual es: 
+
+[INFO] 17:08:50:813 Mi-RAM/(14616:14764): El tripulante 3 de la patota 1 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 17:08:53:812 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:08:53:812 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:53:812 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:53:812 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:53:812 Mi-RAM/(14616:14769): El tripulante 2 de la patota 1 se movio a: 8|8. Y su estatus actual es: 
+
+[INFO] 17:08:53:813 Mi-RAM/(14616:14771): El tripulante 3 de la patota 1 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 17:08:56:812 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:56:812 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:56:813 Mi-RAM/(14616:14773): El tripulante 2 de la patota 1 se movio a: 8|9. Y su estatus actual es: 
+
+[INFO] 17:08:56:813 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:56:813 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:56:813 Mi-RAM/(14616:14775): El tripulante 3 de la patota 1 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 17:08:59:813 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:59:813 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:59:813 Mi-RAM/(14616:14777): El tripulante 2 de la patota 1 se movio a: 8|10. Y su estatus actual es: 
+
+[INFO] 17:08:59:814 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:08:59:814 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:08:59:814 Mi-RAM/(14616:14779): El tripulante 3 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:09:02:814 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:02:814 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:02:814 Mi-RAM/(14616:14781): El tripulante 2 de la patota 1 se movio a: 8|11. Y su estatus actual es: 
+
+[INFO] 17:09:02:814 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:02:815 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:02:815 Mi-RAM/(14616:14784): El tripulante 3 de la patota 1 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 17:09:05:814 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:05:815 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:05:815 Mi-RAM/(14616:14785): El tripulante 2 de la patota 1 se movio a: 8|12. Y su estatus actual es: 
+
+[INFO] 17:09:08:815 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:08:815 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:08:815 Mi-RAM/(14616:14787): El tripulante 2 de la patota 1 se movio a: 7|12. Y su estatus actual es: 
+
+[INFO] 17:09:11:816 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:11:816 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:11:816 Mi-RAM/(14616:14790): El tripulante 2 de la patota 1 se movio a: 7|13. Y su estatus actual es: 
+
+[INFO] 17:09:14:816 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:14:817 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:14:817 Mi-RAM/(14616:14792): El tripulante 2 de la patota 1 se movio a: 6|13. Y su estatus actual es: 
+
+[INFO] 17:09:14:817 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:14:817 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:09:14:817 Mi-RAM/(14616:14795): Tripulante 3 de la patota 1 pide tarea
+[INFO] 17:09:14:817 Mi-RAM/(14616:14795): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:09:14:817 Mi-RAM/(14616:14795): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:09:14:817 Mi-RAM/(14616:14795): Tripulante 3 pidio la tarea CENAR;1;14;3.
+
+[INFO] 17:09:14:818 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:09:14:818 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:14:819 Mi-RAM/(14616:14796): El tripulante 1 de la patota 1 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 17:09:17:817 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:09:17:817 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:17:817 Mi-RAM/(14616:14799): El tripulante 2 de la patota 1 se movio a: 5|13. Y su estatus actual es: 
+
+[INFO] 17:09:17:818 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:17:818 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:17:818 Mi-RAM/(14616:14801): El tripulante 1 de la patota 1 se movio a: 10|6. Y su estatus actual es: 
+
+[INFO] 17:09:20:818 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:20:818 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:20:818 Mi-RAM/(14616:14803): El tripulante 2 de la patota 1 se movio a: 4|13. Y su estatus actual es: 
+
+[INFO] 17:09:20:818 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:20:819 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:20:819 Mi-RAM/(14616:14805): El tripulante 1 de la patota 1 se movio a: 10|7. Y su estatus actual es: 
+
+[INFO] 17:09:23:819 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:23:819 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:23:819 Mi-RAM/(14616:14809): El tripulante 2 de la patota 1 se movio a: 3|13. Y su estatus actual es: 
+
+[INFO] 17:09:23:819 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:23:820 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:23:820 Mi-RAM/(14616:14811): El tripulante 1 de la patota 1 se movio a: 10|8. Y su estatus actual es: 
+
+[INFO] 17:09:26:819 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:26:819 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:26:819 Mi-RAM/(14616:14813): El tripulante 2 de la patota 1 se movio a: 2|13. Y su estatus actual es: 
+
+[INFO] 17:09:26:820 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:26:820 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:26:820 Mi-RAM/(14616:14815): El tripulante 1 de la patota 1 se movio a: 10|9. Y su estatus actual es: 
+
+[INFO] 17:09:29:820 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:29:820 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:29:820 Mi-RAM/(14616:14817): El tripulante 2 de la patota 1 se movio a: 1|13. Y su estatus actual es: 
+
+[INFO] 17:09:29:821 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:29:821 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:29:821 Mi-RAM/(14616:14819): El tripulante 1 de la patota 1 se movio a: 10|10. Y su estatus actual es: 
+
+[INFO] 17:09:32:821 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:32:821 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:32:821 Mi-RAM/(14616:14821): El tripulante 2 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 17:09:32:821 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:32:822 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:32:822 Mi-RAM/(14616:14823): El tripulante 1 de la patota 1 se movio a: 9|10. Y su estatus actual es: 
+
+[INFO] 17:09:35:822 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:35:822 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:35:822 Mi-RAM/(14616:14825): El tripulante 1 de la patota 1 se movio a: 9|11. Y su estatus actual es: 
+
+[INFO] 17:09:38:822 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:38:823 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:38:823 Mi-RAM/(14616:14827): El tripulante 1 de la patota 1 se movio a: 8|11. Y su estatus actual es: 
+
+[INFO] 17:09:41:823 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:41:823 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:41:823 Mi-RAM/(14616:14829): El tripulante 1 de la patota 1 se movio a: 8|12. Y su estatus actual es: 
+
+[INFO] 17:09:44:822 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:44:823 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:09:44:823 Mi-RAM/(14616:14832): Tripulante 2 de la patota 1 pide tarea
+[INFO] 17:09:44:823 Mi-RAM/(14616:14832): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:09:44:823 Mi-RAM/(14616:14832): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:09:44:823 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:09:44:823 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:44:823 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:09:44:823 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:44:824 Mi-RAM/(14616:14835): El tripulante 1 de la patota 1 se movio a: 8|13. Y su estatus actual es: 
+
+[INFO] 17:09:44:824 Mi-RAM/(14616:14833): El tripulante 3 de la patota 1 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:09:47:824 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:09:47:824 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:47:824 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:47:824 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:47:824 Mi-RAM/(14616:14839): El tripulante 1 de la patota 1 se movio a: 7|13. Y su estatus actual es: 
+
+[INFO] 17:09:47:824 Mi-RAM/(14616:14838): El tripulante 3 de la patota 1 se movio a: 9|5. Y su estatus actual es: 
+
+[INFO] 17:09:50:824 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:50:825 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:50:825 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:50:825 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:50:825 Mi-RAM/(14616:14841): El tripulante 3 de la patota 1 se movio a: 8|5. Y su estatus actual es: 
+
+[INFO] 17:09:50:825 Mi-RAM/(14616:14840): El tripulante 1 de la patota 1 se movio a: 7|14. Y su estatus actual es: 
+
+[INFO] 17:09:53:826 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:53:826 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:53:826 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:53:826 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:53:826 Mi-RAM/(14616:14843): El tripulante 1 de la patota 1 se movio a: 6|14. Y su estatus actual es: 
+
+[INFO] 17:09:53:826 Mi-RAM/(14616:14842): El tripulante 3 de la patota 1 se movio a: 8|6. Y su estatus actual es: 
+
+[INFO] 17:09:56:826 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:56:826 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:56:826 Mi-RAM/(14616:14844): El tripulante 1 de la patota 1 se movio a: 5|14. Y su estatus actual es: 
+
+[INFO] 17:09:56:826 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:56:826 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:56:826 Mi-RAM/(14616:14845): El tripulante 3 de la patota 1 se movio a: 8|7. Y su estatus actual es: 
+
+[INFO] 17:09:59:827 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:59:827 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:59:827 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:09:59:827 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:09:59:827 Mi-RAM/(14616:14847): El tripulante 3 de la patota 1 se movio a: 7|7. Y su estatus actual es: 
+
+[INFO] 17:09:59:827 Mi-RAM/(14616:14846): El tripulante 1 de la patota 1 se movio a: 4|14. Y su estatus actual es: 
+
+[INFO] 17:10:02:828 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:02:828 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:02:828 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:02:828 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:02:828 Mi-RAM/(14616:14849): El tripulante 1 de la patota 1 se movio a: 3|14. Y su estatus actual es: 
+
+[INFO] 17:10:02:828 Mi-RAM/(14616:14848): El tripulante 3 de la patota 1 se movio a: 7|8. Y su estatus actual es: 
+
+[INFO] 17:10:05:828 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:05:829 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:05:829 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:05:829 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:05:829 Mi-RAM/(14616:14851): El tripulante 3 de la patota 1 se movio a: 6|8. Y su estatus actual es: 
+
+[INFO] 17:10:05:829 Mi-RAM/(14616:14850): El tripulante 1 de la patota 1 se movio a: 2|14. Y su estatus actual es: 
+
+[INFO] 17:10:08:829 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:08:829 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:08:829 Mi-RAM/(14616:14852): El tripulante 3 de la patota 1 se movio a: 6|9. Y su estatus actual es: 
+
+[INFO] 17:10:08:829 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:08:829 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:08:829 Mi-RAM/(14616:14853): El tripulante 1 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 17:10:11:829 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:11:829 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:11:829 Mi-RAM/(14616:14854): El tripulante 3 de la patota 1 se movio a: 6|10. Y su estatus actual es: 
+
+[INFO] 17:10:14:830 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:14:830 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:14:830 Mi-RAM/(14616:14855): El tripulante 3 de la patota 1 se movio a: 5|10. Y su estatus actual es: 
+
+[INFO] 17:10:17:831 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:17:831 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:17:831 Mi-RAM/(14616:14856): El tripulante 3 de la patota 1 se movio a: 5|11. Y su estatus actual es: 
+
+[INFO] 17:10:20:831 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:20:831 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:10:20:831 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:10:20:831 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:20:831 Mi-RAM/(14616:14857): Tripulante 1 de la patota 1 pide tarea
+[INFO] 17:10:20:831 Mi-RAM/(14616:14857): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:10:20:831 Mi-RAM/(14616:14857): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:10:20:831 Mi-RAM/(14616:14858): El tripulante 3 de la patota 1 se movio a: 4|11. Y su estatus actual es: 
+
+[INFO] 17:10:23:831 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:10:23:831 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:23:831 Mi-RAM/(14616:14861): El tripulante 3 de la patota 1 se movio a: 4|12. Y su estatus actual es: 
+
+[INFO] 17:10:26:832 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:26:832 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:26:832 Mi-RAM/(14616:14862): El tripulante 3 de la patota 1 se movio a: 3|12. Y su estatus actual es: 
+
+[INFO] 17:10:29:833 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:29:833 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:29:833 Mi-RAM/(14616:14863): El tripulante 3 de la patota 1 se movio a: 3|13. Y su estatus actual es: 
+
+[INFO] 17:10:32:834 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:32:834 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:32:834 Mi-RAM/(14616:14864): El tripulante 3 de la patota 1 se movio a: 2|13. Y su estatus actual es: 
+
+[INFO] 17:10:35:834 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:35:834 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:35:834 Mi-RAM/(14616:14865): El tripulante 3 de la patota 1 se movio a: 2|14. Y su estatus actual es: 
+
+[INFO] 17:10:38:835 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:38:835 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:10:38:835 Mi-RAM/(14616:14866): El tripulante 3 de la patota 1 se movio a: 1|14. Y su estatus actual es: 
+
+[INFO] 17:10:50:837 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:10:50:837 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:10:50:837 Mi-RAM/(14616:14867): Tripulante 3 de la patota 1 pide tarea
+[INFO] 17:10:50:837 Mi-RAM/(14616:14867): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:10:50:837 Mi-RAM/(14616:14867): La ultima tarea es CENAR;1;14;3 de 41
+[INFO] 17:11:10:894 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:11:10:894 Mi-RAM/(14616:14616): Se recibio una operacion: 2
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Tareas guardadas: DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 97 y el nuevo es 97
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): La posicion es 121 hasta 41
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 97 y el nuevo es 97
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Entre aca, el final del anterior es 121 y el nuevo es 121
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): La posicion es 162 hasta 8
+[INFO] 17:11:10:895 Mi-RAM/(14616:14869): Se inicio una patota.
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14616): Se recibio una operacion: 3
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Llegue aca
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Llegue aca
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Entre aca, el final del anterior es 97 y el nuevo es 97
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Entre aca, el final del anterior es 121 y el nuevo es 121
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Entre aca, el final del anterior es 162 y el nuevo es 162
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): La posicion es 170 hasta 24
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Llegue aca
+[INFO] 17:11:10:895 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14871): Se creo al tripulante 0 de la patota 2
+[INFO] 17:11:10:895 Mi-RAM/(14616:14872): Tripulante 1 de la patota 2 pide tarea
+[INFO] 17:11:10:895 Mi-RAM/(14616:14872): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:11:10:895 Mi-RAM/(14616:14872): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:11:10:895 Mi-RAM/(14616:14872): Tripulante 1 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 17:11:10:895 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14874): El tripulante 1 de la patota 2 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se recibio una operacion: 3
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Llegue aca
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Llegue aca
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 97 y el nuevo es 97
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 121 y el nuevo es 121
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 162 y el nuevo es 162
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Entre aca, el final del anterior es 170 y el nuevo es 170
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): La posicion es 194 hasta 24
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Llegue aca
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14875): Se creo al tripulante 0 de la patota 2
+[INFO] 17:11:10:896 Mi-RAM/(14616:14876): Tripulante 2 de la patota 2 pide tarea
+[INFO] 17:11:10:896 Mi-RAM/(14616:14876): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:11:10:896 Mi-RAM/(14616:14876): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:11:10:896 Mi-RAM/(14616:14876): Tripulante 2 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:11:10:896 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:10:897 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:10:897 Mi-RAM/(14616:14616): Se recibio una operacion: 3
+
+[INFO] 17:11:10:897 Mi-RAM/(14616:14878): El tripulante 2 de la patota 2 se movio a: 1|0. Y su estatus actual es: 
+
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Llegue aca
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Llegue aca
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 41 y el nuevo es 41
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 49 y el nuevo es 49
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 73 y el nuevo es 73
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 97 y el nuevo es 97
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 121 y el nuevo es 121
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 162 y el nuevo es 162
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 170 y el nuevo es 170
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Entre aca, el final del anterior es 194 y el nuevo es 194
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): La posicion es 218 hasta 24
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Llegue aca
+[INFO] 17:11:10:897 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:11:10:897 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:11:10:897 Mi-RAM/(14616:14879): Se creo al tripulante 0 de la patota 2
+[INFO] 17:11:10:897 Mi-RAM/(14616:14880): Tripulante 3 de la patota 2 pide tarea
+[INFO] 17:11:10:897 Mi-RAM/(14616:14880): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:11:10:897 Mi-RAM/(14616:14880): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:11:10:897 Mi-RAM/(14616:14880): Tripulante 3 pidio la tarea DESAYUNAR;5;4;3.
+
+[INFO] 17:11:13:896 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:11:13:897 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:13:897 Mi-RAM/(14616:14881): El tripulante 1 de la patota 2 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 17:11:13:897 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:13:897 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:13:897 Mi-RAM/(14616:14882): El tripulante 2 de la patota 2 se movio a: 2|0. Y su estatus actual es: 
+
+[INFO] 17:11:16:897 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:16:897 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:16:897 Mi-RAM/(14616:14883): El tripulante 1 de la patota 2 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 17:11:16:897 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:16:897 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:16:897 Mi-RAM/(14616:14884): El tripulante 2 de la patota 2 se movio a: 3|0. Y su estatus actual es: 
+
+[INFO] 17:11:19:897 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:19:897 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:19:897 Mi-RAM/(14616:14885): El tripulante 1 de la patota 2 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 17:11:19:898 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:19:898 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:19:898 Mi-RAM/(14616:14886): El tripulante 2 de la patota 2 se movio a: 4|0. Y su estatus actual es: 
+
+[INFO] 17:11:22:898 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:22:898 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:22:898 Mi-RAM/(14616:14887): El tripulante 1 de la patota 2 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 17:11:22:898 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:22:899 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:22:899 Mi-RAM/(14616:14888): El tripulante 2 de la patota 2 se movio a: 4|1. Y su estatus actual es: 
+
+[INFO] 17:11:25:898 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:25:899 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:25:899 Mi-RAM/(14616:14891): El tripulante 1 de la patota 2 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 17:11:25:899 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:25:899 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:25:899 Mi-RAM/(14616:14892): El tripulante 2 de la patota 2 se movio a: 4|2. Y su estatus actual es: 
+
+[INFO] 17:11:28:899 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:28:899 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:28:899 Mi-RAM/(14616:14893): El tripulante 1 de la patota 2 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 17:11:28:899 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:28:899 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:28:899 Mi-RAM/(14616:14894): El tripulante 2 de la patota 2 se movio a: 4|3. Y su estatus actual es: 
+
+[INFO] 17:11:31:899 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:31:899 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:31:899 Mi-RAM/(14616:14895): El tripulante 1 de la patota 2 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 17:11:31:899 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:31:900 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:31:900 Mi-RAM/(14616:14896): El tripulante 2 de la patota 2 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 17:11:34:900 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:34:900 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:34:900 Mi-RAM/(14616:14897): El tripulante 1 de la patota 2 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 17:11:34:900 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:34:900 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:34:900 Mi-RAM/(14616:14898): El tripulante 2 de la patota 2 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14899): Tripulante 2 de la patota 2 pide tarea
+[INFO] 17:11:46:902 Mi-RAM/(14616:14899): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:11:46:902 Mi-RAM/(14616:14899): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:11:46:902 Mi-RAM/(14616:14899): Tripulante 2 pidio la tarea COMER;10;4;3.
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:11:46:902 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:46:903 Mi-RAM/(14616:14900): Tripulante 1 de la patota 2 pide tarea
+[INFO] 17:11:46:903 Mi-RAM/(14616:14900): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:11:46:903 Mi-RAM/(14616:14900): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:11:46:903 Mi-RAM/(14616:14900): Tripulante 1 pidio la tarea COMER;10;4;3.
+
+[INFO] 17:11:46:903 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 8
+
+[INFO] 17:11:46:903 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:46:903 Mi-RAM/(14616:14901): El tripulante 3 de la patota 2 se movio a: 0|1. Y su estatus actual es: 
+
+[INFO] 17:11:46:903 Mi-RAM/(14616:14902): El tripulante 2 de la patota 2 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 17:11:49:903 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:49:903 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:49:903 Mi-RAM/(14616:14903): El tripulante 3 de la patota 2 se movio a: 0|2. Y su estatus actual es: 
+
+[INFO] 17:11:49:903 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:49:903 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:49:903 Mi-RAM/(14616:14904): El tripulante 2 de la patota 2 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 17:11:52:903 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:52:903 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:52:904 Mi-RAM/(14616:14905): El tripulante 3 de la patota 2 se movio a: 0|3. Y su estatus actual es: 
+
+[INFO] 17:11:52:904 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:52:904 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:52:904 Mi-RAM/(14616:14906): El tripulante 2 de la patota 2 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 17:11:55:904 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:55:904 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:55:904 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:55:904 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:55:904 Mi-RAM/(14616:14908): El tripulante 2 de la patota 2 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:11:55:904 Mi-RAM/(14616:14907): El tripulante 3 de la patota 2 se movio a: 0|4. Y su estatus actual es: 
+
+[INFO] 17:11:58:904 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:58:905 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:58:905 Mi-RAM/(14616:14909): El tripulante 2 de la patota 2 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 17:11:58:905 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:11:58:905 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:11:58:905 Mi-RAM/(14616:14910): El tripulante 3 de la patota 2 se movio a: 1|4. Y su estatus actual es: 
+
+[INFO] 17:12:01:906 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:01:906 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:01:906 Mi-RAM/(14616:14911): El tripulante 3 de la patota 2 se movio a: 2|4. Y su estatus actual es: 
+
+[INFO] 17:12:04:906 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:04:906 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:04:906 Mi-RAM/(14616:14912): El tripulante 3 de la patota 2 se movio a: 3|4. Y su estatus actual es: 
+
+[INFO] 17:12:07:906 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:07:906 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:07:906 Mi-RAM/(14616:14913): El tripulante 3 de la patota 2 se movio a: 4|4. Y su estatus actual es: 
+
+[INFO] 17:12:10:906 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:10:906 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:12:10:906 Mi-RAM/(14616:14914): Tripulante 2 de la patota 2 pide tarea
+[INFO] 17:12:10:906 Mi-RAM/(14616:14914): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:12:10:906 Mi-RAM/(14616:14914): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:12:10:906 Mi-RAM/(14616:14914): Tripulante 2 pidio la tarea CENAR;1;14;3.
+
+[INFO] 17:12:10:907 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:12:10:907 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:10:907 Mi-RAM/(14616:14915): El tripulante 1 de la patota 2 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 17:12:10:907 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:12:10:907 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:10:907 Mi-RAM/(14616:14916): El tripulante 3 de la patota 2 se movio a: 5|4. Y su estatus actual es: 
+
+[INFO] 17:12:13:907 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:13:907 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:13:907 Mi-RAM/(14616:14917): El tripulante 1 de la patota 2 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 17:12:16:907 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:16:907 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:16:907 Mi-RAM/(14616:14918): El tripulante 1 de la patota 2 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 17:12:19:908 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:19:908 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:19:908 Mi-RAM/(14616:14919): El tripulante 1 de la patota 2 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:12:22:908 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:22:908 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:22:908 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:22:908 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:12:22:909 Mi-RAM/(14616:14921): Tripulante 3 de la patota 2 pide tarea
+[INFO] 17:12:22:909 Mi-RAM/(14616:14921): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:12:22:909 Mi-RAM/(14616:14921): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:12:22:909 Mi-RAM/(14616:14921): Tripulante 3 pidio la tarea COMER;10;4;3.
+
+[INFO] 17:12:22:909 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:12:22:909 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:22:909 Mi-RAM/(14616:14920): El tripulante 1 de la patota 2 se movio a: 10|4. Y su estatus actual es: 
+
+[INFO] 17:12:22:909 Mi-RAM/(14616:14922): El tripulante 2 de la patota 2 se movio a: 10|5. Y su estatus actual es: 
+
+[INFO] 17:12:25:909 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:12:25:909 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:25:909 Mi-RAM/(14616:14925): El tripulante 2 de la patota 2 se movio a: 9|5. Y su estatus actual es: 
+
+[INFO] 17:12:28:909 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:28:910 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:28:910 Mi-RAM/(14616:14926): El tripulante 2 de la patota 2 se movio a: 9|6. Y su estatus actual es: 
+
+[INFO] 17:12:31:910 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:31:910 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:31:910 Mi-RAM/(14616:14928): El tripulante 2 de la patota 2 se movio a: 8|6. Y su estatus actual es: 
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14616): Se recibio una operacion: 8
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14929): Tripulante 1 de la patota 2 pide tarea
+[INFO] 17:12:34:910 Mi-RAM/(14616:14929): Las tareas del tripulante son DESAYUNAR;5;4;3
+COMER;10;4;3
+CENAR;1;14;3
+[INFO] 17:12:34:910 Mi-RAM/(14616:14929): La ultima tarea es CENAR;1;14;3 de 162
+[INFO] 17:12:34:910 Mi-RAM/(14616:14929): Tripulante 1 pidio la tarea CENAR;1;14;3.
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14930): El tripulante 3 de la patota 2 se movio a: 6|4. Y su estatus actual es: 
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 7
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:34:910 Mi-RAM/(14616:14931): El tripulante 2 de la patota 2 se movio a: 8|7. Y su estatus actual es: 
+
+[INFO] 17:12:37:911 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:37:911 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:37:911 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:37:911 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:37:911 Mi-RAM/(14616:14933): El tripulante 2 de la patota 2 se movio a: 7|7. Y su estatus actual es: 
+
+[INFO] 17:12:37:911 Mi-RAM/(14616:14932): El tripulante 3 de la patota 2 se movio a: 7|4. Y su estatus actual es: 
+
+[INFO] 17:12:40:911 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:40:911 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:40:911 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:40:911 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:40:911 Mi-RAM/(14616:14935): El tripulante 3 de la patota 2 se movio a: 8|4. Y su estatus actual es: 
+
+[INFO] 17:12:40:912 Mi-RAM/(14616:14934): El tripulante 2 de la patota 2 se movio a: 7|8. Y su estatus actual es: 
+
+[INFO] 17:12:43:912 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:43:912 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:43:912 Mi-RAM/(14616:14616): Se conecto un cliente con socket: 5
+
+[INFO] 17:12:43:912 Mi-RAM/(14616:14616): Se recibio una operacion: 4
+
+[INFO] 17:12:43:912 Mi-RAM/(14616:14937): El tripulante 2 de la patota 2 se movio a: 6|8. Y su estatus actual es: 
+
+[INFO] 17:12:43:912 Mi-RAM/(14616:14936): El tripulante 3 de la patota 2 se movio a: 9|4. Y su estatus actual es: 
+
+[INFO] 17:12:46:478 Mi-RAM/(14616:14616): Iniciando compactacion

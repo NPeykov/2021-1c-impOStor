@@ -470,6 +470,12 @@ void enviarTareaSiguiente(void *unTripulante){
 	PatotaCB *PatotaDelTripu = (PatotaCB*) segmentoPatotaDelTripulante->dato;
 	char* tarea = buscarTarea(PatotaDelTripu->tareas, proximaTarea);
 
+	if(tarea == NULL){
+	        enviar_mensaje(PEDIDO_TAREA, "null", cliente);
+	        liberar_cliente(cliente);
+	        pthread_exit(NULL);
+	    }
+
 	log_info(logs_ram,"Tripulante %d pidio la tarea %s.\n", idTripulante, tarea);
 
 	enviar_mensaje(PEDIDO_TAREA, tarea, cliente);

@@ -32,6 +32,7 @@ void iniciar_recursos_mongo(void) {
 	sem_init(&semaforo_para_file_oxigeno,0,1);
 	sem_init(&semaforo_para_file_comida,0,1);
 	sem_init(&semaforo_para_file_basura,0,1);
+	sem_init(&inicio_fsck, 0, 0);
 
 
 	//inicializo los booleanos de existen archivos
@@ -859,6 +860,8 @@ void *gestionarCliente(int socket) {
 			tripulante_con_su_accion *tripulanteFS = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
 			tripulanteFS->tripulante = trip_fin_sabotaje;
 			tripulanteFS->accion     = FIN_SABOTAJE;
+
+			sem_post(&inicio_fsck);
 
 			pthread_create(&hilo_fin_sabotaje, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFS);
 			pthread_detach(hilo_fin_sabotaje);

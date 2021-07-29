@@ -6,24 +6,19 @@ void rutina(int n) {
 
 	sabotaje_code codigo_sabotaje = obtener_tipo_sabotaje();
 
-	if(codigo_sabotaje != NO_HAY_SABOTAJE)
+	if(codigo_sabotaje == NO_HAY_SABOTAJE)
 	{
-		log_info(mongoLogger, "SE DETECTO UN SABOTAJEEEE");
-
-
-
-
-		/*TODO: chequear si el semaforo de abajo no hace nada raro
-		 * porque si mandan señal sin haber sabotaje van a quedar muchos
-		 * hilos esperando por esa señal
-		 *
-		 * */
-		//sem_post(&dar_orden_sabotaje);
-		enviar_aviso_sabotaje_a_discordiador();
+		log_info(mongoLogger, "TIRARON LA SEÑAL DE SABOTAJE PERO NO HAY INCONSISTENCIAS");
+		return;
 	}
 
-	else log_info(mongoLogger, "TIRARON LA SEÑAL DE SABOTAJE PERO NO HAY INCONSISTENCIAS");
+	log_info(mongoLogger, "SE DETECTO UN SABOTAJEEEE");
 
+	enviar_aviso_sabotaje_a_discordiador();
+
+	sem_wait(&inicio_fsck); //espera q discordiador termine el sabotaje
+
+	iniciar_recuperacion(codigo_sabotaje);
 
 }
 
@@ -75,13 +70,17 @@ bool es_blocks_superbloque() {
 	int cantidad_bloques_sb = *(s_superbloque + sizeof(uint32_t));
 	int cantidad_bloques_teorico = s_tamanio_blocks / cantidad_block_size_sb;
 
-	return cantidad_bloques_teorico != cantidad_bloques_sb;
+	resultado = cantidad_bloques_teorico != cantidad_bloques_sb;
+
+	if(resultado == true)
+		log_info(mongoLogger, "El sabotaje fue en blocks de superbloque");
+
+	return resultado;
 }
 
 bool es_bitmap_superbloque() {
 	bool resultado;
 	int copia_offset;
-	t_bitarray *bitarray_sb;
 	void *bitmap_sb;
 
 	bitmap_sb = s_superbloque + 2*sizeof(uint32_t);
@@ -107,6 +106,10 @@ bool es_bitmap_superbloque() {
 			return resultado;
 		}
 	}
+
+	if (resultado == true)
+		log_info(mongoLogger, "El sabotaje fue en bitmap de superbloque");
+
 
 	return resultado;
 }
@@ -134,6 +137,12 @@ bool es_file_size(files file) {
 	else {
 		printf("no existe el archivo");
 	}
+
+	if (esta_saboteado == true)
+		log_info(mongoLogger, "El sabotaje fue en size de file");
+
+
+
 	return esta_saboteado;
 
 }
@@ -163,6 +172,11 @@ bool es_file_block_count(files file){
 			esta_saboteado=true;
 		}
 	}
+
+	if (esta_saboteado == true)
+		log_info(mongoLogger, "El sabotaje fue en block_count de file");
+
+
 
 	return esta_saboteado;
 }
@@ -214,6 +228,10 @@ bool es_file_Blocks(files file){
 
 	}
 
+	if (esta_saboteado == true)
+		log_info(mongoLogger, "El sabotaje fue en blocks de file");
+
+
 
 	return esta_saboteado;
 }
@@ -221,20 +239,174 @@ bool es_file_Blocks(files file){
 ///////////////////
 
 sabotaje_code obtener_tipo_sabotaje() {
-	sabotaje_code tipo_sabotaje;
+	sabotaje_code tipo_sabotaje = NO_HAY_SABOTAJE;
+
+	fue_en_oxigeno = false;
+	fue_en_comida  = false;
+	fue_en_basura  = false;
 
 	levantar_superbloque();
 	levantar_blocks();
 
+	if(es_blocks_superbloque())
+		tipo_sabotaje = SB_BLOCKS;
 
+	if(es_bitmap_superbloque())
+		tipo_sabotaje = SB_BITMAP;
 
+	if (es_file_size(OXIGENO)) {
+		tipo_sabotaje = FILES_SIZE;
+		fue_en_oxigeno = true;
+	}
 
+	if (es_file_size(COMIDA)) {
+		tipo_sabotaje = FILES_SIZE;
+		fue_en_comida = true;
+	}
+
+	if (es_file_size(BASURA)) {
+		tipo_sabotaje = FILES_SIZE;
+		fue_en_basura = true;
+	}
+
+	if (es_file_block_count(OXIGENO)) {
+		tipo_sabotaje = FILES_BLOCK_COUNT;
+		fue_en_oxigeno = true;
+	}
+
+	if (es_file_block_count(COMIDA)) {
+		tipo_sabotaje = FILES_BLOCK_COUNT;
+		fue_en_comida = true;
+	}
+
+	if (es_file_block_count(BASURA)) {
+		tipo_sabotaje = FILES_BLOCK_COUNT;
+		fue_en_basura = true;
+	}
+
+	if (es_file_Blocks(OXIGENO)) {
+		tipo_sabotaje = FILES_MD5;
+		fue_en_oxigeno = true;
+	}
+
+	if (es_file_Blocks(COMIDA)) {
+		tipo_sabotaje = FILES_MD5;
+		fue_en_comida = true;
+	}
+
+	if (es_file_Blocks(BASURA)) {
+		tipo_sabotaje = FILES_MD5;
+		fue_en_basura = true;
+	}
 
 	munmap(s_blocks, s_tamanio_blocks);
 	munmap(s_superbloque, s_tamanio_superbloque);
 
 	return tipo_sabotaje;
 }
+
+
+
+
+
+//--------------RECUPERACION
+
+void actualizar_valor_blocks_sb() {
+	int block_size_sb = *(s_superbloque);
+	int cantidad_bloques_sb = *(s_superbloque + sizeof(uint32_t));
+	uint32_t cantidad_bloques_teorico = (unsigned) s_tamanio_blocks / block_size_sb;
+
+	memcpy(s_superbloque + sizeof(uint32_t), &cantidad_bloques_teorico, sizeof(uint32_t));
+}
+
+bool esta_ocupado(int inicio, int fin) {
+
+	while(inicio <= fin){
+		if(s_blocks[inicio] != ' '){
+			return true;
+		}
+		inicio++;
+	}
+
+	return false;
+}
+
+void setear_valores_a_bitmap() {
+
+	for(int i=1, offset=0; i <= *g_blocks; i++, offset+=*g_block_size){
+
+		if(esta_ocupado(offset, offset + *g_block_size)){
+			bitarray_set_bit(bitarray_sb, i);
+		}
+
+		else {
+			bitarray_clean_bit(bitarray_sb, i);
+		}
+
+	}
+
+}
+
+void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
+
+
+	switch(sabotaje_cod) {
+
+	case SB_BLOCKS:
+		actualizar_valor_blocks_sb();
+		break;
+
+	case SB_BITMAP:
+		setear_valores_a_bitmap();
+		break;
+
+	case FILES_SIZE:
+		if (fue_en_oxigeno) {
+			//TODO
+		}
+
+		if (fue_en_comida) {
+			//TODO
+		}
+
+		if (fue_en_basura) {
+			//TODO
+		}
+
+		break;
+
+	case FILES_BLOCK_COUNT:
+		if (fue_en_oxigeno) {
+			//TODO
+		}
+
+		if (fue_en_comida) {
+			//TODO
+		}
+
+		if (fue_en_basura) {
+			//TODO
+		}
+		break;
+
+	case FILES_MD5:
+		if (fue_en_oxigeno) {
+			//TODO
+		}
+
+		if (fue_en_comida) {
+			//TODO
+		}
+
+		if (fue_en_basura) {
+			//TODO
+		}
+		break;
+
+	}
+}
+
+
 
 
 void gestionarSabotaje() {

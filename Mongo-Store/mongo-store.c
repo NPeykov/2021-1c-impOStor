@@ -34,6 +34,12 @@ void iniciar_recursos_mongo(void) {
 	sem_init(&semaforo_para_file_basura,0,1);
 
 
+	//inicializo los booleanos de existen archivos
+	g_existe_file_oxigeno = false;
+	g_existe_file_comida  = false;
+	g_existe_file_basura  = false;
+
+
 	mongoConfig = config_create(PATH_MONGO_STORE_CONFIG); //aca estarian todas las configs de este server
 	puerto = config_get_string_value(mongoConfig, "PUERTO");
 	mongoLogger = log_create(PATH_MONGO_STORE_LOG, "Mongo", 1, LOG_LEVEL_DEBUG);
@@ -1316,6 +1322,7 @@ void generar_oxigeno(int cantidad){
 		bloque=recuperar_ultimo_bloque_file(ruta_oxigeno);
 		escribir_el_archivo(ruta_oxigeno,cadena,bloque);
 	}
+
 	sem_post(&semaforo_para_file_oxigeno);
 
 
@@ -1328,7 +1335,6 @@ void consumir_oxigeno(int cant_borrar){
 	int existeArchivo = access(ruta_oxigeno, F_OK);
 
 	if(existeArchivo!=-1){
-
 		eliminar_del_archivo(ruta_oxigeno,cant_borrar,'O');
 	}
 	else{
@@ -1364,6 +1370,7 @@ void generar_comida(int cantidad){
 		bloque=recuperar_ultimo_bloque_file(ruta_comida);
 		escribir_el_archivo(ruta_comida,cadena,bloque);
 	}
+
 	sem_post(&semaforo_para_file_comida);
 
 }

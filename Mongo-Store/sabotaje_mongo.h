@@ -11,6 +11,12 @@ char *s_blocks;
 int s_tamanio_superbloque;
 int s_tamanio_blocks;
 
+bool fue_en_oxigeno;
+bool fue_en_comida;
+bool fue_en_basura;
+
+t_bitarray *bitarray_sb;
+
 typedef enum{
 	SB_BLOCKS,
 	SB_BITMAP,
@@ -27,6 +33,9 @@ sabotaje_code obtener_tipo_sabotaje();
 void gestionarSabotaje(void);
 char* siguiente_posicion_sabotaje(void);
 void enviar_aviso_sabotaje_a_discordiador(void);
+
+//recuperacion
+void iniciar_recuperacion(sabotaje_code);
 
 
 #endif

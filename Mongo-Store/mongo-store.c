@@ -14,6 +14,7 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
+
 	/*for(int i = 0;i<10;i++){
 		pthread_t oxigeno;
 		pthread_t comida;
@@ -45,6 +46,7 @@ void iniciar_recursos_mongo(void) {
 	sem_init(&semaforo_para_file_oxigeno,0,1);
 	sem_init(&semaforo_para_file_comida,0,1);
 	sem_init(&semaforo_para_file_basura,0,1);
+	sem_init(&inicio_fsck, 0, 0);
 
 
 	//inicializo los booleanos de existen archivos
@@ -315,18 +317,21 @@ void inicializar_bitacora(char *rutaBitacora, char *numeroDeBloque){
 	close(archivo);
 }
 
-//agrega un bloque a la bitacora cuando se queda sin lugar un bloque
 void agregar_bloque_bitacora(char *rutaBitacora,int bloque){
-	int archivo = open(rutaBitacora, O_RDWR);
-	struct stat statbuf;
-	fstat(archivo,&statbuf);
-	ftruncate(archivo,(off_t) statbuf.st_size + 2);
+	FILE *fd = fopen(rutaBitacora, "r+");
 
-	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	archivo_addr[statbuf.st_size]=',';
-	archivo_addr[statbuf.st_size+1]=bloque+'0';
-	munmap(archivo_addr,statbuf.st_size);
-	close(archivo);
+	char *nuevoBloque = string_from_format(",%d", bloque);
+
+	if(fd == NULL) {
+		log_info(mongoLogger, "Error al abrir la bitacora para escribir bloque");
+		return;
+	}
+
+	fseek(fd, 0, SEEK_END);
+
+	fputs(nuevoBloque, fd);
+
+	fclose(fd);
 }
 
 //crea el bitmap logico para operar los bloques
@@ -974,6 +979,8 @@ void *gestionarCliente(int socket) {
 			tripulante_con_su_accion *tripulanteFS = (tripulante_con_su_accion*) malloc(sizeof(tripulante_con_su_accion));
 			tripulanteFS->tripulante = trip_fin_sabotaje;
 			tripulanteFS->accion     = FIN_SABOTAJE;
+
+			sem_post(&inicio_fsck);
 
 			pthread_create(&hilo_fin_sabotaje, NULL, (void*) escribir_en_su_bitacora_la_accion, (void*) tripulanteFS);
 			pthread_detach(hilo_fin_sabotaje);

@@ -1485,6 +1485,7 @@ void generar_oxigeno(int cantidad){
 		close(archivo);
 		escribir_el_archivo_oxigeno(cadena,bloque);
 
+
 	}
 
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD

@@ -14,12 +14,16 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-	generar_oxigeno(10000);
-
 	/*for(int i = 0;i<10;i++){
-		pthread_t prueba;
-		pthread_create(&prueba, NULL,	(void*) generar_oxigeno,(void*) 200);
-		pthread_detach(prueba);
+		pthread_t oxigeno;
+		pthread_t comida;
+		pthread_t basura;
+		pthread_create(&oxigeno, NULL,	(void*) generar_oxigeno,(void*) 200);
+		pthread_detach(oxigeno);
+		pthread_create(&comida, NULL,	(void*) generar_comida,(void*) 50);
+		pthread_detach(comida);
+		pthread_create(&basura, NULL,	(void*) generar_basura,(void*) 256);
+		pthread_detach(basura);
 	}*/
 
 	gestionarCliente(socket_mongo_store );
@@ -157,6 +161,12 @@ void gestionar_bajadas_a_disco(void){
 
 		if(g_existe_file_oxigeno){
 			bajar_datos_files(archivoOxigeno,rutaOxigeno);
+		}
+		if(g_existe_file_comida){
+			bajar_datos_files(archivoComida,rutaComida);
+		}
+		if(g_existe_file_basura){
+			bajar_datos_files(archivoBasura,rutaBasura);
 		}
 		log_info(mongoLogger, "Finalizo la bajada a disco");
 	}
@@ -656,6 +666,14 @@ void crear_estructura_filesystem(){
 	string_append(&rutaOxigeno, dirFiles);
 	string_append(&rutaOxigeno, "/oxigeno.ims");
 
+	rutaBasura=string_new();
+	string_append(&rutaBasura, dirFiles);
+	string_append(&rutaBasura, "/basura.ims");
+
+	rutaComida=string_new();
+	string_append(&rutaComida, dirFiles);
+	string_append(&rutaComida, "/comida.ims");
+
 
 	if (mkdir(puntoMontaje, 0777) != 0) {
 		int todoBien=comprobar_que_todos_los_datos_existen(puntoMontaje);
@@ -672,6 +690,16 @@ void crear_estructura_filesystem(){
 			if(existeArchivoOxigeno!=-1){
 				g_existe_file_oxigeno=true;
 				archivoOxigeno=copiar_file(archivoOxigeno,rutaOxigeno);
+			}
+			int existeArchivoComida=open(rutaComida,O_RDWR);
+			if(existeArchivoComida!=-1){
+				g_existe_file_comida=true;
+				archivoComida=copiar_file(archivoComida,rutaComida);
+			}
+			int existeArchivoBasura=open(rutaBasura,O_RDWR);
+			if(existeArchivoBasura!=-1){
+				g_existe_file_basura=true;
+				archivoBasura=copiar_file(archivoBasura,rutaBasura);
 			}
 
 		}
@@ -1177,43 +1205,111 @@ bool contiene(char* bloques,char* bloque){
 }
 
 //actualiza un archivo si se agregan bloques o cambia su tamaño
-void actualizar_el_archivo_oxigeno(char* cadena,t_bloque* bloque){
+void actualizar_el_archivo(files file ,char* cadena,t_bloque* bloque){
 	char* cantidad_bloques;
-	char* bloques=bloques_de_archivo(archivoOxigeno);
-	bool contiene_bloque=contiene(bloques,string_itoa(bloque->id_bloque));
+	char* bloques;
+	char* size;
+	bool contiene_bloque;
+	char* caracter_llenado;
+	char* contenido_de_los_bloques;
+	char* md5;
+	char* texto;
 
-	if(!contiene_bloque){
+	switch(file){
+		case OXIGENO:
+			;
+			bloques=bloques_de_archivo(archivoOxigeno);
+			contiene_bloque=contiene(bloques,string_itoa(bloque->id_bloque));
 
-		cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoOxigeno))+1);
+			if(!contiene_bloque){
+				cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoOxigeno))+1);
+			}
+			else{
+				cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoOxigeno)));
+			}
 
+			size=string_itoa(atoi(size_de_archivo(archivoOxigeno))+string_length(cadena));
+			if(!contiene_bloque){
+				string_append(&bloques,string_itoa(bloque->id_bloque));
+			}
+			else{
+				bloques=string_substring_until(bloques,string_length(bloques)-1);
+			}
+
+			caracter_llenado=string_substring_until(cadena, 1);
+			contenido_de_los_bloques=contenido_de_bloques(bloques);
+			md5=generarMD5(contenido_de_los_bloques);
+			string_append(&bloques,",");
+			free(archivoOxigeno);
+			texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
+					size,cantidad_bloques,bloques,caracter_llenado,md5);
+			archivoOxigeno=malloc(string_length(texto)+1);
+			memcpy(archivoOxigeno,texto,string_length(texto)+1);
+			break;
+		case COMIDA:
+			;
+			bloques=bloques_de_archivo(archivoComida);
+			contiene_bloque=contiene(bloques,string_itoa(bloque->id_bloque));
+
+			if(!contiene_bloque){
+				cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoComida))+1);
+			}
+			else{
+				cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoComida)));
+			}
+
+			size=string_itoa(atoi(size_de_archivo(archivoComida))+string_length(cadena));
+			if(!contiene_bloque){
+				string_append(&bloques,string_itoa(bloque->id_bloque));
+			}
+			else{
+				bloques=string_substring_until(bloques,string_length(bloques)-1);
+			}
+
+			caracter_llenado=string_substring_until(cadena, 1);
+			contenido_de_los_bloques=contenido_de_bloques(bloques);
+			md5=generarMD5(contenido_de_los_bloques);
+			string_append(&bloques,",");
+			free(archivoComida);
+			texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
+					size,cantidad_bloques,bloques,caracter_llenado,md5);
+			archivoComida=malloc(string_length(texto)+1);
+			memcpy(archivoComida,texto,string_length(texto)+1);
+			break;
+		case BASURA:
+			;
+			bloques=bloques_de_archivo(archivoBasura);
+			contiene_bloque=contiene(bloques,string_itoa(bloque->id_bloque));
+
+			if(!contiene_bloque){
+				cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoBasura))+1);
+			}
+			else{
+				cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoBasura)));
+			}
+
+			size=string_itoa(atoi(size_de_archivo(archivoBasura))+string_length(cadena));
+			if(!contiene_bloque){
+				string_append(&bloques,string_itoa(bloque->id_bloque));
+			}
+			else{
+				bloques=string_substring_until(bloques,string_length(bloques)-1);
+			}
+
+			caracter_llenado=string_substring_until(cadena, 1);
+			contenido_de_los_bloques=contenido_de_bloques(bloques);
+			md5=generarMD5(contenido_de_los_bloques);
+			string_append(&bloques,",");
+			free(archivoBasura);
+			texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
+					size,cantidad_bloques,bloques,caracter_llenado,md5);
+			archivoBasura=malloc(string_length(texto)+1);
+			memcpy(archivoBasura,texto,string_length(texto)+1);
+			break;
 	}
-	else{
-		cantidad_bloques=string_itoa(atoi(cantidad_de_bloques_de_archivo(archivoOxigeno)));
-
-	}
-
-	char* size=string_itoa(atoi(size_de_archivo(archivoOxigeno))+string_length(cadena));
-
-	if(!contiene_bloque){
-		string_append(&bloques,string_itoa(bloque->id_bloque));
-	}
-	else{
-		bloques=string_substring_until(bloques,string_length(bloques)-1);
-	}
-
-	char* caracter_llenado=string_substring_until(cadena, 1);
-	char* contenido_de_los_bloques=contenido_de_bloques(bloques);
 
 
-	char* md5=generarMD5(contenido_de_los_bloques);
-	string_append(&bloques,",");
 
-	free(archivoOxigeno);
-	char* texto = string_from_format("SIZE=%s\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%s\nMD5_ARCHIVO=%s",
-			size,cantidad_bloques,bloques,caracter_llenado,md5);
-
-	archivoOxigeno=malloc(string_length(texto)+1);
-	memcpy(archivoOxigeno,texto,string_length(texto)+1);
 	//ruta=string_duplicate(texto);
 
 	/*for(int i = 0 ; i<string_length(texto);i++){
@@ -1299,11 +1395,11 @@ void actualizar_archivo_borrado_oxigeno(int cadena,bool flag,char caracter ){
 
 
 //escribe lo que se desea en un archivo
-void escribir_el_archivo_oxigeno(char* cadena, t_bloque* bloque){
+void escribir_el_archivo(files file, char* cadena, t_bloque* bloque){
 
 	if(bloque->espacio>=string_length(cadena)){
 		escribir_en_block(cadena,bloque);
-		actualizar_el_archivo_oxigeno(cadena,bloque);
+		actualizar_el_archivo(file,cadena,bloque);
 
 	}
 	else{
@@ -1311,10 +1407,10 @@ void escribir_el_archivo_oxigeno(char* cadena, t_bloque* bloque){
 		char *lo_que_falta_escribir=string_substring_from(cadena,string_length(lo_que_entra_en_el_bloque));
 		t_bloque* nuevo_bloque=malloc(sizeof(t_bloque));
 		escribir_en_block(lo_que_entra_en_el_bloque,bloque);
-		actualizar_el_archivo_oxigeno(lo_que_entra_en_el_bloque,bloque);
+		actualizar_el_archivo(file, lo_que_entra_en_el_bloque,bloque);
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
 		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
-		escribir_el_archivo_oxigeno(lo_que_falta_escribir,nuevo_bloque);
+		escribir_el_archivo(file,lo_que_falta_escribir,nuevo_bloque);
 	}
 
 
@@ -1483,7 +1579,7 @@ void generar_oxigeno(int cantidad){
 		memcpy(archivoOxigeno, archivo_addr, string_length(archivo_addr)+1);
 		munmap(archivo_addr,statbuf.st_size);
 		close(archivo);
-		escribir_el_archivo_oxigeno(cadena,bloque);
+		escribir_el_archivo(OXIGENO,cadena,bloque);
 
 
 	}
@@ -1491,7 +1587,7 @@ void generar_oxigeno(int cantidad){
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
 	else{
 		bloque=recuperar_ultimo_bloque_file(archivoOxigeno);
-		escribir_el_archivo_oxigeno(cadena,bloque);
+		escribir_el_archivo(OXIGENO,cadena,bloque);
 	}
 	sem_post(&semaforo_para_file_oxigeno);
 
@@ -1515,35 +1611,35 @@ void consumir_oxigeno(int cant_borrar){
 }
 
 //crea el archivo de generar comida y escribe en el
-void generar_comida(int cantidad){/*
+void generar_comida(int cantidad){
+
 	char* cadena=string_repeat('C', cantidad);
-	char* ruta_comida =string_new();
-	string_append(&ruta_comida,puntoMontaje);
-	string_append(&ruta_comida,"/Files/comida.ims");
-
-	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
-	sem_wait(&semaforo_para_file_comida);
-	int existeArchivo = access(ruta_comida, F_OK);
-
+	int existeArchivo = access(rutaComida, F_OK);
 	t_bloque* bloque=malloc(sizeof(bloque));
 
-	if(existeArchivo==-1){
-		inicializar_archivo(ruta_comida,cantidad, 'C');
-
+	sem_wait(&semaforo_para_file_comida);
+	if(!g_existe_file_comida){
+		inicializar_archivo(rutaComida, 'C');
+		g_existe_file_comida=true;
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
 		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
-		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
-		escribir_el_archivo(ruta_comida,cadena,bloque);
 
+		int archivo = open(rutaComida, O_RDWR);
+		struct stat statbuf;
+		fstat(archivo,&statbuf);
+
+		char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+		archivoComida=malloc(string_length(archivo_addr)+1);
+		memcpy(archivoComida, archivo_addr, string_length(archivo_addr)+1);
+		munmap(archivo_addr,statbuf.st_size);
+		close(archivo);
+		escribir_el_archivo(COMIDA,cadena,bloque);
 	}
-	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
 	else{
-		bloque=recuperar_ultimo_bloque_file(ruta_comida);
-		escribir_el_archivo(ruta_comida,cadena,bloque);
+		bloque=recuperar_ultimo_bloque_file(archivoComida);
+		escribir_el_archivo(COMIDA,cadena,bloque);
 	}
-
 	sem_post(&semaforo_para_file_comida);
-*/
 }
 
 //comprueba el archivo de generar comida y borra en el
@@ -1562,36 +1658,37 @@ void consumir_comida(int cant_borrar){
 }
 
 //crea el archivo de generar basura y escribe en el
-void generar_basura(int cantidad){/*
+void generar_basura(int cantidad){
+
 	char* cadena=string_repeat('B', cantidad);
-	char* ruta_basura =string_new();
-	string_append(&ruta_basura,puntoMontaje);
-	string_append(&ruta_basura,"/Files/basura.ims");
-
-	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
-	sem_wait(&semaforo_para_file_basura);
-	int existeArchivo = access(ruta_basura, F_OK);
-
+	int existeArchivo = access(rutaBasura, F_OK);
 	t_bloque* bloque=malloc(sizeof(bloque));
 
-	if(existeArchivo==-1){
-		inicializar_archivo(ruta_basura,cantidad, 'B');
-
+	sem_wait(&semaforo_para_file_basura);
+	if(!g_existe_file_basura){
+		inicializar_archivo(rutaBasura, 'B');
+		g_existe_file_basura=true;
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
 		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
-		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
-		escribir_el_archivo(ruta_basura,cadena,bloque);
 
+		int archivo = open(rutaBasura, O_RDWR);
+		struct stat statbuf;
+		fstat(archivo,&statbuf);
+
+		char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+		archivoBasura=malloc(string_length(archivo_addr)+1);
+		memcpy(archivoBasura, archivo_addr, string_length(archivo_addr)+1);
+		munmap(archivo_addr,statbuf.st_size);
+		close(archivo);
+		escribir_el_archivo(BASURA,cadena,bloque);
 	}
-	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
 	else{
-		bloque=recuperar_ultimo_bloque_file(ruta_basura);
-		escribir_el_archivo(ruta_basura,cadena,bloque);
+		bloque=recuperar_ultimo_bloque_file(archivoBasura);
+		escribir_el_archivo(BASURA,cadena,bloque);
 	}
 	sem_post(&semaforo_para_file_basura);
 
-
-*/}
+}
 
 //comprueba el archivo de generar basura y borra en el
 void descartar_basura(int cant_borrar){

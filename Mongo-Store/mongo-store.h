@@ -51,6 +51,12 @@ typedef struct {
 	int posicion_para_escribir;
 } t_bloque;
 
+typedef enum{
+	OXIGENO,
+	COMIDA,
+	BASURA
+}files;
+
 //booleanos para saber si los archivos fueron creados
 bool g_existe_file_oxigeno;
 bool g_existe_file_comida;

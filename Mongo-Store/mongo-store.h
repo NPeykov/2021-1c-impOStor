@@ -51,6 +51,11 @@ typedef struct {
 	int posicion_para_escribir;
 } t_bloque;
 
+//booleanos para saber si los archivos fueron creados
+bool g_existe_file_oxigeno;
+bool g_existe_file_comida;
+bool g_existe_file_basura;
+
 char *puntoMontaje;
 char *dirMetadata;
 char *dirFiles;

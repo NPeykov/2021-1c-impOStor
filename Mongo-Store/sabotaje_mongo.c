@@ -27,28 +27,86 @@ void rutina(int n) {
 
 }
 
-bool es_blocks_superbloque() {
-	bool resultado;
-	char *contenido_sb;
-	struct stat stat_superbloque;
-	struct stat stat_blocks;
-	int cant_bloques_sb;
-	int cant_bloques_reales;
 
-	int archivo_super_b = open(dirSuperbloque, O_RDWR);
-	int archivo_blocks  = open(dirBlocks, O_RDWR);
+void levantar_blocks(void) {
+	int fd;
+	struct stat info;
 
-	if (archivo_super_b == -1 || archivo_blocks == -1)
-	{
-		log_error(mongoLogger,"ERROR AL ABRIR EL SUPERBLOQUE O BLOCKS");
+	fd = open(dirBlocks, O_RDWR);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "ERROR AL ABRIR BLOCKS.IMS");
 		exit(1);
 	}
 
-	fstat(archivo_super_b, &stat_superbloque);
+	fstat(fd, &info);
 
-	contenido_sb = (char*) mmap(NULL, stat_superbloque.st_size, PROT_WRITE, MAP_SHARED, archivo_super_b, 0);
+	s_blocks = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+
+	s_tamanio_blocks = info.st_size;
+
+	return;
+}
+
+void levantar_superbloque(void) {
+	int fd;
+	struct stat info;
+
+	fd = open(dirSuperbloque, O_RDWR);
+
+	if (fd == -1) {
+		log_error(mongoLogger, "ERROR AL ABRIR SUPERBLOQUE");
+		exit(1);
+	}
+
+	fstat(fd, &info);
+
+	s_superbloque = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+
+	s_tamanio_superbloque = info.st_size;
+
+	return;
+}
 
 
+bool es_blocks_superbloque() {
+	bool resultado;
+	int cantidad_block_size_sb = *(s_superbloque);
+	int cantidad_bloques_sb = *(s_superbloque + sizeof(uint32_t));
+	int cantidad_bloques_teorico = s_tamanio_blocks / cantidad_block_size_sb;
+
+	return cantidad_bloques_teorico != cantidad_bloques_sb;
+}
+
+bool es_bitmap_superbloque() {
+	bool resultado;
+	int copia_offset;
+	t_bitarray *bitarray_sb;
+	void *bitmap_sb;
+
+	bitmap_sb = s_superbloque + 2*sizeof(uint32_t);
+	int bytes = (int) ceil((double) *g_blocks / 8);
+	bitarray_sb = bitarray_create(bitmap_sb, bytes);
+
+	bool n_bloque_ocupado;
+
+	for(int i=1, offset=0; i <= *g_blocks; i++, offset+=*g_block_size)
+	{
+		copia_offset = offset;
+		n_bloque_ocupado = false;
+
+		while (copia_offset <= copia_offset + *g_block_size) {
+			if (s_blocks[copia_offset] != ' ') {
+				n_bloque_ocupado = true;
+			}
+			copia_offset++;
+		}
+
+		if(bitarray_test_bit(bitarray_sb, i) != n_bloque_ocupado) {
+			resultado = true;
+			return resultado;
+		}
+	}
 
 	return resultado;
 }
@@ -160,21 +218,20 @@ bool es_file_Blocks(files file){
 	return esta_saboteado;
 }
 
+///////////////////
+
 sabotaje_code obtener_tipo_sabotaje() {
 	sabotaje_code tipo_sabotaje;
 
+	levantar_superbloque();
+	levantar_blocks();
 
-	/*
-    -CANT_BLOQUES
-		- consiste en cambiar el vlaor de 'blocks' de superbloque
-		- deteccion: constratar con el tamaño de blocks.ims (usando block_size de superbloque)
-		- solucion: corregir el valor en caso que no concuerde
 
-	-BITMAP
-		- consiste en cambiar el valor binario de un bit del bitmap
-		- deteccion: recorrer los files y bitacoras sacando los bloques usados y constatar con el bitmap
-		- solucion: cambiar los valores del bitmap en base a los bloques detectados
-	 * */
+
+
+
+	munmap(s_blocks, s_tamanio_blocks);
+	munmap(s_superbloque, s_tamanio_superbloque);
 
 	return tipo_sabotaje;
 }

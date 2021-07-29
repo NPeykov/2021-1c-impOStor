@@ -8,6 +8,8 @@ int socket_sabotaje_cliente;
 
 char *s_superbloque;
 char *s_blocks;
+int s_tamanio_superbloque;
+int s_tamanio_blocks;
 
 typedef enum{
 	SB_BLOCKS,

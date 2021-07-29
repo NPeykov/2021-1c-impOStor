@@ -27,34 +27,8 @@ void rutina(int n) {
 
 }
 
-bool es_blocks_superbloque() {
-	bool resultado;
-	char *contenido_sb;
-	struct stat stat_superbloque;
-	struct stat stat_blocks;
-	int cant_bloques_sb;
-	int cant_bloques_reales;
 
-	int archivo_super_b = open(dirSuperbloque, O_RDWR);
-	int archivo_blocks  = open(dirBlocks, O_RDWR);
-
-	if (archivo_super_b == -1 || archivo_blocks == -1)
-	{
-		log_error(mongoLogger,"ERROR AL ABRIR EL SUPERBLOQUE O BLOCKS");
-		exit(1);
-	}
-
-	fstat(archivo_super_b, &stat_superbloque);
-
-	contenido_sb = (char*) mmap(NULL, stat_superbloque.st_size, PROT_WRITE, MAP_SHARED, archivo_super_b, 0);
-
-
-
-	return resultado;
-}
-
-void *levantar_blocks(int *tamanio_blocks) {
-	void *contenido_blocks;
+void levantar_blocks(void) {
 	int fd;
 	struct stat info;
 
@@ -67,20 +41,18 @@ void *levantar_blocks(int *tamanio_blocks) {
 
 	fstat(fd, &info);
 
-	contenido_blocks = mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+	s_blocks = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
 
-	*(tamanio_blocks) = info.st_size;
+	s_tamanio_blocks = info.st_size;
 
-	return contenido_blocks;
+	return;
 }
 
-void *levantar_bitarray_sb(int *tamanio_sp) {
-	void *contenido_sb;
-
+void levantar_superbloque(void) {
 	int fd;
 	struct stat info;
 
-	fd = open(dirBlocks, O_RDWR);
+	fd = open(dirSuperbloque, O_RDWR);
 
 	if (fd == -1) {
 		log_error(mongoLogger, "ERROR AL ABRIR SUPERBLOQUE");
@@ -89,30 +61,32 @@ void *levantar_bitarray_sb(int *tamanio_sp) {
 
 	fstat(fd, &info);
 
-	contenido_sb = mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+	s_superbloque = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
 
-	*(tamanio_sp) = info.st_size;
+	s_tamanio_superbloque = info.st_size;
 
-	return contenido_sb;
+	return;
+}
+
+
+bool es_blocks_superbloque() {
+	bool resultado;
+	int cantidad_block_size_sb = *(s_superbloque);
+	int cantidad_bloques_sb = *(s_superbloque + sizeof(uint32_t));
+	int cantidad_bloques_teorico = s_tamanio_blocks / cantidad_block_size_sb;
+
+	return cantidad_bloques_teorico != cantidad_bloques_sb;
 }
 
 bool es_bitmap_superbloque() {
 	bool resultado;
 	int copia_offset;
-	int tamanio_blocks;
-	int tamanio_sp;
-	char *archivo_blocks = (char *)levantar_blocks(&tamanio_blocks);
-	char *archivo_sb     = (char *)levantar_bitarray_sb(&tamanio_sp);
 	t_bitarray *bitarray_sb;
 	void *bitmap_sb;
 
-	bitmap_sb = archivo_sb + 2*sizeof(uint32_t);
-
+	bitmap_sb = s_superbloque + 2*sizeof(uint32_t);
 	int bytes = (int) ceil((double) *g_blocks / 8);
-
 	bitarray_sb = bitarray_create(bitmap_sb, bytes);
-
-
 
 	bool n_bloque_ocupado;
 
@@ -122,7 +96,7 @@ bool es_bitmap_superbloque() {
 		n_bloque_ocupado = false;
 
 		while (copia_offset <= copia_offset + *g_block_size) {
-			if (archivo_blocks[copia_offset] != ' ') {
+			if (s_blocks[copia_offset] != ' ') {
 				n_bloque_ocupado = true;
 			}
 			copia_offset++;
@@ -134,8 +108,6 @@ bool es_bitmap_superbloque() {
 		}
 	}
 
-	munmap(archivo_blocks, tamanio_blocks);
-	munmap(archivo_sb, tamanio_sp);
 	return resultado;
 }
 
@@ -246,11 +218,20 @@ bool es_file_Blocks(files file){
 	return esta_saboteado;
 }
 
+///////////////////
+
 sabotaje_code obtener_tipo_sabotaje() {
 	sabotaje_code tipo_sabotaje;
 
 	levantar_superbloque();
 	levantar_blocks();
+
+
+
+
+
+	munmap(s_blocks, s_tamanio_blocks);
+	munmap(s_superbloque, s_tamanio_superbloque);
 
 	return tipo_sabotaje;
 }

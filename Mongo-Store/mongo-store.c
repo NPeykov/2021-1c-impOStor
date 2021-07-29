@@ -14,7 +14,7 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-	generar_oxigeno(10000);
+	//generar_oxigeno(10000);
 
 	/*for(int i = 0;i<10;i++){
 		pthread_t prueba;
@@ -306,18 +306,21 @@ void inicializar_bitacora(char *rutaBitacora, char *numeroDeBloque){
 	close(archivo);
 }
 
-//agrega un bloque a la bitacora cuando se queda sin lugar un bloque
 void agregar_bloque_bitacora(char *rutaBitacora,int bloque){
-	int archivo = open(rutaBitacora, O_RDWR);
-	struct stat statbuf;
-	fstat(archivo,&statbuf);
-	ftruncate(archivo,(off_t) statbuf.st_size + 2);
+	FILE *fd = fopen(rutaBitacora, "r+");
 
-	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	archivo_addr[statbuf.st_size]=',';
-	archivo_addr[statbuf.st_size+1]=bloque+'0';
-	munmap(archivo_addr,statbuf.st_size);
-	close(archivo);
+	char *nuevoBloque = string_from_format(",%d", bloque);
+
+	if(fd == NULL) {
+		log_info(mongoLogger, "Error al abrir la bitacora para escribir bloque");
+		return;
+	}
+
+	fseek(fd, 0, SEEK_END);
+
+	fputs(nuevoBloque, fd);
+
+	fclose(fd);
 }
 
 //crea el bitmap logico para operar los bloques

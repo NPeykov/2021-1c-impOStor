@@ -104,7 +104,7 @@ void crear_estructura_filesystem();
 void crearEstructurasBloques();
 void crearEstructuraDiscoLogico();
 void crearBitMapLogico();
-void inicializar_archivo(char* , int , char);
+void inicializar_archivo(char* , char);
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);

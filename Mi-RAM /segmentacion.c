@@ -3,7 +3,7 @@
 void compactacion(){
 	uint32_t finalSegmentoAnterior = 0;
 	uint32_t inicioSegmentoActual = 0;
-
+	int i = 0;
 	void _recorrerSegmentos(void *algo){
 		Segmento *unSegmento = (Segmento*) algo;
 		inicioSegmentoActual = unSegmento->base;
@@ -12,12 +12,18 @@ void compactacion(){
 		}else if(finalSegmentoAnterior == inicioSegmentoActual){//Empieza donde termina el otro
 			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
 		}else if(inicioSegmentoActual > finalSegmentoAnterior){//Hay un espacio
-			memcpy(memoria + finalSegmentoAnterior, unSegmento->dato, unSegmento->tamanio);
-			log_info(logs_ram,"Se compacto un espacio");
-		}
+			void *buffer = malloc(unSegmento->tamanio);
+			memcpy(buffer, unSegmento->dato, unSegmento->tamanio);
+			memcpy(memoria + finalSegmentoAnterior, buffer, unSegmento->tamanio);
+			free(buffer);
+			unSegmento->base= finalSegmentoAnterior;
+			finalSegmentoAnterior = finalSegmentoAnterior + unSegmento->tamanio;
+			i++;
+		}//NOTA: Se coloca en un buffer ya que memcpy no puede copiar en laa zona de origen
 	}
 	log_info(logs_ram, "Iniciando compactacion");
 	list_iterate(memoriaPrincipal, _recorrerSegmentos);
+	log_info(logs_ram, "Se compactaron %d espacios", i);
 	noCompactado = false;
 }
 
@@ -35,7 +41,6 @@ uint32_t algoritmoBestFit(Segmento *segmento){
 		if(finalSegmentoAnterior==0){//El primer elemento de la lista
 			finalSegmentoAnterior = unSegmento->tamanio + unSegmento->base;
 		}else if(finalSegmentoAnterior == inicioSegmentoActual){//Empieza donde termina el anterior
-			log_info(logs_ram,"Entre aca, el final del anterior es %d y el nuevo es %d",finalSegmentoAnterior,inicioSegmentoActual );
 			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
 		}else if(inicioSegmentoActual > finalSegmentoAnterior && //Hay un espacio entre ambos y es mayor o igual al necesario
 				(inicioSegmentoActual-finalSegmentoAnterior)>= tamanioNecesario){
@@ -109,27 +114,25 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 
 	//Si no hay nada en memoria principal la dir es 0 por ser primero
 	if(list_is_empty(memoriaPrincipal)){
-		log_info(logs_ram,"Calcule una base logica: 0\n");
+		log_info(logs_ram,"La posicion es 0 hasta %d",tamanioNecesario);
 		return (uint32_t) 0;
-
 	}
 
 	list_find(memoriaPrincipal, espacioLibre);
 	if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
-		log_info(logs_ram,"Calcule una base logica: %d\n", finalSegmentoAnterior);
+		log_info(logs_ram,"La posicion es %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 		return finalSegmentoAnterior;
 	}else{
 		if(noCompactado){
 			compactacion();//Se compacta y se hace de nuevo
 			finalSegmentoAnterior =  algoritmoFirstFit(segmento);
-			log_info(logs_ram,"Calcule una base logica: %d\n", finalSegmentoAnterior);
+			log_info(logs_ram,"La posicion es %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 			noCompactado = true;
 			return finalSegmentoAnterior;
 		}else{
 			return -1;//Hubo un error
 		}
 	}
-
 }
 
 int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
@@ -139,20 +142,24 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	segmento->tipo = TAREAS;
 	segmento->dato = tareas;
 	segmento->valorRepresentacion = 0;
-	log_info(logs_ram,"Tareas guardadas: %s\n", tareas);
+	log_info(logs_ram,"Tareas guardadas: %s", tareas);
 	segmento->tamanio = string_length(tareas);
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 	segmento->idSegmento = tabla_segmentos->elements_count;
 
-	//Se lo agrega a la tabla de Segmentos del proceso actual
-	list_add(tabla_segmentos, segmento);
-
 	if(segmento->base == -1){
+		sem_post(&direcciones);
+		free(segmento);
 		return -1;//Por si hay error retorna -1
 	}else{
+		list_add(tabla_segmentos, segmento);
 		return 0;
 	}
+	//Se lo agrega a la tabla de Segmentos del proceso actual
+
+
+
 }
 
 int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
@@ -174,11 +181,15 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	segmento->base = calcular_base_logica(segmento);
 
 	//Se lo agrega a la tabla de Segmentos del proceso actual
-	list_add(tabla_segmentos, segmento);
+
 
 	if(segmento->base == -1){
+		sem_post(&direcciones);
+		free(segmento);
+		free(pcb);
 		return -1;//Por si hay error retorna -1
 	}else{
+		list_add(tabla_segmentos, segmento);
 		return 0;
 	}
 }
@@ -189,7 +200,6 @@ void crear_segmento_tcb(void* elTripulante) {
 	int _socket_cliente = tripulanteConSocket->socket;
 
 	Segmento *segmento = (Segmento*) malloc(sizeof(Segmento));
-	log_info(logs_ram, "Llegue aca");
 	//Para buscar su patota
 	int patota = (int) unTripulante->numPatota;
 
@@ -213,23 +223,25 @@ void crear_segmento_tcb(void* elTripulante) {
 	tcb->posY = unTripulante->posY;
 	tcb->status = unTripulante->status;
 	tcb->proxIns = (uint32_t) 0;
-	log_info(logs_ram, "Llegue aca");
 	//Se asigna el acceso rapido de t_proceso
 
 	segmento->idSegmento = tabla_segmentos->elements_count;
-	list_add(tabla_segmentos, segmento);
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
 	segmento->tamanio = sizeof(TripuCB);
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
 
-	log_info(logs_ram, "Llegue aca");
 	if(segmento->base == -1){
+		sem_post(&direcciones);
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
+		if(noTieneMasTripulantes(tabla_segmentos)){eliminarPatota(miPatota);}
+		free(segmento);
+		free(tcb);
 		pthread_exit(NULL);
 	}else{
+		list_add(tabla_segmentos, segmento);
 		segmento->valorRepresentacion = 1;
 		//segmento->valorRepresentacion = nuevoTripuMapa(tcb->posX,tcb->posY);
 		agregar_a_memoria(segmento);
@@ -237,6 +249,7 @@ void crear_segmento_tcb(void* elTripulante) {
 		sem_post(&tripulantesDisponibles);
 		enviar_mensaje_simple("ok", _socket_cliente);
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
+		free(unTripulante);
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 	}
@@ -289,6 +302,7 @@ void crear_proceso(void *data){
 	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
 	if(result_pcb == -1){
 		enviar_mensaje_simple("no", _socket_cliente);
+		free(datos_patota);
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 		return;
@@ -301,9 +315,10 @@ void crear_proceso(void *data){
 	list_add(patotas, proceso);
 	pthread_mutex_unlock(&listaPatotasEnUso);
 
-	log_info(logs_ram, "Se inicio una patota.\n");
+	log_info(logs_ram, "Se inicio una patota.");
 	enviar_mensaje_simple("ok", _socket_cliente);
 	liberar_cliente(_socket_cliente);
+	free(datos_patota);
 	pthread_exit(NULL);
 }
 
@@ -325,6 +340,8 @@ void eliminarPatota(t_proceso *laPatota){
 		free(unSegmento);
 	}
 	list_destroy_and_destroy_elements(laPatota->tabla,_eliminarSegmentos);
+	log_info(logs_ram, "Se elimino la patota %d", laPatota->pid);
+	free(laPatota);
 }
 
 void eliminarSegmento(uint32_t baseSegmento){
@@ -349,7 +366,7 @@ void eliminarTripulante(void *unTripulante){
 		if (unSegmento->tipo == TCB) {
 			TripuCB *unTripulante = (TripuCB*) (unSegmento->dato);
 			if(unTripulante->tid == idTripulante){
-				log_info(logs_ram, "Se elimino al tripulante %d de la patota %d",idTripulante,idPatota);
+				log_info(logs_ram, "Se expulso al tripulante %d de la patota %d",idTripulante,idPatota);
 				eliminarSegmento(unSegmento->base);
 				free(unSegmento);
 				return 1;
@@ -375,6 +392,7 @@ void eliminarTripulante(void *unTripulante){
 	pthread_mutex_lock(&listaPatotasEnUso);
 	list_iterate(patotas, _buscarTripulantes);
 	pthread_mutex_unlock(&listaPatotasEnUso);
+	free(tripulanteAEliminar);
 }
 
 Segmento *buscarTripulante(int idTripulante,int idPatota){
@@ -426,9 +444,9 @@ void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 	elTripulante->posX = tripulanteActualizado->posX;
 	elTripulante->posY = tripulanteActualizado->posY;
 	elTripulante->status = tripulanteActualizado->status;
-	log_info(logs_ram,"El tripulante %d de la patota %d se movio a: %d|%d."
-			" Y su estatus actual es: \n",idTripulante, idPatota, tripulanteActualizado->posX,
-			tripulanteActualizado->posY,tripulanteActualizado->status);
+	log_info(logs_ram,"El tripulante %d de la patota %d se movio a: %d|%d. Y su estatus actual es: %c.",
+			idTripulante, idPatota, tripulanteActualizado->posX,tripulanteActualizado->posY,tripulanteActualizado->status);
+	free(tripulanteActualizado);
 }
 
 Segmento *buscarSegmento(uint32_t baseSegmento){
@@ -445,10 +463,7 @@ Segmento *buscarSegmento(uint32_t baseSegmento){
 char *buscarTarea(uint32_t baseSegmentoTareas, int indiceTarea){
 	Segmento *segmentoTareas = buscarSegmento(baseSegmentoTareas);
 	char *todasLasTareas = (char*) segmentoTareas->dato;
-	log_info(logs_ram, "Las tareas del tripulante son %s", todasLasTareas);
 	char **tareasSeparadas = string_split(todasLasTareas, "\n");
-	//int cantidadTareas = string_length(tareasSeparadas);
-	log_info(logs_ram, "La ultima tarea es %s de %d",tareasSeparadas[2]);
 	//Separe el string
 	return tareasSeparadas[indiceTarea];
 }
@@ -459,7 +474,6 @@ void enviarTareaSiguiente(void *unTripulante){
 	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
 	int idTripulante = tripulante->tid;
 	int idPatota = tripulante->numPatota;
-	log_info(logs_ram, "Tripulante %d de la patota %d pide tarea", idTripulante, idPatota);
 
 	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
 	if(SegmentoDelTripulante == NULL){log_info(logs_ram, "Segmento Tripu Vacio");}
@@ -471,16 +485,16 @@ void enviarTareaSiguiente(void *unTripulante){
 	char* tarea = buscarTarea(PatotaDelTripu->tareas, proximaTarea);
 
 	if(tarea == NULL){
+	        log_info(logs_ram, "Tripulante %d no tiene mas tareas.", idTripulante);
 	        enviar_mensaje(PEDIDO_TAREA, "null", cliente);
 	        liberar_cliente(cliente);
 	        pthread_exit(NULL);
 	    }
 
-	log_info(logs_ram,"Tripulante %d pidio la tarea %s.\n", idTripulante, tarea);
-
+	log_info(logs_ram,"Tripulante %d pidio la tarea %s.", idTripulante, tarea);
 	enviar_mensaje(PEDIDO_TAREA, tarea, cliente);
+	free(elTripuConSocket);
 	liberar_cliente(cliente);
-
 }
 //-------------------------------------------------------------------------------
 //---------------------FUNCIONES ATENCION DE CLIENTE ----------------------------

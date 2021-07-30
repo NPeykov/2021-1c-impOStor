@@ -15,6 +15,8 @@ bool fue_en_oxigeno;
 bool fue_en_comida;
 bool fue_en_basura;
 
+int cantidad_bloques_file;
+
 t_bitarray *bitarray_sb;
 
 typedef enum{

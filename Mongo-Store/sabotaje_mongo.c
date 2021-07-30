@@ -366,8 +366,8 @@ void arreglar_valor_size(files file) {
 		caracter_llenado = 'O';
 		break;
 	}
-
 	int fd = open(ruta, O_RDWR);
+
 
 	if(fd == -1) {
 		log_info(mongoLogger, "Error al abrir archivo en sabotaje size");
@@ -381,9 +381,11 @@ void arreglar_valor_size(files file) {
 	char *contenido_file = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
 
 	char* bloques_del_archivo=bloques_de_archivo(contenido_file);
-	char* texto_total=contenido_de_bloques(bloques_del_archivo);
+	char* bloquesaux=string_substring_until(bloques_del_archivo,string_length(bloques_del_archivo)-1);
 
-	tamanio_real = string_lenth(texto_total);
+	char* texto_total=contenido_de_bloques(bloquesaux);
+
+	tamanio_real = string_length(texto_total);
 
 	char *cantidad_bloques = cantidad_de_bloques_de_archivo(contenido_file);
 
@@ -394,20 +396,39 @@ void arreglar_valor_size(files file) {
 			tamanio_real, cantidad_bloques,
 			bloques_del_archivo, caracter_llenado,
 			md5);
+	//char *contenido_file_temp = (char*) realloc(contenido_file, string_length(nuevo_contenido) * sizeof(char) + 1);
+	//contenido_file=string_duplicate(nuevo_contenido);
 
-	char *contenido_file_temp = (char*) realloc(contenido_file, string_length(nuevo_contenido) * sizeof(char) + 1);
 
-	if(contenido_file_temp){
-		long_info(mongoLogger, "Hubo error al reasignar espacio en sabotaje size");
+	/*if(contenido_file){
+		log_info(mongoLogger, "Hubo error al reasignar espacio en sabotaje size");
 		return;
+	}*/
+
+	//contenido_file = contenido_file_temp;
+
+	//memcpy(contenido_file, nuevo_contenido, string_length(nuevo_contenido) * sizeof(char) + 1);
+
+	munmap(contenido_file, info.st_size);
+	close(fd);
+
+	/*FILE *fichero = fopen(ruta, "r+");
+	ftruncate(fileno(fichero), string_length(nuevo_contenido)+1);
+	fputs(nuevo_contenido, fichero);
+	fclose(fichero);*/
+
+	int fichero = open(ruta, O_RDWR);
+	ftruncate(fichero, string_length(nuevo_contenido)+1);
+	fstat(fichero, &info);
+	char *addr = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fichero, 0);
+	for(int i=0;i<string_length(nuevo_contenido);i++){
+		addr[i]=nuevo_contenido[i];
 	}
 
-	contenido_file = contenido_file_temp;
+	munmap(addr,info.st_size);
 
-	memcpy(contenido_file, nuevo_contenido, string_length(nuevo_contenido) * sizeof(char) + 1);
-
-	munmap(contenido_file, string_length(nuevo_contenido) * sizeof(char) + 1);
-	close(fd);
+	printf("--------llegue---------\n");
+	sleep(3);
 }
 
 
@@ -513,7 +534,7 @@ void arreglar_valor_block_count(files file) {
 			string_length(nuevo_contenido) * sizeof(char) + 1);
 
 	if (contenido_file_temp) {
-		long_info(mongoLogger,
+		log_info(mongoLogger,
 				"Hubo error al reasignar espacio en sabotaje size");
 		return;
 	}

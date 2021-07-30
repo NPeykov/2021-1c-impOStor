@@ -17,7 +17,7 @@ int main() {
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
 	fue_en_basura=true;
-	iniciar_recuperacion(FILES_MD5);
+	iniciar_recuperacion(FILES_SIZE);
 	/*generar_oxigeno(200);
 	generar_basura(200);
 	generar_comida(200);*/

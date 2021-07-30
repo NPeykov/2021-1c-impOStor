@@ -1,5 +1,7 @@
 #include "mongo-store.h"
-
+//TODO semaforo sabotaje para bajad a disco
+//TODO reparacion de files
+//TODO leer files cuando es necesario solamente
 
 int main() {
 
@@ -14,7 +16,11 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-
+	fue_en_basura=true;
+	iniciar_recuperacion(FILES_MD5);
+	/*generar_oxigeno(200);
+	generar_basura(200);
+	generar_comida(200);*/
 	/*for(int i = 0;i<10;i++){
 		pthread_t oxigeno;
 		pthread_t comida;
@@ -855,25 +861,12 @@ void *gestionarCliente(int socket) {
 	t_list* lista;
 	int operacion;
 	t_paquete *paquete;
-//	int respuesta;
 
 	while (1) {
 		int cliente = esperar_cliente(socket, mongoLogger);
-//		printf("Cliente: %d\n", cliente);
 		operacion = recibir_operacion(cliente);
 		lista = NULL;
 
-//		printf("\nLA OPERACION ES: %d\n", operacion);
-
-//		switch(operacion) {
-//			case OBTENGO_BITACORA:
-//				lista = recibir_paquete(cliente);
-//				uint32_t idTripulante = (uint32_t) atoi(list_get(lista,0));
-//				uint32_t idPatota = (uint32_t) atoi(list_get(lista,1));
-//				printf("Tripulante recibido %d\n", idTripulante);
-//				printf("Patota recibida %d\n", idPatota);
-//				break;
-//			case ELIMINAR_TRIPULANTE:
 
 		switch (operacion) {
 		case OBTENGO_BITACORA:
@@ -883,11 +876,6 @@ void *gestionarCliente(int socket) {
 			pthread_detach(obtener_bitacora);
 			break;
 		case ELIMINAR_TRIPULANTE:
-
-//				lista = recibir_paquete(cliente);
-//				int idTripulante = atoi((char *) list_get(lista,0));
-//				eliminarTripulante(idTripulante);
-//				printf("Tripulante eliminado de la nave %d\n", idTripulante);
 			liberar_cliente(cliente);
 			break;
 		case ESPERANDO_SABOTAJE:
@@ -936,6 +924,7 @@ void *gestionarCliente(int socket) {
 		case FIN_TAREA:
 			;
 			pthread_t hilo_escribir_fin_tarea;
+			pthread_t hilo_tarea_io;
 			m_estado_tarea_tripulante *tripulanteConTareaFinalizada = (m_estado_tarea_tripulante *) malloc(sizeof(m_estado_tarea_tripulante));
 			tripulanteConTareaFinalizada = recibirNuevoEstadoTareaTripulante(cliente);
 
@@ -947,9 +936,9 @@ void *gestionarCliente(int socket) {
 			pthread_detach(hilo_escribir_fin_tarea);
 
 			if (tripulanteConTareaFinalizada->tipo_tarea == TAREA_IO) {
-
 				//aca llenaria el archivo tantas veces como el 'parametro'
-				funcion_para_llenar_con_tarea_IO(tripulanteConTareaFinalizada);
+			pthread_create(&hilo_tarea_io, NULL, (void*) funcion_para_llenar_con_tarea_IO, (void*) tripulanteConTareaFinalizada);
+			pthread_detach(hilo_tarea_io);
 			}
 			liberar_cliente(cliente);
 			break;
@@ -973,6 +962,7 @@ void *gestionarCliente(int socket) {
 		case FIN_SABOTAJE:
 			;
 			pthread_t hilo_fin_sabotaje;
+			pthread_t tarea_IO;
 			m_movimiento_tripulante *trip_fin_sabotaje = (m_movimiento_tripulante *) malloc(sizeof(m_movimiento_tripulante));
 			trip_fin_sabotaje = recibirMovimientoTripulante(cliente);
 

@@ -139,7 +139,7 @@ bool es_file_size(files file) {
 	}
 
 	if (esta_saboteado == true)
-		log_info(mongoLogger, "El sabotaje fue en size de file");
+		log_info(mongoLogger, "El sabotaje fue en size del file: %d",file);
 
 
 
@@ -201,9 +201,7 @@ bool es_file_Blocks(files file){
 		char* ultimo_bloque_id=string_itoa(ultimo_bloque->id_bloque);
 		char* texto_todos_los_bloques=string_new();
 		char* md5Original=leer_md5file(ruta);
-
 		int i = 0;
-
 		while(bloques_divididos[i]!=ultimo_bloque_id){
 			t_bloque* bloque_recuperado=malloc(sizeof(t_bloque));
 			bloque_recuperado=list_get(disco_logico->bloques,atoi(bloques_divididos[i])-1);
@@ -220,19 +218,13 @@ bool es_file_Blocks(files file){
 			string_append(&texto_todos_los_bloques,aux);
 			inicio++;
 		}
-
 		char* nuevo_md5=generarMD5(texto_todos_los_bloques);
 		if(nuevo_md5 != md5Original){
 			esta_saboteado=true;
 		}
-
 	}
-
 	if (esta_saboteado == true)
 		log_info(mongoLogger, "El sabotaje fue en blocks de file");
-
-
-
 	return esta_saboteado;
 }
 
@@ -347,6 +339,55 @@ void setear_valores_a_bitmap() {
 
 }
 
+t_bloque* bloque_con_espacio(char* bloques){
+	char **bloques_divididos=string_split(bloques,",");
+	int i = 0;
+	bool flag_corte=true;
+	t_bloque *bloque_con_espacio;
+	t_bloque *bloque=malloc(sizeof(t_bloque));
+	while(bloques_divididos[i] && flag_corte){
+		bloque=list_get(disco_logico->bloques,atoi(bloques_divididos[i])-1);
+		if(bloque->espacio>0){
+			bloque_con_espacio=bloque;
+			flag_corte=false;
+		}
+		i++;
+	}
+	return bloque_con_espacio;
+}
+
+void reparar_MD5(char* file, char caracter){
+	struct stat statbuf;
+	int archivo = open(file, O_RDWR);
+	fstat(archivo,&statbuf);
+	char* archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	char* bloques= bloques_de_archivo(archivo_addr);
+	t_bloque* bloque;
+	int caracteres_agregados=0;
+	bloque=bloque_con_espacio(bloques);
+	while(bloque->espacio>0){
+		block_mmap[bloque->posicion_para_escribir]=caracter;
+		bloque->espacio--;
+		bloque->posicion_para_escribir++;
+		caracteres_agregados++;
+	}
+	free(bloque);
+
+	bloque=malloc(sizeof(t_bloque));
+
+	bloque=recuperar_ultimo_bloque_file(archivo_addr);
+
+	printf("llegue hasta aca-----------------------------------\n");
+						sleep(5);
+	while(caracteres_agregados>0){
+		bloque->posicion_para_escribir--;
+		block_mmap[bloque->posicion_para_escribir]=' ';
+		bloque->espacio++;
+		caracteres_agregados--;
+	}
+	free(bloque);
+}
+
 void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 
@@ -391,15 +432,17 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 	case FILES_MD5:
 		if (fue_en_oxigeno) {
-			//TODO
+			reparar_MD5(rutaOxigeno,'O');
 		}
 
 		if (fue_en_comida) {
-			//TODO
+			reparar_MD5(rutaComida,'C');
+
 		}
 
 		if (fue_en_basura) {
-			//TODO
+			reparar_MD5(rutaBasura,'B');
+
 		}
 		break;
 

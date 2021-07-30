@@ -33,6 +33,9 @@ sabotaje_code obtener_tipo_sabotaje();
 void gestionarSabotaje(void);
 char* siguiente_posicion_sabotaje(void);
 void enviar_aviso_sabotaje_a_discordiador(void);
+void reparar_MD5(char* , char);
+
+
 
 //recuperacion
 void iniciar_recuperacion(sabotaje_code);

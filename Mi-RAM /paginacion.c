@@ -297,10 +297,11 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 
 	}
 	pthread_mutex_unlock(&mutexEscribiendoMemoria);
+	free(paginaAGuardar);
 
 	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, tcb->tid);
 	sobreescribir_tripulante(paginasConTripulante, tcb);
-	aux = NULL;
+	free(aux);
 
 	return tarea;
 }
@@ -409,13 +410,19 @@ int guardar_TCB_pag(void* algo) {
 	pthread_mutex_lock(&charRepresentativo);
 	caracterRepresentativo = 0;
 	//caracterRepresentativo = nuevoTripuMapa(elTripulante->posX, elTripulante->posY);
-	int res = insertar_en_paginas((void*) elTripulante, proceso,TCB, 21);
+	int res = insertar_en_paginas((void*) elTripulante, proceso,TCB, sizeof(TripuCB));
 	if(res == 0) {
+		enviar_mensaje_simple("no", _socket_cliente);
+		liberar_cliente(_socket_cliente);
+		free(elTripulante);
+		free(algo);
 		return -1;
 	} else {
+
 		sem_post(&tripulantesDisponibles);
 		enviar_mensaje_simple("ok", _socket_cliente);
 		liberar_cliente(_socket_cliente);
+		free(algo);
 		return 1;
 	}
 
@@ -449,6 +456,9 @@ int guardar_PCB_pag(void* data){
 
 	pcbGuardado = insertar_en_paginas((void*) laPatota, patota,PCB, 8);
 	if(!pcbGuardado){
+		free(patota);
+		free(laPatota);
+		free(data);
 		enviar_mensaje_simple("no", _socket_cliente);
 	}
 
@@ -458,8 +468,13 @@ int guardar_PCB_pag(void* data){
 	tareasGuardadas = insertar_en_paginas((void*) contenido, patota,TAREAS,tamanioTareas);
 
 	if(!tareasGuardadas){
+		free(patota);
+		free(laPatota);
+		free(data);
 		enviar_mensaje_simple("no", _socket_cliente);
 	}
+
+	free(data);
 	log_info(logs_ram, "Se creo la patota %d correctamente.",patota->pid);
 	enviar_mensaje_simple("ok", _socket_cliente);
 	liberar_cliente(_socket_cliente);
@@ -478,32 +493,32 @@ bool tiene_pagina_estructura_alojadas(t_list* estructuras_alojadas, int estructu
 	return alojadoConTarea != NULL;
 }
 
-
-bool tiene_pagina_tripu_alojado(t_list* estructuras_alojadas, int id_tripulante){
+//TODO: NUNCA SE USA ESTA FUNCION
+/*bool tiene_pagina_tripu_alojado(t_list* estructuras_alojadas, int id_tripulante){
 	//pthread_mutex_lock(&mutexAlojados);
 	t_alojado* alojadoConTarea = obtener_tripulante_pagina(estructuras_alojadas, id_tripulante);
 	//pthread_mutex_unlock(&mutexAlojados);
 
 	return alojadoConTarea != NULL;
-}
+}*/
 
-t_alojado* obtener_tripulante_pagina(t_list* estructuras_alojadas, int id_tripulante){
+t_alojado* obtener_tripulante_de_la_pagina(t_list* estructuras_alojadas, int id_tripulante){
 
-	bool contieneTipo(t_alojado* estructuraAlojada){
+	bool _esElTripu(t_alojado* estructuraAlojada){
 		return estructuraAlojada->tipo == TCB && estructuraAlojada->flagid == id_tripulante;
 	}
 
 	pthread_mutex_lock(&mutexAlojados);
-	t_alojado* alojadoConTarea = list_find(estructuras_alojadas, (void*) contieneTipo);
+	t_alojado* tripulanteAlojado = list_find(estructuras_alojadas, (void*) _esElTripu);
 	pthread_mutex_unlock(&mutexAlojados);
 
-	return alojadoConTarea;
+	return tripulanteAlojado;
 }
 
 t_list* lista_paginas_tripulantes(t_list* tabla_paginas_proceso, uint32_t id_tripulante){
 	bool _tieneTripu(void* algo){
 		t_pagina *pagina = (t_pagina*)algo;
-		t_alojado *unAlojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, id_tripulante);
+		t_alojado *unAlojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, id_tripulante);
 		return unAlojado !=NULL;
 	}
 
@@ -533,7 +548,7 @@ int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb) {
 	while(i < cantPaginasConTripu)
 	{
 		t_pagina* pagina = list_get(lista_paginas_tripulantes,i);
-		t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, tcb->tid);
+		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, tcb->tid);
 
 		//log_info(logs_ram, "Se va a sobreescrbir el tripulante: ID: %d | ESTADO: %c | X: %d | Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
 			//	tcb->tid, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);
@@ -543,6 +558,7 @@ int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb) {
 		i++;
 	}
 	list_destroy(lista_paginas_tripulantes);
+	free(tcb);
 
 	return 1;
 }
@@ -557,10 +573,10 @@ void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 
 	t_list *paginasConTripulante = lista_paginas_tripulantes(proceso->tabla,(uint32_t) idTripulante);
 	t_pagina* pagina = list_get(paginasConTripulante,0);
-	t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, idTripulante);
+	t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, idTripulante);
 
 
-	TripuCB *elTripulante = obtener_tripulante(proceso, idTripulante) ;
+	TripuCB *elTripulante = obtener_tripulante(proceso, idTripulante);
 	int difX = tripulanteActualizado->posX-elTripulante->posX;
 	int difY = tripulanteActualizado->posY-elTripulante->posY;
 	elTripulante->posX = tripulanteActualizado->posX;
@@ -589,13 +605,13 @@ TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
 	log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", tid, cantPaginasConTripu);
 	int i = 0;
 
-	void* bufferTripu = malloc(21);
+	void* bufferTripu = malloc(sizeof(TripuCB));
 	int offset = 0;
 
 	while(i < cantPaginasConTripu)
 	{
 		t_pagina* pagina = list_get(paginasConTripulante,i);
-		t_alojado* alojado = obtener_tripulante_pagina(pagina->estructuras_alojadas, tid);
+		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, tid);
 
 		pthread_mutex_lock(&mutexEscribiendoMemoria);
 		void* pagina_memoria = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
@@ -658,7 +674,7 @@ void expulsar_tripulante_pag(void* algo) {
 			log_error(logs_ram,"No hay na aca");
 		}
 
-		t_alojado* tripuAlojado = obtener_tripulante_pagina(paginaActual->estructuras_alojadas, tid);
+		t_alojado* tripuAlojado = obtener_tripulante_de_la_pagina(paginaActual->estructuras_alojadas, tid);
 		paginaActual->tam_disponible += tripuAlojado->tamanio;
 
 		log_info(logs_ram,"Se va a sacar de la lista de alojados de cant %d el tripu %d",
@@ -772,22 +788,22 @@ TripuCB* transformarEnTripulante(void* buffer){
 	return elTripulante;
 }
 
-void sobreescribir_memoria(int frame, void* buffer, int mem, int desplazPagina, int bytesAEscribir) {
+void sobreescribir_memoria(int nro_frame, void* datos, int tipo_memoria, int desplazEnPagina, int bytesAEscribir) {
 
 
-	int desplazamiento = frame * TAM_PAG + desplazPagina;
+	int desplazamiento = nro_frame * TAM_PAG + desplazEnPagina;
 
-	if(mem == MEM_PPAL)
+	if(tipo_memoria == MEM_PPAL)
 	{
 		pthread_mutex_lock(&mutexEscribiendoMemoria);
-		memcpy(memoria+desplazamiento, buffer, bytesAEscribir);
+		memcpy(memoria+desplazamiento, datos, bytesAEscribir);
 		pthread_mutex_unlock(&mutexEscribiendoMemoria);
 
-		log_info(logs_ram, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", frame,
-				desplazPagina, bytesAEscribir + desplazPagina -1);
-	}else if(mem == MEM_VIRT){
+		log_info(logs_ram, "Se sobreescribio en RAM: FRAME: %d | DESDE: %d | HASTA: %d ", nro_frame,
+				desplazEnPagina, bytesAEscribir + desplazEnPagina -1);
+	}else if(tipo_memoria == MEM_VIRT){
 		pthread_mutex_lock(&mutexEscribiendoSwap);
-		memcpy(MEMORIA_VIRTUAL + desplazamiento, buffer, bytesAEscribir);
+		memcpy(MEMORIA_VIRTUAL + desplazamiento, datos, bytesAEscribir);
 		pthread_mutex_unlock(&mutexEscribiendoSwap);
 	}
 }

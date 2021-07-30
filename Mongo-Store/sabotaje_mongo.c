@@ -147,35 +147,41 @@ bool es_file_size(files file) {
 
 }
 
-bool es_file_block_count(files file){
-	bool esta_saboteado=false;
+bool es_file_block_count(files file) {
+	bool esta_saboteado = false;
 	char* ruta;
-	switch(file){
-	case OXIGENO:ruta = rutaOxigeno;
+	int cantidad = 0;
+	switch (file) {
+	case OXIGENO:
+		ruta = rutaOxigeno;
 		break;
-	case COMIDA: ruta= rutaComida;
+	case COMIDA:
+		ruta = rutaComida;
 		break;
-	case BASURA: ruta= rutaBasura;
+	case BASURA:
+		ruta = rutaBasura;
 		break;
 	}
-	if(ruta!=NULL && open(ruta,O_RDWR)!=-1){
-		char* cant_bloques= cantidad_de_bloques_de_archivo(ruta);
-		char* bloques= bloques_de_archivo(ruta);
-		char** bloques_divididos = string_split(bloques,",");
-		int i=0;
-		int cantidad=0;
-		while(bloques_divididos[i]){
+	if (ruta != NULL && open(ruta, O_RDWR) != -1) {
+		char* cant_bloques = cantidad_de_bloques_de_archivo(ruta);
+		char* bloques = bloques_de_archivo(ruta);
+		char** bloques_divididos = string_split(bloques, ",");
+		int i = 0;
+		while (bloques_divididos[i]) {
 			cantidad++;
 			i++;
 		}
-		if(atoi(cant_bloques)!=cantidad){
-			esta_saboteado=true;
+
+
+		if (atoi(cant_bloques) != cantidad) {
+			esta_saboteado = true;
 		}
 	}
 
-	if (esta_saboteado == true)
+	if (esta_saboteado == true) {
+		cantidad_bloques_file = cantidad;
 		log_info(mongoLogger, "El sabotaje fue en block_count de file");
-
+	}
 
 
 	return esta_saboteado;
@@ -339,6 +345,72 @@ void setear_valores_a_bitmap() {
 
 }
 
+void arreglar_valor_size(files file) {
+	int tamanio_real;
+	char *ruta;
+	char caracter_llenado;
+
+	switch(file){
+	case COMIDA:
+		ruta = rutaComida;
+		caracter_llenado = 'C';
+		break;
+
+	case BASURA:
+		ruta = rutaBasura;
+		caracter_llenado = 'B';
+		break;
+
+	case OXIGENO:
+		ruta = rutaOxigeno;
+		caracter_llenado = 'O';
+		break;
+	}
+
+	int fd = open(ruta, O_RDWR);
+
+	if(fd == -1) {
+		log_info(mongoLogger, "Error al abrir archivo en sabotaje size");
+		exit(1);
+	}
+
+	struct stat info;
+
+	fstat(fd, &info);
+
+	char *contenido_file = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
+
+	char* bloques_del_archivo=bloques_de_archivo(contenido_file);
+	char* texto_total=contenido_de_bloques(bloques_del_archivo);
+
+	tamanio_real = string_lenth(texto_total);
+
+	char *cantidad_bloques = cantidad_de_bloques_de_archivo(contenido_file);
+
+	char *md5 = leer_md5file(contenido_file);
+
+	char *nuevo_contenido = string_from_format(
+			"SIZE=%d\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%c\nMD5_ARCHIVO=%s",
+			tamanio_real, cantidad_bloques,
+			bloques_del_archivo, caracter_llenado,
+			md5);
+
+	char *contenido_file_temp = (char*) realloc(contenido_file, string_length(nuevo_contenido) * sizeof(char) + 1);
+
+	if(contenido_file_temp){
+		long_info(mongoLogger, "Hubo error al reasignar espacio en sabotaje size");
+		return;
+	}
+
+	contenido_file = contenido_file_temp;
+
+	memcpy(contenido_file, nuevo_contenido, string_length(nuevo_contenido) * sizeof(char) + 1);
+
+	munmap(contenido_file, string_length(nuevo_contenido) * sizeof(char) + 1);
+	close(fd);
+}
+
+
 t_bloque* bloque_con_espacio(char* bloques){
 	char **bloques_divididos=string_split(bloques,",");
 	int i = 0;
@@ -388,6 +460,73 @@ void reparar_MD5(char* file, char caracter){
 	free(bloque);
 }
 
+
+
+void arreglar_valor_block_count(files file) {
+	char *ruta;
+	char caracter_llenado;
+
+	switch (file) {
+	case COMIDA:
+		ruta = rutaComida;
+		caracter_llenado = 'C';
+		break;
+
+	case BASURA:
+		ruta = rutaBasura;
+		caracter_llenado = 'B';
+		break;
+
+	case OXIGENO:
+		ruta = rutaOxigeno;
+		caracter_llenado = 'O';
+		break;
+	}
+
+	int fd = open(ruta, O_RDWR);
+
+	if (fd == -1) {
+		log_info(mongoLogger, "Error al abrir archivo en sabotaje size");
+		exit(1);
+	}
+
+	struct stat info;
+
+	fstat(fd, &info);
+
+	char *contenido_file = (char*) mmap(NULL, info.st_size, PROT_WRITE,
+			MAP_SHARED, fd, 0);
+
+	char *tamanio = size_de_archivo(contenido_file);
+
+	char* bloques_del_archivo = bloques_de_archivo(contenido_file);
+
+	char *md5 = leer_md5file(contenido_file);
+
+	char *nuevo_contenido =
+			string_from_format(
+					"SIZE=%d\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%c\nMD5_ARCHIVO=%s",
+					tamanio, cantidad_bloques_file,
+					bloques_del_archivo, caracter_llenado, md5);
+
+	char *contenido_file_temp = (char*) realloc(contenido_file,
+			string_length(nuevo_contenido) * sizeof(char) + 1);
+
+	if (contenido_file_temp) {
+		long_info(mongoLogger,
+				"Hubo error al reasignar espacio en sabotaje size");
+		return;
+	}
+
+	contenido_file = contenido_file_temp;
+
+	memcpy(contenido_file, nuevo_contenido,
+			string_length(nuevo_contenido) * sizeof(char) + 1);
+
+	munmap(contenido_file, string_length(nuevo_contenido) * sizeof(char) + 1);
+	close(fd);
+}
+
 void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 
@@ -403,30 +542,30 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 	case FILES_SIZE:
 		if (fue_en_oxigeno) {
-			//TODO
+			arreglar_valor_size(OXIGENO);
 		}
 
 		if (fue_en_comida) {
-			//TODO
+			arreglar_valor_size(COMIDA);
 		}
 
 		if (fue_en_basura) {
-			//TODO
+			arreglar_valor_size(BASURA);
 		}
 
 		break;
 
 	case FILES_BLOCK_COUNT:
 		if (fue_en_oxigeno) {
-			//TODO
+			arreglar_valor_block_count(OXIGENO);
 		}
 
 		if (fue_en_comida) {
-			//TODO
+			arreglar_valor_block_count(COMIDA);
 		}
 
 		if (fue_en_basura) {
-			//TODO
+			arreglar_valor_block_count(BASURA);
 		}
 		break;
 

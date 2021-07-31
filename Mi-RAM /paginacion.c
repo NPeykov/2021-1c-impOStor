@@ -263,10 +263,14 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 	int desplazamiento = tcb->proxIns % 100;
 	t_pagina* pagina;
 
-	pthread_mutex_lock(&mutexEscribiendoMemoria);
-	for(int i = 0; i <= indicePagina; i++){
-		pagina = list_get(proceso->tabla, i);
+	if(tcb->proxIns == -1){
+		return NULL;
+	}
 
+	pthread_mutex_lock(&mutexEscribiendoMemoria);
+	while(true){
+		pagina = list_get(proceso->tabla, indicePagina);
+		log_info(logs_ram, "El desplazamiento es %d y la pagina %d", desplazamiento,indicePagina );
 		if(tiene_pagina_estructura_alojadas(pagina->estructuras_alojadas, TAREAS))
 		{
 			traer_pagina(pagina);
@@ -281,20 +285,24 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 				string_append(&tarea,aux);
 				recorredorPagina++;
 				desplazamiento++;
+				log_info(logs_ram, "El desplazamiento es %d",desplazamiento);
 				memcpy(aux,recorredorPagina,1);
 				log_info(logs_ram,"Sacando tarea: %s",tarea);
 			}
-
-			tcb->proxIns = pagina->nro_pagina * 100 + desplazamiento;
-
-			desplazamiento = 0;
-			paginaAGuardar=NULL;
+			free(paginaAGuardar);
 		}
+		if(desplazamiento == TAM_PAG){desplazamiento=0;indicePagina++;*aux = 'a';}
+		log_info(logs_ram, "Se termino de leer la pagina, el nuevo desplazamiento es %d", desplazamiento);
 		if(*aux == '\n' || *aux == '\0') break;
-
 	}
+	if(*aux == '\0'){
+		tcb->proxIns = -1;
+	}else{
+		tcb->proxIns = indicePagina*100 + desplazamiento+1;
+	}
+
+	log_info(logs_ram, "La proxima tarea es %d",(uint32_t)tcb->proxIns);
 	pthread_mutex_unlock(&mutexEscribiendoMemoria);
-	free(paginaAGuardar);
 
 	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, tcb->tid);
 	sobreescribir_tripulante(paginasConTripulante, tcb);
@@ -336,10 +344,11 @@ uint32_t buscar_inicio_tareas(t_proceso* proceso) {
     //Se guarda en algun lado cuanto pesa el string
 
     pthread_mutex_lock(&mutexAlojados);
-    int a = paginaConTarea->nro_pagina + alojadoConTarea->base;
+    int a = paginaConTarea->nro_pagina*100 + alojadoConTarea->base;
     pthread_mutex_unlock(&mutexAlojados);
 
-    return a;
+    log_info(logs_ram, "La direccion logica de tareas es %d",a);
+    return (uint32_t)a;
 }
 
 uint32_t calcuar_DL_tareas_pag(){
@@ -546,7 +555,7 @@ int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb) {
 	{
 		t_pagina* pagina = list_get(lista_paginas_tripulantes,i);
 		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, tcb->tid);
-
+		traer_pagina(pagina);
 		//log_info(logs_ram, "Se va a sobreescrbir el tripulante: ID: %d | ESTADO: %c | X: %d | Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
 			//	tcb->tid, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);
 
@@ -609,6 +618,7 @@ TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
 	{
 		t_pagina* pagina = list_get(paginasConTripulante,i);
 		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, tid);
+		traer_pagina(pagina);
 
 		pthread_mutex_lock(&mutexEscribiendoMemoria);
 		void* pagina_memoria = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
@@ -641,7 +651,12 @@ void asignar_prox_tarea_pag(void *unTripulante) {
 
 	existencia_patota(proceso);
 
-	TripuCB* tcb = obtener_tripulante(proceso, idTripulante);
+	TripuCB* tcb = NULL;
+	tcb = obtener_tripulante(proceso, idTripulante);
+	if(tcb == NULL){
+		sem_wait(&tripulantesDisponibles);
+		tcb = obtener_tripulante(proceso, idTripulante);
+	}
 
 	char* tarea = obtener_siguiente_tarea_pag(proceso, tcb);
 
@@ -946,7 +961,6 @@ void obtenerSgteTareaPag(t_list *lista, int cliente){
 	tripulante_con_socket->tripulante = tripulante_tarea;
 	tripulante_con_socket->socket     = cliente;
 
-	sem_wait(&tripulantesDisponibles);
 	pthread_t hiloPedidoTarea;
 	pthread_create(&hiloPedidoTarea, NULL, (void*)asignar_prox_tarea_pag,(void*)tripulante_con_socket);
 	pthread_detach(hiloPedidoTarea);

@@ -97,7 +97,7 @@ void* leer_memoria_pag(int, int);
 
 /* Inserta en el malloc de memoria la pagina. */
 
-int insertar_en_memoria_pag(t_pagina*, void*, int, int*, int , int*, int);
+int insertar_en_memoria_pag(t_pagina*, void*, int*, int , int*, int);
 
 /* Busca la pagina pasada por parametro en el malloc de memoria */
 
@@ -228,5 +228,11 @@ void escribir_en_archivo_swap(void *file, t_list *tabla_de_paginas, size_t tam_a
 /* Trae la pagina a reemplazar por algoritmo de clock */
 
 t_pagina* algoritmo_clock();
+
+void reemplazarSegunAlgoritmo(t_pagina*);
+
+
+
+void traer_pagina(t_pagina*);
 
 #endif

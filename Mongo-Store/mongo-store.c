@@ -16,8 +16,10 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-	fue_en_basura=true;
-	iniciar_recuperacion(FILES_SIZE);
+	//sabotaje_code code = obtener_tipo_sabotaje();
+	//printf("-----------------codigo: %d---------------\n",code);
+	//iniciar_recuperacion(code);
+	//generar_comida(20);
 	/*generar_oxigeno(200);
 	generar_basura(200);
 	generar_comida(200);*/
@@ -1074,6 +1076,20 @@ char *size_de_archivo(char* ruta){
 	return size;
 }
 
+char *size_de_archivo_fisico(char* ruta){
+	int archivo = open(ruta, O_RDWR);
+	struct stat statbuf;
+	fstat(archivo,&statbuf);
+	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	char** auxiliar = string_split(archivo_addr,"\n");
+	char** auxiliar2= string_split(auxiliar[0],"=");
+	char* size = auxiliar2[1];
+
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+	return size;
+}
+
 char **renglones_archivo(char* ruta){
 	/*int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
@@ -1102,6 +1118,23 @@ char* cantidad_de_bloques_de_archivo(char* ruta){
 	return block_count;
 
 }
+
+char* cantidad_de_bloques_de_archivo_fisico(char* ruta){
+
+	int archivo = open(ruta, O_RDWR);
+	struct stat statbuf;
+	fstat(archivo,&statbuf);
+	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	char** auxiliar = string_split(archivo_addr,"\n");
+	char** auxiliar2= string_split(auxiliar[1],"=");
+	char* block_count = auxiliar2[1];
+
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+	return block_count;
+
+}
+
 //devuelve los bloques de un archivo en char*
 char* bloques_de_archivo(char* ruta){
 	/*int archivo = open(ruta, O_RDWR);
@@ -1114,6 +1147,20 @@ char* bloques_de_archivo(char* ruta){
 
 	/*munmap(archivo_addr,statbuf.st_size);
 	close(archivo);*/
+	return blocks;
+}
+
+char* bloques_de_archivo_fisico(char* ruta){
+	int archivo = open(ruta, O_RDWR);
+	struct stat statbuf;
+	fstat(archivo,&statbuf);
+	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
+	char** auxiliar = string_split(archivo_addr,"\n");
+	char** auxiliar2= string_split(auxiliar[2],"=");
+	char* blocks = auxiliar2[1];
+
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
 	return blocks;
 }
 //lee un bloque y devuelve to do su texto
@@ -1133,8 +1180,45 @@ char* leo_el_bloque(t_bloque* bloque){
 	return texto;
 }
 
-char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque){
-	char* texto=string_new();
+char* leo_el_bloque_fisico(t_bloque* bloque) {
+	int archivo = open(dirBlocks, O_RDWR);
+	struct stat statbuf;
+	fstat(archivo, &statbuf);
+	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+			MAP_SHARED, archivo, 0);
+
+	char* texto = string_new();
+	int inicio = bloque->inicio;
+	int fin = bloque->posicion_para_escribir;
+	while (inicio < fin) {
+		char *aux = string_from_format("%c", archivo_addr[inicio]);
+		string_append(&texto, aux);
+		inicio++;
+	}
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+	return texto;
+}
+
+char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque) {
+	char* texto = string_new();
+
+	int inicio = bloque->inicio;
+	int fin = bloque->fin;
+	int archivo = open(dirBlocks, O_RDWR);
+	struct stat info;
+	fstat(archivo, &info);
+	archivo_blocks_para_sabotaje = (char*) mmap(NULL, info.st_size, PROT_WRITE,
+	MAP_SHARED, archivo, 0);
+	while (inicio <= fin) {
+		char *aux = string_from_format("%c", archivo_blocks_para_sabotaje[inicio]);
+
+		string_append(&texto, aux);
+		inicio++;
+	}
+	close(archivo);
+	return texto;
+/*	char* texto=string_new();
 
 	int inicio=bloque->inicio;
 	int fin = bloque-> fin;
@@ -1146,19 +1230,14 @@ char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque){
 		string_append(&texto,aux);
 		inicio++;
 	}
-	return texto;
+	return texto;*/
 }
 //devuelve el texto de TODOS los bloques
 char* contenido_de_bloques(char* bloques){
-
-
 	t_bloque* bloque= malloc(sizeof(t_bloque));
 	char** auxiliar=string_split(bloques,",");
 	char* texto_todos_los_bloques=string_new();
-
 	int i = 0;
-
-
 	while(auxiliar[i]){
 		bloque=list_get(disco_logico->bloques,atoi(auxiliar[i])-1);
 		char* texto= leo_el_bloque(bloque);
@@ -1171,6 +1250,24 @@ char* contenido_de_bloques(char* bloques){
 	return texto_todos_los_bloques;
 }
 
+char* contenido_de_bloques_fisico(char* bloques) {
+
+	t_bloque* bloque;
+	char** auxiliar = string_split(bloques, ",");
+	char* texto_todos_los_bloques = string_new();
+	int i = 0;
+	char* texto=string_new();
+	while (atoi(auxiliar[i])) {
+
+		bloque = list_get(disco_logico->bloques, atoi(auxiliar[i]) - 1);
+		texto = leo_el_bloque_fisico(bloque);
+
+		string_append(&texto_todos_los_bloques, texto);
+		i++;
+	}
+	return texto_todos_los_bloques;
+}
+
 char* leer_md5file(char* ruta){
 	char* md5=string_new();
 	/*int archivo=open(ruta,O_RDWR);
@@ -1178,7 +1275,8 @@ char* leer_md5file(char* ruta){
 	fstat(archivo,&statbuf);
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	*/char** archivo_dividido=string_split(ruta,"\n");
-	string_append(&md5,archivo_dividido[4]);
+	char** valor_md5= string_split(archivo_dividido[4],"=");
+	string_append(&md5,valor_md5[1]);
 	/*munmap(archivo_addr,statbuf.st_size);
 	close(archivo);*/
 	return md5;
@@ -1413,11 +1511,9 @@ void actualizar_archivo_borrado(files file, int cadena,bool flag,char caracter )
 
 //escribe lo que se desea en un archivo
 void escribir_el_archivo(files file, char* cadena, t_bloque* bloque){
-
 	if(bloque->espacio>=string_length(cadena)){
 		escribir_en_block(cadena,bloque);
 		actualizar_el_archivo(file,cadena,bloque);
-
 	}
 	else{
 		char *lo_que_entra_en_el_bloque=string_substring_until(cadena,bloque->espacio);
@@ -1434,7 +1530,7 @@ void escribir_el_archivo(files file, char* cadena, t_bloque* bloque){
 }
 
 //recupera el bloque en forma de bloque de un archivo
-t_bloque* recuperar_ultimo_bloque_file(char* ruta){
+t_bloque* recuperar_ultimo_bloque(char* ruta){
 
 	t_bloque* el_bloque;
 	int cantidad_de_bloques=0;
@@ -1523,7 +1619,7 @@ void eliminar_del_archivo(files file, int cant_borrar,char caracter){
 			contenido_total=contenido_de_bloques(bloquesaux);
 			if(string_length(contenido_total)>=cant_borrar){
 				//recupero el ultimo bloque
-				bloque= recuperar_ultimo_bloque_file(archivoOxigeno);
+				bloque= recuperar_ultimo_bloque(archivoOxigeno);
 				//int cantidad_ocupada=bloque->posicion_para_escribir-bloque->inicio-1;
 				cantidadOcupada=caracteres_ocupados(bloque->inicio,bloque->fin);
 				//me fijo si la cantidad ocupada es mayor que la cantidad a borrar
@@ -1575,7 +1671,7 @@ void eliminar_del_archivo(files file, int cant_borrar,char caracter){
 			bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
 			contenido_total=contenido_de_bloques(bloquesaux);
 			if(string_length(contenido_total)>=cant_borrar){
-				bloque= recuperar_ultimo_bloque_file(archivoComida);
+				bloque= recuperar_ultimo_bloque(archivoComida);
 				cantidadOcupada=caracteres_ocupados(bloque->inicio,bloque->fin);
 				if(cantidadOcupada>=cant_borrar){
 					borrar_del_archivo(COMIDA,cant_borrar,bloque,caracter);
@@ -1671,7 +1767,8 @@ void generar_oxigeno(int cantidad){
 
 	//Agregar tantos caracteres de llenado del archivo como indique el parámetro CANTIDAD
 	else{
-		bloque=recuperar_ultimo_bloque_file(archivoOxigeno);
+
+		bloque=recuperar_ultimo_bloque(archivoOxigeno);
 		escribir_el_archivo(OXIGENO,cadena,bloque);
 	}
 	sem_post(&semaforo_para_file_oxigeno);
@@ -1721,7 +1818,7 @@ void generar_comida(int cantidad){
 		escribir_el_archivo(COMIDA,cadena,bloque);
 	}
 	else{
-		bloque=recuperar_ultimo_bloque_file(archivoComida);
+		bloque=recuperar_ultimo_bloque(archivoComida);
 		escribir_el_archivo(COMIDA,cadena,bloque);
 	}
 	sem_post(&semaforo_para_file_comida);
@@ -1766,7 +1863,7 @@ void generar_basura(int cantidad){
 		escribir_el_archivo(BASURA,cadena,bloque);
 	}
 	else{
-		bloque=recuperar_ultimo_bloque_file(archivoBasura);
+		bloque=recuperar_ultimo_bloque(archivoBasura);
 		escribir_el_archivo(BASURA,cadena,bloque);
 	}
 	sem_post(&semaforo_para_file_basura);

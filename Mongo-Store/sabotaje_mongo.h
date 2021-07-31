@@ -6,6 +6,9 @@
 
 int socket_sabotaje_cliente;
 
+char* archivo_saboteado;
+char* ruta_saboteada;
+char* archivo_blocks_para_sabotaje;
 char *s_superbloque;
 char *s_blocks;
 int s_tamanio_superbloque;

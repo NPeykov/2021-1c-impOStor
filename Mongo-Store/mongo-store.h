@@ -133,9 +133,14 @@ char *size_de_archivo(char*);
 char* bloques_de_archivo(char*);
 char* contenido_de_bloques(char*);
 char* cantidad_de_bloques_de_archivo(char*);
-t_bloque* recuperar_ultimo_bloque_file(char*);
+t_bloque* recuperar_ultimo_bloque(char*);
 char* leo_el_bloque_incluyendo_espacios(t_bloque*);
 char* leer_md5file(char*);
+char* cantidad_de_bloques_de_archivo_fisico(char *);
+char* bloques_de_archivo_fisico(char*);
+char *size_de_archivo_fisico(char* );
+char* contenido_de_bloques_fisico(char*);
+char* leo_el_bloque_fisico(t_bloque* );
 
 
 

@@ -62,7 +62,7 @@ typedef struct{
 	uint32_t posY;//Posicion en el eje Y
 	uint32_t proxIns; //Proxima Instruccion
 	uint32_t pcb; //Direccion de la PCB asociada al tripulante
-} TripuCB; //Tripulante Control Block
+} __attribute__((packed)) TripuCB; //Tripulante Control Block
 
 typedef struct{
 	int idTripulante;

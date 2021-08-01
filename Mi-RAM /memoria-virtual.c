@@ -11,7 +11,7 @@ void llenar_archivo(int fd, int tamanio){
 }
 
 int crear_archivo_swap(){
-	int fd = open("swap", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR); // Lo abre para lectura si existe, sino lo crea
+	int fd = open("swap", O_RDWR); // Lo abre para lectura si existe, sino lo crea
 	struct stat statfile;
 	if(fstat(fd,&statfile)==-1)
 		return -1;
@@ -21,6 +21,7 @@ int crear_archivo_swap(){
 	return 0;
 }
 
+/*TODO:Reemplazada por traer_marco_valido
 int posicion_libre_en_swap(){
 	int posicionLibre = -1;
 	int i=0;
@@ -34,7 +35,7 @@ int posicion_libre_en_swap(){
 	}
 
 	return posicionLibre;
-}
+}*/
 
 void inicializar_bitmap_swap(){
 	int bytes;
@@ -46,9 +47,9 @@ void inicializar_bitmap_swap(){
 	} else {
 		bytes = aux.quot + 1;
 	}
-	char *punteroABits = (char*) malloc(bytes);
+	void *punteroABits = malloc(bytes);
 
-	BIT_ARRAY_SWAP = bitarray_create_with_mode(punteroABits, (size_t) bytes,LSB_FIRST);
+	BIT_ARRAY_SWAP = bitarray_create(punteroABits, bytes);
 
 	for(int i=0;i<marcos_en_swap;i++){
 		bitarray_clean_bit(BIT_ARRAY_SWAP,i);

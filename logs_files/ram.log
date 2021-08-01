@@ -1,3 +1,868 @@
+[INFO] 00:33:12:158 Mi-RAM/(31680:31680): ################# Modulo Mi-RAM #################
+
+[INFO] 00:33:12:257 Mi-RAM/(31680:31680): El tamaño de las paginas es: 32
+[INFO] 00:33:20:918 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:20:923 Mi-RAM/(31680:31680): Se recibio una operacion: 2
+
+[INFO] 00:33:20:953 Mi-RAM/(31680:31714): Se creo la pagina de la estructura: 0
+[INFO] 00:33:20:956 Mi-RAM/(31680:31714): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:33:20:961 Mi-RAM/(31680:31714): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:33:20:962 Mi-RAM/(31680:31714): Llegue aca xdxd
+[INFO] 00:33:20:962 Mi-RAM/(31680:31714): Se creo la pagina de la estructura: 2
+[INFO] 00:33:20:963 Mi-RAM/(31680:31714): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:33:20:963 Mi-RAM/(31680:31714): Llegue aca xdxd
+[INFO] 00:33:20:963 Mi-RAM/(31680:31714): Se creo la pagina de la estructura: 2
+[INFO] 00:33:20:964 Mi-RAM/(31680:31714): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:33:20:964 Mi-RAM/(31680:31714): Se creo la patota 1 correctamente.
+[INFO] 00:33:20:973 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:20:973 Mi-RAM/(31680:31680): Se recibio una operacion: 3
+
+[INFO] 00:33:20:986 Mi-RAM/(31680:31716): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:33:20:987 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:20:988 Mi-RAM/(31680:31680): Se recibio una operacion: 8
+
+[INFO] 00:33:20:996 Mi-RAM/(31680:31717): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:33:20:998 Mi-RAM/(31680:31717): Se va a leer la pagina que arranca en 64
+[INFO] 00:33:20:998 Mi-RAM/(31680:31717): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:33:21:002 Mi-RAM/(31680:31717): Se va a leer la pagina que arranca en 0
+[INFO] 00:33:21:003 Mi-RAM/(31680:31717): Sacando tarea: G
+[INFO] 00:33:21:004 Mi-RAM/(31680:31717): Sacando tarea: GE
+[INFO] 00:33:21:004 Mi-RAM/(31680:31717): Sacando tarea: GEN
+[INFO] 00:33:21:004 Mi-RAM/(31680:31717): Sacando tarea: GENE
+[INFO] 00:33:21:004 Mi-RAM/(31680:31717): Sacando tarea: GENER
+[INFO] 00:33:21:004 Mi-RAM/(31680:31717): Sacando tarea: GENERA
+[INFO] 00:33:21:004 Mi-RAM/(31680:31717): Sacando tarea: GENERAR
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_O
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OX
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXI
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIG
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:33:21:005 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:33:21:006 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:33:21:007 Mi-RAM/(31680:31717): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:33:21:010 Mi-RAM/(31680:31717): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:33:21:011 Mi-RAM/(31680:31717): El tripulante 1 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:33:21:019 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:21:022 Mi-RAM/(31680:31680): Se recibio una operacion: 3
+
+[INFO] 00:33:21:024 Mi-RAM/(31680:31720): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:33:21:024 Mi-RAM/(31680:31720): Llegue aca xdxd
+[INFO] 00:33:21:025 Mi-RAM/(31680:31720): Se creo la pagina de la estructura: 1
+[INFO] 00:33:21:025 Mi-RAM/(31680:31720): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:33:21:025 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:21:026 Mi-RAM/(31680:31680): Se recibio una operacion: 8
+
+[INFO] 00:33:21:027 Mi-RAM/(31680:31721): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:33:21:028 Mi-RAM/(31680:31721): Se va a leer la pagina que arranca en 64
+[INFO] 00:33:21:028 Mi-RAM/(31680:31721): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:33:21:028 Mi-RAM/(31680:31721): Se va a leer la pagina que arranca en 96
+[INFO] 00:33:21:028 Mi-RAM/(31680:31721): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:33:21:029 Mi-RAM/(31680:31721): Se va a leer la pagina que arranca en 0
+[INFO] 00:33:21:029 Mi-RAM/(31680:31721): Sacando tarea: G
+[INFO] 00:33:21:029 Mi-RAM/(31680:31721): Sacando tarea: GE
+[INFO] 00:33:21:029 Mi-RAM/(31680:31721): Sacando tarea: GEN
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENE
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENER
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENERA
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENERAR
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_O
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OX
+[INFO] 00:33:21:030 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXI
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIG
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:33:21:031 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:33:21:032 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:33:21:032 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:33:21:032 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:33:21:032 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:33:21:032 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:33:21:032 Mi-RAM/(31680:31721): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:33:21:034 Mi-RAM/(31680:31721): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:33:21:034 Mi-RAM/(31680:31721): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:33:21:034 Mi-RAM/(31680:31721): El tripulante 2 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:33:21:035 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 8
+
+[INFO] 00:33:21:036 Mi-RAM/(31680:31680): Se recibio una operacion: 3
+
+[INFO] 00:33:21:037 Mi-RAM/(31680:31724): Se va a agregar a la pagina 3 , la estructura 1 con base 20 , y tamanio 12
+[INFO] 00:33:21:037 Mi-RAM/(31680:31724): Llegue aca xdxd
+[INFO] 00:33:21:037 Mi-RAM/(31680:31724): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:33:21:037 Mi-RAM/(31680:31724): Se creo la pagina de la estructura: 1
+[INFO] 00:33:21:038 Mi-RAM/(31680:31724): Memoria principal llena, realizando swap.
+[INFO] 00:33:21:039 Mi-RAM/(31680:31724): Se comienza a ejecutar el algoritmo clock
+[INFO] 00:33:21:040 Mi-RAM/(31680:31724): me volvi loco xdxdjuasjuas
+[INFO] 00:33:21:053 Mi-RAM/(31680:31724): me volvi loco xdxdjuasjuas
+[INFO] 00:33:21:054 Mi-RAM/(31680:31724): Se eligio como victima la pagina 0 cuyo frame es 0.
+[INFO] 00:33:21:054 Mi-RAM/(31680:31724): Se swapea la pagina 4 con la pagina 0
+[INFO] 00:33:21:061 Mi-RAM/(31680:31724): Llegue aca xd
+[INFO] 00:33:21:061 Mi-RAM/(31680:31724): Se va a agregar a la pagina 4 , la estructura 1 con base 0 , y tamanio 9
+[INFO] 00:33:21:064 Mi-RAM/(31680:31680): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:21:064 Mi-RAM/(31680:31680): Se recibio una operacion: 8
+
+[INFO] 00:33:21:065 Mi-RAM/(31680:31725): La cantidad de paginas que contienen al tripulante 3 son 2
+[INFO] 00:33:21:066 Mi-RAM/(31680:31725): Se va a leer la pagina que arranca en 96
+[INFO] 00:33:21:066 Mi-RAM/(31680:31725): SE LEE DEL TRIPU: 3 - FRAME: 3 | D_INCIAL: 20 | TAMANIO: 12
+[INFO] 00:33:21:066 Mi-RAM/(31680:31725): Se va a leer la pagina que arranca en 0
+[INFO] 00:33:21:066 Mi-RAM/(31680:31725): SE LEE DEL TRIPU: 3 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 9
+[INFO] 00:33:21:067 Mi-RAM/(31680:31725): Se va a leer la pagina que arranca en -32
+[INFO] 00:33:21:069 Mi-RAM/(31680:31725): Sacando tarea: �
+[INFO] 00:33:21:070 Mi-RAM/(31680:31725): Se sobreescribio en RAM: FRAME: 3 | DESDE: 20 | HASTA: 31 
+[INFO] 00:33:21:070 Mi-RAM/(31680:31725): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 8 
+[INFO] 00:33:21:070 Mi-RAM/(31680:31725): El tripulante 3 pidio la tarea �
+[INFO] 00:38:33:011 Mi-RAM/(32205:32205): ################# Modulo Mi-RAM #################
+
+[INFO] 00:38:33:107 Mi-RAM/(32205:32205): El tamaño de las paginas es: 32
+[INFO] 00:38:43:047 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 5
+
+[INFO] 00:38:43:050 Mi-RAM/(32205:32205): Se recibio una operacion: 2
+
+[INFO] 00:38:43:078 Mi-RAM/(32205:32225): Se creo la pagina de la estructura: 0
+[INFO] 00:38:43:081 Mi-RAM/(32205:32225): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:38:43:086 Mi-RAM/(32205:32225): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:38:43:087 Mi-RAM/(32205:32225): Llegue aca xdxd
+[INFO] 00:38:43:087 Mi-RAM/(32205:32225): Se creo la pagina de la estructura: 2
+[INFO] 00:38:43:088 Mi-RAM/(32205:32225): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:38:43:088 Mi-RAM/(32205:32225): Llegue aca xdxd
+[INFO] 00:38:43:088 Mi-RAM/(32205:32225): Se creo la pagina de la estructura: 2
+[INFO] 00:38:43:089 Mi-RAM/(32205:32225): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:38:43:089 Mi-RAM/(32205:32225): Se creo la patota 1 correctamente.
+[INFO] 00:38:43:097 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 7
+
+[INFO] 00:38:43:097 Mi-RAM/(32205:32205): Se recibio una operacion: 3
+
+[INFO] 00:38:43:107 Mi-RAM/(32205:32227): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:38:43:112 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 5
+
+[INFO] 00:38:43:112 Mi-RAM/(32205:32205): Se recibio una operacion: 8
+
+[INFO] 00:38:43:121 Mi-RAM/(32205:32228): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:38:43:123 Mi-RAM/(32205:32228): Se va a leer la pagina que arranca en 64
+[INFO] 00:38:43:123 Mi-RAM/(32205:32228): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:38:43:127 Mi-RAM/(32205:32228): Se va a leer la pagina que arranca en 0
+[INFO] 00:38:43:128 Mi-RAM/(32205:32228): Sacando tarea: G
+[INFO] 00:38:43:128 Mi-RAM/(32205:32228): Sacando tarea: GE
+[INFO] 00:38:43:128 Mi-RAM/(32205:32228): Sacando tarea: GEN
+[INFO] 00:38:43:128 Mi-RAM/(32205:32228): Sacando tarea: GENE
+[INFO] 00:38:43:128 Mi-RAM/(32205:32228): Sacando tarea: GENER
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERA
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_O
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OX
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXI
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIG
+[INFO] 00:38:43:129 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:38:43:130 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:38:43:131 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:38:43:131 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:38:43:131 Mi-RAM/(32205:32228): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:38:43:134 Mi-RAM/(32205:32228): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:38:43:135 Mi-RAM/(32205:32228): El tripulante 1 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:38:43:137 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 7
+
+[INFO] 00:38:43:138 Mi-RAM/(32205:32205): Se recibio una operacion: 3
+
+[INFO] 00:38:43:149 Mi-RAM/(32205:32231): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:38:43:149 Mi-RAM/(32205:32231): Llegue aca xdxd
+[INFO] 00:38:43:149 Mi-RAM/(32205:32231): Se creo la pagina de la estructura: 1
+[INFO] 00:38:43:149 Mi-RAM/(32205:32231): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:38:43:152 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 5
+
+[INFO] 00:38:43:153 Mi-RAM/(32205:32205): Se recibio una operacion: 8
+
+[INFO] 00:38:43:155 Mi-RAM/(32205:32232): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:38:43:155 Mi-RAM/(32205:32232): Se va a leer la pagina que arranca en 64
+[INFO] 00:38:43:156 Mi-RAM/(32205:32232): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:38:43:156 Mi-RAM/(32205:32232): Se va a leer la pagina que arranca en 96
+[INFO] 00:38:43:156 Mi-RAM/(32205:32232): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Se va a leer la pagina que arranca en 0
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Sacando tarea: G
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Sacando tarea: GE
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Sacando tarea: GEN
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Sacando tarea: GENE
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Sacando tarea: GENER
+[INFO] 00:38:43:157 Mi-RAM/(32205:32232): Sacando tarea: GENERA
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_O
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OX
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXI
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIG
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:38:43:158 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:38:43:159 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:38:43:160 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:38:43:160 Mi-RAM/(32205:32232): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:38:43:161 Mi-RAM/(32205:32232): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:38:43:161 Mi-RAM/(32205:32232): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:38:43:161 Mi-RAM/(32205:32232): El tripulante 2 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:38:43:163 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 8
+
+[INFO] 00:38:43:163 Mi-RAM/(32205:32205): Se recibio una operacion: 3
+
+[INFO] 00:38:43:164 Mi-RAM/(32205:32235): Se va a agregar a la pagina 3 , la estructura 1 con base 20 , y tamanio 12
+[INFO] 00:38:43:164 Mi-RAM/(32205:32235): Llegue aca xdxd
+[INFO] 00:38:43:165 Mi-RAM/(32205:32235): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:38:43:165 Mi-RAM/(32205:32235): Se creo la pagina de la estructura: 1
+[INFO] 00:38:43:165 Mi-RAM/(32205:32235): Memoria principal llena, realizando swap.
+[INFO] 00:38:43:167 Mi-RAM/(32205:32235): Se comienza a ejecutar el algoritmo clock
+[INFO] 00:38:43:167 Mi-RAM/(32205:32235): me volvi loco xdxdjuasjuas
+[INFO] 00:38:43:179 Mi-RAM/(32205:32235): me volvi loco xdxdjuasjuas
+[INFO] 00:38:43:180 Mi-RAM/(32205:32235): Se eligio como victima la pagina 0 cuyo frame es 0.
+[INFO] 00:38:43:180 Mi-RAM/(32205:32235): Se swapea la pagina 4 con la pagina 0
+[INFO] 00:38:43:188 Mi-RAM/(32205:32235): Llegue aca xd
+[INFO] 00:38:43:189 Mi-RAM/(32205:32235): Se va a agregar a la pagina 4 , la estructura 1 con base 0 , y tamanio 9
+[INFO] 00:38:43:190 Mi-RAM/(32205:32205): Se conecto un cliente con socket: 5
+
+[INFO] 00:38:43:190 Mi-RAM/(32205:32205): Se recibio una operacion: 8
+
+[INFO] 00:38:43:191 Mi-RAM/(32205:32236): La cantidad de paginas que contienen al tripulante 3 son 2
+[INFO] 00:38:43:192 Mi-RAM/(32205:32236): Se va a leer la pagina que arranca en 96
+[INFO] 00:38:43:192 Mi-RAM/(32205:32236): SE LEE DEL TRIPU: 3 - FRAME: 3 | D_INCIAL: 20 | TAMANIO: 12
+[INFO] 00:38:43:193 Mi-RAM/(32205:32236): Se va a leer la pagina que arranca en 0
+[INFO] 00:38:43:193 Mi-RAM/(32205:32236): SE LEE DEL TRIPU: 3 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 9
+[INFO] 00:38:43:194 Mi-RAM/(32205:32236): Se produce un PF (pagina 0)
+[INFO] 00:38:43:194 Mi-RAM/(32205:32236): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:38:43:195 Mi-RAM/(32205:32236): Se procede a asignar el marco -1 a la pagina 0
+[INFO] 00:38:43:196 Mi-RAM/(32205:32236): Se va a leer la pagina que arranca en -32
+[INFO] 00:41:39:911 Mi-RAM/(32555:32555): ################# Modulo Mi-RAM #################
+
+[INFO] 00:41:40:019 Mi-RAM/(32555:32555): El tamaño de las paginas es: 32
+[INFO] 00:41:49:569 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 5
+
+[INFO] 00:41:49:574 Mi-RAM/(32555:32555): Se recibio una operacion: 2
+
+[INFO] 00:41:49:603 Mi-RAM/(32555:32584): Se creo la pagina de la estructura: 0
+[INFO] 00:41:49:607 Mi-RAM/(32555:32584): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:41:49:612 Mi-RAM/(32555:32584): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:41:49:612 Mi-RAM/(32555:32584): Llegue aca xdxd
+[INFO] 00:41:49:613 Mi-RAM/(32555:32584): Se creo la pagina de la estructura: 2
+[INFO] 00:41:49:613 Mi-RAM/(32555:32584): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:41:49:614 Mi-RAM/(32555:32584): Llegue aca xdxd
+[INFO] 00:41:49:614 Mi-RAM/(32555:32584): Se creo la pagina de la estructura: 2
+[INFO] 00:41:49:614 Mi-RAM/(32555:32584): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:41:49:615 Mi-RAM/(32555:32584): Se creo la patota 1 correctamente.
+[INFO] 00:41:49:622 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 7
+
+[INFO] 00:41:49:622 Mi-RAM/(32555:32555): Se recibio una operacion: 3
+
+[INFO] 00:41:49:635 Mi-RAM/(32555:32586): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:41:49:637 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 5
+
+[INFO] 00:41:49:637 Mi-RAM/(32555:32555): Se recibio una operacion: 8
+
+[INFO] 00:41:49:646 Mi-RAM/(32555:32587): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:41:49:647 Mi-RAM/(32555:32587): Se va a leer la pagina que arranca en 64
+[INFO] 00:41:49:648 Mi-RAM/(32555:32587): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:41:49:651 Mi-RAM/(32555:32587): Se va a leer la pagina que arranca en 0
+[INFO] 00:41:49:652 Mi-RAM/(32555:32587): Sacando tarea: G
+[INFO] 00:41:49:652 Mi-RAM/(32555:32587): Sacando tarea: GE
+[INFO] 00:41:49:652 Mi-RAM/(32555:32587): Sacando tarea: GEN
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENE
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENER
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENERA
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENERAR
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_O
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OX
+[INFO] 00:41:49:653 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXI
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIG
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:41:49:654 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:41:49:655 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:41:49:655 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:41:49:655 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:41:49:655 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:41:49:656 Mi-RAM/(32555:32587): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:658 Mi-RAM/(32555:32587): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:41:49:659 Mi-RAM/(32555:32587): El tripulante 1 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:662 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 7
+
+[INFO] 00:41:49:672 Mi-RAM/(32555:32555): Se recibio una operacion: 3
+
+[INFO] 00:41:49:676 Mi-RAM/(32555:32590): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:41:49:677 Mi-RAM/(32555:32590): Llegue aca xdxd
+[INFO] 00:41:49:677 Mi-RAM/(32555:32590): Se creo la pagina de la estructura: 1
+[INFO] 00:41:49:677 Mi-RAM/(32555:32590): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:41:49:677 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 5
+
+[INFO] 00:41:49:678 Mi-RAM/(32555:32555): Se recibio una operacion: 8
+
+[INFO] 00:41:49:679 Mi-RAM/(32555:32591): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:41:49:679 Mi-RAM/(32555:32591): Se va a leer la pagina que arranca en 64
+[INFO] 00:41:49:679 Mi-RAM/(32555:32591): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:41:49:680 Mi-RAM/(32555:32591): Se va a leer la pagina que arranca en 96
+[INFO] 00:41:49:680 Mi-RAM/(32555:32591): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:41:49:680 Mi-RAM/(32555:32591): Se va a leer la pagina que arranca en 0
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: G
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: GE
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: GEN
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: GENE
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: GENER
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: GENERA
+[INFO] 00:41:49:681 Mi-RAM/(32555:32591): Sacando tarea: GENERAR
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_O
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OX
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXI
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIG
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:41:49:682 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:41:49:683 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:41:49:683 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:41:49:683 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:41:49:683 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:41:49:683 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:41:49:683 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:41:49:684 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:41:49:684 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:41:49:684 Mi-RAM/(32555:32591): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:685 Mi-RAM/(32555:32591): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:41:49:685 Mi-RAM/(32555:32591): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:41:49:686 Mi-RAM/(32555:32591): El tripulante 2 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:686 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 8
+
+[INFO] 00:41:49:687 Mi-RAM/(32555:32555): Se recibio una operacion: 3
+
+[INFO] 00:41:49:688 Mi-RAM/(32555:32594): Se va a agregar a la pagina 3 , la estructura 1 con base 20 , y tamanio 12
+[INFO] 00:41:49:688 Mi-RAM/(32555:32594): Llegue aca xdxd
+[INFO] 00:41:49:688 Mi-RAM/(32555:32594): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:41:49:689 Mi-RAM/(32555:32594): Se creo la pagina de la estructura: 1
+[INFO] 00:41:49:689 Mi-RAM/(32555:32594): Memoria principal llena, realizando swap.
+[INFO] 00:41:49:690 Mi-RAM/(32555:32594): Se comienza a ejecutar el algoritmo clock
+[INFO] 00:41:49:691 Mi-RAM/(32555:32594): me volvi loco xdxdjuasjuas
+[INFO] 00:41:49:704 Mi-RAM/(32555:32594): me volvi loco xdxdjuasjuas
+[INFO] 00:41:49:705 Mi-RAM/(32555:32594): Se eligio como victima la pagina 0 cuyo frame es 0.
+[INFO] 00:41:49:710 Mi-RAM/(32555:32594): Se swapea la pagina 4 con la pagina 0
+[INFO] 00:41:49:712 Mi-RAM/(32555:32594): Llegue aca xd
+[INFO] 00:41:49:713 Mi-RAM/(32555:32594): Se va a agregar a la pagina 4 , la estructura 1 con base 0 , y tamanio 9
+[INFO] 00:41:49:715 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 5
+
+[INFO] 00:41:49:715 Mi-RAM/(32555:32555): Se recibio una operacion: 8
+
+[INFO] 00:41:49:716 Mi-RAM/(32555:32595): La cantidad de paginas que contienen al tripulante 3 son 2
+[INFO] 00:41:49:717 Mi-RAM/(32555:32595): Se va a leer la pagina que arranca en 96
+[INFO] 00:41:49:717 Mi-RAM/(32555:32595): SE LEE DEL TRIPU: 3 - FRAME: 3 | D_INCIAL: 20 | TAMANIO: 12
+[INFO] 00:41:49:717 Mi-RAM/(32555:32595): Se va a leer la pagina que arranca en 0
+[INFO] 00:41:49:718 Mi-RAM/(32555:32595): SE LEE DEL TRIPU: 3 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 9
+[INFO] 00:41:49:718 Mi-RAM/(32555:32595): Se produce un PF (pagina 0)
+[INFO] 00:41:49:718 Mi-RAM/(32555:32595): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:41:49:719 Mi-RAM/(32555:32595): Se comienza a ejecutar el algoritmo clock
+[INFO] 00:41:49:719 Mi-RAM/(32555:32595): me volvi loco xdxdjuasjuas
+[INFO] 00:41:49:720 Mi-RAM/(32555:32595): Se eligio como victima la pagina 1 cuyo frame es 1.
+[INFO] 00:41:49:720 Mi-RAM/(32555:32595): Se swapea la pagina 0 con la pagina 1
+[INFO] 00:41:49:720 Mi-RAM/(32555:32595): Llegue aca xd
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Se va a leer la pagina que arranca en 32
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Sacando tarea: G
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Sacando tarea: GE
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Sacando tarea: GEN
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Sacando tarea: GENE
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Sacando tarea: GENER
+[INFO] 00:41:49:721 Mi-RAM/(32555:32595): Sacando tarea: GENERA
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_O
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OX
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXI
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIG
+[INFO] 00:41:49:722 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:41:49:723 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:41:49:727 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:41:49:727 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:41:49:727 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:41:49:727 Mi-RAM/(32555:32595): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:728 Mi-RAM/(32555:32595): Se sobreescribio en RAM: FRAME: 3 | DESDE: 20 | HASTA: 31 
+[INFO] 00:41:49:729 Mi-RAM/(32555:32595): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 8 
+[INFO] 00:41:49:729 Mi-RAM/(32555:32595): El tripulante 3 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:730 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 7
+
+[INFO] 00:41:49:731 Mi-RAM/(32555:32555): Se recibio una operacion: 3
+
+[INFO] 00:41:49:731 Mi-RAM/(32555:32598): Se va a agregar a la pagina 4 , la estructura 1 con base 9 , y tamanio 21
+[INFO] 00:41:49:732 Mi-RAM/(32555:32555): Se conecto un cliente con socket: 5
+
+[INFO] 00:41:49:732 Mi-RAM/(32555:32555): Se recibio una operacion: 8
+
+[INFO] 00:41:49:733 Mi-RAM/(32555:32599): La cantidad de paginas que contienen al tripulante 4 son 1
+[INFO] 00:41:49:734 Mi-RAM/(32555:32599): Se va a leer la pagina que arranca en 0
+[INFO] 00:41:49:734 Mi-RAM/(32555:32599): SE LEE DEL TRIPU: 4 - FRAME: 0 | D_INCIAL: 9 | TAMANIO: 21
+[INFO] 00:41:49:735 Mi-RAM/(32555:32599): Se va a leer la pagina que arranca en 32
+[INFO] 00:41:49:735 Mi-RAM/(32555:32599): Sacando tarea: G
+[INFO] 00:41:49:735 Mi-RAM/(32555:32599): Sacando tarea: GE
+[INFO] 00:41:49:735 Mi-RAM/(32555:32599): Sacando tarea: GEN
+[INFO] 00:41:49:735 Mi-RAM/(32555:32599): Sacando tarea: GENE
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENER
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERA
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERAR
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_O
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OX
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXI
+[INFO] 00:41:49:736 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIG
+[INFO] 00:41:49:737 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:41:49:737 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:41:49:737 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:41:49:737 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:41:49:737 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:41:49:737 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:41:49:738 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:41:49:738 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:41:49:738 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:41:49:738 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:41:49:738 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:41:49:738 Mi-RAM/(32555:32599): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:41:49:739 Mi-RAM/(32555:32599): Se sobreescribio en RAM: FRAME: 0 | DESDE: 9 | HASTA: 29 
+[INFO] 00:41:49:739 Mi-RAM/(32555:32599): El tripulante 4 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:40:687 Mi-RAM/(413:413): ################# Modulo Mi-RAM #################
+
+[INFO] 00:43:40:782 Mi-RAM/(413:413): El tamaño de las paginas es: 32
+[INFO] 00:43:54:407 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:43:54:409 Mi-RAM/(413:413): Se recibio una operacion: 2
+
+[INFO] 00:43:54:434 Mi-RAM/(413:450): Se creo la pagina de la estructura: 0
+[INFO] 00:43:54:440 Mi-RAM/(413:450): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:43:54:445 Mi-RAM/(413:450): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:43:54:446 Mi-RAM/(413:450): Llegue aca xdxd
+[INFO] 00:43:54:446 Mi-RAM/(413:450): Se creo la pagina de la estructura: 2
+[INFO] 00:43:54:446 Mi-RAM/(413:450): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:43:54:447 Mi-RAM/(413:450): Llegue aca xdxd
+[INFO] 00:43:54:447 Mi-RAM/(413:450): Se creo la pagina de la estructura: 2
+[INFO] 00:43:54:447 Mi-RAM/(413:450): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:43:54:448 Mi-RAM/(413:450): Se creo la patota 1 correctamente.
+[INFO] 00:43:54:456 Mi-RAM/(413:413): Se conecto un cliente con socket: 7
+
+[INFO] 00:43:54:456 Mi-RAM/(413:413): Se recibio una operacion: 3
+
+[INFO] 00:43:54:466 Mi-RAM/(413:452): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:43:54:467 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:43:54:468 Mi-RAM/(413:413): Se recibio una operacion: 8
+
+[INFO] 00:43:54:481 Mi-RAM/(413:453): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:43:54:483 Mi-RAM/(413:453): Se va a leer la pagina que arranca en 64
+[INFO] 00:43:54:483 Mi-RAM/(413:453): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:43:54:487 Mi-RAM/(413:453): Se va a leer la pagina que arranca en 0
+[INFO] 00:43:54:488 Mi-RAM/(413:453): Sacando tarea: G
+[INFO] 00:43:54:488 Mi-RAM/(413:453): Sacando tarea: GE
+[INFO] 00:43:54:488 Mi-RAM/(413:453): Sacando tarea: GEN
+[INFO] 00:43:54:488 Mi-RAM/(413:453): Sacando tarea: GENE
+[INFO] 00:43:54:488 Mi-RAM/(413:453): Sacando tarea: GENER
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERA
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERAR
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERAR_
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERAR_O
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERAR_OX
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXI
+[INFO] 00:43:54:489 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIG
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:43:54:490 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:43:54:491 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:43:54:491 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:43:54:491 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:43:54:492 Mi-RAM/(413:453): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:494 Mi-RAM/(413:453): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:43:54:495 Mi-RAM/(413:453): El tripulante 1 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:497 Mi-RAM/(413:413): Se conecto un cliente con socket: 7
+
+[INFO] 00:43:54:505 Mi-RAM/(413:413): Se recibio una operacion: 3
+
+[INFO] 00:43:54:509 Mi-RAM/(413:456): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:43:54:510 Mi-RAM/(413:456): Llegue aca xdxd
+[INFO] 00:43:54:510 Mi-RAM/(413:456): Se creo la pagina de la estructura: 1
+[INFO] 00:43:54:510 Mi-RAM/(413:456): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:43:54:512 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:43:54:513 Mi-RAM/(413:413): Se recibio una operacion: 8
+
+[INFO] 00:43:54:515 Mi-RAM/(413:457): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:43:54:516 Mi-RAM/(413:457): Se va a leer la pagina que arranca en 64
+[INFO] 00:43:54:516 Mi-RAM/(413:457): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:43:54:516 Mi-RAM/(413:457): Se va a leer la pagina que arranca en 96
+[INFO] 00:43:54:516 Mi-RAM/(413:457): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Se va a leer la pagina que arranca en 0
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Sacando tarea: G
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Sacando tarea: GE
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Sacando tarea: GEN
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Sacando tarea: GENE
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Sacando tarea: GENER
+[INFO] 00:43:54:517 Mi-RAM/(413:457): Sacando tarea: GENERA
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_O
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_OX
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXI
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIG
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:43:54:518 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:43:54:519 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:43:54:519 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:43:54:519 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:43:54:519 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:43:54:519 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:43:54:519 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:43:54:520 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:43:54:520 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:43:54:520 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:43:54:520 Mi-RAM/(413:457): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:521 Mi-RAM/(413:457): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:43:54:521 Mi-RAM/(413:457): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:43:54:522 Mi-RAM/(413:457): El tripulante 2 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:522 Mi-RAM/(413:413): Se conecto un cliente con socket: 8
+
+[INFO] 00:43:54:523 Mi-RAM/(413:413): Se recibio una operacion: 3
+
+[INFO] 00:43:54:524 Mi-RAM/(413:460): Se va a agregar a la pagina 3 , la estructura 1 con base 20 , y tamanio 12
+[INFO] 00:43:54:524 Mi-RAM/(413:460): Llegue aca xdxd
+[INFO] 00:43:54:525 Mi-RAM/(413:460): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:43:54:525 Mi-RAM/(413:460): Se creo la pagina de la estructura: 1
+[INFO] 00:43:54:525 Mi-RAM/(413:460): Memoria principal llena, realizando swap.
+[INFO] 00:43:54:527 Mi-RAM/(413:460): Se comienza a ejecutar el algoritmo clock
+[INFO] 00:43:54:527 Mi-RAM/(413:460): me volvi loco xdxdjuasjuas
+[INFO] 00:43:54:544 Mi-RAM/(413:460): me volvi loco xdxdjuasjuas
+[INFO] 00:43:54:544 Mi-RAM/(413:460): Se eligio como victima la pagina 0 cuyo frame es 0.
+[INFO] 00:43:54:545 Mi-RAM/(413:460): Se swapea la pagina 4 con la pagina 0
+[INFO] 00:43:54:546 Mi-RAM/(413:460): Llegue aca xd
+[INFO] 00:43:54:546 Mi-RAM/(413:460): Se va a agregar a la pagina 4 , la estructura 1 con base 0 , y tamanio 9
+[INFO] 00:43:54:548 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:43:54:549 Mi-RAM/(413:413): Se recibio una operacion: 8
+
+[INFO] 00:43:54:550 Mi-RAM/(413:461): La cantidad de paginas que contienen al tripulante 3 son 2
+[INFO] 00:43:54:550 Mi-RAM/(413:461): Se va a leer la pagina que arranca en 96
+[INFO] 00:43:54:550 Mi-RAM/(413:461): SE LEE DEL TRIPU: 3 - FRAME: 3 | D_INCIAL: 20 | TAMANIO: 12
+[INFO] 00:43:54:551 Mi-RAM/(413:461): Se va a leer la pagina que arranca en 0
+[INFO] 00:43:54:551 Mi-RAM/(413:461): SE LEE DEL TRIPU: 3 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 9
+[INFO] 00:43:54:551 Mi-RAM/(413:461): Se produce un PF (pagina 0)
+[INFO] 00:43:54:552 Mi-RAM/(413:461): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 00:43:54:552 Mi-RAM/(413:461): Se comienza a ejecutar el algoritmo clock
+[INFO] 00:43:54:552 Mi-RAM/(413:461): me volvi loco xdxdjuasjuas
+[INFO] 00:43:54:553 Mi-RAM/(413:461): Se eligio como victima la pagina 1 cuyo frame es 1.
+[INFO] 00:43:54:553 Mi-RAM/(413:461): Se swapea la pagina 0 con la pagina 1
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Llegue aca xd
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Se va a leer la pagina que arranca en 32
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Sacando tarea: G
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Sacando tarea: GE
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Sacando tarea: GEN
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Sacando tarea: GENE
+[INFO] 00:43:54:554 Mi-RAM/(413:461): Sacando tarea: GENER
+[INFO] 00:43:54:555 Mi-RAM/(413:461): Sacando tarea: GENERA
+[INFO] 00:43:54:555 Mi-RAM/(413:461): Sacando tarea: GENERAR
+[INFO] 00:43:54:555 Mi-RAM/(413:461): Sacando tarea: GENERAR_
+[INFO] 00:43:54:555 Mi-RAM/(413:461): Sacando tarea: GENERAR_O
+[INFO] 00:43:54:555 Mi-RAM/(413:461): Sacando tarea: GENERAR_OX
+[INFO] 00:43:54:555 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXI
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIG
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:43:54:556 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:43:54:557 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:43:54:557 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:43:54:557 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:43:54:557 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:43:54:557 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:43:54:557 Mi-RAM/(413:461): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:558 Mi-RAM/(413:461): Se sobreescribio en RAM: FRAME: 3 | DESDE: 20 | HASTA: 31 
+[INFO] 00:43:54:559 Mi-RAM/(413:461): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 8 
+[INFO] 00:43:54:559 Mi-RAM/(413:461): El tripulante 3 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:564 Mi-RAM/(413:413): Se conecto un cliente con socket: 7
+
+[INFO] 00:43:54:564 Mi-RAM/(413:413): Se recibio una operacion: 3
+
+[INFO] 00:43:54:565 Mi-RAM/(413:464): Se va a agregar a la pagina 4 , la estructura 1 con base 9 , y tamanio 21
+[INFO] 00:43:54:565 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:43:54:566 Mi-RAM/(413:413): Se recibio una operacion: 8
+
+[INFO] 00:43:54:566 Mi-RAM/(413:465): La cantidad de paginas que contienen al tripulante 4 son 1
+[INFO] 00:43:54:567 Mi-RAM/(413:465): Se va a leer la pagina que arranca en 0
+[INFO] 00:43:54:567 Mi-RAM/(413:465): SE LEE DEL TRIPU: 4 - FRAME: 0 | D_INCIAL: 9 | TAMANIO: 21
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Se va a leer la pagina que arranca en 32
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Sacando tarea: G
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Sacando tarea: GE
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Sacando tarea: GEN
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Sacando tarea: GENE
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Sacando tarea: GENER
+[INFO] 00:43:54:568 Mi-RAM/(413:465): Sacando tarea: GENERA
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_O
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_OX
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXI
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIG
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGE
+[INFO] 00:43:54:569 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGEN
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 1
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10;
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10;5
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10;5;
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10;5;5
+[INFO] 00:43:54:570 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10;5;5;
+[INFO] 00:43:54:571 Mi-RAM/(413:465): Sacando tarea: GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:43:54:572 Mi-RAM/(413:465): Se sobreescribio en RAM: FRAME: 0 | DESDE: 9 | HASTA: 29 
+[INFO] 00:43:54:572 Mi-RAM/(413:465): El tripulante 4 pidio la tarea GENERAR_OXIGENO 10;5;5;6
+[INFO] 00:44:01:342 Mi-RAM/(413:413): Se conecto un cliente con socket: 8
+
+[INFO] 00:44:01:343 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:01:345 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:01:345 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:01:346 Mi-RAM/(413:476): Se va a actualizar al tripu 2
+[INFO] 00:44:01:349 Mi-RAM/(413:476): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:01:350 Mi-RAM/(413:475): Se va a actualizar al tripu 1
+[INFO] 00:44:01:352 Mi-RAM/(413:475): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:01:353 Mi-RAM/(413:475): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:01:353 Mi-RAM/(413:475): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:01:357 Mi-RAM/(413:475): El tripulante 1 se ha actualizado: Estado: E 2|2
+[INFO] 00:44:01:358 Mi-RAM/(413:476): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:01:358 Mi-RAM/(413:476): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:01:359 Mi-RAM/(413:476): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:01:359 Mi-RAM/(413:476): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:01:359 Mi-RAM/(413:476): El tripulante 2 se ha actualizado: Estado: E 1|0
+[INFO] 00:44:01:360 Mi-RAM/(413:476): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:01:361 Mi-RAM/(413:476): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:01:362 Mi-RAM/(413:475): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:04:343 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:04:344 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:04:344 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:04:344 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:04:345 Mi-RAM/(413:487): Se va a actualizar al tripu 1
+[INFO] 00:44:04:348 Mi-RAM/(413:487): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:04:349 Mi-RAM/(413:486): Se va a actualizar al tripu 2
+[INFO] 00:44:04:350 Mi-RAM/(413:486): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:04:351 Mi-RAM/(413:486): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:04:351 Mi-RAM/(413:486): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:04:352 Mi-RAM/(413:486): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:04:353 Mi-RAM/(413:486): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:04:353 Mi-RAM/(413:486): El tripulante 2 se ha actualizado: Estado: E 1|1
+[INFO] 00:44:04:353 Mi-RAM/(413:486): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:04:354 Mi-RAM/(413:486): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:04:354 Mi-RAM/(413:487): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:04:355 Mi-RAM/(413:487): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:04:355 Mi-RAM/(413:487): El tripulante 1 se ha actualizado: Estado: E 3|2
+[INFO] 00:44:04:355 Mi-RAM/(413:487): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:07:344 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:07:345 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:07:345 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:07:345 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:07:346 Mi-RAM/(413:491): Se va a actualizar al tripu 2
+[INFO] 00:44:07:352 Mi-RAM/(413:491): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:07:353 Mi-RAM/(413:490): Se va a actualizar al tripu 1
+[INFO] 00:44:07:355 Mi-RAM/(413:490): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:07:358 Mi-RAM/(413:490): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:07:358 Mi-RAM/(413:490): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:07:359 Mi-RAM/(413:490): El tripulante 1 se ha actualizado: Estado: E 4|2
+[INFO] 00:44:07:359 Mi-RAM/(413:490): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:07:360 Mi-RAM/(413:491): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:07:360 Mi-RAM/(413:491): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:07:361 Mi-RAM/(413:491): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:07:361 Mi-RAM/(413:491): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:07:361 Mi-RAM/(413:491): El tripulante 2 se ha actualizado: Estado: E 1|2
+[INFO] 00:44:07:361 Mi-RAM/(413:491): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:07:362 Mi-RAM/(413:491): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:10:345 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:10:346 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:10:346 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:10:346 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:10:347 Mi-RAM/(413:501): Se va a actualizar al tripu 1
+[INFO] 00:44:10:350 Mi-RAM/(413:501): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:10:350 Mi-RAM/(413:500): Se va a actualizar al tripu 2
+[INFO] 00:44:10:352 Mi-RAM/(413:500): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:10:353 Mi-RAM/(413:500): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:10:353 Mi-RAM/(413:500): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:10:353 Mi-RAM/(413:500): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:10:353 Mi-RAM/(413:500): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:10:354 Mi-RAM/(413:500): El tripulante 2 se ha actualizado: Estado: E 1|3
+[INFO] 00:44:10:354 Mi-RAM/(413:500): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:10:355 Mi-RAM/(413:500): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:10:355 Mi-RAM/(413:501): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:10:358 Mi-RAM/(413:501): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:10:358 Mi-RAM/(413:501): El tripulante 1 se ha actualizado: Estado: E 5|2
+[INFO] 00:44:10:359 Mi-RAM/(413:501): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:13:346 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:13:347 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:13:347 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:13:347 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:13:349 Mi-RAM/(413:508): Se va a actualizar al tripu 2
+[INFO] 00:44:13:350 Mi-RAM/(413:508): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:13:351 Mi-RAM/(413:508): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:13:351 Mi-RAM/(413:508): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:13:352 Mi-RAM/(413:508): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:13:352 Mi-RAM/(413:508): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:13:353 Mi-RAM/(413:507): Se va a actualizar al tripu 1
+[INFO] 00:44:13:355 Mi-RAM/(413:507): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:13:355 Mi-RAM/(413:507): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:13:355 Mi-RAM/(413:507): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:13:356 Mi-RAM/(413:507): El tripulante 1 se ha actualizado: Estado: E 5|3
+[INFO] 00:44:13:356 Mi-RAM/(413:507): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:13:356 Mi-RAM/(413:508): El tripulante 2 se ha actualizado: Estado: E 2|3
+[INFO] 00:44:13:360 Mi-RAM/(413:508): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:13:360 Mi-RAM/(413:508): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:16:347 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:16:348 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:16:349 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:16:349 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:16:350 Mi-RAM/(413:517): Se va a actualizar al tripu 1
+[INFO] 00:44:16:352 Mi-RAM/(413:517): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:16:353 Mi-RAM/(413:516): Se va a actualizar al tripu 2
+[INFO] 00:44:16:355 Mi-RAM/(413:516): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:16:355 Mi-RAM/(413:516): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:16:355 Mi-RAM/(413:516): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:16:356 Mi-RAM/(413:516): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:16:357 Mi-RAM/(413:516): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:16:357 Mi-RAM/(413:516): El tripulante 2 se ha actualizado: Estado: E 3|3
+[INFO] 00:44:16:357 Mi-RAM/(413:516): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:16:361 Mi-RAM/(413:516): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:16:361 Mi-RAM/(413:517): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:16:361 Mi-RAM/(413:517): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:16:362 Mi-RAM/(413:517): El tripulante 1 se ha actualizado: Estado: E 5|4
+[INFO] 00:44:16:362 Mi-RAM/(413:517): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:19:349 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:19:350 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:19:350 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:19:351 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:19:351 Mi-RAM/(413:527): Se va a actualizar al tripu 2
+[INFO] 00:44:19:355 Mi-RAM/(413:527): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:19:355 Mi-RAM/(413:526): Se va a actualizar al tripu 1
+[INFO] 00:44:19:357 Mi-RAM/(413:526): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:44:19:357 Mi-RAM/(413:526): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:19:358 Mi-RAM/(413:526): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:44:19:358 Mi-RAM/(413:526): El tripulante 1 se ha actualizado: Estado: E 5|5
+[INFO] 00:44:19:358 Mi-RAM/(413:526): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:44:19:359 Mi-RAM/(413:527): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:19:359 Mi-RAM/(413:527): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:19:363 Mi-RAM/(413:527): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:19:363 Mi-RAM/(413:527): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:19:363 Mi-RAM/(413:527): El tripulante 2 se ha actualizado: Estado: E 3|4
+[INFO] 00:44:19:364 Mi-RAM/(413:527): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:19:364 Mi-RAM/(413:527): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:22:350 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:22:351 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:22:352 Mi-RAM/(413:529): Se va a actualizar al tripu 2
+[INFO] 00:44:22:354 Mi-RAM/(413:529): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:22:355 Mi-RAM/(413:529): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:22:355 Mi-RAM/(413:529): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:22:355 Mi-RAM/(413:529): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:22:355 Mi-RAM/(413:529): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:22:356 Mi-RAM/(413:529): El tripulante 2 se ha actualizado: Estado: E 4|4
+[INFO] 00:44:22:356 Mi-RAM/(413:529): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:22:357 Mi-RAM/(413:529): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:25:352 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:25:352 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:25:353 Mi-RAM/(413:537): Se va a actualizar al tripu 2
+[INFO] 00:44:25:355 Mi-RAM/(413:537): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:25:355 Mi-RAM/(413:537): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:25:356 Mi-RAM/(413:537): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:25:357 Mi-RAM/(413:537): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:25:357 Mi-RAM/(413:537): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:25:357 Mi-RAM/(413:537): El tripulante 2 se ha actualizado: Estado: E 4|5
+[INFO] 00:44:25:358 Mi-RAM/(413:537): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:25:358 Mi-RAM/(413:537): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:28:353 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:28:353 Mi-RAM/(413:413): Se recibio una operacion: 4
+
+[INFO] 00:44:28:354 Mi-RAM/(413:542): Se va a actualizar al tripu 2
+[INFO] 00:44:28:356 Mi-RAM/(413:542): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:44:28:357 Mi-RAM/(413:542): Se va a leer la pagina que arranca en 64
+[INFO] 00:44:28:357 Mi-RAM/(413:542): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:44:28:357 Mi-RAM/(413:542): Se va a leer la pagina que arranca en 96
+[INFO] 00:44:28:358 Mi-RAM/(413:542): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:44:28:358 Mi-RAM/(413:542): El tripulante 2 se ha actualizado: Estado: E 5|5
+[INFO] 00:44:28:358 Mi-RAM/(413:542): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:44:28:359 Mi-RAM/(413:542): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:44:43:356 Mi-RAM/(413:413): Se conecto un cliente con socket: 5
+
+[INFO] 00:44:43:356 Mi-RAM/(413:413): Se recibio una operacion: 8
+
 
 [INFO] 15:38:12:733 Mi-RAM/(10103:10103): ################# Modulo Mi-RAM #################
 
@@ -9946,3 +10811,4 @@ GENERAR_OXIGENO 10;5;5;6
 [INFO] 15:25:43:074 Mi-RAM/(4054:5314): El tripulante 3 de la patota 1 se movio a: 2|4. Y su estatus actual es: 
 
 [INFO] 15:27:38:271 Mi-RAM/(4054:4054): Iniciando compactacion
+

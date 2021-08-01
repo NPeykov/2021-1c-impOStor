@@ -16,6 +16,7 @@ int TAM_MEM;
 int cantidadDeFrames;
 bool esLRU;
 char* dirSwap;
+t_list *paginas_lru;
 
 typedef enum {
 	LIBRE,OCUPADO

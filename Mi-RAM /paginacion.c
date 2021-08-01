@@ -121,12 +121,19 @@ t_pagina* crear_pagina_en_tabla(t_proceso* proceso,int estructura){
 		pagina->bit_presencia = false;
 		pagina->bit_uso=false;
 	}else{
+		if(esLRU){
+			log_info(logs_ram, "Agregue la pagina %d al LRU", pagina->nro_pagina);
+			list_add(paginas_lru, pagina);
+		}
+
 		pagina->bit_presencia = true;
 		pagina->bit_uso=true;
 	}
 
+
 	log_info(logs_ram, "Se creo la pagina de la estructura: %d", estructura);
 
+	//Agrega la pagina al final de la lista
 	list_add(proceso->tabla, pagina);
 
 	return pagina;
@@ -984,6 +991,7 @@ void inicializarPaginacion(){
 
 	crear_archivo_swap();
 
+	paginas_lru = list_create();
 	if(strcmp(algoritmoReemplazo, "LRU") == 0){
 		esLRU = true;
 	}else{
@@ -1033,6 +1041,11 @@ void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
 	paginaPedida->nro_frame_swap = -1 ;
 	paginaPedida->nro_frame_mpal = nroFrame;
 	paginaPedida->bit_uso = true;
+	if(esLRU){
+		log_info(logs_ram, "Agregue la pagina %d al LRU", paginaPedida->nro_pagina);
+		list_add(paginas_lru, paginaPedida);
+	}
+
 	free(bufferAux);
 }
 
@@ -1056,8 +1069,23 @@ void traer_pagina(t_pagina* pagina){//TODO agregar al expulsar y actualizar trip
 			pagina->bit_presencia = true;
 			pagina->bit_uso = true;
 			pagina->nro_frame_swap = -1;
+			if(esLRU){
+				log_info(logs_ram, "Agregue la pagina %d en LRU", pagina->nro_pagina);
+				list_add(paginas_lru, pagina);
+			}
+
 		}else{
 			reemplazarSegunAlgoritmo(pagina);
+		}
+	}else{
+		if(esLRU){
+			bool _esLaPagina(void* algo){
+				t_pagina *unaPagina = (t_pagina*) algo;
+				return unaPagina->nro_pagina == pagina->nro_pagina;
+			}
+			log_info(logs_ram, "Actualice la pagina %d en LRU", pagina->nro_pagina);
+			list_remove_by_condition(paginas_lru, _esLaPagina);//Saco la pagina de la lista
+			list_add(paginas_lru, pagina);//Y la agrego al final
 		}
 	}
 }
@@ -1143,11 +1171,19 @@ t_pagina* algoritmo_clock(){
 	return victima;
 }
 
+t_pagina* algoritmo_lru(){
+	t_pagina* victima;
+	victima = list_remove(paginas_lru,0);//Tomo la primera pagina de la lista
+	log_info(logs_ram, "Removi la pagina %d de LRU", victima->nro_pagina);
+	return victima;//La primera pagina de la lista es la que se referencio hace mas tiempo
+}
+
+
 void reemplazarSegunAlgoritmo(t_pagina* paginaEntrada){
 	t_pagina *paginaSalida;
 	if(esLRU){
-		/*paginaSalida = algoritmo_lru();
-		swap_pages(paginaSalida, paginaEntrada);*/
+		paginaSalida = algoritmo_lru();
+		swap_pages(paginaSalida, paginaEntrada);
 	}else{
 		paginaSalida = algoritmo_clock();
 		swap_pages(paginaSalida, paginaEntrada);

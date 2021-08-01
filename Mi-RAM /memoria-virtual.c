@@ -11,7 +11,7 @@ void llenar_archivo(int fd, int tamanio){
 }
 
 int crear_archivo_swap(){
-	int fd = open("swap", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR); // Lo abre para lectura si existe, sino lo crea
+	int fd = open("swap", O_RDWR); // Lo abre para lectura si existe, sino lo crea
 	struct stat statfile;
 	if(fstat(fd,&statfile)==-1)
 		return -1;

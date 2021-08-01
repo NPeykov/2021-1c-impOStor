@@ -49,7 +49,7 @@ uint32_t buscar_marco_disponible(int tipo_memoria){
 		size = marcos_en_swap;
 	}
 
-	for(uint32_t m = 0; m < size; m++){
+	for(int m = 0; m < size; m++){
 		if(!traer_marco_valido(m, tipo_memoria) && marco_vacio(m)) {
 			return m;
 		}
@@ -225,7 +225,7 @@ int insertar_en_paginas(void* bytesAGuardar, t_proceso* proceso, int estructura,
 				}else{//No tiene espacio y NO hay espacio en mmpal
 					log_info(logs_ram, "Memoria principal llena, realizando swap.");
 					asignar_marco_en_swap(pagina);//TODO
-					reemplazarSegunAlgoritmo(pagina);
+					traer_pagina(pagina);
 					insertar_en_memoria_pag(pagina, siguienteAEscribir, &aMeter, estructura, &bytesEscritos, flag);
 				}
 			}
@@ -264,7 +264,7 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 	t_pagina* pagina;
 
 	if(tcb->proxIns == -1){
-		return NULL;
+		return "null";
 	}
 
 	pthread_mutex_lock(&mutexEscribiendoMemoria);
@@ -976,13 +976,14 @@ void inicializarPaginacion(){
 	char* tamanioSwap =config_get_string_value(config, "TAMANIO_SWAP");
 	TAM_SWAP = atoi(tamanioSwap);
 
+	PUNTERO_ALGORITMO = 0;
 	marcos_en_swap = TAM_SWAP/TAM_PAG;
+	log_info(logs_ram,"La cantidad de marcos en Swap es: %d", marcos_en_swap);
 
 	char* dirSwap =config_get_string_value(config, "PATH_SWAP");
 
 	crear_archivo_swap();
 
-	log_info(logs_ram, "El tamaño de las paginas es: %s", tamanioPag);
 	if(strcmp(algoritmoReemplazo, "LRU") == 0){
 		esLRU = true;
 	}else{
@@ -1049,11 +1050,12 @@ void traer_pagina(t_pagina* pagina){//TODO agregar al expulsar y actualizar trip
 			pthread_mutex_lock(&mutex_swap_file);
 			memcpy(memoria+offsetPpal, MEMORIA_VIRTUAL + pagina->nro_frame_swap* TAM_PAG, TAM_PAG); //Swap mappeado como variable global por ahora
 			pthread_mutex_unlock(&mutex_swap_file);
-			bitarray_clean_bit(BIT_ARRAY_SWAP,(off_t) pagina->nro_frame_mpal);
+			bitarray_clean_bit(BIT_ARRAY_SWAP,(off_t) pagina->nro_frame_swap);
 			bitarray_set_bit(frames_ocupados_ppal, (off_t) marco_libre);
 			pagina->nro_frame_mpal = marco_libre;
 			pagina->bit_presencia = true;
 			pagina->bit_uso = true;
+			pagina->nro_frame_swap = -1;
 		}else{
 			reemplazarSegunAlgoritmo(pagina);
 		}

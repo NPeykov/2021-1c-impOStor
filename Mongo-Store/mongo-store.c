@@ -459,7 +459,7 @@ int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
 	int existeArchivoFiles = access(dirFiles, F_OK);
 
 	dirBitacora= string_new();
-	string_append(&dirBitacora, puntoMontaje);
+	string_append(&dirBitacora, dirFiles);
 	string_append(&dirBitacora, "/Bitacora");
 	int existeArchivoBitacora = access(dirBitacora, F_OK);
 
@@ -668,7 +668,7 @@ void crear_estructura_filesystem(){
 	string_append(&dirFiles, "/Files");
 
 	dirBitacora= string_new();
-	string_append(&dirBitacora, puntoMontaje);
+	string_append(&dirBitacora, dirFiles);
 	string_append(&dirBitacora, "/Bitacora");
 
 	dirBlocks= string_new();

@@ -58,20 +58,30 @@ typedef enum{
 	BASURA
 }files;
 
+typedef enum{
+	OXIGENOO,
+	COMIDAA,
+	BASURAA,
+	BITACORA,
+	SUPERBLOQUE,
+	BLOCKS,
+	FILES
+}rutas;
+
 //booleanos para saber si los archivos fueron creados
 bool g_existe_file_oxigeno;
 bool g_existe_file_comida;
 bool g_existe_file_basura;
 
 char *puntoMontaje;
-char *dirMetadata;
-char *dirFiles;
-char *dirBitacora;
-char *dirBlocks;
-char *dirSuperbloque;
-char *rutaOxigeno;
-char *rutaComida;
-char *rutaBasura;
+//char *dirMetadata;
+//char *dirFiles;
+//char *dirBitacora;
+//char *dirBlocks;
+//char *dirSuperbloque;
+//char *rutaOxigeno;
+//char *rutaComida;
+//char *rutaBasura;
 t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
@@ -141,6 +151,7 @@ char* bloques_de_archivo_fisico(char*);
 char *size_de_archivo_fisico(char* );
 char* contenido_de_bloques_fisico(char*);
 char* leo_el_bloque_fisico(t_bloque* );
+char* conseguir_ruta(rutas);
 
 
 

@@ -28,7 +28,7 @@ void rutina(int n) {
 void levantar_blocks(void) {
 	int fd;
 	struct stat info;
-
+	char* dirBlocks=conseguir_ruta(BLOCKS);
 	fd = open(dirBlocks, O_RDWR);
 
 	if (fd == -1) {
@@ -41,14 +41,14 @@ void levantar_blocks(void) {
 	s_blocks = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
 
 	s_tamanio_blocks = info.st_size;
-
+	free(dirBlocks);
 	return;
 }
 
 void levantar_superbloque(void) {
 	int fd;
 	struct stat info;
-
+	char* dirSuperbloque=conseguir_ruta(SUPERBLOQUE);
 	fd = open(dirSuperbloque, O_RDWR);
 
 	if (fd == -1) {
@@ -61,7 +61,7 @@ void levantar_superbloque(void) {
 	s_superbloque = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
 
 	s_tamanio_superbloque = info.st_size;
-
+	free(dirSuperbloque);
 	return;
 }
 
@@ -121,13 +121,13 @@ bool es_file_size(files file) {
 	char* ruta;
 	switch (file) {
 	case OXIGENO:
-		ruta = rutaOxigeno;
+		ruta = conseguir_ruta(OXIGENOO);
 		break;
 	case COMIDA:
-		ruta = rutaComida;
+		ruta = conseguir_ruta(COMIDAA);
 		break;
 	case BASURA:
-		ruta = rutaBasura;
+		ruta = conseguir_ruta(BASURAA);
 		break;
 	}
 	int archivo = open(ruta, O_RDWR);
@@ -167,7 +167,7 @@ bool es_file_size(files file) {
 
 	}
 */
-
+	free(ruta);
 	return esta_saboteado;
 
 }
@@ -179,13 +179,13 @@ bool es_file_block_count(files file) {
 	int cantidad = 0;
 	switch (file) {
 	case OXIGENO:
-		ruta = rutaOxigeno;
+		ruta = conseguir_ruta(OXIGENOO);
 		break;
 	case COMIDA:
-		ruta = rutaComida;
+		ruta = conseguir_ruta(COMIDAA);
 		break;
 	case BASURA:
-		ruta = rutaBasura;
+		ruta = conseguir_ruta(BASURAA);
 		break;
 	}
 	int archivo = open(ruta, O_RDWR);
@@ -215,6 +215,7 @@ bool es_file_block_count(files file) {
 			close(archivo);
 		}
 	}
+	free(ruta);
 	return esta_saboteado;
 }
 
@@ -224,11 +225,14 @@ bool es_file_Blocks(files file){
 	bool esta_saboteado=false;
 	char* ruta;
 	switch(file){
-	case OXIGENO:ruta = rutaOxigeno;
+	case OXIGENO:
+		ruta = conseguir_ruta(OXIGENOO);
 		break;
-	case COMIDA: ruta= rutaComida;
+	case COMIDA:
+		ruta = conseguir_ruta(COMIDAA);
 		break;
-	case BASURA: ruta= rutaBasura;
+	case BASURA:
+		ruta = conseguir_ruta(BASURAA);
 		break;
 	}
 	int archivo = open(ruta, O_RDWR);
@@ -257,6 +261,7 @@ bool es_file_Blocks(files file){
 
 		int lo_que_falta = tamanio_del_archivo - lo_que_lei;
 		int inicio = ultimo_bloque->inicio;
+		char* dirBlocks = conseguir_ruta(BLOCKS);
 		int archivo_blocks=open(dirBlocks,O_RDWR);
 		struct stat infoblock;
 		fstat(archivo_blocks, &infoblock);
@@ -315,7 +320,7 @@ bool es_file_Blocks(files file){
 	}
 	if (esta_saboteado == true)
 		log_info(mongoLogger, "El sabotaje fue en blocks de file");*/
-
+	free(ruta);
 	return esta_saboteado;
 }
 
@@ -456,17 +461,17 @@ void arreglar_valor_size(files file) {
 
 	switch(file){
 	case COMIDA:
-		ruta = rutaComida;
+		ruta = conseguir_ruta(COMIDAA);
 		caracter_llenado = 'C';
 		break;
 
 	case BASURA:
-		ruta = rutaBasura;
+		ruta = conseguir_ruta(BASURAA);
 		caracter_llenado = 'B';
 		break;
 
 	case OXIGENO:
-		ruta = rutaOxigeno;
+		ruta = conseguir_ruta(OXIGENOO);;
 		caracter_llenado = 'O';
 		break;
 	}
@@ -530,6 +535,7 @@ void arreglar_valor_size(files file) {
 
 	munmap(addr,info.st_size);
 */
+	free(ruta);
 }
 
 
@@ -553,6 +559,7 @@ t_bloque* bloque_con_espacio(char* bloques){
 }
 
 void reparar_MD5(char* file, char caracter) {
+	char* dirBlocks = conseguir_ruta(BLOCKS);
 	int archivo = open(dirBlocks, O_RDWR);
 	struct stat info;
 	fstat(archivo, &info);
@@ -567,7 +574,6 @@ void reparar_MD5(char* file, char caracter) {
 
 	bloque->espacio = bloque->fin - bloque->inicio + 1 - string_length(texto);
 	while (bloque->espacio > 0) {
-		printf("bloque espacio %d\n",bloque->posicion_para_escribir);
 
 		archivo_blocks_para_sabotaje[bloque->posicion_para_escribir+bloque->inicio-1] = caracter;
 		bloque->espacio--;
@@ -612,6 +618,7 @@ void reparar_MD5(char* file, char caracter) {
 	 }
 	 free(bloque);*/
 	close(archivo);
+	free(dirBlocks);
 }
 
 
@@ -622,17 +629,17 @@ void arreglar_valor_block_count(files file) {
 
 	switch (file) {
 	case COMIDA:
-		ruta = rutaComida;
+		ruta = conseguir_ruta(COMIDAA);
 		caracter_llenado = 'C';
 		break;
 
 	case BASURA:
-		ruta = rutaBasura;
+		ruta = conseguir_ruta(BASURAA);
 		caracter_llenado = 'B';
 		break;
 
 	case OXIGENO:
-		ruta = rutaOxigeno;
+		ruta = conseguir_ruta(OXIGENOO);
 		caracter_llenado = 'O';
 		break;
 	}
@@ -692,6 +699,7 @@ void arreglar_valor_block_count(files file) {
 
 	munmap(addr,info.st_size);
 	close(fichero);*/
+	free(ruta);
 }
 
 void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
@@ -755,20 +763,27 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 	case FILES_MD5:
 		if (fue_en_oxigeno) {
+			char* rutaOxigeno= conseguir_ruta(OXIGENOO);
 			reparar_MD5(rutaOxigeno,'O');
 			printf("se arreglo el sabotaje\n");
+			free(rutaOxigeno);
 			return;
 		}
 
 		if (fue_en_comida) {
+			char* rutaComida= conseguir_ruta(COMIDAA);
+
 			reparar_MD5(rutaComida,'C');
 			printf("se arreglo el sabotaje\n");
+			free(rutaComida);
 			return;
 		}
 
 		if (fue_en_basura) {
+			char* rutaBasura= conseguir_ruta(BASURAA);
 			reparar_MD5(rutaBasura,'B');
 			printf("se arreglo el sabotaje\n");
+			free(rutaBasura);
 			return;
 		}
 		break;

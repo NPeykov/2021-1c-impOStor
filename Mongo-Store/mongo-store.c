@@ -16,9 +16,9 @@ int main() {
 
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-	//sabotaje_code code = obtener_tipo_sabotaje();
-	//printf("-----------------codigo: %d---------------\n",code);
-	//iniciar_recuperacion(code);
+	sabotaje_code code = obtener_tipo_sabotaje();
+	printf("-----------------codigo: %d---------------\n",code);
+	iniciar_recuperacion(code);
 	//generar_comida(20);
 	/*generar_oxigeno(200);
 	generar_basura(200);
@@ -39,6 +39,37 @@ int main() {
 
 	printf("SOCKET DISCO %d\n", socket_mongo_store);
 	return EXIT_SUCCESS;
+}
+
+char* conseguir_ruta(rutas ruta){
+	char* ruta_completa=string_new();
+	string_append(&ruta_completa, puntoMontaje);
+
+	switch(ruta){
+	case SUPERBLOQUE:
+		string_append(&ruta_completa,"/SuperBloque.ims");
+		break;
+	case FILES:
+		string_append(&ruta_completa,"/Files");
+		break;
+	case BITACORA:
+		string_append(&ruta_completa,"/Files/Bitacora");
+		break;
+	case BLOCKS:
+		string_append(&ruta_completa,"/Blocks.ims");
+		break;
+	case OXIGENOO:
+		string_append(&ruta_completa,"/Files/oxigeno.ims");
+		break;
+	case COMIDAA:
+		string_append(&ruta_completa,"/Files/comida.ims");
+		break;
+	case BASURAA:
+		string_append(&ruta_completa,"/Files/basura.ims");
+		break;
+	}
+
+	return ruta_completa;
 }
 
 
@@ -78,6 +109,7 @@ void bajar_datos_blocks(void) {
 	char *contenido_blocks;
 	struct stat statbuf;
 
+	char* dirBlocks = conseguir_ruta(BLOCKS);
 	archivo_blocks = open(dirBlocks, O_RDWR);
 
 	if(archivo_blocks == -1)
@@ -97,6 +129,7 @@ void bajar_datos_blocks(void) {
 	munmap(contenido_blocks, statbuf.st_size);
 
 	close(archivo_blocks);
+	free(dirBlocks);
 }
 
 void bajar_datos_files(char* un_file, char* ruta_file){
@@ -130,6 +163,7 @@ void bajar_datos_superbloque(void) {
 	void *contenido_superbloque;
 	struct stat statbuf;
 
+	char* dirSuperbloque=conseguir_ruta(SUPERBLOQUE);
 	archivo_superbloque = open(dirSuperbloque, O_RDWR);
 
 	if (archivo_superbloque == -1) {
@@ -153,6 +187,7 @@ void bajar_datos_superbloque(void) {
 	}
 
 	close(archivo_superbloque);
+	free(dirSuperbloque);
 }
 
 void gestionar_bajadas_a_disco(void){
@@ -170,13 +205,19 @@ void gestionar_bajadas_a_disco(void){
 		bajar_datos_superbloque();
 
 		if(g_existe_file_oxigeno){
+			char* rutaOxigeno=conseguir_ruta(OXIGENOO);
 			bajar_datos_files(archivoOxigeno,rutaOxigeno);
+			free(rutaOxigeno);
 		}
 		if(g_existe_file_comida){
+			char* rutaComida=conseguir_ruta(COMIDAA);
 			bajar_datos_files(archivoComida,rutaComida);
+			free(rutaComida);
 		}
 		if(g_existe_file_basura){
+			char* rutaBasura=conseguir_ruta(BASURAA);
 			bajar_datos_files(archivoBasura,rutaBasura);
+			free(rutaBasura);
 		}
 		log_info(mongoLogger, "Finalizo la bajada a disco");
 	}
@@ -446,38 +487,33 @@ void crearCarpetaBitacora(char * dirBitacora){
 }
 
 //comprueba si existen todos los datos al levantar de nuevo el filesystem
-int comprobar_que_todos_los_datos_existen(char* puntoMontaje){
-
-	dirSuperbloque = string_new();
-	string_append(&dirSuperbloque, puntoMontaje);
-	string_append(&dirSuperbloque,"/SuperBloque.ims");
+int comprobar_que_todos_los_datos_existen(char* puntoMontaje) {
+	bool todoBien = false;
+	char *dirSuperbloque = conseguir_ruta(SUPERBLOQUE);
 	int existeArchivoSuperBloque = access(dirSuperbloque, F_OK);
 
-	dirFiles= string_new();
-	string_append(&dirFiles, puntoMontaje);
-	string_append(&dirFiles, "/Files");
+	char* dirFiles = conseguir_ruta(FILES);
 	int existeArchivoFiles = access(dirFiles, F_OK);
 
-	dirBitacora= string_new();
-	string_append(&dirBitacora, dirFiles);
-	string_append(&dirBitacora, "/Bitacora");
+	char* dirBitacora = conseguir_ruta(BITACORA);
 	int existeArchivoBitacora = access(dirBitacora, F_OK);
 
-	dirBlocks= string_new();
-	string_append(&dirBlocks, puntoMontaje);
-	string_append(&dirBlocks, "/Blocks.ims");
+	char* dirBlocks = conseguir_ruta(BLOCKS);
 	int existeArchivoBlocks = access(dirBlocks, F_OK);
 
-	if(!existeArchivoSuperBloque && !existeArchivoBitacora && !existeArchivoFiles && !existeArchivoBlocks){
+	if (!existeArchivoSuperBloque && !existeArchivoBitacora
+			&& !existeArchivoFiles && !existeArchivoBlocks) {
 		printf("se recupero todo perfecto\n");
-		return 1;
-	}
-	else {
+		todoBien = true;
+	} else {
 		printf("no se recupero todo perfecto\n");
 
-		return 0;
 	}
-
+	free(dirSuperbloque);
+	free(dirFiles);
+	free(dirBitacora);
+	free(dirBlocks);
+	return todoBien;
 }
 
 char* copiar_file(char* archivoEnRam,char *ruta){
@@ -656,36 +692,14 @@ void crearCopiaFile(char* file ,char *dir_file) {
 void crear_estructura_filesystem(){
 
 	puntoMontaje = config_get_string_value(mongoConfig, "PUNTO_MONTAJE");
-	dirMetadata = string_new();
-	string_append(&dirMetadata, puntoMontaje);
-	string_append(&dirMetadata,"/Metadata");
-	dirSuperbloque = string_new();
-	string_append(&dirSuperbloque, puntoMontaje);
-	string_append(&dirSuperbloque,"/SuperBloque.ims");
 
-	dirFiles= string_new();
-	string_append(&dirFiles, puntoMontaje);
-	string_append(&dirFiles, "/Files");
-
-	dirBitacora= string_new();
-	string_append(&dirBitacora, dirFiles);
-	string_append(&dirBitacora, "/Bitacora");
-
-	dirBlocks= string_new();
-	string_append(&dirBlocks, puntoMontaje);
-	string_append(&dirBlocks, "/Blocks.ims");
-
-	rutaOxigeno=string_new();
-	string_append(&rutaOxigeno, dirFiles);
-	string_append(&rutaOxigeno, "/oxigeno.ims");
-
-	rutaBasura=string_new();
-	string_append(&rutaBasura, dirFiles);
-	string_append(&rutaBasura, "/basura.ims");
-
-	rutaComida=string_new();
-	string_append(&rutaComida, dirFiles);
-	string_append(&rutaComida, "/comida.ims");
+	char* dirSuperbloque = conseguir_ruta(SUPERBLOQUE);
+	char* dirFiles= conseguir_ruta(FILES);
+	char* dirBitacora= conseguir_ruta(BITACORA);
+	char* dirBlocks= conseguir_ruta(BLOCKS);
+	char* rutaOxigeno=conseguir_ruta(OXIGENOO);
+	char* rutaBasura=conseguir_ruta(BASURAA);
+	char* rutaComida=conseguir_ruta(COMIDAA);
 
 
 	if (mkdir(puntoMontaje, 0777) != 0) {
@@ -740,7 +754,13 @@ void crear_estructura_filesystem(){
 		crearCarpetaBitacora(dirBitacora);//carpeta
 		crearCopiaBlocks(dirBlocks);
 	}
-
+	free(dirSuperbloque);
+	free(dirFiles);
+	free(dirBitacora);
+	free(dirBlocks);
+	free(rutaOxigeno);
+	free(rutaComida);
+	free(rutaBasura);
 }
 
 //escribe lo que quieras en el archivo block
@@ -781,6 +801,7 @@ void obtener_bitacora_tripulante(int cliente){
 	t_list* lista = recibir_paquete(cliente);
 	uint32_t idTripulante = (uint32_t) atoi(list_get(lista, 0));
 	uint32_t idPatota = (uint32_t) atoi(list_get(lista, 1));
+	char* dirBitacora= conseguir_ruta(BITACORA);
 	char* rutaBitacora = string_from_format("%s/Tripulante%dPatota%d.ims",dirBitacora,idTripulante,idPatota);
 	int archivo = open(rutaBitacora, O_RDONLY);
 	if(archivo!=-1){
@@ -796,6 +817,8 @@ void obtener_bitacora_tripulante(int cliente){
 	}
 	liberar_cliente(cliente);
 	close(archivo);
+	free(dirBitacora);
+	free(rutaBitacora);
 
 }
 
@@ -1181,6 +1204,7 @@ char* leo_el_bloque(t_bloque* bloque){
 }
 
 char* leo_el_bloque_fisico(t_bloque* bloque) {
+	char* dirBlocks= conseguir_ruta(BLOCKS);
 	int archivo = open(dirBlocks, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo, &statbuf);
@@ -1197,12 +1221,13 @@ char* leo_el_bloque_fisico(t_bloque* bloque) {
 	}
 	munmap(archivo_addr,statbuf.st_size);
 	close(archivo);
+	free(dirBlocks);
 	return texto;
 }
 
 char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque) {
 	char* texto = string_new();
-
+	char* dirBlocks=conseguir_ruta(BLOCKS);
 	int inicio = bloque->inicio;
 	int fin = bloque->fin;
 	int archivo = open(dirBlocks, O_RDWR);
@@ -1217,6 +1242,7 @@ char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque) {
 		inicio++;
 	}
 	close(archivo);
+	free(dirBlocks);
 	return texto;
 /*	char* texto=string_new();
 
@@ -1617,6 +1643,8 @@ void eliminar_del_archivo(files file, int cant_borrar,char caracter){
 			bloques=bloques_de_archivo(archivoOxigeno);
 			bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
 			contenido_total=contenido_de_bloques(bloquesaux);
+			char* rutaOxigeno=conseguir_ruta(OXIGENOO);
+
 			if(string_length(contenido_total)>=cant_borrar){
 				//recupero el ultimo bloque
 				bloque= recuperar_ultimo_bloque(archivoOxigeno);
@@ -1662,11 +1690,15 @@ void eliminar_del_archivo(files file, int cant_borrar,char caracter){
 				archivoOxigeno=malloc(string_length(cadena)+1);
 				memcpy(archivoOxigeno,cadena,string_length(cadena)+1);
 				log_info(mongoLogger, "se borro mas de la cuenta");
+				free(cadena);
+
 			}
+			free(rutaOxigeno);
 		}
 		break;
 	case COMIDA:
 		if(atoi(size_de_archivo(archivoComida))>0){
+			char* rutaComida = conseguir_ruta(COMIDAA);
 			bloques=bloques_de_archivo(archivoComida);
 			bloquesaux=string_substring_until(bloques,string_length(bloques)-1);
 			contenido_total=contenido_de_bloques(bloquesaux);
@@ -1709,10 +1741,15 @@ void eliminar_del_archivo(files file, int cant_borrar,char caracter){
 				archivoComida=malloc(string_length(cadena)+1);
 				memcpy(archivoComida,cadena,string_length(cadena)+1);
 				log_info(mongoLogger, "se borro mas de la cuenta");
+				free(cadena);
+
 			}
+			free(rutaComida);
 		}
 		break;
 	case BASURA:
+		;
+		char * rutaBasura = conseguir_ruta(BASURAA);
 		bloques=bloques_de_archivo(archivoBasura);
 		bloques_divididos=string_split(bloques,",");
 		cantidad_de_bloques= atoi(cantidad_de_bloques_de_archivo(archivoBasura));
@@ -1729,6 +1766,7 @@ void eliminar_del_archivo(files file, int cant_borrar,char caracter){
 		g_existe_file_basura=false;
 		remove(rutaBasura);
 		log_info(mongoLogger, "se elimino el archivo basura");
+		free(rutaBasura);
 		break;
 	}
 }
@@ -1740,6 +1778,7 @@ void generar_oxigeno(int cantidad){
 	//string_append(&rutaOxigeno,"/Files/oxigeno.ims");
 	//Verificar que exista un archivo llamado Oxigeno.ims en el i-Mongo-Store
 	//sem_wait(&semaforo_para_file_oxigeno);
+	char* rutaOxigeno=conseguir_ruta(OXIGENOO);
 	int existeArchivo = access(rutaOxigeno, F_OK);
 	t_bloque* bloque=malloc(sizeof(bloque));
 	sem_wait(&semaforo_para_file_oxigeno);
@@ -1771,11 +1810,13 @@ void generar_oxigeno(int cantidad){
 		bloque=recuperar_ultimo_bloque(archivoOxigeno);
 		escribir_el_archivo(OXIGENO,cadena,bloque);
 	}
+	free(rutaOxigeno);
 	sem_post(&semaforo_para_file_oxigeno);
 
 }
 //comprueba el archivo de generar oxigeno y borra en el
 void consumir_oxigeno(int cant_borrar){
+	char* rutaOxigeno=conseguir_ruta(OXIGENOO);
 	//char* ruta_oxigeno =string_new();
 	//string_append(&ruta_oxigeno,puntoMontaje);
 	//string_append(&ruta_oxigeno,"/Files/oxigeno.ims");
@@ -1788,6 +1829,7 @@ void consumir_oxigeno(int cant_borrar){
 	else{
 		avisar_que_no_existe(rutaOxigeno);
 	}
+	free(rutaOxigeno);
 	sem_post(&semaforo_para_file_oxigeno);
 
 }
@@ -1796,6 +1838,7 @@ void consumir_oxigeno(int cant_borrar){
 void generar_comida(int cantidad){
 
 	char* cadena=string_repeat('C', cantidad);
+	char* rutaComida=conseguir_ruta(COMIDAA);
 	int existeArchivo = access(rutaComida, F_OK);
 	t_bloque* bloque=malloc(sizeof(bloque));
 
@@ -1821,11 +1864,13 @@ void generar_comida(int cantidad){
 		bloque=recuperar_ultimo_bloque(archivoComida);
 		escribir_el_archivo(COMIDA,cadena,bloque);
 	}
+	free(rutaComida);
 	sem_post(&semaforo_para_file_comida);
 }
 
 //comprueba el archivo de generar comida y borra en el
 void consumir_comida(int cant_borrar){
+	char* rutaComida=conseguir_ruta(COMIDAA);
 	sem_wait(&semaforo_para_file_comida);
 
 	if(g_existe_file_comida){
@@ -1835,11 +1880,12 @@ void consumir_comida(int cant_borrar){
 		avisar_que_no_existe(rutaComida);
 	}
 	sem_post(&semaforo_para_file_comida);
+	free(rutaComida);
 }
 
 //crea el archivo de generar basura y escribe en el
 void generar_basura(int cantidad){
-
+	char* rutaBasura= conseguir_ruta(BASURAA);
 	char* cadena=string_repeat('B', cantidad);
 	int existeArchivo = access(rutaBasura, F_OK);
 	t_bloque* bloque=malloc(sizeof(bloque));
@@ -1867,11 +1913,12 @@ void generar_basura(int cantidad){
 		escribir_el_archivo(BASURA,cadena,bloque);
 	}
 	sem_post(&semaforo_para_file_basura);
-
+	free(rutaBasura);
 }
 
 //comprueba el archivo de generar basura y borra en el
 void descartar_basura(int cant_borrar){
+	char* rutaBasura= conseguir_ruta(BASURAA);
 	sem_wait(&semaforo_para_file_basura);
 
 	if(g_existe_file_basura){
@@ -1881,6 +1928,7 @@ void descartar_basura(int cant_borrar){
 		avisar_que_no_existe(rutaBasura);
 	}
 	sem_post(&semaforo_para_file_basura);
+	free(rutaBasura);
 }
 
 
@@ -1889,7 +1937,7 @@ void descartar_basura(int cant_borrar){
  * entonces los separo dependiendo de la accion q realiza*/
 char *rutaBitacoraDelTripulante(tripulante_con_su_accion *tripulante) {
 	char *rutaBitacora = string_new();
-
+	char* dirBitacora=conseguir_ruta(BITACORA);
 	switch (tripulante->accion) {
 
 		case ACTUALIZAR_POSICION: ;
@@ -1926,7 +1974,7 @@ char *rutaBitacoraDelTripulante(tripulante_con_su_accion *tripulante) {
 			break;
 
 	}
-
+	free(dirBitacora);
 	return rutaBitacora;
 }
 
@@ -2045,6 +2093,8 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante){
 
 	free(tripulante->tripulante);
 	free(tripulante);
+	free(rutaBitacora);
+	free(lo_que_se_va_a_escribir);
 }
 
 int cantidad_bloques_a_ocupar(char* texto)

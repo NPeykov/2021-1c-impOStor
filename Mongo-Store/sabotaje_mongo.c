@@ -25,7 +25,7 @@ void rutina(int n) {
 }
 
 
-void levantar_blocks(void) {
+int levantar_blocks(void) {
 	int fd;
 	struct stat info;
 	char* dirBlocks=conseguir_ruta(BLOCKS);
@@ -33,7 +33,7 @@ void levantar_blocks(void) {
 
 	if (fd == -1) {
 		log_error(mongoLogger, "ERROR AL ABRIR BLOCKS.IMS");
-		exit(1);
+		return -1;
 	}
 
 	fstat(fd, &info);
@@ -42,10 +42,10 @@ void levantar_blocks(void) {
 
 	s_tamanio_blocks = info.st_size;
 	free(dirBlocks);
-	return;
+	return 1;
 }
 
-void levantar_superbloque(void) {
+int levantar_superbloque(void) {
 	int fd;
 	struct stat info;
 	char* dirSuperbloque=conseguir_ruta(SUPERBLOQUE);
@@ -53,26 +53,38 @@ void levantar_superbloque(void) {
 
 	if (fd == -1) {
 		log_error(mongoLogger, "ERROR AL ABRIR SUPERBLOQUE");
-		exit(1);
+		return -1;
 	}
 
 	fstat(fd, &info);
 
 	s_superbloque = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
 
+	s_size_sb   = superbloque;
+	s_blocks_sb = superbloque + sizeof(uint32_t);
+
 	s_tamanio_superbloque = info.st_size;
 	free(dirSuperbloque);
-	return;
+	return 1;
 }
 
 
 bool es_blocks_superbloque() {
 	bool resultado;
-	int cantidad_block_size_sb = *(s_superbloque);
-	int cantidad_bloques_sb = *(s_superbloque + sizeof(uint32_t));
-	int cantidad_bloques_teorico = s_tamanio_blocks / cantidad_block_size_sb;
 
-	resultado = cantidad_bloques_teorico != cantidad_bloques_sb;
+	printf("SIZE BLOCKS: %d\n", s_tamanio_blocks);
+
+	printf("-----------SIZE: %d\nCANT SABOTEADA: %d\n",
+			*(s_size_sb), *(s_blocks_sb));
+
+	int cantidad_bloques_teorico =  s_tamanio_blocks / *(s_size_sb);
+
+
+	printf("CANTIDAD QUE DEBERIA SER: %d\n", cantidad_bloques_teorico);
+
+
+
+	resultado = cantidad_bloques_teorico != *(s_blocks_sb);
 
 	if(resultado == true)
 		log_info(mongoLogger, "El sabotaje fue en blocks de superbloque");
@@ -81,22 +93,37 @@ bool es_blocks_superbloque() {
 }
 
 bool es_bitmap_superbloque() {
-	bool resultado;
+
+
+	bool resultado = false;
 	int copia_offset;
 	void *bitmap_sb;
 
 	bitmap_sb = s_superbloque + 2*sizeof(uint32_t);
-	int bytes = (int) ceil((double) *g_blocks / 8);
+
+	int bytes = (int) ceil((double) *(s_blocks_sb) / 8);
+
 	bitarray_sb = bitarray_create(bitmap_sb, bytes);
+
+
+	for (int i = 0; i < *(s_blocks_sb); i++) {
+		if (i == 0)
+			printf("%d", bitarray_test_bit(bitarray_sb, i));
+		else if (i % 8 == 0)
+			printf("%d\n", bitarray_test_bit(bitarray_sb, i));
+		else
+			printf("%d", bitarray_test_bit(bitarray_sb, i));
+	}
 
 	bool n_bloque_ocupado;
 
-	for(int i=1, offset=0; i <= *g_blocks; i++, offset+=*g_block_size)
+	for(int i=0, offset=0; i < *g_blocks; i++, offset+=*g_block_size)
 	{
 		copia_offset = offset;
+
 		n_bloque_ocupado = false;
 
-		while (copia_offset <= copia_offset + *g_block_size) {
+		while (copia_offset <= offset + *g_block_size - 1) {
 			if (s_blocks[copia_offset] != ' ') {
 				n_bloque_ocupado = true;
 			}
@@ -105,12 +132,10 @@ bool es_bitmap_superbloque() {
 
 		if(bitarray_test_bit(bitarray_sb, i) != n_bloque_ocupado) {
 			resultado = true;
+			log_info(mongoLogger, "El sabotaje fue en bitmap de superbloque");
 			return resultado;
 		}
 	}
-
-	if (resultado == true)
-		log_info(mongoLogger, "El sabotaje fue en bitmap de superbloque");
 
 
 	return resultado;
@@ -316,16 +341,19 @@ sabotaje_code obtener_tipo_sabotaje() {
 	fue_en_comida  = false;
 	fue_en_basura  = false;
 
-/*	levantar_superbloque();
-	levantar_blocks();
+	int retornoSB = levantar_superbloque();
+	int retornoBS = levantar_blocks();
 
-	if(es_blocks_superbloque())
-		tipo_sabotaje = SB_BLOCKS;
+	if (retornoSB != -1 && retornoBS != -1)
+		if (es_blocks_superbloque())
+			return SB_BLOCKS;
 
-	if(es_bitmap_superbloque())
-		tipo_sabotaje = SB_BITMAP;
 
-*/
+	if (retornoSB != -1 && retornoBS != -1)
+		if (es_bitmap_superbloque())
+			return SB_BITMAP;
+
+
 	if (es_file_size(OXIGENO)) {
 		tipo_sabotaje = FILES_SIZE;
 		fue_en_oxigeno = true;
@@ -403,9 +431,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 //--------------RECUPERACION
 
 void actualizar_valor_blocks_sb() {
-	int block_size_sb = *(s_superbloque);
-	int cantidad_bloques_sb = *(s_superbloque + sizeof(uint32_t));
-	uint32_t cantidad_bloques_teorico = (unsigned) s_tamanio_blocks / block_size_sb;
+	uint32_t cantidad_bloques_teorico = (unsigned) s_tamanio_blocks / *(s_size_sb);
 
 	memcpy(s_superbloque + sizeof(uint32_t), &cantidad_bloques_teorico, sizeof(uint32_t));
 }
@@ -424,9 +450,9 @@ bool esta_ocupado(int inicio, int fin) {
 
 void setear_valores_a_bitmap() {
 
-	for(int i=1, offset=0; i <= *g_blocks; i++, offset+=*g_block_size){
+	for(int i=0, offset=0; i < *g_blocks; i++, offset+=*g_block_size){
 
-		if(esta_ocupado(offset, offset + *g_block_size)){
+		if(esta_ocupado(offset, offset + *g_block_size - 1)){
 			bitarray_set_bit(bitarray_sb, i);
 		}
 

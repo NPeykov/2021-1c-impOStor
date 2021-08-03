@@ -10812,3 +10812,2707 @@ GENERAR_OXIGENO 10;5;5;6
 
 [INFO] 15:27:38:271 Mi-RAM/(4054:4054): Iniciando compactacion
 
+[INFO] 23:56:44:371 Mi-RAM/(9907:9907): ################# Modulo Mi-RAM #################
+
+[INFO] 23:56:44:413 Mi-RAM/(9907:9907): La cantidad de marcos en Swap es: 512
+[INFO] 23:57:32:502 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:32:503 Mi-RAM/(9907:9907): Se recibio una operacion: 2
+
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se creo la pagina de la estructura: 0
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se creo la pagina de la estructura: 2
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se creo la pagina de la estructura: 2
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 23:57:32:503 Mi-RAM/(9907:10014): Se creo la patota 1 correctamente.
+[INFO] 23:57:32:503 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 7
+
+[INFO] 23:57:32:503 Mi-RAM/(9907:9907): Se recibio una operacion: 3
+
+[INFO] 23:57:32:503 Mi-RAM/(9907:10016): La direccion logica de tareas es 8
+[INFO] 23:57:32:503 Mi-RAM/(9907:10016): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 23:57:32:503 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:32:504 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 8 y la pagina 0
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Se va a leer la pagina que arranca en 0
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 9
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: D
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 10
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DE
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 11
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DES
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 12
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESA
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 13
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAY
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 14
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYU
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 15
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUN
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 16
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNA
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 17
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 18
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR;
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 19
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR;5
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 20
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR;5;
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 21
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR;5;4
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 22
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El desplazamiento es 23
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): La proxima tarea es 24
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:32:504 Mi-RAM/(9907:10017): El tripulante 1 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 23:57:32:505 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 8
+
+[INFO] 23:57:32:505 Mi-RAM/(9907:9907): Se recibio una operacion: 3
+
+[INFO] 23:57:32:505 Mi-RAM/(9907:10020): La direccion logica de tareas es 8
+[INFO] 23:57:32:505 Mi-RAM/(9907:10020): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 23:57:32:505 Mi-RAM/(9907:10020): Se creo la pagina de la estructura: 1
+[INFO] 23:57:32:505 Mi-RAM/(9907:10020): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 23:57:32:506 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:32:506 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 8 y la pagina 0
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Se va a leer la pagina que arranca en 0
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 9
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: D
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 10
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DE
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 11
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DES
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 12
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESA
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 13
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAY
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 14
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYU
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 15
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUN
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 16
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNA
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 17
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 18
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR;
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 19
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR;5
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 20
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR;5;
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 21
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR;5;4
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 22
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El desplazamiento es 23
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): La proxima tarea es 24
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:32:506 Mi-RAM/(9907:10021): El tripulante 2 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 23:57:36:551 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 7
+
+[INFO] 23:57:36:552 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:36:552 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:36:552 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): Se va a actualizar al tripu 2
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): El tripulante 2 se ha actualizado: Estado: E 1|0
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:36:552 Mi-RAM/(9907:10031): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:36:553 Mi-RAM/(9907:10030): Se va a actualizar al tripu 1
+[INFO] 23:57:36:553 Mi-RAM/(9907:10030): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:36:553 Mi-RAM/(9907:10030): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:36:553 Mi-RAM/(9907:10030): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:36:553 Mi-RAM/(9907:10030): El tripulante 1 se ha actualizado: Estado: E 0|1
+[INFO] 23:57:36:553 Mi-RAM/(9907:10030): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:39:552 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:39:552 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:39:552 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:39:552 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:39:552 Mi-RAM/(9907:10038): Se va a actualizar al tripu 1
+[INFO] 23:57:39:552 Mi-RAM/(9907:10038): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:39:553 Mi-RAM/(9907:10038): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:39:553 Mi-RAM/(9907:10038): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:39:553 Mi-RAM/(9907:10038): El tripulante 1 se ha actualizado: Estado: E 1|1
+[INFO] 23:57:39:553 Mi-RAM/(9907:10038): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): Se va a actualizar al tripu 2
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): El tripulante 2 se ha actualizado: Estado: E 1|1
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:39:553 Mi-RAM/(9907:10037): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:42:552 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:42:552 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:42:553 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:42:553 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): Se va a actualizar al tripu 2
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): El tripulante 2 se ha actualizado: Estado: E 1|2
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:42:553 Mi-RAM/(9907:10045): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:42:554 Mi-RAM/(9907:10043): Se va a actualizar al tripu 1
+[INFO] 23:57:42:554 Mi-RAM/(9907:10043): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:42:554 Mi-RAM/(9907:10043): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:42:554 Mi-RAM/(9907:10043): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:42:554 Mi-RAM/(9907:10043): El tripulante 1 se ha actualizado: Estado: E 2|1
+[INFO] 23:57:42:554 Mi-RAM/(9907:10043): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:45:553 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:45:553 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:45:554 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:45:554 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): Se va a actualizar al tripu 2
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): El tripulante 2 se ha actualizado: Estado: E 2|2
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:45:554 Mi-RAM/(9907:10055): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:45:554 Mi-RAM/(9907:10054): Se va a actualizar al tripu 1
+[INFO] 23:57:45:554 Mi-RAM/(9907:10054): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:45:554 Mi-RAM/(9907:10054): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:45:554 Mi-RAM/(9907:10054): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:45:554 Mi-RAM/(9907:10054): El tripulante 1 se ha actualizado: Estado: E 2|2
+[INFO] 23:57:45:554 Mi-RAM/(9907:10054): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:48:554 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:48:554 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:48:554 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:48:554 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:48:554 Mi-RAM/(9907:10067): Se va a actualizar al tripu 1
+[INFO] 23:57:48:554 Mi-RAM/(9907:10067): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:48:554 Mi-RAM/(9907:10067): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:48:554 Mi-RAM/(9907:10067): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:48:554 Mi-RAM/(9907:10067): El tripulante 1 se ha actualizado: Estado: E 2|3
+[INFO] 23:57:48:554 Mi-RAM/(9907:10067): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:48:554 Mi-RAM/(9907:10065): Se va a actualizar al tripu 2
+[INFO] 23:57:48:554 Mi-RAM/(9907:10065): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:48:554 Mi-RAM/(9907:10065): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:48:554 Mi-RAM/(9907:10065): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:48:554 Mi-RAM/(9907:10065): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:48:555 Mi-RAM/(9907:10065): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:48:555 Mi-RAM/(9907:10065): El tripulante 2 se ha actualizado: Estado: E 3|2
+[INFO] 23:57:48:555 Mi-RAM/(9907:10065): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:48:555 Mi-RAM/(9907:10065): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:51:554 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:51:555 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:51:555 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:51:555 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:51:555 Mi-RAM/(9907:10074): Se va a actualizar al tripu 1
+[INFO] 23:57:51:555 Mi-RAM/(9907:10074): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:51:555 Mi-RAM/(9907:10074): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:51:555 Mi-RAM/(9907:10074): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:51:555 Mi-RAM/(9907:10074): El tripulante 1 se ha actualizado: Estado: E 3|3
+[INFO] 23:57:51:555 Mi-RAM/(9907:10074): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): Se va a actualizar al tripu 2
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): El tripulante 2 se ha actualizado: Estado: E 3|3
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:51:556 Mi-RAM/(9907:10073): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:54:556 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:54:559 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:54:559 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:54:559 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): Se va a actualizar al tripu 2
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): El tripulante 2 se ha actualizado: Estado: E 4|3
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:54:560 Mi-RAM/(9907:10081): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:57:54:560 Mi-RAM/(9907:10080): Se va a actualizar al tripu 1
+[INFO] 23:57:54:560 Mi-RAM/(9907:10080): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:54:560 Mi-RAM/(9907:10080): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:54:560 Mi-RAM/(9907:10080): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:54:560 Mi-RAM/(9907:10080): El tripulante 1 se ha actualizado: Estado: E 3|4
+[INFO] 23:57:54:560 Mi-RAM/(9907:10080): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:57:560 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:57:562 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:57:562 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:57:57:562 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:57:57:562 Mi-RAM/(9907:10088): Se va a actualizar al tripu 1
+[INFO] 23:57:57:562 Mi-RAM/(9907:10088): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:57:57:562 Mi-RAM/(9907:10088): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:57:562 Mi-RAM/(9907:10088): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:57:57:562 Mi-RAM/(9907:10088): El tripulante 1 se ha actualizado: Estado: E 4|4
+[INFO] 23:57:57:562 Mi-RAM/(9907:10088): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): Se va a actualizar al tripu 2
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): Se va a leer la pagina que arranca en 64
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): Se va a leer la pagina que arranca en 96
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): El tripulante 2 se ha actualizado: Estado: E 4|4
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:57:57:563 Mi-RAM/(9907:10087): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:00:561 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:00:562 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:00:562 Mi-RAM/(9907:10096): Se va a actualizar al tripu 1
+[INFO] 23:58:00:562 Mi-RAM/(9907:10096): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:00:562 Mi-RAM/(9907:10096): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:00:562 Mi-RAM/(9907:10096): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:00:562 Mi-RAM/(9907:10096): El tripulante 1 se ha actualizado: Estado: E 5|4
+[INFO] 23:58:00:562 Mi-RAM/(9907:10096): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:00:562 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:00:562 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): Se va a actualizar al tripu 2
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): El tripulante 2 se ha actualizado: Estado: E 5|4
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:00:563 Mi-RAM/(9907:10098): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:12:565 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:12:565 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 24 y la pagina 0
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Se va a leer la pagina que arranca en 0
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 25
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: C
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 26
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: CO
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 27
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: COM
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 28
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: COME
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 29
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: COMER
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 30
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: COMER;
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 31
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: COMER;1
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): El desplazamiento es 32
+[INFO] 23:58:12:566 Mi-RAM/(9907:10118): Sacando tarea: COMER;10
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Se termino de leer la pagina, el nuevo desplazamiento es 0
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): El desplazamiento es 0 y la pagina 1
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Se va a leer la pagina que arranca en 32
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): El desplazamiento es 1
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Sacando tarea: COMER;10;
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): El desplazamiento es 2
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Sacando tarea: COMER;10;4
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): El desplazamiento es 3
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Sacando tarea: COMER;10;4;
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): El desplazamiento es 4
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Sacando tarea: COMER;10;4;3
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Se termino de leer la pagina, el nuevo desplazamiento es 4
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): La proxima tarea es 105
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:12:567 Mi-RAM/(9907:10118): El tripulante 2 pidio la tarea COMER;10;4;3
+[INFO] 23:58:12:567 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 7
+
+[INFO] 23:58:12:568 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:12:568 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 8
+
+[INFO] 23:58:12:569 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 24 y la pagina 0
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Se va a leer la pagina que arranca en 0
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 25
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: C
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 26
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: CO
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 27
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COM
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 28
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COME
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 29
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 30
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 31
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;1
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 32
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;10
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Se termino de leer la pagina, el nuevo desplazamiento es 0
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 0 y la pagina 1
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Se va a leer la pagina que arranca en 32
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 1
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;10;
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 2
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;10;4
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 3
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;10;4;
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El desplazamiento es 4
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Sacando tarea: COMER;10;4;3
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Se termino de leer la pagina, el nuevo desplazamiento es 4
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): La proxima tarea es 105
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:12:571 Mi-RAM/(9907:10120): El tripulante 1 pidio la tarea COMER;10;4;3
+[INFO] 23:58:12:572 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 8
+
+[INFO] 23:58:12:573 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): Se va a actualizar al tripu 2
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): El tripulante 2 se ha actualizado: Estado: E 6|4
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:12:573 Mi-RAM/(9907:10121): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:12:585 Mi-RAM/(9907:10124): Se va a actualizar al tripu 1
+[INFO] 23:58:12:585 Mi-RAM/(9907:10124): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:12:585 Mi-RAM/(9907:10124): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:12:585 Mi-RAM/(9907:10124): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:12:585 Mi-RAM/(9907:10124): El tripulante 1 se ha actualizado: Estado: E 6|4
+[INFO] 23:58:12:585 Mi-RAM/(9907:10124): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:15:569 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:15:570 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): Se va a actualizar al tripu 2
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): El tripulante 2 se ha actualizado: Estado: E 7|4
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:15:570 Mi-RAM/(9907:10133): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:15:573 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:15:574 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:15:574 Mi-RAM/(9907:10136): Se va a actualizar al tripu 1
+[INFO] 23:58:15:574 Mi-RAM/(9907:10136): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:15:575 Mi-RAM/(9907:10136): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:15:575 Mi-RAM/(9907:10136): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:15:575 Mi-RAM/(9907:10136): El tripulante 1 se ha actualizado: Estado: E 7|4
+[INFO] 23:58:15:575 Mi-RAM/(9907:10136): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:18:570 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:18:571 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): Se va a actualizar al tripu 2
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): El tripulante 2 se ha actualizado: Estado: E 8|4
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:18:571 Mi-RAM/(9907:10141): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:18:574 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:18:575 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:18:575 Mi-RAM/(9907:10143): Se va a actualizar al tripu 1
+[INFO] 23:58:18:575 Mi-RAM/(9907:10143): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:18:575 Mi-RAM/(9907:10143): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:18:575 Mi-RAM/(9907:10143): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:18:575 Mi-RAM/(9907:10143): El tripulante 1 se ha actualizado: Estado: E 8|4
+[INFO] 23:58:18:575 Mi-RAM/(9907:10143): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:21:571 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:21:572 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): Se va a actualizar al tripu 2
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): El tripulante 2 se ha actualizado: Estado: E 9|4
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:21:572 Mi-RAM/(9907:10149): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:21:575 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:21:576 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:21:577 Mi-RAM/(9907:10150): Se va a actualizar al tripu 1
+[INFO] 23:58:21:577 Mi-RAM/(9907:10150): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:21:577 Mi-RAM/(9907:10150): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:21:577 Mi-RAM/(9907:10150): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:21:577 Mi-RAM/(9907:10150): El tripulante 1 se ha actualizado: Estado: E 9|4
+[INFO] 23:58:21:577 Mi-RAM/(9907:10150): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:24:572 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:24:572 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): Se va a actualizar al tripu 2
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): El tripulante 2 se ha actualizado: Estado: E 10|4
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:24:573 Mi-RAM/(9907:10155): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:24:576 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:24:576 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:24:577 Mi-RAM/(9907:10157): Se va a actualizar al tripu 1
+[INFO] 23:58:24:577 Mi-RAM/(9907:10157): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:24:577 Mi-RAM/(9907:10157): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:24:577 Mi-RAM/(9907:10157): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:24:577 Mi-RAM/(9907:10157): El tripulante 1 se ha actualizado: Estado: E 10|4
+[INFO] 23:58:24:577 Mi-RAM/(9907:10157): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:36:576 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:36:576 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): El desplazamiento es 5 y la pagina 1
+[INFO] 23:58:36:576 Mi-RAM/(9907:10187): Se va a leer la pagina que arranca en 32
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 6
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: C
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 7
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CE
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 8
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CEN
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 9
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENA
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 10
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 11
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 12
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;1
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 13
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;1;
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 14
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;1;1
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 15
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;1;14
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 16
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;1;14;
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El desplazamiento es 17
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Sacando tarea: CENAR;1;14;3
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Se termino de leer la pagina, el nuevo desplazamiento es 17
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): La proxima tarea es 118
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:36:582 Mi-RAM/(9907:10187): El tripulante 2 pidio la tarea CENAR;1;14;3
+[INFO] 23:58:36:583 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 7
+
+[INFO] 23:58:36:583 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:36:584 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 8
+
+[INFO] 23:58:36:585 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): Se va a actualizar al tripu 2
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): El tripulante 2 se ha actualizado: Estado: E 10|5
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:36:585 Mi-RAM/(9907:10192): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 5 y la pagina 1
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Se va a leer la pagina que arranca en 32
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 6
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: C
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 7
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CE
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 8
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CEN
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 9
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENA
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 10
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 11
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 12
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;1
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 13
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;1;
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 14
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;1;1
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 15
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;1;14
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 16
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;1;14;
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El desplazamiento es 17
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Sacando tarea: CENAR;1;14;3
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Se termino de leer la pagina, el nuevo desplazamiento es 17
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): La proxima tarea es 118
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:36:585 Mi-RAM/(9907:10190): El tripulante 1 pidio la tarea CENAR;1;14;3
+[INFO] 23:58:36:586 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 8
+
+[INFO] 23:58:36:586 Mi-RAM/(9907:9907): Se recibio una operacion: 4
+
+[INFO] 23:58:36:591 Mi-RAM/(9907:10193): Se va a actualizar al tripu 1
+[INFO] 23:58:36:591 Mi-RAM/(9907:10193): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:36:591 Mi-RAM/(9907:10193): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:36:591 Mi-RAM/(9907:10193): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:36:591 Mi-RAM/(9907:10193): El tripulante 1 se ha actualizado: Estado: E 9|4
+[INFO] 23:58:36:591 Mi-RAM/(9907:10193): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:48:541 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:48:541 Mi-RAM/(9907:9907): Se recibio una operacion: 2
+
+[INFO] 23:58:48:541 Mi-RAM/(9907:10213): Se creo la pagina de la estructura: 0
+[INFO] 23:58:48:541 Mi-RAM/(9907:10213): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:58:48:541 Mi-RAM/(9907:10213): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se creo la pagina de la estructura: 2
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Memoria principal llena, realizando swap.
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se produce un PF (pagina 1)
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se eligio como victima la pagina 0 cuyo frame es 0.
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se swapea la pagina 1 con la pagina 0
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se creo la pagina de la estructura: 2
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Memoria principal llena, realizando swap.
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se produce un PF (pagina 2)
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:542 Mi-RAM/(9907:10213): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:58:48:543 Mi-RAM/(9907:10213): Se eligio como victima la pagina 1 cuyo frame es 1.
+[INFO] 23:58:48:543 Mi-RAM/(9907:10213): Se swapea la pagina 2 con la pagina 1
+[INFO] 23:58:48:543 Mi-RAM/(9907:10213): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 23:58:48:543 Mi-RAM/(9907:10213): Se creo la patota 2 correctamente.
+[INFO] 23:58:48:543 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 7
+
+[INFO] 23:58:48:543 Mi-RAM/(9907:9907): Se recibio una operacion: 3
+
+[INFO] 23:58:48:543 Mi-RAM/(9907:10215): La direccion logica de tareas es 8
+[INFO] 23:58:48:543 Mi-RAM/(9907:10215): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 23:58:48:543 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:48:544 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Se va a leer la pagina que arranca en 32
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 8 y la pagina 0
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 9
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: D
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 10
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DE
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 11
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DES
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 12
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESA
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 13
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAY
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 14
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYU
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 15
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUN
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 16
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNA
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 17
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 18
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR;
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 19
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR;5
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 20
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR;5;
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 21
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR;5;4
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 22
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El desplazamiento es 23
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): La proxima tarea es 24
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:58:48:544 Mi-RAM/(9907:10216): El tripulante 1 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 23:58:48:544 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 8
+
+[INFO] 23:58:48:544 Mi-RAM/(9907:9907): Se recibio una operacion: 3
+
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): La direccion logica de tareas es 8
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se creo la pagina de la estructura: 1
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Memoria principal llena, realizando swap.
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se produce un PF (pagina 3)
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se eligio como victima la pagina 2 cuyo frame es 2.
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se swapea la pagina 3 con la pagina 2
+[INFO] 23:58:48:545 Mi-RAM/(9907:10219): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 23:58:48:545 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:48:545 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Se va a leer la pagina que arranca en 32
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 8 y la pagina 0
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 9
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: D
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 10
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DE
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 11
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DES
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 12
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESA
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 13
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAY
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 14
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYU
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 15
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUN
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 16
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNA
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 17
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 18
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR;
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 19
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR;5
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 20
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR;5;
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 21
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR;5;4
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 22
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El desplazamiento es 23
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): La proxima tarea es 24
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Se sobreescribio en RAM: FRAME: 1 | DESDE: 31 | HASTA: 31 
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 19 
+[INFO] 23:58:48:545 Mi-RAM/(9907:10220): El tripulante 2 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 23:58:48:546 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 7
+
+[INFO] 23:58:48:546 Mi-RAM/(9907:9907): Se recibio una operacion: 3
+
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): La direccion logica de tareas es 8
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se va a agregar a la pagina 3 , la estructura 1 con base 20 , y tamanio 12
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se creo la pagina de la estructura: 1
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Memoria principal llena, realizando swap.
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se produce un PF (pagina 4)
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se eligio como victima la pagina 3 cuyo frame es 3.
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se swapea la pagina 4 con la pagina 3
+[INFO] 23:58:48:546 Mi-RAM/(9907:10223): Se va a agregar a la pagina 4 , la estructura 1 con base 0 , y tamanio 9
+[INFO] 23:58:48:546 Mi-RAM/(9907:9907): Se conecto un cliente con socket: 5
+
+[INFO] 23:58:48:547 Mi-RAM/(9907:9907): Se recibio una operacion: 8
+
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): La cantidad de paginas que contienen al tripulante 3 son 2
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): Se va a leer la pagina que arranca en 64
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): SE LEE DEL TRIPU: 3 - FRAME: 2 | D_INCIAL: 20 | TAMANIO: 12
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): SE LEE DEL TRIPU: 3 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 9
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): El desplazamiento es 8 y la pagina 0
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): Se va a leer la pagina que arranca en 96
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): Se termino de leer la pagina, el nuevo desplazamiento es 8
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): La proxima tarea es -1
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): Se sobreescribio en RAM: FRAME: 2 | DESDE: 20 | HASTA: 31 
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 8 
+[INFO] 23:58:48:547 Mi-RAM/(9907:10224): El tripulante 3 pidio la tarea 
+[INFO] 00:01:57:048 Mi-RAM/(10553:10553): ################# Modulo Mi-RAM #################
+
+[INFO] 00:01:57:048 Mi-RAM/(10553:10553): La cantidad de marcos en Swap es: 512
+[INFO] 00:02:04:287 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:02:04:287 Mi-RAM/(10553:10553): Se recibio una operacion: 2
+
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se creo la pagina de la estructura: 0
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se creo la pagina de la estructura: 2
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se creo la pagina de la estructura: 2
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:02:04:287 Mi-RAM/(10553:10582): Se creo la patota 1 correctamente.
+[INFO] 00:02:04:287 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:02:04:287 Mi-RAM/(10553:10553): Se recibio una operacion: 3
+
+[INFO] 00:02:04:287 Mi-RAM/(10553:10584): La direccion logica de tareas es 8
+[INFO] 00:02:04:288 Mi-RAM/(10553:10584): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:02:04:288 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:02:04:288 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Se va a leer la pagina que arranca en 64
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 8 y la pagina 0
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Se va a leer la pagina que arranca en 0
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 9
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: D
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 10
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DE
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 11
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DES
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 12
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESA
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 13
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAY
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 14
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYU
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 15
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUN
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 16
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNA
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 17
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 18
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR;
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 19
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR;5
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 20
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 21
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 22
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El desplazamiento es 23
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): La proxima tarea es 24
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:02:04:288 Mi-RAM/(10553:10585): El tripulante 1 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:02:04:290 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:02:04:290 Mi-RAM/(10553:10553): Se recibio una operacion: 3
+
+[INFO] 00:02:04:290 Mi-RAM/(10553:10588): La direccion logica de tareas es 8
+[INFO] 00:02:04:290 Mi-RAM/(10553:10588): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:02:04:290 Mi-RAM/(10553:10588): Se creo la pagina de la estructura: 1
+[INFO] 00:02:04:290 Mi-RAM/(10553:10588): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:02:04:290 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:02:04:290 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Se va a leer la pagina que arranca en 64
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Se va a leer la pagina que arranca en 96
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 8 y la pagina 0
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Se va a leer la pagina que arranca en 0
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 9
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: D
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 10
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DE
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 11
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DES
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 12
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESA
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 13
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAY
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 14
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYU
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 15
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUN
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 16
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNA
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 17
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 18
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR;
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 19
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR;5
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 20
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 21
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 22
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El desplazamiento es 23
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): La proxima tarea es 24
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:02:04:290 Mi-RAM/(10553:10589): El tripulante 2 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:03:29:832 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:03:29:833 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:29:833 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:29:833 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): Se va a actualizar al tripu 2
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): El tripulante 2 se ha actualizado: Estado: E 1|0
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:29:833 Mi-RAM/(10553:10765): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:29:833 Mi-RAM/(10553:10764): Se va a actualizar al tripu 1
+[INFO] 00:03:29:833 Mi-RAM/(10553:10764): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:29:833 Mi-RAM/(10553:10764): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:29:833 Mi-RAM/(10553:10764): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:29:833 Mi-RAM/(10553:10764): El tripulante 1 se ha actualizado: Estado: E 0|1
+[INFO] 00:03:29:833 Mi-RAM/(10553:10764): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:32:833 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:32:834 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:32:834 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:32:834 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:32:834 Mi-RAM/(10553:10772): Se va a actualizar al tripu 1
+[INFO] 00:03:32:834 Mi-RAM/(10553:10772): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:32:834 Mi-RAM/(10553:10772): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:32:834 Mi-RAM/(10553:10772): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:32:834 Mi-RAM/(10553:10772): El tripulante 1 se ha actualizado: Estado: E 1|1
+[INFO] 00:03:32:834 Mi-RAM/(10553:10772): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): Se va a actualizar al tripu 2
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): El tripulante 2 se ha actualizado: Estado: E 1|1
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:32:835 Mi-RAM/(10553:10771): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:35:834 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:35:835 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:35:835 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:35:836 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): Se va a actualizar al tripu 2
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): El tripulante 2 se ha actualizado: Estado: E 2|1
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:35:836 Mi-RAM/(10553:10795): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:35:836 Mi-RAM/(10553:10794): Se va a actualizar al tripu 1
+[INFO] 00:03:35:836 Mi-RAM/(10553:10794): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:35:836 Mi-RAM/(10553:10794): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:35:836 Mi-RAM/(10553:10794): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:35:836 Mi-RAM/(10553:10794): El tripulante 1 se ha actualizado: Estado: E 1|2
+[INFO] 00:03:35:836 Mi-RAM/(10553:10794): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:38:836 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:38:837 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:38:837 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:38:837 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:38:837 Mi-RAM/(10553:10809): Se va a actualizar al tripu 1
+[INFO] 00:03:38:837 Mi-RAM/(10553:10809): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:38:837 Mi-RAM/(10553:10809): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:38:837 Mi-RAM/(10553:10809): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:38:837 Mi-RAM/(10553:10809): El tripulante 1 se ha actualizado: Estado: E 2|2
+[INFO] 00:03:38:837 Mi-RAM/(10553:10809): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): Se va a actualizar al tripu 2
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): El tripulante 2 se ha actualizado: Estado: E 2|2
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:38:838 Mi-RAM/(10553:10808): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:41:837 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:41:838 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:41:838 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:41:838 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:41:838 Mi-RAM/(10553:10818): Se va a actualizar al tripu 2
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): El tripulante 2 se ha actualizado: Estado: E 3|2
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:41:839 Mi-RAM/(10553:10818): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:41:839 Mi-RAM/(10553:10817): Se va a actualizar al tripu 1
+[INFO] 00:03:41:839 Mi-RAM/(10553:10817): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:41:839 Mi-RAM/(10553:10817): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:41:839 Mi-RAM/(10553:10817): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:41:839 Mi-RAM/(10553:10817): El tripulante 1 se ha actualizado: Estado: E 2|3
+[INFO] 00:03:41:839 Mi-RAM/(10553:10817): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:44:838 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:44:839 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:44:839 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:44:839 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:44:839 Mi-RAM/(10553:10825): Se va a actualizar al tripu 1
+[INFO] 00:03:44:839 Mi-RAM/(10553:10825): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:44:839 Mi-RAM/(10553:10825): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:44:839 Mi-RAM/(10553:10825): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:44:839 Mi-RAM/(10553:10825): El tripulante 1 se ha actualizado: Estado: E 3|3
+[INFO] 00:03:44:839 Mi-RAM/(10553:10825): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): Se va a actualizar al tripu 2
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): El tripulante 2 se ha actualizado: Estado: E 3|3
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:44:839 Mi-RAM/(10553:10824): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:47:839 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:47:841 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:47:841 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:47:841 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): Se va a actualizar al tripu 2
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): El tripulante 2 se ha actualizado: Estado: E 4|3
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:47:841 Mi-RAM/(10553:10835): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:47:841 Mi-RAM/(10553:10834): Se va a actualizar al tripu 1
+[INFO] 00:03:47:841 Mi-RAM/(10553:10834): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:47:841 Mi-RAM/(10553:10834): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:47:841 Mi-RAM/(10553:10834): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:47:841 Mi-RAM/(10553:10834): El tripulante 1 se ha actualizado: Estado: E 3|4
+[INFO] 00:03:47:841 Mi-RAM/(10553:10834): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:50:840 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:50:841 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): Se va a actualizar al tripu 2
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): El tripulante 2 se ha actualizado: Estado: E 5|3
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:50:841 Mi-RAM/(10553:10856): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:50:841 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:50:841 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:50:842 Mi-RAM/(10553:10859): Se va a actualizar al tripu 1
+[INFO] 00:03:50:842 Mi-RAM/(10553:10859): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:50:842 Mi-RAM/(10553:10859): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:50:842 Mi-RAM/(10553:10859): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:50:842 Mi-RAM/(10553:10859): El tripulante 1 se ha actualizado: Estado: E 4|4
+[INFO] 00:03:50:842 Mi-RAM/(10553:10859): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:03:53:841 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:53:841 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): Se va a actualizar al tripu 2
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): Se va a leer la pagina que arranca en 96
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): El tripulante 2 se ha actualizado: Estado: E 5|4
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:03:53:841 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:03:53:842 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:03:53:841 Mi-RAM/(10553:10860): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:03:53:849 Mi-RAM/(10553:10862): Se va a actualizar al tripu 1
+[INFO] 00:03:53:849 Mi-RAM/(10553:10862): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:03:53:849 Mi-RAM/(10553:10862): Se va a leer la pagina que arranca en 64
+[INFO] 00:03:53:849 Mi-RAM/(10553:10862): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:03:53:849 Mi-RAM/(10553:10862): El tripulante 1 se ha actualizado: Estado: E 5|4
+[INFO] 00:03:53:849 Mi-RAM/(10553:10862): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:05:843 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:05:843 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:04:05:843 Mi-RAM/(10553:10897): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:05:843 Mi-RAM/(10553:10897): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:05:843 Mi-RAM/(10553:10897): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:05:843 Mi-RAM/(10553:10897): El desplazamiento es 24 y la pagina 0
+[INFO] 00:04:05:843 Mi-RAM/(10553:10897): Se va a leer la pagina que arranca en 0
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 25
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: C
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 26
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: CO
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 27
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COM
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 28
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COME
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 29
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 30
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 31
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;1
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 32
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;10
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Se termino de leer la pagina, el nuevo desplazamiento es 0
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 0 y la pagina 1
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Se va a leer la pagina que arranca en 32
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 1
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;10;
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 2
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;10;4
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 3
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;10;4;
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El desplazamiento es 4
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Sacando tarea: COMER;10;4;3
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Se termino de leer la pagina, el nuevo desplazamiento es 4
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): La proxima tarea es 105
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:05:844 Mi-RAM/(10553:10897): El tripulante 1 pidio la tarea COMER;10;4;3
+[INFO] 00:04:05:845 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:04:05:845 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:04:05:845 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:04:05:846 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 24 y la pagina 0
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se va a leer la pagina que arranca en 0
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 25
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: C
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 26
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: CO
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 27
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COM
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 28
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COME
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 29
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 30
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 31
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;1
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 32
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;10
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se termino de leer la pagina, el nuevo desplazamiento es 0
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 0 y la pagina 1
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se va a leer la pagina que arranca en 32
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 1
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;10;
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 2
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;10;4
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 3
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;10;4;
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El desplazamiento es 4
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Sacando tarea: COMER;10;4;3
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se termino de leer la pagina, el nuevo desplazamiento es 4
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): La proxima tarea es 105
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:05:848 Mi-RAM/(10553:10901): El tripulante 2 pidio la tarea COMER;10;4;3
+[INFO] 00:04:05:849 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:04:05:849 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:05:849 Mi-RAM/(10553:10902): Se va a actualizar al tripu 1
+[INFO] 00:04:05:849 Mi-RAM/(10553:10902): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:05:849 Mi-RAM/(10553:10902): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:05:849 Mi-RAM/(10553:10902): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:05:849 Mi-RAM/(10553:10902): El tripulante 1 se ha actualizado: Estado: E 6|4
+[INFO] 00:04:05:849 Mi-RAM/(10553:10902): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): Se va a actualizar al tripu 2
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): El tripulante 2 se ha actualizado: Estado: E 6|4
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:05:852 Mi-RAM/(10553:10904): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:08:847 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:08:847 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:08:848 Mi-RAM/(10553:10907): Se va a actualizar al tripu 1
+[INFO] 00:04:08:848 Mi-RAM/(10553:10907): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:08:848 Mi-RAM/(10553:10907): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:08:848 Mi-RAM/(10553:10907): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:08:848 Mi-RAM/(10553:10907): El tripulante 1 se ha actualizado: Estado: E 7|4
+[INFO] 00:04:08:848 Mi-RAM/(10553:10907): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:08:850 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:08:850 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): Se va a actualizar al tripu 2
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): El tripulante 2 se ha actualizado: Estado: E 7|4
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:08:850 Mi-RAM/(10553:10909): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:11:849 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:11:853 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:11:853 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:11:853 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:11:857 Mi-RAM/(10553:10925): Se va a actualizar al tripu 1
+[INFO] 00:04:11:857 Mi-RAM/(10553:10925): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:11:857 Mi-RAM/(10553:10925): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:11:857 Mi-RAM/(10553:10925): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:11:857 Mi-RAM/(10553:10925): El tripulante 1 se ha actualizado: Estado: E 8|4
+[INFO] 00:04:11:857 Mi-RAM/(10553:10925): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): Se va a actualizar al tripu 2
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): El tripulante 2 se ha actualizado: Estado: E 8|4
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:11:857 Mi-RAM/(10553:10926): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:14:851 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:14:852 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:14:852 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:14:852 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:14:853 Mi-RAM/(10553:10940): Se va a actualizar al tripu 1
+[INFO] 00:04:14:853 Mi-RAM/(10553:10940): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:14:853 Mi-RAM/(10553:10940): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:14:853 Mi-RAM/(10553:10940): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:14:853 Mi-RAM/(10553:10940): El tripulante 1 se ha actualizado: Estado: E 9|4
+[INFO] 00:04:14:853 Mi-RAM/(10553:10940): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): Se va a actualizar al tripu 2
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): El tripulante 2 se ha actualizado: Estado: E 9|4
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:14:853 Mi-RAM/(10553:10939): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:17:852 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:17:854 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:17:854 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:17:854 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): Se va a actualizar al tripu 2
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): El tripulante 2 se ha actualizado: Estado: E 10|4
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:17:855 Mi-RAM/(10553:10946): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:17:856 Mi-RAM/(10553:10945): Se va a actualizar al tripu 1
+[INFO] 00:04:17:856 Mi-RAM/(10553:10945): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:17:856 Mi-RAM/(10553:10945): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:17:856 Mi-RAM/(10553:10945): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:17:856 Mi-RAM/(10553:10945): El tripulante 1 se ha actualizado: Estado: E 10|4
+[INFO] 00:04:17:856 Mi-RAM/(10553:10945): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:29:855 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:29:855 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 5 y la pagina 1
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Se va a leer la pagina que arranca en 32
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 6
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: C
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 7
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CE
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 8
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CEN
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 9
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENA
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 10
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 11
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 12
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;1
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 13
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;1;
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 14
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;1;1
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 15
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;1;14
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 16
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;1;14;
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El desplazamiento es 17
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Sacando tarea: CENAR;1;14;3
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Se termino de leer la pagina, el nuevo desplazamiento es 17
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): La proxima tarea es 118
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:29:857 Mi-RAM/(10553:10973): El tripulante 1 pidio la tarea CENAR;1;14;3
+[INFO] 00:04:29:858 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:04:29:859 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:04:29:859 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:04:29:860 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): El desplazamiento es 5 y la pagina 1
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): Se va a leer la pagina que arranca en 32
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): El desplazamiento es 6
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): Sacando tarea: C
+[INFO] 00:04:29:861 Mi-RAM/(10553:10977): El desplazamiento es 7
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CE
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 8
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CEN
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 9
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENA
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 10
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 11
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 12
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;1
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 13
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;1;
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 14
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;1;1
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 15
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;1;14
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 16
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;1;14;
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El desplazamiento es 17
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Sacando tarea: CENAR;1;14;3
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Se termino de leer la pagina, el nuevo desplazamiento es 17
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): La proxima tarea es 118
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:29:862 Mi-RAM/(10553:10977): El tripulante 2 pidio la tarea CENAR;1;14;3
+[INFO] 00:04:29:863 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:04:29:864 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:29:870 Mi-RAM/(10553:10978): Se va a actualizar al tripu 1
+[INFO] 00:04:29:871 Mi-RAM/(10553:10978): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:29:871 Mi-RAM/(10553:10978): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:29:871 Mi-RAM/(10553:10978): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:29:871 Mi-RAM/(10553:10978): El tripulante 1 se ha actualizado: Estado: E 10|5
+[INFO] 00:04:29:871 Mi-RAM/(10553:10978): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): Se va a actualizar al tripu 2
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): El tripulante 2 se ha actualizado: Estado: E 9|4
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:29:873 Mi-RAM/(10553:10980): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:32:861 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:32:861 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:32:861 Mi-RAM/(10553:10994): Se va a actualizar al tripu 1
+[INFO] 00:04:32:861 Mi-RAM/(10553:10994): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:32:861 Mi-RAM/(10553:10994): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:32:861 Mi-RAM/(10553:10994): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:32:861 Mi-RAM/(10553:10994): El tripulante 1 se ha actualizado: Estado: E 10|6
+[INFO] 00:04:32:861 Mi-RAM/(10553:10994): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:32:865 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:32:865 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): Se va a actualizar al tripu 2
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): El tripulante 2 se ha actualizado: Estado: E 8|4
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:32:865 Mi-RAM/(10553:10996): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:35:862 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:35:863 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:35:863 Mi-RAM/(10553:11011): Se va a actualizar al tripu 1
+[INFO] 00:04:35:863 Mi-RAM/(10553:11011): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:35:863 Mi-RAM/(10553:11011): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:35:863 Mi-RAM/(10553:11011): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:35:863 Mi-RAM/(10553:11011): El tripulante 1 se ha actualizado: Estado: E 10|7
+[INFO] 00:04:35:863 Mi-RAM/(10553:11011): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:35:865 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:35:866 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): Se va a actualizar al tripu 2
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): El tripulante 2 se ha actualizado: Estado: E 7|4
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:35:866 Mi-RAM/(10553:11013): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:38:863 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:38:863 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:38:864 Mi-RAM/(10553:11022): Se va a actualizar al tripu 1
+[INFO] 00:04:38:864 Mi-RAM/(10553:11022): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:38:864 Mi-RAM/(10553:11022): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:38:864 Mi-RAM/(10553:11022): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:38:864 Mi-RAM/(10553:11022): El tripulante 1 se ha actualizado: Estado: E 10|8
+[INFO] 00:04:38:864 Mi-RAM/(10553:11022): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:38:866 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:38:866 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): Se va a actualizar al tripu 2
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): El tripulante 2 se ha actualizado: Estado: E 6|4
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:38:867 Mi-RAM/(10553:11024): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:41:864 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:41:864 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:41:864 Mi-RAM/(10553:11032): Se va a actualizar al tripu 1
+[INFO] 00:04:41:864 Mi-RAM/(10553:11032): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:41:864 Mi-RAM/(10553:11032): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:41:864 Mi-RAM/(10553:11032): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:41:864 Mi-RAM/(10553:11032): El tripulante 1 se ha actualizado: Estado: E 10|9
+[INFO] 00:04:41:864 Mi-RAM/(10553:11032): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:41:867 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:41:868 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): Se va a actualizar al tripu 2
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): El tripulante 2 se ha actualizado: Estado: E 5|4
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:41:868 Mi-RAM/(10553:11034): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:44:864 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:44:865 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:44:865 Mi-RAM/(10553:11046): Se va a actualizar al tripu 1
+[INFO] 00:04:44:865 Mi-RAM/(10553:11046): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:44:865 Mi-RAM/(10553:11046): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:44:865 Mi-RAM/(10553:11046): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:44:865 Mi-RAM/(10553:11046): El tripulante 1 se ha actualizado: Estado: E 10|10
+[INFO] 00:04:44:865 Mi-RAM/(10553:11046): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:44:868 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:44:868 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): Se va a actualizar al tripu 2
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): El tripulante 2 se ha actualizado: Estado: E 4|4
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:44:868 Mi-RAM/(10553:11048): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:47:866 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:47:867 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:47:867 Mi-RAM/(10553:11053): Se va a actualizar al tripu 1
+[INFO] 00:04:47:867 Mi-RAM/(10553:11053): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:47:867 Mi-RAM/(10553:11053): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:47:867 Mi-RAM/(10553:11053): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:47:867 Mi-RAM/(10553:11053): El tripulante 1 se ha actualizado: Estado: E 10|11
+[INFO] 00:04:47:867 Mi-RAM/(10553:11053): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:47:868 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:47:869 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): Se va a actualizar al tripu 2
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): El tripulante 2 se ha actualizado: Estado: E 3|4
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:47:869 Mi-RAM/(10553:11055): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:50:867 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:50:868 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:50:868 Mi-RAM/(10553:11063): Se va a actualizar al tripu 1
+[INFO] 00:04:50:868 Mi-RAM/(10553:11063): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:50:869 Mi-RAM/(10553:11063): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:50:869 Mi-RAM/(10553:11063): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:50:869 Mi-RAM/(10553:11063): El tripulante 1 se ha actualizado: Estado: E 10|12
+[INFO] 00:04:50:869 Mi-RAM/(10553:11063): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:50:870 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:50:870 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): Se va a actualizar al tripu 2
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:50:871 Mi-RAM/(10553:11065): El tripulante 2 se ha actualizado: Estado: E 2|4
+[INFO] 00:04:50:872 Mi-RAM/(10553:11065): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:50:872 Mi-RAM/(10553:11065): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:53:869 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:53:870 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:53:870 Mi-RAM/(10553:11067): Se va a actualizar al tripu 1
+[INFO] 00:04:53:870 Mi-RAM/(10553:11067): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:53:870 Mi-RAM/(10553:11067): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:53:871 Mi-RAM/(10553:11067): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:53:871 Mi-RAM/(10553:11067): El tripulante 1 se ha actualizado: Estado: E 10|13
+[INFO] 00:04:53:871 Mi-RAM/(10553:11067): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:53:871 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:53:872 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): Se va a actualizar al tripu 2
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): El tripulante 2 se ha actualizado: Estado: E 1|4
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:53:873 Mi-RAM/(10553:11069): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:56:870 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:56:871 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:56:871 Mi-RAM/(10553:11078): Se va a actualizar al tripu 1
+[INFO] 00:04:56:871 Mi-RAM/(10553:11078): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:56:871 Mi-RAM/(10553:11078): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:56:871 Mi-RAM/(10553:11078): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:56:871 Mi-RAM/(10553:11078): El tripulante 1 se ha actualizado: Estado: E 10|14
+[INFO] 00:04:56:871 Mi-RAM/(10553:11078): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:56:873 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:56:873 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:56:878 Mi-RAM/(10553:11081): Se va a actualizar al tripu 2
+[INFO] 00:04:56:878 Mi-RAM/(10553:11081): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:56:878 Mi-RAM/(10553:11081): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:56:883 Mi-RAM/(10553:11081): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:56:883 Mi-RAM/(10553:11081): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:56:883 Mi-RAM/(10553:11081): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:56:883 Mi-RAM/(10553:11081): El tripulante 2 se ha actualizado: Estado: E 1|5
+[INFO] 00:04:56:883 Mi-RAM/(10553:11081): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:56:883 Mi-RAM/(10553:11081): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:04:59:871 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:59:872 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:59:872 Mi-RAM/(10553:11092): Se va a actualizar al tripu 1
+[INFO] 00:04:59:872 Mi-RAM/(10553:11092): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:04:59:872 Mi-RAM/(10553:11092): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:59:872 Mi-RAM/(10553:11092): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:04:59:872 Mi-RAM/(10553:11092): El tripulante 1 se ha actualizado: Estado: E 9|14
+[INFO] 00:04:59:872 Mi-RAM/(10553:11092): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:04:59:873 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:04:59:873 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): Se va a actualizar al tripu 2
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): Se va a leer la pagina que arranca en 64
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): Se va a leer la pagina que arranca en 96
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): El tripulante 2 se ha actualizado: Estado: E 1|6
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:04:59:874 Mi-RAM/(10553:11094): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:05:02:872 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:02:873 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:02:873 Mi-RAM/(10553:11100): Se va a actualizar al tripu 1
+[INFO] 00:05:02:873 Mi-RAM/(10553:11100): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:05:02:873 Mi-RAM/(10553:11100): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:02:873 Mi-RAM/(10553:11100): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:05:02:873 Mi-RAM/(10553:11100): El tripulante 1 se ha actualizado: Estado: E 8|14
+[INFO] 00:05:02:873 Mi-RAM/(10553:11100): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:05:02:874 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:02:874 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): Se va a actualizar al tripu 2
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): El tripulante 2 se ha actualizado: Estado: E 1|7
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:05:02:874 Mi-RAM/(10553:11102): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:05:05:873 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:05:873 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:05:874 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:05:877 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): Se va a actualizar al tripu 2
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): El tripulante 2 se ha actualizado: Estado: E 1|8
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:05:05:881 Mi-RAM/(10553:11113): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:05:05:881 Mi-RAM/(10553:11110): Se va a actualizar al tripu 1
+[INFO] 00:05:05:881 Mi-RAM/(10553:11110): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:05:05:881 Mi-RAM/(10553:11110): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:05:881 Mi-RAM/(10553:11110): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:05:05:881 Mi-RAM/(10553:11110): El tripulante 1 se ha actualizado: Estado: E 7|14
+[INFO] 00:05:05:881 Mi-RAM/(10553:11110): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:05:08:874 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:08:875 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:08:875 Mi-RAM/(10553:11114): Se va a actualizar al tripu 1
+[INFO] 00:05:08:875 Mi-RAM/(10553:11114): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:05:08:875 Mi-RAM/(10553:11114): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:08:875 Mi-RAM/(10553:11114): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:05:08:875 Mi-RAM/(10553:11114): El tripulante 1 se ha actualizado: Estado: E 6|14
+[INFO] 00:05:08:875 Mi-RAM/(10553:11114): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:05:08:877 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:08:878 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): Se va a actualizar al tripu 2
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): El tripulante 2 se ha actualizado: Estado: E 1|9
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:05:08:878 Mi-RAM/(10553:11116): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:05:21:990 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:22:007 Mi-RAM/(10553:10553): Se recibio una operacion: 2
+
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se creo la pagina de la estructura: 0
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se creo la pagina de la estructura: 2
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se creo la pagina de la estructura: 2
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:05:22:007 Mi-RAM/(10553:11136): Se creo la patota 2 correctamente.
+[INFO] 00:05:22:008 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:05:22:008 Mi-RAM/(10553:10553): Se recibio una operacion: 3
+
+[INFO] 00:05:22:008 Mi-RAM/(10553:11138): La direccion logica de tareas es 8
+[INFO] 00:05:22:008 Mi-RAM/(10553:11138): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:05:22:008 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:22:008 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Se va a leer la pagina que arranca en 160
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): SE LEE DEL TRIPU: 1 - FRAME: 5 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 8 y la pagina 0
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 9
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: D
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 10
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DE
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 11
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DES
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 12
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESA
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 13
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAY
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 14
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYU
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 15
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUN
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 16
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNA
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 17
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 18
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR;
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 19
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR;5
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 20
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 21
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 22
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El desplazamiento es 23
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): La proxima tarea es 24
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): Se sobreescribio en RAM: FRAME: 5 | DESDE: 10 | HASTA: 30 
+[INFO] 00:05:22:008 Mi-RAM/(10553:11139): El tripulante 1 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:05:22:009 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:05:22:009 Mi-RAM/(10553:10553): Se recibio una operacion: 3
+
+[INFO] 00:05:22:009 Mi-RAM/(10553:11142): La direccion logica de tareas es 8
+[INFO] 00:05:22:009 Mi-RAM/(10553:11142): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:05:22:009 Mi-RAM/(10553:11142): Se creo la pagina de la estructura: 1
+[INFO] 00:05:22:009 Mi-RAM/(10553:11142): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:05:22:010 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:22:010 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Se va a leer la pagina que arranca en 160
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): SE LEE DEL TRIPU: 2 - FRAME: 5 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Se va a leer la pagina que arranca en 192
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): SE LEE DEL TRIPU: 2 - FRAME: 6 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 8 y la pagina 0
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 9
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: D
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 10
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DE
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 11
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DES
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 12
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESA
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 13
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAY
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 14
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYU
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 15
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYUN
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 16
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNA
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 17
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 18
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR;
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 19
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR;5
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): El desplazamiento es 20
+[INFO] 00:05:22:013 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): El desplazamiento es 21
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): El desplazamiento es 22
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): El desplazamiento es 23
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): La proxima tarea es 24
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): Se sobreescribio en RAM: FRAME: 5 | DESDE: 31 | HASTA: 31 
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): Se sobreescribio en RAM: FRAME: 6 | DESDE: 0 | HASTA: 19 
+[INFO] 00:05:22:014 Mi-RAM/(10553:11144): El tripulante 2 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:05:22:015 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:05:22:016 Mi-RAM/(10553:10553): Se recibio una operacion: 3
+
+[INFO] 00:05:22:029 Mi-RAM/(10553:11149): La direccion logica de tareas es 8
+[INFO] 00:05:22:029 Mi-RAM/(10553:11149): Se va a agregar a la pagina 3 , la estructura 1 con base 20 , y tamanio 12
+[INFO] 00:05:22:029 Mi-RAM/(10553:11149): Se creo la pagina de la estructura: 1
+[INFO] 00:05:22:029 Mi-RAM/(10553:11149): Se va a agregar a la pagina 4 , la estructura 1 con base 0 , y tamanio 9
+[INFO] 00:05:22:029 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:22:029 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): La cantidad de paginas que contienen al tripulante 3 son 2
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Se va a leer la pagina que arranca en 192
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): SE LEE DEL TRIPU: 3 - FRAME: 6 | D_INCIAL: 20 | TAMANIO: 12
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Se va a leer la pagina que arranca en 224
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): SE LEE DEL TRIPU: 3 - FRAME: 7 | D_INCIAL: 0 | TAMANIO: 9
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 8 y la pagina 0
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 9
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: D
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 10
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DE
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 11
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DES
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 12
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESA
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 13
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAY
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 14
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYU
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 15
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUN
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 16
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNA
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 17
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 18
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR;
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 19
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR;5
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 20
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 21
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 22
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El desplazamiento es 23
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): La proxima tarea es 24
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Se sobreescribio en RAM: FRAME: 6 | DESDE: 20 | HASTA: 31 
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): Se sobreescribio en RAM: FRAME: 7 | DESDE: 0 | HASTA: 8 
+[INFO] 00:05:22:029 Mi-RAM/(10553:11150): El tripulante 3 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:05:22:035 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 8
+
+[INFO] 00:05:22:040 Mi-RAM/(10553:10553): Se recibio una operacion: 3
+
+[INFO] 00:05:22:040 Mi-RAM/(10553:11153): La direccion logica de tareas es 8
+[INFO] 00:05:22:040 Mi-RAM/(10553:11153): Se va a agregar a la pagina 4 , la estructura 1 con base 9 , y tamanio 21
+[INFO] 00:05:22:040 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:22:040 Mi-RAM/(10553:10553): Se recibio una operacion: 8
+
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): La cantidad de paginas que contienen al tripulante 4 son 1
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Se va a leer la pagina que arranca en 224
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): SE LEE DEL TRIPU: 4 - FRAME: 7 | D_INCIAL: 9 | TAMANIO: 21
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 8 y la pagina 0
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 9
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: D
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 10
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DE
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 11
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DES
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 12
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESA
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 13
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAY
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 14
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYU
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 15
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUN
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 16
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNA
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 17
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 18
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR;
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 19
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR;5
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 20
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 21
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 22
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El desplazamiento es 23
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): La proxima tarea es 24
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): Se sobreescribio en RAM: FRAME: 7 | DESDE: 9 | HASTA: 29 
+[INFO] 00:05:22:041 Mi-RAM/(10553:11154): El tripulante 4 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:05:31:909 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 7
+
+[INFO] 00:05:31:909 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:31:909 Mi-RAM/(10553:10553): Se conecto un cliente con socket: 5
+
+[INFO] 00:05:31:909 Mi-RAM/(10553:10553): Se recibio una operacion: 4
+
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): Se va a actualizar al tripu 2
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): Se va a leer la pagina que arranca en 64
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): Se va a leer la pagina que arranca en 96
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:05:31:910 Mi-RAM/(10553:11172): El tripulante 2 se ha actualizado: Estado: E 1|10
+[INFO] 00:08:26:029 Mi-RAM/(11505:11505): ################# Modulo Mi-RAM #################
+
+[INFO] 00:08:26:029 Mi-RAM/(11505:11505): La cantidad de marcos en Swap es: 512
+[INFO] 00:08:44:097 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:44:098 Mi-RAM/(11505:11505): Se recibio una operacion: 2
+
+[INFO] 00:08:44:098 Mi-RAM/(11505:11553): Se creo la pagina de la estructura: 0
+[INFO] 00:08:44:098 Mi-RAM/(11505:11553): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:08:44:098 Mi-RAM/(11505:11553): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:08:44:099 Mi-RAM/(11505:11553): Se creo la pagina de la estructura: 2
+[INFO] 00:08:44:099 Mi-RAM/(11505:11553): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:08:44:099 Mi-RAM/(11505:11553): Se creo la pagina de la estructura: 2
+[INFO] 00:08:44:099 Mi-RAM/(11505:11553): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:08:44:099 Mi-RAM/(11505:11553): Se creo la patota 1 correctamente.
+[INFO] 00:08:44:099 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 7
+
+[INFO] 00:08:44:099 Mi-RAM/(11505:11505): Se recibio una operacion: 3
+
+[INFO] 00:08:44:099 Mi-RAM/(11505:11557): La direccion logica de tareas es 8
+[INFO] 00:08:44:099 Mi-RAM/(11505:11557): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:08:44:100 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:44:100 Mi-RAM/(11505:11505): Se recibio una operacion: 8
+
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 8 y la pagina 0
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Se va a leer la pagina que arranca en 0
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 9
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: D
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 10
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DE
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 11
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DES
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 12
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESA
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 13
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAY
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 14
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYU
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 15
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUN
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 16
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNA
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 17
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 18
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR;
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 19
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR;5
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 20
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): El desplazamiento es 21
+[INFO] 00:08:44:100 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): El desplazamiento es 22
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): El desplazamiento es 23
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): La proxima tarea es 24
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:08:44:101 Mi-RAM/(11505:11558): El tripulante 1 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:08:44:101 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 8
+
+[INFO] 00:08:44:101 Mi-RAM/(11505:11505): Se recibio una operacion: 3
+
+[INFO] 00:08:44:102 Mi-RAM/(11505:11561): La direccion logica de tareas es 8
+[INFO] 00:08:44:102 Mi-RAM/(11505:11561): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:08:44:102 Mi-RAM/(11505:11561): Se creo la pagina de la estructura: 1
+[INFO] 00:08:44:102 Mi-RAM/(11505:11561): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:08:44:102 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:44:102 Mi-RAM/(11505:11505): Se recibio una operacion: 8
+
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Se va a leer la pagina que arranca en 96
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 8 y la pagina 0
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Se va a leer la pagina que arranca en 0
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 9
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: D
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 10
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DE
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 11
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DES
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 12
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESA
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 13
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAY
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 14
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYU
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 15
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUN
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 16
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNA
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 17
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 18
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR;
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 19
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR;5
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 20
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 21
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 22
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El desplazamiento es 23
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): La proxima tarea es 24
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:08:44:102 Mi-RAM/(11505:11562): El tripulante 2 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:08:47:947 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 7
+
+[INFO] 00:08:47:955 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:47:955 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:47:955 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): Se va a actualizar al tripu 2
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): Se va a leer la pagina que arranca en 96
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): El tripulante 2 se ha actualizado: Estado: E 1|0
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:08:47:955 Mi-RAM/(11505:11570): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:08:47:955 Mi-RAM/(11505:11569): Se va a actualizar al tripu 1
+[INFO] 00:08:47:955 Mi-RAM/(11505:11569): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:08:47:955 Mi-RAM/(11505:11569): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:47:955 Mi-RAM/(11505:11569): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:08:47:955 Mi-RAM/(11505:11569): El tripulante 1 se ha actualizado: Estado: E 0|1
+[INFO] 00:08:47:955 Mi-RAM/(11505:11569): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:08:50:948 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:50:949 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): Se va a actualizar al tripu 2
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): Se va a leer la pagina que arranca en 96
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): El tripulante 2 se ha actualizado: Estado: E 2|0
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:08:50:949 Mi-RAM/(11505:11577): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:08:50:955 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:50:955 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:50:956 Mi-RAM/(11505:11579): Se va a actualizar al tripu 1
+[INFO] 00:08:50:956 Mi-RAM/(11505:11579): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:08:50:956 Mi-RAM/(11505:11579): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:50:956 Mi-RAM/(11505:11579): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:08:50:956 Mi-RAM/(11505:11579): El tripulante 1 se ha actualizado: Estado: E 0|2
+[INFO] 00:08:50:956 Mi-RAM/(11505:11579): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:08:53:950 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:53:950 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:53:950 Mi-RAM/(11505:11581): Se va a actualizar al tripu 2
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): Se va a leer la pagina que arranca en 96
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): El tripulante 2 se ha actualizado: Estado: E 3|0
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:08:53:951 Mi-RAM/(11505:11581): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:08:53:956 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:53:956 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:53:956 Mi-RAM/(11505:11583): Se va a actualizar al tripu 1
+[INFO] 00:08:53:957 Mi-RAM/(11505:11583): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:08:53:957 Mi-RAM/(11505:11583): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:53:957 Mi-RAM/(11505:11583): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:08:53:957 Mi-RAM/(11505:11583): El tripulante 1 se ha actualizado: Estado: E 0|3
+[INFO] 00:08:53:957 Mi-RAM/(11505:11583): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:08:56:951 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:56:951 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:56:951 Mi-RAM/(11505:11596): Se va a actualizar al tripu 2
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): Se va a leer la pagina que arranca en 96
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): El tripulante 2 se ha actualizado: Estado: E 4|0
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:08:56:952 Mi-RAM/(11505:11596): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:08:56:958 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:56:959 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:56:960 Mi-RAM/(11505:11599): Se va a actualizar al tripu 1
+[INFO] 00:08:56:960 Mi-RAM/(11505:11599): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:08:56:960 Mi-RAM/(11505:11599): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:56:960 Mi-RAM/(11505:11599): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:08:56:960 Mi-RAM/(11505:11599): El tripulante 1 se ha actualizado: Estado: E 0|4
+[INFO] 00:08:56:960 Mi-RAM/(11505:11599): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:08:59:952 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:59:953 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): Se va a actualizar al tripu 2
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): Se va a leer la pagina que arranca en 96
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:08:59:953 Mi-RAM/(11505:11603): El tripulante 2 se ha actualizado: Estado: E 5|0
+[INFO] 00:08:59:954 Mi-RAM/(11505:11603): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:08:59:954 Mi-RAM/(11505:11603): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:08:59:959 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:08:59:960 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:08:59:960 Mi-RAM/(11505:11605): Se va a actualizar al tripu 1
+[INFO] 00:08:59:961 Mi-RAM/(11505:11605): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:08:59:961 Mi-RAM/(11505:11605): Se va a leer la pagina que arranca en 64
+[INFO] 00:08:59:961 Mi-RAM/(11505:11605): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:08:59:961 Mi-RAM/(11505:11605): El tripulante 1 se ha actualizado: Estado: E 1|4
+[INFO] 00:08:59:961 Mi-RAM/(11505:11605): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:09:02:953 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:09:02:954 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): Se va a actualizar al tripu 2
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): Se va a leer la pagina que arranca en 64
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): Se va a leer la pagina que arranca en 96
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): El tripulante 2 se ha actualizado: Estado: E 5|1
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:09:02:955 Mi-RAM/(11505:11610): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:09:02:962 Mi-RAM/(11505:11505): Se conecto un cliente con socket: 5
+
+[INFO] 00:09:02:963 Mi-RAM/(11505:11505): Se recibio una operacion: 4
+
+[INFO] 00:09:02:963 Mi-RAM/(11505:11612): Se va a actualizar al tripu 1
+[INFO] 00:09:02:963 Mi-RAM/(11505:11612): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:09:02:963 Mi-RAM/(11505:11612): Se va a leer la pagina que arranca en 64
+[INFO] 00:09:02:963 Mi-RAM/(11505:11612): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:09:02:963 Mi-RAM/(11505:11612): El tripulante 1 se ha actualizado: Estado: E 2|4
+[INFO] 00:09:02:963 Mi-RAM/(11505:11612): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:11:39:797 Mi-RAM/(11900:11900): ################# Modulo Mi-RAM #################
+
+[INFO] 00:11:39:797 Mi-RAM/(11900:11900): La cantidad de marcos en Swap es: 512
+[INFO] 00:11:59:241 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:11:59:241 Mi-RAM/(11900:11900): Se recibio una operacion: 2
+
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se creo la pagina de la estructura: 0
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se creo la pagina de la estructura: 2
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se creo la pagina de la estructura: 2
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 10
+[INFO] 00:11:59:241 Mi-RAM/(11900:11935): Se creo la patota 1 correctamente.
+[INFO] 00:11:59:241 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 7
+
+[INFO] 00:11:59:242 Mi-RAM/(11900:11900): Se recibio una operacion: 3
+
+[INFO] 00:11:59:242 Mi-RAM/(11900:11937): La direccion logica de tareas es 8
+[INFO] 00:11:59:242 Mi-RAM/(11900:11937): Se va a agregar a la pagina 2 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 00:11:59:242 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:11:59:242 Mi-RAM/(11900:11900): Se recibio una operacion: 8
+
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Se va a leer la pagina que arranca en 64
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 8 y la pagina 0
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Se va a leer la pagina que arranca en 0
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 9
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: D
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 10
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DE
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 11
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DES
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 12
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESA
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 13
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAY
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 14
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYU
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 15
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUN
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 16
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNA
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 17
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 18
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR;
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 19
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR;5
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 20
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 21
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 22
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El desplazamiento es 23
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): La proxima tarea es 24
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:11:59:242 Mi-RAM/(11900:11938): El tripulante 1 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:11:59:243 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 8
+
+[INFO] 00:11:59:243 Mi-RAM/(11900:11900): Se recibio una operacion: 3
+
+[INFO] 00:11:59:244 Mi-RAM/(11900:11941): La direccion logica de tareas es 8
+[INFO] 00:11:59:244 Mi-RAM/(11900:11941): Se va a agregar a la pagina 2 , la estructura 1 con base 31 , y tamanio 1
+[INFO] 00:11:59:244 Mi-RAM/(11900:11941): Se creo la pagina de la estructura: 1
+[INFO] 00:11:59:244 Mi-RAM/(11900:11941): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 20
+[INFO] 00:11:59:244 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:11:59:244 Mi-RAM/(11900:11900): Se recibio una operacion: 8
+
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Se va a leer la pagina que arranca en 64
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Se va a leer la pagina que arranca en 96
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 8 y la pagina 0
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Se va a leer la pagina que arranca en 0
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 9
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: D
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 10
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DE
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 11
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DES
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 12
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESA
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 13
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAY
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 14
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYU
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 15
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUN
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 16
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNA
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 17
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 18
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR;
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 19
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR;5
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 20
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR;5;
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 21
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR;5;4
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 22
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR;5;4;
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El desplazamiento es 23
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Sacando tarea: DESAYUNAR;5;4;3
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Se termino de leer la pagina, el nuevo desplazamiento es 23
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): La proxima tarea es 24
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:11:59:244 Mi-RAM/(11900:11942): El tripulante 2 pidio la tarea DESAYUNAR;5;4;3
+[INFO] 00:12:04:012 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 7
+
+[INFO] 00:12:04:012 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:04:012 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:04:012 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): Se va a actualizar al tripu 2
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): El tripulante 2 se ha actualizado: Estado: E 1|0
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:04:013 Mi-RAM/(11900:11952): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:04:013 Mi-RAM/(11900:11951): Se va a actualizar al tripu 1
+[INFO] 00:12:04:013 Mi-RAM/(11900:11951): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:04:013 Mi-RAM/(11900:11951): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:04:013 Mi-RAM/(11900:11951): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:04:013 Mi-RAM/(11900:11951): El tripulante 1 se ha actualizado: Estado: E 19|5
+[INFO] 00:12:04:013 Mi-RAM/(11900:11951): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:07:014 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:07:014 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:07:015 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:07:015 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:07:015 Mi-RAM/(11900:11962): Se va a actualizar al tripu 1
+[INFO] 00:12:07:015 Mi-RAM/(11900:11962): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:07:015 Mi-RAM/(11900:11962): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:07:015 Mi-RAM/(11900:11962): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:07:015 Mi-RAM/(11900:11962): El tripulante 1 se ha actualizado: Estado: E 18|5
+[INFO] 00:12:07:015 Mi-RAM/(11900:11962): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:07:016 Mi-RAM/(11900:11961): Se va a actualizar al tripu 2
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): El tripulante 2 se ha actualizado: Estado: E 1|1
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:07:020 Mi-RAM/(11900:11961): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:10:014 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:10:015 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:10:015 Mi-RAM/(11900:11967): Se va a actualizar al tripu 1
+[INFO] 00:12:10:015 Mi-RAM/(11900:11967): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:10:015 Mi-RAM/(11900:11967): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:10:015 Mi-RAM/(11900:11967): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:10:015 Mi-RAM/(11900:11967): El tripulante 1 se ha actualizado: Estado: E 17|5
+[INFO] 00:12:10:015 Mi-RAM/(11900:11967): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:10:015 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:10:015 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): Se va a actualizar al tripu 2
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): El tripulante 2 se ha actualizado: Estado: E 1|2
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:10:016 Mi-RAM/(11900:11969): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:13:015 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:13:015 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:13:015 Mi-RAM/(11900:11984): Se va a actualizar al tripu 1
+[INFO] 00:12:13:015 Mi-RAM/(11900:11984): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:13:015 Mi-RAM/(11900:11984): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:13:015 Mi-RAM/(11900:11984): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:13:015 Mi-RAM/(11900:11984): El tripulante 1 se ha actualizado: Estado: E 16|5
+[INFO] 00:12:13:015 Mi-RAM/(11900:11984): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:13:016 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:13:016 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): Se va a actualizar al tripu 2
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): El tripulante 2 se ha actualizado: Estado: E 1|3
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:13:016 Mi-RAM/(11900:11986): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:16:015 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:16:016 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:16:016 Mi-RAM/(11900:12000): Se va a actualizar al tripu 1
+[INFO] 00:12:16:016 Mi-RAM/(11900:12000): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:16:016 Mi-RAM/(11900:12000): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:16:016 Mi-RAM/(11900:12000): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:16:016 Mi-RAM/(11900:12000): El tripulante 1 se ha actualizado: Estado: E 15|5
+[INFO] 00:12:16:016 Mi-RAM/(11900:12000): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:16:016 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:16:017 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): Se va a actualizar al tripu 2
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): El tripulante 2 se ha actualizado: Estado: E 1|4
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:16:017 Mi-RAM/(11900:12002): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:19:016 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:19:016 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:19:017 Mi-RAM/(11900:12011): Se va a actualizar al tripu 1
+[INFO] 00:12:19:017 Mi-RAM/(11900:12011): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:19:017 Mi-RAM/(11900:12011): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:19:017 Mi-RAM/(11900:12011): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:19:017 Mi-RAM/(11900:12011): El tripulante 1 se ha actualizado: Estado: E 14|5
+[INFO] 00:12:19:017 Mi-RAM/(11900:12011): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:19:017 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:19:017 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): Se va a actualizar al tripu 2
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): El tripulante 2 se ha actualizado: Estado: E 2|4
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:19:021 Mi-RAM/(11900:12013): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:22:017 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:22:018 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:22:018 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:22:018 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:22:018 Mi-RAM/(11900:12024): Se va a actualizar al tripu 2
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): El tripulante 2 se ha actualizado: Estado: E 3|4
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:22:019 Mi-RAM/(11900:12024): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:22:019 Mi-RAM/(11900:12022): Se va a actualizar al tripu 1
+[INFO] 00:12:22:019 Mi-RAM/(11900:12022): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:22:019 Mi-RAM/(11900:12022): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:22:019 Mi-RAM/(11900:12022): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:22:019 Mi-RAM/(11900:12022): El tripulante 1 se ha actualizado: Estado: E 14|4
+[INFO] 00:12:22:019 Mi-RAM/(11900:12022): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:25:018 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:25:019 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:25:019 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:25:019 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): Se va a actualizar al tripu 2
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): El tripulante 2 se ha actualizado: Estado: E 4|4
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:25:020 Mi-RAM/(11900:12036): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:25:021 Mi-RAM/(11900:12034): Se va a actualizar al tripu 1
+[INFO] 00:12:25:021 Mi-RAM/(11900:12034): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:25:021 Mi-RAM/(11900:12034): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:25:021 Mi-RAM/(11900:12034): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:25:021 Mi-RAM/(11900:12034): El tripulante 1 se ha actualizado: Estado: E 13|4
+[INFO] 00:12:25:021 Mi-RAM/(11900:12034): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:28:019 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:28:019 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:28:020 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:28:020 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): Se va a actualizar al tripu 2
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): El tripulante 2 se ha actualizado: Estado: E 5|4
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:28:020 Mi-RAM/(11900:12042): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:28:022 Mi-RAM/(11900:12040): Se va a actualizar al tripu 1
+[INFO] 00:12:28:022 Mi-RAM/(11900:12040): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:28:022 Mi-RAM/(11900:12040): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:28:022 Mi-RAM/(11900:12040): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:28:022 Mi-RAM/(11900:12040): El tripulante 1 se ha actualizado: Estado: E 12|4
+[INFO] 00:12:28:022 Mi-RAM/(11900:12040): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:31:020 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:31:021 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:31:021 Mi-RAM/(11900:12055): Se va a actualizar al tripu 1
+[INFO] 00:12:31:021 Mi-RAM/(11900:12055): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:31:021 Mi-RAM/(11900:12055): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:31:021 Mi-RAM/(11900:12055): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:31:021 Mi-RAM/(11900:12055): El tripulante 1 se ha actualizado: Estado: E 11|4
+[INFO] 00:12:31:021 Mi-RAM/(11900:12055): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:34:022 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:34:022 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:34:023 Mi-RAM/(11900:12057): Se va a actualizar al tripu 1
+[INFO] 00:12:34:023 Mi-RAM/(11900:12057): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:34:023 Mi-RAM/(11900:12057): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:34:023 Mi-RAM/(11900:12057): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:34:023 Mi-RAM/(11900:12057): El tripulante 1 se ha actualizado: Estado: E 10|4
+[INFO] 00:12:34:023 Mi-RAM/(11900:12057): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:37:023 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:37:023 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:37:023 Mi-RAM/(11900:12065): Se va a actualizar al tripu 1
+[INFO] 00:12:37:023 Mi-RAM/(11900:12065): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:37:023 Mi-RAM/(11900:12065): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:37:023 Mi-RAM/(11900:12065): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:37:023 Mi-RAM/(11900:12065): El tripulante 1 se ha actualizado: Estado: E 9|4
+[INFO] 00:12:37:023 Mi-RAM/(11900:12065): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:40:023 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:40:024 Mi-RAM/(11900:11900): Se recibio una operacion: 8
+
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:40:024 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 7
+
+[INFO] 00:12:40:024 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): El desplazamiento es 24 y la pagina 0
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): Se va a leer la pagina que arranca en 0
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): El desplazamiento es 25
+[INFO] 00:12:40:024 Mi-RAM/(11900:12088): Sacando tarea: C
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 26
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: CO
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 27
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COM
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 28
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COME
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 29
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 30
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 31
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;1
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 32
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;10
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Se termino de leer la pagina, el nuevo desplazamiento es 0
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 0 y la pagina 1
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Se va a leer la pagina que arranca en 32
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 1
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;10;
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 2
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;10;4
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 3
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;10;4;
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El desplazamiento es 4
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Sacando tarea: COMER;10;4;3
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Se termino de leer la pagina, el nuevo desplazamiento es 4
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): La proxima tarea es 105
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:40:025 Mi-RAM/(11900:12088): El tripulante 2 pidio la tarea COMER;10;4;3
+[INFO] 00:12:40:025 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 7
+
+[INFO] 00:12:40:025 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): Se va a actualizar al tripu 2
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): El tripulante 2 se ha actualizado: Estado: E 6|4
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:40:027 Mi-RAM/(11900:12091): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:40:027 Mi-RAM/(11900:12089): Se va a actualizar al tripu 1
+[INFO] 00:12:40:027 Mi-RAM/(11900:12089): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:40:027 Mi-RAM/(11900:12089): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:40:027 Mi-RAM/(11900:12089): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:40:027 Mi-RAM/(11900:12089): El tripulante 1 se ha actualizado: Estado: E 8|4
+[INFO] 00:12:40:027 Mi-RAM/(11900:12089): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:43:025 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 7
+
+[INFO] 00:12:43:028 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:43:028 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:43:028 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:43:028 Mi-RAM/(11900:12107): Se va a actualizar al tripu 2
+[INFO] 00:12:43:028 Mi-RAM/(11900:12107): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:43:028 Mi-RAM/(11900:12107): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:43:029 Mi-RAM/(11900:12107): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:43:029 Mi-RAM/(11900:12107): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:43:029 Mi-RAM/(11900:12107): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:43:029 Mi-RAM/(11900:12107): El tripulante 2 se ha actualizado: Estado: E 7|4
+[INFO] 00:12:43:029 Mi-RAM/(11900:12107): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:43:029 Mi-RAM/(11900:12107): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:43:029 Mi-RAM/(11900:12106): Se va a actualizar al tripu 1
+[INFO] 00:12:43:029 Mi-RAM/(11900:12106): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:43:029 Mi-RAM/(11900:12106): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:43:029 Mi-RAM/(11900:12106): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:43:029 Mi-RAM/(11900:12106): El tripulante 1 se ha actualizado: Estado: E 7|4
+[INFO] 00:12:43:029 Mi-RAM/(11900:12106): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:46:026 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:46:027 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): Se va a actualizar al tripu 2
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): El tripulante 2 se ha actualizado: Estado: E 8|4
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:46:028 Mi-RAM/(11900:12122): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:46:029 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:46:029 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:46:035 Mi-RAM/(11900:12126): Se va a actualizar al tripu 1
+[INFO] 00:12:46:035 Mi-RAM/(11900:12126): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:46:035 Mi-RAM/(11900:12126): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:46:035 Mi-RAM/(11900:12126): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:46:035 Mi-RAM/(11900:12126): El tripulante 1 se ha actualizado: Estado: E 6|4
+[INFO] 00:12:46:035 Mi-RAM/(11900:12126): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:49:027 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:49:027 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): Se va a actualizar al tripu 2
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:49:027 Mi-RAM/(11900:12132): El tripulante 2 se ha actualizado: Estado: E 9|4
+[INFO] 00:12:49:028 Mi-RAM/(11900:12132): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:49:028 Mi-RAM/(11900:12132): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 00:12:49:030 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:49:030 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:49:031 Mi-RAM/(11900:12135): Se va a actualizar al tripu 1
+[INFO] 00:12:49:031 Mi-RAM/(11900:12135): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 00:12:49:031 Mi-RAM/(11900:12135): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:49:031 Mi-RAM/(11900:12135): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 00:12:49:031 Mi-RAM/(11900:12135): El tripulante 1 se ha actualizado: Estado: E 5|4
+[INFO] 00:12:49:031 Mi-RAM/(11900:12135): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 00:12:52:028 Mi-RAM/(11900:11900): Se conecto un cliente con socket: 5
+
+[INFO] 00:12:52:028 Mi-RAM/(11900:11900): Se recibio una operacion: 4
+
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se va a actualizar al tripu 2
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): La cantidad de paginas que contienen al tripulante 2 son 2
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se va a leer la pagina que arranca en 64
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 31 | TAMANIO: 1
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se va a leer la pagina que arranca en 96
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): SE LEE DEL TRIPU: 2 - FRAME: 3 | D_INCIAL: 0 | TAMANIO: 20
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): El tripulante 2 se ha actualizado: Estado: E 10|4
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
+[INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 

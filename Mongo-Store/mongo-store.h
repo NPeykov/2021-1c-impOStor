@@ -19,6 +19,7 @@
 #include "bitmap.h"
 #include <math.h>
 #include "sabotaje_mongo.h"
+#include <commons/memory.h>
 
 
 //Semaforos

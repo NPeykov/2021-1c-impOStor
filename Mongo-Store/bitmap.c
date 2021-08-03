@@ -50,10 +50,12 @@ int obtener_bloque_libre(){
 	pthread_mutex_lock(&mutex_bitmap);
 	size_t tamanio = bitarray_get_max_bit(bitmap);
 	int i;
-	for(i=1; i<=tamanio; i++){
+	for(i=0; i<=tamanio; i++){
 		if(bitarray_test_bit(bitmap, i)== 0){
 			bitarray_set_bit(bitmap,i);
 			pthread_mutex_unlock(&mutex_bitmap);
+
+			printf("RETORNO VALOR: %d --------\n", i);
 			return i;
 		}
 	}

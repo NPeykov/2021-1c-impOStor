@@ -10,7 +10,6 @@ int main() {
 	pthread_create(&hilo_bajada_a_disco, NULL, (void *)gestionar_bajadas_a_disco, NULL);
 	pthread_detach(hilo_bajada_a_disco);
 
-
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
 	/*for (int i = 0; i < 50; i++) {
@@ -35,9 +34,11 @@ int main() {
 	}*/
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
-	/*sabotaje_code code = obtener_tipo_sabotaje();
+	sabotaje_code code = obtener_tipo_sabotaje();
 	printf("-----------------codigo: %d---------------\n",code);
-	iniciar_recuperacion(code);*/
+	iniciar_recuperacion(code);
+
+	//sabotaje_code code = obtener_tipo_sabotaje();
 	//generar_comida(20);
 	/*generar_oxigeno(200);
 	generar_basura(200);
@@ -53,6 +54,13 @@ int main() {
 		pthread_create(&basura, NULL,	(void*) generar_basura,(void*) 256);
 		pthread_detach(basura);
 	}*/
+
+	//consumir_comida(1000);
+	//generar_oxigeno(500);
+
+
+
+	//generar_comida(1000);
 
 	gestionarCliente(socket_mongo_store );
 
@@ -246,16 +254,21 @@ void gestionar_bajadas_a_disco(void){
 
 
 void mostrar_estado_bitarray(void) {
-	//TODO: cambiarlo por un hexdump
+	int cantBytes = (double)ceil((double)*g_blocks/8);
 
-	for (int i = 1; i <= *g_blocks; i++) {
-		if (i % 5 == 0)
+	mem_hexdump(superbloque + 2 * sizeof(uint32_t), cantBytes);
+
+
+/*
+	for (int i = 0; i <= *g_blocks; i++) {
+		if(i == 0)
+			printf("%d", bitarray_test_bit(bitmap, i));
+		else if (i % 8 == 0)
 			printf("%d\n", bitarray_test_bit(bitmap, i));
 		else
 			printf("%d", bitarray_test_bit(bitmap, i));
-
 	}
-
+*/
 	printf("\n");
 
 }
@@ -1516,7 +1529,7 @@ void escribir_el_archivo(files file, char* cadena, t_bloque* bloque){
 		escribir_en_block(lo_que_entra_en_el_bloque,bloque);
 		actualizar_el_archivo(file, lo_que_entra_en_el_bloque,bloque);
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque);
 		escribir_el_archivo(file,lo_que_falta_escribir,nuevo_bloque);
 	}
 
@@ -1535,7 +1548,7 @@ t_bloque* recuperar_ultimo_bloque(char* ruta){
 	char *archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
 	*/if(atoi(sizeArchivo)==0){
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
+		el_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque);
 	}
 	else{
 		char ** renglones_file= string_split(ruta, "\n");
@@ -1574,7 +1587,7 @@ void borrar_del_archivo(files file,int cant_borrar, t_bloque* bloque,char caract
 		bloque->posicion_para_escribir=bloque->inicio;
 		actualizar_archivo_borrado(file,cant_borrar,true,caracter);
 		pthread_mutex_lock(&mutex_bitmap);
-		bitarray_clean_bit(bitmap,bloque->id_bloque);
+		bitarray_clean_bit(bitmap,bloque->id_bloque - 1);
 		pthread_mutex_unlock(&mutex_bitmap);
 	}
 	log_info(mongoLogger, "Se borraron %d bytes en el bloque %d, "
@@ -1650,7 +1663,7 @@ void eliminar_del_archivo(files file, int cant_borrar, char caracter) {
 					bloque->espacio = bloque->fin - bloque->inicio + 1;
 					bloque->posicion_para_escribir = bloque->inicio;
 					pthread_mutex_lock(&mutex_bitmap);
-					bitarray_clean_bit(bitmap, atoi(bloques_divididos[i]));
+					bitarray_clean_bit(bitmap, atoi(bloques_divididos[i]) - 1);
 					pthread_mutex_unlock(&mutex_bitmap);
 				}
 				el_caracter = string_from_format("%c", caracter);
@@ -1704,7 +1717,7 @@ void eliminar_del_archivo(files file, int cant_borrar, char caracter) {
 					bloque->espacio = bloque->fin - bloque->inicio + 1;
 					bloque->posicion_para_escribir = bloque->inicio;
 					pthread_mutex_lock(&mutex_bitmap);
-					bitarray_clean_bit(bitmap, atoi(bloques_divididos[i]));
+					bitarray_clean_bit(bitmap, atoi(bloques_divididos[i]) - 1);
 					pthread_mutex_unlock(&mutex_bitmap);
 				}
 				el_caracter = string_from_format("%c", caracter);
@@ -1739,7 +1752,7 @@ void eliminar_del_archivo(files file, int cant_borrar, char caracter) {
 			bloque->espacio = bloque->fin - bloque->inicio + 1;
 			bloque->posicion_para_escribir = bloque->inicio;
 			pthread_mutex_lock(&mutex_bitmap);
-			bitarray_clean_bit(bitmap, atoi(bloques_divididos[i]));
+			bitarray_clean_bit(bitmap, atoi(bloques_divididos[i]) - 1);
 			pthread_mutex_unlock(&mutex_bitmap);
 		}
 		free(archivoBasura);
@@ -1767,7 +1780,7 @@ void generar_oxigeno(int cantidad){
 		inicializar_archivo(rutaOxigeno, 'O');
 		g_existe_file_oxigeno=true;
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque);
 
 		//Si no existe el archivo, crearlo y asignarle el carácter de llenado O
 		int archivo = open(rutaOxigeno, O_RDWR);
@@ -1822,7 +1835,7 @@ void generar_comida(int cantidad){
 		inicializar_archivo(rutaComida, 'C');
 		g_existe_file_comida=true;
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque);
 
 		int archivo = open(rutaComida, O_RDWR);
 		struct stat statbuf;
@@ -1870,7 +1883,7 @@ void generar_basura(int cantidad){
 		inicializar_archivo(rutaBasura, 'B');
 		g_existe_file_basura=true;
 		int numero_del_nuevo_bloque = obtener_bloque_libre();
-		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque - 1);
+		bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque);
 
 		int archivo = open(rutaBasura, O_RDWR);
 		struct stat statbuf;
@@ -2035,7 +2048,7 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante){
 					numero_del_nuevo_bloque);
 			pthread_mutex_lock(&mutex_disco_logico);
 			nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
-					numero_del_nuevo_bloque - 1);
+					numero_del_nuevo_bloque);
 			pthread_mutex_unlock(&mutex_disco_logico);
 			//escribir lo_que_falta_escribir
 			escribir_en_block(lo_que_falta_escribir, nuevo_bloque);
@@ -2052,7 +2065,7 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante){
 				"Asigno el bloque numero:%d\n",
 				numero_del_nuevo_bloque);
 
-		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque-1 );
+		nuevo_bloque=(t_bloque *)list_get(disco_logico->bloques,numero_del_nuevo_bloque);
 
 		sem_wait(&semaforo_bitacora);
 		inicializar_bitacora(rutaBitacora,

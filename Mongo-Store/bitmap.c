@@ -54,8 +54,6 @@ int obtener_bloque_libre(){
 		if(bitarray_test_bit(bitmap, i)== 0){
 			bitarray_set_bit(bitmap,i);
 			pthread_mutex_unlock(&mutex_bitmap);
-
-			printf("RETORNO VALOR: %d --------\n", i);
 			return i;
 		}
 	}

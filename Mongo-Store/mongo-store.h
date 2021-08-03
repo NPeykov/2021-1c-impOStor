@@ -73,22 +73,23 @@ typedef enum{
 bool g_existe_file_oxigeno;
 bool g_existe_file_comida;
 bool g_existe_file_basura;
+bool g_modificado_file_oxigeno;
+bool g_modificado_file_comida;
+bool g_modificado_file_basura;
+bool g_en_uso_file_oxigeno;
+bool g_en_uso_file_comida;
+bool g_en_uso_file_basura;
+bool g_abierto_file_oxigeno;
+bool g_abierto_file_comida;
+bool g_abierto_file_basura;
+
 
 char *puntoMontaje;
-//char *dirMetadata;
-//char *dirFiles;
-//char *dirBitacora;
-//char *dirBlocks;
-//char *dirSuperbloque;
-//char *rutaOxigeno;
-//char *rutaComida;
-//char *rutaBasura;
+
 t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
 int socket_cliente;
-//int blocks;
-//int block_size;
 int numero_sabotaje;
 m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;

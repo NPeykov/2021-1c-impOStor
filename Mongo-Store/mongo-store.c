@@ -11,7 +11,9 @@ int main() {
 
 	printf("MONGO_STORE escuchando en PUERTO:%s \n", puerto);
 
-	for (int i = 0; i < 50; i++) {
+
+
+	for (int i = 0; i < 100; i++) {
 		pthread_t oxigeno;
 		pthread_t comida;
 		pthread_t basura;
@@ -20,16 +22,16 @@ int main() {
 		pthread_t consumirbasura;
 		pthread_create(&oxigeno, NULL, (void*) generar_oxigeno, (void*) 123);
 		pthread_detach(oxigeno);
-		pthread_create(&comida, NULL, (void*) generar_comida, (void*) 50);
+		pthread_create(&comida, NULL, (void*) generar_comida, (void*) 213);
 		pthread_detach(comida);
 		pthread_create(&basura, NULL, (void*) generar_basura, (void*) 124);
 		pthread_detach(basura);
-		//pthread_create(&consumiroxigeno, NULL, (void*) consumir_oxigeno, (void*) 200);
-		//pthread_detach(consumiroxigeno);
-		//pthread_create(&consumircomida, NULL, (void*) consumir_comida, (void*) 50);
-		//pthread_detach(consumircomida);
-		//pthread_create(&consumirbasura, NULL, (void*) descartar_basura, (void*) 0);
-		//pthread_detach(consumirbasura);
+		pthread_create(&consumiroxigeno, NULL, (void*) consumir_oxigeno, (void*) 35);
+		pthread_detach(consumiroxigeno);
+		pthread_create(&consumircomida, NULL, (void*) consumir_comida, (void*) 200);
+		pthread_detach(consumircomida);
+		pthread_create(&consumirbasura, NULL, (void*) descartar_basura, (void*) 0);
+		pthread_detach(consumirbasura);
 	}
 	socket_mongo_store = levantar_servidor(I_MONGO_STORE);
 
@@ -837,10 +839,10 @@ void escribir_en_block(char* lo_que_se_va_a_escribir,t_bloque* el_bloque){
 	el_bloque->espacio=el_bloque->espacio-string_length(lo_que_se_va_a_escribir);
 
 	log_info(mongoLogger, "Se escribieron %d bytes en el bloque %d, "
-			"le quedan %d bytes disponibles.",
+			"le quedan %d bytes disponibles. inicio; %d, fin: %d, puntero: %d",
 			longitud_texto,
 			el_bloque->id_bloque,
-			el_bloque->espacio);
+			el_bloque->espacio,el_bloque->inicio,el_bloque->fin, el_bloque->posicion_para_escribir);
 	pthread_mutex_unlock(&mutex_disco_logico);
 
 }
@@ -1615,7 +1617,7 @@ void avisar_que_no_existe(char* ruta){
 
 //vacia to do un bloque
 void vaciar_bloque(t_bloque* bloque){
-	for(int i=bloque->posicion_para_escribir;i>=bloque->inicio;i--)
+	for(int i=bloque->posicion_para_escribir-1;i>=bloque->inicio;i--)
 	block_mmap[i]=' ';
 }
 
@@ -1837,16 +1839,32 @@ void generar_oxigeno(int cantidad) {
 }
 //comprueba el archivo de generar oxigeno y borra en el
 void consumir_oxigeno(int cant_borrar){
-	char* rutaOxigeno=conseguir_ruta(OXIGENOO);
+	char* rutaOxigeno = conseguir_ruta(OXIGENOO);
 	sem_wait(&semaforo_para_file_oxigeno);
-	if(g_existe_file_oxigeno){
-		eliminar_del_archivo(OXIGENO,cant_borrar,'O');
-	}
-	else{
+	if (g_existe_file_oxigeno) {
+		g_en_uso_file_oxigeno = true;
+		if (g_abierto_file_oxigeno) {
+			eliminar_del_archivo(OXIGENO, cant_borrar, 'O');
+			g_modificado_file_oxigeno = true;
+		} else {
+			int archivo = open(rutaOxigeno, O_RDWR);
+			struct stat statbuf;
+			fstat(archivo, &statbuf);
+			char *archivo_addr = mmap(NULL, statbuf.st_size,PROT_READ | PROT_WRITE,MAP_SHARED, archivo, 0);
+			archivoOxigeno = malloc(string_length(archivo_addr) + 1);
+			memcpy(archivoOxigeno, archivo_addr,
+					string_length(archivo_addr) + 1);
+			g_abierto_file_oxigeno = true;
+			munmap(archivo_addr, statbuf.st_size);
+			close(archivo);
+			eliminar_del_archivo(OXIGENO, cant_borrar, 'O');
+			g_modificado_file_oxigeno = true;
+		}
+		g_en_uso_file_oxigeno = false;
+	} else {
 		avisar_que_no_existe(rutaOxigeno);
 	}
 	sem_post(&semaforo_para_file_oxigeno);
-
 	free(rutaOxigeno);
 }
 
@@ -1912,14 +1930,30 @@ void generar_comida(int cantidad){
 }
 
 //comprueba el archivo de generar comida y borra en el
-void consumir_comida(int cant_borrar){
-	char* rutaComida=conseguir_ruta(COMIDAA);
+void consumir_comida(int cant_borrar) {
+	char* rutaComida = conseguir_ruta(COMIDAA);
 	sem_wait(&semaforo_para_file_comida);
-
-	if(g_existe_file_comida){
-		eliminar_del_archivo(COMIDA,cant_borrar,'C');
-	}
-	else{
+	if (g_existe_file_comida) {
+		g_en_uso_file_comida = true;
+		if (g_abierto_file_comida) {
+			eliminar_del_archivo(COMIDA, cant_borrar, 'C');
+			g_modificado_file_comida = true;
+		} else {
+			int archivo = open(rutaComida, O_RDWR);
+			struct stat statbuf;
+			fstat(archivo, &statbuf);
+			char *archivo_addr = mmap(NULL, statbuf.st_size,PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
+			archivoComida = malloc(string_length(archivo_addr) + 1);
+			memcpy(archivoComida, archivo_addr,
+					string_length(archivo_addr) + 1);
+			g_abierto_file_comida = true;
+			munmap(archivo_addr, statbuf.st_size);
+			close(archivo);
+			eliminar_del_archivo(COMIDA, cant_borrar, 'O');
+			g_modificado_file_comida = true;
+		}
+		g_en_uso_file_comida = false;
+	} else {
 		avisar_que_no_existe(rutaComida);
 	}
 	sem_post(&semaforo_para_file_comida);
@@ -1988,14 +2022,31 @@ void generar_basura(int cantidad){
 }
 
 //comprueba el archivo de generar basura y borra en el
-void descartar_basura(int cant_borrar){
-	char* rutaBasura= conseguir_ruta(BASURAA);
+void descartar_basura(int cant_borrar) {
+	char* rutaBasura = conseguir_ruta(BASURAA);
 	sem_wait(&semaforo_para_file_basura);
-
-	if(g_existe_file_basura){
-		eliminar_del_archivo(BASURA,cant_borrar,'B');
-	}
-	else{
+	if (g_existe_file_basura) {
+		g_en_uso_file_basura = true;
+		if (g_abierto_file_basura) {
+			eliminar_del_archivo(BASURA, cant_borrar, 'O');
+			g_modificado_file_basura = true;
+		} else {
+			int archivo = open(rutaBasura, O_RDWR);
+			struct stat statbuf;
+			fstat(archivo, &statbuf);
+			char *archivo_addr = mmap(NULL, statbuf.st_size,
+					PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
+			archivoBasura = malloc(string_length(archivo_addr) + 1);
+			memcpy(archivoBasura, archivo_addr,
+					string_length(archivo_addr) + 1);
+			g_abierto_file_basura = true;
+			munmap(archivo_addr, statbuf.st_size);
+			close(archivo);
+			eliminar_del_archivo(BASURA, cant_borrar, 'O');
+			g_modificado_file_basura = true;
+		}
+		g_en_uso_file_basura = false;
+	} else {
 		avisar_que_no_existe(rutaBasura);
 	}
 	sem_post(&semaforo_para_file_basura);

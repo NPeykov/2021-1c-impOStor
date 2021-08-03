@@ -131,16 +131,15 @@ bool es_file_size(files file) {
 		break;
 	}
 	int archivo = open(ruta, O_RDWR);
-	/*if (archivo == -1) {
-	 log_info(mongoLogger, "Error al abrir archivo en sabotaje size");
-	 exit(1);
-	 }*/
 	if (archivo != -1) {
 		struct stat info;
 		fstat(archivo, &info);
 		archivo_saboteado = (char*) mmap(NULL, info.st_size, PROT_WRITE,
 		MAP_SHARED, archivo, 0);
 		char* tamanio_del_archivo = size_de_archivo(archivo_saboteado);
+		if(tamanio_del_archivo==0){
+			return false;
+		}
 		char* bloques_del_archivo = bloques_de_archivo(archivo_saboteado);
 		char* texto_total = contenido_de_bloques_fisico(bloques_del_archivo);
 
@@ -153,23 +152,8 @@ bool es_file_size(files file) {
 			close(archivo);
 		}
 	}
-
-
-	/*if(ruta != NULL && open(ruta, O_RDWR) != -1){
-		char* tamanio_del_archivo=size_de_archivo_fisico(ruta);
-		char* bloques_del_archivo=bloques_de_archivo_fisico(ruta);
-
-		char* texto_total=contenido_de_bloques_fisico(bloques_del_archivo);
-
-		if(string_length(texto_total)!=atoi(tamanio_del_archivo)){
-			esta_saboteado=true;
-		}
-
-	}
-*/
 	free(ruta);
 	return esta_saboteado;
-
 }
 
 bool es_file_block_count(files file) {

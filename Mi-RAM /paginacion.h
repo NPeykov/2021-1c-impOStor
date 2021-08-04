@@ -57,6 +57,7 @@ pthread_mutex_t mutexNumeroPatotas;
 pthread_mutex_t mutexEscribiendoSwap;
 pthread_mutex_t mutex_swap_file;
 pthread_mutex_t mutex_clock;
+pthread_mutex_t listaLRU;
 
 sem_t tripulantesDisponiblesPag;
 
@@ -77,7 +78,7 @@ void liberar_marco(int, int);
 
 /* Verifica si el marco se encuentra utilizado por alguna pagina */
 
-bool marco_vacio(int );
+bool marco_vacio(int, int );
 
 /* Busca en la memoria un marco disponible */
 
@@ -162,7 +163,7 @@ t_list* lista_paginas_tripulantes(t_list*, uint32_t );
 
 /* Actualiza la estructura administrativa del tripulante */
 
-int sobreescribir_tripulante(t_list* , TripuCB* );
+int sobreescribir_tripulante(t_list* , TripuCB* , int);
 
 /* Actualiza en memoria al tripulante */
 
@@ -232,8 +233,6 @@ t_pagina* algoritmo_clock();
 
 void reemplazarSegunAlgoritmo(t_pagina*);
 
-
-
-void traer_pagina(t_pagina*);
+void traer_pagina(t_pagina*, int);
 
 #endif

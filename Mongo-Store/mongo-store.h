@@ -19,12 +19,13 @@
 #include "bitmap.h"
 #include <math.h>
 #include "sabotaje_mongo.h"
+#include <commons/memory.h>
 
 
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
-//sem_t semaforo_bitmap;
+sem_t semaforo_generar_md5;
 sem_t semaforo_bitacora;
 sem_t semaforo_para_file_oxigeno;
 sem_t semaforo_para_file_comida;

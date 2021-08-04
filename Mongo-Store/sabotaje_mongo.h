@@ -13,6 +13,8 @@ char *s_superbloque;
 char *s_blocks;
 int s_tamanio_superbloque;
 int s_tamanio_blocks;
+uint32_t *s_size_sb;
+uint32_t *s_blocks_sb;
 
 bool fue_en_oxigeno;
 bool fue_en_comida;

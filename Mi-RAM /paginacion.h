@@ -233,8 +233,6 @@ t_pagina* algoritmo_clock();
 
 void reemplazarSegunAlgoritmo(t_pagina*);
 
-void imprimirLRU();
-
 void traer_pagina(t_pagina*, int);
 
 #endif

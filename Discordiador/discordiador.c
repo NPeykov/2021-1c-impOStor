@@ -299,8 +299,6 @@ void atender_comandos_consola(void) {
 
 		comando_ingresado = readline(">");
 
-		comando_separado_para_ram = string_n_split(comando_ingresado, 4," ");
-
 		comando_separado = string_split(comando_ingresado, " "); // para pruebas
 
 		for (int j = 0; j < CANT_COMANDOS; j++)
@@ -310,17 +308,14 @@ void atender_comandos_consola(void) {
 		switch (valor) {
 		case INICIAR_PATOTA: //INICIAR_PATOTA 2 dd
 			socket_ram = iniciar_conexion(MI_RAM_HQ, config);
-			char *cantidad_tripulantes = comando_separado_para_ram[1];
-			char *lista_tareas = comando_separado_para_ram[2];
-			char *posiciones;
+			char *cantidad_tripulantes = comando_separado[1];
+			char *lista_tareas = comando_separado[2];
 			char *respuesta_inicio_patota;
 			int operacion;
 
-			posiciones = comando_separado_para_ram[3] == NULL ? "vacio" : comando_separado_para_ram[3];
-
 			log_info(logs_discordiador, "Aviso a ram que deseo iniciar %s tripulantes..\n",cantidad_tripulantes);
 
-			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, posiciones, socket_ram);
+			crear_y_enviar_inicio_patota(cantidad_tripulantes, lista_tareas, socket_ram);
 
 			operacion = recibir_operacion(socket_ram);
 			respuesta_inicio_patota = recibir_mensaje(socket_ram);
@@ -425,13 +420,10 @@ void atender_comandos_consola(void) {
 			printf("COMANDO INVALIDO\n");
 			break;
 		}
+
+		free(comando_separado);
 	}
 }
-
-//************************************************ COMUNICACIONES **********************************************
-
-//ENVIADO
-
 
 //************************************************ OTROS **********************************************
 

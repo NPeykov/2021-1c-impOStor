@@ -1,6 +1,6 @@
 #include "comunicacion.h"
 
-void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posiciones, int socket){
+void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, int socket){
 	t_paquete *paquete = crear_paquete(INICIO_PATOTA);
 	FILE *tareas_file;
 	char *contenido_tareas = NULL;

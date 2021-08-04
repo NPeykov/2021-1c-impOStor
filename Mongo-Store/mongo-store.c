@@ -106,7 +106,7 @@ void bajar_datos_blocks(void) {
 	fstat(archivo_blocks, &statbuf);
 
 	contenido_blocks = (char*) mmap(NULL, statbuf.st_size, PROT_WRITE,
-			MAP_SHARED, archivo_blocks, 0);
+	MAP_SHARED, archivo_blocks, 0);
 
 	memcpy(contenido_blocks, block_mmap, statbuf.st_size);
 
@@ -134,7 +134,7 @@ void bajar_datos_files(char* un_file, char* ruta_file) {
 	fstat(archivo_un_file, &statbuf);
 
 	contenido_un_file = (char*) mmap(NULL, statbuf.st_size, PROT_WRITE,
-			MAP_SHARED, archivo_un_file, 0);
+	MAP_SHARED, archivo_un_file, 0);
 
 	memcpy(contenido_un_file, un_file, statbuf.st_size);
 
@@ -324,7 +324,7 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora) {
 	int archivo = open(rutaBitacora, O_RDWR);
 	fstat(archivo, &statbuf);
 	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	MAP_SHARED, archivo, 0);
 	char **renglones_bitacora = string_split(archivo_addr, "=");
 
 	char **bloques_bitacora = string_split(renglones_bitacora[2], ",");
@@ -354,17 +354,17 @@ void crear_archivo(char* ruta) {
 void inicializar_bitacora(char *rutaBitacora, char *numeroDeBloque) {
 	char *block_size = config_get_string_value(mongoConfig, "BLOCK_SIZE");
 	crear_archivo(rutaBitacora);
-	int archivo = open(rutaBitacora, O_RDWR);
-	struct stat statbuf;
-	ftruncate(archivo, (off_t) 14 + string_length(block_size));
-	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
 	char *cadena = string_new();
 	string_append(&cadena, "SIZE=");
 	string_append(&cadena, block_size);
 	string_append(&cadena, "\nBLOCKS=");
 	string_append(&cadena, numeroDeBloque);
+	int archivo = open(rutaBitacora, O_RDWR);
+	struct stat statbuf;
+	ftruncate(archivo, string_length(cadena));
+	fstat(archivo, &statbuf);
+	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
 
 	for (int i = 0; i < string_length(cadena); i++) {
 		archivo_addr[i] = cadena[i];
@@ -419,7 +419,7 @@ void crearSuperbloque(char * dirSuperbloque) {
 			(off_t) 19 + string_length(block_size) + string_length(blocks));
 	fstat(archivo, &statbuf);
 	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	MAP_SHARED, archivo, 0);
 	char *cadena = string_new();
 	string_append(&cadena, "Block_size=");
 	string_append(&cadena, block_size);
@@ -673,7 +673,7 @@ void crearCopiaBlocks(char *dirBlocks) {
 	fstat(archivo, &statbuf);
 
 	contenidoArchivo = (char *) mmap(NULL, statbuf.st_size,
-			PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
+	PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
 
 	block_mmap = (char *) malloc(statbuf.st_size);
 
@@ -693,7 +693,7 @@ void crearCopiaFile(char* file, char *dir_file) {
 		fstat(archivo, &statbuf);
 
 		contenidoArchivo = (char *) mmap(NULL, statbuf.st_size,
-				PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
+		PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
 
 		file = (char *) malloc(statbuf.st_size);
 
@@ -796,10 +796,8 @@ void escribir_en_block(char* lo_que_se_va_a_escribir, t_bloque* el_bloque) {
 			- string_length(lo_que_se_va_a_escribir);
 
 	log_info(mongoLogger, "Se escribieron %d bytes en el bloque %d, "
-			"le quedan %d bytes disponibles. inicio; %d, fin: %d, puntero: %d",
-			longitud_texto, el_bloque->id_bloque, el_bloque->espacio,
-			el_bloque->inicio, el_bloque->fin,
-			el_bloque->posicion_para_escribir);
+			"le quedan %d bytes disponibles. ", longitud_texto,
+			el_bloque->id_bloque, el_bloque->espacio);
 	pthread_mutex_unlock(&mutex_disco_logico);
 
 }
@@ -808,8 +806,9 @@ char* obtener_bloques_bitacora(char* ruta) {
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	char *archivo_addr = mmap(NULL, statbuf.st_size,
+	PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
 	char** auxiliar = string_split(archivo_addr, "\n");
 	char** auxiliar2 = string_split(auxiliar[1], "=");
 	char* blocks = auxiliar2[1];
@@ -1088,8 +1087,9 @@ void inicializar_archivo(char* ruta_archivo, char caracter) {
 	struct stat statbuf;
 	ftruncate(archivo, (off_t) string_length(cadena) * sizeof(char));
 	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	char *archivo_addr = mmap(NULL, statbuf.st_size,
+	PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
 
 	for (int i = 0; i < string_length(cadena); i++) {
 		archivo_addr[i] = cadena[i];
@@ -1114,8 +1114,9 @@ char *size_de_archivo_fisico(char* ruta) {
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	char *archivo_addr = mmap(NULL, statbuf.st_size,
+	PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
 	char** auxiliar = string_split(archivo_addr, "\n");
 	char** auxiliar2 = string_split(auxiliar[0], "=");
 	char* size = auxiliar2[1];
@@ -1146,8 +1147,9 @@ char* cantidad_de_bloques_de_archivo_fisico(char* ruta) {
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	char *archivo_addr = mmap(NULL, statbuf.st_size,
+	PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
 	char** auxiliar = string_split(archivo_addr, "\n");
 	char** auxiliar2 = string_split(auxiliar[1], "=");
 	char* block_count = auxiliar2[1];
@@ -1171,8 +1173,9 @@ char* bloques_de_archivo_fisico(char* ruta) {
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	char *archivo_addr = mmap(NULL, statbuf.st_size,
+	PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
 	char** auxiliar = string_split(archivo_addr, "\n");
 	char** auxiliar2 = string_split(auxiliar[2], "=");
 	char* blocks = auxiliar2[1];
@@ -1202,7 +1205,8 @@ char* leo_el_bloque_fisico(t_bloque* bloque) {
 	int archivo = open(dirBlocks, O_RDWR);
 	struct stat statbuf;
 	fstat(archivo, &statbuf);
-	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+	char *archivo_addr = mmap(NULL, statbuf.st_size,
+	PROT_READ | PROT_WRITE,
 	MAP_SHARED, archivo, 0);
 
 	char* texto = string_new();
@@ -1227,7 +1231,8 @@ char* leo_el_bloque_incluyendo_espacios(t_bloque* bloque) {
 	int archivo = open(dirBlocks, O_RDWR);
 	struct stat info;
 	fstat(archivo, &info);
-	archivo_blocks_para_sabotaje = (char*) mmap(NULL, info.st_size, PROT_WRITE,
+	archivo_blocks_para_sabotaje = (char*) mmap(NULL, info.st_size,
+	PROT_WRITE,
 	MAP_SHARED, archivo, 0);
 	while (inicio <= fin) {
 		char *aux = string_from_format("%c",
@@ -1781,7 +1786,8 @@ void generar_oxigeno(int cantidad) {
 		int archivo = open(rutaOxigeno, O_RDWR);
 		struct stat statbuf;
 		fstat(archivo, &statbuf);
-		char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+		char *archivo_addr = mmap(NULL, statbuf.st_size,
+		PROT_READ | PROT_WRITE,
 		MAP_SHARED, archivo, 0);
 		archivoOxigeno = malloc(string_length(archivo_addr) + 1);
 		memcpy(archivoOxigeno, archivo_addr, string_length(archivo_addr) + 1);
@@ -1836,7 +1842,7 @@ void consumir_oxigeno(int cant_borrar) {
 			struct stat statbuf;
 			fstat(archivo, &statbuf);
 			char *archivo_addr = mmap(NULL, statbuf.st_size,
-					PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
+			PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
 			archivoOxigeno = malloc(string_length(archivo_addr) + 1);
 			memcpy(archivoOxigeno, archivo_addr,
 					string_length(archivo_addr) + 1);
@@ -1873,8 +1879,9 @@ void generar_comida(int cantidad) {
 		int archivo = open(rutaComida, O_RDWR);
 		struct stat statbuf;
 		fstat(archivo, &statbuf);
-		char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
-				MAP_SHARED, archivo, 0);
+		char *archivo_addr = mmap(NULL, statbuf.st_size,
+		PROT_READ | PROT_WRITE,
+		MAP_SHARED, archivo, 0);
 
 		archivoComida = malloc(string_length(archivo_addr) + 1);
 		memcpy(archivoComida, archivo_addr, string_length(archivo_addr) + 1);
@@ -1930,7 +1937,7 @@ void consumir_comida(int cant_borrar) {
 			struct stat statbuf;
 			fstat(archivo, &statbuf);
 			char *archivo_addr = mmap(NULL, statbuf.st_size,
-					PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
+			PROT_READ | PROT_WRITE, MAP_SHARED, archivo, 0);
 			archivoComida = malloc(string_length(archivo_addr) + 1);
 			memcpy(archivoComida, archivo_addr,
 					string_length(archivo_addr) + 1);
@@ -1967,7 +1974,8 @@ void generar_basura(int cantidad) {
 		int archivo = open(rutaBasura, O_RDWR);
 		struct stat statbuf;
 		fstat(archivo, &statbuf);
-		char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+		char *archivo_addr = mmap(NULL, statbuf.st_size,
+		PROT_READ | PROT_WRITE,
 		MAP_SHARED, archivo, 0);
 
 		archivoBasura = malloc(string_length(archivo_addr) + 1);

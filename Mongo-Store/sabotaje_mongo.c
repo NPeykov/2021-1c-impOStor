@@ -1,11 +1,8 @@
 #include "sabotaje_mongo.h"
 #include "mongo-store.h"
 
-//TODO hacer 		char* bloquesaux=string_substring_until(bloques,string_length(bloques)-1); en la funcionbloques_de_archivo
-
-
 void rutina(int n) {
-
+	sem_wait(&semaforo_modificacion_de_datos);
 	sabotaje_code codigo_sabotaje = obtener_tipo_sabotaje();
 
 	if(codigo_sabotaje == NO_HAY_SABOTAJE)
@@ -21,7 +18,7 @@ void rutina(int n) {
 	sem_wait(&inicio_fsck); //espera q discordiador termine el sabotaje
 
 	iniciar_recuperacion(codigo_sabotaje);
-
+	sem_post(&semaforo_modificacion_de_datos);
 }
 
 

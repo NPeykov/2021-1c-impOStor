@@ -31,7 +31,7 @@ sem_t semaforo_para_file_oxigeno;
 sem_t semaforo_para_file_comida;
 sem_t semaforo_para_file_basura;
 sem_t inicio_fsck; //para fin de sabotaje
-
+sem_t semaforo_modificacion_de_datos;
 //MUTEXS
 pthread_mutex_t mutex_disco_logico;
 pthread_mutex_t mutex_bitmap;

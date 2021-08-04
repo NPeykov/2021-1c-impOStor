@@ -1,5 +1,4 @@
 #include "mongo-store.h"
-//TODO semaforo sabotaje para bajad a disco
 
 int main() {
 
@@ -38,33 +37,6 @@ int main() {
 	/*sabotaje_code code = obtener_tipo_sabotaje();
 	printf("-----------------codigo: %d---------------\n",code);
 	iniciar_recuperacion(code);*/
-	//generar_oxigeno(200);
-	//sabotaje_code code = obtener_tipo_sabotaje();
-	/*generar_comida(20);
-
-	generar_oxigeno(200);*/
-	//sleep(15);
-	//generar_oxigeno(200);
-	/*generar_oxigeno(200);
-	generar_basura(200);
-	generar_comida(200);*/
-	/*for(int i = 0;i<70;i++){
-		pthread_t oxigeno;
-		pthread_t comida;
-		pthread_t basura;
-		pthread_create(&oxigeno, NULL,	(void*) generar_oxigeno,(void*) 100);
-		pthread_detach(oxigeno);
-		//pthread_create(&comida, NULL,	(void*) generar_comida,(void*) 50);
-		//pthread_detach(comida);
-		//pthread_create(&basura, NULL,	(void*) generar_basura,(void*) 256);
-		//pthread_detach(basura);
-	}
-	//consumir_comida(1000);
-	//generar_oxigeno(500);
-
-
-
-	//generar_comida(1000);*/
 
 	gestionarCliente(socket_mongo_store );
 
@@ -117,8 +89,7 @@ void iniciar_recursos_mongo(void) {
 	sem_init(&semaforo_para_file_basura,0,1);
 	sem_init(&inicio_fsck, 0, 0);
 	sem_init(&semaforo_generar_md5,0,1);
-
-
+	sem_init(&semaforo_modificacion_de_datos,0,1);
 
 	//inicializo los booleanos de existen archivos
 	g_existe_file_oxigeno = false;
@@ -231,28 +202,27 @@ void bajar_datos_superbloque(void) {
 	free(dirSuperbloque);
 }
 
-void gestionar_bajadas_a_disco(void){
-	int tiempo_bajada = atoi(config_get_string_value(mongoConfig, "TIEMPO_SINCRONIZACION"));
+void gestionar_bajadas_a_disco(void) {
+	int tiempo_bajada = atoi(
+			config_get_string_value(mongoConfig, "TIEMPO_SINCRONIZACION"));
 
-	while(1)
-	{
+	while (1) {
 		sleep(tiempo_bajada);
-		log_info(mongoLogger, "Realizando bajada a disco de blocks y superbloque..");
+		sem_wait(&semaforo_modificacion_de_datos);
+		log_info(mongoLogger,
+				"Realizando bajada a disco de blocks y superbloque..");
 
-		//TODO poner un mutex de blocks
 		bajar_datos_blocks();
-
-
 		bajar_datos_superbloque();
 
-		if(g_existe_file_oxigeno && g_modificado_file_oxigeno){
-			char* rutaOxigeno=conseguir_ruta(OXIGENOO);
-			bajar_datos_files(archivoOxigeno,rutaOxigeno);
-			g_modificado_file_oxigeno=false;
+		if (g_existe_file_oxigeno && g_modificado_file_oxigeno) {
+			char* rutaOxigeno = conseguir_ruta(OXIGENOO);
+			bajar_datos_files(archivoOxigeno, rutaOxigeno);
+			g_modificado_file_oxigeno = false;
 			free(rutaOxigeno);
-			if(!g_en_uso_file_oxigeno){
+			if (!g_en_uso_file_oxigeno) {
 				free(archivoOxigeno);
-				g_abierto_file_oxigeno=false;
+				g_abierto_file_oxigeno = false;
 			}
 		}
 		if (g_existe_file_comida && g_modificado_file_comida) {
@@ -276,6 +246,7 @@ void gestionar_bajadas_a_disco(void){
 			}
 		}
 		log_info(mongoLogger, "Finalizo la bajada a disco");
+		sem_post(&semaforo_modificacion_de_datos);
 	}
 }
 

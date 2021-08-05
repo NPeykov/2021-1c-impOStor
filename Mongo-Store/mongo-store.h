@@ -22,6 +22,7 @@
 #include <commons/memory.h>
 
 
+
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;

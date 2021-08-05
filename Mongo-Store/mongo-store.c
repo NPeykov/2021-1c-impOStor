@@ -317,7 +317,6 @@ void crearEstructurasBloques() {
 
 //devuelve el ultimo bloque que usa el tripulante para sus datos
 t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora) {
-
 	t_bloque* el_bloque;
 	int cantidad_de_bloques = 0;
 	struct stat statbuf;
@@ -325,10 +324,10 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora) {
 	fstat(archivo, &statbuf);
 	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
 	MAP_SHARED, archivo, 0);
-	char **renglones_bitacora = string_split(archivo_addr, "=");
-
-	char **bloques_bitacora = string_split(renglones_bitacora[2], ",");
-	while (bloques_bitacora[cantidad_de_bloques] != NULL) {
+	char **renglones_bitacora = string_split(archivo_addr, "\n");
+	char **bloques_division = string_split(renglones_bitacora[1],"=");
+	char **bloques_bitacora = string_split(bloques_division[1],",");
+	while (bloques_bitacora[cantidad_de_bloques]) {
 		cantidad_de_bloques++;
 	}
 
@@ -2188,6 +2187,9 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
 		}
 		//sino escribo una parte y elijo otro bloque para lo restante
 		else {
+			log_info(mongoLogger,"se va a guardar %s con %d caracteres en el bloque %d con %d espacio",
+					lo_que_se_va_a_escribir,string_length(lo_que_se_va_a_escribir),
+					el_bloque->id_bloque,el_bloque->espacio);
 			char *lo_que_entra_en_el_bloque = string_substring_until(
 					lo_que_se_va_a_escribir, el_bloque->espacio);
 			escribir_en_block(lo_que_entra_en_el_bloque, el_bloque);

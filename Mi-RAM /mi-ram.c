@@ -3,7 +3,7 @@
 #include "paginacion.c"
 
 void inicializar_ram(){
-	logs_ram = log_create("/home/utnso/tp-2021-1c-impOStor/logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_INFO);
+	logs_ram = log_create("../logs_files/ram.log", "Mi-RAM", 0, LOG_LEVEL_INFO);
 
 	log_info(logs_ram,"################# Modulo Mi-RAM #################\n");
 

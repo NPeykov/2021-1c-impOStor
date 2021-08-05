@@ -404,8 +404,7 @@ int guardar_TCB_pag(void* algo) {
 	elTripulante->proxIns = buscar_inicio_tareas(proceso);
 	existencia_patota(proceso);
 	pthread_mutex_lock(&charRepresentativo);
-	caracterRepresentativo = 0;
-
+	caracterRepresentativo = nuevoTripuMapa(elTripulante->posX, elTripulante->posY);
 	int res = insertar_en_paginas((void*) elTripulante, proceso,TCB, sizeof(TripuCB));
 	if(res == 0) {
 		enviar_mensaje_simple("no", _socket_cliente);
@@ -670,10 +669,13 @@ void expulsar_tripulante_pag(void* algo) {
 
 		log_info(logs_ram,"Se va a sacar de la lista de alojados de cant %d el tripu %d",
 				list_size(paginaActual->estructuras_alojadas), tripuAlojado->flagid);
-
+		bool eliminadoMapa = false;
 		bool tripuConID(t_alojado* alojado) {
 			if(alojado->tipo == TCB && alojado->flagid == tid){
-				caracterRepresentativo = alojado->flagid + 64;
+				if(!eliminadoMapa){
+					eliminarTripuMapa(alojado->caracterRep);
+					eliminadoMapa = true;
+				}
 				return true;
 			}else{
 				return false;
@@ -1029,9 +1031,6 @@ void traer_pagina(t_pagina* pagina, int patota){
 	//cada vez que referencian
 	//una pagina si no esta en memoria la buscamos
 	//y cargamos, si esta en memoria seteamos el bit de uso
-	dumpMemoriaPag();
-	imprimirLRU();
-	log_info(logs_ram, "LRU tiene %d paginas", list_size(paginas_lru));
 	if (!pagina->bit_presencia){//Si la pagina no esta presente
 
 		log_info(logs_ram,"Se produce un PF (PAGINA %d | PROCESO %d)",pagina->nro_pagina, patota);

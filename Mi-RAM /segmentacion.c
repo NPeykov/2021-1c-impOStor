@@ -55,16 +55,16 @@ uint32_t algoritmoBestFit(Segmento *segmento){
 
 	//Si no hay nada en memoria principal la dir es 0 por ser primero
 	if(list_is_empty(memoriaPrincipal)){
-		log_info(logs_ram, "La posicion es %d hasta %d",0,tamanioNecesario);
+		log_info(logs_ram, "Se coloco el segmento en 0 hasta %d",tamanioNecesario);
 		return (uint32_t) 0;
 	}
 
 	list_iterate(memoriaPrincipal, espacioLibre);//Este es el mayor cambio entre FF y BF
 	if(tamaniomemoria >= ubicacionMasJusta + tamanioNecesario && ubicacionMasJusta != 0){
-		log_info(logs_ram,"La posicion es %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
+		log_info(logs_ram,"Se coloco el segmento en %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 		return ubicacionMasJusta;
 	}else if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
-		log_info(logs_ram,"La posicion es %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
+		log_info(logs_ram,"Se coloco el segmento en %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 		return finalSegmentoAnterior;//Para el ultimo segmento
 	}else{
 		if(noCompactado){
@@ -114,19 +114,19 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 
 	//Si no hay nada en memoria principal la dir es 0 por ser primero
 	if(list_is_empty(memoriaPrincipal)){
-		log_info(logs_ram,"La posicion es 0 hasta %d",tamanioNecesario);
+		log_info(logs_ram,"Se coloco el segmento en 0 hasta %d",tamanioNecesario);
 		return (uint32_t) 0;
 	}
 
 	list_find(memoriaPrincipal, espacioLibre);
 	if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
-		log_info(logs_ram,"La posicion es %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
+		log_info(logs_ram,"Se coloco el segmento en %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 		return finalSegmentoAnterior;
 	}else{
 		if(noCompactado){
 			compactacion();//Se compacta y se hace de nuevo
 			finalSegmentoAnterior =  algoritmoFirstFit(segmento);
-			log_info(logs_ram,"La posicion es %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
+			log_info(logs_ram,"Se coloco el segmento en %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 			noCompactado = true;
 			return finalSegmentoAnterior;
 		}else{
@@ -242,8 +242,7 @@ void crear_segmento_tcb(void* elTripulante) {
 		pthread_exit(NULL);
 	}else{
 		list_add(tabla_segmentos, segmento);
-		segmento->valorRepresentacion = 1;
-		//segmento->valorRepresentacion = nuevoTripuMapa(tcb->posX,tcb->posY);
+		segmento->valorRepresentacion = nuevoTripuMapa(tcb->posX,tcb->posY);
 		agregar_a_memoria(segmento);
 		sem_post(&direcciones);
 		sem_post(&tripulantesDisponibles);
@@ -315,7 +314,7 @@ void crear_proceso(void *data){
 	list_add(patotas, proceso);
 	pthread_mutex_unlock(&listaPatotasEnUso);
 
-	log_info(logs_ram, "Se inicio una patota.");
+	log_info(logs_ram, "Se inicio una patota exitosamente.");
 	enviar_mensaje_simple("ok", _socket_cliente);
 	liberar_cliente(_socket_cliente);
 	free(datos_patota);
@@ -438,7 +437,7 @@ void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 	//Calculo cuanto se va a mover y lo muevo en el mapa
 	int difX = tripulanteActualizado->posX - elTripulante->posX;
 	int difY = tripulanteActualizado->posY - elTripulante->posY;
-	//moverTripuMapa(SegmentoDelTripulante->valorRepresentacion,difX, difY);
+	moverTripuMapa(SegmentoDelTripulante->valorRepresentacion,difX, difY);
 
 	//Asigno la nueva posicion
 	elTripulante->posX = tripulanteActualizado->posX;

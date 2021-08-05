@@ -17,12 +17,12 @@ void inicializar_ram(){
 
 	tamaniomemoria = atoi(config_get_string_value(config, "TAMANIO_MEMORIA"));
 
-	printf("MI_RAM escuchando en PUERTO:%s \n", puerto);
+	log_info(logs_ram,"MI_RAM escuchando en PUERTO:%s \n", puerto);
 	memoria = malloc(tamaniomemoria);
 	memoriaPrincipal = list_create();
 	patotas = list_create();
 
-	//crear_nivel();
+	crear_nivel();
 }
 
 void *gestionarCliente(int socket) {

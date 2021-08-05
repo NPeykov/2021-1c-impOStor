@@ -567,7 +567,7 @@ void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 
 
 	log_info(logs_ram,"El tripulante %d se ha actualizado: Estado: %c %d|%d",idTripulante,elTripulante->status,elTripulante->posX,elTripulante->posY);
-"aaaaaa"
+
 	sobreescribir_tripulante(paginasConTripulante, elTripulante,proceso->pid);
 	moverTripuMapa(alojado->caracterRep,  difX,  difY);
 	return;

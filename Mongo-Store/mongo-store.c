@@ -793,10 +793,6 @@ void escribir_en_block(char* lo_que_se_va_a_escribir, t_bloque* el_bloque) {
 	}
 	el_bloque->espacio = el_bloque->espacio
 			- string_length(lo_que_se_va_a_escribir);
-
-	log_info(mongoLogger, "Se escribieron %d bytes en el bloque %d, "
-			"le quedan %d bytes disponibles. ", longitud_texto,
-			el_bloque->id_bloque, el_bloque->espacio);
 	pthread_mutex_unlock(&mutex_disco_logico);
 
 }
@@ -2162,7 +2158,25 @@ char *generarTextoAEscribir(tripulante_con_su_accion *tripulante) {
 	return lo_que_se_va_a_escribir;
 }
 
+void escribir_el_mensaje_del_tripulante(char* mensaje,t_bloque *bloque, char* rutaBitacora){
+	if(string_length(mensaje)<=bloque->espacio){
+		escribir_en_block(mensaje, bloque);
+	}
+	else{
+		char* lo_que_puedo_escribir = string_substring_until(mensaje,bloque->espacio);
+		char* lo_que_falta_escribir = string_substring_from(mensaje,string_length(lo_que_puedo_escribir));
+		escribir_en_block(lo_que_puedo_escribir, bloque);
+		int numero_nuevo_bloque = obtener_bloque_libre();
+		t_bloque* nuevo_bloque = list_get(disco_logico->bloques,numero_nuevo_bloque);
+		agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);
+		escribir_el_mensaje_del_tripulante(lo_que_falta_escribir,nuevo_bloque,rutaBitacora);
+
+	}
+}
+
+
 void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
+	//TODO HASTA ACA
 	t_bloque *el_bloque;
 	t_bloque *nuevo_bloque;
 	char *bloque;
@@ -2170,7 +2184,9 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
 	//armo toda la cadena que se va a escribir por movimiento
 	char *rutaBitacora = rutaBitacoraDelTripulante(tripulante);
 	char *lo_que_se_va_a_escribir = generarTextoAEscribir(tripulante);
-
+	log_warning(mongoLogger,
+					"lo que se va a escribir: %s",lo_que_se_va_a_escribir);
+	log_warning(mongoLogger,"cantidad de bytes %d",string_length(lo_que_se_va_a_escribir));
 	int existeArchivo = access(rutaBitacora, F_OK);
 	//si la bitacora del tripulante existe, entonces recupero el ultimo bloque
 	if (existeArchivo == 0) {
@@ -2179,58 +2195,85 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
 
 		//ultimo bloque en char
 		el_bloque = buscar_ultimo_bloque_del_tripulante(rutaBitacora);
+		log_info(mongoLogger,
+						"ultimo bloque: %d",el_bloque->id_bloque);
+		log_warning(mongoLogger,"el espacio del bloque es %d",el_bloque->espacio);
 		//si hay espacio en el bloque para escribir to do, entonces lo escribo
-		if (el_bloque->espacio > string_length(lo_que_se_va_a_escribir)) {
-
+		if (el_bloque->espacio >= string_length(lo_que_se_va_a_escribir)) {
 			escribir_en_block(lo_que_se_va_a_escribir, el_bloque);
+			log_warning(mongoLogger,"se escribio en este bloque %d",el_bloque->id_bloque);
 
 		}
 		//sino escribo una parte y elijo otro bloque para lo restante
 		else {
-			log_info(mongoLogger,"se va a guardar %s con %d caracteres en el bloque %d con %d espacio",
-					lo_que_se_va_a_escribir,string_length(lo_que_se_va_a_escribir),
-					el_bloque->id_bloque,el_bloque->espacio);
 			char *lo_que_entra_en_el_bloque = string_substring_until(
 					lo_que_se_va_a_escribir, el_bloque->espacio);
-			escribir_en_block(lo_que_entra_en_el_bloque, el_bloque);
+			if(string_length(lo_que_entra_en_el_bloque)>0){
+				escribir_el_mensaje_del_tripulante(lo_que_entra_en_el_bloque,el_bloque,rutaBitacora);
+				//escribir_en_block(lo_que_entra_en_el_bloque, el_bloque);
+				log_warning(mongoLogger,"se escribio en este bloque %d esta cantidad %d. le queda %d bytes de espacio",el_bloque->id_bloque, string_length(lo_que_entra_en_el_bloque),el_bloque->espacio);
+			}
 			char *lo_que_falta_escribir = string_substring_from(
 					lo_que_se_va_a_escribir,
 					string_length(lo_que_entra_en_el_bloque));
 			//asigno el bloque nuevo
-			numero_del_nuevo_bloque = obtener_bloque_libre();
-			log_info(mongoLogger, "Asigno el bloque numero:%d\n",
-					numero_del_nuevo_bloque);
-			pthread_mutex_lock(&mutex_disco_logico);
+			/*numero_del_nuevo_bloque = obtener_bloque_libre();
+
+			//pthread_mutex_lock(&mutex_disco_logico);
 			nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
 					numero_del_nuevo_bloque);
-			pthread_mutex_unlock(&mutex_disco_logico);
+			//pthread_mutex_unlock(&mutex_disco_logico);
+			log_info(mongoLogger, "Asigno el bloque numero:%d\n",
+								nuevo_bloque->id_bloque);
 			//escribir lo_que_falta_escribir
-			escribir_en_block(lo_que_falta_escribir, nuevo_bloque);
+			agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);*/
+			escribir_el_mensaje_del_tripulante(lo_que_falta_escribir,el_bloque,rutaBitacora);
+			//escribir_en_block(lo_que_falta_escribir, nuevo_bloque);
+			//log_warning(mongoLogger,"se escribio en este bloque %d esta cantidad %d. le queda %d bytes de espacio",nuevo_bloque->id_bloque, string_length(lo_que_falta_escribir),nuevo_bloque->espacio);
+
 			//actualizar el bitmap
-			ocupar_bloque(numero_del_nuevo_bloque);
+			//ocupar_bloque(numero_del_nuevo_bloque);
 			// actualizar bitacora con el bloque nuevo del tripulante
-			agregar_bloque_bitacora(rutaBitacora, nuevo_bloque->id_bloque);
 		}
 	} else {
 		//asigno el bloque nuevo
 		numero_del_nuevo_bloque = obtener_bloque_libre();
 
-		log_info(mongoLogger, "Asigno el bloque numero:%d\n",
-				numero_del_nuevo_bloque);
-
 		nuevo_bloque = (t_bloque *) list_get(disco_logico->bloques,
 				numero_del_nuevo_bloque);
+		log_info(mongoLogger, "Asigno el bloque numero:%d\n",
+				nuevo_bloque->id_bloque);
 
-		sem_wait(&semaforo_bitacora);
+		//sem_wait(&semaforo_bitacora);
 		inicializar_bitacora(rutaBitacora,
 				string_itoa(nuevo_bloque->id_bloque));
-		sem_post(&semaforo_bitacora);
+		//sem_post(&semaforo_bitacora);
 
 		//modifico bitmap
-		ocupar_bloque(numero_del_nuevo_bloque);
+		//ocupar_bloque(numero_del_nuevo_bloque);
 
 		//escribo lo_que_se_va_a_escribir en block
-		escribir_en_block(lo_que_se_va_a_escribir, nuevo_bloque);
+		if(string_length(lo_que_se_va_a_escribir)<=nuevo_bloque->espacio){
+			escribir_en_block(lo_que_se_va_a_escribir, nuevo_bloque);
+			log_warning(mongoLogger,"se escribio en este bloque %d esta cantidad %d. le queda %d bytes de espacio",nuevo_bloque->id_bloque, string_length(lo_que_se_va_a_escribir),nuevo_bloque->espacio);
+
+		}
+		else{
+			escribir_el_mensaje_del_tripulante(lo_que_se_va_a_escribir,nuevo_bloque,rutaBitacora);
+			/*
+			char* lo_que_entra = string_substring_until(lo_que_se_va_a_escribir,nuevo_bloque->espacio);
+			char* lo_que_falta = string_substring_from(lo_que_se_va_a_escribir,string_length(lo_que_entra));
+			escribir_en_block(lo_que_entra, nuevo_bloque);
+			log_warning(mongoLogger,"se escribio en este bloque %d esta cantidad %d. le queda %d bytes de espacio",nuevo_bloque->id_bloque, string_length(lo_que_entra),nuevo_bloque->espacio);
+			int numero_bloque_auxiliar=obtener_bloque_libre();
+			t_bloque * bloque_auxiliar=list_get(disco_logico->bloques,numero_bloque_auxiliar);
+			log_info(mongoLogger, "Asigno el bloque numero:%d\n",
+					bloque_auxiliar->id_bloque);
+			agregar_bloque_bitacora(rutaBitacora, bloque_auxiliar->id_bloque);
+			escribir_en_block(lo_que_falta, bloque_auxiliar);
+			log_warning(mongoLogger,"se escribio en este bloque %d esta cantidad %d. le queda %d bytes de espacio",bloque_auxiliar->id_bloque, string_length(lo_que_falta),bloque_auxiliar->espacio);
+			*/
+		}
 	}
 
 	free(tripulante->tripulante);

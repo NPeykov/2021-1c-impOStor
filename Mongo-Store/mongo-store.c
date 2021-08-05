@@ -835,7 +835,8 @@ void obtener_bitacora_tripulante(int cliente) {
 		eliminar_paquete(paquete);
 
 	} else {
-		printf("la bitacora todavia no existe\n");
+		log_info(mongoLogger, "se pidio la bitacora del tripulante %d de la patota %d pero no existe",
+							idTripulante,idPatota);
 	}
 	liberar_cliente(cliente);
 	close(archivo);
@@ -928,11 +929,11 @@ void *gestionarCliente(int socket) {
 
 			log_info(mongoLogger, "El socket para sabotajes es: %d\n",
 					socket_sabotaje_cliente);
-
-			//pthread_create(&hilo_sabotaje, NULL,
-			//		(void*) enviar_aviso_sabotaje_a_discordiador,
-			//		NULL);
-			//pthread_detach(hilo_sabotaje);
+//TODO
+			/*pthread_create(&hilo_sabotaje, NULL,
+					(void*) enviar_aviso_sabotaje_a_discordiador,
+					NULL);
+			pthread_detach(hilo_sabotaje);*/
 			break;
 		case ACTUALIZAR_POSICION:
 			;

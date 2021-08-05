@@ -18,6 +18,12 @@ bool esLRU;
 char* dirSwap;
 t_list *paginas_lru;
 
+//Posiciones de los datos respecto del inicio de tripulante
+int desplazAEstado = 4;//Tamanio 1 por ser char
+int desplazAPosX = 5;//Tamanio 4 uint32_t
+int desplazAPosY = 9;//Tamanio 4 uint32_t
+int desplazAProxIns = 13; //Tamanio 4 uint32_t
+
 typedef enum {
 	LIBRE,OCUPADO
 } estado_frame;
@@ -135,7 +141,7 @@ int guardar_PCB_pag(void*);
 
 /* Busca la siguiente tarea en el malloc de memoria */
 
-char* obtener_siguiente_tarea_pag(t_proceso* , TripuCB* );
+char* obtener_siguiente_tarea_pag(t_proceso* , uint32_t*, int );
 
 /* Busca la direccion logica donde empiezan las paginas de tareas de un proceso/patota */
 
@@ -161,17 +167,9 @@ t_alojado* obtener_tripulante_pagina(t_list* , int);
 
 t_list* lista_paginas_tripulantes(t_list*, uint32_t );
 
-/* Actualiza la estructura administrativa del tripulante */
-
-int sobreescribir_tripulante(t_list* , TripuCB* , int);
-
 /* Actualiza en memoria al tripulante */
 
 void actualizar_tripulante_pag(t_tripulante_iniciado*);
-
-/* Trae la estructura administrativa del tripulante  */
-
-TripuCB* obtener_tripulante(t_proceso* ,int );
 
 /* Asigna la proxima tarea al tripulante de la patota pasado por parametro  */
 
@@ -233,6 +231,10 @@ t_pagina* algoritmo_clock();
 
 void reemplazarSegunAlgoritmo(t_pagina*);
 
-void traer_pagina(t_pagina*, int);
+void traer_pagina(t_pagina*);
+
+void *obtener_dato_tripulante(t_list*, int ,int,int);
+
+void escribir_dato_tripulante(t_list*, int ,int,int,void*);
 
 #endif

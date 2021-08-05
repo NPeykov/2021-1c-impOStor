@@ -58,10 +58,10 @@ void listar_cola_planificacion(Estado estado) {
 		while (copia_lista->head != NULL) {
 			elementos = copia_lista->head;
 			tripulante_planificando = (Tripulante_Planificando *) elementos->data;
-			printf("Patota N°: %d\t", tripulante_planificando->tripulante->patota);
-			printf("Tripulante ID°: %d\t", tripulante_planificando->tripulante->id);
-			printf("PosX: %d, PosY: %d\t", tripulante_planificando->tripulante->posicionX, tripulante_planificando->tripulante->posicionY);
-			printf("Estado: %s\n", nombre_estado);
+			log_info(logs_discordiador,"Patota N°: %d   Tripulante ID°: %d   PosX: %d, PosY: %d   Estado: %s",
+					tripulante_planificando->tripulante->patota,tripulante_planificando->tripulante->id,
+					tripulante_planificando->tripulante->posicionX,
+					tripulante_planificando->tripulante->posicionY,nombre_estado);
 			copia_lista->head = copia_lista->head->next;
 		}
 	}

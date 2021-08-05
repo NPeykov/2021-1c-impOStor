@@ -154,7 +154,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		}
 
-		printf("Fui expulsado AFUERA: %s", tripulante->fui_expulsado ? "SI": "NO");
+		log_info(logs_discordiador,"Fui expulsado AFUERA: %s", tripulante->fui_expulsado ? "SI": "NO");
 
 
 		pthread_mutex_lock(&lock_grado_multitarea);
@@ -163,7 +163,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		if (tripulante->fui_expulsado) {
 			//sem_post(&ya_sali_de_exec);
-			printf("LUGARES EN EXEC DESDE FIFO: %d\n\n", lugares_en_exec);
+			log_info(logs_discordiador,"LUGARES EN EXEC DESDE FIFO: %d", lugares_en_exec);
 			return;
 		}
 
@@ -334,11 +334,11 @@ void atender_comandos_consola(void) {
 			}
 
 			g_numero_patota += 1; //la mandaria ram
-
+			liberar_cliente(socket_ram);
 			break;
 
 		case LISTAR_TRIPULANTES: //LISTAR_TRIPULANTE
-			printf("--------LISTANDO TRIPULANTES---------\n");
+			log_info(logs_discordiador,"--------LISTANDO TRIPULANTES---------");
 			listar_discordiador();
 			break;
 
@@ -350,12 +350,12 @@ void atender_comandos_consola(void) {
 			agregar_a_paquete(paquete_expulsar, comando_separado[2], string_length(comando_separado[2]) + 1);
 			enviar_paquete(paquete_expulsar, socket_ram);
 			eliminar_paquete(paquete_expulsar);
-
+			liberar_cliente(socket_ram);
 			int numero_tripulante = atoi(comando_separado[1]);
 			int numero_patota = atoi(comando_separado[2]);
 
-			printf("Tripulante N: %d\n", numero_tripulante);
-			printf("PATOTA N: %d\n", numero_patota);
+			log_info,(logs_discordiador,"Tripulante N: %d", numero_tripulante);
+			log_info(logs_discordiador,"PATOTA N: %d", numero_patota);
 
 			expulsar_tripulante(numero_tripulante, numero_patota);
 
@@ -407,9 +407,7 @@ void atender_comandos_consola(void) {
 			imprimir_respuesta_log(respuesta);
 			log_info(logs_discordiador,"FIN DE BITACORA DEL TRIPULANTE %s",comando_separado[1]);
 			list_destroy_and_destroy_elements(respuesta,free);
-			//liberar_cliente(socket_store);
-			//liberar_cliente(socket_store);
-
+			liberar_cliente(socket_store);
 			break;
 
 		case EXIT: //EXIT
@@ -418,11 +416,12 @@ void atender_comandos_consola(void) {
 			char c = getchar();
 			if(c == 's' || c == 'S'){
 				//programa_activo = false;
+				log_info(logs_discordiador,"FINALIZANDO DISCORDIADOR");
 				return;
 			}
 			break;
 		default:
-			printf("COMANDO INVALIDO\n");
+			log_info(logs_discordiador, "SE DETECTO COMANDO INVALIDO");
 			break;
 		}
 	}
@@ -489,7 +488,7 @@ void tripulante(void *argumentos){
 	codigo_operacion = recibir_operacion(_socket_ram);
 	respuesta_pedido = recibir_mensaje(_socket_ram);
 
-	printf("CODIGO DE OPERACION: %d CON MSJ: %s\n", codigo_operacion, respuesta_pedido);
+	log_info(logs_discordiador,"CODIGO DE OPERACION: %d CON MSJ: %s", codigo_operacion, respuesta_pedido);
 
 	if(strcmp(respuesta_pedido, "ok") == 0){
 		log_info(logs_discordiador, "Puedo iniciar tripulante numero: %d", tripulante->id);
@@ -497,7 +496,7 @@ void tripulante(void *argumentos){
 	else {
 		log_info(logs_discordiador, "NO PUEDO REALIZAR INICIO TRIPULANTE %d", tripulante->id);
 	}
-
+	liberar_cliente(_socket_ram);
 	//---------------------------
 	Tripulante_Planificando *tripulante_trabajando =
 			(Tripulante_Planificando*) malloc(sizeof(Tripulante_Planificando));
@@ -613,12 +612,12 @@ void expulsar_tripulante(int id , int patota){
 
     tripulante = (Tripulante_Planificando *)list_find(lista_entera, soy_yo);
 
-    printf("-------Quiero eliminar a N: %d, pat N:%d\n",
+    log_info(logs_discordiador,"-------Quiero eliminar a N: %d, pat N:%d",
     		tripulante->tripulante->id, tripulante->tripulante->patota);
 
     if(tripulante == NULL){
-    	printf("Cantidad elementos: %d\n", list_size(lista_entera));
-    	printf("El tripulante es NULL\n");
+    	log_info(logs_discordiador,"Cantidad elementos: %d", list_size(lista_entera));
+    	log_info(logs_discordiador,"El tripulante es NULL");
 
     	sleep(5);
     }
@@ -780,7 +779,7 @@ void inicializar_recursos_necesarios(void){
 	sem_init(&ya_sali_de_exec, 0, 0); //para tripulante expulsado
 	sem_init(&voy_a_ready, 0, 0);
 	
-	log_info(logs_discordiador, "---DATOS INICIALIZADO---\n");
+	log_info(logs_discordiador, "---DATOS INICIALIZADO---");
 }
 
 void liberar_memoria_discordiador(void) {
@@ -827,7 +826,7 @@ int main(void){
 
 	log_info(logs_discordiador, "TERMINANDO PROGRAMA - LIBERANDO ESPACIO");
 	liberar_memoria_discordiador();
-	printf("\n-------TERMINO-------\n");
+	log_info(logs_discordiador,"-------TERMINO-------");
 
 	return EXIT_SUCCESS;
 }

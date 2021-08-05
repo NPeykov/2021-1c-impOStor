@@ -13516,3 +13516,2332 @@ GENERAR_OXIGENO 10;5;5;6
 [INFO] 00:12:52:028 Mi-RAM/(11900:12142): El tripulante 2 se ha actualizado: Estado: E 10|4
 [INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se sobreescribio en RAM: FRAME: 2 | DESDE: 31 | HASTA: 31 
 [INFO] 00:12:52:028 Mi-RAM/(11900:12142): Se sobreescribio en RAM: FRAME: 3 | DESDE: 0 | HASTA: 19 
+[INFO] 22:57:54:824 Mi-RAM/(11334:11334): ################# Modulo Mi-RAM #################
+
+[INFO] 22:57:54:826 Mi-RAM/(11334:11334): La cantidad de marcos en Swap es: 512
+[INFO] 22:58:38:203 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:58:38:210 Mi-RAM/(11334:11334): Se recibio una operacion: 2
+
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 0 a la pagina 0
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 0
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 1 a la pagina 1
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 2 a la pagina 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 3 a la pagina 3
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 3 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 4 a la pagina 4
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 4 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 5 a la pagina 5
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 5 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 6 a la pagina 6
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 6 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se asigno el frame 7 a la pagina 7
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la pagina de la estructura: 2
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se va a agregar a la pagina 7 , la estructura 2 con base 0 , y tamanio 21
+[INFO] 22:58:38:210 Mi-RAM/(11334:11441): Se creo la patota 1 correctamente.
+[INFO] 22:58:38:210 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 22:58:38:210 Mi-RAM/(11334:11334): Se recibio una operacion: 3
+
+[INFO] 22:58:38:210 Mi-RAM/(11334:11443): Se va a agregar a la pagina 7 , la estructura 1 con base 21 , y tamanio 11
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se asigno el frame -1 a la pagina 8
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se creo la pagina de la estructura: 1
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Memoria principal llena, realizando swap.
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se asignor a la pagina 8 el frame 0 en swap
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Las paginas en LRU son:
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): LRU tiene 0 paginas
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se produce un PF (pagina 8 del proc 1)
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se eligio como victima la pagina 0 cuyo frame es 0.
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se swapea la pagina 8 con la pagina 0
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1219063180
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): La pagina VICTIMA tiene asignado frame 0 en mpal y -1 en swap, -1219063184
+[INFO] 22:58:38:211 Mi-RAM/(11334:11443): Se va a agregar a la pagina 8 , la estructura 1 con base 0 , y tamanio 10
+[INFO] 22:58:38:211 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:58:38:211 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): Las paginas en LRU son:
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): LRU tiene 0 paginas
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): Se va a leer la pagina que arranca en 224
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): Las paginas en LRU son:
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): LRU tiene 0 paginas
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): Se va a leer la pagina que arranca en 0
+[INFO] 22:58:38:211 Mi-RAM/(11334:11444): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Las paginas en LRU son:
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): LRU tiene 0 paginas
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se produce un PF (pagina 0 del proc 1)
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se eligio como victima la pagina 1 cuyo frame es 1.
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se swapea la pagina 0 con la pagina 1
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1228934556
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): La pagina VICTIMA tiene asignado frame 1 en mpal y -1 en swap, -1228934560
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se va a leer la pagina que arranca en 32
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): La proxima tarea es 31
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Las paginas en LRU son:
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): LRU tiene 0 paginas
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se sobreescribio en RAM: FRAME: 7 | DESDE: 21 | HASTA: 31 
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Las paginas en LRU son:
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): LRU tiene 0 paginas
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 9 
+[INFO] 22:58:38:212 Mi-RAM/(11334:11444): El tripulante 1 pidio la tarea ARREGLAR_REACTOR;7;2;4
+[INFO] 22:58:38:213 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 8
+
+[INFO] 22:58:38:213 Mi-RAM/(11334:11334): Se recibio una operacion: 3
+
+[INFO] 22:58:38:213 Mi-RAM/(11334:11447): Se va a agregar a la pagina 8 , la estructura 1 con base 10 , y tamanio 21
+[INFO] 22:58:38:213 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:58:38:213 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 22:58:38:213 Mi-RAM/(11334:11448): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 22:58:38:213 Mi-RAM/(11334:11448): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): Las paginas en LRU son:
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): LRU tiene 0 paginas
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): Se va a leer la pagina que arranca en 0
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): Las paginas en LRU son:
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): LRU tiene 0 paginas
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): Se va a leer la pagina que arranca en 32
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): La proxima tarea es 31
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): Las paginas en LRU son:
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): LRU tiene 0 paginas
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 22:58:38:214 Mi-RAM/(11334:11448): El tripulante 2 pidio la tarea ARREGLAR_REACTOR;7;2;4
+[INFO] 22:59:19:649 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 22:59:19:650 Mi-RAM/(11334:11334): Se recibio una operacion: 2
+
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se asigno el frame -1 a la pagina 0
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se creo la pagina de la estructura: 0
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se asignor a la pagina 0 el frame 1 en swap
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Las paginas en LRU son:
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): LRU tiene 0 paginas
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se produce un PF (pagina 0 del proc 2)
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se eligio como victima la pagina 2 cuyo frame es 2.
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se swapea la pagina 0 con la pagina 2
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): La pagina PEDIDA tiene asignado frame -1 en mpal y 1 en swap, -1219063180
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): La pagina VICTIMA tiene asignado frame 2 en mpal y -1 en swap, -1219063184
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 24
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:650 Mi-RAM/(11334:11532): Se asigno el frame -1 a la pagina 1
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se creo la pagina de la estructura: 2
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Memoria principal llena, realizando swap.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asignor a la pagina 1 el frame 2 en swap
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Las paginas en LRU son:
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): LRU tiene 0 paginas
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se produce un PF (pagina 1 del proc 2)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se eligio como victima la pagina 3 cuyo frame es 3.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se swapea la pagina 1 con la pagina 3
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina PEDIDA tiene asignado frame -1 en mpal y 2 en swap, -1219063180
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina VICTIMA tiene asignado frame 3 en mpal y -1 en swap, -1219063184
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se va a agregar a la pagina 1 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asigno el frame -1 a la pagina 2
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se creo la pagina de la estructura: 2
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Memoria principal llena, realizando swap.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asignor a la pagina 2 el frame 3 en swap
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Las paginas en LRU son:
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): LRU tiene 0 paginas
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se produce un PF (pagina 2 del proc 2)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se eligio como victima la pagina 4 cuyo frame es 4.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se swapea la pagina 2 con la pagina 4
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina PEDIDA tiene asignado frame -1 en mpal y 3 en swap, -1219063180
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina VICTIMA tiene asignado frame 4 en mpal y -1 en swap, -1219063184
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se va a agregar a la pagina 2 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asigno el frame -1 a la pagina 3
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se creo la pagina de la estructura: 2
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Memoria principal llena, realizando swap.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asignor a la pagina 3 el frame 4 en swap
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Las paginas en LRU son:
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): LRU tiene 0 paginas
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se produce un PF (pagina 3 del proc 2)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se eligio como victima la pagina 5 cuyo frame es 5.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se swapea la pagina 3 con la pagina 5
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina PEDIDA tiene asignado frame -1 en mpal y 4 en swap, -1219063180
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina VICTIMA tiene asignado frame 5 en mpal y -1 en swap, -1219063184
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se va a agregar a la pagina 3 , la estructura 2 con base 0 , y tamanio 32
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asigno el frame -1 a la pagina 4
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se creo la pagina de la estructura: 2
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Memoria principal llena, realizando swap.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se asignor a la pagina 4 el frame 5 en swap
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Las paginas en LRU son:
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): LRU tiene 0 paginas
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se produce un PF (pagina 4 del proc 2)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se comienza a ejecutar el algoritmo clock
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se eligio como victima la pagina 6 cuyo frame es 6.
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se swapea la pagina 4 con la pagina 6
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina PEDIDA tiene asignado frame -1 en mpal y 5 en swap, -1219063180
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): La pagina VICTIMA tiene asignado frame 6 en mpal y -1 en swap, -1219063184
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se va a agregar a la pagina 4 , la estructura 2 con base 0 , y tamanio 11
+[INFO] 22:59:19:651 Mi-RAM/(11334:11532): Se creo la patota 2 correctamente.
+[INFO] 22:59:19:652 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:19:652 Mi-RAM/(11334:11334): Se recibio una operacion: 3
+
+[INFO] 22:59:19:652 Mi-RAM/(11334:11534): Se va a agregar a la pagina 4 , la estructura 1 con base 11 , y tamanio 21
+[INFO] 22:59:19:652 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 22:59:19:652 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): Las paginas en LRU son:
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): LRU tiene 0 paginas
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): Se va a leer la pagina que arranca en 192
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): Las paginas en LRU son:
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): LRU tiene 0 paginas
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): Se va a leer la pagina que arranca en 64
+[INFO] 22:59:19:652 Mi-RAM/(11334:11535): La proxima tarea es 31
+[INFO] 22:59:19:653 Mi-RAM/(11334:11535): Las paginas en LRU son:
+[INFO] 22:59:19:653 Mi-RAM/(11334:11535): LRU tiene 0 paginas
+[INFO] 22:59:19:653 Mi-RAM/(11334:11535): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 22:59:19:653 Mi-RAM/(11334:11535): El tripulante 1 pidio la tarea COMPRAR_FACTURAS;1;1;5
+[INFO] 22:59:47:907 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 8
+
+[INFO] 22:59:47:907 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:47:907 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:47:907 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): Se va a actualizar al tripu 2
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): Las paginas en LRU son:
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): LRU tiene 0 paginas
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): El tripulante 2 se ha actualizado: Estado: E 5|6
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): Las paginas en LRU son:
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): LRU tiene 0 paginas
+[INFO] 22:59:47:908 Mi-RAM/(11334:11600): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Se va a actualizar al tripu 1
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Las paginas en LRU son:
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): LRU tiene 0 paginas
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Se va a leer la pagina que arranca en 224
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Las paginas en LRU son:
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): LRU tiene 0 paginas
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): El tripulante 1 se ha actualizado: Estado: E 3|2
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Las paginas en LRU son:
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): LRU tiene 0 paginas
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Se sobreescribio en RAM: FRAME: 7 | DESDE: 21 | HASTA: 31 
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Las paginas en LRU son:
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): LRU tiene 0 paginas
+[INFO] 22:59:47:909 Mi-RAM/(11334:11599): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 9 
+[INFO] 22:59:50:908 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:50:908 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:50:908 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:50:908 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Se va a actualizar al tripu 1
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Las paginas en LRU son:
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): LRU tiene 0 paginas
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Se va a leer la pagina que arranca en 224
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Las paginas en LRU son:
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): LRU tiene 0 paginas
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): El tripulante 1 se ha actualizado: Estado: E 4|2
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Las paginas en LRU son:
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): LRU tiene 0 paginas
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Se sobreescribio en RAM: FRAME: 7 | DESDE: 21 | HASTA: 31 
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Las paginas en LRU son:
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): LRU tiene 0 paginas
+[INFO] 22:59:50:909 Mi-RAM/(11334:11613): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 9 
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): Se va a actualizar al tripu 2
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): Las paginas en LRU son:
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): LRU tiene 0 paginas
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): El tripulante 2 se ha actualizado: Estado: E 5|5
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): Las paginas en LRU son:
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): LRU tiene 0 paginas
+[INFO] 22:59:50:910 Mi-RAM/(11334:11612): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 22:59:53:909 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:53:909 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): Se va a actualizar al tripu 1
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): Las paginas en LRU son:
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): LRU tiene 0 paginas
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): Se va a leer la pagina que arranca en 224
+[INFO] 22:59:53:909 Mi-RAM/(11334:11617): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 22:59:53:909 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:53:910 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Las paginas en LRU son:
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): LRU tiene 0 paginas
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): El tripulante 1 se ha actualizado: Estado: E 5|2
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Las paginas en LRU son:
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): LRU tiene 0 paginas
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Se sobreescribio en RAM: FRAME: 7 | DESDE: 21 | HASTA: 31 
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Las paginas en LRU son:
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): LRU tiene 0 paginas
+[INFO] 22:59:53:910 Mi-RAM/(11334:11617): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 9 
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): Se va a actualizar al tripu 2
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): Las paginas en LRU son:
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): LRU tiene 0 paginas
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): El tripulante 2 se ha actualizado: Estado: E 5|4
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): Las paginas en LRU son:
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): LRU tiene 0 paginas
+[INFO] 22:59:53:911 Mi-RAM/(11334:11619): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 22:59:56:910 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:56:910 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:56:910 Mi-RAM/(11334:11636): Se va a actualizar al tripu 1
+[INFO] 22:59:56:910 Mi-RAM/(11334:11636): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 22:59:56:910 Mi-RAM/(11334:11636): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 22:59:56:910 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:56:911 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): Las paginas en LRU son:
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): LRU tiene 0 paginas
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): Se va a leer la pagina que arranca en 224
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): Las paginas en LRU son:
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): LRU tiene 0 paginas
+[INFO] 22:59:56:911 Mi-RAM/(11334:11636): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): El tripulante 1 se ha actualizado: Estado: E 6|2
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): Las paginas en LRU son:
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): LRU tiene 0 paginas
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): Se sobreescribio en RAM: FRAME: 7 | DESDE: 21 | HASTA: 31 
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): Las paginas en LRU son:
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): LRU tiene 0 paginas
+[INFO] 22:59:56:912 Mi-RAM/(11334:11636): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 9 
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): Se va a actualizar al tripu 2
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): Las paginas en LRU son:
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): LRU tiene 0 paginas
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): El tripulante 2 se ha actualizado: Estado: E 5|3
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): Las paginas en LRU son:
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): LRU tiene 0 paginas
+[INFO] 22:59:56:912 Mi-RAM/(11334:11638): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 22:59:59:911 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:59:912 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:59:912 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 22:59:59:912 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): Se va a actualizar al tripu 2
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): Las paginas en LRU son:
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): LRU tiene 0 paginas
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): El tripulante 2 se ha actualizado: Estado: E 6|3
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): Las paginas en LRU son:
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): LRU tiene 0 paginas
+[INFO] 22:59:59:912 Mi-RAM/(11334:11645): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): Se va a actualizar al tripu 1
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): Las paginas en LRU son:
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): LRU tiene 0 paginas
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): Se va a leer la pagina que arranca en 224
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 22:59:59:912 Mi-RAM/(11334:11644): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): Las paginas en LRU son:
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): LRU tiene 0 paginas
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): Se va a leer la pagina que arranca en 0
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): El tripulante 1 se ha actualizado: Estado: E 7|2
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): Las paginas en LRU son:
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): LRU tiene 0 paginas
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): Se sobreescribio en RAM: FRAME: 7 | DESDE: 21 | HASTA: 31 
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): Las paginas en LRU son:
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): LRU tiene 0 paginas
+[INFO] 22:59:59:913 Mi-RAM/(11334:11644): Se sobreescribio en RAM: FRAME: 0 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:02:912 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:02:912 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): Se va a actualizar al tripu 2
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): Las paginas en LRU son:
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): LRU tiene 0 paginas
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:02:912 Mi-RAM/(11334:11654): El tripulante 2 se ha actualizado: Estado: E 6|2
+[INFO] 23:00:02:913 Mi-RAM/(11334:11654): Las paginas en LRU son:
+[INFO] 23:00:02:913 Mi-RAM/(11334:11654): LRU tiene 0 paginas
+[INFO] 23:00:02:913 Mi-RAM/(11334:11654): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:05:913 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:05:914 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): Se va a actualizar al tripu 2
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): Las paginas en LRU son:
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): LRU tiene 0 paginas
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): SE LEE DEL TRIPU: 2 - FRAME: 0 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): El tripulante 2 se ha actualizado: Estado: E 7|2
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): Las paginas en LRU son:
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): LRU tiene 0 paginas
+[INFO] 23:00:05:914 Mi-RAM/(11334:11664): Se sobreescribio en RAM: FRAME: 0 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:14:915 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:14:915 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Las paginas en LRU son:
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): LRU tiene 0 paginas
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Se va a leer la pagina que arranca en 224
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Las paginas en LRU son:
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): LRU tiene 0 paginas
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Las paginas en LRU son:
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): LRU tiene 0 paginas
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Las paginas en LRU son:
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): LRU tiene 0 paginas
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Se produce un PF (pagina 1 del proc 1)
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:14:915 Mi-RAM/(11334:11677): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se eligio como victima la pagina 7 cuyo frame es 7.
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se swapea la pagina 1 con la pagina 7
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1219063196
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La pagina VICTIMA tiene asignado frame 7 en mpal y -1 en swap, -1219063200
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se va a leer la pagina que arranca en 224
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La proxima tarea es 112
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Las paginas en LRU son:
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): LRU tiene 0 paginas
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se produce un PF (pagina 7 del proc 1)
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se eligio como victima la pagina 8 cuyo frame es 0.
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se swapea la pagina 7 con la pagina 8
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1219063260
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La pagina VICTIMA tiene asignado frame 0 en mpal y -1 en swap, -1219063264
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Las paginas en LRU son:
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): LRU tiene 0 paginas
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se produce un PF (pagina 8 del proc 1)
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se eligio como victima la pagina 0 cuyo frame es 1.
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se swapea la pagina 8 con la pagina 0
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1219063260
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): La pagina VICTIMA tiene asignado frame 1 en mpal y -1 en swap, -1219063264
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:14:916 Mi-RAM/(11334:11677): El tripulante 1 pidio la tarea BARRER;7;7;4
+[INFO] 23:00:14:916 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:14:916 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): Se va a actualizar al tripu 1
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): Las paginas en LRU son:
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): LRU tiene 0 paginas
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): El tripulante 1 se ha actualizado: Estado: E 4|5
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): Las paginas en LRU son:
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): LRU tiene 0 paginas
+[INFO] 23:00:14:917 Mi-RAM/(11334:11678): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:17:917 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:17:917 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): Se va a actualizar al tripu 1
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): Las paginas en LRU son:
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): LRU tiene 0 paginas
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): El tripulante 1 se ha actualizado: Estado: E 3|5
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): Las paginas en LRU son:
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): LRU tiene 0 paginas
+[INFO] 23:00:17:917 Mi-RAM/(11334:11685): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:20:916 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:20:916 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Las paginas en LRU son:
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): LRU tiene 0 paginas
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Las paginas en LRU son:
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): LRU tiene 0 paginas
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Se produce un PF (pagina 0 del proc 1)
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Se eligio como victima la pagina 0 cuyo frame es 2.
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Se swapea la pagina 0 con la pagina 0
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1228934556
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): La pagina VICTIMA tiene asignado frame 2 en mpal y -1 en swap, -1228934560
+[INFO] 23:00:20:916 Mi-RAM/(11334:11695): Se va a leer la pagina que arranca en 64
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): Las paginas en LRU son:
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): LRU tiene 0 paginas
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): Se va a leer la pagina que arranca en 224
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): La proxima tarea es 112
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): Las paginas en LRU son:
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): LRU tiene 0 paginas
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:20:917 Mi-RAM/(11334:11695): El tripulante 2 pidio la tarea BARRER;7;7;4
+[INFO] 23:00:20:917 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:20:917 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:20:917 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:20:917 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): Se va a actualizar al tripu 1
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): Las paginas en LRU son:
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): LRU tiene 0 paginas
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): El tripulante 1 se ha actualizado: Estado: E 2|5
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): Las paginas en LRU son:
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): LRU tiene 0 paginas
+[INFO] 23:00:20:918 Mi-RAM/(11334:11697): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Se va a actualizar al tripu 1
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Las paginas en LRU son:
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): LRU tiene 0 paginas
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Las paginas en LRU son:
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): LRU tiene 0 paginas
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): El tripulante 1 se ha actualizado: Estado: E 7|3
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Las paginas en LRU son:
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): LRU tiene 0 paginas
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Las paginas en LRU son:
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): LRU tiene 0 paginas
+[INFO] 23:00:20:918 Mi-RAM/(11334:11696): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:23:918 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:23:918 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:23:918 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:23:918 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): Se va a actualizar al tripu 1
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): Las paginas en LRU son:
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): LRU tiene 0 paginas
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:23:918 Mi-RAM/(11334:11699): El tripulante 1 se ha actualizado: Estado: E 2|4
+[INFO] 23:00:23:919 Mi-RAM/(11334:11699): Las paginas en LRU son:
+[INFO] 23:00:23:919 Mi-RAM/(11334:11699): LRU tiene 0 paginas
+[INFO] 23:00:23:919 Mi-RAM/(11334:11699): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Se va a actualizar al tripu 1
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Las paginas en LRU son:
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): LRU tiene 0 paginas
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Las paginas en LRU son:
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): LRU tiene 0 paginas
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): El tripulante 1 se ha actualizado: Estado: E 7|4
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Las paginas en LRU son:
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): LRU tiene 0 paginas
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Las paginas en LRU son:
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): LRU tiene 0 paginas
+[INFO] 23:00:23:919 Mi-RAM/(11334:11698): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:26:918 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:26:919 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): Se va a actualizar al tripu 1
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): Las paginas en LRU son:
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): LRU tiene 0 paginas
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): El tripulante 1 se ha actualizado: Estado: E 1|4
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): Las paginas en LRU son:
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): LRU tiene 0 paginas
+[INFO] 23:00:26:919 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:26:919 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:26:919 Mi-RAM/(11334:11709): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Se va a actualizar al tripu 1
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Las paginas en LRU son:
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): LRU tiene 0 paginas
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Las paginas en LRU son:
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): LRU tiene 0 paginas
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): El tripulante 1 se ha actualizado: Estado: E 7|5
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Las paginas en LRU son:
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): LRU tiene 0 paginas
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Las paginas en LRU son:
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): LRU tiene 0 paginas
+[INFO] 23:00:26:920 Mi-RAM/(11334:11710): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:29:919 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:29:919 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:29:919 Mi-RAM/(11334:11714): Se va a actualizar al tripu 1
+[INFO] 23:00:29:919 Mi-RAM/(11334:11714): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:29:919 Mi-RAM/(11334:11714): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): Las paginas en LRU son:
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): LRU tiene 0 paginas
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): El tripulante 1 se ha actualizado: Estado: E 1|3
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): Las paginas en LRU son:
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): LRU tiene 0 paginas
+[INFO] 23:00:29:920 Mi-RAM/(11334:11714): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:29:920 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:29:920 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Se va a actualizar al tripu 1
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Las paginas en LRU son:
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): LRU tiene 0 paginas
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Las paginas en LRU son:
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): LRU tiene 0 paginas
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:29:920 Mi-RAM/(11334:11715): El tripulante 1 se ha actualizado: Estado: E 7|6
+[INFO] 23:00:29:921 Mi-RAM/(11334:11715): Las paginas en LRU son:
+[INFO] 23:00:29:921 Mi-RAM/(11334:11715): LRU tiene 0 paginas
+[INFO] 23:00:29:921 Mi-RAM/(11334:11715): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:29:921 Mi-RAM/(11334:11715): Las paginas en LRU son:
+[INFO] 23:00:29:921 Mi-RAM/(11334:11715): LRU tiene 0 paginas
+[INFO] 23:00:29:921 Mi-RAM/(11334:11715): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:32:920 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:32:920 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): Se va a actualizar al tripu 1
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): Las paginas en LRU son:
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): LRU tiene 0 paginas
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): El tripulante 1 se ha actualizado: Estado: E 1|2
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): Las paginas en LRU son:
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): LRU tiene 0 paginas
+[INFO] 23:00:32:920 Mi-RAM/(11334:11722): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:32:921 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:32:921 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Se va a actualizar al tripu 1
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Las paginas en LRU son:
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): LRU tiene 0 paginas
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Las paginas en LRU son:
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): LRU tiene 0 paginas
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): El tripulante 1 se ha actualizado: Estado: E 7|7
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Las paginas en LRU son:
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): LRU tiene 0 paginas
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Las paginas en LRU son:
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): LRU tiene 0 paginas
+[INFO] 23:00:32:921 Mi-RAM/(11334:11723): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:35:920 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:35:921 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): Se va a actualizar al tripu 1
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): Las paginas en LRU son:
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): LRU tiene 0 paginas
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): El tripulante 1 se ha actualizado: Estado: E 1|1
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): Las paginas en LRU son:
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): LRU tiene 0 paginas
+[INFO] 23:00:35:921 Mi-RAM/(11334:11733): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:47:922 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:47:922 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:00:47:922 Mi-RAM/(11334:11757): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:47:922 Mi-RAM/(11334:11757): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Las paginas en LRU son:
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): LRU tiene 0 paginas
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Las paginas en LRU son:
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): LRU tiene 0 paginas
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Las paginas en LRU son:
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): LRU tiene 0 paginas
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se va a leer la pagina que arranca en 224
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Las paginas en LRU son:
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): LRU tiene 0 paginas
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se produce un PF (pagina 2 del proc 1)
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se eligio como victima la pagina 1 cuyo frame es 3.
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se swapea la pagina 2 con la pagina 1
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): La pagina PEDIDA tiene asignado frame -1 en mpal y 1 en swap, -1239420316
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): La pagina VICTIMA tiene asignado frame 3 en mpal y -1 en swap, -1239420320
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se va a leer la pagina que arranca en 96
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): La proxima tarea es 205
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Las paginas en LRU son:
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): LRU tiene 0 paginas
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Las paginas en LRU son:
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): LRU tiene 0 paginas
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:47:923 Mi-RAM/(11334:11757): El tripulante 1 pidio la tarea GENERAR_OXIGENO 12;0;0;5
+[INFO] 23:00:47:923 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:47:923 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): Se va a actualizar al tripu 2
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): Las paginas en LRU son:
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): LRU tiene 0 paginas
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): El tripulante 2 se ha actualizado: Estado: E 7|3
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): Las paginas en LRU son:
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): LRU tiene 0 paginas
+[INFO] 23:00:47:924 Mi-RAM/(11334:11758): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:50:924 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:50:924 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): Se va a actualizar al tripu 2
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): Las paginas en LRU son:
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): LRU tiene 0 paginas
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): El tripulante 2 se ha actualizado: Estado: E 7|4
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): Las paginas en LRU son:
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): LRU tiene 0 paginas
+[INFO] 23:00:50:924 Mi-RAM/(11334:11768): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:53:923 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:53:923 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:00:53:923 Mi-RAM/(11334:11776): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:00:53:923 Mi-RAM/(11334:11776): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Las paginas en LRU son:
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): LRU tiene 0 paginas
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se va a leer la pagina que arranca en 192
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Las paginas en LRU son:
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): LRU tiene 0 paginas
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se produce un PF (pagina 0 del proc 2)
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se eligio como victima la pagina 2 cuyo frame es 4.
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se swapea la pagina 0 con la pagina 2
+[INFO] 23:00:53:924 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:53:924 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1219063196
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): La pagina VICTIMA tiene asignado frame 4 en mpal y -1 en swap, -1219063200
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se va a leer la pagina que arranca en 128
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Las paginas en LRU son:
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): LRU tiene 0 paginas
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se produce un PF (pagina 1 del proc 2)
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se eligio como victima la pagina 3 cuyo frame es 5.
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se swapea la pagina 1 con la pagina 3
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): La pagina PEDIDA tiene asignado frame -1 en mpal y 1 en swap, -1219063196
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): La pagina VICTIMA tiene asignado frame 5 en mpal y -1 en swap, -1219063200
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se va a leer la pagina que arranca en 160
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): La proxima tarea es 122
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Las paginas en LRU son:
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): LRU tiene 0 paginas
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:00:53:924 Mi-RAM/(11334:11776): El tripulante 1 pidio la tarea HACER_EJERCICIO;7;3;10
+[INFO] 23:00:53:925 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:53:925 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Se va a actualizar al tripu 1
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Las paginas en LRU son:
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): LRU tiene 0 paginas
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Las paginas en LRU son:
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): LRU tiene 0 paginas
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): El tripulante 1 se ha actualizado: Estado: E 6|7
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Las paginas en LRU son:
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): LRU tiene 0 paginas
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Las paginas en LRU son:
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): LRU tiene 0 paginas
+[INFO] 23:00:53:925 Mi-RAM/(11334:11778): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:53:925 Mi-RAM/(11334:11777): Se va a actualizar al tripu 2
+[INFO] 23:00:53:925 Mi-RAM/(11334:11777): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:53:925 Mi-RAM/(11334:11777): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): Las paginas en LRU son:
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): LRU tiene 0 paginas
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): El tripulante 2 se ha actualizado: Estado: E 7|5
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): Las paginas en LRU son:
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): LRU tiene 0 paginas
+[INFO] 23:00:53:926 Mi-RAM/(11334:11777): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:56:924 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:00:56:925 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): Se va a actualizar al tripu 2
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): Las paginas en LRU son:
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): LRU tiene 0 paginas
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): El tripulante 2 se ha actualizado: Estado: E 7|6
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): Las paginas en LRU son:
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): LRU tiene 0 paginas
+[INFO] 23:00:56:925 Mi-RAM/(11334:11788): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:56:925 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:56:926 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Se va a actualizar al tripu 1
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Las paginas en LRU son:
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): LRU tiene 0 paginas
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Las paginas en LRU son:
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): LRU tiene 0 paginas
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): El tripulante 1 se ha actualizado: Estado: E 5|7
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Las paginas en LRU son:
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): LRU tiene 0 paginas
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Las paginas en LRU son:
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): LRU tiene 0 paginas
+[INFO] 23:00:56:926 Mi-RAM/(11334:11789): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:00:59:925 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:59:925 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:59:925 Mi-RAM/(11334:11793): Se va a actualizar al tripu 2
+[INFO] 23:00:59:925 Mi-RAM/(11334:11793): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:00:59:925 Mi-RAM/(11334:11793): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): Las paginas en LRU son:
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): LRU tiene 0 paginas
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): El tripulante 2 se ha actualizado: Estado: E 7|7
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): Las paginas en LRU son:
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): LRU tiene 0 paginas
+[INFO] 23:00:59:926 Mi-RAM/(11334:11793): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:00:59:926 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:00:59:926 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Se va a actualizar al tripu 1
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Las paginas en LRU son:
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): LRU tiene 0 paginas
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Se va a leer la pagina que arranca en 0
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Las paginas en LRU son:
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): LRU tiene 0 paginas
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Se va a leer la pagina que arranca en 32
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): El tripulante 1 se ha actualizado: Estado: E 4|7
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): Las paginas en LRU son:
+[INFO] 23:00:59:926 Mi-RAM/(11334:11794): LRU tiene 0 paginas
+[INFO] 23:00:59:927 Mi-RAM/(11334:11794): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:00:59:927 Mi-RAM/(11334:11794): Las paginas en LRU son:
+[INFO] 23:00:59:927 Mi-RAM/(11334:11794): LRU tiene 0 paginas
+[INFO] 23:00:59:927 Mi-RAM/(11334:11794): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:02:926 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:02:927 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Se va a actualizar al tripu 1
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Las paginas en LRU son:
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): LRU tiene 0 paginas
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Las paginas en LRU son:
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): LRU tiene 0 paginas
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): El tripulante 1 se ha actualizado: Estado: E 4|6
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Las paginas en LRU son:
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): LRU tiene 0 paginas
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Las paginas en LRU son:
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): LRU tiene 0 paginas
+[INFO] 23:01:02:927 Mi-RAM/(11334:11801): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:06:097 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:06:097 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Se va a actualizar al tripu 1
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Las paginas en LRU son:
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): LRU tiene 0 paginas
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Las paginas en LRU son:
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): LRU tiene 0 paginas
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): El tripulante 1 se ha actualizado: Estado: E 3|6
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Las paginas en LRU son:
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): LRU tiene 0 paginas
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Las paginas en LRU son:
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): LRU tiene 0 paginas
+[INFO] 23:01:06:097 Mi-RAM/(11334:11857): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:09:097 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:09:097 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:09:097 Mi-RAM/(11334:11928): Se va a actualizar al tripu 1
+[INFO] 23:01:09:097 Mi-RAM/(11334:11928): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:09:097 Mi-RAM/(11334:11928): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Las paginas en LRU son:
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): LRU tiene 0 paginas
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Las paginas en LRU son:
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): LRU tiene 0 paginas
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): El tripulante 1 se ha actualizado: Estado: E 3|5
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Las paginas en LRU son:
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): LRU tiene 0 paginas
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Las paginas en LRU son:
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): LRU tiene 0 paginas
+[INFO] 23:01:09:098 Mi-RAM/(11334:11928): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:12:098 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:12:098 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Se va a actualizar al tripu 1
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Las paginas en LRU son:
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): LRU tiene 0 paginas
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Las paginas en LRU son:
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): LRU tiene 0 paginas
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): El tripulante 1 se ha actualizado: Estado: E 2|5
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Las paginas en LRU son:
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): LRU tiene 0 paginas
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Las paginas en LRU son:
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): LRU tiene 0 paginas
+[INFO] 23:01:12:098 Mi-RAM/(11334:11973): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:15:097 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:15:097 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:01:15:097 Mi-RAM/(11334:11977): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:01:15:097 Mi-RAM/(11334:11977): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Las paginas en LRU son:
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): LRU tiene 0 paginas
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Las paginas en LRU son:
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): LRU tiene 0 paginas
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Se va a leer la pagina que arranca en 224
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Las paginas en LRU son:
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): LRU tiene 0 paginas
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Se va a leer la pagina que arranca en 96
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): La proxima tarea es 205
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Las paginas en LRU son:
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): LRU tiene 0 paginas
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:01:15:098 Mi-RAM/(11334:11977): El tripulante 2 pidio la tarea GENERAR_OXIGENO 12;0;0;5
+[INFO] 23:01:15:098 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:01:15:098 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): Se va a actualizar al tripu 1
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:15:099 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:01:15:099 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): Las paginas en LRU son:
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): LRU tiene 0 paginas
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): El tripulante 1 se ha actualizado: Estado: E 1|2
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): Las paginas en LRU son:
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): LRU tiene 0 paginas
+[INFO] 23:01:15:099 Mi-RAM/(11334:11978): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): Se va a actualizar al tripu 1
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): Las paginas en LRU son:
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): LRU tiene 0 paginas
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:15:099 Mi-RAM/(11334:11979): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): Las paginas en LRU son:
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): LRU tiene 0 paginas
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): El tripulante 1 se ha actualizado: Estado: E 1|5
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): Las paginas en LRU son:
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): LRU tiene 0 paginas
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): Las paginas en LRU son:
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): LRU tiene 0 paginas
+[INFO] 23:01:15:100 Mi-RAM/(11334:11979): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:18:099 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:01:18:100 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:18:100 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:18:100 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Se va a actualizar al tripu 1
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Las paginas en LRU son:
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): LRU tiene 0 paginas
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Las paginas en LRU son:
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): LRU tiene 0 paginas
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): El tripulante 1 se ha actualizado: Estado: E 1|4
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Las paginas en LRU son:
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): LRU tiene 0 paginas
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Las paginas en LRU son:
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): LRU tiene 0 paginas
+[INFO] 23:01:18:100 Mi-RAM/(11334:11987): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): Se va a actualizar al tripu 1
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): Las paginas en LRU son:
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): LRU tiene 0 paginas
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): El tripulante 1 se ha actualizado: Estado: E 2|2
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): Las paginas en LRU son:
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): LRU tiene 0 paginas
+[INFO] 23:01:18:101 Mi-RAM/(11334:11986): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:21:100 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:21:100 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:21:100 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:21:100 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:21:100 Mi-RAM/(11334:11998): Se va a actualizar al tripu 1
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): Las paginas en LRU son:
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): LRU tiene 0 paginas
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): El tripulante 1 se ha actualizado: Estado: E 2|3
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): Las paginas en LRU son:
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): LRU tiene 0 paginas
+[INFO] 23:01:21:101 Mi-RAM/(11334:11998): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Se va a actualizar al tripu 1
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Las paginas en LRU son:
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): LRU tiene 0 paginas
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Las paginas en LRU son:
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): LRU tiene 0 paginas
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): El tripulante 1 se ha actualizado: Estado: E 0|4
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Las paginas en LRU son:
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): LRU tiene 0 paginas
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Las paginas en LRU son:
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): LRU tiene 0 paginas
+[INFO] 23:01:21:101 Mi-RAM/(11334:11997): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:24:101 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:24:102 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:24:102 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:24:102 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Se va a actualizar al tripu 1
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Las paginas en LRU son:
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): LRU tiene 0 paginas
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Las paginas en LRU son:
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): LRU tiene 0 paginas
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): El tripulante 1 se ha actualizado: Estado: E 0|3
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Las paginas en LRU son:
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): LRU tiene 0 paginas
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Las paginas en LRU son:
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): LRU tiene 0 paginas
+[INFO] 23:01:24:102 Mi-RAM/(11334:12000): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): Se va a actualizar al tripu 1
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): Las paginas en LRU son:
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): LRU tiene 0 paginas
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): El tripulante 1 se ha actualizado: Estado: E 3|3
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): Las paginas en LRU son:
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): LRU tiene 0 paginas
+[INFO] 23:01:24:103 Mi-RAM/(11334:11999): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:27:102 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:27:102 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Se va a actualizar al tripu 1
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Las paginas en LRU son:
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): LRU tiene 0 paginas
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Las paginas en LRU son:
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): LRU tiene 0 paginas
+[INFO] 23:01:27:102 Mi-RAM/(11334:12010): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): El tripulante 1 se ha actualizado: Estado: E 0|2
+[INFO] 23:01:27:103 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:27:103 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): Las paginas en LRU son:
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): LRU tiene 0 paginas
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): Las paginas en LRU son:
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): LRU tiene 0 paginas
+[INFO] 23:01:27:103 Mi-RAM/(11334:12010): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): Se va a actualizar al tripu 1
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): Las paginas en LRU son:
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): LRU tiene 0 paginas
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): El tripulante 1 se ha actualizado: Estado: E 4|3
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): Las paginas en LRU son:
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): LRU tiene 0 paginas
+[INFO] 23:01:27:103 Mi-RAM/(11334:12011): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:30:103 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:30:104 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:30:104 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:30:104 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): Se va a actualizar al tripu 1
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): Las paginas en LRU son:
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): LRU tiene 0 paginas
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): El tripulante 1 se ha actualizado: Estado: E 5|3
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): Las paginas en LRU son:
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): LRU tiene 0 paginas
+[INFO] 23:01:30:104 Mi-RAM/(11334:12016): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Se va a actualizar al tripu 1
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Las paginas en LRU son:
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): LRU tiene 0 paginas
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Las paginas en LRU son:
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): LRU tiene 0 paginas
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): El tripulante 1 se ha actualizado: Estado: E 0|1
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Las paginas en LRU son:
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): LRU tiene 0 paginas
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Las paginas en LRU son:
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): LRU tiene 0 paginas
+[INFO] 23:01:30:105 Mi-RAM/(11334:12015): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:33:104 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:33:105 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:33:105 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:33:105 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Se va a actualizar al tripu 1
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Las paginas en LRU son:
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): LRU tiene 0 paginas
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Las paginas en LRU son:
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): LRU tiene 0 paginas
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): El tripulante 1 se ha actualizado: Estado: E 0|0
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Las paginas en LRU son:
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): LRU tiene 0 paginas
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Las paginas en LRU son:
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): LRU tiene 0 paginas
+[INFO] 23:01:33:105 Mi-RAM/(11334:12024): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): Se va a actualizar al tripu 1
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): Las paginas en LRU son:
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): LRU tiene 0 paginas
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:33:105 Mi-RAM/(11334:12023): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:33:106 Mi-RAM/(11334:12023): El tripulante 1 se ha actualizado: Estado: E 6|3
+[INFO] 23:01:33:106 Mi-RAM/(11334:12023): Las paginas en LRU son:
+[INFO] 23:01:33:106 Mi-RAM/(11334:12023): LRU tiene 0 paginas
+[INFO] 23:01:33:106 Mi-RAM/(11334:12023): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:36:105 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:36:106 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): Se va a actualizar al tripu 1
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): Las paginas en LRU son:
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): LRU tiene 0 paginas
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): Se va a leer la pagina que arranca en 192
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): El tripulante 1 se ha actualizado: Estado: E 7|3
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): Las paginas en LRU son:
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): LRU tiene 0 paginas
+[INFO] 23:01:36:106 Mi-RAM/(11334:12034): Se sobreescribio en RAM: FRAME: 6 | DESDE: 11 | HASTA: 31 
+[INFO] 23:01:54:108 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:01:54:108 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Las paginas en LRU son:
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): LRU tiene 0 paginas
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Se va a leer la pagina que arranca en 0
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Las paginas en LRU son:
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): LRU tiene 0 paginas
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Las paginas en LRU son:
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): LRU tiene 0 paginas
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Se va a leer la pagina que arranca en 96
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): La proxima tarea es 219
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Las paginas en LRU son:
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): LRU tiene 0 paginas
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Las paginas en LRU son:
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): LRU tiene 0 paginas
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:01:54:108 Mi-RAM/(11334:12070): El tripulante 1 pidio la tarea CAMINAR;2;2;1
+[INFO] 23:01:54:109 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:01:54:109 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): Se va a actualizar al tripu 2
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): Las paginas en LRU son:
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): LRU tiene 0 paginas
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): El tripulante 2 se ha actualizado: Estado: E 7|6
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): Las paginas en LRU son:
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): LRU tiene 0 paginas
+[INFO] 23:01:54:109 Mi-RAM/(11334:12071): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:01:57:110 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:01:57:110 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): Se va a actualizar al tripu 2
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): Las paginas en LRU son:
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): LRU tiene 0 paginas
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): Se va a leer la pagina que arranca en 32
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): El tripulante 2 se ha actualizado: Estado: E 6|6
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): Las paginas en LRU son:
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): LRU tiene 0 paginas
+[INFO] 23:01:57:111 Mi-RAM/(11334:12092): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:00:110 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:00:111 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): Se va a actualizar al tripu 2
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): Las paginas en LRU son:
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): LRU tiene 0 paginas
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): El tripulante 2 se ha actualizado: Estado: E 6|5
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): Las paginas en LRU son:
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): LRU tiene 0 paginas
+[INFO] 23:02:00:111 Mi-RAM/(11334:12118): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:03:111 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:03:111 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): Se va a actualizar al tripu 2
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): Las paginas en LRU son:
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): LRU tiene 0 paginas
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): El tripulante 2 se ha actualizado: Estado: E 5|5
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): Las paginas en LRU son:
+[INFO] 23:02:03:111 Mi-RAM/(11334:12135): LRU tiene 0 paginas
+[INFO] 23:02:03:112 Mi-RAM/(11334:12135): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:06:111 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:06:112 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): Se va a actualizar al tripu 2
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): Las paginas en LRU son:
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): LRU tiene 0 paginas
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): El tripulante 2 se ha actualizado: Estado: E 5|4
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): Las paginas en LRU son:
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): LRU tiene 0 paginas
+[INFO] 23:02:06:112 Mi-RAM/(11334:12150): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:09:111 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:09:111 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:02:09:111 Mi-RAM/(11334:12151): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:02:09:111 Mi-RAM/(11334:12151): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:02:09:111 Mi-RAM/(11334:12151): Las paginas en LRU son:
+[INFO] 23:02:09:111 Mi-RAM/(11334:12151): LRU tiene 0 paginas
+[INFO] 23:02:09:111 Mi-RAM/(11334:12151): Se va a leer la pagina que arranca en 192
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): SE LEE DEL TRIPU: 1 - FRAME: 6 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:02:09:112 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:09:112 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Las paginas en LRU son:
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): LRU tiene 0 paginas
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se va a leer la pagina que arranca en 160
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Las paginas en LRU son:
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): LRU tiene 0 paginas
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se produce un PF (pagina 2 del proc 2)
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se eligio como victima la pagina 4 cuyo frame es 6.
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se swapea la pagina 2 con la pagina 4
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1239420316
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): La pagina VICTIMA tiene asignado frame 6 en mpal y -1 en swap, -1239420320
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se va a leer la pagina que arranca en 192
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): La proxima tarea es 213
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Las paginas en LRU son:
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): LRU tiene 0 paginas
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se produce un PF (pagina 4 del proc 2)
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se eligio como victima la pagina 1 cuyo frame es 7.
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se swapea la pagina 4 con la pagina 1
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): La pagina PEDIDA tiene asignado frame -1 en mpal y 0 en swap, -1239420380
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): La pagina VICTIMA tiene asignado frame 7 en mpal y -1 en swap, -1239420384
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:02:09:112 Mi-RAM/(11334:12151): El tripulante 1 pidio la tarea SUBIR_FOTOS_A_IG;7;3;8
+[INFO] 23:02:09:113 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:09:113 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Se va a actualizar al tripu 1
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Las paginas en LRU son:
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): LRU tiene 0 paginas
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Se va a leer la pagina que arranca en 0
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Las paginas en LRU son:
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): LRU tiene 0 paginas
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): El tripulante 1 se ha actualizado: Estado: E 0|1
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Las paginas en LRU son:
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): LRU tiene 0 paginas
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Las paginas en LRU son:
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): LRU tiene 0 paginas
+[INFO] 23:02:09:113 Mi-RAM/(11334:12153): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): Se va a actualizar al tripu 2
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): Las paginas en LRU son:
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): LRU tiene 0 paginas
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): El tripulante 2 se ha actualizado: Estado: E 4|4
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): Las paginas en LRU son:
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): LRU tiene 0 paginas
+[INFO] 23:02:09:114 Mi-RAM/(11334:12152): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:12:112 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:12:113 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): Se va a actualizar al tripu 2
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): Las paginas en LRU son:
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): LRU tiene 0 paginas
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): El tripulante 2 se ha actualizado: Estado: E 3|4
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): Las paginas en LRU son:
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): LRU tiene 0 paginas
+[INFO] 23:02:12:113 Mi-RAM/(11334:12163): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:12:113 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:12:113 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Se va a actualizar al tripu 1
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Las paginas en LRU son:
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): LRU tiene 0 paginas
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Se va a leer la pagina que arranca en 0
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Las paginas en LRU son:
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): LRU tiene 0 paginas
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): El tripulante 1 se ha actualizado: Estado: E 0|2
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Las paginas en LRU son:
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): LRU tiene 0 paginas
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Las paginas en LRU son:
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): LRU tiene 0 paginas
+[INFO] 23:02:12:114 Mi-RAM/(11334:12164): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:15:113 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:15:113 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:15:114 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:15:115 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): Se va a actualizar al tripu 2
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): Las paginas en LRU son:
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): LRU tiene 0 paginas
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): El tripulante 2 se ha actualizado: Estado: E 2|4
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): Las paginas en LRU son:
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): LRU tiene 0 paginas
+[INFO] 23:02:15:115 Mi-RAM/(11334:12168): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:15:115 Mi-RAM/(11334:12169): Se va a actualizar al tripu 1
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Las paginas en LRU son:
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): LRU tiene 0 paginas
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Se va a leer la pagina que arranca en 0
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Las paginas en LRU son:
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): LRU tiene 0 paginas
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): El tripulante 1 se ha actualizado: Estado: E 1|2
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Las paginas en LRU son:
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): LRU tiene 0 paginas
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Las paginas en LRU son:
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): LRU tiene 0 paginas
+[INFO] 23:02:15:116 Mi-RAM/(11334:12169): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:18:114 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:18:114 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): Se va a actualizar al tripu 2
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): Las paginas en LRU son:
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): LRU tiene 0 paginas
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): El tripulante 2 se ha actualizado: Estado: E 2|3
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): Las paginas en LRU son:
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): LRU tiene 0 paginas
+[INFO] 23:02:18:114 Mi-RAM/(11334:12181): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:18:115 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:18:115 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Se va a actualizar al tripu 1
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Las paginas en LRU son:
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): LRU tiene 0 paginas
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Se va a leer la pagina que arranca en 0
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Las paginas en LRU son:
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): LRU tiene 0 paginas
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): El tripulante 1 se ha actualizado: Estado: E 2|2
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Las paginas en LRU son:
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): LRU tiene 0 paginas
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Se sobreescribio en RAM: FRAME: 0 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): Las paginas en LRU son:
+[INFO] 23:02:18:115 Mi-RAM/(11334:12182): LRU tiene 0 paginas
+[INFO] 23:02:18:116 Mi-RAM/(11334:12182): Se sobreescribio en RAM: FRAME: 1 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:21:114 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:21:115 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:21:115 Mi-RAM/(11334:12209): Se va a actualizar al tripu 2
+[INFO] 23:02:21:115 Mi-RAM/(11334:12209): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:21:115 Mi-RAM/(11334:12209): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): Las paginas en LRU son:
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): LRU tiene 0 paginas
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): El tripulante 2 se ha actualizado: Estado: E 2|2
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): Las paginas en LRU son:
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): LRU tiene 0 paginas
+[INFO] 23:02:21:120 Mi-RAM/(11334:12209): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:24:116 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:24:116 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:24:117 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:24:117 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:02:24:117 Mi-RAM/(11334:12218): Se va a actualizar al tripu 2
+[INFO] 23:02:24:117 Mi-RAM/(11334:12218): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:24:117 Mi-RAM/(11334:12218): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:24:124 Mi-RAM/(11334:12219): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:24:130 Mi-RAM/(11334:12218): Las paginas en LRU son:
+[INFO] 23:02:24:130 Mi-RAM/(11334:12218): LRU tiene 0 paginas
+[INFO] 23:02:24:130 Mi-RAM/(11334:12218): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:24:130 Mi-RAM/(11334:12218): SE LEE DEL TRIPU: 2 - FRAME: 1 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:24:130 Mi-RAM/(11334:12218): El tripulante 2 se ha actualizado: Estado: E 1|2
+[INFO] 23:02:24:131 Mi-RAM/(11334:12218): Las paginas en LRU son:
+[INFO] 23:02:24:131 Mi-RAM/(11334:12218): LRU tiene 0 paginas
+[INFO] 23:02:24:131 Mi-RAM/(11334:12218): Se sobreescribio en RAM: FRAME: 1 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): Las paginas en LRU son:
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): LRU tiene 0 paginas
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): Se va a leer la pagina que arranca en 0
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): SE LEE DEL TRIPU: 1 - FRAME: 0 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): Las paginas en LRU son:
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): LRU tiene 0 paginas
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:24:131 Mi-RAM/(11334:12219): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:24:132 Mi-RAM/(11334:12219): Las paginas en LRU son:
+[INFO] 23:02:24:132 Mi-RAM/(11334:12219): LRU tiene 0 paginas
+[INFO] 23:02:24:132 Mi-RAM/(11334:12219): Se va a leer la pagina que arranca en 96
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): Las paginas en LRU son:
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): LRU tiene 0 paginas
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): Se produce un PF (pagina 3 del proc 1)
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): Se eligio como victima la pagina 7 cuyo frame es 0.
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): Se swapea la pagina 3 con la pagina 7
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): La pagina PEDIDA tiene asignado frame -1 en mpal y 2 en swap, -1219063196
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): La pagina VICTIMA tiene asignado frame 0 en mpal y -1 en swap, -1219063200
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): Se va a leer la pagina que arranca en 0
+[INFO] 23:02:24:133 Mi-RAM/(11334:12219): La proxima tarea es 311
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): Las paginas en LRU son:
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): LRU tiene 0 paginas
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): Se produce un PF (pagina 7 del proc 1)
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): Se eligio como victima la pagina 8 cuyo frame es 1.
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): Se swapea la pagina 7 con la pagina 8
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): La pagina PEDIDA tiene asignado frame -1 en mpal y 2 en swap, -1219063260
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): La pagina VICTIMA tiene asignado frame 1 en mpal y -1 en swap, -1219063264
+[INFO] 23:02:24:136 Mi-RAM/(11334:12219): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:24:137 Mi-RAM/(11334:12219): Las paginas en LRU son:
+[INFO] 23:02:24:137 Mi-RAM/(11334:12219): LRU tiene 0 paginas
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): Se produce un PF (pagina 8 del proc 1)
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): Se eligio como victima la pagina 0 cuyo frame es 2.
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): Se swapea la pagina 8 con la pagina 0
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): La pagina PEDIDA tiene asignado frame -1 en mpal y 2 en swap, -1219063260
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): La pagina VICTIMA tiene asignado frame 2 en mpal y -1 en swap, -1219063264
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:24:138 Mi-RAM/(11334:12219): El tripulante 1 pidio la tarea GENERAR_COMIDA 12;3;4;5
+[INFO] 23:02:27:118 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:27:118 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:27:118 Mi-RAM/(11334:12230): Se va a actualizar al tripu 2
+[INFO] 23:02:27:118 Mi-RAM/(11334:12230): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:27:118 Mi-RAM/(11334:12230): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:27:127 Mi-RAM/(11334:12230): Las paginas en LRU son:
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): LRU tiene 0 paginas
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): El tripulante 2 se ha actualizado: Estado: E 1|1
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): Las paginas en LRU son:
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): LRU tiene 0 paginas
+[INFO] 23:02:27:128 Mi-RAM/(11334:12230): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:30:119 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:30:119 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:30:119 Mi-RAM/(11334:12235): Se va a actualizar al tripu 2
+[INFO] 23:02:30:119 Mi-RAM/(11334:12235): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:30:119 Mi-RAM/(11334:12235): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:30:126 Mi-RAM/(11334:12235): Las paginas en LRU son:
+[INFO] 23:02:30:126 Mi-RAM/(11334:12235): LRU tiene 0 paginas
+[INFO] 23:02:30:126 Mi-RAM/(11334:12235): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:30:126 Mi-RAM/(11334:12235): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:30:127 Mi-RAM/(11334:12235): El tripulante 2 se ha actualizado: Estado: E 0|1
+[INFO] 23:02:30:127 Mi-RAM/(11334:12235): Las paginas en LRU son:
+[INFO] 23:02:30:127 Mi-RAM/(11334:12235): LRU tiene 0 paginas
+[INFO] 23:02:30:127 Mi-RAM/(11334:12235): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:33:119 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:33:119 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:33:120 Mi-RAM/(11334:12243): Se va a actualizar al tripu 2
+[INFO] 23:02:33:120 Mi-RAM/(11334:12243): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:33:120 Mi-RAM/(11334:12243): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): Las paginas en LRU son:
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): LRU tiene 0 paginas
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): El tripulante 2 se ha actualizado: Estado: E 0|0
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): Las paginas en LRU son:
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): LRU tiene 0 paginas
+[INFO] 23:02:33:132 Mi-RAM/(11334:12243): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:48:142 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:48:142 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:02:48:142 Mi-RAM/(11334:12279): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:02:48:142 Mi-RAM/(11334:12279): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Las paginas en LRU son:
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): LRU tiene 0 paginas
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se va a leer la pagina que arranca en 224
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Las paginas en LRU son:
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): LRU tiene 0 paginas
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se va a leer la pagina que arranca en 192
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Las paginas en LRU son:
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): LRU tiene 0 paginas
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se produce un PF (pagina 3 del proc 2)
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se eligio como victima la pagina 2 cuyo frame es 3.
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se swapea la pagina 3 con la pagina 2
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): La pagina PEDIDA tiene asignado frame -1 en mpal y 1 en swap, -1219063196
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): La pagina VICTIMA tiene asignado frame 3 en mpal y -1 en swap, -1219063200
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se va a leer la pagina que arranca en 96
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): La proxima tarea es 307
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Las paginas en LRU son:
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): LRU tiene 0 paginas
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:02:48:143 Mi-RAM/(11334:12279): El tripulante 1 pidio la tarea ARREGLAR_CABLEADOS;1;8;10
+[INFO] 23:02:48:144 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:48:144 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Se va a actualizar al tripu 1
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Las paginas en LRU son:
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): LRU tiene 0 paginas
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Las paginas en LRU son:
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): LRU tiene 0 paginas
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:48:144 Mi-RAM/(11334:12281): El tripulante 1 se ha actualizado: Estado: E 3|2
+[INFO] 23:02:48:156 Mi-RAM/(11334:12281): Las paginas en LRU son:
+[INFO] 23:02:48:156 Mi-RAM/(11334:12281): LRU tiene 0 paginas
+[INFO] 23:02:48:156 Mi-RAM/(11334:12281): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:48:157 Mi-RAM/(11334:12281): Las paginas en LRU son:
+[INFO] 23:02:48:157 Mi-RAM/(11334:12281): LRU tiene 0 paginas
+[INFO] 23:02:48:157 Mi-RAM/(11334:12281): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:51:144 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:51:144 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:51:144 Mi-RAM/(11334:12300): Se va a actualizar al tripu 1
+[INFO] 23:02:51:144 Mi-RAM/(11334:12300): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:51:144 Mi-RAM/(11334:12300): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Las paginas en LRU son:
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): LRU tiene 0 paginas
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Las paginas en LRU son:
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): LRU tiene 0 paginas
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): El tripulante 1 se ha actualizado: Estado: E 3|3
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Las paginas en LRU son:
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): LRU tiene 0 paginas
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Las paginas en LRU son:
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): LRU tiene 0 paginas
+[INFO] 23:02:51:156 Mi-RAM/(11334:12300): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:54:124 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:54:124 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:02:54:124 Mi-RAM/(11334:12304): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:02:54:124 Mi-RAM/(11334:12304): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Las paginas en LRU son:
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): LRU tiene 0 paginas
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Las paginas en LRU son:
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): LRU tiene 0 paginas
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Se produce un PF (pagina 2 del proc 1)
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Se eligio como victima la pagina 0 cuyo frame es 4.
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Se swapea la pagina 2 con la pagina 0
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): La pagina PEDIDA tiene asignado frame -1 en mpal y 1 en swap, -1228934556
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): La pagina VICTIMA tiene asignado frame 4 en mpal y -1 en swap, -1228934560
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): Se va a leer la pagina que arranca en 128
+[INFO] 23:02:54:136 Mi-RAM/(11334:12304): La proxima tarea es 219
+[INFO] 23:02:54:137 Mi-RAM/(11334:12304): Las paginas en LRU son:
+[INFO] 23:02:54:137 Mi-RAM/(11334:12304): LRU tiene 0 paginas
+[INFO] 23:02:54:137 Mi-RAM/(11334:12304): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:02:54:137 Mi-RAM/(11334:12304): El tripulante 2 pidio la tarea CAMINAR;2;2;1
+[INFO] 23:02:54:137 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:54:137 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): Se va a actualizar al tripu 1
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): Las paginas en LRU son:
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): LRU tiene 0 paginas
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): Se va a leer la pagina que arranca en 224
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): El tripulante 1 se ha actualizado: Estado: E 6|3
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): Las paginas en LRU son:
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): LRU tiene 0 paginas
+[INFO] 23:02:54:137 Mi-RAM/(11334:12306): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:02:54:144 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:02:54:145 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Se va a actualizar al tripu 1
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Las paginas en LRU son:
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): LRU tiene 0 paginas
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Se va a leer la pagina que arranca en 32
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Las paginas en LRU son:
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): LRU tiene 0 paginas
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Se va a leer la pagina que arranca en 64
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): El tripulante 1 se ha actualizado: Estado: E 3|4
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Las paginas en LRU son:
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): LRU tiene 0 paginas
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Las paginas en LRU son:
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): LRU tiene 0 paginas
+[INFO] 23:02:54:145 Mi-RAM/(11334:12307): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:02:57:137 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:02:57:138 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:02:57:138 Mi-RAM/(11334:12317): Se va a actualizar al tripu 1
+[INFO] 23:02:57:138 Mi-RAM/(11334:12317): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:02:57:138 Mi-RAM/(11334:12317): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): Las paginas en LRU son:
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): LRU tiene 0 paginas
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): Se va a leer la pagina que arranca en 224
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): El tripulante 1 se ha actualizado: Estado: E 5|3
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): Las paginas en LRU son:
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): LRU tiene 0 paginas
+[INFO] 23:02:57:144 Mi-RAM/(11334:12317): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:00:138 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:00:138 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:00:138 Mi-RAM/(11334:12322): Se va a actualizar al tripu 1
+[INFO] 23:03:00:138 Mi-RAM/(11334:12322): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:00:138 Mi-RAM/(11334:12322): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): Las paginas en LRU son:
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): LRU tiene 0 paginas
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): El tripulante 1 se ha actualizado: Estado: E 5|4
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): Las paginas en LRU son:
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): LRU tiene 0 paginas
+[INFO] 23:03:00:144 Mi-RAM/(11334:12322): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:03:139 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:03:139 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): Se va a actualizar al tripu 1
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): Las paginas en LRU son:
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): LRU tiene 0 paginas
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): El tripulante 1 se ha actualizado: Estado: E 4|4
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): Las paginas en LRU son:
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): LRU tiene 0 paginas
+[INFO] 23:03:03:139 Mi-RAM/(11334:12333): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:06:139 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:06:140 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): Se va a actualizar al tripu 1
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): Las paginas en LRU son:
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): LRU tiene 0 paginas
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): El tripulante 1 se ha actualizado: Estado: E 4|5
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): Las paginas en LRU son:
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): LRU tiene 0 paginas
+[INFO] 23:03:06:140 Mi-RAM/(11334:12354): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:09:140 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:09:140 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): Se va a actualizar al tripu 1
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): Las paginas en LRU son:
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): LRU tiene 0 paginas
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): El tripulante 1 se ha actualizado: Estado: E 3|5
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): Las paginas en LRU son:
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): LRU tiene 0 paginas
+[INFO] 23:03:09:140 Mi-RAM/(11334:12362): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:12:140 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:12:141 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): Se va a actualizar al tripu 1
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): Las paginas en LRU son:
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): LRU tiene 0 paginas
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): El tripulante 1 se ha actualizado: Estado: E 3|6
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): Las paginas en LRU son:
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): LRU tiene 0 paginas
+[INFO] 23:03:12:141 Mi-RAM/(11334:12372): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:15:141 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:15:141 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:15:141 Mi-RAM/(11334:12376): Se va a actualizar al tripu 1
+[INFO] 23:03:15:141 Mi-RAM/(11334:12376): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:15:141 Mi-RAM/(11334:12376): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): Las paginas en LRU son:
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): LRU tiene 0 paginas
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): El tripulante 1 se ha actualizado: Estado: E 2|6
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): Las paginas en LRU son:
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): LRU tiene 0 paginas
+[INFO] 23:03:15:142 Mi-RAM/(11334:12376): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:15:148 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:15:148 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): Las paginas en LRU son:
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): LRU tiene 0 paginas
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): Se va a leer la pagina que arranca en 32
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): Las paginas en LRU son:
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): LRU tiene 0 paginas
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:15:148 Mi-RAM/(11334:12377): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): Las paginas en LRU son:
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): LRU tiene 0 paginas
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): Se va a leer la pagina que arranca en 0
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): La proxima tarea es 323
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): Las paginas en LRU son:
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): LRU tiene 0 paginas
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): Las paginas en LRU son:
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): LRU tiene 0 paginas
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:03:15:149 Mi-RAM/(11334:12377): El tripulante 1 pidio la tarea COMER;5;5;5
+[INFO] 23:03:15:149 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:03:15:149 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:15:149 Mi-RAM/(11334:12378): Se va a actualizar al tripu 2
+[INFO] 23:03:15:149 Mi-RAM/(11334:12378): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:03:15:149 Mi-RAM/(11334:12378): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:15:149 Mi-RAM/(11334:12378): Las paginas en LRU son:
+[INFO] 23:03:15:149 Mi-RAM/(11334:12378): LRU tiene 0 paginas
+[INFO] 23:03:15:150 Mi-RAM/(11334:12378): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:15:150 Mi-RAM/(11334:12378): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:03:15:150 Mi-RAM/(11334:12378): El tripulante 2 se ha actualizado: Estado: E 0|1
+[INFO] 23:03:15:150 Mi-RAM/(11334:12378): Las paginas en LRU son:
+[INFO] 23:03:15:150 Mi-RAM/(11334:12378): LRU tiene 0 paginas
+[INFO] 23:03:15:150 Mi-RAM/(11334:12378): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:03:18:142 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:03:18:142 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): Se va a actualizar al tripu 1
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): Las paginas en LRU son:
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): LRU tiene 0 paginas
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): El tripulante 1 se ha actualizado: Estado: E 1|6
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): Las paginas en LRU son:
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): LRU tiene 0 paginas
+[INFO] 23:03:18:142 Mi-RAM/(11334:12385): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:18:150 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:18:150 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): Se va a actualizar al tripu 2
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): Las paginas en LRU son:
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): LRU tiene 0 paginas
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): El tripulante 2 se ha actualizado: Estado: E 0|2
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): Las paginas en LRU son:
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): LRU tiene 0 paginas
+[INFO] 23:03:18:150 Mi-RAM/(11334:12386): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:03:21:142 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:21:143 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): Se va a actualizar al tripu 1
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): Las paginas en LRU son:
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): LRU tiene 0 paginas
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:21:143 Mi-RAM/(11334:12401): El tripulante 1 se ha actualizado: Estado: E 1|7
+[INFO] 23:03:21:144 Mi-RAM/(11334:12401): Las paginas en LRU son:
+[INFO] 23:03:21:144 Mi-RAM/(11334:12401): LRU tiene 0 paginas
+[INFO] 23:03:21:144 Mi-RAM/(11334:12401): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:21:150 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:21:151 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): Se va a actualizar al tripu 2
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): Las paginas en LRU son:
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): LRU tiene 0 paginas
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): El tripulante 2 se ha actualizado: Estado: E 1|2
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): Las paginas en LRU son:
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): LRU tiene 0 paginas
+[INFO] 23:03:21:151 Mi-RAM/(11334:12402): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:03:24:143 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:24:144 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): Se va a actualizar al tripu 1
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): Las paginas en LRU son:
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): LRU tiene 0 paginas
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): El tripulante 1 se ha actualizado: Estado: E 1|8
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): Las paginas en LRU son:
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): LRU tiene 0 paginas
+[INFO] 23:03:24:144 Mi-RAM/(11334:12415): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:24:151 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:24:151 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): Se va a actualizar al tripu 2
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): Las paginas en LRU son:
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): LRU tiene 0 paginas
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): El tripulante 2 se ha actualizado: Estado: E 2|2
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): Las paginas en LRU son:
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): LRU tiene 0 paginas
+[INFO] 23:03:24:151 Mi-RAM/(11334:12416): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:03:30:153 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:30:153 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:03:30:161 Mi-RAM/(11334:12439): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:03:30:161 Mi-RAM/(11334:12439): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:30:162 Mi-RAM/(11334:12439): Las paginas en LRU son:
+[INFO] 23:03:30:162 Mi-RAM/(11334:12439): LRU tiene 0 paginas
+[INFO] 23:03:30:162 Mi-RAM/(11334:12439): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:30:162 Mi-RAM/(11334:12439): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:03:30:165 Mi-RAM/(11334:12439): Las paginas en LRU son:
+[INFO] 23:03:30:165 Mi-RAM/(11334:12439): LRU tiene 0 paginas
+[INFO] 23:03:30:165 Mi-RAM/(11334:12439): Se va a leer la pagina que arranca en 128
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): Las paginas en LRU son:
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): LRU tiene 0 paginas
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): Se va a leer la pagina que arranca en 0
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): La proxima tarea es 311
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): Las paginas en LRU son:
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): LRU tiene 0 paginas
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:03:30:166 Mi-RAM/(11334:12439): El tripulante 2 pidio la tarea GENERAR_COMIDA 12;3;4;5
+[INFO] 23:03:30:167 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:03:30:167 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): Se va a actualizar al tripu 1
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): Las paginas en LRU son:
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): LRU tiene 0 paginas
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): Se va a leer la pagina que arranca en 32
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:03:30:176 Mi-RAM/(11334:12440): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:30:177 Mi-RAM/(11334:12440): Las paginas en LRU son:
+[INFO] 23:03:30:177 Mi-RAM/(11334:12440): LRU tiene 0 paginas
+[INFO] 23:03:30:177 Mi-RAM/(11334:12440): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:30:177 Mi-RAM/(11334:12440): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:03:30:177 Mi-RAM/(11334:12440): El tripulante 1 se ha actualizado: Estado: E 3|5
+[INFO] 23:03:30:178 Mi-RAM/(11334:12440): Las paginas en LRU son:
+[INFO] 23:03:30:178 Mi-RAM/(11334:12440): LRU tiene 0 paginas
+[INFO] 23:03:30:178 Mi-RAM/(11334:12440): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:03:30:178 Mi-RAM/(11334:12440): Las paginas en LRU son:
+[INFO] 23:03:30:178 Mi-RAM/(11334:12440): LRU tiene 0 paginas
+[INFO] 23:03:30:178 Mi-RAM/(11334:12440): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:03:33:167 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:03:33:167 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:33:168 Mi-RAM/(11334:12456): Se va a actualizar al tripu 1
+[INFO] 23:03:33:168 Mi-RAM/(11334:12456): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:03:33:168 Mi-RAM/(11334:12456): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): Las paginas en LRU son:
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): LRU tiene 0 paginas
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): Se va a leer la pagina que arranca en 32
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): Las paginas en LRU son:
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): LRU tiene 0 paginas
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:03:33:171 Mi-RAM/(11334:12456): El tripulante 1 se ha actualizado: Estado: E 4|5
+[INFO] 23:03:33:172 Mi-RAM/(11334:12456): Las paginas en LRU son:
+[INFO] 23:03:33:172 Mi-RAM/(11334:12456): LRU tiene 0 paginas
+[INFO] 23:03:33:172 Mi-RAM/(11334:12456): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:03:33:172 Mi-RAM/(11334:12456): Las paginas en LRU son:
+[INFO] 23:03:33:173 Mi-RAM/(11334:12456): LRU tiene 0 paginas
+[INFO] 23:03:33:173 Mi-RAM/(11334:12456): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:03:36:168 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:36:168 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:36:168 Mi-RAM/(11334:12468): Se va a actualizar al tripu 1
+[INFO] 23:03:36:168 Mi-RAM/(11334:12468): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:03:36:168 Mi-RAM/(11334:12468): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): Las paginas en LRU son:
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): LRU tiene 0 paginas
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): Se va a leer la pagina que arranca en 32
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): Las paginas en LRU son:
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): LRU tiene 0 paginas
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:36:172 Mi-RAM/(11334:12468): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): El tripulante 1 se ha actualizado: Estado: E 5|5
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): Las paginas en LRU son:
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): LRU tiene 0 paginas
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): Las paginas en LRU son:
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): LRU tiene 0 paginas
+[INFO] 23:03:36:174 Mi-RAM/(11334:12468): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:03:54:171 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:54:171 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): La cantidad de paginas que contienen al tripulante 1 son 2
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): Actualizo al tripulante en la pagina 7 de la patota 1
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): Las paginas en LRU son:
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): LRU tiene 0 paginas
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): Se va a leer la pagina que arranca en 32
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): SE LEE DEL TRIPU: 1 - FRAME: 1 | D_INCIAL: 21 | TAMANIO: 11
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): Las paginas en LRU son:
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): LRU tiene 0 paginas
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:54:171 Mi-RAM/(11334:12499): SE LEE DEL TRIPU: 1 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 10
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Las paginas en LRU son:
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): LRU tiene 0 paginas
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se va a leer la pagina que arranca en 0
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Las paginas en LRU son:
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): LRU tiene 0 paginas
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se produce un PF (pagina 4 del proc 1)
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): No se encontro un frame disponible para memoria 0. (0=Ppal - 1=Virtual)
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se comienza a ejecutar el algoritmo clock
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se eligio como victima la pagina 1 cuyo frame es 5.
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se swapea la pagina 4 con la pagina 1
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): La pagina PEDIDA tiene asignado frame -1 en mpal y 3 en swap, -1219063196
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): La pagina VICTIMA tiene asignado frame 5 en mpal y -1 en swap, -1219063200
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se va a leer la pagina que arranca en 160
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): La proxima tarea es 416
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Las paginas en LRU son:
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): LRU tiene 0 paginas
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se sobreescribio en RAM: FRAME: 1 | DESDE: 21 | HASTA: 31 
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Las paginas en LRU son:
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): LRU tiene 0 paginas
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): Se sobreescribio en RAM: FRAME: 2 | DESDE: 0 | HASTA: 9 
+[INFO] 23:03:54:172 Mi-RAM/(11334:12499): El tripulante 1 pidio la tarea CONSUMIR_COMIDA 10;5;5;5
+[INFO] 23:03:57:157 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 7
+
+[INFO] 23:03:57:157 Mi-RAM/(11334:11334): Se recibio una operacion: 8
+
+[INFO] 23:03:57:157 Mi-RAM/(11334:12512): La cantidad de paginas que contienen al tripulante 1 son 1
+[INFO] 23:03:57:157 Mi-RAM/(11334:12512): Actualizo al tripulante en la pagina 4 de la patota 2
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): Las paginas en LRU son:
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): LRU tiene 0 paginas
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): Se va a leer la pagina que arranca en 224
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): SE LEE DEL TRIPU: 1 - FRAME: 7 | D_INCIAL: 11 | TAMANIO: 21
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): Las paginas en LRU son:
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): LRU tiene 0 paginas
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): Se va a leer la pagina que arranca en 96
+[INFO] 23:03:57:164 Mi-RAM/(11334:12512): La proxima tarea es 330
+[INFO] 23:03:57:165 Mi-RAM/(11334:12512): Las paginas en LRU son:
+[INFO] 23:03:57:165 Mi-RAM/(11334:12512): LRU tiene 0 paginas
+[INFO] 23:03:57:165 Mi-RAM/(11334:12512): Se sobreescribio en RAM: FRAME: 7 | DESDE: 11 | HASTA: 31 
+[INFO] 23:03:57:165 Mi-RAM/(11334:12512): El tripulante 1 pidio la tarea GENERAR_BASURA 1;0;0;5
+[INFO] 23:03:57:166 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:03:57:166 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): Se va a actualizar al tripu 2
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): Las paginas en LRU son:
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): LRU tiene 0 paginas
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): Se va a leer la pagina que arranca en 64
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): El tripulante 2 se ha actualizado: Estado: E 2|3
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): Las paginas en LRU son:
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): LRU tiene 0 paginas
+[INFO] 23:03:57:167 Mi-RAM/(11334:12514): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:04:00:166 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:04:00:166 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:04:00:166 Mi-RAM/(11334:12518): Se va a actualizar al tripu 2
+[INFO] 23:04:00:166 Mi-RAM/(11334:12518): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:04:00:166 Mi-RAM/(11334:12518): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:04:00:171 Mi-RAM/(11334:12518): Las paginas en LRU son:
+[INFO] 23:04:00:171 Mi-RAM/(11334:12518): LRU tiene 0 paginas
+[INFO] 23:04:00:171 Mi-RAM/(11334:12518): Se va a leer la pagina que arranca en 64
+[INFO] 23:04:00:171 Mi-RAM/(11334:12518): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:04:00:171 Mi-RAM/(11334:12518): El tripulante 2 se ha actualizado: Estado: E 3|3
+[INFO] 23:04:00:172 Mi-RAM/(11334:12518): Las paginas en LRU son:
+[INFO] 23:04:00:172 Mi-RAM/(11334:12518): LRU tiene 0 paginas
+[INFO] 23:04:00:172 Mi-RAM/(11334:12518): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 
+[INFO] 23:04:03:167 Mi-RAM/(11334:11334): Se conecto un cliente con socket: 5
+
+[INFO] 23:04:03:167 Mi-RAM/(11334:11334): Se recibio una operacion: 4
+
+[INFO] 23:04:03:167 Mi-RAM/(11334:12526): Se va a actualizar al tripu 2
+[INFO] 23:04:03:167 Mi-RAM/(11334:12526): La cantidad de paginas que contienen al tripulante 2 son 1
+[INFO] 23:04:03:167 Mi-RAM/(11334:12526): Actualizo al tripulante en la pagina 8 de la patota 1
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): Las paginas en LRU son:
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): LRU tiene 0 paginas
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): Se va a leer la pagina que arranca en 64
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 10 | TAMANIO: 21
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): El tripulante 2 se ha actualizado: Estado: E 3|4
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): Las paginas en LRU son:
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): LRU tiene 0 paginas
+[INFO] 23:04:03:173 Mi-RAM/(11334:12526): Se sobreescribio en RAM: FRAME: 2 | DESDE: 10 | HASTA: 30 

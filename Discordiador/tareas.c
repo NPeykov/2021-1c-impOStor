@@ -104,9 +104,6 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 		break;
 	}
 
-	if(resultado == true && tripulante_trabajando->tarea->tipo == TAREA_COMUN)
-		avisar_a_mongo_estado_tarea(tarea, tripulante, FIN_TAREA);
-
 	return resultado;
 }
 

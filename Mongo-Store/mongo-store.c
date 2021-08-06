@@ -331,9 +331,9 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora) {
 
 	el_bloque = (t_bloque *) list_get(disco_logico->bloques, indexUltimoBloque);
 
-	log_info(mongoLogger,
+	/*log_info(mongoLogger,
 			"El ultimo bloque asignado en la bitacora %s es: %d y esta en indice: %d",
-			rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);
+			rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);*/
 
 	munmap(archivo_addr, statbuf.st_size);
 	close(archivo);

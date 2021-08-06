@@ -47,7 +47,7 @@ void esperar_sabotaje(void){ //este es un hilo
 
 }
 
-//TODO: rehacer este metodo con un atender_sabotaje(x, y)
+
 void atender_sabotaje(int x, int y){
 	t_list *lista_mergeada = (t_list *)malloc(sizeof(t_list));
     Tripulante_Planificando *tripulante_cercano = (Tripulante_Planificando*)malloc(sizeof(Tripulante_Planificando));
@@ -117,6 +117,11 @@ void atender_sabotaje(int x, int y){
 
 	tripulante_cercano = (Tripulante_Planificando*) mas_cercano_al_sabotaje(x, y);
 
+	if(tripulante_cercano == NULL){
+		log_error(logs_discordiador, "No hay tripulante disponible para sabotaje");
+		return;
+	}
+
 
 	avisar_estado_sabotaje_a_mongo(x, y, tripulante_cercano->tripulante, INICIO_SABOTAJE);
 
@@ -181,8 +186,7 @@ void atender_sabotaje(int x, int y){
 		tripulante->tripulante->estado = LISTO;
 	}
 
-	sleep(10);
-	printf("-------------ETAPA 1: TODOS BLOQ-------------");
+	log_info(logs_discordiador, "-------------ETAPA 1: TODOS BLOQ-------------");
 	listar_discordiador();
 
 	list_iterate(lista_bloqueado_EM, cambiar_estado_a_ready);
@@ -198,11 +202,16 @@ void atender_sabotaje(int x, int y){
 	g_hay_sabotaje = false;
 	pthread_mutex_unlock(&sabotaje_lock);
 
+	log_info(logs_discordiador, "Se puso en false el flag de sabotaje!");
+
 	sleep(10);
-	printf("-------------ETAPA 3: TODOS LISTOS-------------");
+	log_info(logs_discordiador, "-------------ETAPA 2: TODOS LISTOS-------------");
 	listar_discordiador();
 
 	list_iterate(lista_listo->elements, reanudar_tripulantes);
+
+	log_info(logs_discordiador, "Se reanudo la ejecucion de los tripulantes");
+
 	sem_post(&termino_sabotaje_planificador);
 }
 

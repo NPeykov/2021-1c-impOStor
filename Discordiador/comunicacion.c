@@ -7,7 +7,7 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, int socket)
 	uint32_t size_contenido_tareas;
 
 	if ((tareas_file = fopen(path_tareas, "r")) == NULL) {
-		printf("Error al abrir el archivo de tareas.");
+		log_error(logs_discordiador, "Error al abrir el archivo de tareas.");
 		exit(1);
 	}
 
@@ -15,7 +15,7 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, int socket)
 			tareas_file);
 
 	if (bytes == -1) {
-		printf("Error leyendo archivo!\n");
+		log_error(logs_discordiador, "Error leyendo archivo!\n");
 	}
 
 	contenido_tareas[size_contenido_tareas] = '\0'; //posible error

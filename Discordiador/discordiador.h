@@ -20,6 +20,9 @@ void tripulante(void*);
 void expulsar_tripulante(int, int);
 void inicializar_recursos_necesarios(void);
 void liberar_memoria_discordiador(void);
+void esperar_tripulantes_hermanos(Tripulante_Planificando*);
+void avisar_a_tripulantes_hermanos(Tripulante_Planificando*);
+void sacarlo_de_finalizado(Tripulante_Planificando*);
 
 
 

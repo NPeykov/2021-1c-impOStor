@@ -93,6 +93,8 @@ typedef struct argumentos_creacion_tripulantes {
 	int posicionX;
 	int posicionY;
 	int patota_actual;
+	int cantidad_tripulantes;
+	t_list *semaforos;
 }argumentos_creacion_tripulantes;
 
 struct tripulantes_iniciados{
@@ -125,6 +127,8 @@ typedef struct Tripulante_Planificando{
 	sem_t termino_sabotaje;
 	bool sigo_planificando;
 	bool fui_expulsado;
+	t_list *semaforos;
+	int cant_trip;
 }Tripulante_Planificando;
 
 
@@ -143,6 +147,7 @@ pthread_mutex_t lock_lista_bloq_em;
 pthread_mutex_t lock_lista_exit;
 pthread_mutex_t lock_grado_multitarea;
 pthread_mutex_t mutex_tarea;
+pthread_mutex_t mutex_lista_semaforos;
 
 pthread_cond_t sabotaje_resuelto;
 pthread_mutex_t sabotaje_lock;
@@ -151,7 +156,6 @@ pthread_mutex_t mutex;
 
 //semaforos
 sem_t bloq_disponible; //iniciar en 1
-sem_t tripulantes_hermanos; //todavia no implementado, lo uso para q un proceso se quede esperando en exit
 sem_t moverse_a_em;
 sem_t se_movio_a_em;
 sem_t primer_inicio;

@@ -692,6 +692,7 @@ void tripulante(void *argumentos) {
 					tripulante_trabajando->tripulante->patota);
 			sleep(retardo_ciclo_cpu); //piden que espere antes de entrar I/O
 			moverse_a_bloq(tripulante_trabajando);
+			sem_post(&voy_a_ready); //para agregar grado multi cuando pasa a I/O
 			sem_wait(&bloq_disponible);
 			log_info(logs_discordiador,
 					"Tripulante:%d de Patota:%d ARRANCA A HACER TAREAS DE IO",

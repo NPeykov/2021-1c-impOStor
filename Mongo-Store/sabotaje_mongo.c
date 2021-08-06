@@ -1,26 +1,33 @@
 #include "sabotaje_mongo.h"
 #include "mongo-store.h"
 
-void rutina(int n) {
+void gestionar_sabotaje() {
 	sem_wait(&semaforo_modificacion_de_datos);
 	sabotaje_code codigo_sabotaje = obtener_tipo_sabotaje();
 
 	if (codigo_sabotaje == NO_HAY_SABOTAJE) {
 		log_info(mongoLogger,
 				"TIRARON LA SEÑAL DE SABOTAJE PERO NO HAY INCONSISTENCIAS");
+		sem_post(&semaforo_modificacion_de_datos);
 		return;
 	}
 
-	log_info(mongoLogger, "SE DETECTO UN SABOTAJEEEE");
-
-	enviar_aviso_sabotaje_a_discordiador();
+	log_warning(mongoLogger, "SE DETECTO UN SABOTAJE--CODIGO: %d--",
+			codigo_sabotaje);
+	sem_post(&dar_orden_sabotaje);
 
 	sem_wait(&inicio_fsck); //espera q discordiador termine el sabotaje
-
 	iniciar_recuperacion(codigo_sabotaje);
 	munmap(s_blocks, s_tamanio_blocks);
 	munmap(s_superbloque, s_tamanio_superbloque);
 	sem_post(&semaforo_modificacion_de_datos);
+}
+
+void rutina(int n) {
+
+	pthread_t rutina;
+	pthread_create(&rutina, NULL, (void *) gestionar_sabotaje, NULL);
+	pthread_detach(rutina);
 }
 
 int levantar_blocks(void) {
@@ -70,14 +77,14 @@ int levantar_superbloque(void) {
 bool es_blocks_superbloque() {
 	bool resultado;
 
-	printf("SIZE BLOCKS: %d\n", s_tamanio_blocks);
+	//printf("SIZE BLOCKS: %d\n", s_tamanio_blocks);
 
-	printf("-----------SIZE: %d\nCANT SABOTEADA: %d\n", *(s_size_sb),
-			*(s_blocks_sb));
+	//printf("-----------SIZE: %d\nCANT SABOTEADA: %d\n", *(s_size_sb),
+	//*(s_blocks_sb));
 
 	int cantidad_bloques_teorico = s_tamanio_blocks / *(s_size_sb);
 
-	printf("CANTIDAD QUE DEBERIA SER: %d\n", cantidad_bloques_teorico);
+	//printf("CANTIDAD QUE DEBERIA SER: %d\n", cantidad_bloques_teorico);
 
 	resultado = cantidad_bloques_teorico != *(s_blocks_sb);
 
@@ -99,15 +106,6 @@ bool es_bitmap_superbloque() {
 
 	bitarray_sb = bitarray_create(bitmap_sb, bytes);
 
-	for (int i = 0; i < *(s_blocks_sb); i++) {
-		if (i == 0)
-			printf("%d", bitarray_test_bit(bitarray_sb, i));
-		else if (i % 8 == 0)
-			printf("%d\n", bitarray_test_bit(bitarray_sb, i));
-		else
-			printf("%d", bitarray_test_bit(bitarray_sb, i));
-	}
-
 	bool n_bloque_ocupado;
 
 	for (int i = 0, offset = 0; i < *g_blocks; i++, offset += *g_block_size) {
@@ -121,7 +119,6 @@ bool es_bitmap_superbloque() {
 			}
 			copia_offset++;
 		}
-
 		if (bitarray_test_bit(bitarray_sb, i) != n_bloque_ocupado) {
 			resultado = true;
 			log_info(mongoLogger, "El sabotaje fue en bitmap de superbloque");
@@ -296,8 +293,6 @@ bool es_file_Blocks(files file) {
 	return esta_saboteado;
 }
 
-///////////////////
-
 sabotaje_code obtener_tipo_sabotaje() {
 	sabotaje_code tipo_sabotaje = NO_HAY_SABOTAJE;
 	fue_en_oxigeno = false;
@@ -466,43 +461,6 @@ void arreglar_valor_size(files file) {
 		i++;
 	}
 	munmap(archivo_saboteado, string_length(nuevo_contenido));
-	/*
-	 int fd = open(ruta, O_RDWR);
-	 if(fd == -1) {
-	 log_info(mongoLogger, "Error al abrir archivo en sabotaje size");
-	 exit(1);
-	 }
-	 struct stat info;
-	 fstat(fd, &info);
-	 char *contenido_file = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fd, 0);
-
-	 char* bloques_del_archivo=bloques_de_archivo(contenido_file);
-	 char* bloquesaux=string_substring_until(bloques_del_archivo,string_length(bloques_del_archivo)-1);
-	 char* texto_total=contenido_de_bloques_fisico(bloques_del_archivo);
-	 tamanio_real = string_length(texto_total);
-	 printf("tamaño real %d\n",tamanio_real);
-	 char *cantidad_bloques = cantidad_de_bloques_de_archivo(contenido_file);
-
-	 char *md5 = leer_md5file(contenido_file);
-
-	 char *nuevo_contenido = string_from_format(
-	 "SIZE=%d\nBLOCK_COUNT=%s\nBLOCKS=%s\nCARACTER_LLENADO=%c\nMD5_ARCHIVO=%s",
-	 tamanio_real, cantidad_bloques,
-	 bloques_del_archivo, caracter_llenado,
-	 md5);
-	 munmap(contenido_file, info.st_size);
-	 close(fd);
-
-	 int fichero = open(ruta, O_RDWR);
-	 ftruncate(fichero, string_length(nuevo_contenido)+1);
-	 fstat(fichero, &info);
-	 char *addr = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fichero, 0);
-	 for(int i=0;i<string_length(nuevo_contenido);i++){
-	 addr[i]=nuevo_contenido[i];
-	 }
-
-	 munmap(addr,info.st_size);
-	 */
 	free(ruta);
 }
 
@@ -532,7 +490,7 @@ void reparar_MD5(char* file, char caracter) {
 	struct stat info;
 	fstat(archivo, &info);
 	archivo_blocks_para_sabotaje = (char*) mmap(NULL, info.st_size, PROT_WRITE,
-			MAP_SHARED, archivo, 0);
+	MAP_SHARED, archivo, 0);
 
 	char* bloques = bloques_de_archivo(archivo_saboteado);
 	t_bloque* bloque;
@@ -560,33 +518,6 @@ void reparar_MD5(char* file, char caracter) {
 		caracteres_agregados--;
 	}
 	munmap(archivo_blocks_para_sabotaje, info.st_size);
-	/*struct stat statbuf;
-	 int archivo = open(file, O_RDWR);
-	 fstat(archivo,&statbuf);
-	 char* archivo_addr =mmap(NULL,statbuf.st_size,PROT_READ|PROT_WRITE, MAP_SHARED, archivo, 0);
-	 char* bloques= bloques_de_archivo(archivo_addr);
-	 t_bloque* bloque;
-	 int caracteres_agregados=0;
-	 bloque=bloque_con_espacio(bloques);
-	 while(bloque->espacio>0){
-	 block_mmap[bloque->posicion_para_escribir]=caracter;
-	 bloque->espacio--;
-	 bloque->posicion_para_escribir++;
-	 caracteres_agregados++;
-	 }
-	 free(bloque);
-
-	 bloque=malloc(sizeof(t_bloque));
-
-	 bloque=recuperar_ultimo_bloque(archivo_addr);
-
-	 while(caracteres_agregados>0){
-	 bloque->posicion_para_escribir--;
-	 block_mmap[bloque->posicion_para_escribir]=' ';
-	 bloque->espacio++;
-	 caracteres_agregados--;
-	 }
-	 free(bloque);*/
 	close(archivo);
 	free(dirBlocks);
 }
@@ -630,42 +561,6 @@ void arreglar_valor_block_count(files file) {
 		i++;
 	}
 	munmap(archivo_saboteado, string_length(nuevo_contenido));
-
-	/*int fd = open(ruta, O_RDWR);
-
-	 if (fd == -1) {
-	 log_info(mongoLogger, "Error al abrir archivo en sabotaje size");
-	 exit(1);
-	 }
-	 struct stat info;
-
-	 fstat(fd, &info);
-
-	 char *contenido_file = (char*) mmap(NULL, info.st_size, PROT_WRITE,
-	 MAP_SHARED, fd, 0);
-
-	 char *tamanio = size_de_archivo(contenido_file);
-
-	 char* bloques_del_archivo = bloques_de_archivo(contenido_file);
-	 char *md5 = leer_md5file(contenido_file);
-
-	 char *nuevo_contenido =
-	 string_from_format(
-	 "SIZE=%s\nBLOCK_COUNT=%d\nBLOCKS=%s\nCARACTER_LLENADO=%c\nMD5_ARCHIVO=%s",
-	 tamanio, cantidad_bloques_file,
-	 bloques_del_archivo, caracter_llenado, md5);
-	 munmap(contenido_file,info.st_size);
-	 close(fd);
-	 int fichero = open(ruta, O_RDWR);
-	 ftruncate(fichero, string_length(nuevo_contenido));
-	 fstat(fichero, &info);
-	 char *addr = (char*) mmap(NULL, info.st_size, PROT_WRITE, MAP_SHARED, fichero, 0);
-	 for(int i=0;i<string_length(nuevo_contenido);i++){
-	 addr[i]=nuevo_contenido[i];
-	 }
-
-	 munmap(addr,info.st_size);
-	 close(fichero);*/
 	free(ruta);
 }
 
@@ -756,26 +651,6 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 	}
 }
-
-void gestionarSabotaje() {
-	int operacion;
-	switch (operacion) {
-	case 1: //SUPERBLOQUE
-		//si cambia valor Blocks constatar con tamaño archivo blocks.ims
-		//si cambia valor Bitmap recorrer FILES y obtener bloques usados
-		break;
-	case 2: //FILES
-		//si cambia el SIZE recorrer todos los bloques y asumir correcto el tamaño de los mismos
-		//si son inconsistentes block_count y blocks actualizo block_count en base a la lista de blocks
-		//si se altera la lista BLOCKS y no estan en orden(nos damos cuenta porque cambia el valor de md5)
-		//se debe reescribir la lista hasta que se obtenga el mismo tamaño
-	default:
-		printf("Operacion desconocida.\n");
-		break;
-
-	}
-}
-
 //devuelve la siguiente posicion del sabotaje
 char* siguiente_posicion_sabotaje() {
 	char** posiciones_divididas;
@@ -801,38 +676,33 @@ char* siguiente_posicion_sabotaje() {
 }
 
 //para probar el aviso de inicio de sabotaje
-void enviar_aviso_sabotaje_a_discordiador(void) {
+void enviar_aviso_sabotaje_a_discordiador() {
 	char** sabotaje_pos_aux;
 	char* sabotaje_posY;
-	//char** pos_dividida;
 	char* sabotaje_posX;
 	char* pos_sabotaje;
-	//int socket_para_sabotaje = esperar_cliente(socket_mongo_store);
-
-	//sem_wait(&dar_orden_sabotaje);
-
-	pos_sabotaje = siguiente_posicion_sabotaje();
-
-	if (pos_sabotaje == NULL) //no hay mas sabotajes
-		return;
-
-	sabotaje_pos_aux = string_split(pos_sabotaje, "|");	//tomo la posicion i del array y lo paso a otro
-	printf("ESTOY POR ENVIAR SABOTAJE\n");
-	sabotaje_posX = sabotaje_pos_aux[0];		//agarrar la posicion x
-	sabotaje_posY = sabotaje_pos_aux[1];		//agarrar la posicion y
-	printf("posicion en X de sabotaje: %s\n", sabotaje_posX);
-	printf("posicion en Y de sabotaje: %s\n", sabotaje_posY);
-
-	t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
-	agregar_a_paquete(paquete_sabotaje, sabotaje_posX,
-			strlen(sabotaje_posX) + 1);
-	agregar_a_paquete(paquete_sabotaje, sabotaje_posY,
-			strlen(sabotaje_posY) + 1);
-	enviar_paquete(paquete_sabotaje, socket_sabotaje_cliente);
-	eliminar_paquete(paquete_sabotaje);
-
-//	liberar_cliente(socket_sabotaje_cliente);
-
+	while (1) {
+		sem_wait(&dar_orden_sabotaje);
+		pos_sabotaje = siguiente_posicion_sabotaje();
+		if (pos_sabotaje == NULL) {		//no hay mas sabotajes
+			sem_post(&semaforo_modificacion_de_datos);
+			log_warning(mongoLogger, "llegue hasta acaaaa");
+		} else {
+			sabotaje_pos_aux = string_split(pos_sabotaje, "|");	//tomo la posicion i del array y lo paso a otro
+			printf("ESTOY POR ENVIAR SABOTAJE\n");
+			sabotaje_posX = sabotaje_pos_aux[0];		//agarrar la posicion x
+			sabotaje_posY = sabotaje_pos_aux[1];		//agarrar la posicion y
+			printf("posicion en X de sabotaje: %s\n", sabotaje_posX);
+			printf("posicion en Y de sabotaje: %s\n", sabotaje_posY);
+			t_paquete* paquete_sabotaje = crear_paquete(INICIO_SABOTAJE);
+			agregar_a_paquete(paquete_sabotaje, sabotaje_posX,
+					strlen(sabotaje_posX) + 1);
+			agregar_a_paquete(paquete_sabotaje, sabotaje_posY,
+					strlen(sabotaje_posY) + 1);
+			enviar_paquete(paquete_sabotaje, socket_sabotaje_cliente);
+			eliminar_paquete(paquete_sabotaje);
+			log_warning(mongoLogger, "llegue");
+		}
+	}
 	return;
-	//pthread_exit(NULL);
 }

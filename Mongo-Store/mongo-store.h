@@ -107,9 +107,9 @@ size_t block_mmap_size;
 //relacionadas a escribir las acciones del tripulante
 char *generarTextoAEscribir(tripulante_con_su_accion *);
 void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion*);
-
 char *rutaBitacoraDelTripulante(tripulante_con_su_accion*);
 
+void esperar_senial();
 
 //bajadas a disco
 void mostrar_estado_bitarray(void);
@@ -128,7 +128,7 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);
 void copiar_datos_de_bloques(t_list*);
 int ultima_posicion_escrita(int,int);
-
+void main2();
 //sobre files
 void *gestionarCliente(int cliente);
 void obtener_bitacora_tripulante(int);

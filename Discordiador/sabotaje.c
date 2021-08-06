@@ -119,7 +119,6 @@ void atender_sabotaje(int x, int y){
 
 
 	avisar_estado_sabotaje_a_mongo(x, y, tripulante_cercano->tripulante, INICIO_SABOTAJE);
-
 	void destroyer(void *data){
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		free(tripulante->tripulante);
@@ -168,7 +167,6 @@ void atender_sabotaje(int x, int y){
 	//---------SE RESUELVE EL SABOTAJE
 
 	sem_wait(&resolvi_sabotaje);
-
 	avisar_estado_sabotaje_a_mongo(x, y, tripulante_cercano->tripulante, FIN_SABOTAJE);
 
     void reanudar_tripulantes(void *data) {

@@ -303,16 +303,23 @@ sabotaje_code obtener_tipo_sabotaje() {
 	int retornoBS = levantar_blocks();
 
 	if (retornoSB != -1 && retornoBS != -1)
-		if (es_blocks_superbloque())
+		if (es_blocks_superbloque()){
+			log_warning(mongoLogger,"se detecto sabotaje en Superbloque");
 			return SB_BLOCKS;
+		}
+
 
 	if (retornoSB != -1 && retornoBS != -1)
-		if (es_bitmap_superbloque())
+		if (es_bitmap_superbloque()){
+			log_warning(mongoLogger,"se detecto sabotaje en bitmap");
 			return SB_BITMAP;
+		}
+
 
 	if (es_file_size(OXIGENO)) {
 		tipo_sabotaje = FILES_SIZE;
 		fue_en_oxigeno = true;
+		log_warning(mongoLogger,"se detecto sabotaje en oxigeno por size");
 		return tipo_sabotaje;
 
 	}
@@ -320,6 +327,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_size(COMIDA)) {
 		tipo_sabotaje = FILES_SIZE;
 		fue_en_comida = true;
+		log_warning(mongoLogger,"se detecto sabotaje en comida por size");
 		return tipo_sabotaje;
 
 	}
@@ -327,6 +335,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_size(BASURA)) {
 		tipo_sabotaje = FILES_SIZE;
 		fue_en_basura = true;
+		log_warning(mongoLogger,"se detecto sabotaje en basura por size");
 		return tipo_sabotaje;
 
 	}
@@ -334,6 +343,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_block_count(OXIGENO)) {
 		tipo_sabotaje = FILES_BLOCK_COUNT;
 		fue_en_oxigeno = true;
+		log_warning(mongoLogger,"se detecto sabotaje en oxigeno por cantidad de bloques");
 		return tipo_sabotaje;
 
 	}
@@ -341,6 +351,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_block_count(COMIDA)) {
 		tipo_sabotaje = FILES_BLOCK_COUNT;
 		fue_en_comida = true;
+		log_warning(mongoLogger,"se detecto sabotaje en comida por cantidad de bloques");
 		return tipo_sabotaje;
 
 	}
@@ -348,6 +359,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_block_count(BASURA)) {
 		tipo_sabotaje = FILES_BLOCK_COUNT;
 		fue_en_basura = true;
+		log_warning(mongoLogger,"se detecto sabotaje en basura por cantidad de bloques");
 		return tipo_sabotaje;
 
 	}
@@ -355,6 +367,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_Blocks(OXIGENO)) {
 		tipo_sabotaje = FILES_MD5;
 		fue_en_oxigeno = true;
+		log_warning(mongoLogger,"se detecto sabotaje en oxigeno por MD5");
 		return tipo_sabotaje;
 
 	}
@@ -363,6 +376,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 
 		tipo_sabotaje = FILES_MD5;
 		fue_en_comida = true;
+		log_warning(mongoLogger,"se detecto sabotaje en comida por MD5");
 		return tipo_sabotaje;
 
 	}
@@ -370,6 +384,7 @@ sabotaje_code obtener_tipo_sabotaje() {
 	if (es_file_Blocks(BASURA)) {
 		tipo_sabotaje = FILES_MD5;
 		fue_en_basura = true;
+		log_warning(mongoLogger,"se detecto sabotaje en basura por MD5");
 		return tipo_sabotaje;
 
 	}
@@ -497,26 +512,29 @@ void reparar_MD5(char* file, char caracter) {
 	int caracteres_agregados = 0;
 	bloque = bloque_con_espacio(bloques);
 	char* texto = leo_el_bloque_fisico(bloque);
-	bloque->posicion_para_escribir = string_length(texto) + 1;
+	//bloque->posicion_para_escribir = string_length(texto) + 1;
 
-	bloque->espacio = bloque->fin - bloque->inicio + 1 - string_length(texto);
+	//bloque->espacio = bloque->fin - bloque->inicio + 1 - string_length(texto);
+	char* caracter_aux = string_from_format("%c",caracter);
 	while (bloque->espacio > 0) {
-
-		archivo_blocks_para_sabotaje[bloque->posicion_para_escribir
+		escribir_en_block(caracter_aux,bloque);
+		/*archivo_blocks_para_sabotaje[bloque->posicion_para_escribir
 				+ bloque->inicio - 1] = caracter;
 		bloque->espacio--;
-		bloque->posicion_para_escribir++;
+		bloque->posicion_para_escribir++;*/
 		caracteres_agregados++;
 	}
 
 	bloque = recuperar_ultimo_bloque(archivo_saboteado);
 
-	while (caracteres_agregados > 0) {
+	borrar_en_block(caracteres_agregados,bloque);
+
+	/*while (caracteres_agregados > 0) {
 		bloque->posicion_para_escribir--;
 		archivo_blocks_para_sabotaje[bloque->posicion_para_escribir] = ' ';
 		bloque->espacio++;
 		caracteres_agregados--;
-	}
+	}*/
 	munmap(archivo_blocks_para_sabotaje, info.st_size);
 	close(archivo);
 	free(dirBlocks);
@@ -570,32 +588,32 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 
 	case SB_BLOCKS:
 		actualizar_valor_blocks_sb();
-		printf("se arreglo el sabotaje\n");
+		log_warning(mongoLogger,"se arreglo el sabotaje en superbloque");
 		return;
 		break;
 
 	case SB_BITMAP:
 		setear_valores_a_bitmap();
-		printf("se arreglo el sabotaje\n");
+		log_warning(mongoLogger,"se arreglo el sabotaje en bitmap");
 		return;
 		break;
 
 	case FILES_SIZE:
 		if (fue_en_oxigeno) {
 			arreglar_valor_size(OXIGENO);
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en oxigeno por size de archivo");
 			return;
 		}
 
 		if (fue_en_comida) {
 			arreglar_valor_size(COMIDA);
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en comida por size de archivo");
 			return;
 		}
 
 		if (fue_en_basura) {
 			arreglar_valor_size(BASURA);
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en basura por size de archivo");
 			return;
 		}
 
@@ -604,20 +622,20 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 	case FILES_BLOCK_COUNT:
 		if (fue_en_oxigeno) {
 			arreglar_valor_block_count(OXIGENO);
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en oxigeno por cantidad de bloques");
 			return;
 
 		}
 
 		if (fue_en_comida) {
 			arreglar_valor_block_count(COMIDA);
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en comida por cantidad de bloques");
 			return;
 		}
 
 		if (fue_en_basura) {
 			arreglar_valor_block_count(BASURA);
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en basura por cantidad de bloques");
 			return;
 		}
 		break;
@@ -626,7 +644,7 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 		if (fue_en_oxigeno) {
 			char* rutaOxigeno = conseguir_ruta(OXIGENOO);
 			reparar_MD5(rutaOxigeno, 'O');
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en oxigeno por alteracion en blocks");
 			free(rutaOxigeno);
 			return;
 		}
@@ -635,7 +653,7 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 			char* rutaComida = conseguir_ruta(COMIDAA);
 
 			reparar_MD5(rutaComida, 'C');
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en comida por alteracion en blocks");
 			free(rutaComida);
 			return;
 		}
@@ -643,7 +661,7 @@ void iniciar_recuperacion(sabotaje_code sabotaje_cod) {
 		if (fue_en_basura) {
 			char* rutaBasura = conseguir_ruta(BASURAA);
 			reparar_MD5(rutaBasura, 'B');
-			printf("se arreglo el sabotaje\n");
+			log_warning(mongoLogger,"se arreglo el sabotaje en basura por alteracion en blocks");
 			free(rutaBasura);
 			return;
 		}
@@ -686,7 +704,6 @@ void enviar_aviso_sabotaje_a_discordiador() {
 		pos_sabotaje = siguiente_posicion_sabotaje();
 		if (pos_sabotaje == NULL) {		//no hay mas sabotajes
 			sem_post(&semaforo_modificacion_de_datos);
-			log_warning(mongoLogger, "llegue hasta acaaaa");
 		} else {
 			sabotaje_pos_aux = string_split(pos_sabotaje, "|");	//tomo la posicion i del array y lo paso a otro
 			printf("ESTOY POR ENVIAR SABOTAJE\n");
@@ -701,7 +718,6 @@ void enviar_aviso_sabotaje_a_discordiador() {
 					strlen(sabotaje_posY) + 1);
 			enviar_paquete(paquete_sabotaje, socket_sabotaje_cliente);
 			eliminar_paquete(paquete_sabotaje);
-			log_warning(mongoLogger, "llegue");
 		}
 	}
 	return;

@@ -15,6 +15,7 @@
 t_list* memoriaPrincipal;
 bool noCompactado = true;
 bool esFF;
+int idSegmentoSiguiente = 0;
 //int cliente;
 
 // Todos los int de 32bits hacen referencia a una direccion en la memoria
@@ -35,6 +36,7 @@ typedef enum{
 
 //Semaforos
 
+pthread_mutex_t listaMemoriaPrincipal;
 pthread_mutex_t listaPatotasEnUso;
 sem_t direcciones;
 sem_t numeroPatotas;

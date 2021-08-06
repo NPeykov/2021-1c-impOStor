@@ -151,9 +151,24 @@ void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 
 
 	avisar_a_tripulantes_hermanos(tripulante_trabajando);
+	esperar_tripulantes_hermanos(tripulante_trabajando);
 
 }
 
+void sacarlo_en_caso_de_expulsion(Tripulante_Planificando *tripulante) {
+	avisar_a_ram_expulsion_tripulante(tripulante->tripulante->id, tripulante->tripulante->patota);
+
+	sem_destroy(&tripulante->ir_exec);
+	sem_destroy(&tripulante->salir_pausa);
+	sem_destroy(list_get(tripulante->semaforos, tripulante->tripulante->id - 1));
+	sem_destroy(&tripulante->termino_sabotaje);
+	free(tripulante->tripulante);
+	free(tripulante->tarea);
+	free(tripulante);
+
+	log_info(logs_discordiador,
+			"Se liberaron los datos del tripulante expulsado");
+}
 
 void sacarlo_de_finalizado(Tripulante_Planificando *tripulante){
 
@@ -504,7 +519,7 @@ void esperar_tripulantes_hermanos(Tripulante_Planificando *tripulante){
 
 	log_info(logs_discordiador, "LA PATOTA NUMERO: %d FINALIZO", tripulante->tripulante->patota);
 
-
+	sacarlo_de_finalizado(tripulante);
 
 }
 
@@ -620,7 +635,7 @@ void tripulante(void *argumentos){
 		sem_wait(&tripulante_trabajando -> ir_exec);
 		realizar_trabajo(tripulante_trabajando);
 
-
+/*
 		if (tripulante_trabajando->fui_expulsado) {
 			sem_post(&voy_a_ready);
 			esperar_tripulantes_hermanos(tripulante_trabajando);
@@ -629,13 +644,7 @@ void tripulante(void *argumentos){
 
 			sacarlo_de_finalizado(tripulante_trabajando);
 		}
-
-
-
-		//TODO: hasta aca llega lo de expulsar a la patota, envia la señal
-		//		pero rompe en el if de abajo porque la tarea es NULL.
-		//NOTA: tener en cuenta que en la linea 605, se vuelve a pedir tarea
-		//      y en caso que no tenga se expulsa al tripulante.
+*/
 
 		if(completo_tarea(tripulante_trabajando) && tripulante_trabajando -> tarea -> tipo == TAREA_IO && !g_hay_sabotaje
 				&& !tripulante_trabajando->fui_expulsado){
@@ -681,9 +690,11 @@ void tripulante(void *argumentos){
 		if(tripulante_trabajando->fui_expulsado){
 
 			sem_post(&voy_a_ready);
-			esperar_tripulantes_hermanos(tripulante_trabajando);
+
+			avisar_a_tripulantes_hermanos(tripulante_trabajando);
+			/*esperar_tripulantes_hermanos(tripulante_trabajando);
 			log_info(logs_discordiador, "El tripulante %d sale del mapa",
-								tripulante_trabajando->tripulante->id);
+								tripulante_trabajando->tripulante->id);*/
 
 			sacarlo_de_finalizado(tripulante_trabajando);
 		}
@@ -737,12 +748,16 @@ void expulsar_tripulante(int id , int patota){
             pthread_mutex_lock(&lock_lista_llegada);
             tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_llegada->elements, soy_yo);
             pthread_mutex_unlock(&lock_lista_llegada);
+            avisar_a_tripulantes_hermanos(tripulante);
+            sacarlo_en_caso_de_expulsion(tripulante);
             break;
 
         case LISTO:
             pthread_mutex_lock(&lock_lista_listo);
             tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_listo->elements, soy_yo);
             pthread_mutex_unlock(&lock_lista_listo);
+            avisar_a_tripulantes_hermanos(tripulante);
+            sacarlo_en_caso_de_expulsion(tripulante);
             break;
 
         case TRABAJANDO:
@@ -763,7 +778,6 @@ void expulsar_tripulante(int id , int patota){
             pthread_mutex_lock(&lock_lista_bloq_io);
             tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_bloqueado_IO, soy_yo);
             pthread_mutex_unlock(&lock_lista_bloq_io);
-
             tripulante->fui_expulsado = true;
             break;
 
@@ -771,14 +785,20 @@ void expulsar_tripulante(int id , int patota){
         	pthread_mutex_lock(&lock_lista_bloq_em);
         	tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_bloqueado_EM, soy_yo);
         	pthread_mutex_unlock(&lock_lista_bloq_em);
+        	avisar_a_tripulantes_hermanos(tripulante);
+        	sacarlo_en_caso_de_expulsion(tripulante);
             break;
 
         case FINALIZADO:
-        	//ver si hace algo mas
-        	//tienen q esperar a los q son de su patota
+        	pthread_mutex_lock(&lock_lista_exit);
+        	tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_finalizado, soy_yo);
+        	pthread_mutex_unlock(&lock_lista_exit);
+        	avisar_a_tripulantes_hermanos(tripulante);
+        	sacarlo_en_caso_de_expulsion(tripulante);
             break;
     }
-    if(tripulante->tripulante->estado!=FINALIZADO){
+
+    if(tripulante->tripulante->estado==BLOQUEADO_IO || tripulante->tripulante->estado==TRABAJANDO){
     	tripulante->tripulante->estado=FINALIZADO;
         pthread_mutex_lock(&lock_lista_exit);
         list_add(lista_finalizado, tripulante);
@@ -786,7 +806,9 @@ void expulsar_tripulante(int id , int patota){
 
         int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
         serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+        liberar_cliente(_socket_ram);
     }
+
 
     void destroyer(void *data){
     	Tripulante_Planificando *trip = (Tripulante_Planificando *)data;

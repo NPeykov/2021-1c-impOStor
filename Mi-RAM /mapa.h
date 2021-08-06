@@ -4,6 +4,7 @@
 #include <semaphore.h>
 #include <nivel-gui/nivel-gui.h>
 #include <nivel-gui/tad_nivel.h>
+#include <stdio.h>
 
 sem_t mutexError;
 

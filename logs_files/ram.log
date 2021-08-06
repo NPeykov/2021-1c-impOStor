@@ -22051,3 +22051,328 @@ GENERAR_OXIGENO 10;5;5;6
 [INFO] 00:35:32:842 Mi-RAM/(32258:32339): Se expulso al tripulante 1 de la patota 1
 [INFO] 00:35:32:842 Mi-RAM/(32258:32338): Se expulso al tripulante 2 de la patota 1
 [INFO] 00:35:32:842 Mi-RAM/(32258:32338): Se elimino la patota 1
+[INFO] 00:51:50:567 Mi-RAM/(2063:2063): ################# Modulo Mi-RAM #################
+
+[INFO] 00:51:50:604 Mi-RAM/(2063:2063): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:52:03:774 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 5
+
+[INFO] 00:52:03:791 Mi-RAM/(2063:2063): Se recibio una operacion: 2
+
+[INFO] 00:52:03:791 Mi-RAM/(2063:2114): Tareas guardadas: DESAYUNAR;0;0;3
+[INFO] 00:52:03:791 Mi-RAM/(2063:2114): Se coloco el segmento en 0 hasta 15
+[INFO] 00:52:03:792 Mi-RAM/(2063:2114): Se coloco el segmento en 15 hasta 8
+[INFO] 00:52:03:792 Mi-RAM/(2063:2114): Se inicio una patota exitosamente.
+[INFO] 00:52:03:792 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 7
+
+[INFO] 00:52:03:792 Mi-RAM/(2063:2063): Se recibio una operacion: 3
+
+[INFO] 00:52:03:792 Mi-RAM/(2063:2116): Se coloco el segmento en 23 hasta 21
+[INFO] 00:52:03:792 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 5
+
+[INFO] 00:52:03:792 Mi-RAM/(2063:2063): Se recibio una operacion: 8
+
+[INFO] 00:52:03:793 Mi-RAM/(2063:2116): Se creo al tripulante 0 de la patota 1
+[INFO] 00:52:03:793 Mi-RAM/(2063:2117): Tripulante 1 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:52:03:794 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 8
+
+[INFO] 00:52:03:794 Mi-RAM/(2063:2063): Se recibio una operacion: 3
+
+[INFO] 00:52:03:794 Mi-RAM/(2063:2120): Se coloco el segmento en 44 hasta 21
+[INFO] 00:52:03:794 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 5
+
+[INFO] 00:52:03:794 Mi-RAM/(2063:2063): Se recibio una operacion: 8
+
+[INFO] 00:52:03:794 Mi-RAM/(2063:2120): Se creo al tripulante 0 de la patota 1
+[INFO] 00:52:03:794 Mi-RAM/(2063:2121): Tripulante 2 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:52:25:387 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 7
+
+[INFO] 00:52:25:388 Mi-RAM/(2063:2063): Se recibio una operacion: 8
+
+[INFO] 00:52:25:388 Mi-RAM/(2063:2170): Tripulante 1 no tiene mas tareas.
+[INFO] 00:52:25:389 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 5
+
+[INFO] 00:52:25:389 Mi-RAM/(2063:2063): Se recibio una operacion: 4
+
+[INFO] 00:52:25:393 Mi-RAM/(2063:2171): El tripulante 1 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 00:52:34:393 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 5
+
+[INFO] 00:52:34:393 Mi-RAM/(2063:2063): Se recibio una operacion: 8
+
+[INFO] 00:52:34:393 Mi-RAM/(2063:2200): Tripulante 2 no tiene mas tareas.
+[INFO] 00:52:34:394 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 7
+
+[INFO] 00:52:34:394 Mi-RAM/(2063:2063): Se recibio una operacion: 4
+
+[INFO] 00:52:34:395 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 7
+
+[INFO] 00:52:34:395 Mi-RAM/(2063:2063): Se recibio una operacion: 6
+
+[INFO] 00:52:34:395 Mi-RAM/(2063:2063): Se conecto un cliente con socket: 7
+
+[INFO] 00:52:34:396 Mi-RAM/(2063:2063): Se recibio una operacion: 6
+
+[INFO] 00:52:34:398 Mi-RAM/(2063:2202): Se expulso al tripulante 1 de la patota 1
+[INFO] 00:52:34:398 Mi-RAM/(2063:2203): Se expulso al tripulante 2 de la patota 1
+[INFO] 00:52:34:398 Mi-RAM/(2063:2203): Se elimino la patota 1
+[INFO] 00:54:21:647 Mi-RAM/(2424:2424): ################# Modulo Mi-RAM #################
+
+[INFO] 00:54:21:675 Mi-RAM/(2424:2424): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:54:28:279 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:54:28:303 Mi-RAM/(2424:2424): Se recibio una operacion: 2
+
+[INFO] 00:54:28:303 Mi-RAM/(2424:2443): Tareas guardadas: DESAYUNAR;0;0;3
+[INFO] 00:54:28:303 Mi-RAM/(2424:2443): Se coloco el segmento en 0 hasta 15
+[INFO] 00:54:28:303 Mi-RAM/(2424:2443): Se coloco el segmento en 15 hasta 8
+[INFO] 00:54:28:303 Mi-RAM/(2424:2443): Se inicio una patota exitosamente.
+[INFO] 00:54:28:304 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:28:307 Mi-RAM/(2424:2424): Se recibio una operacion: 3
+
+[INFO] 00:54:28:311 Mi-RAM/(2424:2445): Se coloco el segmento en 23 hasta 21
+[INFO] 00:54:28:317 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 8
+
+[INFO] 00:54:28:317 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:28:317 Mi-RAM/(2424:2445): Se creo al tripulante 0 de la patota 1
+[INFO] 00:54:28:317 Mi-RAM/(2424:2446): Tripulante 1 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:54:28:317 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:54:28:317 Mi-RAM/(2424:2424): Se recibio una operacion: 3
+
+[INFO] 00:54:28:317 Mi-RAM/(2424:2449): Se coloco el segmento en 44 hasta 21
+[INFO] 00:54:28:318 Mi-RAM/(2424:2449): Se creo al tripulante 0 de la patota 1
+[INFO] 00:54:28:318 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:28:318 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:28:318 Mi-RAM/(2424:2450): Tripulante 2 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:54:28:318 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:54:28:318 Mi-RAM/(2424:2424): Se recibio una operacion: 3
+
+[INFO] 00:54:28:343 Mi-RAM/(2424:2453): Se coloco el segmento en 65 hasta 21
+[INFO] 00:54:28:344 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:28:344 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:28:344 Mi-RAM/(2424:2453): Se creo al tripulante 0 de la patota 1
+[INFO] 00:54:28:344 Mi-RAM/(2424:2454): Tripulante 3 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:54:28:345 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 8
+
+[INFO] 00:54:28:345 Mi-RAM/(2424:2424): Se recibio una operacion: 3
+
+[INFO] 00:54:28:347 Mi-RAM/(2424:2457): Se coloco el segmento en 86 hasta 21
+[INFO] 00:54:28:347 Mi-RAM/(2424:2457): Se creo al tripulante 0 de la patota 1
+[INFO] 00:54:28:347 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:54:28:347 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:28:347 Mi-RAM/(2424:2458): Tripulante 4 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:54:28:347 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:28:347 Mi-RAM/(2424:2424): Se recibio una operacion: 3
+
+[INFO] 00:54:28:348 Mi-RAM/(2424:2461): Se coloco el segmento en 107 hasta 21
+[INFO] 00:54:28:348 Mi-RAM/(2424:2461): Se creo al tripulante 0 de la patota 1
+[INFO] 00:54:28:348 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:54:28:348 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:28:348 Mi-RAM/(2424:2462): Tripulante 5 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:54:43:698 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:43:698 Mi-RAM/(2424:2424): Se recibio una operacion: 4
+
+[INFO] 00:54:43:699 Mi-RAM/(2424:2506): El tripulante 4 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 00:54:51:272 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:54:51:273 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:51:275 Mi-RAM/(2424:2524): Tripulante 2 no tiene mas tareas.
+[INFO] 00:54:51:276 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:54:51:277 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:54:51:277 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 8
+
+[INFO] 00:54:51:277 Mi-RAM/(2424:2424): Se recibio una operacion: 4
+
+[INFO] 00:54:51:279 Mi-RAM/(2424:2528): El tripulante 2 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 00:54:51:279 Mi-RAM/(2424:2527): Tripulante 1 no tiene mas tareas.
+[INFO] 00:54:51:280 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 8
+
+[INFO] 00:54:51:280 Mi-RAM/(2424:2424): Se recibio una operacion: 4
+
+[INFO] 00:54:51:280 Mi-RAM/(2424:2529): El tripulante 1 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 00:55:09:280 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:55:09:280 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:55:09:280 Mi-RAM/(2424:2561): Tripulante 3 no tiene mas tareas.
+[INFO] 00:55:09:280 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:55:09:280 Mi-RAM/(2424:2424): Se recibio una operacion: 4
+
+[INFO] 00:55:09:281 Mi-RAM/(2424:2562): El tripulante 3 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 00:55:09:286 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 7
+
+[INFO] 00:55:09:286 Mi-RAM/(2424:2424): Se recibio una operacion: 8
+
+[INFO] 00:55:09:286 Mi-RAM/(2424:2564): Tripulante 5 no tiene mas tareas.
+[INFO] 00:55:09:286 Mi-RAM/(2424:2424): Se conecto un cliente con socket: 5
+
+[INFO] 00:55:09:287 Mi-RAM/(2424:2424): Se recibio una operacion: 4
+
+[INFO] 00:55:09:288 Mi-RAM/(2424:2565): El tripulante 5 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 01:04:29:102 Mi-RAM/(2424:2424): Iniciando compactacion
+[INFO] 01:04:29:136 Mi-RAM/(2424:2424): Se compactaron 0 espacios
+[INFO] 01:25:43:629 Mi-RAM/(5763:5763): ################# Modulo Mi-RAM #################
+
+[INFO] 01:25:43:683 Mi-RAM/(5763:5763): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 01:25:51:296 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 5
+
+[INFO] 01:25:51:313 Mi-RAM/(5763:5763): Se recibio una operacion: 2
+
+[INFO] 01:25:51:313 Mi-RAM/(5763:5782): Tareas guardadas: DESAYUNAR;0;0;3
+[INFO] 01:25:51:313 Mi-RAM/(5763:5782): Se coloco el segmento en 0 hasta 15
+[INFO] 01:25:51:313 Mi-RAM/(5763:5782): Se coloco el segmento en 15 hasta 8
+[INFO] 01:25:51:313 Mi-RAM/(5763:5782): Se inicio una patota exitosamente.
+[INFO] 01:25:51:313 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 7
+
+[INFO] 01:25:51:314 Mi-RAM/(5763:5763): Se recibio una operacion: 3
+
+[INFO] 01:25:51:314 Mi-RAM/(5763:5784): Se coloco el segmento en 23 hasta 21
+[INFO] 01:25:51:314 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 5
+
+[INFO] 01:25:51:314 Mi-RAM/(5763:5763): Se recibio una operacion: 8
+
+[INFO] 01:25:51:314 Mi-RAM/(5763:5784): Se creo al tripulante 0 de la patota 1
+[INFO] 01:25:51:314 Mi-RAM/(5763:5785): Tripulante 1 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 01:25:51:315 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 8
+
+[INFO] 01:25:51:315 Mi-RAM/(5763:5763): Se recibio una operacion: 3
+
+[INFO] 01:25:51:315 Mi-RAM/(5763:5788): Se coloco el segmento en 44 hasta 21
+[INFO] 01:25:51:316 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 5
+
+[INFO] 01:25:51:316 Mi-RAM/(5763:5763): Se recibio una operacion: 8
+
+[INFO] 01:25:51:316 Mi-RAM/(5763:5788): Se creo al tripulante 0 de la patota 1
+[INFO] 01:25:51:316 Mi-RAM/(5763:5789): Tripulante 2 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 01:25:51:332 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 7
+
+[INFO] 01:25:51:332 Mi-RAM/(5763:5763): Se recibio una operacion: 3
+
+[INFO] 01:25:51:332 Mi-RAM/(5763:5791): Se coloco el segmento en 65 hasta 21
+[INFO] 01:25:51:332 Mi-RAM/(5763:5791): Se creo al tripulante 0 de la patota 1
+[INFO] 01:25:51:332 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 5
+
+[INFO] 01:25:51:332 Mi-RAM/(5763:5763): Se recibio una operacion: 8
+
+[INFO] 01:25:51:333 Mi-RAM/(5763:5792): Tripulante 3 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 01:25:51:336 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 7
+
+[INFO] 01:25:51:336 Mi-RAM/(5763:5763): Se recibio una operacion: 3
+
+[INFO] 01:25:51:336 Mi-RAM/(5763:5794): Se coloco el segmento en 86 hasta 21
+[INFO] 01:25:51:336 Mi-RAM/(5763:5794): Se creo al tripulante 0 de la patota 1
+[INFO] 01:25:51:336 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 5
+
+[INFO] 01:25:51:336 Mi-RAM/(5763:5763): Se recibio una operacion: 8
+
+[INFO] 01:25:51:337 Mi-RAM/(5763:5797): Tripulante 4 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 01:25:59:477 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 7
+
+[INFO] 01:25:59:477 Mi-RAM/(5763:5763): Se recibio una operacion: 4
+
+[INFO] 01:25:59:477 Mi-RAM/(5763:5763): Se conecto un cliente con socket: 5
+
+[INFO] 01:25:59:477 Mi-RAM/(5763:5763): Se recibio una operacion: 6
+
+[INFO] 01:25:59:478 Mi-RAM/(5763:5816): Se expulso al tripulante 1 de la patota 1
+[INFO] 01:39:09:967 Mi-RAM/(5763:5763): Iniciando compactacion
+[INFO] 01:39:09:967 Mi-RAM/(5763:5763): Se compactaron 3 espacios
+[INFO] 02:01:08:064 Mi-RAM/(10893:10893): ################# Modulo Mi-RAM #################
+
+[INFO] 02:01:08:153 Mi-RAM/(10893:10893): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 02:01:14:824 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:14:848 Mi-RAM/(10893:10893): Se recibio una operacion: 2
+
+[INFO] 02:01:14:848 Mi-RAM/(10893:10911): Tareas guardadas: DESAYUNAR;0;0;3
+[INFO] 02:01:14:848 Mi-RAM/(10893:10911): Se coloco el segmento en 0 hasta 15
+[INFO] 02:01:14:848 Mi-RAM/(10893:10911): Se coloco el segmento en 15 hasta 8
+[INFO] 02:01:14:848 Mi-RAM/(10893:10911): Se inicio una patota exitosamente.
+[INFO] 02:01:14:849 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 7
+
+[INFO] 02:01:14:849 Mi-RAM/(10893:10893): Se recibio una operacion: 3
+
+[INFO] 02:01:14:849 Mi-RAM/(10893:10913): Se coloco el segmento en 23 hasta 21
+[INFO] 02:01:14:849 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:14:849 Mi-RAM/(10893:10893): Se recibio una operacion: 8
+
+[INFO] 02:01:14:849 Mi-RAM/(10893:10913): Se creo al tripulante 0 de la patota 1
+[INFO] 02:01:14:849 Mi-RAM/(10893:10914): Tripulante 1 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 02:01:14:854 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 8
+
+[INFO] 02:01:14:855 Mi-RAM/(10893:10893): Se recibio una operacion: 3
+
+[INFO] 02:01:14:855 Mi-RAM/(10893:10917): Se coloco el segmento en 44 hasta 21
+[INFO] 02:01:14:855 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:14:855 Mi-RAM/(10893:10893): Se recibio una operacion: 8
+
+[INFO] 02:01:14:855 Mi-RAM/(10893:10917): Se creo al tripulante 0 de la patota 1
+[INFO] 02:01:14:856 Mi-RAM/(10893:10918): Tripulante 2 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 02:01:14:857 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 7
+
+[INFO] 02:01:14:857 Mi-RAM/(10893:10893): Se recibio una operacion: 3
+
+[INFO] 02:01:14:857 Mi-RAM/(10893:10921): Se coloco el segmento en 65 hasta 21
+[INFO] 02:01:14:857 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:14:857 Mi-RAM/(10893:10893): Se recibio una operacion: 8
+
+[INFO] 02:01:14:857 Mi-RAM/(10893:10921): Se creo al tripulante 0 de la patota 1
+[INFO] 02:01:14:857 Mi-RAM/(10893:10922): Tripulante 3 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 02:01:21:614 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 8
+
+[INFO] 02:01:21:614 Mi-RAM/(10893:10893): Se recibio una operacion: 6
+
+[INFO] 02:01:21:615 Mi-RAM/(10893:10939): Se expulso al tripulante 1 de la patota 1
+[INFO] 02:01:45:806 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:45:806 Mi-RAM/(10893:10893): Se recibio una operacion: 8
+
+[INFO] 02:01:45:807 Mi-RAM/(10893:10990): Tripulante 3 no tiene mas tareas.
+[INFO] 02:01:45:808 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 7
+
+[INFO] 02:01:45:808 Mi-RAM/(10893:10893): Se recibio una operacion: 8
+
+[INFO] 02:01:45:808 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 8
+
+[INFO] 02:01:45:808 Mi-RAM/(10893:10893): Se recibio una operacion: 4
+
+[INFO] 02:01:45:809 Mi-RAM/(10893:10994): El tripulante 3 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 02:01:45:809 Mi-RAM/(10893:10993): Tripulante 2 no tiene mas tareas.
+[INFO] 02:01:45:809 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 8
+
+[INFO] 02:01:45:810 Mi-RAM/(10893:10893): Se recibio una operacion: 4
+
+[INFO] 02:01:45:810 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:45:810 Mi-RAM/(10893:10893): Se recibio una operacion: 6
+
+[INFO] 02:01:45:810 Mi-RAM/(10893:10893): Se conecto un cliente con socket: 5
+
+[INFO] 02:01:45:810 Mi-RAM/(10893:10893): Se recibio una operacion: 6
+
+[INFO] 02:01:45:810 Mi-RAM/(10893:10997): Se expulso al tripulante 3 de la patota 1
+[INFO] 02:01:45:810 Mi-RAM/(10893:10996): Se expulso al tripulante 2 de la patota 1
+[INFO] 02:01:45:811 Mi-RAM/(10893:10996): Se elimino la patota 1

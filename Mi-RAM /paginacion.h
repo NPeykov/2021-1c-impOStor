@@ -8,7 +8,6 @@
 #include <commons/collections/list.h>
 #include <commons/bitarray.h>
 #include <math.h>
-
 #include "mi-ram.h"
 
 int TAM_PAG;

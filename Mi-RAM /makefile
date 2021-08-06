@@ -1,13 +1,11 @@
 TARGET = MIRAM
-UTILS_DIR = ../utils
-$(TARGET) : mi-ram.o ../utils/utils.o
-	gcc -Wall -I $(UTILS_DIR) mi-ram.o $(UTILS_DIR)/utils.o -o $(TARGET) -lcommons -lreadline -pthread -lnivel-gui -lncurses
+UTILS  = ../utils
+PROG   = mi-ram.c $(UTILS)/utils.c #memoria-virtual.c paginacion.c segmentacion.c mapa.c
+FLAGS  = -I$(UTILS) -lcommons -lreadline -pthread -lm -lnivel-gui -lncurses
 
-
-$(UTILS_DIR)/utils.o : $(UTILS_DIR)/utils.c $(UTILS_DIR)/utils.h
-    
-mi-ram.o : mi-ram.c mi-ram.h
+$(TARGET) : $(PROG)
+	gcc $(PROG) -o $(TARGET) $(FLAGS)
 
 .PHONY : clean
-clean:
-	rm *.o $(TARGET)
+clean :
+	rm -f $(TARGET) *.o

@@ -982,19 +982,18 @@ void inicializarPaginacion(){
 
 void asignar_marco_en_swap(t_pagina* pag){
 	int posicionLibre = (int)buscar_marco_disponible(MEM_VIRT);
-	bitarray_set_bit(BIT_ARRAY_SWAP, (off_t) posicionLibre);
 	pag->nro_frame_mpal = -1;
 	pag->bit_uso = false;
 	pag->bit_presencia = false;
 	pag->nro_frame_swap = posicionLibre;
-	asignar_marco_en_uso(pag->nro_frame_mpal,MEM_VIRT);
+	asignar_marco_en_uso(pag->nro_frame_swap,MEM_VIRT);
 	log_info(logs_ram, "Se asigno a la pagina %d el frame %d en swap",pag->nro_pagina,posicionLibre);
 }
 
 void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
 
-	log_info(logs_ram,"La pagina PEDIDA %d tiene asignado frame %d en mpal y %d en swap, %d",paginaPedida->nro_pagina ,paginaPedida->nro_frame_mpal, paginaPedida->nro_frame_swap);
-	log_info(logs_ram,"La pagina VICTIMA tiene asignado frame %d en mpal y %d en swap, %d",victima->nro_pagina ,victima->nro_frame_mpal, victima->nro_frame_swap);
+	log_info(logs_ram,"La pagina PEDIDA %d tiene asignado frame %d en mpal y %d en swap",paginaPedida->nro_pagina ,paginaPedida->nro_frame_mpal, paginaPedida->nro_frame_swap);
+	log_info(logs_ram,"La pagina VICTIMA %d tiene asignado frame %d en mpal y %d en swap",victima->nro_pagina ,victima->nro_frame_mpal, victima->nro_frame_swap);
 
 	int nroFrame = victima->nro_frame_mpal;
 	void *frameVictima = memoria+(nroFrame*TAM_PAG);
@@ -1005,9 +1004,9 @@ void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
 	void* bufferAux = (void*)malloc(TAM_PAG);
 
 	pthread_mutex_lock(&mutex_swap_file);
-	memcpy(bufferAux, MEMORIA_VIRTUAL+posicionEnSwap, TAM_PAG); //Swap mappeado como variable global por ahora
-	memcpy(MEMORIA_VIRTUAL+posicionEnSwap, frameVictima, TAM_PAG);
-	memcpy(frameVictima, bufferAux, TAM_PAG);
+	memcpy(bufferAux, MEMORIA_VIRTUAL+posicionEnSwap, TAM_PAG);//Muevo lo de SWAP al buffer
+	memcpy(MEMORIA_VIRTUAL+posicionEnSwap, frameVictima, TAM_PAG);//Lo de memoria a swap
+	memcpy(frameVictima, bufferAux, TAM_PAG);//Y lo del buffer a memoria
 	pthread_mutex_unlock(&mutex_swap_file);
 
 	victima->bit_presencia = false;

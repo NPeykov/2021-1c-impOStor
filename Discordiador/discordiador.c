@@ -254,7 +254,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 		}
 
 		else { //tengo que pedir la proxima tarea
-			avisar_a_mongo_estado_tarea(tripulante->tarea, tripulante, FIN_TAREA);
+			avisar_a_mongo_estado_tarea(tripulante->tarea, tripulante->tripulante, FIN_TAREA);
 			pthread_mutex_lock(&mutex_tarea);
 			tripulante->tarea = proxima_tarea(tripulante->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);
@@ -297,7 +297,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 			return;
 
 		if (completo_tarea(tripulante)) {
-			avisar_a_mongo_estado_tarea(tripulante->tarea, tripulante, FIN_TAREA);
+			avisar_a_mongo_estado_tarea(tripulante->tarea, tripulante->tripulante, FIN_TAREA);
 			pthread_mutex_lock(&mutex_tarea);
 			tripulante->tarea = proxima_tarea(tripulante->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);

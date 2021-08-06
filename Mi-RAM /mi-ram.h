@@ -23,6 +23,7 @@ t_config *config;
 char* puerto;
 char* tipoMemoria;
 int tamaniomemoria;
+bool seInicioAlgo=false;
 
 //Malloc principal de memoria
 void* memoria;

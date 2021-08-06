@@ -88,6 +88,7 @@ void *gestionarCliente(int socket) {
 				liberar_cliente(cliente);
 				break;
 		}
+		seInicioAlgo = true;
 	}
 }
 
@@ -98,7 +99,6 @@ void atenderSegunEsquema(){
 		inicializarPaginacion();
 	}
 	pthread_t hilo_cliente;
-
 	pthread_create(&hilo_cliente, NULL, (void *)gestionarCliente(socket_principal_ram), NULL);
 	pthread_join(hilo_cliente, NULL);
 }
@@ -111,12 +111,27 @@ void dumpMemoria(){
 	}
 }
 
+void cerrarMemoria(){
+	free(memoria);
+	log_destroy(logs_ram);
+	config_destroy(config);
+	if(strcmp(tipoMemoria, "SEGMENTACION") == 0 && seInicioAlgo){
+		cerrarMemoriaSeg();
+	}else{
+		cerrarMemoriaPag();
+	}
+	list_destroy(patotas);
+
+	exit(0);
+}
 
 
 int main(){
 	inicializar_ram();
 
 	signal(SIGTSTP, dumpMemoria);
+
+	signal(SIGQUIT, cerrarMemoria);
 
 	atenderSegunEsquema();
 

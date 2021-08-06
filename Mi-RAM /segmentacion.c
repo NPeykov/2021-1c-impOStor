@@ -239,6 +239,7 @@ void crear_segmento_tcb(void* elTripulante) {
 		if(noTieneMasTripulantes(tabla_segmentos)){eliminarPatota(miPatota);}
 		free(segmento);
 		free(tcb);
+		free(tripulanteConSocket);
 		pthread_exit(NULL);
 	}else{
 		list_add(tabla_segmentos, segmento);
@@ -250,6 +251,7 @@ void crear_segmento_tcb(void* elTripulante) {
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
 		free(unTripulante);
 		liberar_cliente(_socket_cliente);
+		free(tripulanteConSocket);
 		pthread_exit(NULL);
 	}
 }
@@ -284,6 +286,7 @@ void crear_proceso(void *data){
 	if(result_tareas == -1){
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
+		free(datos_patota);
 		pthread_exit(NULL);
 		return;
 	}
@@ -340,6 +343,11 @@ void eliminarPatota(t_proceso *laPatota){
 	}
 	list_destroy_and_destroy_elements(laPatota->tabla,_eliminarSegmentos);
 	log_info(logs_ram, "Se elimino la patota %d", laPatota->pid);
+
+	bool _esLaPatota(t_proceso* unaPatota){
+		return (unaPatota->pid == laPatota->pid);
+	}
+	list_remove_by_condition(patotas,(void*) _esLaPatota);
 	free(laPatota);
 }
 
@@ -617,7 +625,7 @@ void dumpMemoriaSeg(){
 
 	pthread_mutex_lock(&listaPatotasEnUso);
 	if(list_is_empty(patotas)){
-		txt_write_in_file(archivo,"No se encontraron tripulantes.\n\n" );
+		txt_write_in_file(archivo,"La memoria esta vacia.\n\n" );
 	}else{
 		list_iterate(patotas, _recorrerPatotas);
 		txt_write_in_file(archivo,"\n");
@@ -632,4 +640,7 @@ void dumpMemoriaSeg(){
 	free(textoAEscribir);
 }
 
+void cerrarMemoriaSeg(){
+	list_iterate(patotas, (void*)eliminarPatota);
 
+}

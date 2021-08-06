@@ -265,6 +265,7 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, uint32_t *proxIns,int idTr
 	t_pagina* pagina;
 	log_info(logs_ram, "La proxima instruccion esta en la pagina %d y desplazamiento %d", indicePagina, desplazamiento);
 	if(*proxIns == -1){
+		log_info(logs_ram, "El tripulante no tiene mas tareas");
 		return "null";
 	}
 
@@ -511,48 +512,13 @@ t_list* lista_paginas_tripulantes(t_list* tabla_paginas_proceso, uint32_t id_tri
 
 	return tablaPaginasConTripu;
 }
-/*
-int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb, int pid) {
-
-	int aMeter, relleno, offset = 0;
-	void* bufferAMeter = (void*)tcb;
-
-	int cantPaginasConTripu = list_size(lista_paginas_tripulantes);
-
-	if(cantPaginasConTripu == 0) {
-		log_error(logs_ram, "No hay paginas que contengan al tripulante %d en memoria" , tcb->tid);
-		return 0;
-	}
-
-	//log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", tcb->tid, cantPaginasConTripu);
-	int i = 0;
-
-	while(i < cantPaginasConTripu)
-	{
-		t_pagina* pagina = list_get(lista_paginas_tripulantes,i);
-		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, tcb->tid);
-
-		//log_info(logs_ram, "Se va a sobreescrbir el tripulante: ID: %d | ESTADO: %c | X: %d | Y: %d | DL_TAREA: %d | DL_PATOTA: %d",
-			//	tcb->tid, tcb->status, tcb->posX, tcb->posY, tcb->proxIns, tcb->pcb);
-		pthread_mutex_lock(&mutexEscribiendoMemoria);
-		traer_pagina(pagina,pid);
-		sobreescribir_memoria(pagina->nro_frame_mpal, bufferAMeter + offset, MEM_PPAL, alojado->base, alojado->tamanio);
-		offset += alojado->tamanio;
-		i++;
-	}
-	list_destroy(lista_paginas_tripulantes);
-	free(tcb);
-
-	return 1;
-}*/
-//TODO: borrar
 
 void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 	int idTripulante = tripulanteActualizado->tid;
 	int idPatota = tripulanteActualizado->numPatota;
 
 	t_proceso* proceso = buscar_patota(idPatota);
-	log_info(logs_ram, "Se va a actualizar al tripu %d", idTripulante);
+	log_info(logs_ram, "Se va a actualizar al tripu %d de la patota %d", idTripulante, proceso->pid);
 	existencia_patota(proceso);
 
 	t_list *paginasConTripulante = lista_paginas_tripulantes(proceso->tabla,(uint32_t) idTripulante);
@@ -562,18 +528,17 @@ void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 
 	uint32_t *posX = (uint32_t*)obtener_dato_tripulante(paginasConTripulante,desplazAPosX,sizeof(uint32_t),idTripulante);
 	uint32_t *posY = (uint32_t*)obtener_dato_tripulante(paginasConTripulante,desplazAPosY,sizeof(uint32_t),idTripulante);
-	char estado = (char)obtener_dato_tripulante(paginasConTripulante,desplazAEstado,sizeof(char),idTripulante);
-	log_info(logs_ram, "El tripulante tenia Estado %c y Posiciones %d|%d",estado,*posX,*posY);
+	char* estado =(char*) obtener_dato_tripulante(paginasConTripulante,desplazAEstado,sizeof(char),idTripulante);
+	log_info(logs_ram, "El tripulante tenia Estado %c y Posiciones %d|%d",estado[0],*posX,*posY);
 	int difX = tripulanteActualizado->posX-*posX;
 	int difY = tripulanteActualizado->posY-*posY;
 	void *nuevoEstado, *newPosX, *newPosY;
 	newPosX = &tripulanteActualizado->posX;
 	newPosY = &tripulanteActualizado->posY;
 	nuevoEstado = &tripulanteActualizado->status;
-	log_info(logs_ram, "El tripulante tenia Estado %c y Posiciones %d|%d",estado,*posX,*posY);
 	if(difX==0 && difY==0){//Si solo cambio el estado
 		escribir_dato_tripulante(paginasConTripulante,desplazAEstado, sizeof(char),idTripulante,nuevoEstado);
-	}else if(estado == tripulanteActualizado->status){//Si solo cambiaron las posiciones
+	}else if(estado[0] == tripulanteActualizado->status){//Si solo cambiaron las posiciones
 		escribir_dato_tripulante(paginasConTripulante,desplazAPosX, sizeof(uint32_t),idTripulante,newPosX);
 		escribir_dato_tripulante(paginasConTripulante,desplazAPosY, sizeof(uint32_t),idTripulante,newPosY);
 		moverTripuMapa(alojado->caracterRep,  difX,  difY);
@@ -589,6 +554,7 @@ void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 	free(tripulanteActualizado);
 	free(posX);
 	free(posY);
+	free(estado);
 	return;
 }
 
@@ -602,7 +568,6 @@ void escribir_dato_tripulante(t_list *paginas_del_tripulante, int desplazamiento
 		t_pagina* pagina = list_get(paginas_del_tripulante,i);
 		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, idTripulante);
 		traer_pagina(pagina);
-		log_info(logs_ram,"Escribo en la pagina %d", i);
 		//Direccion respecto del desplazamiento de ese dato en memoria
 		direccion = memoria + pagina->nro_frame_mpal * TAM_PAG+alojado->base +desplazamientoEnTripulante;
 		espacioPosDesplaz = TAM_PAG - (alojado->base+desplazamientoEnTripulante);
@@ -610,12 +575,9 @@ void escribir_dato_tripulante(t_list *paginas_del_tripulante, int desplazamiento
 		if(espacioPosDesplaz > tamanioDato){
 			memcpy(direccion,punteroRestante , tamanioDato);
 			tamanioDato -= tamanioDato;
-			log_info(logs_ram, "Escribi %d bytes en %d, escribi todo", tamanioDato,espacioPosDesplaz);
 		}else if(espacioPosDesplaz >0){
 			memcpy(direccion,punteroRestante ,espacioPosDesplaz);
-			log_info(logs_ram, "Escribi %d bytes en %d", espacioPosDesplaz,espacioPosDesplaz);
 			punteroRestante +=espacioPosDesplaz;
-			log_info(logs_ram, "Me quedan %d por escribir",tamanioDato - espacioPosDesplaz);
 			tamanioDato -=espacioPosDesplaz;
 		}
 		desplazamientoEnTripulante -=alojado->tamanio;
@@ -694,8 +656,6 @@ void expulsar_tripulante_pag(void* algo) {
 	t_proceso* proceso = buscar_patota(pid);
 	existencia_patota(proceso);
 
-	int caracterRepresentativo;
-
 	t_list* paginasTripu = lista_paginas_tripulantes(proceso->tabla, tid);
 	pthread_mutex_lock(&mutexTablaPaginas);
 	log_info(logs_ram, "Se va a eliminar el tripulante %d de la patota %d",tid, pid);
@@ -756,9 +716,9 @@ void expulsar_tripulante_pag(void* algo) {
 	if(paginasTripu != NULL){
 		list_iterate(paginasTripu,_recorrer_paginas_tripulante);
 		pthread_mutex_unlock(&mutexTablaPaginas);
-		//eliminarTripuMapa(caracterRepresentativo);
-		chequear_ultimo_tripulante(proceso);
+		if(!proceso_tiene_tripulantes(proceso)){limpiarProceso(proceso);};
 	}else{
+		pthread_mutex_unlock(&mutexTablaPaginas);
 		log_error(logs_ram,"Este tripulante no existe en esta patota");
 	}
 }
@@ -782,9 +742,7 @@ bool proceso_tiene_tripulantes(t_proceso* proceso) {
 	return a;
 }
 
-void chequear_ultimo_tripulante(t_proceso* proceso) {
-
-	if(!proceso_tiene_tripulantes(proceso)) {
+void limpiarProceso(t_proceso* proceso) {
 
 		log_info(logs_ram,"La patota %d no tiene mas tripulantes. Se procede a borrarla de memoria", proceso->pid);
 
@@ -825,7 +783,6 @@ void chequear_ultimo_tripulante(t_proceso* proceso) {
 		list_destroy_and_destroy_elements(proceso->tabla, (void*) borrarProceso);
 		pthread_mutex_unlock(&mutexTablaPaginas);
 		free(proceso);
-	}
 }
 
 TripuCB* transformarEnTripulante(void* buffer){
@@ -1174,4 +1131,8 @@ void reemplazarSegunAlgoritmo(t_pagina* paginaEntrada){
 		paginaSalida = algoritmo_clock();
 		swap_pages(paginaSalida, paginaEntrada);
 	}
+}
+
+void cerrarMemoriaPag(){
+
 }

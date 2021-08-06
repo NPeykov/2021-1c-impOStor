@@ -246,6 +246,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 
 		if (tripulante->fui_expulsado) {
 			//sem_post(&ya_sali_de_exec);
+			log_error(logs_discordiador, "FUI EXPULSADO ESTANDO FIFO");
 			return;
 		}
 
@@ -270,8 +271,12 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 		while (!completo_tarea(tripulante) && tripulante->quantum_disponible > 0
 				&& !tripulante->fui_expulsado) {
 			fijarse_si_hay_pausa_hilo(tripulante);
+
 			if (tripulante->fui_expulsado)
 				continue;
+
+
+
 			if (g_hay_sabotaje) { //la logica de esperar esta en la funcion tripulante
 				pthread_mutex_lock(&lock_grado_multitarea);
 				lugares_en_exec++;
@@ -403,11 +408,12 @@ void atender_comandos_consola(void) {
 			if (strcmp(respuesta_inicio_patota, "ok") == 0) {
 				log_info(logs_discordiador, "ME DIERON OK PARA INICIAR PATOTA");
 				iniciar_patota(comando_separado);
-			} else {
-				log_info(logs_discordiador, "NO SE PUDO CREAR PATOTA");
+				g_numero_patota += 1; //la mandaria ram
+			}
+			else {
+				log_error(logs_discordiador, "NO SE PUDO CREAR PATOTA");
 			}
 
-			g_numero_patota += 1; //la mandaria ram
 			liberar_cliente(socket_ram);
 			break;
 
@@ -597,12 +603,14 @@ void tripulante(void *argumentos) {
 	codigo_operacion = recibir_operacion(_socket_ram);
 	respuesta_pedido = recibir_mensaje(_socket_ram);
 
-	if (strcmp(respuesta_pedido, "ok") == 0) {
-		log_info(logs_discordiador, "Puedo iniciar tripulante numero: %d",
-				tripulante->id);
-	} else {
-		log_error(logs_discordiador, "NO PUEDO REALIZAR INICIO TRIPULANTE %d",
-				tripulante->id);
+
+	if(strcmp(respuesta_pedido, "ok") == 0){
+		log_info(logs_discordiador, "Puedo iniciar tripulante numero: %d", tripulante->id);
+	}
+	else {
+		log_error(logs_discordiador, "NO PUEDO REALIZAR INICIO TRIPULANTE %d", tripulante->id);
+		liberar_cliente(_socket_ram);
+		pthread_exit(NULL);
 	}
 	liberar_cliente(_socket_ram);
 
@@ -694,12 +702,14 @@ void tripulante(void *argumentos) {
 
 			sem_post(&voy_a_ready);
 
+			log_error(logs_discordiador, "UN TRIP CON FLAG EXPULSADO");
+
 			avisar_a_tripulantes_hermanos(tripulante_trabajando);
 			/*esperar_tripulantes_hermanos(tripulante_trabajando);
 			 log_info(logs_discordiador, "El tripulante %d sale del mapa",
 			 tripulante_trabajando->tripulante->id);*/
 
-			sacarlo_de_finalizado(tripulante_trabajando);
+			sacarlo_en_caso_de_expulsion(tripulante_trabajando);
 		}
 
 		if (g_hay_sabotaje) {
@@ -729,6 +739,7 @@ void expulsar_tripulante(int id, int patota) {
 	list_add_all(lista_entera, lista_bloqueado_IO);
 	list_add_all(lista_entera, lista_trabajando);
 	list_add_all(lista_entera, lista_bloqueado_EM);
+	list_add_all(lista_entera, lista_finalizado);
 
 	tripulante = (Tripulante_Planificando *) list_find(lista_entera, soy_yo);
 
@@ -738,98 +749,105 @@ void expulsar_tripulante(int id, int patota) {
 		return;
 	}
 
-	log_info(logs_discordiador, "Expulsando al tripulante %d de patota %d",
-			tripulante->tripulante->id, tripulante->tripulante->patota);
+    tripulante = (Tripulante_Planificando *)list_find(lista_entera, soy_yo);
 
-	switch (tripulante->tripulante->estado) {
-	case LLEGADA:
-		pthread_mutex_lock(&lock_lista_llegada);
-		tripulante = (Tripulante_Planificando *) list_remove_by_condition(
-				lista_llegada->elements, soy_yo);
-		pthread_mutex_unlock(&lock_lista_llegada);
-		avisar_a_tripulantes_hermanos(tripulante);
-		sacarlo_en_caso_de_expulsion(tripulante);
-		break;
+    if(tripulante == NULL){
+    	log_error(logs_discordiador, "No se encontro el tripulante a expulsar.\n");
+    	return;
+    }
 
-	case LISTO:
-		pthread_mutex_lock(&lock_lista_listo);
-		tripulante = (Tripulante_Planificando *) list_remove_by_condition(
-				lista_listo->elements, soy_yo);
-		pthread_mutex_unlock(&lock_lista_listo);
-		avisar_a_tripulantes_hermanos(tripulante);
-		sacarlo_en_caso_de_expulsion(tripulante);
-		break;
+    log_info(logs_discordiador, "Expulsando al tripulante %d de patota %d",
+    		tripulante->tripulante->id, tripulante->tripulante->patota);
 
-	case TRABAJANDO:
-		pthread_mutex_lock(&lock_lista_exec);
-		tripulante = (Tripulante_Planificando *) list_remove_by_condition(
-				lista_trabajando, soy_yo);
-		pthread_mutex_unlock(&lock_lista_exec);
+    switch(tripulante->tripulante->estado){
+        case LLEGADA:
+            pthread_mutex_lock(&lock_lista_llegada);
+            tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_llegada->elements, soy_yo);
+            pthread_mutex_unlock(&lock_lista_llegada);
+            avisar_a_tripulantes_hermanos(tripulante);
+            sacarlo_en_caso_de_expulsion(tripulante);
+            break;
 
-		tripulante->fui_expulsado = true;
+        case LISTO:
+            pthread_mutex_lock(&lock_lista_listo);
+            tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_listo->elements, soy_yo);
+            pthread_mutex_unlock(&lock_lista_listo);
+            avisar_a_tripulantes_hermanos(tripulante);
+            sacarlo_en_caso_de_expulsion(tripulante);
+            break;
 
-		//sem_wait(&ya_sali_de_exec);
+        case TRABAJANDO:
+            pthread_mutex_lock(&lock_lista_exec);
+            tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_trabajando, soy_yo);
+            pthread_mutex_unlock(&lock_lista_exec);
 
-		//pthread_mutex_lock(&lock_grado_multitarea);
-		//lugares_en_exec++;
-		//pthread_mutex_unlock(&lock_grado_multitarea);
-		break;
+            tripulante->fui_expulsado = true;
 
-	case BLOQUEADO_IO:
-		pthread_mutex_lock(&lock_lista_bloq_io);
-		tripulante = (Tripulante_Planificando *) list_remove_by_condition(
-				lista_bloqueado_IO, soy_yo);
-		pthread_mutex_unlock(&lock_lista_bloq_io);
-		tripulante->fui_expulsado = true;
-		break;
+            //sem_wait(&ya_sali_de_exec);
 
-	case BLOQUEADO_EMERGENCIA:
-		pthread_mutex_lock(&lock_lista_bloq_em);
-		tripulante = (Tripulante_Planificando *) list_remove_by_condition(
-				lista_bloqueado_EM, soy_yo);
-		pthread_mutex_unlock(&lock_lista_bloq_em);
-		avisar_a_tripulantes_hermanos(tripulante);
-		sacarlo_en_caso_de_expulsion(tripulante);
-		break;
+            //pthread_mutex_lock(&lock_grado_multitarea);
+            //lugares_en_exec++;
+            //pthread_mutex_unlock(&lock_grado_multitarea);
+            break;
 
-	case FINALIZADO:
-		pthread_mutex_lock(&lock_lista_exit);
-		tripulante = (Tripulante_Planificando *) list_remove_by_condition(
-				lista_finalizado, soy_yo);
-		pthread_mutex_unlock(&lock_lista_exit);
-		avisar_a_tripulantes_hermanos(tripulante);
-		sacarlo_en_caso_de_expulsion(tripulante);
-		break;
-	}
+        case BLOQUEADO_IO:
+            pthread_mutex_lock(&lock_lista_bloq_io);
+            tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_bloqueado_IO, soy_yo);
+            pthread_mutex_unlock(&lock_lista_bloq_io);
+            tripulante->fui_expulsado = true;
+            break;
 
-	if (tripulante->tripulante->estado == BLOQUEADO_IO
-			|| tripulante->tripulante->estado == TRABAJANDO) {
-		tripulante->tripulante->estado = FINALIZADO;
-		pthread_mutex_lock(&lock_lista_exit);
-		list_add(lista_finalizado, tripulante);
-		pthread_mutex_unlock(&lock_lista_exit);
+        case BLOQUEADO_EMERGENCIA:
+        	pthread_mutex_lock(&lock_lista_bloq_em);
+        	tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_bloqueado_EM, soy_yo);
+        	pthread_mutex_unlock(&lock_lista_bloq_em);
+        	avisar_a_tripulantes_hermanos(tripulante);
+        	sacarlo_en_caso_de_expulsion(tripulante);
+            break;
 
-		int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
-		serializar_y_enviar_tripulante(tripulante->tripulante,
-				ACTUALIZAR_POSICION, _socket_ram);
-		liberar_cliente(_socket_ram);
-	}
+        case FINALIZADO:
+        	pthread_mutex_lock(&lock_lista_exit);
+        	tripulante = (Tripulante_Planificando *)list_remove_by_condition(lista_finalizado, soy_yo);
+        	pthread_mutex_unlock(&lock_lista_exit);
+        	avisar_a_tripulantes_hermanos(tripulante);
+        	sacarlo_en_caso_de_expulsion(tripulante);
+            break;
+    }
 
-	void destroyer(void *data) {
-		Tripulante_Planificando *trip = (Tripulante_Planificando *) data;
+    if(tripulante->tripulante->estado==BLOQUEADO_IO || tripulante->tripulante->estado==TRABAJANDO){
+    	tripulante->tripulante->estado=FINALIZADO;
+    	log_error(logs_discordiador, "Paso el if el tripulante %d, patota %d, estado %s",
+    			tripulante->tripulante->id, tripulante->tripulante->patota,
+				tripulante->tripulante->estado == FINALIZADO ? "Finalizado" : "Otro");
+        pthread_mutex_lock(&lock_lista_exit);
+        list_add(lista_finalizado, tripulante);
+        pthread_mutex_unlock(&lock_lista_exit);
 
-		free(trip->tripulante);
-		free(trip->tarea->nombre);
-		free(trip->tarea);
-		sem_destroy(&trip->ir_exec);
-		sem_destroy(&trip->salir_pausa);
-		sem_destroy(&trip->termino_sabotaje);
-		free(trip);
-	}
+        int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+        serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+        liberar_cliente(_socket_ram);
+    }
 
-	list_clean(lista_entera);
-	list_destroy(lista_entera);
+
+    void destroyer(void *data){
+    	Tripulante_Planificando *trip = (Tripulante_Planificando *)data;
+
+    	free(trip->tripulante);
+    	free(trip->tarea->nombre);
+    	free(trip->tarea);
+    	sem_destroy(&trip->ir_exec);
+    	sem_destroy(&trip->salir_pausa);
+    	sem_destroy(&trip->termino_sabotaje);
+    	free(trip);
+    }
+
+
+
+    list_clean(lista_entera);
+    list_destroy(lista_entera);
 }
+
+
 
 void inicializar_recursos_necesarios(void) {
 

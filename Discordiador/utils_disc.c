@@ -76,11 +76,12 @@ void listar_cola_planificacion(Estado estado) {
 			printf("PosX: %d, PosY: %d\t", tripulante_planificando->tripulante->posicionX, tripulante_planificando->tripulante->posicionY);
 			printf("Estado: %s\n", nombre_estado);
 */
-
+			pthread_mutex_lock(&mutex_log);
 			log_info(logs_discordiador,"Patota N°: %d   Tripulante ID°: %d   PosX: %d, PosY: %d   Estado: %s",
 					tripulante_planificando->tripulante->patota,tripulante_planificando->tripulante->id,
 					tripulante_planificando->tripulante->posicionX,
 					tripulante_planificando->tripulante->posicionY,nombre_estado);
+			pthread_mutex_unlock(&mutex_log);
 
 			copia_lista->head = copia_lista->head->next;
 		}

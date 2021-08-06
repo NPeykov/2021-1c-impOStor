@@ -123,6 +123,8 @@ void crear_estructura_filesystem();
 void crearEstructurasBloques();
 void crearEstructuraDiscoLogico();
 void crearBitMapLogico();
+void escribir_en_block(char*,t_bloque*);
+void borrar_en_block(int,t_bloque*);
 void inicializar_archivo(char* , char);
 t_bloque* buscar_ultimo_bloque_del_tripulante(char*);
 int cantidad_bloques_a_ocupar(char* texto);

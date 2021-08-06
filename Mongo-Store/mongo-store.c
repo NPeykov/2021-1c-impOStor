@@ -773,6 +773,15 @@ void escribir_en_block(char* lo_que_se_va_a_escribir, t_bloque* el_bloque) {
 
 }
 
+void borrar_en_block(int cantidad, t_bloque* bloque) {
+	while (cantidad > 0) {
+		bloque->posicion_para_escribir--;
+		block_mmap[bloque->posicion_para_escribir] = ' ';
+		bloque->espacio++;
+		cantidad--;
+	}
+}
+
 char* obtener_bloques_bitacora(char* ruta) {
 	int archivo = open(ruta, O_RDWR);
 	struct stat statbuf;

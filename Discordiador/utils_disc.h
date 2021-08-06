@@ -148,6 +148,7 @@ pthread_mutex_t lock_lista_exit;
 pthread_mutex_t lock_grado_multitarea;
 pthread_mutex_t mutex_tarea;
 pthread_mutex_t mutex_lista_semaforos;
+pthread_mutex_t mutex_log; //sino me imprime mal
 
 pthread_cond_t sabotaje_resuelto;
 pthread_mutex_t sabotaje_lock;

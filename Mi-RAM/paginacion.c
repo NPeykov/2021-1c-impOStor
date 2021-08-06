@@ -1031,7 +1031,7 @@ void traer_pagina(t_pagina* pagina){
 	//y cargamos, si esta en memoria seteamos el bit de uso
 	if (!pagina->bit_presencia){//Si la pagina no esta presente
 
-		log_info(logs_ram,"Se produce un PF (PAGINA %d)",pagina->nro_pagina);
+		log_info(logs_ram,"Se produce un PF (PAGINA %d | PROCESO %d)",pagina->nro_pagina);
 
 		uint32_t marco_libre = buscar_marco_disponible(MEM_PPAL);
 		int offsetPpal = marco_libre * TAM_PAG;

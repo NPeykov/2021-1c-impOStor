@@ -283,11 +283,39 @@ void agregar_a_memoria(Segmento* unSegmento){
 	//El t_list memoriaPrincipal se usa para hacer la compactacion
 }
 
+int contarEspacioMemoria(){
+	int espacioOcupado = 0;
+
+	void _sumarTamanios(Segmento* unSegmento){
+		espacioOcupado +=unSegmento->tamanio;
+	}
+
+	pthread_mutex_lock(&listaMemoriaPrincipal);
+	list_iterate(memoriaPrincipal, (void*)_sumarTamanios);
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
+	return (tamaniomemoria - espacioOcupado);
+}
+
+bool alcanzaElEspacio(int espacioNecesario){
+	int espacioDisponible = contarEspacioMemoria();
+	return espacioDisponible>=espacioNecesario;
+}
+
 void crear_proceso(void *data){
+
+
 	t_list* tabla_de_segmentos = list_create();
 	t_datos_inicio_patota *datos_patota = (t_datos_inicio_patota*)data;
 	char* contenido = datos_patota->contenido_tareas;
 	int _socket_cliente = datos_patota->socket;
+	int tamanioPatota = string_length(contenido) + 8 + 21*datos_patota->cantidad_tripulantes;
+
+	if(!alcanzaElEspacio(tamanioPatota)){
+		enviar_mensaje_simple("no", _socket_cliente);
+		liberar_cliente(_socket_cliente);
+		free(datos_patota);
+		pthread_exit(NULL);
+	}
 
 	//Se crea el segmento de tareas
 	int result_tareas =crear_segmento_tareas(contenido, tabla_de_segmentos);

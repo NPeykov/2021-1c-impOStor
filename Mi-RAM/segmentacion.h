@@ -179,4 +179,8 @@ void obtenerSgteTareaSeg(t_list*, int );
 
 void cerrarMemoriaSeg();
 
+bool alcanzaElEspacio(int );
+
+int contarEspacioMemoria();
+
 #endif

@@ -60,7 +60,7 @@ void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_
 
 	enviar_paquete(paquete, _socket_store);
 
-	//liberar_cliente(_socket_store);
+	liberar_cliente(_socket_store);
 	eliminar_paquete(paquete);
 }
 
@@ -88,8 +88,7 @@ void avisar_estado_sabotaje_a_mongo(int posX, int posY, Tripulante* tripulante, 
 	agregar_a_paquete(paquete, idPatota, string_length(idPatota) + 1);
 
 	enviar_paquete(paquete, _socket_store);
-
-	//liberar_cliente(_socket_store);
+	liberar_cliente(_socket_store);
 	eliminar_paquete(paquete);
 }
 
@@ -117,7 +116,7 @@ void avisar_movimiento_a_mongo(int sourceX, int sourceY, Tripulante* tripulante)
 
 	enviar_paquete(paquete, _socket_store);
 
-	//liberar_cliente(_socket_store);
+	liberar_cliente(_socket_store);
 	eliminar_paquete(paquete);
 }
 

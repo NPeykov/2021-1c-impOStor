@@ -22,6 +22,7 @@
 #include <commons/memory.h>
 
 
+
 //Semaforos
 sem_t contador_sabotaje; //iniciar en 1
 sem_t dar_orden_sabotaje;
@@ -31,7 +32,7 @@ sem_t semaforo_para_file_oxigeno;
 sem_t semaforo_para_file_comida;
 sem_t semaforo_para_file_basura;
 sem_t inicio_fsck; //para fin de sabotaje
-
+sem_t semaforo_modificacion_de_datos;
 //MUTEXS
 pthread_mutex_t mutex_disco_logico;
 pthread_mutex_t mutex_bitmap;
@@ -73,27 +74,28 @@ typedef enum{
 bool g_existe_file_oxigeno;
 bool g_existe_file_comida;
 bool g_existe_file_basura;
+bool g_modificado_file_oxigeno;
+bool g_modificado_file_comida;
+bool g_modificado_file_basura;
+bool g_en_uso_file_oxigeno;
+bool g_en_uso_file_comida;
+bool g_en_uso_file_basura;
+bool g_abierto_file_oxigeno;
+bool g_abierto_file_comida;
+bool g_abierto_file_basura;
+
 
 char *puntoMontaje;
-//char *dirMetadata;
-//char *dirFiles;
-//char *dirBitacora;
-//char *dirBlocks;
-//char *dirSuperbloque;
-//char *rutaOxigeno;
-//char *rutaComida;
-//char *rutaBasura;
+
 t_disco_logico *disco_logico;
 t_config* mongoConfig;
 t_log* mongoLogger;
-int socket_cliente;
-//int blocks;
-//int block_size;
+//int socket_cliente;
 int numero_sabotaje;
 m_movimiento_tripulante * tripulanteEnMovimiento;
 pthread_t hilo_sabotaje;
 t_list* archAbiertos;
-int socket_mongo_store, socket_cliente;
+//int socket_mongo_store, socket_cliente;
 char* puerto;
 char *block_mmap;
 char * archivoBasura;

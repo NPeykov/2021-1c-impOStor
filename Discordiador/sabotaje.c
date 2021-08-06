@@ -271,37 +271,50 @@ void moverse_al_sabotaje(Tripulante_Planificando *tripulante, int targetX, int t
 	int sourceY = tripulante->tripulante->posicionY;
 	static bool last_move_x = false;
 
+	//Deberia avisar a RAM aca para que se mueva en el mapa cuando haya sabotaje
+	int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+
 	if (sourceX == targetX && last_move_x == false)
-			last_move_x = true;
+		last_move_x = true;
 
-		if (sourceY == targetY && last_move_x == true)
-			last_move_x = false;
+	if (sourceY == targetY && last_move_x == true)
+		last_move_x = false;
+
+	//mucho codigo repetido
+	if (sourceX < targetX && last_move_x == false) {
+		tripulante->tripulante->posicionX += 1;
+		last_move_x = true;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
+
+	if (sourceX > targetX && last_move_x == false) {
+		tripulante->tripulante->posicionX -= 1;
+		last_move_x = true;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
+
+	if (sourceY < targetY && last_move_x == true) {
+		tripulante->tripulante->posicionY += 1;
+		last_move_x = false;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
+
+	if (sourceY > targetY && last_move_x == true) {
+		tripulante->tripulante->posicionY -= 1;
+		last_move_x = false;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
 
 
-		//mucho codigo repetido
-		if (sourceX < targetX && last_move_x == false) {
-			tripulante->tripulante->posicionX += 1;
-			last_move_x = true;
-			return;
-		}
 
-		if (sourceX > targetX && last_move_x == false) {
-			tripulante->tripulante->posicionX -= 1;
-			last_move_x = true;
-			return;
-		}
-
-		if (sourceY < targetY && last_move_x == true) {
-			tripulante->tripulante->posicionY += 1;
-			last_move_x = false;
-			return;
-		}
-
-		if (sourceY > targetY && last_move_x == true) {
-			tripulante->tripulante->posicionY -= 1;
-			last_move_x = false;
-			return;
-		}
 }
 
 void resolver_sabotaje(Tripulante_Planificando *tripulante, int x, int y){

@@ -39,7 +39,7 @@ char *dar_proxima_tarea(Tripulante *tripulante){
 	}
 	//liberar_cliente(_socket_ram);
 	log_info(logs_discordiador, "Proxima tarea del tripulante %d: %s", tripulante->id, tarea);
-
+	liberar_cliente(_socket_ram);
 	return tarea;
 }
 
@@ -135,6 +135,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		last_move_x = true;
 		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
 		return;
 	}
 
@@ -143,6 +144,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		last_move_x = true;
 		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
 		return;
 	}
 
@@ -151,6 +153,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		last_move_x = false;
 		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
 		return;
 	}
 
@@ -159,6 +162,7 @@ void moverse_una_unidad(Tripulante_Planificando *tripulante_trabajando) {
 		last_move_x = false;
 		avisar_movimiento_a_mongo(sourceX, sourceY, tripulante_trabajando->tripulante);
 		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
 		return;
 	}
 }

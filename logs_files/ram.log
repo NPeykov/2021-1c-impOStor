@@ -21117,3 +21117,280 @@ GENERAR_OXIGENO 10;5;5;6
 [INFO] 23:04:53:057 Mi-RAM/(18455:18572): Se va a leer la pagina que arranca en 64
 [INFO] 23:04:53:057 Mi-RAM/(18455:18572): SE LEE DEL TRIPU: 2 - FRAME: 2 | D_INCIAL: 0 | TAMANIO: 1
 [INFO] 23:04:53:057 Mi-RAM/(18455:18572): El tripulante 2 pidio la tarea null
+[INFO] 23:15:54:468 Mi-RAM/(20378:20378): ################# Modulo Mi-RAM #################
+
+[INFO] 23:15:54:483 Mi-RAM/(20378:20378): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 23:15:54:484 Mi-RAM/(20378:20378): La cantidad de marcos en Swap es: 512
+[INFO] 23:16:04:639 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:16:04:658 Mi-RAM/(20378:20378): Se recibio una operacion: 2
+
+[INFO] 23:16:04:658 Mi-RAM/(20378:20425): Se asigno el frame 0 a la pagina 0
+[INFO] 23:16:04:658 Mi-RAM/(20378:20425): Se creo la pagina de la estructura: 0
+[INFO] 23:16:04:658 Mi-RAM/(20378:20425): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:16:04:658 Mi-RAM/(20378:20425): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 23:16:04:658 Mi-RAM/(20378:20425): Se creo la patota 1 correctamente.
+[INFO] 23:16:04:665 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 7
+
+[INFO] 23:16:04:666 Mi-RAM/(20378:20378): Se recibio una operacion: 3
+
+[INFO] 23:16:04:666 Mi-RAM/(20378:20427): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 23:16:04:666 Mi-RAM/(20378:20427): Se asigno el frame 1 a la pagina 1
+[INFO] 23:16:04:666 Mi-RAM/(20378:20427): Se creo la pagina de la estructura: 1
+[INFO] 23:16:04:666 Mi-RAM/(20378:20427): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 23:16:04:666 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:16:04:666 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): Insutrccion:8
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): Se va a leer la pagina que arranca en 0
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): La proxima tarea es -1
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): Escribo en la pagina 0
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): Escribo en la pagina 1
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): Escribi 0 bytes en 28, escribi todo
+[INFO] 23:16:04:667 Mi-RAM/(20378:20428): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:16:04:668 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 8
+
+[INFO] 23:16:04:668 Mi-RAM/(20378:20378): Se recibio una operacion: 3
+
+[INFO] 23:16:04:668 Mi-RAM/(20378:20431): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 23:16:04:668 Mi-RAM/(20378:20431): Se asigno el frame 2 a la pagina 2
+[INFO] 23:16:04:668 Mi-RAM/(20378:20431): Se creo la pagina de la estructura: 1
+[INFO] 23:16:04:668 Mi-RAM/(20378:20431): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 23:16:04:669 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:16:04:669 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): Insutrccion:8
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): Se va a leer la pagina que arranca en 0
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): La proxima tarea es -1
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): Escribo en la pagina 0
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): Escribi 0 bytes en 7, escribi todo
+[INFO] 23:16:04:669 Mi-RAM/(20378:20432): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:17:00:408 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 7
+
+[INFO] 23:17:00:409 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:17:00:409 Mi-RAM/(20378:20540): Insutrccion:-1
+[INFO] 23:17:00:409 Mi-RAM/(20378:20540): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:17:00:409 Mi-RAM/(20378:20540): El tripulante 1 pidio la tarea null
+[INFO] 23:17:09:167 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:17:09:167 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:17:09:167 Mi-RAM/(20378:20726): Insutrccion:-1
+[INFO] 23:17:09:167 Mi-RAM/(20378:20726): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:17:09:167 Mi-RAM/(20378:20726): El tripulante 2 pidio la tarea null
+[INFO] 23:20:26:062 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 7
+
+[INFO] 23:20:26:062 Mi-RAM/(20378:20378): Se recibio una operacion: 2
+
+[INFO] 23:20:26:063 Mi-RAM/(20378:21180): Se asigno el frame 3 a la pagina 0
+[INFO] 23:20:26:063 Mi-RAM/(20378:21180): Se creo la pagina de la estructura: 0
+[INFO] 23:20:26:063 Mi-RAM/(20378:21180): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:20:26:063 Mi-RAM/(20378:21180): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 23:20:26:063 Mi-RAM/(20378:21180): Se creo la patota 2 correctamente.
+[INFO] 23:20:26:063 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:26:063 Mi-RAM/(20378:20378): Se recibio una operacion: 3
+
+[INFO] 23:20:26:063 Mi-RAM/(20378:21182): Se va a agregar a la pagina 2 , la estructura 1 con base 1 , y tamanio 21
+[INFO] 23:20:26:064 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 7
+
+[INFO] 23:20:26:064 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:20:26:064 Mi-RAM/(20378:21183): Insutrccion:-1
+[INFO] 23:20:26:064 Mi-RAM/(20378:21183): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:20:26:064 Mi-RAM/(20378:21183): El tripulante 1 pidio la tarea null
+[INFO] 23:20:26:064 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 8
+
+[INFO] 23:20:26:064 Mi-RAM/(20378:20378): Se recibio una operacion: 3
+
+[INFO] 23:20:26:065 Mi-RAM/(20378:21185): Se va a agregar a la pagina 2 , la estructura 1 con base 22 , y tamanio 10
+[INFO] 23:20:26:065 Mi-RAM/(20378:21185): Se asigno el frame 4 a la pagina 3
+[INFO] 23:20:26:065 Mi-RAM/(20378:21185): Se creo la pagina de la estructura: 1
+[INFO] 23:20:26:065 Mi-RAM/(20378:21185): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 11
+[INFO] 23:20:26:065 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:26:065 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:20:26:065 Mi-RAM/(20378:21186): Insutrccion:-1
+[INFO] 23:20:26:065 Mi-RAM/(20378:21186): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:20:26:065 Mi-RAM/(20378:21186): El tripulante 2 pidio la tarea null
+[INFO] 23:20:26:066 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 7
+
+[INFO] 23:20:26:066 Mi-RAM/(20378:20378): Se recibio una operacion: 3
+
+[INFO] 23:20:26:066 Mi-RAM/(20378:21188): Se va a agregar a la pagina 3 , la estructura 1 con base 11 , y tamanio 21
+[INFO] 23:20:26:066 Mi-RAM/(20378:20378): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:26:066 Mi-RAM/(20378:20378): Se recibio una operacion: 8
+
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): Insutrccion:8
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): Se va a leer la pagina que arranca en 0
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): La proxima tarea es -1
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): Escribo en la pagina 0
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): Escribi 0 bytes en 8, escribi todo
+[INFO] 23:20:26:066 Mi-RAM/(20378:21189): El tripulante 3 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:20:35:074 Mi-RAM/(21216:21216): ################# Modulo Mi-RAM #################
+
+[INFO] 23:20:35:075 Mi-RAM/(21216:21216): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 23:20:35:075 Mi-RAM/(21216:21216): La cantidad de marcos en Swap es: 512
+[INFO] 23:20:47:023 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:47:023 Mi-RAM/(21216:21216): Se recibio una operacion: 2
+
+[INFO] 23:20:47:023 Mi-RAM/(21216:21248): Se asigno el frame 0 a la pagina 0
+[INFO] 23:20:47:023 Mi-RAM/(21216:21248): Se creo la pagina de la estructura: 0
+[INFO] 23:20:47:023 Mi-RAM/(21216:21248): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:20:47:023 Mi-RAM/(21216:21248): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 23:20:47:023 Mi-RAM/(21216:21248): Se creo la patota 1 correctamente.
+[INFO] 23:20:47:023 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 7
+
+[INFO] 23:20:47:023 Mi-RAM/(21216:21216): Se recibio una operacion: 3
+
+[INFO] 23:20:47:024 Mi-RAM/(21216:21250): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 23:20:47:024 Mi-RAM/(21216:21250): Se asigno el frame 1 a la pagina 1
+[INFO] 23:20:47:024 Mi-RAM/(21216:21250): Se creo la pagina de la estructura: 1
+[INFO] 23:20:47:024 Mi-RAM/(21216:21250): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 23:20:47:024 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:47:024 Mi-RAM/(21216:21216): Se recibio una operacion: 8
+
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): Insutrccion:8
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): Se va a leer la pagina que arranca en 0
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): La proxima tarea es -1
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): Escribo en la pagina 0
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): Escribo en la pagina 1
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): Escribi 0 bytes en 28, escribi todo
+[INFO] 23:20:47:024 Mi-RAM/(21216:21251): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:20:47:024 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 8
+
+[INFO] 23:20:47:025 Mi-RAM/(21216:21216): Se recibio una operacion: 3
+
+[INFO] 23:20:47:025 Mi-RAM/(21216:21254): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 23:20:47:025 Mi-RAM/(21216:21254): Se asigno el frame 2 a la pagina 2
+[INFO] 23:20:47:025 Mi-RAM/(21216:21254): Se creo la pagina de la estructura: 1
+[INFO] 23:20:47:025 Mi-RAM/(21216:21254): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 23:20:47:025 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:47:025 Mi-RAM/(21216:21216): Se recibio una operacion: 8
+
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): Insutrccion:8
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): Se va a leer la pagina que arranca en 0
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): La proxima tarea es -1
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): Escribo en la pagina 0
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): Escribi 0 bytes en 7, escribi todo
+[INFO] 23:20:47:025 Mi-RAM/(21216:21255): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:20:47:026 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 7
+
+[INFO] 23:20:47:026 Mi-RAM/(21216:21216): Se recibio una operacion: 3
+
+[INFO] 23:20:47:026 Mi-RAM/(21216:21258): Se va a agregar a la pagina 2 , la estructura 1 con base 1 , y tamanio 21
+[INFO] 23:20:47:026 Mi-RAM/(21216:21216): Se conecto un cliente con socket: 5
+
+[INFO] 23:20:47:027 Mi-RAM/(21216:21216): Se recibio una operacion: 8
+
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): Insutrccion:8
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): Se va a leer la pagina que arranca en 0
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): La proxima tarea es -1
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): Escribo en la pagina 0
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): Escribi 0 bytes en 18, escribi todo
+[INFO] 23:20:47:027 Mi-RAM/(21216:21259): El tripulante 3 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:22:13:780 Mi-RAM/(21452:21452): ################# Modulo Mi-RAM #################
+
+[INFO] 23:22:13:780 Mi-RAM/(21452:21452): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 23:22:13:781 Mi-RAM/(21452:21452): La cantidad de marcos en Swap es: 512
+[INFO] 23:22:20:989 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 5
+
+[INFO] 23:22:20:989 Mi-RAM/(21452:21452): Se recibio una operacion: 2
+
+[INFO] 23:22:20:989 Mi-RAM/(21452:21479): Se asigno el frame 0 a la pagina 0
+[INFO] 23:22:20:989 Mi-RAM/(21452:21479): Se creo la pagina de la estructura: 0
+[INFO] 23:22:20:989 Mi-RAM/(21452:21479): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:22:20:989 Mi-RAM/(21452:21479): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 23:22:20:989 Mi-RAM/(21452:21479): Se creo la patota 1 correctamente.
+[INFO] 23:22:20:989 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 7
+
+[INFO] 23:22:20:990 Mi-RAM/(21452:21452): Se recibio una operacion: 3
+
+[INFO] 23:22:20:990 Mi-RAM/(21452:21481): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 23:22:20:990 Mi-RAM/(21452:21481): Se asigno el frame 1 a la pagina 1
+[INFO] 23:22:20:990 Mi-RAM/(21452:21481): Se creo la pagina de la estructura: 1
+[INFO] 23:22:20:990 Mi-RAM/(21452:21481): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 23:22:20:990 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 5
+
+[INFO] 23:22:20:990 Mi-RAM/(21452:21452): Se recibio una operacion: 8
+
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): Insutrccion:8
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): Se va a leer la pagina que arranca en 0
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): La proxima tarea es -1
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): Escribo en la pagina 0
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): Escribo en la pagina 1
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): Escribi 0 bytes en 28, escribi todo
+[INFO] 23:22:20:990 Mi-RAM/(21452:21482): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:22:20:991 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 8
+
+[INFO] 23:22:20:991 Mi-RAM/(21452:21452): Se recibio una operacion: 3
+
+[INFO] 23:22:20:991 Mi-RAM/(21452:21485): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 23:22:20:991 Mi-RAM/(21452:21485): Se asigno el frame 2 a la pagina 2
+[INFO] 23:22:20:991 Mi-RAM/(21452:21485): Se creo la pagina de la estructura: 1
+[INFO] 23:22:20:991 Mi-RAM/(21452:21485): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 23:22:20:992 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 5
+
+[INFO] 23:22:20:992 Mi-RAM/(21452:21452): Se recibio una operacion: 8
+
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): Insutrccion:8
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): Se va a leer la pagina que arranca en 0
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): La proxima tarea es -1
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): Escribo en la pagina 0
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): Escribi 0 bytes en 7, escribi todo
+[INFO] 23:22:20:992 Mi-RAM/(21452:21486): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:22:20:992 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 7
+
+[INFO] 23:22:20:992 Mi-RAM/(21452:21452): Se recibio una operacion: 3
+
+[INFO] 23:22:20:993 Mi-RAM/(21452:21489): Se va a agregar a la pagina 2 , la estructura 1 con base 1 , y tamanio 21
+[INFO] 23:22:20:993 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 5
+
+[INFO] 23:22:20:993 Mi-RAM/(21452:21452): Se recibio una operacion: 8
+
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): Insutrccion:8
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): Se va a leer la pagina que arranca en 0
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): La proxima tarea es -1
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): Escribo en la pagina 0
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): Escribi 0 bytes en 18, escribi todo
+[INFO] 23:22:20:993 Mi-RAM/(21452:21490): El tripulante 3 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:22:20:995 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 8
+
+[INFO] 23:22:20:995 Mi-RAM/(21452:21452): Se recibio una operacion: 3
+
+[INFO] 23:22:20:995 Mi-RAM/(21452:21493): Se va a agregar a la pagina 2 , la estructura 1 con base 22 , y tamanio 10
+[INFO] 23:22:20:995 Mi-RAM/(21452:21493): Se asigno el frame 3 a la pagina 3
+[INFO] 23:22:20:995 Mi-RAM/(21452:21493): Se creo la pagina de la estructura: 1
+[INFO] 23:22:20:995 Mi-RAM/(21452:21493): Se va a agregar a la pagina 3 , la estructura 1 con base 0 , y tamanio 11
+[INFO] 23:22:20:995 Mi-RAM/(21452:21452): Se conecto un cliente con socket: 5
+
+[INFO] 23:22:20:995 Mi-RAM/(21452:21452): Se recibio una operacion: 8
+
+[INFO] 23:22:20:995 Mi-RAM/(21452:21494): Insutrccion:8
+[INFO] 23:22:20:995 Mi-RAM/(21452:21494): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:22:20:996 Mi-RAM/(21452:21494): Se va a leer la pagina que arranca en 0
+[INFO] 23:22:20:996 Mi-RAM/(21452:21494): La proxima tarea es -1
+[INFO] 23:22:20:996 Mi-RAM/(21452:21494): Escribo en la pagina 0
+[INFO] 23:22:20:996 Mi-RAM/(21452:21494): Escribo en la pagina 1
+[INFO] 23:22:20:996 Mi-RAM/(21452:21494): Escribi 0 bytes en 29, escribi todo
+[INFO] 23:22:20:996 Mi-RAM/(21452:21494): El tripulante 4 pidio la tarea DESAYUNAR;0;0;3

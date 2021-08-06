@@ -160,9 +160,7 @@ void* leer_memoria_pag(int frame, int mem){
 	void* pagina = malloc(TAM_PAG);
 	if(mem == MEM_PPAL){
 		log_info(logs_ram, "Se va a leer la pagina que arranca en %d", desplazamiento);
-		//pthread_mutex_lock(&mutexEscribiendoMemoria);
 		memcpy(pagina, memoria+desplazamiento, TAM_PAG);
-		//pthread_mutex_unlock(&mutexEscribiendoMemoria);
 	}
 
 	return pagina;
@@ -217,7 +215,7 @@ int insertar_en_paginas(void* bytesAGuardar, t_proceso* proceso, int estructura,
 			if(pagina != NULL && pagina->nro_frame_mpal != -1){//Tiene espacio y esta en memoria
 				insertar_en_memoria_pag(pagina, siguienteAEscribir, &aMeter, estructura, &bytesEscritos, flag);
 			}else if(pagina != NULL && pagina->nro_frame_mpal == -1){//Tiene espacio pero esta en swap
-				traer_pagina(pagina,proceso->pid);
+				traer_pagina(pagina);
 				insertar_en_memoria_pag(pagina, siguienteAEscribir, &aMeter, estructura, &bytesEscritos, flag);
 			}else{
 				pagina = crear_pagina_en_tabla(proceso,estructura);
@@ -227,7 +225,7 @@ int insertar_en_paginas(void* bytesAGuardar, t_proceso* proceso, int estructura,
 				}else{//No tiene espacio y NO hay espacio en mmpal
 					log_info(logs_ram, "Memoria principal llena, realizando swap.");
 					asignar_marco_en_swap(pagina);
-					traer_pagina(pagina, proceso->pid);
+					traer_pagina(pagina);
 					insertar_en_memoria_pag(pagina, siguienteAEscribir, &aMeter, estructura, &bytesEscritos, flag);
 				}
 			}
@@ -240,7 +238,7 @@ int insertar_en_paginas(void* bytesAGuardar, t_proceso* proceso, int estructura,
 				insertar_en_memoria_pag(pagina, siguienteAEscribir, &aMeter ,estructura ,&bytesEscritos,flag);
 			}else{
 				asignar_marco_en_swap(pagina);
-				traer_pagina(pagina,proceso->pid);
+				traer_pagina(pagina);
 				insertar_en_memoria_pag(pagina, siguienteAEscribir, &aMeter, estructura, &bytesEscritos, flag);
 			}
 		}
@@ -256,17 +254,17 @@ void existencia_patota(t_proceso* proceso) {
 	}
 }
 
-char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
+char* obtener_siguiente_tarea_pag(t_proceso* proceso, uint32_t *proxIns,int idTripulante) {
 	char* tarea = string_new();
 	char* aux = malloc(2);
 	*(aux+1) = '\0';
 	void* paginaAGuardar;
 	void* recorredorPagina;
-	int indicePagina = (int) tcb->proxIns / 100.0;
-	int desplazamiento = tcb->proxIns % 100;
+	int indicePagina = (int) *proxIns / 100.0;
+	int desplazamiento = *proxIns % 100;
 	t_pagina* pagina;
-
-	if(tcb->proxIns == -1){
+	log_info(logs_ram, "La proxima instruccion esta en la pagina %d y desplazamiento %d", indicePagina, desplazamiento);
+	if(*proxIns == -1){
 		return "null";
 	}
 
@@ -275,11 +273,10 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 		pagina = list_get(proceso->tabla, indicePagina);
 		if(tiene_pagina_estructura_alojadas(pagina->estructuras_alojadas, TAREAS))
 		{
-			traer_pagina(pagina,proceso->pid);
+			traer_pagina(pagina);
 			paginaAGuardar = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
 			recorredorPagina = paginaAGuardar;
 			recorredorPagina += desplazamiento;
-
 			memcpy(aux,recorredorPagina,1);
 
 			while(desplazamiento != TAM_PAG && *aux != '\n'  && *aux != '\0')
@@ -295,17 +292,19 @@ char* obtener_siguiente_tarea_pag(t_proceso* proceso, TripuCB* tcb) {
 		if(*aux == '\n' || *aux == '\0') break;
 	}
 	if(*aux == '\0'){
-		tcb->proxIns = -1;
+		*proxIns = -1;
 	}else{
-		tcb->proxIns = indicePagina*100 + desplazamiento+1;
+		*proxIns = indicePagina*100 + desplazamiento+1;
 	}
 
-	log_info(logs_ram, "La proxima tarea es %d",(uint32_t)tcb->proxIns);
+	log_info(logs_ram, "La proxima tarea es %d",*proxIns);
 	pthread_mutex_unlock(&mutexEscribiendoMemoria);
 
-	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, tcb->tid);
-	sobreescribir_tripulante(paginasConTripulante, tcb,proceso->pid);
+	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, idTripulante);
+	escribir_dato_tripulante(paginasConTripulante,desplazAProxIns,sizeof(uint32_t),idTripulante,(void*)proxIns);
+	//sobreescribir_tripulante(paginasConTripulante, tcb,proceso->pid);
 	free(aux);
+	free(proxIns);
 
 	return tarea;
 }
@@ -318,10 +317,7 @@ uint32_t buscar_inicio_tareas(t_proceso* proceso) {
 
 
     bool buscarDLTarea(t_pagina* pagina) {
-
-    	//pthread_mutex_lock(&mutexAlojados);
     	bool a = tiene_pagina_estructura_alojadas(pagina->estructuras_alojadas, TAREAS);
-    	//pthread_mutex_unlock(&mutexAlojados);
 
     	return a;
     }
@@ -342,9 +338,7 @@ uint32_t buscar_inicio_tareas(t_proceso* proceso) {
     //Retornar un struct DL de las tareas que tiene el indice de la pagina y el desplazamiento en esta
     //Se guarda en algun lado cuanto pesa el string
 
-    pthread_mutex_lock(&mutexAlojados);
     int a = paginaConTarea->nro_pagina*100 + alojadoConTarea->base;
-    pthread_mutex_unlock(&mutexAlojados);
     return (uint32_t)a;
 }
 
@@ -411,8 +405,7 @@ int guardar_TCB_pag(void* algo) {
 	elTripulante->proxIns = buscar_inicio_tareas(proceso);
 	existencia_patota(proceso);
 	pthread_mutex_lock(&charRepresentativo);
-	caracterRepresentativo = 0;
-	//caracterRepresentativo = nuevoTripuMapa(elTripulante->posX, elTripulante->posY);
+	caracterRepresentativo = nuevoTripuMapa(elTripulante->posX, elTripulante->posY);
 	int res = insertar_en_paginas((void*) elTripulante, proceso,TCB, sizeof(TripuCB));
 	if(res == 0) {
 		enviar_mensaje_simple("no", _socket_cliente);
@@ -428,9 +421,6 @@ int guardar_TCB_pag(void* algo) {
 		free(algo);
 		return 1;
 	}
-
-	//Podria devolver la siguiente tarea para ir cargando secuencialmente la proxIns para los tripulantes creados.
-
 }
 
 int guardar_PCB_pag(void* data){
@@ -489,9 +479,7 @@ bool tiene_pagina_estructura_alojadas(t_list* estructuras_alojadas, int estructu
 		return estructuraAlojada->tipo == estructura;
 	}
 
-	//pthread_mutex_lock(&mutexAlojados);
 	t_alojado* alojadoConTarea = list_find(estructuras_alojadas, (void*) contieneTipo);
-	//pthread_mutex_unlock(&mutexAlojados);
 
 	return alojadoConTarea != NULL;
 }
@@ -523,7 +511,7 @@ t_list* lista_paginas_tripulantes(t_list* tabla_paginas_proceso, uint32_t id_tri
 
 	return tablaPaginasConTripu;
 }
-
+/*
 int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb, int pid) {
 
 	int aMeter, relleno, offset = 0;
@@ -556,7 +544,8 @@ int sobreescribir_tripulante(t_list* lista_paginas_tripulantes, TripuCB* tcb, in
 	free(tcb);
 
 	return 1;
-}
+}*/
+//TODO: borrar
 
 void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 	int idTripulante = tripulanteActualizado->tid;
@@ -571,64 +560,102 @@ void actualizar_tripulante_pag(t_tripulante_iniciado *tripulanteActualizado) {
 	t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, idTripulante);
 
 
-	TripuCB *elTripulante = obtener_tripulante(proceso, idTripulante);
-	int difX = tripulanteActualizado->posX-elTripulante->posX;
-	int difY = tripulanteActualizado->posY-elTripulante->posY;
-	elTripulante->posX = tripulanteActualizado->posX;
-	elTripulante->posY = tripulanteActualizado->posY;
-	elTripulante->status = tripulanteActualizado->status;
+	uint32_t *posX = (uint32_t*)obtener_dato_tripulante(paginasConTripulante,desplazAPosX,sizeof(uint32_t),idTripulante);
+	uint32_t *posY = (uint32_t*)obtener_dato_tripulante(paginasConTripulante,desplazAPosY,sizeof(uint32_t),idTripulante);
+	char estado = (char)obtener_dato_tripulante(paginasConTripulante,desplazAEstado,sizeof(char),idTripulante);
+	log_info(logs_ram, "El tripulante tenia Estado %c y Posiciones %d|%d",estado,*posX,*posY);
+	int difX = tripulanteActualizado->posX-*posX;
+	int difY = tripulanteActualizado->posY-*posY;
+	void *nuevoEstado, *newPosX, *newPosY;
+	newPosX = &tripulanteActualizado->posX;
+	newPosY = &tripulanteActualizado->posY;
+	nuevoEstado = &tripulanteActualizado->status;
+	log_info(logs_ram, "El tripulante tenia Estado %c y Posiciones %d|%d",estado,*posX,*posY);
+	if(difX==0 && difY==0){//Si solo cambio el estado
+		escribir_dato_tripulante(paginasConTripulante,desplazAEstado, sizeof(char),idTripulante,nuevoEstado);
+	}else if(estado == tripulanteActualizado->status){//Si solo cambiaron las posiciones
+		escribir_dato_tripulante(paginasConTripulante,desplazAPosX, sizeof(uint32_t),idTripulante,newPosX);
+		escribir_dato_tripulante(paginasConTripulante,desplazAPosY, sizeof(uint32_t),idTripulante,newPosY);
+		moverTripuMapa(alojado->caracterRep,  difX,  difY);
+	}else{//Si cambiaron ambos
+		escribir_dato_tripulante(paginasConTripulante,desplazAPosX, sizeof(uint32_t),idTripulante,newPosX);
+		escribir_dato_tripulante(paginasConTripulante,desplazAPosY, sizeof(uint32_t),idTripulante,newPosY);
+		escribir_dato_tripulante(paginasConTripulante,desplazAEstado, sizeof(char),idTripulante,nuevoEstado);
+		moverTripuMapa(alojado->caracterRep,  difX,  difY);
+	}
 
+	log_info(logs_ram,"El tripulante %d se ha actualizado: Estado: %c %d|%d",idTripulante,tripulanteActualizado->status,tripulanteActualizado->posX,tripulanteActualizado->posY);
 
-	log_info(logs_ram,"El tripulante %d se ha actualizado: Estado: %c %d|%d",idTripulante,elTripulante->status,elTripulante->posX,elTripulante->posY);
-
-	sobreescribir_tripulante(paginasConTripulante, elTripulante,proceso->pid);
-	//moverTripuMapa(alojado->caracterRep,  difX,  difY);
+	free(tripulanteActualizado);
+	free(posX);
+	free(posY);
 	return;
 }
 
-TripuCB* obtener_tripulante(t_proceso* proceso, int tid) {
+void escribir_dato_tripulante(t_list *paginas_del_tripulante, int desplazamientoEnTripulante, int tamanioDato, int idTripulante, void* elDato){
+	int i =0;
+	void *direccion;
+	int espacioPosDesplaz;
+	void* punteroRestante = elDato;
+	pthread_mutex_lock(&mutexEscribiendoMemoria);
+	while(tamanioDato >0){
+		t_pagina* pagina = list_get(paginas_del_tripulante,i);
+		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, idTripulante);
+		traer_pagina(pagina);
+		log_info(logs_ram,"Escribo en la pagina %d", i);
+		//Direccion respecto del desplazamiento de ese dato en memoria
+		direccion = memoria + pagina->nro_frame_mpal * TAM_PAG+alojado->base +desplazamientoEnTripulante;
+		espacioPosDesplaz = TAM_PAG - (alojado->base+desplazamientoEnTripulante);
 
-	t_list* paginasConTripulante = lista_paginas_tripulantes(proceso->tabla, tid);
-
-	int cantPaginasConTripu = list_size(paginasConTripulante);
-
-	if(cantPaginasConTripu == 0) {
-		log_error(logs_ram, "No hay paginas que contengan al tripulante %d en memoria" , tid);
-		return 0;
-	}
-
-	log_info(logs_ram, "La cantidad de paginas que contienen al tripulante %d son %d", tid, cantPaginasConTripu);
-	int i = 0;
-
-	void* bufferTripu = malloc(sizeof(TripuCB));
-	int offset = 0;
-
-	while(i < cantPaginasConTripu)
-	{
-		pthread_mutex_lock(&mutexEscribiendoMemoria);
-		t_pagina* pagina = list_get(paginasConTripulante,i);
-		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, tid);
-		log_info(logs_ram, "Actualizo al tripulante en la pagina %d de la patota %d",pagina->nro_pagina, proceso->pid);
-		traer_pagina(pagina,proceso->pid);
-
-
-		void* pagina_memoria = leer_memoria_pag(pagina->nro_frame_mpal, MEM_PPAL);
-
-
-		log_info(logs_ram, "SE LEE DEL TRIPU: %d - FRAME: %d | D_INCIAL: %d | TAMANIO: %d", tid,
-				pagina->nro_frame_mpal, alojado->base, alojado->tamanio);
-
-		memcpy(bufferTripu + offset,pagina_memoria + alojado->base, alojado->tamanio);
-		pthread_mutex_unlock(&mutexEscribiendoMemoria);
-		offset += alojado->tamanio;
-
+		if(espacioPosDesplaz > tamanioDato){
+			memcpy(direccion,punteroRestante , tamanioDato);
+			tamanioDato -= tamanioDato;
+			log_info(logs_ram, "Escribi %d bytes en %d, escribi todo", tamanioDato,espacioPosDesplaz);
+		}else if(espacioPosDesplaz >0){
+			memcpy(direccion,punteroRestante ,espacioPosDesplaz);
+			log_info(logs_ram, "Escribi %d bytes en %d", espacioPosDesplaz,espacioPosDesplaz);
+			punteroRestante +=espacioPosDesplaz;
+			log_info(logs_ram, "Me quedan %d por escribir",tamanioDato - espacioPosDesplaz);
+			tamanioDato -=espacioPosDesplaz;
+		}
+		desplazamientoEnTripulante -=alojado->tamanio;
+		direccion=NULL;
+		espacioPosDesplaz = 0;
 		i++;
-		pagina = NULL;
 	}
-	TripuCB* tcb = transformarEnTripulante(bufferTripu);
-	list_destroy(paginasConTripulante);
+	pthread_mutex_unlock(&mutexEscribiendoMemoria);
+}
 
-	return tcb;
+void *obtener_dato_tripulante(t_list *paginas_del_tripulante, int desplazamientoEnTripulante, int tamanioDato, int idTripulante){
+	int i =0;
+	void* bufferDato = malloc(tamanioDato);
+	void *direccion;
+	int espacioPosDesplaz;
+
+	pthread_mutex_lock(&mutexEscribiendoMemoria);
+	while(tamanioDato >0){
+		t_pagina* pagina = list_get(paginas_del_tripulante,i);
+		t_alojado* alojado = obtener_tripulante_de_la_pagina(pagina->estructuras_alojadas, idTripulante);
+		traer_pagina(pagina);
+
+		//Direccion respecto del desplazamiento de ese dato en memoria
+		direccion = memoria + pagina->nro_frame_mpal * TAM_PAG+alojado->base +desplazamientoEnTripulante;
+		espacioPosDesplaz = TAM_PAG - (alojado->base+desplazamientoEnTripulante);
+
+		if(espacioPosDesplaz > tamanioDato){
+			memcpy(bufferDato, direccion, tamanioDato);
+			tamanioDato -= tamanioDato;
+		}else if(espacioPosDesplaz >0){
+			memcpy(bufferDato, direccion,espacioPosDesplaz);
+			tamanioDato -=espacioPosDesplaz;
+		}
+		desplazamientoEnTripulante -=alojado->tamanio;
+		direccion=NULL;
+		espacioPosDesplaz = 0;
+		i++;
+	}
+	pthread_mutex_unlock(&mutexEscribiendoMemoria);
+	return bufferDato;
 }
 
 void asignar_prox_tarea_pag(void *unTripulante) {
@@ -642,14 +669,16 @@ void asignar_prox_tarea_pag(void *unTripulante) {
 
 	existencia_patota(proceso);
 
-	TripuCB* tcb = NULL;
-	tcb = obtener_tripulante(proceso, idTripulante);
-	if(tcb == NULL){
+	t_list *paginasConTripulante = lista_paginas_tripulantes(proceso->tabla,(uint32_t) idTripulante);
+	uint32_t *proximaInstruccion = (uint32_t*) obtener_dato_tripulante(paginasConTripulante,desplazAProxIns,sizeof(uint32_t),idTripulante);
+	if(proximaInstruccion == NULL){
+		log_info(logs_ram, "entre aca");
 		sem_wait(&tripulantesDisponibles);
-		tcb = obtener_tripulante(proceso, idTripulante);
+		proximaInstruccion = (uint32_t*) obtener_dato_tripulante(paginasConTripulante,desplazAProxIns,sizeof(uint32_t),idTripulante);
 	}
+	log_info(logs_ram,"Insutrccion:%d", *proximaInstruccion);
 
-	char* tarea = obtener_siguiente_tarea_pag(proceso, tcb);
+	char* tarea = obtener_siguiente_tarea_pag(proceso, proximaInstruccion,idTripulante);
 
 	log_info(logs_ram, "El tripulante %d pidio la tarea %s", idTripulante, tarea);
 
@@ -674,7 +703,7 @@ void expulsar_tripulante_pag(void* algo) {
 	void _recorrer_paginas_tripulante(void* algo){
 		t_pagina *paginaActual = (t_pagina*) algo;
 		if(paginaActual->estructuras_alojadas == NULL) {
-			log_error(logs_ram,"No hay na aca");
+			log_error(logs_ram,"No tiene estructuras alojadas esta pagina");
 		}
 
 		t_alojado* tripuAlojado = obtener_tripulante_de_la_pagina(paginaActual->estructuras_alojadas, tid);
@@ -682,10 +711,13 @@ void expulsar_tripulante_pag(void* algo) {
 
 		log_info(logs_ram,"Se va a sacar de la lista de alojados de cant %d el tripu %d",
 				list_size(paginaActual->estructuras_alojadas), tripuAlojado->flagid);
-
+		bool eliminadoMapa = false;
 		bool tripuConID(t_alojado* alojado) {
 			if(alojado->tipo == TCB && alojado->flagid == tid){
-				caracterRepresentativo = alojado->flagid + 64;
+				if(!eliminadoMapa){
+					eliminarTripuMapa(alojado->caracterRep);
+					eliminadoMapa = true;
+				}
 				return true;
 			}else{
 				return false;
@@ -999,16 +1031,18 @@ void asignar_marco_en_swap(t_pagina* pag){
 	pag->bit_presencia = false;
 	pag->nro_frame_swap = posicionLibre;
 	asignar_marco_en_uso(pag->nro_frame_mpal,MEM_VIRT);
-	log_info(logs_ram, "Se asignor a la pagina %d el frame %d en swap",pag->nro_pagina,posicionLibre);
+	log_info(logs_ram, "Se asigno a la pagina %d el frame %d en swap",pag->nro_pagina,posicionLibre);
 }
 
 void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
-	//datos de la victima
-	log_info(logs_ram,"Se swapea la pagina %d con la pagina %d",paginaPedida->nro_pagina,victima->nro_pagina);
+
+	log_info(logs_ram,"La pagina PEDIDA %d tiene asignado frame %d en mpal y %d en swap, %d",paginaPedida->nro_pagina ,paginaPedida->nro_frame_mpal, paginaPedida->nro_frame_swap);
+	log_info(logs_ram,"La pagina VICTIMA tiene asignado frame %d en mpal y %d en swap, %d",victima->nro_pagina ,victima->nro_frame_mpal, victima->nro_frame_swap);
+
 	int nroFrame = victima->nro_frame_mpal;
 	void *frameVictima = memoria+(nroFrame*TAM_PAG);
 
-	int posicionEnSwap = paginaPedida->nro_frame_swap*TAM_PAG;//TODO De donde sale nro frame swap
+	int posicionEnSwap = paginaPedida->nro_frame_swap*TAM_PAG;
 
 
 	void* bufferAux = (void*)malloc(TAM_PAG);
@@ -1018,9 +1052,6 @@ void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
 	memcpy(MEMORIA_VIRTUAL+posicionEnSwap, frameVictima, TAM_PAG);
 	memcpy(frameVictima, bufferAux, TAM_PAG);
 	pthread_mutex_unlock(&mutex_swap_file);
-
-	log_info(logs_ram,"La pagina PEDIDA tiene asignado frame %d en mpal y %d en swap, %d",paginaPedida->nro_frame_mpal, paginaPedida->nro_frame_swap, &paginaPedida);
-	log_info(logs_ram,"La pagina VICTIMA tiene asignado frame %d en mpal y %d en swap, %d",victima->nro_frame_mpal, victima->nro_frame_swap, &victima);
 
 	victima->bit_presencia = false;
 	victima->nro_frame_mpal = -1;
@@ -1038,23 +1069,20 @@ void swap_pages(t_pagina* victima, t_pagina* paginaPedida){
 	free(bufferAux);
 }
 
-void traer_pagina(t_pagina* pagina, int patota){//TODO agregar al expulsar y actualizar tripulante
+void traer_pagina(t_pagina* pagina){
 	//cada vez que referencian
 	//una pagina si no esta en memoria la buscamos
 	//y cargamos, si esta en memoria seteamos el bit de uso
-	dumpMemoriaPag();
-	imprimirLRU();
-	log_info(logs_ram, "LRU tiene %d paginas", list_size(paginas_lru));
 	if (!pagina->bit_presencia){//Si la pagina no esta presente
 
-		log_info(logs_ram,"Se produce un PF (pagina %d del proc %d)",pagina->nro_pagina, patota);
+		log_info(logs_ram,"Se produce un PF (PAGINA %d | PROCESO %d)",pagina->nro_pagina);
 
 		uint32_t marco_libre = buscar_marco_disponible(MEM_PPAL);
 		int offsetPpal = marco_libre * TAM_PAG;
 		if(marco_libre!=-1){
 			log_info(logs_ram,"Se procede a asignar el marco %d a la pagina %d",marco_libre,pagina->nro_pagina);
 			pthread_mutex_lock(&mutex_swap_file);
-			memcpy(memoria+offsetPpal, MEMORIA_VIRTUAL + pagina->nro_frame_swap* TAM_PAG, TAM_PAG); //Swap mappeado como variable global por ahora
+			memcpy(memoria+offsetPpal, MEMORIA_VIRTUAL + pagina->nro_frame_swap* TAM_PAG, TAM_PAG);
 			pthread_mutex_unlock(&mutex_swap_file);
 			bitarray_clean_bit(BIT_ARRAY_SWAP,(off_t) pagina->nro_frame_swap);
 			bitarray_set_bit(frames_ocupados_ppal, (off_t) marco_libre);
@@ -1063,7 +1091,6 @@ void traer_pagina(t_pagina* pagina, int patota){//TODO agregar al expulsar y act
 			pagina->bit_uso = true;
 			pagina->nro_frame_swap = -1;
 			if(esLRU){
-				log_info(logs_ram, "Traje la pagina %d en LRU", pagina->nro_pagina);
 				pthread_mutex_lock(&listaLRU);
 				list_add(paginas_lru, pagina);
 				pthread_mutex_unlock(&listaLRU);
@@ -1078,7 +1105,7 @@ void traer_pagina(t_pagina* pagina, int patota){//TODO agregar al expulsar y act
 				t_pagina *unaPagina = (t_pagina*) algo;
 				return unaPagina == pagina;
 			}
-			log_info(logs_ram, "Actualice la pagina %d en LRU", pagina->nro_pagina);
+			log_info(logs_ram, "Se actualizo la posicion de la pagina %d en LRU", pagina->nro_pagina);
 			pthread_mutex_lock(&listaLRU);
 			list_remove_by_condition(paginas_lru, _esLaPagina);//Saco la pagina de la lista
 			list_add(paginas_lru, pagina);//Y la agrego al final
@@ -1147,15 +1174,4 @@ void reemplazarSegunAlgoritmo(t_pagina* paginaEntrada){
 		paginaSalida = algoritmo_clock();
 		swap_pages(paginaSalida, paginaEntrada);
 	}
-}
-
-void imprimirLRU(){
-	log_info(logs_ram, "Las paginas en LRU son:");
-
-	void _imprimir(void* algo){
-		t_pagina* unaPagina = (t_pagina*) algo;
-		log_info(logs_ram, "Pagina %d ", unaPagina->nro_pagina);
-	}
-
-	list_iterate(paginas_lru, _imprimir);
 }

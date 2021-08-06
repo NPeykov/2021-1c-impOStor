@@ -16,6 +16,8 @@ void listar_discordiador() {
 	listar_cola_planificacion(BLOQUEADO_IO);
 	listar_cola_planificacion(BLOQUEADO_EMERGENCIA);
 	listar_cola_planificacion(FINALIZADO);
+
+	log_info(logs_discordiador, "\n"); //para darle mas forma
 }
 
 
@@ -23,6 +25,7 @@ void listar_cola_planificacion(Estado estado) {
 	t_link_element *elementos;
 	t_list *copia_lista = (t_list*) malloc(sizeof(t_list));
 	char *nombre_estado;
+	char *formato_tripulante;
 
 	//LLEGADA, LISTO, TRABAJANDO, BLOQUEADO, FINALIZADO
 	switch(estado){
@@ -52,19 +55,37 @@ void listar_cola_planificacion(Estado estado) {
 		break;
 	}
 	if (copia_lista->head == NULL) {
-		printf("No hay tripulantes en la cola de %s!\n",nombre_estado);
+		log_info(logs_discordiador, "No hay tripulantes en la cola de %s!",nombre_estado);
 	} else {
 		Tripulante_Planificando *tripulante_planificando = (Tripulante_Planificando *) malloc(sizeof(Tripulante_Planificando));
 		while (copia_lista->head != NULL) {
 			elementos = copia_lista->head;
 			tripulante_planificando = (Tripulante_Planificando *) elementos->data;
+
+/*		OTRO FORMA DE IMPRIMIR
+			formato_tripulante = string_from_format("Patota N°: %d\tTripulante ID: %d\tPosX: %d, PosY: %d\t Estado: %s\n",
+					tripulante_planificando->tripulante->patota, tripulante_planificando->tripulante->id,
+					tripulante_planificando->tripulante->posicionX, tripulante_planificando->tripulante->posicionY,
+					nombre_estado);
+
+			log_info(logs_discordiador, formato_tripulante);
+
+
+			printf("Patota N°: %d\t", tripulante_planificando->tripulante->patota);
+			printf("Tripulante ID°: %d\t", tripulante_planificando->tripulante->id);
+			printf("PosX: %d, PosY: %d\t", tripulante_planificando->tripulante->posicionX, tripulante_planificando->tripulante->posicionY);
+			printf("Estado: %s\n", nombre_estado);
+*/
+
 			log_info(logs_discordiador,"Patota N°: %d   Tripulante ID°: %d   PosX: %d, PosY: %d   Estado: %s",
 					tripulante_planificando->tripulante->patota,tripulante_planificando->tripulante->id,
 					tripulante_planificando->tripulante->posicionX,
 					tripulante_planificando->tripulante->posicionY,nombre_estado);
+
 			copia_lista->head = copia_lista->head->next;
 		}
 	}
+
 	free(copia_lista);
 }
 

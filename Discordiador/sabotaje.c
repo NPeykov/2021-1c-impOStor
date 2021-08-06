@@ -47,7 +47,7 @@ void esperar_sabotaje(void){ //este es un hilo
 
 }
 
-//TODO: rehacer este metodo con un atender_sabotaje(x, y)
+
 void atender_sabotaje(int x, int y){
 	t_list *lista_mergeada = (t_list *)malloc(sizeof(t_list));
     Tripulante_Planificando *tripulante_cercano = (Tripulante_Planificando*)malloc(sizeof(Tripulante_Planificando));
@@ -117,6 +117,11 @@ void atender_sabotaje(int x, int y){
 
 	tripulante_cercano = (Tripulante_Planificando*) mas_cercano_al_sabotaje(x, y);
 
+	if(tripulante_cercano == NULL){
+		log_error(logs_discordiador, "No hay tripulante disponible para sabotaje");
+		return;
+	}
+
 
 	avisar_estado_sabotaje_a_mongo(x, y, tripulante_cercano->tripulante, INICIO_SABOTAJE);
 	void destroyer(void *data){
@@ -156,8 +161,13 @@ void atender_sabotaje(int x, int y){
 
 
 	void cambiar_estado_a_bloqueado_emergencia(void *data) {
+		int _socket_ram = iniciar_conexion(MI_RAM_HQ, config); //inicio conexion
+
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = BLOQUEADO_EMERGENCIA;
+
+		serializar_y_enviar_tripulante(tripulante->tripulante, EXPULSAR_TRIPULANTE, _socket_ram); //aviso que cambio a bloq_em
+		liberar_cliente(_socket_ram); //libero conexion
 	}
 
 	list_iterate(lista_bloqueado_EM, cambiar_estado_a_bloqueado_emergencia);
@@ -175,12 +185,16 @@ void atender_sabotaje(int x, int y){
 	}
 
 	void cambiar_estado_a_ready(void *data) {
+		int _socket_ram = iniciar_conexion(MI_RAM_HQ, config); //inicio conexion
+
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = LISTO;
+
+		serializar_y_enviar_tripulante(tripulante->tripulante, EXPULSAR_TRIPULANTE, _socket_ram); //aviso que cambio a ready
+		liberar_cliente(_socket_ram); //libero conexion
 	}
 
-	sleep(10);
-	printf("-------------ETAPA 1: TODOS BLOQ-------------");
+	log_info(logs_discordiador, "-------------ETAPA 1: TODOS BLOQ-------------");
 	listar_discordiador();
 
 	list_iterate(lista_bloqueado_EM, cambiar_estado_a_ready);
@@ -196,11 +210,16 @@ void atender_sabotaje(int x, int y){
 	g_hay_sabotaje = false;
 	pthread_mutex_unlock(&sabotaje_lock);
 
+	log_info(logs_discordiador, "Se puso en false el flag de sabotaje!");
+
 	sleep(10);
-	printf("-------------ETAPA 3: TODOS LISTOS-------------");
+	log_info(logs_discordiador, "-------------ETAPA 2: TODOS LISTOS-------------");
 	listar_discordiador();
 
 	list_iterate(lista_listo->elements, reanudar_tripulantes);
+
+	log_info(logs_discordiador, "Se reanudo la ejecucion de los tripulantes");
+
 	sem_post(&termino_sabotaje_planificador);
 }
 
@@ -260,37 +279,50 @@ void moverse_al_sabotaje(Tripulante_Planificando *tripulante, int targetX, int t
 	int sourceY = tripulante->tripulante->posicionY;
 	static bool last_move_x = false;
 
+	//Deberia avisar a RAM aca para que se mueva en el mapa cuando haya sabotaje
+	int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+
 	if (sourceX == targetX && last_move_x == false)
-			last_move_x = true;
+		last_move_x = true;
 
-		if (sourceY == targetY && last_move_x == true)
-			last_move_x = false;
+	if (sourceY == targetY && last_move_x == true)
+		last_move_x = false;
+
+	//mucho codigo repetido
+	if (sourceX < targetX && last_move_x == false) {
+		tripulante->tripulante->posicionX += 1;
+		last_move_x = true;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
+
+	if (sourceX > targetX && last_move_x == false) {
+		tripulante->tripulante->posicionX -= 1;
+		last_move_x = true;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
+
+	if (sourceY < targetY && last_move_x == true) {
+		tripulante->tripulante->posicionY += 1;
+		last_move_x = false;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
+
+	if (sourceY > targetY && last_move_x == true) {
+		tripulante->tripulante->posicionY -= 1;
+		last_move_x = false;
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+		return;
+	}
 
 
-		//mucho codigo repetido
-		if (sourceX < targetX && last_move_x == false) {
-			tripulante->tripulante->posicionX += 1;
-			last_move_x = true;
-			return;
-		}
 
-		if (sourceX > targetX && last_move_x == false) {
-			tripulante->tripulante->posicionX -= 1;
-			last_move_x = true;
-			return;
-		}
-
-		if (sourceY < targetY && last_move_x == true) {
-			tripulante->tripulante->posicionY += 1;
-			last_move_x = false;
-			return;
-		}
-
-		if (sourceY > targetY && last_move_x == true) {
-			tripulante->tripulante->posicionY -= 1;
-			last_move_x = false;
-			return;
-		}
 }
 
 void resolver_sabotaje(Tripulante_Planificando *tripulante, int x, int y){

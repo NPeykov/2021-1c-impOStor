@@ -1,13 +1,13 @@
 #include "comunicacion.h"
 
-void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posiciones, int socket){
+void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, int socket){
 	t_paquete *paquete = crear_paquete(INICIO_PATOTA);
 	FILE *tareas_file;
 	char *contenido_tareas = NULL;
 	uint32_t size_contenido_tareas;
 
 	if ((tareas_file = fopen(path_tareas, "r")) == NULL) {
-		printf("Error al abrir el archivo de tareas.");
+		log_error(logs_discordiador, "Error al abrir el archivo de tareas.");
 		exit(1);
 	}
 
@@ -15,7 +15,7 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 			tareas_file);
 
 	if (bytes == -1) {
-		printf("Error leyendo archivo!\n");
+		log_error(logs_discordiador, "Error leyendo archivo!\n");
 	}
 
 	contenido_tareas[size_contenido_tareas] = '\0'; //posible error
@@ -29,6 +29,26 @@ void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, char *posic
 	fclose(tareas_file);
 }
 
+void avisar_a_ram_expulsion_tripulante(int id, int patota) {
+
+	int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+
+	char *num_id = string_new();
+	num_id = string_from_format("%d", id);
+	char *num_patota = string_new();
+	num_patota = string_from_format("%d", patota);
+
+	t_paquete* paquete_expulsar = crear_paquete(ELIMINAR_TRIPULANTE);
+	agregar_a_paquete(paquete_expulsar, num_id, string_length(num_id) + 1);
+	agregar_a_paquete(paquete_expulsar, num_patota, string_length(num_patota) + 1);
+
+	enviar_paquete(paquete_expulsar, _socket_ram);
+
+	eliminar_paquete(paquete_expulsar);
+
+	liberar_cliente(_socket_ram);
+
+}
 
 void avisar_a_mongo_estado_tarea(Tarea *nueva_tarea, Tripulante *tripulante, op_code operacion){
 	t_paquete *paquete = crear_paquete(operacion);

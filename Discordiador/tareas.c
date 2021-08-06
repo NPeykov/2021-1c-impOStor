@@ -103,10 +103,10 @@ bool completo_tarea(Tripulante_Planificando *tripulante_trabajando) {
 		return false;
 		break;
 	}
-
+/* ACA NO DEBERIA IR porque avisa 3 veces
 	if(resultado == true && tripulante_trabajando->tarea->tipo == TAREA_COMUN)
 		avisar_a_mongo_estado_tarea(tarea, tripulante, FIN_TAREA);
-
+*/
 	return resultado;
 }
 

@@ -240,15 +240,17 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 
 		if (tripulante->fui_expulsado) {
 			//sem_post(&ya_sali_de_exec);
+			log_error(logs_discordiador, "FUI EXPULSADO ESTANDO FIFO");
 			return;
 		}
 
 
-		if (completo_tarea && tripulante->tarea->tipo == TAREA_IO) {
+		if (completo_tarea(tripulante) && tripulante->tarea->tipo == TAREA_IO) {
 			return;
 		}
 
 		else { //tengo que pedir la proxima tarea
+			avisar_a_mongo_estado_tarea(tripulante->tarea, tripulante->tripulante, FIN_TAREA);
 			pthread_mutex_lock(&mutex_tarea);
 			tripulante->tarea = proxima_tarea(tripulante->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);
@@ -263,6 +265,9 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 	case RR:
 		while (!completo_tarea(tripulante) && tripulante->quantum_disponible > 0 && !tripulante->fui_expulsado) {
 			fijarse_si_hay_pausa_hilo(tripulante);
+
+			if (tripulante->fui_expulsado)
+				continue;
 
 			if (g_hay_sabotaje) { //la logica de esperar esta en la funcion tripulante
 				pthread_mutex_lock(&lock_grado_multitarea);
@@ -292,6 +297,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante){
 			return;
 
 		if (completo_tarea(tripulante)) {
+			avisar_a_mongo_estado_tarea(tripulante->tarea, tripulante->tripulante, FIN_TAREA);
 			pthread_mutex_lock(&mutex_tarea);
 			tripulante->tarea = proxima_tarea(tripulante->tripulante);
 			pthread_mutex_unlock(&mutex_tarea);
@@ -399,12 +405,12 @@ void atender_comandos_consola(void) {
 			if(strcmp(respuesta_inicio_patota, "ok") == 0){
 				log_info(logs_discordiador, "ME DIERON OK PARA INICIAR PATOTA");
 				iniciar_patota(comando_separado);
+				g_numero_patota += 1; //la mandaria ram
 			}
 			else {
-				log_info(logs_discordiador, "NO SE PUDO CREAR PATOTA");
+				log_error(logs_discordiador, "NO SE PUDO CREAR PATOTA");
 			}
 
-			g_numero_patota += 1; //la mandaria ram
 			liberar_cliente(socket_ram);
 			break;
 
@@ -598,6 +604,8 @@ void tripulante(void *argumentos){
 	}
 	else {
 		log_error(logs_discordiador, "NO PUEDO REALIZAR INICIO TRIPULANTE %d", tripulante->id);
+		liberar_cliente(_socket_ram);
+		pthread_exit(NULL);
 	}
 	liberar_cliente(_socket_ram);
 
@@ -691,12 +699,14 @@ void tripulante(void *argumentos){
 
 			sem_post(&voy_a_ready);
 
+			log_error(logs_discordiador, "UN TRIP CON FLAG EXPULSADO");
+
 			avisar_a_tripulantes_hermanos(tripulante_trabajando);
 			/*esperar_tripulantes_hermanos(tripulante_trabajando);
 			log_info(logs_discordiador, "El tripulante %d sale del mapa",
 								tripulante_trabajando->tripulante->id);*/
 
-			sacarlo_de_finalizado(tripulante_trabajando);
+			sacarlo_en_caso_de_expulsion(tripulante_trabajando);
 		}
 
 		if(g_hay_sabotaje){
@@ -730,6 +740,7 @@ void expulsar_tripulante(int id , int patota){
 	list_add_all(lista_entera, lista_bloqueado_IO);
 	list_add_all(lista_entera, lista_trabajando);
 	list_add_all(lista_entera, lista_bloqueado_EM);
+	list_add_all(lista_entera, lista_finalizado);
 
 
 
@@ -800,6 +811,9 @@ void expulsar_tripulante(int id , int patota){
 
     if(tripulante->tripulante->estado==BLOQUEADO_IO || tripulante->tripulante->estado==TRABAJANDO){
     	tripulante->tripulante->estado=FINALIZADO;
+    	log_error(logs_discordiador, "Paso el if el tripulante %d, patota %d, estado %s",
+    			tripulante->tripulante->id, tripulante->tripulante->patota,
+				tripulante->tripulante->estado == FINALIZADO ? "Finalizado" : "Otro");
         pthread_mutex_lock(&lock_lista_exit);
         list_add(lista_finalizado, tripulante);
         pthread_mutex_unlock(&lock_lista_exit);

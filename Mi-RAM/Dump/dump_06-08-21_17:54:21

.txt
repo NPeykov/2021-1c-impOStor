@@ -1,0 +1,11 @@
+--------------------------------------------------------------------------
+
+DUMP: 06-08-21_17:54:21
+
+
+
+Marco:0    Estado:Ocupado    Proceso:3    Pagina:1 
+Marco:1    Estado:Libre      Proceso:-    Pagina:- 
+Marco:2    Estado:Ocupado    Proceso:3    Pagina:3 
+Marco:3    Estado:Ocupado    Proceso:3    Pagina:0 
+--------------------------------------------------------------------------

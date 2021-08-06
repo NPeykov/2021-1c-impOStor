@@ -21,22 +21,6 @@ int crear_archivo_swap(){
 	return 0;
 }
 
-/*TODO:Reemplazada por traer_marco_valido
-int posicion_libre_en_swap(){
-	int posicionLibre = -1;
-	int i=0;
-	bool encontrado = false;
-	while(!encontrado && i<=(bitarray_get_max_bit(BIT_ARRAY_SWAP)-1)){
-		if(!bitarray_test_bit(BIT_ARRAY_SWAP, i)){
-			posicionLibre = i;
-			encontrado=true;
-		}
-		i++;
-	}
-
-	return posicionLibre;
-}*/
-
 void inicializar_bitmap_swap(){
 	int bytes;
 

@@ -1134,5 +1134,5 @@ void reemplazarSegunAlgoritmo(t_pagina* paginaEntrada){
 }
 
 void cerrarMemoriaPag(){
-
+	list_iterate(patotas, (void*)limpiarProceso);
 }

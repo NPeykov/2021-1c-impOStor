@@ -24,6 +24,7 @@ char* puerto;
 char* tipoMemoria;
 int tamaniomemoria;
 bool seInicioAlgo=false;
+bool esSegmentacion;
 
 //Malloc principal de memoria
 void* memoria;

@@ -14,6 +14,7 @@ void inicializar_ram(){
 	puerto = config_get_string_value(config, "PUERTO");
 
 	tipoMemoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	esSegmentacion = strcmp(tipoMemoria, "SEGMENTACION") == 0;
 
 	tamaniomemoria = atoi(config_get_string_value(config, "TAMANIO_MEMORIA"));
 
@@ -29,8 +30,6 @@ void *gestionarCliente(int socket) {
 
 	int operacion;
 	t_list *lista;
-
-	bool esSegmentacion = strcmp(tipoMemoria, "SEGMENTACION") == 0;
 
 	while(1) {
 		int cliente = esperar_cliente(socket, logs_ram);
@@ -93,7 +92,7 @@ void *gestionarCliente(int socket) {
 }
 
 void atenderSegunEsquema(){
-	if(strcmp(tipoMemoria, "SEGMENTACION") == 0){
+	if(esSegmentacion){
 		inicializarSegmentacion(); //Inicializacion de semaforos y variables del esquema
 	}else{
 		inicializarPaginacion();
@@ -104,7 +103,7 @@ void atenderSegunEsquema(){
 }
 
 void dumpMemoria(){
-	if(strcmp(tipoMemoria, "SEGMENTACION") == 0){
+	if(esSegmentacion){
 		dumpMemoriaSeg();
 	}else{
 		dumpMemoriaPag();
@@ -113,14 +112,14 @@ void dumpMemoria(){
 
 void cerrarMemoria(){
 	free(memoria);
-	log_destroy(logs_ram);
 	config_destroy(config);
-	if(strcmp(tipoMemoria, "SEGMENTACION") == 0 && seInicioAlgo){
+	if(esSegmentacion && seInicioAlgo){
 		cerrarMemoriaSeg();
-	}else{
+	}else if(seInicioAlgo){
 		cerrarMemoriaPag();
 	}
 	list_destroy(patotas);
+	log_destroy(logs_ram);
 
 	exit(0);
 }

@@ -322,6 +322,7 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora) {
 	MAP_SHARED, archivo, 0);
 	char **renglones_bitacora = string_split(archivo_addr, "\n");
 	char **bloques_division = string_split(renglones_bitacora[1], "=");
+
 	char **bloques_bitacora = string_split(bloques_division[1], ",");
 	while (bloques_bitacora[cantidad_de_bloques]) {
 		cantidad_de_bloques++;
@@ -331,9 +332,9 @@ t_bloque* buscar_ultimo_bloque_del_tripulante(char* rutaBitacora) {
 
 	el_bloque = (t_bloque *) list_get(disco_logico->bloques, indexUltimoBloque);
 
-	log_info(mongoLogger,
+	/*log_info(mongoLogger,
 			"El ultimo bloque asignado en la bitacora %s es: %d y esta en indice: %d",
-			rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);
+			rutaBitacora, el_bloque->id_bloque, indexUltimoBloque);*/
 
 	munmap(archivo_addr, statbuf.st_size);
 	close(archivo);
@@ -348,16 +349,11 @@ void crear_archivo(char* ruta) {
 
 //crea el archivo bitacora cuando no existe
 void inicializar_bitacora(char *rutaBitacora, char *numeroDeBloque) {
-	char *block_size = config_get_string_value(mongoConfig, "BLOCK_SIZE");
 	crear_archivo(rutaBitacora);
-	char *cadena = string_new();
-	string_append(&cadena, "SIZE=");
-	string_append(&cadena, block_size);
-	string_append(&cadena, "\nBLOCKS=");
-	string_append(&cadena, numeroDeBloque);
+	char *cadena=string_from_format("SIZE=0\nBLOCKS=%s",numeroDeBloque);
 	int archivo = open(rutaBitacora, O_RDWR);
 	struct stat statbuf;
-	ftruncate(archivo, string_length(cadena));
+	ftruncate(archivo, string_length(cadena)+1);
 	fstat(archivo, &statbuf);
 	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
 	MAP_SHARED, archivo, 0);
@@ -367,7 +363,6 @@ void inicializar_bitacora(char *rutaBitacora, char *numeroDeBloque) {
 	}
 	munmap(archivo_addr, statbuf.st_size);
 	close(archivo);
-	free(cadena);
 }
 
 void agregar_bloque_bitacora(char *rutaBitacora, int bloque) {
@@ -776,6 +771,15 @@ void escribir_en_block(char* lo_que_se_va_a_escribir, t_bloque* el_bloque) {
 			- string_length(lo_que_se_va_a_escribir);
 	pthread_mutex_unlock(&mutex_disco_logico);
 
+}
+
+void borrar_en_block(int cantidad, t_bloque* bloque) {
+	while (cantidad > 0) {
+		bloque->posicion_para_escribir--;
+		block_mmap[bloque->posicion_para_escribir] = ' ';
+		bloque->espacio++;
+		cantidad--;
+	}
 }
 
 char* obtener_bloques_bitacora(char* ruta) {
@@ -2128,16 +2132,47 @@ char *generarTextoAEscribir(tripulante_con_su_accion *tripulante) {
 	return lo_que_se_va_a_escribir;
 }
 
+void actualizar_tamanio_bitacora(char* rutaBitacora, int tamanio_bitacora) {
+	int archivo = open(rutaBitacora, O_RDWR);
+	struct stat statbuf;
+	//ftruncate(archivo, string_length(tamanio_mensaje));
+	fstat(archivo, &statbuf);
+	char *archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
+	char** renglones = string_split(archivo_addr,"\n");
+	munmap(archivo_addr,statbuf.st_size);
+	close(archivo);
+	char** size=string_split(renglones[0],"=");
+	int tamanio=atoi(size[1])+tamanio_bitacora;
+	char** bloques=string_split(renglones[1],"=");
+	char* cadena = string_from_format("SIZE=%d\nBLOCKS=%s",tamanio,bloques[1]);
+	archivo = open(rutaBitacora, O_RDWR);
+	ftruncate(archivo, string_length(cadena));
+	fstat(archivo, &statbuf);
+	archivo_addr = mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE,
+	MAP_SHARED, archivo, 0);
+
+	for (int i = 0; i < string_length(cadena);i++){
+		archivo_addr[i]=cadena[i];
+	}
+	munmap(archivo_addr, string_length(cadena));
+	close(archivo);
+}
+
+
 void escribir_el_mensaje_del_tripulante(char* mensaje, t_bloque *bloque,
 		char* rutaBitacora) {
 	if (string_length(mensaje) <= bloque->espacio) {
 		escribir_en_block(mensaje, bloque);
+		actualizar_tamanio_bitacora(rutaBitacora,string_length(mensaje));
 	} else {
 		char* lo_que_puedo_escribir = string_substring_until(mensaje,
 				bloque->espacio);
 		char* lo_que_falta_escribir = string_substring_from(mensaje,
 				string_length(lo_que_puedo_escribir));
 		escribir_en_block(lo_que_puedo_escribir, bloque);
+
+		actualizar_tamanio_bitacora(rutaBitacora,string_length(lo_que_puedo_escribir));
 		int numero_nuevo_bloque = obtener_bloque_libre();
 		t_bloque* nuevo_bloque = list_get(disco_logico->bloques,
 				numero_nuevo_bloque);
@@ -2166,7 +2201,9 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
 		el_bloque = buscar_ultimo_bloque_del_tripulante(rutaBitacora);
 		log_info(mongoLogger, "ultimo bloque: %d", el_bloque->id_bloque);
 		//si hay espacio en el bloque para escribir to do, entonces lo escribo
-		if (el_bloque->espacio >= string_length(lo_que_se_va_a_escribir)) {
+		escribir_el_mensaje_del_tripulante(lo_que_se_va_a_escribir,el_bloque, rutaBitacora);
+
+		/*if (el_bloque->espacio >= string_length(lo_que_se_va_a_escribir)) {
 			escribir_en_block(lo_que_se_va_a_escribir, el_bloque);
 		}
 		//sino escribo una parte y elijo otro bloque para lo restante
@@ -2183,8 +2220,8 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
 					string_length(lo_que_entra_en_el_bloque));
 
 			escribir_el_mensaje_del_tripulante(lo_que_falta_escribir, el_bloque,
-					rutaBitacora);
-		}
+					rutaBitacora);*/
+		//}
 	} else {
 		//asigno el bloque nuevo
 		numero_del_nuevo_bloque = obtener_bloque_libre();
@@ -2198,12 +2235,13 @@ void escribir_en_su_bitacora_la_accion(tripulante_con_su_accion *tripulante) {
 				string_itoa(nuevo_bloque->id_bloque));
 
 		//escribo lo_que_se_va_a_escribir en block
-		if (string_length(lo_que_se_va_a_escribir) <= nuevo_bloque->espacio) {
+		escribir_el_mensaje_del_tripulante(lo_que_se_va_a_escribir,nuevo_bloque, rutaBitacora);
+		/*if (string_length(lo_que_se_va_a_escribir) <= nuevo_bloque->espacio) {
 			escribir_en_block(lo_que_se_va_a_escribir, nuevo_bloque);
 		} else {
 			escribir_el_mensaje_del_tripulante(lo_que_se_va_a_escribir,
 					nuevo_bloque, rutaBitacora);
-		}
+		}*/
 	}
 
 	free(tripulante->tripulante);

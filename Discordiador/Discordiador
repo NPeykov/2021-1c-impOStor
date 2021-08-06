@@ -1,0 +1,359 @@
+==9486== Memcheck, a memory error detector
+==9486== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==9486== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==9486== Command: ./Cliente
+==9486== Parent PID: 9167
+==9486== 
+==9486== Thread 4:
+==9486== Invalid write of size 1
+==9486==    at 0x804CA1F: crear_y_enviar_inicio_patota (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A014: atender_comandos_consola (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486==  Address 0x42b7d58 is 0 bytes after a block of size 120 alloc'd
+==9486==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x411BFD7: getdelim (iogetdelim.c:62)
+==9486==    by 0x804C9FA: crear_y_enviar_inicio_patota (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A014: atender_comandos_consola (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x402C136: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x804DA61: recibir_buffer (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804DAA5: recibir_mensaje (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A033: atender_comandos_consola (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Syscall param socketcall.recv(args) points to uninitialised byte(s)
+==9486==    at 0x40AF389: recv (recv.c:35)
+==9486==    by 0x804DA7D: recibir_buffer (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804DAA5: recibir_mensaje (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A033: atender_comandos_consola (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486==  Address 0x5e9a288 is on thread 4's stack
+==9486==  in frame #0, created by recv (recv.c:29)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4030462: strcmp (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x804A049: atender_comandos_consola (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x804A04F: atender_comandos_consola (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Warning: invalid file descriptor -1 in syscall close()
+==9486== Thread 5:
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4100551: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x4101383: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x41282A0: _IO_default_xsputn (genops.c:450)
+==9486==    by 0x4100732: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x41282AC: _IO_default_xsputn (genops.c:449)
+==9486==    by 0x4100732: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C17: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4100551: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x4101383: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x41282A0: _IO_default_xsputn (genops.c:450)
+==9486==    by 0x4100732: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x41282AC: _IO_default_xsputn (genops.c:449)
+==9486==    by 0x4100732: vfprintf (vfprintf.c:1632)
+==9486==    by 0x41233DE: vsnprintf (vsnprintf.c:114)
+==9486==    by 0x4054C49: _string_append_with_format_list (in /usr/lib/libcommons.so)
+==9486==    by 0x40543C0: string_from_vformat (in /usr/lib/libcommons.so)
+==9486==    by 0x40540EC: _log_write_in_level (in /usr/lib/libcommons.so)
+==9486==    by 0x4053F6D: log_info (in /usr/lib/libcommons.so)
+==9486==    by 0x804B854: dar_proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804B86D: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x402FD1D: strcasecmp (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x4054756: string_equals_ignore_case (in /usr/lib/libcommons.so)
+==9486==    by 0x804B893: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x402F398: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322BA: strdup (strdup.c:41)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x402F3A3: __GI_strlen (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322BA: strdup (strdup.c:41)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4030FD9: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x403125B: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4031035: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x403104E: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4031064: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x4031178: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x40311E0: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x4031200: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Use of uninitialised value of size 4
+==9486==    at 0x4031203: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Conditional jump or move depends on uninitialised value(s)
+==9486==    at 0x403120C: __GI_memcpy (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==9486==    by 0x41322D7: strdup (strdup.c:47)
+==9486==    by 0x4054287: string_duplicate (in /usr/lib/libcommons.so)
+==9486==    by 0x4054CCB: _string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x40547DC: string_split (in /usr/lib/libcommons.so)
+==9486==    by 0x804B8B4: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486== 
+==9486== Invalid read of size 1
+==9486==    at 0x40ED11B: ____strtol_l_internal (strtol_l.c:293)
+==9486==    by 0x40ECF1F: strtol (strtol.c:106)
+==9486==    by 0x40EA25F: atoi (atoi.c:27)
+==9486==    by 0x804B936: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==9486== 
+==9486== 
+==9486== Process terminating with default action of signal 11 (SIGSEGV)
+==9486==  Access not within mapped region at address 0x0
+==9486==    at 0x40ED11B: ____strtol_l_internal (strtol_l.c:293)
+==9486==    by 0x40ECF1F: strtol (strtol.c:106)
+==9486==    by 0x40EA25F: atoi (atoi.c:27)
+==9486==    by 0x804B936: proxima_tarea (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x8049CDA: realizar_trabajo (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x804A820: tripulante (in /home/utnso/workspace/tp-2021-1c-impOStor/Discordiador/Cliente)
+==9486==    by 0x40A6294: start_thread (pthread_create.c:333)
+==9486==    by 0x41A40AD: clone (clone.S:114)
+==9486==  If you believe this happened as a result of a stack
+==9486==  overflow in your program's main thread (unlikely but
+==9486==  possible), you can try to increase the size of the
+==9486==  main thread stack using the --main-stacksize= flag.
+==9486==  The main thread stack size used in this run was 8388608.
+==9486== 
+==9486== HEAP SUMMARY:
+==9486==     in use at exit: 70,054,532 bytes in 334 blocks
+==9486==   total heap usage: 1,044 allocs, 710 frees, 70,108,904 bytes allocated
+==9486== 
+==9486== LEAK SUMMARY:
+==9486==    definitely lost: 909 bytes in 36 blocks
+==9486==    indirectly lost: 432 bytes in 39 blocks
+==9486==      possibly lost: 680 bytes in 5 blocks
+==9486==    still reachable: 70,052,511 bytes in 254 blocks
+==9486==         suppressed: 0 bytes in 0 blocks
+==9486== Rerun with --leak-check=full to see details of leaked memory
+==9486== 
+==9486== For counts of detected and suppressed errors, rerun with: -v
+==9486== Use --track-origins=yes to see where uninitialised values come from
+==9486== ERROR SUMMARY: 41 errors from 27 contexts (suppressed: 0 from 0)

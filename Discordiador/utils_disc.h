@@ -129,6 +129,7 @@ typedef struct Tripulante_Planificando{
 	bool fui_expulsado;
 	t_list *semaforos;
 	int cant_trip;
+	bool fue_sacado_de_fin;
 }Tripulante_Planificando;
 
 

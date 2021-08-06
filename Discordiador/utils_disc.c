@@ -17,7 +17,6 @@ void listar_discordiador() {
 	listar_cola_planificacion(BLOQUEADO_EMERGENCIA);
 	listar_cola_planificacion(FINALIZADO);
 
-	log_info(logs_discordiador, "\n"); //para darle mas forma
 }
 
 

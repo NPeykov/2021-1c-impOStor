@@ -174,10 +174,6 @@ void actualizar_tripulante_pag(t_tripulante_iniciado*);
 
 void asignar_prox_tarea_pag(void*);
 
-/* Verifica si el tripulante que se elimino no fue el ultimo del proceso enviado por parametro  */
-
-void chequear_ultimo_tripulante(t_proceso*);
-
 /* Recibe patota id y tripu id, elimina tanto estructuras administrativas como en memoria */
 
 void expulsar_tripulante_pag(void*);
@@ -235,5 +231,11 @@ void traer_pagina(t_pagina*);
 void *obtener_dato_tripulante(t_list*, int ,int,int);
 
 void escribir_dato_tripulante(t_list*, int ,int,int,void*);
+
+void cerrarMemoriaPag();
+
+void limpiarProceso(t_proceso*);
+
+bool proceso_tiene_tripulantes(t_proceso*);
 
 #endif

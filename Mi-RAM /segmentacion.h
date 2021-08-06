@@ -175,5 +175,6 @@ void crearTripulanteSeg(t_list*, int );
 
 void obtenerSgteTareaSeg(t_list*, int );
 
+void cerrarMemoriaSeg();
 
 #endif

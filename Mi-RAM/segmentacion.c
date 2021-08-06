@@ -15,6 +15,7 @@ void compactacion(){
 			void *buffer = malloc(unSegmento->tamanio);
 			memcpy(buffer, unSegmento->dato, unSegmento->tamanio);
 			memcpy(memoria + finalSegmentoAnterior, buffer, unSegmento->tamanio);
+			unSegmento->dato = memoria + finalSegmentoAnterior;
 			free(buffer);
 			unSegmento->base= finalSegmentoAnterior;
 			finalSegmentoAnterior = finalSegmentoAnterior + unSegmento->tamanio;
@@ -52,14 +53,16 @@ uint32_t algoritmoBestFit(Segmento *segmento){
 			finalSegmentoAnterior = inicioSegmentoActual + unSegmento->tamanio;
 		}
 	}
-
+	pthread_mutex_lock(&listaMemoriaPrincipal);
 	//Si no hay nada en memoria principal la dir es 0 por ser primero
 	if(list_is_empty(memoriaPrincipal)){
 		log_info(logs_ram, "Se coloco el segmento en 0 hasta %d",tamanioNecesario);
+		pthread_mutex_unlock(&listaMemoriaPrincipal);
 		return (uint32_t) 0;
 	}
 
 	list_iterate(memoriaPrincipal, espacioLibre);//Este es el mayor cambio entre FF y BF
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
 	if(tamaniomemoria >= ubicacionMasJusta + tamanioNecesario && ubicacionMasJusta != 0){
 		log_info(logs_ram,"Se coloco el segmento en %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 		return ubicacionMasJusta;
@@ -117,8 +120,9 @@ uint32_t algoritmoFirstFit(Segmento *segmento){
 		log_info(logs_ram,"Se coloco el segmento en 0 hasta %d",tamanioNecesario);
 		return (uint32_t) 0;
 	}
-
+	pthread_mutex_lock(&listaMemoriaPrincipal);
 	list_find(memoriaPrincipal, espacioLibre);
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
 	if(tamaniomemoria >= finalSegmentoAnterior + tamanioNecesario){
 		log_info(logs_ram,"Se coloco el segmento en %d hasta %d", finalSegmentoAnterior,tamanioNecesario);
 		return finalSegmentoAnterior;
@@ -146,7 +150,8 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	segmento->tamanio = string_length(tareas);
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
-	segmento->idSegmento = tabla_segmentos->elements_count;
+	segmento->idSegmento = idSegmentoSiguiente;
+	idSegmentoSiguiente++;
 
 	if(segmento->base == -1){
 		sem_post(&direcciones);
@@ -172,7 +177,8 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	pcb->tareas = inicioTareas;
 
 	//Se llena la informacion del Segmento
-	segmento->idSegmento = tabla_segmentos->elements_count;
+	segmento->idSegmento = idSegmentoSiguiente;
+	idSegmentoSiguiente++;
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
 	segmento->tamanio = sizeof(PatotaCB);
@@ -209,34 +215,36 @@ void crear_segmento_tcb(void* elTripulante) {
 	}
 
 	//Para obtener los valores de la patota
+	log_info(logs_ram, "Inicializando tripulante");
 	pthread_mutex_lock(&listaPatotasEnUso);
 	t_proceso *miPatota = (t_proceso*) list_find(patotas, _esLaPatota);
 	pthread_mutex_unlock(&listaPatotasEnUso);
 	t_list *tabla_segmentos = miPatota->tabla;
 	Segmento *laPatota = (Segmento*) list_get(tabla_segmentos, 1);//Porque sabemos que se crea tarea->patota
-
+	log_info(logs_ram, "Inicializando estructura del tripulante");
 	//Se asignan los valores a la TCB
 	TripuCB *tcb = (TripuCB*) malloc(sizeof(TripuCB));
 	tcb->tid = unTripulante->tid;
-	tcb->pcb = laPatota->base;
+	tcb->pcb = laPatota->idSegmento;
 	tcb->posX = unTripulante->posX;
 	tcb->posY = unTripulante->posY;
 	tcb->status = unTripulante->status;
 	tcb->proxIns = (uint32_t) 0;
 	//Se asigna el acceso rapido de t_proceso
-
-	segmento->idSegmento = tabla_segmentos->elements_count;
+	log_info(logs_ram, "Inicializando segmento del tripulante");
+	segmento->idSegmento = idSegmentoSiguiente;
+	idSegmentoSiguiente++;
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
 	segmento->tamanio = sizeof(TripuCB);
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
-
 	if(segmento->base == -1){
+		idSegmentoSiguiente--;
 		sem_post(&direcciones);
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
-		if(noTieneMasTripulantes(tabla_segmentos)){eliminarPatota(miPatota);}
+		eliminarPatota(miPatota);
 		free(segmento);
 		free(tcb);
 		free(tripulanteConSocket);
@@ -246,7 +254,7 @@ void crear_segmento_tcb(void* elTripulante) {
 		segmento->valorRepresentacion = nuevoTripuMapa(tcb->posX,tcb->posY);
 		agregar_a_memoria(segmento);
 		sem_post(&direcciones);
-		sem_post(&tripulantesDisponibles);
+		//sem_post(&tripulantesDisponibles);
 		enviar_mensaje_simple("ok", _socket_cliente);
 		log_info(logs_ram, "Se creo al tripulante %d de la patota %d",tcb->tid, unTripulante->numPatota);
 		free(unTripulante);
@@ -269,27 +277,59 @@ void agregar_a_memoria(Segmento* unSegmento){
 	//Se libera el anterior y se coloca el puntero en la nueva direccion de memoria
 	free(unSegmento->dato);
 	unSegmento->dato = (memoria + unSegmento->base);
+	pthread_mutex_lock(&listaMemoriaPrincipal);
 	list_add_sorted(memoriaPrincipal, unSegmento, _laBaseEsMenor );
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
 	//El t_list memoriaPrincipal se usa para hacer la compactacion
 }
 
+int contarEspacioMemoria(){
+	int espacioOcupado = 0;
+
+	void _sumarTamanios(Segmento* unSegmento){
+		espacioOcupado +=unSegmento->tamanio;
+	}
+
+	pthread_mutex_lock(&listaMemoriaPrincipal);
+	list_iterate(memoriaPrincipal, (void*)_sumarTamanios);
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
+	return (tamaniomemoria - espacioOcupado);
+}
+
+bool alcanzaElEspacio(int espacioNecesario){
+	int espacioDisponible = contarEspacioMemoria();
+	return espacioDisponible>=espacioNecesario;
+}
+
 void crear_proceso(void *data){
+
+
 	t_list* tabla_de_segmentos = list_create();
 	t_datos_inicio_patota *datos_patota = (t_datos_inicio_patota*)data;
 	char* contenido = datos_patota->contenido_tareas;
 	int _socket_cliente = datos_patota->socket;
+	int tamanioPatota = string_length(contenido) + 8 + 21*datos_patota->cantidad_tripulantes;
+
+	if(!alcanzaElEspacio(tamanioPatota)){
+		enviar_mensaje_simple("no", _socket_cliente);
+		liberar_cliente(_socket_cliente);
+		free(datos_patota);
+		pthread_exit(NULL);
+	}
 
 	//Se crea el segmento de tareas
 	int result_tareas =crear_segmento_tareas(contenido, tabla_de_segmentos);
-	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
-	uint32_t inicioTareas = segmento_tareas->base;//Sabemos que siempre se empieza por las tareas
 	if(result_tareas == -1){
+		idSegmentoSiguiente--;
 		enviar_mensaje_simple("no", _socket_cliente);
 		liberar_cliente(_socket_cliente);
 		free(datos_patota);
 		pthread_exit(NULL);
 		return;
 	}
+	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
+	uint32_t inicioTareas = segmento_tareas->idSegmento;//Sabemos que siempre se empieza por las tareas
+
 	agregar_a_memoria(segmento_tareas);
 	sem_post(&direcciones);
 
@@ -301,14 +341,17 @@ void crear_proceso(void *data){
 
 	//Se crea el segmento PCB
 	int result_pcb =crear_segmento_pcb(inicioTareas, tabla_de_segmentos);
-	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
 	if(result_pcb == -1){
+		idSegmentoSiguiente--;
 		enviar_mensaje_simple("no", _socket_cliente);
+		eliminarPatota(proceso);
 		free(datos_patota);
 		liberar_cliente(_socket_cliente);
 		pthread_exit(NULL);
 		return;
 	}
+	Segmento *segmento_pcb =(Segmento*) list_get(tabla_de_segmentos, 1);
+
 	agregar_a_memoria(segmento_pcb);
 	sem_post(&direcciones);
 
@@ -341,6 +384,7 @@ void eliminarPatota(t_proceso *laPatota){
 		eliminarSegmento(unSegmento->base);
 		free(unSegmento);
 	}
+
 	list_destroy_and_destroy_elements(laPatota->tabla,_eliminarSegmentos);
 	log_info(logs_ram, "Se elimino la patota %d", laPatota->pid);
 
@@ -357,16 +401,16 @@ void eliminarSegmento(uint32_t baseSegmento){
 		Segmento *unSegmento = (Segmento*) algo;
 		return (unSegmento->base == baseSegmento);
 	}
-
+	pthread_mutex_lock(&listaMemoriaPrincipal);
 	list_remove_by_condition(memoriaPrincipal, _esElSegmento);
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
 }
-
 
 void eliminarTripulante(void *unTripulante){
 	IdentificadorTripulante *tripulanteAEliminar = (IdentificadorTripulante*) unTripulante;
 	int idTripulante = tripulanteAEliminar->idTripulante;
 	int idPatota = tripulanteAEliminar->idPatota;
-
+	void *elSegmento = NULL;
 
 	bool _chequearSegmentosTCB(void *segmento) {
 		Segmento *unSegmento = (Segmento*) segmento;
@@ -375,7 +419,8 @@ void eliminarTripulante(void *unTripulante){
 			if(unTripulante->tid == idTripulante){
 				log_info(logs_ram, "Se expulso al tripulante %d de la patota %d",idTripulante,idPatota);
 				eliminarSegmento(unSegmento->base);
-				free(unSegmento);
+				eliminarTripuMapa(unSegmento->valorRepresentacion);
+				elSegmento = (void*)unSegmento;
 				return 1;
 			}else{
 				return 0;
@@ -395,11 +440,13 @@ void eliminarTripulante(void *unTripulante){
 			}
 		}
 	}
-
 	pthread_mutex_lock(&listaPatotasEnUso);
+	log_info(logs_ram, "Hola empece a eliminar");
 	list_iterate(patotas, _buscarTripulantes);
 	pthread_mutex_unlock(&listaPatotasEnUso);
+	log_info(logs_ram, "Hola termine de eliminar");
 	free(tripulanteAEliminar);
+	free(elSegmento);
 }
 
 Segmento *buscarTripulante(int idTripulante,int idPatota){
@@ -420,16 +467,20 @@ Segmento *buscarTripulante(int idTripulante,int idPatota){
 			list_iterate(segmentosProceso, _chequearSegmentosTCB);
 		}
 	}
-
+	sleep(2);
 	//Hacer que itere entre cada uno de los procesos, y luego cada uno
 	//de sus segmentos
 	pthread_mutex_lock(&listaPatotasEnUso);
 	list_iterate(patotas, _recorrerProcesos);
 	pthread_mutex_unlock(&listaPatotasEnUso);
-	if(segmentoDelTripulante == NULL){
-		sem_wait(&tripulantesDisponibles);//Si no existe, espera a que se haga el post y buscar de nuevo
-		segmentoDelTripulante = buscarTripulante( idTripulante, idPatota);
-	}
+	/*if(patotaCreada(idPatota)){
+		if(segmentoDelTripulante == NULL){
+			log_info(logs_ram, "Soy pelotudo y me quede en este semaforo xd");
+			sem_wait(&tripulantesDisponibles);//Si no existe, espera a que se haga el post y buscar de nuevo
+			segmentoDelTripulante = buscarTripulante( idTripulante, idPatota);
+		}
+	}*/
+
 	return segmentoDelTripulante;
 }
 
@@ -440,6 +491,12 @@ void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 
 	//Busco tripulante y su segmento
 	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
+	if(SegmentoDelTripulante == NULL){
+		log_info(logs_ram, "Este tripulante no esta en memoria");
+		free(tripulanteActualizado);
+		pthread_exit(NULL);
+	}
+	sem_wait(&direcciones);
 	TripuCB *elTripulante = (TripuCB*)SegmentoDelTripulante->dato;
 
 	//Calculo cuanto se va a mover y lo muevo en el mapa
@@ -451,24 +508,28 @@ void actualizarTripulante(t_tripulante_iniciado *tripulanteActualizado){
 	elTripulante->posX = tripulanteActualizado->posX;
 	elTripulante->posY = tripulanteActualizado->posY;
 	elTripulante->status = tripulanteActualizado->status;
+	sem_post(&direcciones);
 	log_info(logs_ram,"El tripulante %d de la patota %d se movio a: %d|%d. Y su estatus actual es: %c.",
 			idTripulante, idPatota, tripulanteActualizado->posX,tripulanteActualizado->posY,tripulanteActualizado->status);
 	free(tripulanteActualizado);
 }
 
-Segmento *buscarSegmento(uint32_t baseSegmento){
+Segmento *buscarSegmento(uint32_t numeroSegmento){
 
 	bool _esElSegmento(void *algo){
 		Segmento *unSegmento = (Segmento*) algo;
-		return (unSegmento->base == baseSegmento);
+		return (unSegmento->idSegmento == numeroSegmento);
 	}
 
+
+	pthread_mutex_lock(&listaMemoriaPrincipal);
 	Segmento *elSegmento = (Segmento*) list_find(memoriaPrincipal, _esElSegmento);
+	pthread_mutex_unlock(&listaMemoriaPrincipal);
 	return elSegmento;
 }
 
-char *buscarTarea(uint32_t baseSegmentoTareas, int indiceTarea){
-	Segmento *segmentoTareas = buscarSegmento(baseSegmentoTareas);
+char *buscarTarea(uint32_t idSegmentoTareas, int indiceTarea){
+	Segmento *segmentoTareas = buscarSegmento(idSegmentoTareas);
 	char *todasLasTareas = (char*) segmentoTareas->dato;
 	char **tareasSeparadas = string_split(todasLasTareas, "\n");
 	//Separe el string
@@ -481,15 +542,22 @@ void enviarTareaSiguiente(void *unTripulante){
 	t_tripulante_iniciado *tripulante = (t_tripulante_iniciado*) elTripuConSocket->tripulante;
 	int idTripulante = tripulante->tid;
 	int idPatota = tripulante->numPatota;
-
+	log_info(logs_ram, "El tripulante %d de la patota %d pidio tarea.",idTripulante,idPatota);
 	Segmento *SegmentoDelTripulante = buscarTripulante(idTripulante, idPatota);
-	if(SegmentoDelTripulante == NULL){log_info(logs_ram, "Segmento Tripu Vacio");}
+	if(SegmentoDelTripulante == NULL){
+		log_info(logs_ram, "Segmento Tripu Vacio");
+		liberar_cliente(cliente);
+		free(elTripuConSocket);
+		pthread_exit(NULL);
+	}
+	sem_wait(&direcciones);
 	TripuCB *elTripulante = (TripuCB*)SegmentoDelTripulante->dato;
 	int proximaTarea = (int) elTripulante->proxIns;
 	elTripulante->proxIns +=1; //Se asigna la siguiente tarea en RAM
 	Segmento *segmentoPatotaDelTripulante = buscarSegmento(elTripulante->pcb);
 	PatotaCB *PatotaDelTripu = (PatotaCB*) segmentoPatotaDelTripulante->dato;
 	char* tarea = buscarTarea(PatotaDelTripu->tareas, proximaTarea);
+	sem_post(&direcciones);
 
 	if(tarea == NULL){
 	        log_info(logs_ram, "Tripulante %d no tiene mas tareas.", idTripulante);
@@ -584,7 +652,7 @@ void inicializarSegmentacion(){
 //-------------------------------------------------------------------------------
 
 void dumpMemoriaSeg(){
-
+	log_info(logs_ram, "Ejecutando Dump de memoria...");
 	int idPatota;
 	char *horaActual = temporal_get_string_time("%d-%m-%y_%H:%M:%S\n\n");
 	char *nombreArchivo = string_new();
@@ -609,6 +677,7 @@ void dumpMemoriaSeg(){
 
 		char* dumpMarco = string_from_format("Proceso:%d    Segmento:%d      Inicio:0x%d    Tamanio:%db \n",idPatota, idSegmento, base, tamanio);
 		txt_write_in_file(archivo, dumpMarco);
+		free(dumpMarco);
 	}
 
 	void _recorrerPatotas(void* proceso){
@@ -623,24 +692,24 @@ void dumpMemoriaSeg(){
 	txt_write_in_file(archivo, "---------------------------------\n\n");
 	txt_write_in_file(archivo, textoAEscribir);
 
-	pthread_mutex_lock(&listaPatotasEnUso);
 	if(list_is_empty(patotas)){
 		txt_write_in_file(archivo,"La memoria esta vacia.\n\n" );
 	}else{
 		list_iterate(patotas, _recorrerPatotas);
 		txt_write_in_file(archivo,"\n");
 	}
-	pthread_mutex_unlock(&listaPatotasEnUso);
 
 	txt_write_in_file(archivo, "---------------------------------");
 	free(horaActual);
 	free(nombreArchivo);
-	free(archivo);
+	txt_close_file(archivo);
 	free(ruta);
 	free(textoAEscribir);
+	log_info(logs_ram, "Dump de memoria exitoso.");
 }
 
 void cerrarMemoriaSeg(){
+	pthread_mutex_lock(&listaPatotasEnUso);
 	list_iterate(patotas, (void*)eliminarPatota);
-
+	pthread_mutex_unlock(&listaPatotasEnUso);
 }

@@ -21394,3 +21394,660 @@ GENERAR_OXIGENO 10;5;5;6
 [INFO] 23:22:20:996 Mi-RAM/(21452:21494): Escribo en la pagina 1
 [INFO] 23:22:20:996 Mi-RAM/(21452:21494): Escribi 0 bytes en 29, escribi todo
 [INFO] 23:22:20:996 Mi-RAM/(21452:21494): El tripulante 4 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:51:07:402 Mi-RAM/(25680:25680): ################# Modulo Mi-RAM #################
+
+[INFO] 23:51:07:402 Mi-RAM/(25680:25680): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 23:51:07:403 Mi-RAM/(25680:25680): La cantidad de marcos en Swap es: 512
+[INFO] 23:51:12:300 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:12:301 Mi-RAM/(25680:25680): Se recibio una operacion: 2
+
+[INFO] 23:51:12:301 Mi-RAM/(25680:25694): Se asigno el frame 0 a la pagina 0
+[INFO] 23:51:12:301 Mi-RAM/(25680:25694): Se creo la pagina de la estructura: 0
+[INFO] 23:51:12:301 Mi-RAM/(25680:25694): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 23:51:12:301 Mi-RAM/(25680:25694): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 23:51:12:301 Mi-RAM/(25680:25694): Se creo la patota 1 correctamente.
+[INFO] 23:51:12:301 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 7
+
+[INFO] 23:51:12:301 Mi-RAM/(25680:25680): Se recibio una operacion: 3
+
+[INFO] 23:51:12:301 Mi-RAM/(25680:25696): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 23:51:12:301 Mi-RAM/(25680:25696): Se asigno el frame 1 a la pagina 1
+[INFO] 23:51:12:301 Mi-RAM/(25680:25696): Se creo la pagina de la estructura: 1
+[INFO] 23:51:12:301 Mi-RAM/(25680:25696): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 23:51:12:302 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:12:302 Mi-RAM/(25680:25680): Se recibio una operacion: 8
+
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): Insutrccion:8
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): Se va a leer la pagina que arranca en 0
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): La proxima tarea es -1
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): Escribo en la pagina 0
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): Escribo en la pagina 1
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): Escribi 0 bytes en 28, escribi todo
+[INFO] 23:51:12:302 Mi-RAM/(25680:25697): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:51:12:303 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 8
+
+[INFO] 23:51:12:303 Mi-RAM/(25680:25680): Se recibio una operacion: 3
+
+[INFO] 23:51:12:303 Mi-RAM/(25680:25700): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 23:51:12:303 Mi-RAM/(25680:25700): Se asigno el frame 2 a la pagina 2
+[INFO] 23:51:12:303 Mi-RAM/(25680:25700): Se creo la pagina de la estructura: 1
+[INFO] 23:51:12:304 Mi-RAM/(25680:25700): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 23:51:12:304 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:12:304 Mi-RAM/(25680:25680): Se recibio una operacion: 8
+
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): Insutrccion:8
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): Se va a leer la pagina que arranca en 0
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): La proxima tarea es -1
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): Escribo en la pagina 0
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): Escribi 0 bytes en 7, escribi todo
+[INFO] 23:51:12:304 Mi-RAM/(25680:25701): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:51:12:305 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 7
+
+[INFO] 23:51:12:305 Mi-RAM/(25680:25680): Se recibio una operacion: 3
+
+[INFO] 23:51:12:305 Mi-RAM/(25680:25704): Se va a agregar a la pagina 2 , la estructura 1 con base 1 , y tamanio 21
+[INFO] 23:51:12:305 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:12:305 Mi-RAM/(25680:25680): Se recibio una operacion: 8
+
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): Insutrccion:8
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): Se va a leer la pagina que arranca en 0
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): La proxima tarea es -1
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): Escribo en la pagina 0
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): Escribi 0 bytes en 18, escribi todo
+[INFO] 23:51:12:305 Mi-RAM/(25680:25705): El tripulante 3 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 23:51:35:723 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 8
+
+[INFO] 23:51:35:724 Mi-RAM/(25680:25680): Se recibio una operacion: 8
+
+[INFO] 23:51:35:724 Mi-RAM/(25680:25750): Insutrccion:-1
+[INFO] 23:51:35:724 Mi-RAM/(25680:25750): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:51:35:724 Mi-RAM/(25680:25750): El tripulante 1 pidio la tarea null
+[INFO] 23:51:35:725 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:35:726 Mi-RAM/(25680:25680): Se recibio una operacion: 4
+
+[INFO] 23:51:35:729 Mi-RAM/(25680:25751): Se va a actualizar al tripu 1
+[INFO] 23:51:35:729 Mi-RAM/(25680:25751): El tripulante tenia Estado ê y Posiciones 0|0
+[INFO] 23:51:35:729 Mi-RAM/(25680:25751): El tripulante tenia Estado ê y Posiciones 0|0
+[INFO] 23:51:35:729 Mi-RAM/(25680:25751): Escribo en la pagina 0
+[INFO] 23:51:35:729 Mi-RAM/(25680:25751): Escribi 0 bytes en 5, escribi todo
+[INFO] 23:51:35:729 Mi-RAM/(25680:25751): El tripulante 1 se ha actualizado: Estado: F 0|0
+[INFO] 23:51:44:729 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:44:730 Mi-RAM/(25680:25680): Se recibio una operacion: 8
+
+[INFO] 23:51:44:730 Mi-RAM/(25680:25774): Insutrccion:-1
+[INFO] 23:51:44:730 Mi-RAM/(25680:25774): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:51:44:730 Mi-RAM/(25680:25774): El tripulante 2 pidio la tarea null
+[INFO] 23:51:44:731 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 7
+
+[INFO] 23:51:44:732 Mi-RAM/(25680:25680): Se recibio una operacion: 4
+
+[INFO] 23:51:44:734 Mi-RAM/(25680:25775): Se va a actualizar al tripu 2
+[INFO] 23:51:44:735 Mi-RAM/(25680:25775): El tripulante tenia Estado 0 y Posiciones 0|0
+[INFO] 23:51:44:735 Mi-RAM/(25680:25775): El tripulante tenia Estado 0 y Posiciones 0|0
+[INFO] 23:51:44:735 Mi-RAM/(25680:25775): Escribo en la pagina 0
+[INFO] 23:51:44:735 Mi-RAM/(25680:25775): Escribi 0 bytes en 16, escribi todo
+[INFO] 23:51:44:735 Mi-RAM/(25680:25775): El tripulante 2 se ha actualizado: Estado: F 0|0
+[INFO] 23:51:53:736 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 7
+
+[INFO] 23:51:53:736 Mi-RAM/(25680:25680): Se recibio una operacion: 8
+
+[INFO] 23:51:53:737 Mi-RAM/(25680:25795): Insutrccion:-1
+[INFO] 23:51:53:737 Mi-RAM/(25680:25795): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 23:51:53:737 Mi-RAM/(25680:25795): El tripulante 3 pidio la tarea null
+[INFO] 23:51:53:738 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:53:738 Mi-RAM/(25680:25680): Se recibio una operacion: 4
+
+[INFO] 23:51:53:740 Mi-RAM/(25680:25680): Se conecto un cliente con socket: 5
+
+[INFO] 23:51:53:741 Mi-RAM/(25680:25680): Se recibio una operacion: 2
+
+[INFO] 00:00:29:992 Mi-RAM/(27098:27098): ################# Modulo Mi-RAM #################
+
+[INFO] 00:00:30:011 Mi-RAM/(27098:27098): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:00:30:012 Mi-RAM/(27098:27098): La cantidad de marcos en Swap es: 512
+[INFO] 00:00:40:176 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 5
+
+[INFO] 00:00:40:199 Mi-RAM/(27098:27098): Se recibio una operacion: 2
+
+[INFO] 00:00:40:199 Mi-RAM/(27098:27123): Se asigno el frame 0 a la pagina 0
+[INFO] 00:00:40:199 Mi-RAM/(27098:27123): Se creo la pagina de la estructura: 0
+[INFO] 00:00:40:199 Mi-RAM/(27098:27123): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:00:40:199 Mi-RAM/(27098:27123): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 00:00:40:199 Mi-RAM/(27098:27123): Se creo la patota 1 correctamente.
+[INFO] 00:00:40:199 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 7
+
+[INFO] 00:00:40:200 Mi-RAM/(27098:27098): Se recibio una operacion: 3
+
+[INFO] 00:00:40:200 Mi-RAM/(27098:27125): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 00:00:40:200 Mi-RAM/(27098:27125): Se asigno el frame 1 a la pagina 1
+[INFO] 00:00:40:200 Mi-RAM/(27098:27125): Se creo la pagina de la estructura: 1
+[INFO] 00:00:40:200 Mi-RAM/(27098:27125): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 00:00:40:200 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 5
+
+[INFO] 00:00:40:200 Mi-RAM/(27098:27098): Se recibio una operacion: 8
+
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): Insutrccion:8
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): Se va a leer la pagina que arranca en 0
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): La proxima tarea es -1
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): Escribo en la pagina 0
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): Escribo en la pagina 1
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): Escribi 0 bytes en 28, escribi todo
+[INFO] 00:00:40:200 Mi-RAM/(27098:27126): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:00:40:201 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 8
+
+[INFO] 00:00:40:201 Mi-RAM/(27098:27098): Se recibio una operacion: 3
+
+[INFO] 00:00:40:201 Mi-RAM/(27098:27129): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 00:00:40:201 Mi-RAM/(27098:27129): Se asigno el frame 2 a la pagina 2
+[INFO] 00:00:40:201 Mi-RAM/(27098:27129): Se creo la pagina de la estructura: 1
+[INFO] 00:00:40:201 Mi-RAM/(27098:27129): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 00:00:40:201 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 5
+
+[INFO] 00:00:40:202 Mi-RAM/(27098:27098): Se recibio una operacion: 8
+
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): Insutrccion:8
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): Se va a leer la pagina que arranca en 0
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): La proxima tarea es -1
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): Escribo en la pagina 0
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): Escribi 0 bytes en 7, escribi todo
+[INFO] 00:00:40:202 Mi-RAM/(27098:27130): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:00:54:899 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 7
+
+[INFO] 00:00:54:899 Mi-RAM/(27098:27098): Se recibio una operacion: 8
+
+[INFO] 00:00:54:900 Mi-RAM/(27098:27162): Insutrccion:-1
+[INFO] 00:00:54:900 Mi-RAM/(27098:27162): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:00:54:900 Mi-RAM/(27098:27162): El tripulante 1 pidio la tarea null
+[INFO] 00:00:54:901 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 5
+
+[INFO] 00:00:54:901 Mi-RAM/(27098:27098): Se recibio una operacion: 4
+
+[INFO] 00:00:54:904 Mi-RAM/(27098:27163): Se va a actualizar al tripu 1
+[INFO] 00:00:54:904 Mi-RAM/(27098:27163): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:00:54:904 Mi-RAM/(27098:27163): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:00:54:904 Mi-RAM/(27098:27163): Escribo en la pagina 0
+[INFO] 00:00:54:904 Mi-RAM/(27098:27163): Escribi 0 bytes en 5, escribi todo
+[INFO] 00:00:54:904 Mi-RAM/(27098:27163): El tripulante 1 se ha actualizado: Estado: F 0|0
+[INFO] 00:01:03:904 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 5
+
+[INFO] 00:01:03:905 Mi-RAM/(27098:27098): Se recibio una operacion: 8
+
+[INFO] 00:01:03:905 Mi-RAM/(27098:27183): Insutrccion:-1
+[INFO] 00:01:03:905 Mi-RAM/(27098:27183): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:01:03:905 Mi-RAM/(27098:27183): El tripulante 2 pidio la tarea null
+[INFO] 00:01:03:906 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 7
+
+[INFO] 00:01:03:907 Mi-RAM/(27098:27098): Se recibio una operacion: 4
+
+[INFO] 00:01:03:908 Mi-RAM/(27098:27098): Se conecto un cliente con socket: 7
+
+[INFO] 00:01:03:908 Mi-RAM/(27098:27098): Se recibio una operacion: 2
+
+[INFO] 00:16:55:697 Mi-RAM/(29601:29601): ################# Modulo Mi-RAM #################
+
+[INFO] 00:16:55:740 Mi-RAM/(29601:29601): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:16:55:741 Mi-RAM/(29601:29601): La cantidad de marcos en Swap es: 512
+[INFO] 00:17:04:221 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 5
+
+[INFO] 00:17:04:251 Mi-RAM/(29601:29601): Se recibio una operacion: 2
+
+[INFO] 00:17:04:251 Mi-RAM/(29601:29625): Se asigno el frame 0 a la pagina 0
+[INFO] 00:17:04:251 Mi-RAM/(29601:29625): Se creo la pagina de la estructura: 0
+[INFO] 00:17:04:251 Mi-RAM/(29601:29625): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:17:04:251 Mi-RAM/(29601:29625): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 00:17:04:251 Mi-RAM/(29601:29625): Se creo la patota 1 correctamente.
+[INFO] 00:17:04:252 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 7
+
+[INFO] 00:17:04:252 Mi-RAM/(29601:29601): Se recibio una operacion: 3
+
+[INFO] 00:17:04:252 Mi-RAM/(29601:29627): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 00:17:04:252 Mi-RAM/(29601:29627): Se asigno el frame 1 a la pagina 1
+[INFO] 00:17:04:252 Mi-RAM/(29601:29627): Se creo la pagina de la estructura: 1
+[INFO] 00:17:04:252 Mi-RAM/(29601:29627): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 00:17:04:252 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 5
+
+[INFO] 00:17:04:252 Mi-RAM/(29601:29601): Se recibio una operacion: 8
+
+[INFO] 00:17:04:252 Mi-RAM/(29601:29628): Insutrccion:8
+[INFO] 00:17:04:252 Mi-RAM/(29601:29628): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:17:04:252 Mi-RAM/(29601:29628): Se va a leer la pagina que arranca en 0
+[INFO] 00:17:04:252 Mi-RAM/(29601:29628): La proxima tarea es -1
+[INFO] 00:17:04:253 Mi-RAM/(29601:29628): Escribo en la pagina 0
+[INFO] 00:17:04:253 Mi-RAM/(29601:29628): Escribo en la pagina 1
+[INFO] 00:17:04:253 Mi-RAM/(29601:29628): Escribi 0 bytes en 28, escribi todo
+[INFO] 00:17:04:253 Mi-RAM/(29601:29628): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:17:04:254 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 8
+
+[INFO] 00:17:04:254 Mi-RAM/(29601:29601): Se recibio una operacion: 3
+
+[INFO] 00:17:04:254 Mi-RAM/(29601:29631): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 00:17:04:254 Mi-RAM/(29601:29631): Se asigno el frame 2 a la pagina 2
+[INFO] 00:17:04:254 Mi-RAM/(29601:29631): Se creo la pagina de la estructura: 1
+[INFO] 00:17:04:254 Mi-RAM/(29601:29631): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 00:17:04:254 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 5
+
+[INFO] 00:17:04:254 Mi-RAM/(29601:29601): Se recibio una operacion: 8
+
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): Insutrccion:8
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): Se va a leer la pagina que arranca en 0
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): La proxima tarea es -1
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): Escribo en la pagina 0
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): Escribi 0 bytes en 7, escribi todo
+[INFO] 00:17:04:254 Mi-RAM/(29601:29632): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:17:16:472 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 7
+
+[INFO] 00:17:16:472 Mi-RAM/(29601:29601): Se recibio una operacion: 8
+
+[INFO] 00:17:16:472 Mi-RAM/(29601:29657): Insutrccion:-1
+[INFO] 00:17:16:472 Mi-RAM/(29601:29657): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:17:16:472 Mi-RAM/(29601:29657): El tripulante 1 pidio la tarea null
+[INFO] 00:17:16:473 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 5
+
+[INFO] 00:17:16:473 Mi-RAM/(29601:29601): Se recibio una operacion: 4
+
+[INFO] 00:17:16:475 Mi-RAM/(29601:29658): Se va a actualizar al tripu 1
+[INFO] 00:17:16:475 Mi-RAM/(29601:29658): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:17:16:475 Mi-RAM/(29601:29658): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:17:16:475 Mi-RAM/(29601:29658): Escribo en la pagina 0
+[INFO] 00:17:16:476 Mi-RAM/(29601:29658): Escribi 0 bytes en 5, escribi todo
+[INFO] 00:17:16:476 Mi-RAM/(29601:29658): El tripulante 1 se ha actualizado: Estado: F 0|0
+[INFO] 00:17:25:476 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 5
+
+[INFO] 00:17:25:477 Mi-RAM/(29601:29601): Se recibio una operacion: 8
+
+[INFO] 00:17:25:477 Mi-RAM/(29601:29678): Insutrccion:-1
+[INFO] 00:17:25:477 Mi-RAM/(29601:29678): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:17:25:477 Mi-RAM/(29601:29678): El tripulante 2 pidio la tarea null
+[INFO] 00:17:25:478 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 7
+
+[INFO] 00:17:25:478 Mi-RAM/(29601:29601): Se recibio una operacion: 4
+
+[INFO] 00:17:25:480 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 7
+
+[INFO] 00:17:25:480 Mi-RAM/(29601:29601): Se recibio una operacion: 6
+
+[INFO] 00:17:25:481 Mi-RAM/(29601:29601): Se conecto un cliente con socket: 7
+
+[INFO] 00:17:25:481 Mi-RAM/(29601:29601): Se recibio una operacion: 6
+
+[INFO] 00:17:25:483 Mi-RAM/(29601:29681): Se va a eliminar el tripulante 1 de la patota 1
+[INFO] 00:17:25:483 Mi-RAM/(29601:29681): Se va a sacar de la lista de alojados de cant 3 el tripu 1
+[INFO] 00:17:25:483 Mi-RAM/(29601:29681): Se elimino el dato del TRIPULANTE 1 en la PAGINA: 0
+[INFO] 00:17:25:484 Mi-RAM/(29601:29681): PAGINA: 0 - BYTES DISPONIBLES: 9
+[INFO] 00:17:25:484 Mi-RAM/(29601:29681): Se va a sacar de la lista de alojados de cant 2 el tripu 1
+[INFO] 00:17:25:484 Mi-RAM/(29601:29679): Se va a actualizar al tripu 2
+[INFO] 00:17:25:484 Mi-RAM/(29601:29681): Se elimino el dato del TRIPULANTE 1 en la PAGINA: 1
+[INFO] 00:17:25:484 Mi-RAM/(29601:29681): PAGINA: 1 - BYTES DISPONIBLES: 12
+[INFO] 00:17:25:484 Mi-RAM/(29601:29680): Se va a eliminar el tripulante 2 de la patota 1
+[INFO] 00:17:25:484 Mi-RAM/(29601:29680): Se va a sacar de la lista de alojados de cant 1 el tripu 2
+[INFO] 00:17:25:484 Mi-RAM/(29601:29680): Se elimino el dato del TRIPULANTE 2 en la PAGINA: 1
+[INFO] 00:17:25:484 Mi-RAM/(29601:29680): PAGINA: 1 - BYTES DISPONIBLES: 32
+[INFO] 00:17:25:484 Mi-RAM/(29601:29680): Pagina 1 vacia se procede a liberar el frame y borrarla de tabla
+[INFO] 00:17:25:484 Mi-RAM/(29601:29680): Se va a sacar de la lista de alojados de cant 1 el tripu 2
+[INFO] 00:17:25:485 Mi-RAM/(29601:29680): Se elimino el dato del TRIPULANTE 2 en la PAGINA: 2
+[INFO] 00:17:25:485 Mi-RAM/(29601:29680): PAGINA: 2 - BYTES DISPONIBLES: 32
+[INFO] 00:17:25:485 Mi-RAM/(29601:29680): Pagina 2 vacia se procede a liberar el frame y borrarla de tabla
+[INFO] 00:17:25:485 Mi-RAM/(29601:29680): La patota 1 no tiene mas tripulantes. Se procede a borrarla de memoria
+[INFO] 00:17:25:485 Mi-RAM/(29601:29680): SE LIBERA  EL FRAME: 0
+[INFO] 00:19:08:573 Mi-RAM/(30029:30029): ################# Modulo Mi-RAM #################
+
+[INFO] 00:19:08:585 Mi-RAM/(30029:30029): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:19:08:586 Mi-RAM/(30029:30029): La cantidad de marcos en Swap es: 512
+[INFO] 00:19:16:059 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 5
+
+[INFO] 00:19:16:080 Mi-RAM/(30029:30029): Se recibio una operacion: 2
+
+[INFO] 00:19:16:080 Mi-RAM/(30029:30051): Se asigno el frame 0 a la pagina 0
+[INFO] 00:19:16:080 Mi-RAM/(30029:30051): Se creo la pagina de la estructura: 0
+[INFO] 00:19:16:080 Mi-RAM/(30029:30051): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:19:16:080 Mi-RAM/(30029:30051): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 00:19:16:080 Mi-RAM/(30029:30051): Se creo la patota 1 correctamente.
+[INFO] 00:19:16:081 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 7
+
+[INFO] 00:19:16:081 Mi-RAM/(30029:30029): Se recibio una operacion: 3
+
+[INFO] 00:19:16:081 Mi-RAM/(30029:30053): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 00:19:16:081 Mi-RAM/(30029:30053): Se asigno el frame 1 a la pagina 1
+[INFO] 00:19:16:081 Mi-RAM/(30029:30053): Se creo la pagina de la estructura: 1
+[INFO] 00:19:16:081 Mi-RAM/(30029:30053): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 00:19:16:081 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 5
+
+[INFO] 00:19:16:081 Mi-RAM/(30029:30029): Se recibio una operacion: 8
+
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): Insutrccion:8
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): Se va a leer la pagina que arranca en 0
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): La proxima tarea es -1
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): Escribo en la pagina 0
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): Escribo en la pagina 1
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): Escribi 0 bytes en 28, escribi todo
+[INFO] 00:19:16:081 Mi-RAM/(30029:30054): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:19:16:083 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 8
+
+[INFO] 00:19:16:083 Mi-RAM/(30029:30029): Se recibio una operacion: 3
+
+[INFO] 00:19:16:083 Mi-RAM/(30029:30057): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 00:19:16:083 Mi-RAM/(30029:30057): Se asigno el frame 2 a la pagina 2
+[INFO] 00:19:16:083 Mi-RAM/(30029:30057): Se creo la pagina de la estructura: 1
+[INFO] 00:19:16:083 Mi-RAM/(30029:30057): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 00:19:16:083 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 5
+
+[INFO] 00:19:16:083 Mi-RAM/(30029:30029): Se recibio una operacion: 8
+
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): Insutrccion:8
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): Se va a leer la pagina que arranca en 0
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): La proxima tarea es -1
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): Escribo en la pagina 0
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): Escribi 0 bytes en 7, escribi todo
+[INFO] 00:19:16:083 Mi-RAM/(30029:30058): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:19:31:161 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 7
+
+[INFO] 00:19:31:162 Mi-RAM/(30029:30029): Se recibio una operacion: 8
+
+[INFO] 00:19:31:162 Mi-RAM/(30029:30088): Insutrccion:-1
+[INFO] 00:19:31:162 Mi-RAM/(30029:30088): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:19:31:162 Mi-RAM/(30029:30088): El tripulante 1 pidio la tarea null
+[INFO] 00:19:31:163 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 5
+
+[INFO] 00:19:31:163 Mi-RAM/(30029:30029): Se recibio una operacion: 4
+
+[INFO] 00:19:31:167 Mi-RAM/(30029:30089): Se va a actualizar al tripu 1
+[INFO] 00:19:31:167 Mi-RAM/(30029:30089): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:19:31:167 Mi-RAM/(30029:30089): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:19:31:167 Mi-RAM/(30029:30089): Escribo en la pagina 0
+[INFO] 00:19:31:167 Mi-RAM/(30029:30089): Escribi 0 bytes en 5, escribi todo
+[INFO] 00:19:31:167 Mi-RAM/(30029:30089): El tripulante 1 se ha actualizado: Estado: F 0|0
+[INFO] 00:19:40:167 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 5
+
+[INFO] 00:19:40:167 Mi-RAM/(30029:30029): Se recibio una operacion: 8
+
+[INFO] 00:19:40:168 Mi-RAM/(30029:30114): Insutrccion:-1
+[INFO] 00:19:40:168 Mi-RAM/(30029:30114): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:19:40:168 Mi-RAM/(30029:30114): El tripulante 2 pidio la tarea null
+[INFO] 00:19:40:168 Mi-RAM/(30029:30029): Se conecto un cliente con socket: 7
+
+[INFO] 00:19:40:169 Mi-RAM/(30029:30029): Se recibio una operacion: 4
+
+[INFO] 00:19:40:174 Mi-RAM/(30029:30115): Se va a actualizar al tripu 2
+[INFO] 00:19:40:175 Mi-RAM/(30029:30115): El tripulante tenia Estado ` y Posiciones 0|0
+[INFO] 00:19:40:175 Mi-RAM/(30029:30115): El tripulante tenia Estado ` y Posiciones 0|0
+[INFO] 00:19:40:175 Mi-RAM/(30029:30115): Escribo en la pagina 0
+[INFO] 00:19:40:175 Mi-RAM/(30029:30115): Escribi 0 bytes en 16, escribi todo
+[INFO] 00:19:40:175 Mi-RAM/(30029:30115): El tripulante 2 se ha actualizado: Estado: F 0|0
+[INFO] 00:32:19:815 Mi-RAM/(31774:31774): ################# Modulo Mi-RAM #################
+
+[INFO] 00:32:19:850 Mi-RAM/(31774:31774): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:32:19:866 Mi-RAM/(31774:31774): La cantidad de marcos en Swap es: 512
+[INFO] 00:32:32:020 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 5
+
+[INFO] 00:32:32:038 Mi-RAM/(31774:31774): Se recibio una operacion: 2
+
+[INFO] 00:32:32:038 Mi-RAM/(31774:31818): Se asigno el frame 0 a la pagina 0
+[INFO] 00:32:32:038 Mi-RAM/(31774:31818): Se creo la pagina de la estructura: 0
+[INFO] 00:32:32:038 Mi-RAM/(31774:31818): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:32:32:038 Mi-RAM/(31774:31818): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 00:32:32:038 Mi-RAM/(31774:31818): Se creo la patota 1 correctamente.
+[INFO] 00:32:32:038 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 7
+
+[INFO] 00:32:32:039 Mi-RAM/(31774:31774): Se recibio una operacion: 3
+
+[INFO] 00:32:32:039 Mi-RAM/(31774:31820): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 00:32:32:039 Mi-RAM/(31774:31820): Se asigno el frame 1 a la pagina 1
+[INFO] 00:32:32:039 Mi-RAM/(31774:31820): Se creo la pagina de la estructura: 1
+[INFO] 00:32:32:039 Mi-RAM/(31774:31820): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 00:32:32:039 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 5
+
+[INFO] 00:32:32:039 Mi-RAM/(31774:31774): Se recibio una operacion: 8
+
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): Insutrccion:8
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): Se va a leer la pagina que arranca en 0
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): La proxima tarea es -1
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): Escribo en la pagina 0
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): Escribo en la pagina 1
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): Escribi 0 bytes en 28, escribi todo
+[INFO] 00:32:32:039 Mi-RAM/(31774:31821): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:32:32:040 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 8
+
+[INFO] 00:32:32:040 Mi-RAM/(31774:31774): Se recibio una operacion: 3
+
+[INFO] 00:32:32:040 Mi-RAM/(31774:31824): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 00:32:32:040 Mi-RAM/(31774:31824): Se asigno el frame 2 a la pagina 2
+[INFO] 00:32:32:040 Mi-RAM/(31774:31824): Se creo la pagina de la estructura: 1
+[INFO] 00:32:32:040 Mi-RAM/(31774:31824): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 00:32:32:040 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 5
+
+[INFO] 00:32:32:040 Mi-RAM/(31774:31774): Se recibio una operacion: 8
+
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): Insutrccion:8
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): Se va a leer la pagina que arranca en 0
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): La proxima tarea es -1
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): Escribo en la pagina 0
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): Escribi 0 bytes en 7, escribi todo
+[INFO] 00:32:32:041 Mi-RAM/(31774:31825): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:32:44:802 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 7
+
+[INFO] 00:32:44:802 Mi-RAM/(31774:31774): Se recibio una operacion: 8
+
+[INFO] 00:32:44:802 Mi-RAM/(31774:31855): Insutrccion:-1
+[INFO] 00:32:44:802 Mi-RAM/(31774:31855): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:32:44:802 Mi-RAM/(31774:31855): El tripulante 1 pidio la tarea null
+[INFO] 00:32:44:803 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 5
+
+[INFO] 00:32:44:803 Mi-RAM/(31774:31774): Se recibio una operacion: 4
+
+[INFO] 00:32:44:805 Mi-RAM/(31774:31856): Se va a actualizar al tripu 1
+[INFO] 00:32:44:805 Mi-RAM/(31774:31856): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:32:44:805 Mi-RAM/(31774:31856): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:32:44:805 Mi-RAM/(31774:31856): Escribo en la pagina 0
+[INFO] 00:32:44:805 Mi-RAM/(31774:31856): Escribi 0 bytes en 5, escribi todo
+[INFO] 00:32:44:805 Mi-RAM/(31774:31856): El tripulante 1 se ha actualizado: Estado: F 0|0
+[INFO] 00:32:53:804 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 5
+
+[INFO] 00:32:53:804 Mi-RAM/(31774:31774): Se recibio una operacion: 8
+
+[INFO] 00:32:53:805 Mi-RAM/(31774:31903): Insutrccion:-1
+[INFO] 00:32:53:805 Mi-RAM/(31774:31903): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:32:53:805 Mi-RAM/(31774:31903): El tripulante 2 pidio la tarea null
+[INFO] 00:32:53:805 Mi-RAM/(31774:31774): Se conecto un cliente con socket: 7
+
+[INFO] 00:32:53:805 Mi-RAM/(31774:31774): Se recibio una operacion: 4
+
+[INFO] 00:32:53:806 Mi-RAM/(31774:31904): Se va a actualizar al tripu 2
+[INFO] 00:32:53:806 Mi-RAM/(31774:31904): El tripulante tenia Estado ` y Posiciones 0|0
+[INFO] 00:32:53:806 Mi-RAM/(31774:31904): El tripulante tenia Estado ` y Posiciones 0|0
+[INFO] 00:32:53:806 Mi-RAM/(31774:31904): Escribo en la pagina 0
+[INFO] 00:32:53:806 Mi-RAM/(31774:31904): Escribi 0 bytes en 16, escribi todo
+[INFO] 00:32:53:806 Mi-RAM/(31774:31904): El tripulante 2 se ha actualizado: Estado: F 0|0
+[INFO] 00:33:19:480 Mi-RAM/(31991:31991): ################# Modulo Mi-RAM #################
+
+[INFO] 00:33:19:492 Mi-RAM/(31991:31991): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:33:19:494 Mi-RAM/(31991:31991): La cantidad de marcos en Swap es: 512
+[INFO] 00:33:34:709 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:34:709 Mi-RAM/(31991:31991): Se recibio una operacion: 2
+
+[INFO] 00:33:34:710 Mi-RAM/(31991:32044): Se asigno el frame 0 a la pagina 0
+[INFO] 00:33:34:710 Mi-RAM/(31991:32044): Se creo la pagina de la estructura: 0
+[INFO] 00:33:34:710 Mi-RAM/(31991:32044): Se va a agregar a la pagina 0 , la estructura 0 con base 0 , y tamanio 8
+[INFO] 00:33:34:710 Mi-RAM/(31991:32044): Se va a agregar a la pagina 0 , la estructura 2 con base 8 , y tamanio 15
+[INFO] 00:33:34:710 Mi-RAM/(31991:32044): Se creo la patota 1 correctamente.
+[INFO] 00:33:34:710 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:34:710 Mi-RAM/(31991:31991): Se recibio una operacion: 3
+
+[INFO] 00:33:34:710 Mi-RAM/(31991:32046): Se va a agregar a la pagina 0 , la estructura 1 con base 23 , y tamanio 9
+[INFO] 00:33:34:710 Mi-RAM/(31991:32046): Se asigno el frame 1 a la pagina 1
+[INFO] 00:33:34:710 Mi-RAM/(31991:32046): Se creo la pagina de la estructura: 1
+[INFO] 00:33:34:710 Mi-RAM/(31991:32046): Se va a agregar a la pagina 1 , la estructura 1 con base 0 , y tamanio 12
+[INFO] 00:33:34:710 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:34:711 Mi-RAM/(31991:31991): Se recibio una operacion: 8
+
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): Insutrccion:8
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): Se va a leer la pagina que arranca en 0
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): La proxima tarea es -1
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): Escribo en la pagina 0
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): Escribo en la pagina 1
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): Escribi 0 bytes en 28, escribi todo
+[INFO] 00:33:34:711 Mi-RAM/(31991:32047): El tripulante 1 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:33:34:712 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 8
+
+[INFO] 00:33:34:712 Mi-RAM/(31991:31991): Se recibio una operacion: 3
+
+[INFO] 00:33:34:713 Mi-RAM/(31991:32050): Se va a agregar a la pagina 1 , la estructura 1 con base 12 , y tamanio 20
+[INFO] 00:33:34:713 Mi-RAM/(31991:32050): Se asigno el frame 2 a la pagina 2
+[INFO] 00:33:34:713 Mi-RAM/(31991:32050): Se creo la pagina de la estructura: 1
+[INFO] 00:33:34:713 Mi-RAM/(31991:32050): Se va a agregar a la pagina 2 , la estructura 1 con base 0 , y tamanio 1
+[INFO] 00:33:34:713 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:34:713 Mi-RAM/(31991:31991): Se recibio una operacion: 8
+
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): Insutrccion:8
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): La proxima instruccion esta en la pagina 0 y desplazamiento 8
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): Se va a leer la pagina que arranca en 0
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): La proxima tarea es -1
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): Escribo en la pagina 0
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): Escribi 0 bytes en 7, escribi todo
+[INFO] 00:33:34:713 Mi-RAM/(31991:32051): El tripulante 2 pidio la tarea DESAYUNAR;0;0;3
+[INFO] 00:33:46:461 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:46:462 Mi-RAM/(31991:31991): Se recibio una operacion: 8
+
+[INFO] 00:33:46:462 Mi-RAM/(31991:32085): Insutrccion:-1
+[INFO] 00:33:46:462 Mi-RAM/(31991:32085): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:33:46:462 Mi-RAM/(31991:32085): El tripulante 1 pidio la tarea null
+[INFO] 00:33:46:463 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:46:463 Mi-RAM/(31991:31991): Se recibio una operacion: 4
+
+[INFO] 00:33:46:465 Mi-RAM/(31991:32086): Se va a actualizar al tripu 1
+[INFO] 00:33:46:465 Mi-RAM/(31991:32086): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:33:46:465 Mi-RAM/(31991:32086): El tripulante tenia Estado ¿ y Posiciones 0|0
+[INFO] 00:33:46:465 Mi-RAM/(31991:32086): Escribo en la pagina 0
+[INFO] 00:33:46:465 Mi-RAM/(31991:32086): Escribi 0 bytes en 5, escribi todo
+[INFO] 00:33:46:465 Mi-RAM/(31991:32086): El tripulante 1 se ha actualizado: Estado: F 0|0
+[INFO] 00:33:55:466 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 5
+
+[INFO] 00:33:55:466 Mi-RAM/(31991:31991): Se recibio una operacion: 8
+
+[INFO] 00:33:55:466 Mi-RAM/(31991:32106): Insutrccion:-1
+[INFO] 00:33:55:466 Mi-RAM/(31991:32106): La proxima instruccion esta en la pagina 0 y desplazamiento 95
+[INFO] 00:33:55:466 Mi-RAM/(31991:32106): El tripulante 2 pidio la tarea null
+[INFO] 00:33:55:466 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:55:467 Mi-RAM/(31991:31991): Se recibio una operacion: 4
+
+[INFO] 00:33:55:467 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:55:467 Mi-RAM/(31991:31991): Se recibio una operacion: 6
+
+[INFO] 00:33:55:468 Mi-RAM/(31991:31991): Se conecto un cliente con socket: 7
+
+[INFO] 00:33:55:468 Mi-RAM/(31991:31991): Se recibio una operacion: 6
+
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): Se va a eliminar el tripulante 1 de la patota 1
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): Se va a sacar de la lista de alojados de cant 3 el tripu 1
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): Se elimino el dato del TRIPULANTE 1 en la PAGINA: 0
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): PAGINA: 0 - BYTES DISPONIBLES: 9
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): Se va a sacar de la lista de alojados de cant 2 el tripu 1
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): Se elimino el dato del TRIPULANTE 1 en la PAGINA: 1
+[INFO] 00:33:55:469 Mi-RAM/(31991:32109): PAGINA: 1 - BYTES DISPONIBLES: 12
+[INFO] 00:33:55:469 Mi-RAM/(31991:32108): Se va a eliminar el tripulante 2 de la patota 1
+[INFO] 00:33:55:469 Mi-RAM/(31991:32108): Se va a sacar de la lista de alojados de cant 1 el tripu 2
+[INFO] 00:33:55:469 Mi-RAM/(31991:32108): Se elimino el dato del TRIPULANTE 2 en la PAGINA: 1
+[INFO] 00:33:55:469 Mi-RAM/(31991:32108): PAGINA: 1 - BYTES DISPONIBLES: 32
+[INFO] 00:33:55:469 Mi-RAM/(31991:32108): Pagina 1 vacia se procede a liberar el frame y borrarla de tabla
+[INFO] 00:33:55:469 Mi-RAM/(31991:32108): Se va a sacar de la lista de alojados de cant 1 el tripu 2
+[INFO] 00:33:55:469 Mi-RAM/(31991:32107): Se va a actualizar al tripu 2
+[INFO] 00:33:55:470 Mi-RAM/(31991:32108): Se elimino el dato del TRIPULANTE 2 en la PAGINA: 2
+[INFO] 00:33:55:470 Mi-RAM/(31991:32108): PAGINA: 2 - BYTES DISPONIBLES: 32
+[INFO] 00:33:55:470 Mi-RAM/(31991:32108): Pagina 2 vacia se procede a liberar el frame y borrarla de tabla
+[INFO] 00:33:55:470 Mi-RAM/(31991:32108): La patota 1 no tiene mas tripulantes. Se procede a borrarla de memoria
+[INFO] 00:33:55:470 Mi-RAM/(31991:32108): SE LIBERA  EL FRAME: 0
+[INFO] 00:35:02:712 Mi-RAM/(32258:32258): ################# Modulo Mi-RAM #################
+
+[INFO] 00:35:02:712 Mi-RAM/(32258:32258): MI_RAM escuchando en PUERTO:5001 
+
+[INFO] 00:35:11:737 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 5
+
+[INFO] 00:35:11:738 Mi-RAM/(32258:32258): Se recibio una operacion: 2
+
+[INFO] 00:35:11:738 Mi-RAM/(32258:32282): Tareas guardadas: DESAYUNAR;0;0;3
+[INFO] 00:35:11:738 Mi-RAM/(32258:32282): Se coloco el segmento en 0 hasta 15
+[INFO] 00:35:11:738 Mi-RAM/(32258:32282): Se coloco el segmento en 15 hasta 8
+[INFO] 00:35:11:738 Mi-RAM/(32258:32282): Se inicio una patota exitosamente.
+[INFO] 00:35:11:738 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 7
+
+[INFO] 00:35:11:738 Mi-RAM/(32258:32258): Se recibio una operacion: 3
+
+[INFO] 00:35:11:738 Mi-RAM/(32258:32284): Se coloco el segmento en 23 hasta 21
+[INFO] 00:35:11:739 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 5
+
+[INFO] 00:35:11:739 Mi-RAM/(32258:32258): Se recibio una operacion: 8
+
+[INFO] 00:35:11:739 Mi-RAM/(32258:32284): Se creo al tripulante 0 de la patota 1
+[INFO] 00:35:11:739 Mi-RAM/(32258:32285): Tripulante 1 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:35:11:740 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 8
+
+[INFO] 00:35:11:740 Mi-RAM/(32258:32258): Se recibio una operacion: 3
+
+[INFO] 00:35:11:740 Mi-RAM/(32258:32288): Se coloco el segmento en 44 hasta 21
+[INFO] 00:35:11:740 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 5
+
+[INFO] 00:35:11:740 Mi-RAM/(32258:32258): Se recibio una operacion: 8
+
+[INFO] 00:35:11:740 Mi-RAM/(32258:32288): Se creo al tripulante 0 de la patota 1
+[INFO] 00:35:11:740 Mi-RAM/(32258:32289): Tripulante 2 pidio la tarea DESAYUNAR;0;0;3.
+[INFO] 00:35:23:832 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 7
+
+[INFO] 00:35:23:832 Mi-RAM/(32258:32258): Se recibio una operacion: 8
+
+[INFO] 00:35:23:832 Mi-RAM/(32258:32314): Tripulante 1 no tiene mas tareas.
+[INFO] 00:35:23:833 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 5
+
+[INFO] 00:35:23:833 Mi-RAM/(32258:32258): Se recibio una operacion: 4
+
+[INFO] 00:35:23:835 Mi-RAM/(32258:32316): El tripulante 1 de la patota 1 se movio a: 0|0. Y su estatus actual es: F.
+[INFO] 00:35:32:835 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 5
+
+[INFO] 00:35:32:835 Mi-RAM/(32258:32258): Se recibio una operacion: 8
+
+[INFO] 00:35:32:837 Mi-RAM/(32258:32336): Tripulante 2 no tiene mas tareas.
+[INFO] 00:35:32:837 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 7
+
+[INFO] 00:35:32:837 Mi-RAM/(32258:32258): Se recibio una operacion: 4
+
+[INFO] 00:35:32:838 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 7
+
+[INFO] 00:35:32:839 Mi-RAM/(32258:32258): Se recibio una operacion: 6
+
+[INFO] 00:35:32:839 Mi-RAM/(32258:32258): Se conecto un cliente con socket: 7
+
+[INFO] 00:35:32:841 Mi-RAM/(32258:32258): Se recibio una operacion: 6
+
+[INFO] 00:35:32:842 Mi-RAM/(32258:32339): Se expulso al tripulante 1 de la patota 1
+[INFO] 00:35:32:842 Mi-RAM/(32258:32338): Se expulso al tripulante 2 de la patota 1
+[INFO] 00:35:32:842 Mi-RAM/(32258:32338): Se elimino la patota 1

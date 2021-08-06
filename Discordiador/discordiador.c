@@ -5,6 +5,7 @@
 
 void moverse_a_ready(Tripulante_Planificando *tripulante_trabajando){
 	Estado estado_actual = tripulante_trabajando->tripulante->estado;
+	int _socket_ram;
 
 	bool soy_yo(void *data) { //funcion para buscar un tripulante
 		Tripulante_Planificando *un_tripulante = (Tripulante_Planificando *) data;
@@ -12,7 +13,7 @@ void moverse_a_ready(Tripulante_Planificando *tripulante_trabajando){
 					&& tripulante_trabajando->tripulante->patota == un_tripulante->tripulante->patota;
 	}
 
-
+	_socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 
 	switch (estado_actual) {
 	case TRABAJANDO:
@@ -23,6 +24,10 @@ void moverse_a_ready(Tripulante_Planificando *tripulante_trabajando){
 		pthread_mutex_lock(&lock_lista_exec);
 		list_remove_by_condition(lista_trabajando, soy_yo);
 		pthread_mutex_unlock(&lock_lista_exec);
+
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+
 		log_info(logs_discordiador,
 				"Tripulante:%d de Patota:%d pasa de EXEC a READY",
 				tripulante_trabajando->tripulante->id,
@@ -37,6 +42,10 @@ void moverse_a_ready(Tripulante_Planificando *tripulante_trabajando){
 		pthread_mutex_lock(&lock_lista_bloq_io);
 		list_remove_by_condition(lista_bloqueado_IO, soy_yo);
 		pthread_mutex_unlock(&lock_lista_bloq_io);
+
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+
 		log_info(logs_discordiador,
 				"Tripulante:%d de Patota:%d pasa de BLOQUEADO_IO a READY",
 				tripulante_trabajando->tripulante->id,
@@ -47,6 +56,9 @@ void moverse_a_ready(Tripulante_Planificando *tripulante_trabajando){
 }
 
 void moverse_a_bloq(Tripulante_Planificando *tripulante_trabajando) {
+	int _socket_ram;
+	_socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+
 	bool soy_yo(void *data) { //funcion para buscar un tripulante
 		Tripulante_Planificando *un_tripulante = (Tripulante_Planificando *) data;
 		return tripulante_trabajando->tripulante->id == un_tripulante->tripulante->id
@@ -62,6 +74,11 @@ void moverse_a_bloq(Tripulante_Planificando *tripulante_trabajando) {
 	pthread_mutex_lock(&lock_lista_exec);
 	list_remove_by_condition(lista_trabajando, soy_yo);
 	pthread_mutex_unlock(&lock_lista_exec);
+
+
+	serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+	liberar_cliente(_socket_ram);
+
 	log_info(logs_discordiador,
 			"Tripulante:%d de Patota:%d pasa de EXEC a BLOQUEADO_IO",
 			tripulante_trabajando->tripulante->id,
@@ -71,6 +88,7 @@ void moverse_a_bloq(Tripulante_Planificando *tripulante_trabajando) {
 
 void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 	Estado estado = tripulante_trabajando->tripulante->estado;
+	int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
 
 	bool soy_yo(void *data) { //funcion para buscar un tripulante
 		Tripulante_Planificando *un_tripulante =
@@ -86,10 +104,14 @@ void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 		list_add(lista_finalizado, tripulante_trabajando);
 		pthread_mutex_unlock(&lock_lista_exit);
 		tripulante_trabajando->tripulante->estado = FINALIZADO;
-
 		pthread_mutex_lock(&lock_lista_exec);
 		list_remove_by_condition(lista_trabajando, soy_yo);
 		pthread_mutex_unlock(&lock_lista_exec);
+
+
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+
 		log_info(logs_discordiador,
 				"Tripulante:%d de Patota:%d pasa de EXEC a EXIT",
 				tripulante_trabajando->tripulante->id,
@@ -103,11 +125,17 @@ void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 		pthread_mutex_lock(&lock_lista_exit);					//estos se repetirian
 		list_add(lista_finalizado, tripulante_trabajando);		//
 		pthread_mutex_unlock(&lock_lista_exit);					//
+
 		tripulante_trabajando->tripulante->estado = FINALIZADO; //
 
 		pthread_mutex_lock(&lock_lista_bloq_io);
 		list_remove_by_condition(lista_bloqueado_IO, soy_yo);
 		pthread_mutex_unlock(&lock_lista_bloq_io);
+
+
+		serializar_y_enviar_tripulante(tripulante_trabajando->tripulante, ACTUALIZAR_POSICION, _socket_ram);
+		liberar_cliente(_socket_ram);
+
 		log_info(logs_discordiador,
 				"Tripulante:%d de Patota:%d pasa de BLOQUEADO_IO a EXIT",
 				tripulante_trabajando->tripulante->id,
@@ -128,6 +156,9 @@ void mover_tripulante_a_exit(Tripulante_Planificando *tripulante_trabajando){
 
 
 void sacarlo_de_finalizado(Tripulante_Planificando *tripulante){
+
+	avisar_a_ram_expulsion_tripulante(tripulante->tripulante->id, tripulante->tripulante->patota);
+
 
 	bool soy_yo(void *data) { //funcion para buscar un tripulante
 		Tripulante_Planificando *un_tripulante =
@@ -369,17 +400,10 @@ void atender_comandos_consola(void) {
 
 			break;
 
-		case EXPULSAR_TRIPULANTE: //EXPULSAR_TRIPULANTE id patota
-			socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+		case EXPULSAR_TRIPULANTE:; //EXPULSAR_TRIPULANTE id patota
 
-			t_paquete* paquete_expulsar = crear_paquete(ELIMINAR_TRIPULANTE);
-			agregar_a_paquete(paquete_expulsar, comando_separado[1], string_length(comando_separado[1]) + 1);
-			agregar_a_paquete(paquete_expulsar, comando_separado[2], string_length(comando_separado[2]) + 1);
-			enviar_paquete(paquete_expulsar, socket_ram);
-			eliminar_paquete(paquete_expulsar);
-			liberar_cliente(socket_ram);
 			int numero_tripulante = atoi(comando_separado[1]);
-			int numero_patota = atoi(comando_separado[2]);
+			int numero_patota     = atoi(comando_separado[2]);
 
 			expulsar_tripulante(numero_tripulante, numero_patota);
 
@@ -479,6 +503,8 @@ void esperar_tripulantes_hermanos(Tripulante_Planificando *tripulante){
 	list_iterate(tripulante->semaforos, esperar_hermanos);
 
 	log_info(logs_discordiador, "LA PATOTA NUMERO: %d FINALIZO", tripulante->tripulante->patota);
+
+
 
 }
 
@@ -757,6 +783,9 @@ void expulsar_tripulante(int id , int patota){
         pthread_mutex_lock(&lock_lista_exit);
         list_add(lista_finalizado, tripulante);
         pthread_mutex_unlock(&lock_lista_exit);
+
+        int _socket_ram = iniciar_conexion(MI_RAM_HQ, config);
+        serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram);
     }
 
     void destroyer(void *data){

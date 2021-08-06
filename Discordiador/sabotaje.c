@@ -162,8 +162,13 @@ void atender_sabotaje(int x, int y){
 
 
 	void cambiar_estado_a_bloqueado_emergencia(void *data) {
+		int _socket_ram = iniciar_conexion(MI_RAM_HQ, config); //inicio conexion
+
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = BLOQUEADO_EMERGENCIA;
+
+		serializar_y_enviar_tripulante(tripulante->tripulante, EXPULSAR_TRIPULANTE, _socket_ram); //aviso que cambio a bloq_em
+		liberar_cliente(_socket_ram); //libero conexion
 	}
 
 	list_iterate(lista_bloqueado_EM, cambiar_estado_a_bloqueado_emergencia);
@@ -182,8 +187,13 @@ void atender_sabotaje(int x, int y){
 	}
 
 	void cambiar_estado_a_ready(void *data) {
+		int _socket_ram = iniciar_conexion(MI_RAM_HQ, config); //inicio conexion
+
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = LISTO;
+
+		serializar_y_enviar_tripulante(tripulante->tripulante, EXPULSAR_TRIPULANTE, _socket_ram); //aviso que cambio a ready
+		liberar_cliente(_socket_ram); //libero conexion
 	}
 
 	log_info(logs_discordiador, "-------------ETAPA 1: TODOS BLOQ-------------");

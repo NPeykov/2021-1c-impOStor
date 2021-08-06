@@ -8,5 +8,8 @@ void serializar_y_enviar_tripulante(Tripulante*, op_code, int);
 void avisar_a_mongo_estado_tarea(Tarea *, Tripulante*, op_code);
 void avisar_movimiento_a_mongo(int, int, Tripulante*);
 
+/*id, patota*/
+void avisar_a_ram_expulsion_tripulante(int, int);
+
 
 #endif

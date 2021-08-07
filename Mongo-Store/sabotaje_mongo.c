@@ -17,7 +17,11 @@ void gestionar_sabotaje() {
 	sem_post(&dar_orden_sabotaje);
 
 	sem_wait(&inicio_fsck); //espera q discordiador termine el sabotaje
-	iniciar_recuperacion(codigo_sabotaje);
+	if(sabotaje_exito){
+		iniciar_recuperacion(codigo_sabotaje);
+	}else {
+		log_warning(mongoLogger,"no se pudo resolver el sabotaje porque no hay tripulantes disponibles");
+	}
 	munmap(s_blocks, s_tamanio_blocks);
 	munmap(s_superbloque, s_tamanio_superbloque);
 	sem_post(&semaforo_modificacion_de_datos);
@@ -149,11 +153,12 @@ bool es_file_size(files file) {
 		fstat(archivo, &info);
 		archivo_saboteado = (char*) mmap(NULL, info.st_size, PROT_WRITE,
 		MAP_SHARED, archivo, 0);
+		char* bloques_del_archivo = bloques_de_archivo(archivo_saboteado);
+
 		char* tamanio_del_archivo = size_de_archivo(archivo_saboteado);
-		if (tamanio_del_archivo == 0) {
+		if (atoi(tamanio_del_archivo) == 0 && string_is_empty(bloques_del_archivo)) {
 			return false;
 		}
-		char* bloques_del_archivo = bloques_de_archivo(archivo_saboteado);
 		char* texto_total = contenido_de_bloques_fisico(bloques_del_archivo);
 
 		if (string_length(texto_total) != atoi(tamanio_del_archivo)) {
@@ -195,6 +200,12 @@ bool es_file_block_count(files file) {
 
 		char* cant_bloques = cantidad_de_bloques_de_archivo(archivo_saboteado);
 		char* bloques = bloques_de_archivo(archivo_saboteado);
+		if (string_is_empty(bloques)){
+			return false;
+		}
+		if(string_is_empty(cant_bloques)){
+			cant_bloques="0";
+		}
 		char* bloquesaux = string_substring_until(bloques,
 				string_length(bloques) - 1);
 		char** bloques_divididos = string_split(bloquesaux, ",");
@@ -239,6 +250,9 @@ bool es_file_Blocks(files file) {
 		archivo_saboteado = (char*) mmap(NULL, info.st_size, PROT_WRITE,
 		MAP_SHARED, archivo, 0);
 		char* bloques = bloques_de_archivo(archivo_saboteado);
+		if(string_is_empty(bloques)){
+			return false;
+		}
 		char** bloques_divididos = string_split(bloques, ",");
 		int tamanio_del_archivo = atoi(size_de_archivo(archivo_saboteado));
 		t_bloque* ultimo_bloque = recuperar_ultimo_bloque(archivo_saboteado);

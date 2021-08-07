@@ -256,7 +256,7 @@ char *generarMD5(char *contenido) {
 	char *punto_montaje = config_get_string_value(mongoConfig, "PUNTO_MONTAJE");
 
 	ruta_md5 = string_from_format("%s/Files/md5.txt", punto_montaje);
-
+	sem_wait(&semaforo_generar_md5);
 	command = string_from_format("echo -n %s | md5sum > %s", contenido,
 			ruta_md5);
 
@@ -264,14 +264,16 @@ char *generarMD5(char *contenido) {
 
 	if (retorno != 0) {
 		printf("ERROR AL GENERAR EL MD5\n");
-		exit(1);
+		sem_post(&semaforo_generar_md5);
+		return " ";
 	}
 
 	fd = open(ruta_md5, O_RDWR);
 
 	if (fd == -1) {
 		printf("ERROR AL ABRIR ARCHIVO\n");
-		exit(1);
+		sem_post(&semaforo_generar_md5);
+		return " ";
 	}
 
 	fstat(fd, &statbuf);
@@ -281,6 +283,7 @@ char *generarMD5(char *contenido) {
 
 	munmap(data, statbuf.st_size); //cierro el archivo
 	free(command);
+	sem_post(&semaforo_generar_md5);
 	return md5;
 }
 
@@ -1025,6 +1028,7 @@ void *gestionarCliente(int socket) {
 							sizeof(tripulante_con_su_accion));
 			tripulanteFS->tripulante = trip_fin_sabotaje;
 			tripulanteFS->accion = FIN_SABOTAJE;
+			sabotaje_exito=true;
 			sem_post(&inicio_fsck);
 
 			pthread_create(&hilo_fin_sabotaje, NULL,
@@ -1034,7 +1038,10 @@ void *gestionarCliente(int socket) {
 
 			liberar_cliente(cliente);
 			break;
-
+		case FIN_SABOTAJE_ERROR:
+			sabotaje_exito=false;
+			sem_post(&inicio_fsck);
+			break;
 		case -1:
 			log_error(mongoLogger, "El cliente %d se desconecto", cliente);
 			liberar_cliente(cliente);
@@ -1320,9 +1327,9 @@ void actualizar_el_archivo(files file, char* cadena, t_bloque* bloque) {
 
 		caracter_llenado = string_substring_until(cadena, 1);
 		contenido_de_los_bloques = contenido_de_bloques(bloques);
-		sem_wait(&semaforo_generar_md5);
+		//sem_wait(&semaforo_generar_md5);
 		md5 = generarMD5(contenido_de_los_bloques);
-		sem_post(&semaforo_generar_md5);
+		//sem_post(&semaforo_generar_md5);
 		string_append(&bloques, ",");
 		texto =
 				string_from_format(
@@ -1355,9 +1362,9 @@ void actualizar_el_archivo(files file, char* cadena, t_bloque* bloque) {
 
 		caracter_llenado = string_substring_until(cadena, 1);
 		contenido_de_los_bloques = contenido_de_bloques(bloques);
-		sem_wait(&semaforo_generar_md5);
+		//sem_wait(&semaforo_generar_md5);
 		md5 = generarMD5(contenido_de_los_bloques);
-		sem_post(&semaforo_generar_md5);
+		//sem_post(&semaforo_generar_md5);
 		string_append(&bloques, ",");
 		texto =
 				string_from_format(
@@ -1390,9 +1397,9 @@ void actualizar_el_archivo(files file, char* cadena, t_bloque* bloque) {
 
 		caracter_llenado = string_substring_until(cadena, 1);
 		contenido_de_los_bloques = contenido_de_bloques(bloques);
-		sem_wait(&semaforo_generar_md5);
+		//sem_wait(&semaforo_generar_md5);
 		md5 = generarMD5(contenido_de_los_bloques);
-		sem_post(&semaforo_generar_md5);
+		//sem_post(&semaforo_generar_md5);
 		string_append(&bloques, ",");
 		texto =
 				string_from_format(
@@ -1442,9 +1449,9 @@ void actualizar_archivo_borrado(files file, int cadena, bool flag,
 			bloquesaux = string_substring_until(bloques,
 					string_length(bloques) - 1);
 			contenido_de_los_bloques = contenido_de_bloques(bloquesaux);
-			sem_wait(&semaforo_generar_md5);
+			//sem_wait(&semaforo_generar_md5);
 			md5 = generarMD5(contenido_de_los_bloques);
-			sem_post(&semaforo_generar_md5);
+			//sem_post(&semaforo_generar_md5);
 		}
 		texto =
 				string_from_format(
@@ -1479,9 +1486,9 @@ void actualizar_archivo_borrado(files file, int cadena, bool flag,
 			bloquesaux = string_substring_until(bloques,
 					string_length(bloques) - 1);
 			contenido_de_los_bloques = contenido_de_bloques(bloquesaux);
-			sem_wait(&semaforo_generar_md5);
+			//sem_wait(&semaforo_generar_md5);
 			md5 = generarMD5(contenido_de_los_bloques);
-			sem_post(&semaforo_generar_md5);
+			//sem_post(&semaforo_generar_md5);
 		}
 		texto =
 				string_from_format(

@@ -13,9 +13,9 @@
 #include<errno.h>
 #include<stdbool.h>
 
-#define PATH_MI_RAM_CONFIG "../config_files/mi_ram.config"
-#define PATH_MONGO_STORE_CONFIG "../config_files/mongo_store.config"
-#define PATH_DISCORDIADOR_CONFIG "../config_files/discordiador.config"
+#define PATH_MI_RAM_CONFIG "../config_files/mi_ramEG.config"
+#define PATH_MONGO_STORE_CONFIG "../config_files/mongo_storeEG.config"
+#define PATH_DISCORDIADOR_CONFIG "../config_files/discordiadorEGRR.config"
 #define PATH_MONGO_STORE_LOG "../logs_files/mongo.log"
 
 typedef enum{
@@ -32,7 +32,8 @@ typedef enum{
 	FIN_TAREA, //para store
 	INICIO_SABOTAJE,
 	ESPERANDO_SABOTAJE,
-	FIN_SABOTAJE
+	FIN_SABOTAJE,
+	FIN_SABOTAJE_ERROR
 }op_code;
 
 typedef enum{

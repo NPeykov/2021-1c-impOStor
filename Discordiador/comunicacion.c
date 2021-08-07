@@ -1,5 +1,11 @@
 #include "comunicacion.h"
 
+void enviar_mensaje_mongo(op_code codigo){
+	int socket_store = iniciar_conexion(I_MONGO_STORE, config);
+	enviar_mensaje(codigo,"",socket_store);
+	liberar_cliente(socket_store);
+}
+
 void crear_y_enviar_inicio_patota(char *cantidad, char *path_tareas, int socket){
 	t_paquete *paquete = crear_paquete(INICIO_PATOTA);
 	FILE *tareas_file;

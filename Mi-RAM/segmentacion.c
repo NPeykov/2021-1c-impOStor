@@ -441,10 +441,8 @@ void eliminarTripulante(void *unTripulante){
 		}
 	}
 	pthread_mutex_lock(&listaPatotasEnUso);
-	log_info(logs_ram, "Hola empece a eliminar");
 	list_iterate(patotas, _buscarTripulantes);
 	pthread_mutex_unlock(&listaPatotasEnUso);
-	log_info(logs_ram, "Hola termine de eliminar");
 	free(tripulanteAEliminar);
 	free(elSegmento);
 }

@@ -120,6 +120,7 @@ void cerrarMemoria(){
 	}
 	list_destroy(patotas);
 	log_destroy(logs_ram);
+	nivel_gui_terminar();
 
 	exit(0);
 }

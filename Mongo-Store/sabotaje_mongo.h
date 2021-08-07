@@ -5,6 +5,7 @@
 #include "mongo-store.h"
 
 int socket_sabotaje_cliente;
+bool sabotaje_exito;
 
 char* archivo_saboteado;
 char* ruta_saboteada;

@@ -1041,6 +1041,7 @@ void *gestionarCliente(int socket) {
 		case FIN_SABOTAJE_ERROR:
 			sabotaje_exito=false;
 			sem_post(&inicio_fsck);
+			liberar_cliente(cliente);
 			break;
 		case -1:
 			log_error(mongoLogger, "El cliente %d se desconecto", cliente);

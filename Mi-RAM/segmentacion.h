@@ -27,6 +27,7 @@ typedef struct{
 	int tamanio;
 	void *dato;
 	int valorRepresentacion;
+	int idSegmentoUnico;
 } Segmento; //Patota
 
 

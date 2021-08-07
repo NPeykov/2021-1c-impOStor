@@ -1,0 +1,31 @@
+---------------------------------
+
+Dump :07-08-21_09:15:34
+
+Proceso:1    Segmento:0      Inicio:0x0    Tamanio:237b 
+Proceso:1    Segmento:1      Inicio:0x237    Tamanio:8b 
+Proceso:1    Segmento:2      Inicio:0x245    Tamanio:21b 
+Proceso:1    Segmento:3      Inicio:0x266    Tamanio:21b 
+Proceso:1    Segmento:4      Inicio:0x287    Tamanio:21b 
+Proceso:2    Segmento:5      Inicio:0x308    Tamanio:131b 
+Proceso:2    Segmento:6      Inicio:0x439    Tamanio:8b 
+Proceso:2    Segmento:7      Inicio:0x447    Tamanio:21b 
+Proceso:2    Segmento:8      Inicio:0x468    Tamanio:21b 
+Proceso:2    Segmento:9      Inicio:0x489    Tamanio:21b 
+Proceso:3    Segmento:10      Inicio:0x510    Tamanio:337b 
+Proceso:3    Segmento:11      Inicio:0x847    Tamanio:8b 
+Proceso:3    Segmento:12      Inicio:0x855    Tamanio:21b 
+Proceso:3    Segmento:13      Inicio:0x876    Tamanio:21b 
+Proceso:3    Segmento:14      Inicio:0x897    Tamanio:21b 
+Proceso:4    Segmento:15      Inicio:0x918    Tamanio:359b 
+Proceso:4    Segmento:16      Inicio:0x1277    Tamanio:8b 
+Proceso:4    Segmento:17      Inicio:0x1285    Tamanio:21b 
+Proceso:4    Segmento:18      Inicio:0x1306    Tamanio:21b 
+Proceso:4    Segmento:19      Inicio:0x1327    Tamanio:21b 
+Proceso:5    Segmento:20      Inicio:0x1348    Tamanio:145b 
+Proceso:5    Segmento:21      Inicio:0x1493    Tamanio:8b 
+Proceso:5    Segmento:22      Inicio:0x1501    Tamanio:21b 
+Proceso:5    Segmento:23      Inicio:0x1522    Tamanio:21b 
+Proceso:5    Segmento:24      Inicio:0x1543    Tamanio:21b 
+
+---------------------------------

@@ -143,6 +143,7 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	Segmento* segmento = (Segmento*) malloc(sizeof(Segmento));
 
 	//Se llena el segmento
+	segmento->idSegmento = list_size(tabla_segmentos);
 	segmento->tipo = TAREAS;
 	segmento->dato = tareas;
 	segmento->valorRepresentacion = 0;
@@ -150,7 +151,7 @@ int crear_segmento_tareas(char *tareas, t_list* tabla_segmentos){
 	segmento->tamanio = string_length(tareas);
 	sem_wait(&direcciones);
 	segmento->base = calcular_base_logica(segmento);
-	segmento->idSegmento = idSegmentoSiguiente;
+	segmento->idSegmentoUnico = idSegmentoSiguiente;
 	idSegmentoSiguiente++;
 
 	if(segmento->base == -1){
@@ -177,7 +178,8 @@ int crear_segmento_pcb(uint32_t inicioTareas, t_list* tabla_segmentos){
 	pcb->tareas = inicioTareas;
 
 	//Se llena la informacion del Segmento
-	segmento->idSegmento = idSegmentoSiguiente;
+	segmento->idSegmento = list_size(tabla_segmentos);
+	segmento->idSegmentoUnico = idSegmentoSiguiente;
 	idSegmentoSiguiente++;
 	segmento->tipo = PCB;
 	segmento->dato = pcb;
@@ -225,14 +227,15 @@ void crear_segmento_tcb(void* elTripulante) {
 	//Se asignan los valores a la TCB
 	TripuCB *tcb = (TripuCB*) malloc(sizeof(TripuCB));
 	tcb->tid = unTripulante->tid;
-	tcb->pcb = laPatota->idSegmento;
+	tcb->pcb = laPatota->idSegmentoUnico;
 	tcb->posX = unTripulante->posX;
 	tcb->posY = unTripulante->posY;
 	tcb->status = unTripulante->status;
 	tcb->proxIns = (uint32_t) 0;
 	//Se asigna el acceso rapido de t_proceso
 	log_info(logs_ram, "Inicializando segmento del tripulante");
-	segmento->idSegmento = idSegmentoSiguiente;
+	segmento->idSegmento = list_size(tabla_segmentos);
+	segmento->idSegmentoUnico = idSegmentoSiguiente;
 	idSegmentoSiguiente++;
 	segmento->tipo = TCB;
 	segmento->dato = tcb;
@@ -328,7 +331,7 @@ void crear_proceso(void *data){
 		return;
 	}
 	Segmento *segmento_tareas =(Segmento*) list_get(tabla_de_segmentos, 0);
-	uint32_t inicioTareas = segmento_tareas->idSegmento;//Sabemos que siempre se empieza por las tareas
+	uint32_t inicioTareas = segmento_tareas->idSegmentoUnico;//Sabemos que siempre se empieza por las tareas
 
 	agregar_a_memoria(segmento_tareas);
 	sem_post(&direcciones);
@@ -516,7 +519,7 @@ Segmento *buscarSegmento(uint32_t numeroSegmento){
 
 	bool _esElSegmento(void *algo){
 		Segmento *unSegmento = (Segmento*) algo;
-		return (unSegmento->idSegmento == numeroSegmento);
+		return (unSegmento->idSegmentoUnico == numeroSegmento);
 	}
 
 

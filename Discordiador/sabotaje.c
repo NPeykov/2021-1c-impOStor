@@ -166,7 +166,7 @@ void atender_sabotaje(int x, int y){
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = BLOQUEADO_EMERGENCIA;
 
-		serializar_y_enviar_tripulante(tripulante->tripulante, EXPULSAR_TRIPULANTE, _socket_ram); //aviso que cambio a bloq_em
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram); //aviso que cambio a bloq_em
 		liberar_cliente(_socket_ram); //libero conexion
 	}
 
@@ -190,7 +190,7 @@ void atender_sabotaje(int x, int y){
 		Tripulante_Planificando *tripulante = (Tripulante_Planificando*) data;
 		tripulante->tripulante->estado = LISTO;
 
-		serializar_y_enviar_tripulante(tripulante->tripulante, EXPULSAR_TRIPULANTE, _socket_ram); //aviso que cambio a ready
+		serializar_y_enviar_tripulante(tripulante->tripulante, ACTUALIZAR_POSICION, _socket_ram); //aviso que cambio a ready
 		liberar_cliente(_socket_ram); //libero conexion
 	}
 

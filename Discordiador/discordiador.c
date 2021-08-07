@@ -506,6 +506,7 @@ void atender_comandos_consola(void) {
 			;
 			printf("Si realmente deseas salir apreta 'S'..\n");
 			char c = getchar();
+
 			if (c == 's' || c == 'S') {
 				//programa_activo = false;
 				log_info(logs_discordiador, "FINALIZANDO DISCORDIADOR");

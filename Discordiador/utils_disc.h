@@ -167,6 +167,8 @@ sem_t resolvi_sabotaje; //capaz no sea necesario
 sem_t ya_sali_de_exec; //por si fue expulsado
 sem_t voy_a_ready;
 
+sem_t semaforo_tarea;
+
 void imprimir_respuesta_log(t_list*);
 void reanudar_hilos_lista(Estado);
 void listar_discordiador(void);

@@ -365,16 +365,19 @@ void planificar() {
 		}
 
 		if (queue_size(lista_listo) > 0 && lugares_en_exec > 0) {
+			log_error(logs_discordiador, "Lugares en EXEC: %d", lugares_en_exec);
 			pthread_mutex_lock(&lock_lista_llegada);
 			tripulante = queue_pop(lista_listo);
 			pthread_mutex_unlock(&lock_lista_llegada);
+
+			pthread_mutex_lock(&lock_grado_multitarea);
+			lugares_en_exec--;
+			pthread_mutex_unlock(&lock_grado_multitarea);
+
 			tripulante->tripulante->estado = TRABAJANDO;
 			pthread_mutex_lock(&lock_lista_exec);
 			list_add(lista_trabajando, tripulante);
 			pthread_mutex_unlock(&lock_lista_exec);
-			pthread_mutex_lock(&lock_grado_multitarea);
-			lugares_en_exec--;
-			pthread_mutex_unlock(&lock_grado_multitarea);
 			sem_post(&tripulante->ir_exec); //3
 		}
 
@@ -956,6 +959,7 @@ void inicializar_recursos_necesarios(void) {
 	sem_init(&termino_sabotaje_planificador, 0, 0); //desbloquear sabotaje en plani
 	sem_init(&resolvi_sabotaje, 0, 0); //para la funcion de resolver sabotaje
 	sem_init(&ya_sali_de_exec, 0, 0); //para tripulante expulsado
+	sem_init(&semaforo_tarea, 0, 1);
 	sem_init(&voy_a_ready, 0, 0);
 
 	log_info(logs_discordiador, "---DATOS INICIALIZADO---");

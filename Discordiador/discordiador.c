@@ -365,7 +365,6 @@ void planificar() {
 		}
 
 		if (queue_size(lista_listo) > 0 && lugares_en_exec > 0) {
-			log_error(logs_discordiador, "Lugares en EXEC: %d", lugares_en_exec);
 			pthread_mutex_lock(&lock_lista_llegada);
 			tripulante = queue_pop(lista_listo);
 			pthread_mutex_unlock(&lock_lista_llegada);

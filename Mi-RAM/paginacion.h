@@ -33,6 +33,7 @@ typedef enum {
 
 typedef struct {
 	int nro_pagina;
+	int pid;
 	int nro_frame_mpal;
 	int nro_frame_swap;
 	bool bit_uso;
@@ -214,7 +215,7 @@ void cargarDLTripulante(void*, TripuCB*);
 
 TripuCB* transformarEnTripulante(void*);
 
-void swap_pages(t_pagina* victima, t_pagina* paginaPedida, int pid);
+void swap_pages(t_pagina* , t_pagina*);
 
 /* Asigna un marco libre en swap a una pagina */
 
@@ -226,13 +227,13 @@ void escribir_en_archivo_swap(void *file, t_list *tabla_de_paginas, size_t tam_a
 
 t_pagina* algoritmo_clock();
 
-void reemplazarSegunAlgoritmo(t_pagina*, int);
+void reemplazarSegunAlgoritmo(t_pagina*);
 
-void traer_pagina(t_pagina*, int);
+void traer_pagina(t_pagina*);
 
-void *obtener_dato_tripulante(t_list*, int , int, int, int);
+void *obtener_dato_tripulante(t_list*, int , int, int);
 
-void escribir_dato_tripulante(t_list*, int ,int,int,void*, int);
+void escribir_dato_tripulante(t_list*, int ,int,int,void*);
 
 void cerrarMemoriaPag();
 

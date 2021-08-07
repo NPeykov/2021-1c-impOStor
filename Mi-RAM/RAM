@@ -1,0 +1,35 @@
+==7564== Memcheck, a memory error detector
+==7564== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==7564== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==7564== Command: ./MIRAM
+==7564== Parent PID: 5268
+==7564== 
+==7564== Thread 3:
+==7564== Invalid read of size 1
+==7564==    at 0x804C3D7: obtener_siguiente_tarea_pag (in /home/utnso/workspace/tp-2021-1c-impOStor/Mi-RAM/MIRAM)
+==7564==    by 0x804D2E9: asignar_prox_tarea_pag (in /home/utnso/workspace/tp-2021-1c-impOStor/Mi-RAM/MIRAM)
+==7564==    by 0x408E294: start_thread (pthread_create.c:333)
+==7564==    by 0x418C0AD: clone (clone.S:114)
+==7564==  Address 0x42d5860 is 0 bytes after a block of size 32 alloc'd
+==7564==    at 0x402C17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7564==    by 0x804BEBE: leer_memoria_pag (in /home/utnso/workspace/tp-2021-1c-impOStor/Mi-RAM/MIRAM)
+==7564==    by 0x804C39A: obtener_siguiente_tarea_pag (in /home/utnso/workspace/tp-2021-1c-impOStor/Mi-RAM/MIRAM)
+==7564==    by 0x804D2E9: asignar_prox_tarea_pag (in /home/utnso/workspace/tp-2021-1c-impOStor/Mi-RAM/MIRAM)
+==7564==    by 0x408E294: start_thread (pthread_create.c:333)
+==7564==    by 0x418C0AD: clone (clone.S:114)
+==7564== 
+==7564== 
+==7564== HEAP SUMMARY:
+==7564==     in use at exit: 33,076 bytes in 614 blocks
+==7564==   total heap usage: 6,262 allocs, 5,648 frees, 236,180 bytes allocated
+==7564== 
+==7564== LEAK SUMMARY:
+==7564==    definitely lost: 1,245 bytes in 147 blocks
+==7564==    indirectly lost: 1,860 bytes in 129 blocks
+==7564==      possibly lost: 0 bytes in 0 blocks
+==7564==    still reachable: 29,971 bytes in 338 blocks
+==7564==         suppressed: 0 bytes in 0 blocks
+==7564== Rerun with --leak-check=full to see details of leaked memory
+==7564== 
+==7564== For counts of detected and suppressed errors, rerun with: -v
+==7564== ERROR SUMMARY: 5 errors from 1 contexts (suppressed: 0 from 0)

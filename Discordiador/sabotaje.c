@@ -68,7 +68,7 @@ void atender_sabotaje(int x, int y){
     //si no hay tripulantes en ninguna de las listas
 	if (list_size(lista_trabajando) == 0 && list_size(lista_listo->elements) == 0) {
 		log_info(logs_discordiador, "No hay tripulantes disponibles para resolver el sabotaje");
-
+		enviar_mensaje_mongo(FIN_SABOTAJE_ERROR);
 		pthread_mutex_lock(&sabotaje_lock);
 		g_hay_sabotaje = false;
 		pthread_mutex_unlock(&sabotaje_lock);
@@ -119,6 +119,7 @@ void atender_sabotaje(int x, int y){
 
 	if(tripulante_cercano == NULL){
 		log_error(logs_discordiador, "No hay tripulante disponible para sabotaje");
+		enviar_mensaje_mongo(FIN_SABOTAJE_ERROR);
 		return;
 	}
 

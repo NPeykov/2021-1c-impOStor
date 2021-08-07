@@ -4,6 +4,8 @@
 #include "utils_disc.h"
 #include "tareas.h"
 
+
+
 //prototipos
 void esperar_sabotaje(void);
 void atender_sabotaje(int, int);

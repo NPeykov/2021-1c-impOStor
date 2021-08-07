@@ -251,6 +251,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 			if (g_hay_sabotaje) { //la logica de esperar esta en la funcion tripulante
 				pthread_mutex_lock(&lock_grado_multitarea);
 				lugares_en_exec++;
+				log_info(logs_discordiador, "Se libero un lugar en exec, ahora hay %d", lugares_en_exec);
 				pthread_mutex_unlock(&lock_grado_multitarea);
 				return;
 			}
@@ -261,6 +262,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 
 		pthread_mutex_lock(&lock_grado_multitarea);
 		lugares_en_exec++;
+		log_info(logs_discordiador, "Se libero un lugar en exec, ahora hay %d", lugares_en_exec);
 		pthread_mutex_unlock(&lock_grado_multitarea);
 
 		if (tripulante->fui_expulsado) {
@@ -298,6 +300,7 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 			if (g_hay_sabotaje) { //la logica de esperar esta en la funcion tripulante
 				pthread_mutex_lock(&lock_grado_multitarea);
 				lugares_en_exec++;
+				log_info(logs_discordiador, "Se libero un lugar en exec, ahora hay %d", lugares_en_exec);
 				pthread_mutex_unlock(&lock_grado_multitarea);
 				tripulante->quantum_disponible = quantum;
 				return;
@@ -309,7 +312,10 @@ void realizar_trabajo(Tripulante_Planificando *tripulante) {
 
 		pthread_mutex_lock(&lock_grado_multitarea);
 		lugares_en_exec++;
+		log_info(logs_discordiador, "Se libero un lugar en exec, ahora hay %d", lugares_en_exec);
 		pthread_mutex_unlock(&lock_grado_multitarea);
+		log_info(logs_discordiador, "Tripulante numero %d de patota %d deja lugar en EXEC",
+				tripulante->tripulante->id, tripulante->tripulante->patota);
 
 		if (tripulante->fui_expulsado) {
 			//sem_post(&ya_sali_de_exec);
